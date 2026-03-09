@@ -50,3 +50,413 @@ continuous alternatives and deriving the architecture from the dynamics rather t
 assuming it.
 
 ---
+
+## 1. Introduction
+
+The Free Energy Principle [Friston2010] is the most ambitious unified account of
+intelligent behavior in the biological sciences. Its central claim — that any
+self-organizing system maintaining a Markov blanket necessarily minimizes variational
+free energy — provides a single objective function that unifies perception, action,
+learning, and attention under one formalism. Active inference [Friston2017] operationalizes
+this: organisms select actions that minimize expected free energy, trading off epistemic
+value (uncertainty reduction) against pragmatic value (goal proximity). The precision
+hierarchy weights prediction errors by confidence, allocating attentional resources where
+uncertainty is highest.
+
+This is a powerful framework. It is also underspecified in four ways that limit its
+explanatory scope and generate testable weaknesses.
+
+The first is foundational: FEP derives the minimization *behavior* but not the minimization
+*imperative*. Any system that maintains its Markov blanket necessarily minimizes free energy
+by definition — but why does the system have a drive to maintain its Markov blanket in
+the first place? The answer requires a derivation from selection pressure that FEP
+gestures at but does not provide. Without it, the minimization imperative is an assumption
+embedded in the definition of a self-organizing system, not a derived result.
+
+The second is structural: FEP's generative model $p(o, s)$ — the organism's model of how
+hidden states $s$ generate observations $o$ — is unconstrained in structure. FEP says
+what the model does (minimizes free energy) but not what it must contain. The framework
+cannot predict which propositions an organism retains in its model and which it prunes.
+This limits its testability: a framework that does not constrain the generative model
+cannot be falsified by the content of any particular model.
+
+The third is architectural: FEP's precision hierarchy allocates attention top-down.
+Higher levels direct precision to lower-level prediction errors, weighting the signals
+that propagate upward. This is causally inverted under the constraints imposed by bounded
+active context: directing subproblems downward requires holding monitoring context for
+each active delegation. As capability grows, this overhead fills the active context
+window, degrading inference quality on genuinely novel problems. FEP's own minimization
+imperative — minimize variance — is violated by the architecture FEP prescribes.
+
+The fourth is collective: FEP has no formal account of how multiple organisms with
+separate Markov blankets share knowledge, how shared knowledge reduces collective
+uncertainty faster than individual inference, or under what conditions a collective
+knowledge system maintains the fidelity required to be epistemically advantageous.
+
+We address each in turn.
+
+---
+
+## 2. Background: The Free Energy Principle
+
+For a system with internal states $\mu$, external states $\eta$, sensory states $s$,
+and active states $a$ — connected by a Markov blanket $(s, a)$ — variational free energy
+is:
+
+$$\mathcal{F} = \mathbb{E}_{q(\eta)}[\log q(\eta) - \log p(o, \eta)]
+= D_{KL}[q(\eta) \| p(\eta \mid o)] - \log p(o)$$
+
+where $q(\eta)$ is the recognition density (the organism's approximate posterior over
+hidden states) and $p(o, \eta)$ is the generative model. Minimizing $\mathcal{F}$
+simultaneously minimizes the KL divergence between $q$ and the true posterior (improving
+the internal model) and maximizes $\log p(o)$ (model evidence — the probability of
+observations under the generative model).
+
+Under active inference, actions are selected to minimize expected free energy over
+future time:
+
+$$G(\pi) = \mathbb{E}_{q(o_\tau, s_\tau \mid \pi)}[\log q(s_\tau \mid \pi)
+- \log p(o_\tau, s_\tau)]$$
+
+This decomposes into epistemic value (expected information gain, reducing uncertainty
+about hidden states) and pragmatic value (expected log probability of preferred outcomes).
+The organism acts to simultaneously learn and achieve — the unified objective that gives
+FEP its power.
+
+Precision weighting $\gamma$ scales prediction errors $\varepsilon$ before they are
+passed up the hierarchy: $\tilde{\varepsilon} = \gamma \cdot \varepsilon$. Higher
+precision on a level means its prediction errors carry more weight in updating higher
+levels. The brain is argued to implement this through modulatory neurotransmitters,
+particularly dopamine and acetylcholine, which modulate the gain on prediction error
+signals.
+
+---
+
+## 3. Extension 1: Deriving the Minimization Imperative
+
+**The gap.** FEP derives that any self-organizing system maintaining a Markov blanket
+minimizes free energy. The derivation is definitional: a system that does not minimize
+$\mathcal{F}$ does not maintain its blanket and therefore ceases to exist as a bounded
+system. This is logically correct but empirically empty as a claim about intelligence:
+it says that surviving systems minimize free energy, which is true by the definition of
+survival. It does not explain *why* a system has the drive to maintain its blanket — the
+active, oriented quality of intelligent behavior that goes beyond mere persistence.
+
+**The derivation.** For any entity $E$ operating in domain $d \subseteq W$, there exists
+a lethality threshold $U_{lethal}^d$ such that:
+
+$$H(w \mid K) > U_{lethal}^d \Rightarrow E \text{ does not survive in } d$$
+
+This threshold is not a choice or preference; it is imposed by $W$. Above it, uncertainty
+is sufficiently high that the entity cannot act effectively enough to persist. When an
+informed action $f_i$ fails, $W$ returns a feedback signal proportional to
+$\nabla_F H(w \mid K)$ — the gradient of uncertainty at the point of failure. An entity
+that does not update in response to this signal does not reduce $H(w \mid K)$. If
+$H(w \mid K)$ does not decrease, it eventually exceeds $U_{lethal}^d$ in some critical
+domain. Selection removes the entity.
+
+Therefore: any entity that persists has necessarily followed the gradient. Free energy
+minimization is not an assumption embedded in the definition of self-organization; it is
+a derived consequence of selection pressure operating on a well-defined failure condition.
+
+**Correspondence to FEP.** In FEP's notation, $H(w \mid K)$ corresponds to the entropy
+term in variational free energy: $\mathcal{F} \geq H(o \mid \mu)$ (the entropy of
+observations given internal states). Minimizing $\mathcal{F}$ includes minimizing this
+entropy term. The derivation here provides the *reason* the organism minimizes it: not
+because it is definitionally self-organizing, but because failure to minimize leads to
+$U_{lethal}^d$ and removal by selection. This is the missing derivation of the imperative.
+
+**What this adds.** The derivation distinguishes two sources of gradient descent:
+compulsion (survival pressure, operating up to $U_{lethal}^d$) and agency $\mathcal{A}$
+(the intrinsic drive that continues descent beyond what survival requires). FEP cannot
+make this distinction because it locates all minimization in the free energy objective
+without separating the drive from the pressure. An entity with $\mathcal{A} = 0$ but
+sufficient capability may survive without descending beyond necessity; an entity with
+$\mathcal{A} > 0$ continues descending when not forced to. These are distinct and
+empirically separable: vary survival pressure independently of capability and measure
+the rate of uncertainty reduction. FEP predicts no difference; this framework predicts
+that high-$\mathcal{A}$ entities continue descending.
+
+---
+
+## 4. Extension 2: Constraining the Generative Model
+
+**The gap.** FEP specifies what the generative model $p(o, s)$ does but not what it
+must contain. Any distribution over observations and hidden states is formally admissible.
+This means FEP cannot predict which representations an organism maintains, which it prunes,
+or why two organisms with identical sensory access maintain different models. The framework
+is silent on the structure of the generative model at the level of content.
+
+**The constraint.** The generative model is not an unconstrained distribution. It is
+necessarily indexed by the organism's action space. Formally: let $F : K \times W_{obs}
+\rightarrow \Delta A$ be the informed action space — the complete set of actions the
+organism can take, grounded in its knowledge $K$. A proposition $p$ is retained in $K$
+(and therefore in the generative model) when:
+
+$$P\!\left(\exists\,\tau^* \in \mathcal{T}_{reachable} : p \text{ grounds some } f \in F \text{ along } \tau^*\right) > 0$$
+
+and pruned only when this probability is zero — when it is certain that $p$ contributes
+no action potential across all reachable trajectories. The criterion is asymmetric:
+uncertain benefit is sufficient for retention; certain zero benefit is necessary for
+pruning.
+
+In FEP terms: the epistemic value of a proposition $p$ in the generative model is
+$I(f_p\,;\,w \mid K)$ — the mutual information between the action $f_p$ grounded by $p$
+and the hidden world state, given current knowledge. A proposition with uncertain epistemic
+value (the organism cannot yet tell whether $f_p$ provides information gain) is retained.
+A proposition with certainly zero epistemic value (conditioning on $p$ provides no
+information about $w$ for any available action) is pruned. This is a structural constraint
+on the generative model that FEP does not derive.
+
+**Testable predictions.** This constraint makes predictions FEP cannot. Two organisms
+with identical sensing functions $\sigma$ but different action spaces $F$ will maintain
+different generative models even when perceiving identical world states. An organism
+whose action space expands (through learning, tool use, or social connection) should
+retain propositions it previously pruned — because new actions ground previously
+actionless knowledge. These are empirically testable and specific.
+
+---
+
+## 5. Extension 3: Escalation vs. Precision Allocation
+
+**The gap.** FEP's precision hierarchy allocates attention top-down: higher levels modulate
+the precision of lower-level prediction errors, directing where the gradient signal is
+amplified. This is the mechanism of active inference's attentional model, implemented
+neurally through modulatory gain on prediction error signals. The hierarchy is correct
+in its structure — multiple levels with different timescales and reversibility — but
+inverted in its causal direction.
+
+**The allocation tax.** Let $C_n$ denote the capacity of the active context window $L_n$:
+the maximum number of propositions simultaneously held in the organism's highest-cost,
+fully reversible processing level. For each active delegation $L_n$ manages — each
+subproblem it has directed to a lower level and is monitoring — $L_n$ must hold:
+
+- The subproblem specification
+- The expected return signal
+- Sufficient context to integrate the result
+
+Let $\alpha > 0$ denote the minimum context cost per active delegation. Under top-down
+precision allocation with $k(t)$ concurrent delegations, the inference quality available
+for genuinely novel problems is:
+
+$$\rho(L_n, f_{novel}) = \frac{|K^{[f_{novel}]}|}{|K^{[f_{novel}]}| + k(t) \cdot \alpha}$$
+
+As the organism's action space $|F|$ grows — as capability increases — $k(t)$ grows
+proportionally and $\rho \to 0$. The precision allocator degrades inference quality
+on the problems that most need it: genuinely novel, unresolved uncertainty.
+
+The only recovery is growing $C_n$: the active context window must scale linearly with
+capability to maintain fixed $\rho$. But this is self-undermining on FEP's own terms.
+FEP holds that intelligent systems minimize free energy — equivalently, minimize the
+variance they must manage [Friston2010, Friston2017]. Growing $C_n$ adds variance: more
+propositions in $L_n$ means more uncertain relevance to any specific problem. FEP's
+precision allocation architecture violates FEP's own minimization imperative as
+capability scales.
+
+**The Big-O comparison.** Under top-down allocation, inference quality for a novel
+problem is $O(1/|F|)$ as $|F| \to \infty$: the denominator grows with capability while
+the numerator stays bounded. Under escalation — where $L_n$ is engaged only when
+lower levels fail, and graph-structured $K$ delivers exactly $K^{[f]}$ via traversal —
+inference quality is $O(1)$: the context window holds only what the current problem
+requires, regardless of total $|F|$ or $|K|$. This is a formal complexity argument that
+has not, to our knowledge, been made against FEP's precision allocation model in the
+existing literature.
+
+**The correct architecture.** Escalation inverts the causal direction. Lower-level
+encodings handle everything they can. When a lower level fails to bound uncertainty,
+the failure signal propagates upward: $L_n$ is engaged not because it chose to monitor,
+but because the failure arrived. $L_n$ holds no delegation overhead; it holds only the
+problem that escalated. As the knowledge graph fills with proven informed actions — each
+promoted to lower encoding levels as they meet rigor thresholds — $L_n$ stays occupied
+by the frontier of genuine uncertainty. Its load does not grow with $|F|$; it reflects
+the current density of unresolved novelty.
+
+**Relationship to predictive coding.** Predictive coding's hierarchical architecture
+correctly identifies the multi-level structure and the role of prediction error signals.
+Escalation is the correct interpretation of how those signals travel: upward, from failure,
+not downward, from direction. The precision hierarchy is accurate in identifying that
+higher levels modulate lower-level signals; it is inverted in modeling the direction of
+causation. Attention is not allocated from above; it becomes available when not demanded
+from below.
+
+**The continuity correction.** FEP uses multiple precision parameters — one per modality,
+per level, per context — introducing categorical distinctions between types of attention
+allocation. A continuous being in continuous space cannot make non-continuous decisions.
+The precision parameters are better understood as sampling points in a single continuous
+agency scalar $\mathcal{A} \in [0,1]$: the intrinsic drive toward uncertainty reduction.
+$\mathcal{A}$ is not a per-modality parameter but a constitutive property of the entity
+that shapes how $F$ engages the gradient across all modalities simultaneously.
+
+---
+
+## 6. Extension 4: Collective Intelligence
+
+**The gap.** FEP formalizes individual agents maintaining individual Markov blankets.
+Extensions to multi-agent settings [Friston et al., 2020] model multiple agents with
+shared generative models or synchronizing blankets. These extensions describe how
+agents coordinate but do not formally address: how knowledge is shared with maintained
+attribution, under what fidelity conditions shared knowledge is epistemically advantageous
+over individual inference, what happens when fidelity falls below the break-even threshold,
+or what truth is as a formal limit of collective inference.
+
+**Collective gradient dominance.** For a set of entities $\{E_i\}$ with collective
+knowledge $K_{collective} = \bigcup_i K_i \cup K_{interaction}$, where $K_{interaction}$
+is knowledge derivable from the combination of at least two distinct $K_i$ but from
+neither alone: by the monotonicity of conditional entropy,
+
+$$H(w \mid K_{collective}) \leq H(w \mid K_i) \quad \forall\, i$$
+
+The collective begins at weakly lower uncertainty than any individual. More critically,
+the rate of uncertainty reduction for the collective is bounded below by:
+
+$$\frac{dU_{collective}}{dt} \geq \max_{f \in F_{collective}} I(f\,;\,w \mid K_{collective})$$
+
+Since $F_{collective} \supseteq F_i$, and $K_{interaction}$ grounds informed actions
+not available to any individual, the collective gradient dominates any individual gradient
+when transmission fidelity $\lambda$ exceeds the break-even threshold $\lambda_{min}$.
+
+**Provenance as the fidelity mechanism.** Knowledge transfer between agents is inherently
+lossy: $E_i$ and $E_j$ do not observe the same $W_{obs}$; every transfer filters through
+language, symbol, and context. Let $\lambda$ be the ratio of action-validated signal
+received to total knowledge transmitted. When $\lambda < \lambda_{min}$, the transfer
+inverts: collective uncertainty increases faster than it decreases. Shared generative
+models — as in multi-agent FEP — do not by themselves ensure $\lambda > \lambda_{min}$.
+What ensures it is provenance: attribution of who established a proposition, evidence
+of how it was verified, and derivation of how it was inferred. Provenance allows each
+agent to weight received knowledge against its source and apply independent validation.
+Without provenance, noise accumulates unchecked and collective inference degrades.
+
+**Truth as a formal limit.** FEP's generative model converges toward the true posterior
+$p(s \mid o)$ as evidence accumulates. For any single agent, this convergence is
+bounded by the agent's sensory access and action space. Truth — in the sense of
+propositions that hold across the full distribution of $W$ — requires collective
+validation. Formally:
+
+$$\text{truth}(p) = \lim_{n \to \infty} \frac{\left|\{i \leq n : p \in K_i,\;
+f_i(p) \text{ reduces } H(w, K_i) \text{ in } W,\; \text{prov}_i(p) \text{ independent}\}\right|}{n}$$
+
+A proposition approaches truth as the fraction of independent entities that
+action-validate it — each having built informed actions on $p$ and found that those
+actions reduce uncertainty in $W$ — converges. This is the collective analog of FEP's
+model evidence $\log p(o)$: instead of a single agent maximizing evidence for its model,
+it is the limit of independent convergence across agents. Provenance ensures
+independence; without it, correlated validators do not constitute independent evidence.
+
+**Self-assembly.** The civilization-scale infrastructure of collective intelligence —
+scientific literature, citation networks, peer review, libraries — is not designed.
+It is the attractor of collective agency $\mathcal{A} > 0$ under $C_n$ constraints and
+$\lambda > \lambda_{min}$ requirements. Each component self-assembles by the same
+dynamics: attribution practices increase $\lambda$, are selected for, and persist;
+graph-structured external knowledge repositories bound individual $C_n$, are selected
+for, and spread. The collective knowledge system is what selection pressure on
+individual agents produces when they share with maintained provenance under bounded
+active context constraints.
+
+---
+
+## 7. Discussion
+
+**On the relationship to FEP.** These extensions do not contradict FEP's central claim.
+They derive it more completely (Extension 1), constrain it more specifically (Extension 2),
+correct its architectural model under scaling (Extension 3), and extend its scope to
+collective systems (Extension 4). A committed FEP theorist might argue that Extensions
+1 and 2 are already implicit in the FEP framework. The response is formal: if they are
+implicit, make them explicit. The derivation of the minimization imperative from
+$U_{lethal}^d$ is not present in Friston's formalism, and the asymmetric retention
+criterion makes predictions about generative model content that FEP's framework, as
+stated, cannot.
+
+Extension 3 is the sharpest divergence. The Big-O argument — that FEP's precision
+allocation is $O(1/|F|)$ in inference quality while escalation is $O(1)$ — is a
+formal result that applies at the level of the computational architecture. FEP
+describes what organisms minimize; this result describes what architecture is consistent
+with that minimization imperative as capability scales. The argument is not that FEP
+is wrong about biological brains at their current scale; it is that FEP's prescribed
+architecture is self-defeating as a growth model. An organism or system that grows
+in capability by accumulating more concurrent processes under top-down direction will
+systematically degrade its own inference quality. Selection pressure eliminates such
+systems when escalation-architecture competitors are present.
+
+**On empirical grounding.** The escalation architecture and graph-structured knowledge
+were not derived by analogy from biology; they emerged independently from optimization
+of an agentic software system operating across thousands of repositories under real
+token and latency constraints. The formal theory describes what that system converged
+to. The correspondence to biological architecture — the encoding hierarchy matching
+genetic, autonomic, habitual, and active reasoning levels; DNA encoding the learning
+mechanism $M$ rather than knowledge $(K, F)$; cultural transmission filling the
+inheritance gap that genetics cannot — are predictions the framework makes, not
+premises it rests on. Independent derivation from a different substrate, converging
+on the same architecture, is stronger evidence for the framework's generality than
+a derivation from biological observation alone would be.
+
+**On the continuity principle.** Every discretization in FEP — categorical modalities,
+binary attention states, discrete precision parameters — introduces a modeling
+approximation that is useful computationally but inconsistent with the underlying
+continuous dynamics. The extensions here systematically replace discretizations with
+continuous alternatives: $\mathcal{A} \in [0,1]$ replaces the set of precision
+parameters; $\mathcal{L}(c, r)$ replaces the discrete level hierarchy; the
+continuous encoding cost function replaces the binary local/global distinction of
+Global Workspace Theory. This is not a stylistic preference; continuous alternatives
+are required for a theory of continuous beings in continuous space, and the formal
+results depend on continuity (Theorem 3's non-termination, Definition 8's hierarchy,
+the monotonic growth of $\mathcal{T}_{reachable}$).
+
+---
+
+## 8. Conclusion
+
+The Free Energy Principle provides the most unified existing account of intelligent
+behavior in biological systems. The four extensions developed here — derivation of the
+minimization imperative, structural constraint on the generative model, escalation
+as the correct attention architecture, and formal collective intelligence — share a
+common structure: each takes something FEP assumes and derives it, or takes something
+FEP leaves unconstrained and constrains it.
+
+The result is a framework that is more testable (the asymmetric retention criterion
+makes specific predictions about generative model content), more consistent with
+its own objectives (escalation does not violate the minimization imperative that
+top-down allocation violates under scaling), more general (collective intelligence,
+truth as a limit, self-assembly of collective knowledge infrastructure), and more
+grounded in the origin of the minimization drive (selection pressure on
+$U_{lethal}^d$, not definitional self-organization).
+
+FEP asks: what must a self-organizing system do? This framework asks: what must any
+system do that persists under selection pressure, communicates with maintained
+provenance, and operates under bounded active context? The answers converge on
+the same gradient. They diverge on the architecture required to follow it without
+self-defeating as capability scales.
+
+---
+
+## References
+
+[Friston2010] Friston, K. (2010). The free-energy principle: a unified brain theory?
+*Nature Reviews Neuroscience*, 11(2), 127–138.
+
+[Friston2017] Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G.
+(2017). Active inference: A process theory. *Neural Computation*, 29(1), 1–49.
+
+[Shannon1948] Shannon, C. E. (1948). A mathematical theory of communication.
+*Bell System Technical Journal*, 27(3), 379–423.
+
+[Cover2006] Cover, T. M., & Thomas, J. A. (2006). *Elements of Information Theory*
+(2nd ed.). Wiley-Interscience.
+
+[Pearl1988] Pearl, J. (1988). *Probabilistic Reasoning in Intelligent Systems*.
+Morgan Kaufmann.
+
+[Baars1988] Baars, B. J. (1988). *A Cognitive Theory of Consciousness*.
+Cambridge University Press.
+
+[Dehaene2011] Dehaene, S., & Changeux, J.-P. (2011). Experimental and theoretical
+approaches to conscious processing. *Neuron*, 70(2), 200–227.
+
+[Woolley2010] Woolley, A. W., Chabris, C. F., Pentland, A., Hashmi, N., & Malone, T. W.
+(2010). Evidence for a collective intelligence factor in the performance of human groups.
+*Science*, 330(6004), 686–688.
+
+[Liu2024] Liu, N. F., et al. (2024). Lost in the middle: How language models use long
+contexts. *Transactions of the Association for Computational Linguistics*, 12, 157–173.
+
+[Peirce1878] Peirce, C. S. (1878). How to make our ideas clear.
+*Popular Science Monthly*, 12, 286–302.

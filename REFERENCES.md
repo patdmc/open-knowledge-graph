@@ -169,6 +169,16 @@ thermodynamically instantiated.
 
 ## Tier 3 — Cite for completeness
 
+### [Pearl1988]
+Pearl, J. (1988). *Probabilistic Reasoning in Intelligent Systems: Networks of Plausible
+Inference*. Morgan Kaufmann.
+
+**Supports:** Definition 5 (H(w|K) — how K as a directed graph induces P(w|K)).
+**Stance:** Foundation. Bayesian networks are the standard formalism for conditioning on
+graph-structured knowledge; Definition 5's interpretation of K as a Bayesian network
+where nodes are propositions and edges are conditional dependencies uses Pearl's framework
+directly.
+
 ### [Cover2006]
 Cover, T. M., & Thomas, J. A. (2006). *Elements of Information Theory* (2nd ed.).
 Wiley-Interscience.
@@ -256,6 +266,58 @@ at retrieving relevant information from non-salient positions. This is the empir
 signature of ρ degradation under Theorem 2a: more context does not improve inference;
 it introduces noise that degrades retrieval of the relevant subgraph K^{[f]}.
 
+### [vanderAalst2016]
+van der Aalst, W. M. P. (2016). *Process Mining: Data Science in Action* (2nd ed.).
+Springer.
+https://doi.org/10.1007/978-3-662-49851-4
+
+**Supports:** Section 11 Related Work (Theorem 9, Observational Bootstrapping).
+**Stance:** Adjacent method. Process mining discovers workflow models from event logs —
+the closest existing CS method to equivalence class skill precipitation. Distinction:
+produces flat workflow descriptions without provenance, confidence measures, or connection
+to a transposability threshold.
+
+### [AbbeelNg2004]
+Abbeel, P., & Ng, A. Y. (2004). Apprenticeship learning via inverse reinforcement learning.
+*Proceedings of the 21st International Conference on Machine Learning (ICML)*, 1.
+https://doi.org/10.1145/1015330.1015430
+
+**Supports:** Section 11 Related Work (Theorem 9, Observational Bootstrapping).
+**Stance:** Adjacent method. IRL infers reward functions from demonstrated behavior;
+the output is a policy to imitate. Distinction: infers what to optimize for, not an
+informed action with grounded evidence, conditions, and provenance.
+
+### [AamodtPlaza1994]
+Aamodt, A., & Plaza, E. (1994). Case-based reasoning: Foundational issues, methodological
+variations, and system approaches. *AI Communications*, 7(1), 39–59.
+
+**Supports:** Section 11 Related Work (Theorem 9, Observational Bootstrapping).
+**Stance:** Adjacent method. CBR retrieves similar past cases to inform new decisions.
+Distinction: retrieves the similar case; Theorem 9 induces the general informed action
+from the equivalence class, with formal confidence derived from $k$ independent instances.
+
+### [Muggleton1991]
+Muggleton, S. (1991). Inductive logic programming.
+*New Generation Computing*, 8(4), 295–318.
+https://doi.org/10.1007/BF03037089
+
+**Supports:** Section 11 Related Work (Theorem 9, Observational Bootstrapping).
+**Stance:** Adjacent method. ILP learns general rules from positive and negative examples.
+Distinction: no provenance, no uncertainty measure, no rigor threshold determining when
+the induced rule is reliable enough to promote to lower encoding levels.
+
+### [FinnEtAl2017]
+Finn, C., Abbeel, P., & Levine, S. (2017). Model-agnostic meta-learning for fast adaptation
+of deep networks. *Proceedings of the 34th International Conference on Machine Learning
+(ICML)*, 70, 1126–1135.
+
+**Supports:** Section 11 Related Work (Theorem 9, Observational Bootstrapping); Definition
+11a (η_M at collective scale).
+**Stance:** Correspondence and extension. MAML learns an initialization of M that adapts
+quickly across a task distribution — structurally η_M at collective scale. Distinction:
+optimizes adaptation speed; this framework additionally derives the rigor threshold for
+promotion and the provenance requirement for transposability.
+
 ---
 
 ## Citation placement map
@@ -267,7 +329,7 @@ Work through this list when adding inline markers.
 |---|---|---|
 | Abstract para 3 (FEP critique) | [Friston2010], [Friston2017] | Name FEP explicitly |
 | Section 1, opening | [Friston2010] | "departure from" FEP |
-| Definition 5 (H(w\|K)) | [Shannon1948], [Cover2006] | Grounding U formally |
+| Definition 5 (H(w\|K)) | [Shannon1948], [Cover2006], [Pearl1988] | Grounding U formally; Bayesian network interpretation |
 | Definition 3b (I(f;w\|K)) | [Shannon1948] | Mutual information |
 | Lemma 1 proof (monotonicity) | [Cover2006] | "conditional entropy is monotonically non-increasing" |
 | Definition 3b G≥0 (data processing) | [Cover2006] | Data processing inequality |
@@ -286,4 +348,5 @@ Work through this list when adding inline markers.
 | Open Question 7 (boundary of M) | [Hinton1987] | Baldwin effect / M acting on M |
 | Open Question 9 (DNA as encoding of M) | [Schrodinger1944], [MaynardSmith1995], [Hinton1987], [England2013] | Evolution / encoding |
 | Discussion (civilization-scale) | [Liu2024], [Woolley2010] | Empirical grounding |
-| Related Work (to be written) | All Tier 1 and 2 | Full engagement |
+| Section 11 Related Work (FEP) | All Tier 1 and 2 | Full engagement |
+| Theorem 9 / Section 11 (CS-side) | [vanderAalst2016], [AbbeelNg2004], [AamodtPlaza1994], [Muggleton1991], [FinnEtAl2017] | Observational bootstrapping |
