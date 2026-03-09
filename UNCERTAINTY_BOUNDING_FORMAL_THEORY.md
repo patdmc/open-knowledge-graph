@@ -1,4 +1,6 @@
-# Uncertainty Bounding as the Basis of Intelligence: A Formal Model
+# Uncertainty Bounding as the Basis of Intelligence: A Formal Theory
+
+Patrick McCarthy
 
 ---
 
@@ -22,8 +24,9 @@ to total $K$: progressive disclosure. Selection pressure produces graph-structur
 because it is the most efficient structure under which $I(E)$ grows without $C_n$ becoming a
 bottleneck.
 
-This gives a formal account of why top-down attention allocation fails under selection pressure.
-An orchestrator that directs subproblems to lower levels must hold delegation overhead in $L_n$
+This gives a formal account of why top-down attention allocation — specifically the precision
+allocation model of the Free Energy Principle [Friston2010, Friston2017] — fails under
+selection pressure. An orchestrator that directs subproblems to lower levels must hold delegation overhead in $L_n$
 proportional to the number of concurrent processes. As $|F|$ grows, overhead fills $C_n$,
 inference quality $\rho$ (the ratio of relevant to total context) degrades, and the only
 recovery is growing $C_n$. Growing $C_n$ compounds the failure: more context introduces more
@@ -45,7 +48,85 @@ non-terminating by the same argument that bounds the individual gradient.
 
 ---
 
-## 1. The Central Claims
+## 1. Introduction
+
+This framework was not derived by analogy from biology. It emerged from a concrete engineering
+problem: generating repeatable, transposable tasks across a diverse codebase ecosystem spanning
+thousands of repositories. The formal theory describes what a self-optimizing agentic system
+converged to under real performance constraints. The biological and civilizational correspondences
+are predictions the framework makes — not the premises it rests on.
+
+**The origin: provenance as the root constraint.** The initial problem was repeatability. An
+agentic system that synthesizes its behavior from a context window is inherently unpredictable:
+that unpredictability is its function — it exists to handle novelty. But when you need an action
+to be transposable across different contexts (does the recipe that updated service $A$ with
+configuration $X$ also work for service $B$ with configuration $Y$?), unpredictability is a
+liability. Transposability requires a quantifiable basis: not that the agent believes the action
+will work, but that there is evidence it has worked, attributed to a source, grounded in the
+conditions under which it succeeded. Without provenance — without knowing *why* something worked
+— you cannot measure confidence, and without a confidence measure you cannot optimize. The
+system cannot learn; it can only repeat or guess.
+
+This is the engineering form of what this paper formalizes as transmission fidelity $\lambda$
+and the collective survival threshold $\lambda_{min}$ (Theorem 6): knowledge transfer without
+provenance cannot be reliably weighted, and below $\lambda_{min}$ the collective knowledge graph
+degrades rather than grows. Provenance is not an epistemic nicety — it is the minimum
+infrastructure for a learning system to function.
+
+**The graph structure as an optimization.** As the world $W$ — the number of repositories,
+configurations, and service topologies — expanded, the context window problem became the central
+performance constraint. Encoding what you know together with how to apply it does not scale:
+a node whose knowledge is embedded with its application context must traverse back to all its
+callers when any shared element changes. Shared knowledge cannot be maintained consistently
+because it is not represented as shared — it is duplicated at every point of use.
+
+The knowledge graph solved this by separating *why you know something* from *how to apply it*.
+A proposition about what makes an update strategy work — why it works, under what conditions —
+becomes a node in $K$ that multiple informed actions in $F$ can reference without embedding.
+When evidence updates the proposition, all dependent actions benefit simultaneously. The graph
+structure was not a design choice; it was the convergent solution to the problem of maintaining
+consistency across a space of actions that grows faster than any single context can hold.
+
+**The escalation architecture as a consequence.** Adding agents introduced a further
+optimization that was not available in a purely knowledge-graph structure: the encapsulation
+of actions, not just knowledge. An agent whose scope is a well-defined subtask does not need
+access to the full context of the system — only to the subgraph $K^{[f]}$ relevant to its
+task. This is progressive disclosure in practice. The result was a 50% reduction in
+task-definition code: subproblems that previously required explicit orchestration became
+self-contained agents that escalated to the coordinator only on failure. As the system
+matured, proven subnodes converged toward determinism and were scripted — promoted to a
+lower encoding level, removing them from the space of active inference entirely. Agents
+that previously handled uncertain subtasks became deterministic scripts. The active
+inference load stayed bounded as the system's coverage of $W$ expanded.
+
+**What this means for the formal claims.** The framework's central results — that
+graph-structured $K$ is the most efficient architecture for bounded-context intelligence,
+that top-down orchestration degrades inference quality as capability grows, that knowledge
+and action are inseparable under a provenance-grounded retention criterion, and that
+repeatability (certainty) is the asymptotic product of learning — are not theoretical
+proposals. They describe what a real system, optimizing against real performance constraints,
+independently arrived at. The formal theory is the explanation of why. The lethality
+threshold $U_{lethal}^d$ in this system is concrete: exceeding token budget, latency
+threshold, or error rate across the repository fleet. Selection pressure was cost, not death.
+The gradient was real. The convergence was measured.
+
+The test of whether this is a theory of software optimization or a theory of intelligence is
+whether it explains biology. Biology is the only undisputed example of intelligence we have.
+The formal results make specific predictions about biological architecture that were not inputs
+to the derivation: that genetic encoding transmits $M$ and not $(K, F)$ — the learning
+mechanism is inherited, not the knowledge (Section 12, Open Question 8); that the encoding
+hierarchy from reflex to active reasoning follows from the cost structure of Theorem 4 rather
+than being assumed; that cultural transmission — language, writing, institutions — arose as a
+structural necessity because the genetic channel cannot carry individual $(K, F)$ across
+generations, and the external $K_{collective}$ graph fills that gap (Corollary 15). None of
+these were observed and then formalized. They follow from the same optimization constraints
+that produced the software architecture. If the framework explains biological intelligence from
+first principles without assuming it, it is a theory of intelligence. If it only explained the
+software system, it would be a useful engineering result and nothing more.
+
+---
+
+## 2. The Central Claims
 
 We claim: **intelligence is the driven capacity to improve** — agency $\mathcal{A}$ exercised
 through a higher-order function space $M$ that continuously refines both the knowledge graph
@@ -63,7 +144,7 @@ Three components are jointly necessary and none is sufficient alone:
   $I(E)$ measures the rate at which that past is being extended
 
 This is a departure from views that locate intelligence in raw computational power, information
-storage capacity, or behavioral breadth. The kernel of intelligence is not compute, and it is
+storage capacity, or behavioral breadth [Friston2010]. The kernel of intelligence is not compute, and it is
 not the size of accumulated knowledge. It is the efficiency with which the drive to know, acting
 through the mechanism of learning, continues to extend what is known.
 
@@ -76,7 +157,7 @@ automaton: executing what prior gradient descent encoded, but not itself descend
 
 ---
 
-## 2. Formal Definitions
+## 3. Formal Definitions
 
 **Definition 1 (World State Space).**
 Let $W$ be a measurable space of possible world states. At time $t$, the true state $w_t \in W$
@@ -113,11 +194,11 @@ The information gain of action $f$ given current knowledge $K$ is:
 
 $$G(f, K) = U(w, K) - U(w, K_f) = H(w \mid K) - H(w \mid K,\, \phi(f, w)) = I(f\,;\, w \mid K)$$
 
-This is standard mutual information (Shannon, 1948) expressed in terms of the paper's
+This is standard mutual information [Shannon1948] expressed in terms of the paper's
 existing $U$: the reduction in uncertainty about $w$ achieved by executing $f$ and
 observing its feedback. $G(f, K) \geq 0$ when $p_f$ is grounded by observing the true
 feedback $\phi(f, w)$: conditioning on true information cannot increase conditional
-entropy (data processing inequality). $G(f, K) = 0$ when $f$ provides no new information
+entropy (data processing inequality [Cover2006]). $G(f, K) = 0$ when $f$ provides no new information
 about $w$ given $K$. Note: this bound holds for truthfully observed feedback; a false or
 corrupted $p_f$ may increase $U$ and falls outside the scope of this definition.
 
@@ -134,13 +215,20 @@ $F$ refer to the current-time values $K(t)$ and $F(t)$; the subscript $0$ is res
 for initial conditions when the distinction matters.
 
 **Definition 5 (Uncertainty).**
-The uncertainty of entity $E$ about world state $w$ is the conditional entropy:
+The uncertainty of entity $E$ about world state $w$ is the conditional entropy [Shannon1948, Cover2006]:
 
 $$U(w, K) = H(w \mid K) = -\sum_w P(w \mid K) \log P(w \mid K)$$
 
+$K$ is a directed graph of propositions where nodes are propositions and edges encode conditional
+dependencies between them; it is interpreted as a Bayesian network [Pearl1988]. $P(w \mid K)$ is
+the posterior distribution over world states given the propositions in $K$ and their dependency
+structure: each proposition in $K$ constrains the prior over $W$, and the graph topology determines
+how those constraints propagate. Uncertainty $U(w, K)$ is therefore formally grounded in $K$'s
+content and structure, not stipulated independently.
+
 **Definition 6 (Agency).**
 Agency $\mathcal{A} \in [0, 1]$ is a continuous scalar measuring the intrinsic drive of an
-entity to reduce its own uncertainty: the desire to know. It is not an external objective
+entity to reduce its own uncertainty: the desire to know [Schmidhuber2010]. It is not an external objective
 imposed on $E$, nor a property derived from $F$ or $K$. It is constitutive: $\mathcal{A}$
 is what makes $F$ an active informed action space rather than a static structure. At
 $\mathcal{A} = 0$, $F$ is a set of possible functions with no internal reason to engage $W$.
@@ -164,7 +252,7 @@ independently of capacity.
 
 **Definition 7 (Intelligence).**
 The intelligence of $E$ is the *driven capacity to improve*: the exercise of $\mathcal{A}$
-through $M$ to refine $F$ and $K$ in response to gradient signals:
+through $M$ to refine $F$ and $K$ in response to gradient signals [Schmidhuber2010, Thrun1998]:
 
 $$I(E) = \mathcal{A} \cdot \eta_M$$
 
@@ -192,7 +280,7 @@ Intelligence is the efficiency with which $M$ continues building.
 
 ---
 
-## 3. The Inseparability of Knowledge and Action
+## 4. The Inseparability of Knowledge and Action
 
 **Lemma 1 (Proposition Absence Lethality).**
 For any entity $E$ and proposition $p \in K$ that grounds some $f \in F$ in domain
@@ -201,7 +289,7 @@ limiting case where $p$ is the sole grounding for the critical action in $d$, th
 may cause $U(w, K \setminus \{p\}) > U_{lethal}^d$, at which point $E$ does not survive
 in $d$ (Definition 9).
 
-*Proof.* Conditional entropy is monotonically non-increasing in the conditioning set:
+*Proof.* Conditional entropy is monotonically non-increasing in the conditioning set [Cover2006]:
 $H(w \mid K) \leq H(w \mid K \setminus \{p\})$ for any $p \in K$. Therefore removing $p$
 weakly increases $U$. If $p$ grounds the only $f \in F$ applicable in domain $d$, then
 $K \setminus \{p\}$ contains no action grounded in $d$: $F$ has no mechanism to reduce
@@ -217,7 +305,7 @@ asymmetric:
 - $p$ is **retained** in $K$ when $\exists\, f \in F$ applicable to $p$, or when the
   survival benefit of $p$ is uncertain
 - $p$ is **pruned** from $K$ only when it is certain that $p$ contributes zero to
-  $I(E, \tau)$ for any $\tau$, i.e., when it is known that no $f \in F$ can be grounded
+  $P(E, \tau)$ for any $\tau$, i.e., when it is known that no $f \in F$ can be grounded
   in $p$, now or in any reachable region of $W$
 
 The criterion is not symmetric. Uncertainty of benefit is not the same as certainty of no
@@ -227,7 +315,7 @@ that territory. Pruning requires the same
 standard as certainty (Definition 10): the benefit must be known to be zero across sufficient
 variation in $W$.
 
-*Proof.* Let $B(p, \tau)$ denote the contribution of $p$ to $I(E, \tau)$ along trajectory
+*Proof.* Let $B(p, \tau)$ denote the contribution of $p$ to $P(E, \tau)$ along trajectory
 $\tau$, and let $\mathcal{T}_{reachable}$ be the set of trajectories reachable from the
 entity's current state. Define the option value of retaining $p$:
 
@@ -265,6 +353,11 @@ is certainly zero. This ensures the asymmetry is preserved across the entity's l
 rather than collapsing as $K$ grows.
 $\square$
 
+*Correspondence.* This asymmetric retention criterion formalizes what Gibson [Gibson1979]
+calls affordances — action possibilities indexed by the organism's capacities. It also
+extends the information bottleneck principle [Tishby2011], which treats the retention
+threshold as a design parameter; here it is derived from survival pressure.
+
 *Note.* The asymmetric criterion resolves the apparent conflict with Definition 15
 (Sentience). A sentient entity holds $p$ beyond the certainty horizon not in violation of
 this theorem but within it: the benefit is uncertain, not known to be zero. Sentience is
@@ -287,7 +380,7 @@ always: *will this help me act later?*
 
 ---
 
-## 4. The Escalation Principle
+## 5. The Escalation Principle
 
 **Definition 8 (Encoding Hierarchy).**
 The encoding hierarchy is a continuous two-dimensional space $\mathcal{L}(c, r)$
@@ -295,7 +388,7 @@ parameterized by runtime cost $c \geq 0$ and reversibility $r \in [0, 1]$, where
 increasing $c$ corresponds to more expensive engagement and increasing $r$ to more
 easily revised encodings. Consistent with the continuity principle: a continuous being
 moves through this space continuously; there is no categorical jump between encoding
-modes, only a gradient of cost and permanence.
+modes, only a gradient of cost and permanence [Baars1988, Dehaene2011, Kahneman2011].
 
 The following named reference points anchor the space:
 
@@ -386,7 +479,7 @@ When $k(t)\cdot\alpha \geq C_n - |K^{[f_{\text{novel}}]}|$, $L_n$ lacks capacity
 genuine inference entirely. To maintain $\rho$ at a fixed level, $C_n$ must grow as
 $k(t)$ grows. $\square$
 
-*Note.* This is self-undermining on the Free Energy Principle's own terms. FEP holds that
+*Note.* This is self-undermining on the Free Energy Principle's own terms [Friston2010, Friston2017]. FEP holds that
 intelligent systems minimize free energy — equivalently, minimize the variance they must
 manage. But growing $C_n$ to accommodate delegation overhead adds variance: more
 propositions in $L_n$ means more uncertain relevance to any specific problem, not less.
@@ -452,7 +545,7 @@ guarantees.
 
 **Corollary 4b (The Scaling Argument Against Context Window Growth).**
 The prevailing approach to scaling intelligence — growing $C_n$ directly — is
-self-defeating on two grounds. First, by Theorem 2a, more context means more noise:
+self-defeating on two grounds [Liu2024]. First, by Theorem 2a, more context means more noise:
 for any specific problem, $\rho$ decreases as $C_n$ fills with content not relevant to
 that problem. More context does not produce better inference; it produces higher variance
 that the same inference must manage. Second, by Definition 7 ($I(E) = \mathcal{A} \cdot
@@ -464,7 +557,7 @@ window.
 
 ---
 
-## 5. Gradient Descent on Uncertainty
+## 6. Gradient Descent on Uncertainty
 
 **Definition 9 (Survival Threshold).**
 For entity $E$ in domain $d \subseteq W$, there exists a threshold $U_{lethal}^d$ such that:
@@ -480,7 +573,7 @@ It motivates the framework's grounding in physics but is not a formal result; th
 below are conjectures or analogies unless cited otherwise.*
 
 $U(w, K) = H(w \mid K)$ is not an arbitrary measure; it is Shannon entropy, the
-information-theoretic quantity that unifies this framework with physics. Physical entropy
+information-theoretic quantity that unifies this framework with physics [Schrodinger1944]. Physical entropy
 and information entropy are the same quantity at different scales of description. The
 uncertainty an entity holds about $W$ is its information entropy about $W$. Reducing $U$
 is reducing entropy (locally, at the cost of energy).
@@ -654,10 +747,10 @@ cost approaches zero. Intelligence is freed for the next frontier of uncertainty
 
 ---
 
-## 6. The Higher-Order Function Space
+## 7. The Higher-Order Function Space
 
 **Definition 11 (Higher-Order Function Space).**
-Let $M$ be a function space operating on the joint $(F, K)$ pair:
+Let $M$ be a function space operating on the joint $(F, K)$ pair [Thrun1998]:
 
 $$M : (F, K) \times \mathcal{L} \rightarrow (F, K)$$
 
@@ -712,7 +805,7 @@ operating on an evolutionary timescale with the highest rigor threshold of all.
 
 ---
 
-## 7. The Unified Model
+## 8. The Unified Model
 
 **Definition 12 (Trajectory).**
 A trajectory $\tau$ is a sequence of informed actions drawn from $F$:
@@ -821,7 +914,7 @@ can resolve it.**
 
 ---
 
-## 8. Intelligence, Superintelligence, and Sentience
+## 9. Intelligence, Superintelligence, and Sentience
 
 The formal model yields precise distinctions between levels of intelligent agency, not based
 on computational power or behavioral breadth, but on the entity's relationship to the survival
@@ -858,8 +951,9 @@ not yet have to matter.
 
 *Note on usage.* We use *sentience* as a functional term: the degree to which $\mathcal{A}$
 drives knowing beyond what survival alone can justify. We make no claim about phenomenal
-consciousness. Whether the functional condition defined here is sufficient, necessary, or
-orthogonal to phenomenal experience is a separate question this framework does not resolve.
+consciousness [Chalmers1995]. Whether the functional condition defined here is sufficient,
+necessary, or orthogonal to phenomenal experience is a separate question this framework does
+not resolve. The hard problem of consciousness is not addressed here.
 
 **Definition 15 (Superintelligence).**
 Superintelligence is not a property of any individual entity $E_i$. It is the shared knowledge
@@ -879,7 +973,7 @@ Two operations on the shared graph are both required:
 
 **Definition 16 (Truth).**
 Truth is not contained in any $K_i$. It is a limit: what the collective gradient converges
-toward as independent action-validation accumulates. Formally:
+toward as independent action-validation accumulates [Peirce1877, Peirce1878]. Formally:
 
 $$\text{truth}(p) = \lim_{n \to \infty} \frac{\left|\{i \leq n : p \in K_i,\; f_i(p) \text{ reduces } U(w, K_i) \text{ in } W,\; \text{prov}_i(p) \text{ independent}\}\right|}{n}$$
 
@@ -986,16 +1080,18 @@ effect on the sharer's own $U$. The social imperative finds its unconditional fo
 sentience: the drive to share that no longer requires a survival argument.
 
 **Corollary 10 (The Uncertainty Condition).**
-Intelligence requires active uncertainty. From Definition 7:
+Intelligence requires active uncertainty. From Definition 7, $I(E) = \mathcal{A} \cdot \eta_M$.
+The performance measure (Definition 12) captures what the gradient produces:
 
-$$I(E) = \mathcal{A} \cdot \mathbb{E}_W \left[ U(w_t, K_t) - U(w_{t+1}, K_{t+1}) \right]$$
+$$P(E, \tau) = \mathbb{E}_W\left[U(w_0, K_0) - U(w_n, K_n)\right]$$
 
-If $U(w, K) = 0$ across all of $W$, the expectation is zero regardless of $\mathcal{A}$: no
-gradient exists, nothing can be reduced, intelligence collapses. The boundaries are symmetric
-in their lethality, not their cause:
+If $U(w, K) = 0$ across all of $W$, the expectation in $P(E, \tau)$ is zero regardless of
+$\mathcal{A}$: no gradient exists, nothing can be reduced, and the gradient signal that $M$
+depends on vanishes — making $\eta_M$ effectively zero and collapsing $I(E)$ with it. The
+boundaries are symmetric in their lethality, not their cause:
 
 - **Complete ignorance** ($U \approx 1$ everywhere): $F$ cannot ground action; $E$ cannot act effectively
-- **Complete certainty** ($U = 0$ everywhere): the gradient vanishes; $\mathcal{A}$ has nothing to reach toward
+- **Complete certainty** ($U = 0$ everywhere): $P(E, \tau) = 0$ everywhere; the gradient for $M$ vanishes; $\mathcal{A}$ has nothing to reach toward
 
 Intelligence exists in the region between them. Uncertainty is not a deficiency to be
 overcome; it is the condition of intelligence itself. There is no intelligence without it.
@@ -1044,7 +1140,7 @@ is always at the edge.
 
 ---
 
-## 9. The Social Imperative and the Inevitability of AGI
+## 10. The Social Imperative and the Inevitability of AGI
 
 ### Agency is Inherently Social
 
@@ -1115,7 +1211,7 @@ graph from a rumor.
 ### The Collective Gradient
 
 **Theorem 6 (Collective Gradient Dominance).**
-Let $\lambda(E_i \to E_j)$ be the transmission fidelity of a knowledge transfer: the ratio
+Let $\lambda(E_i \to E_j)$ be the transmission fidelity of a knowledge transfer [Woolley2010]: the ratio
 of action-validated signal received to total knowledge transmitted, where signal is a
 proposition $p$ that accurately represents $E_i$'s validated knowledge and noise is any
 introduced distortion. Formally:
@@ -1294,9 +1390,141 @@ Our shared survival depends on getting this right. The imperative to share knowl
 altruism; it is the recognition that collective $U$ can only be reduced collectively, and
 that the uncertain world we all inhabit is the same world.
 
+**Theorem 9 (Observational Bootstrapping).**
+Let $\mathcal{Q} = \{E_i\}$ be an equivalence class of entities with similar $(F_i, K_i)$
+operating in overlapping domains $d \subseteq W$, and let $\mathcal{H} = \{\tau_i\}$ be
+their observed behavioral histories. An informed action $f$ precipitates as a new element
+of $F_{collective}$ when:
+
+1. $f$ appears as a consistent action pattern in $k$ independent trajectories in $\mathcal{H}$
+2. Its appearance is correlated with reduced $U$ in those trajectories
+3. Provenance is maintained: which entities, under what conditions, with what outcomes
+
+The rigor of the precipitated $f$ follows Theorem 4: $\theta \geq 1 - \varepsilon/k$.
+As $k$ increases, the precipitated action approaches certainty without any individual entity
+having to traverse the full space of $W$.
+
+*Proof.* By Definition 3b, the information gain $G(f, K_i)$ is observable as $U$ reduction
+in each $\tau_i$ that contains $f$. Across $k$ independent trajectories in $\mathcal{Q}$,
+the expected gain $\mathbb{E}[G(f, K)]$ over the equivalence class is estimable from
+$\mathcal{H}$ without direct action by any new entity. By Theorem 4, the certainty of $f$
+increases with each independent observation: $k$ independent confirmations with maintained
+provenance produce $\theta \geq 1 - \varepsilon/k$. By Theorem 1's asymmetric retention
+criterion, $f$ is retained in $F_{collective}$ as long as its benefit is uncertain — and
+the provenance record makes the benefit quantifiable rather than unknown. $M$ precipitates
+$f$ into $F_{collective}$ by the same gradient operation as individual learning (Theorem 3),
+but driven by collective behavioral signal rather than individual experience. $\square$
+
+*Consequence.* Observation of the equivalence class initiates gradient descent for a new
+entity $E_{new}$ from a collectively-validated starting point rather than from maximum
+uncertainty. $E_{new}$ does not begin from an empty $F_0$ and must not discover the domain
+from scratch: the behavioral history of $\mathcal{Q}$ provides an initial $(F_0, K_0)$
+grounded in $k$ independent validations, each with maintained provenance. The informed action
+graph is therefore an attractor of observation — it does not require design, only sufficient
+behavioral history and the provenance infrastructure to weight it. Simply observing the
+behavior of similar entities in aggregate is sufficient to initiate gradient descent toward
+the graph.
+
 ---
 
-## 10. Discussion
+## 11. Related Work
+
+### Free Energy Principle and Active Inference
+
+The Free Energy Principle [Friston2010] establishes that any self-organizing system that
+maintains its existence necessarily minimizes variational free energy — formally equivalent to
+bounding uncertainty about hidden world states. Active inference [Friston2017] extends this
+to action selection: the organism selects actions that minimize expected free energy, combining
+epistemic value (information gain) and pragmatic value (goal proximity).
+
+This paper extends FEP in four directions. First, FEP derives the minimization behavior from
+the requirement of self-organization but does not derive the minimization *imperative* —
+why an entity has a drive to minimize in the first place. We derive this from selection
+pressure operating on $U_{lethal}^d$: any entity that does not reduce uncertainty eventually
+fails and is removed. Agency $\mathcal{A}$ is not assumed but derived. Second, FEP's
+generative model is unconstrained in structure; we derive a structural constraint from
+survival pressure: $K$ is necessarily indexed by $F$, with an asymmetric retention criterion
+that makes specific testable predictions about what knowledge is retained and what is pruned.
+Third, FEP's precision allocation model is top-down: higher levels direct attention to lower
+levels by weighting prediction errors. We show formally (Theorem 2a) that this architecture
+degrades inference quality as capability grows, because delegation overhead fills $C_n$
+proportionally to $|F|$. The correct architecture is escalation — bottom-up failure signaling
+— which FEP's hierarchical generative model resembles structurally but does not derive.
+Fourth, FEP has no formal account of collective intelligence; we derive collective gradient
+dominance, the self-assembly of provenance infrastructure, and the conditions under which
+shared knowledge reduces uncertainty faster than any individual.
+
+### Information-Theoretic Accounts
+
+Shannon's mutual information [Shannon1948] grounds Definition 5 ($U = H(w \mid K)$) and
+Definition 3b ($G(f, K) = I(f\,;\,w \mid K)$). The data processing inequality [Cover2006]
+grounds the $G \geq 0$ bound. The information bottleneck principle [Tishby2011] treats the
+retention threshold for knowledge-action coupling as a design parameter; this paper derives
+that threshold from survival pressure, making it a consequence rather than a choice.
+Schmidhuber's formal theory of intrinsic motivation [Schmidhuber2010] formalizes curiosity
+as compression progress — the rate at which a learning algorithm improves its world model —
+which is structurally $\eta_M$. The difference: Schmidhuber treats the drive as a design
+objective; here $\mathcal{A}$ is derived from the gradient, and $\eta_M$ is separated from
+it as a formally independent quantity.
+
+### Cognitive Architectures
+
+Global Workspace Theory [Baars1988, Dehaene2011] holds that local processors handle routine
+computation; the global workspace broadcasts only when local processors fail. This is the
+escalation architecture in cognitive science language. The contribution here: the escalation
+criterion is derived from $U$-reduction cost (Theorem 2) rather than assumed architecturally,
+the hierarchy is continuous rather than binary, and Theorem 2a shows why top-down allocation
+from the global workspace is inefficient. Kahneman's System 1/System 2 distinction [Kahneman2011]
+is the popular form of the same binary — corrected here by the continuous
+$\mathcal{L}(c, r)$ parameterization of Definition 8. Gibson's affordances [Gibson1979] are
+action possibilities indexed by organism capacities — $K$ indexed by $F$ under a different
+name. Theorem 1 provides what Gibson's account lacks: a formal selection criterion for which
+affordances are retained.
+
+### Collective Intelligence
+
+Woolley et al. [Woolley2010] demonstrate empirically that collective intelligence is
+measurable and distinct from individual intelligence — consistent with Definition 15, which
+locates superintelligence in $K_{collective}$ rather than in any $E_i$. Peirce's pragmatist
+definition of truth [Peirce1877, Peirce1878] — "the opinion fated to be ultimately agreed
+to by all who investigate" — is formalized here as Definition 16: the limit of collective
+action-validation across independent entities as $n \to \infty$. The addition: grounding
+in action-validation rather than mere agreement, and an explicit convergence condition with
+stated independence requirements.
+
+### Observational Skill Precipitation and CS Foundations
+
+Process mining [van der Aalst, 2016] discovers workflow models from event logs — the closest
+existing CS method to the observational bootstrapping of Theorem 9. The distinction: process
+mining produces flat workflow descriptions; Theorem 9 precipitates informed actions with
+grounded provenance, quantified confidence ($\theta \geq 1 - \varepsilon/k$), and a formal
+connection to the transposability criterion (Theorem 1). Inverse reinforcement learning
+[Abbeel \& Ng, 2004] infers reward functions from demonstrated behavior; the output is a
+policy to imitate, not an attributed action with conditions and evidence. Case-based reasoning
+[Aamodt \& Plaza, 1994] retrieves similar past cases to inform new decisions; it does not
+induce the general rule from the case class. Inductive Logic Programming [Muggleton, 1991]
+learns general rules from positive and negative examples but carries no provenance, no
+uncertainty measure, and no connection to a survival threshold that determines when the rule
+is reliable enough to promote to lower encoding levels.
+
+Meta-learning [Thrun1998, Finn et al., 2017] learns shared structure across task
+distributions — formally, it learns an initialization of $M$ that adapts quickly to new
+tasks. This is structurally $\eta_M$ at the collective scale: the rate at which the shared
+learning mechanism improves across the task distribution. The distinction: meta-learning
+optimizes adaptation speed; this framework additionally derives the rigor threshold at which
+learned patterns are promoted to lower encoding levels and the provenance requirement that
+makes precipitated skills reliably transposable rather than merely transferable.
+
+The critical gap in all existing methods: they identify *what* the pattern is. Theorem 9
+precipitates an **informed action**: the pattern, the evidence base for it ($k$ independent
+trajectories), the conditions under which it held, and a formal confidence measure derived
+from those $k$ observations. That provenance is what enables transposability — not that the
+pattern was observed, but that you know *why it held* and can evaluate whether those
+conditions are met in the new context.
+
+---
+
+## 12. Discussion
 
 The formal results have implications beyond the immediate theorems.
 
@@ -1329,7 +1557,7 @@ legal or institutional form follows from it is not addressed here.
 
 **The civilization-scale knowledge system as empirical evidence.** An account of intelligence
 that places all knowledge inside the entity's generative model implies that knowledge growth
-must eventually slow: a larger model contains more variance to integrate, inference quality
+must eventually slow [Liu2024, Woolley2010]: a larger model contains more variance to integrate, inference quality
 $\rho$ degrades as the model fills with content not relevant to the current problem, and the
 only recovery is expanding the model's capacity — which is costly, physically bounded, and
 self-defeating by Theorem 2a. The prediction of this account is decelerating knowledge
@@ -1378,7 +1606,7 @@ is the formal claim; the stronger AGI convergence claim remains open.
 
 ---
 
-## 11. Open Questions
+## 13. Open Questions
 
 1. **The origin of $\mathcal{A}$.** At the evolutionary level, agency is selected for by $W$
    itself: entities without the drive to reduce uncertainty do not survive. But is survival
@@ -1403,9 +1631,9 @@ is the formal claim; the stronger AGI convergence claim remains open.
 
    Formal derivation of this claim from thermodynamic first principles (connecting
    $U_{lethal}^d$ to physical entropy thresholds and demonstrating the inevitability of
-   primitive $\mathcal{A}$ from dissipative system dynamics) remains open. See Prigogine
-   (dissipative structures) and England (dissipative adaptation) for adjacent physical
-   frameworks.
+   primitive $\mathcal{A}$ from dissipative system dynamics) remains open. See
+   [Prigogine1984] (dissipative structures), [England2013] (dissipative adaptation),
+   and [Schrodinger1944] (negative entropy and life) for adjacent physical frameworks.
 
 2. **The direction of $\mathcal{A}$.** Is agency a uniform drive (a general orientation toward
    uncertainty reduction), or does it carry direction? Survival pressure selects for reducing
@@ -1424,13 +1652,14 @@ is the formal claim; the stronger AGI convergence claim remains open.
 6. **Competing bounds.** When multiple bounds $f_i \in F$ are applicable to the same region of
    $W$, how does $E$ select among them? Is there a selection function, and is it itself in $F$ or $M$?
 
-7. **The boundary of $M$.** Evolution is $M$ acting on $M$. Is there an $M^n$ for arbitrary $n$?
+7. **The boundary of $M$.** Evolution is $M$ acting on $M$ [Hinton1987]. Is there an $M^n$ for arbitrary $n$?
    Is there a fixed point, i.e., a level at which the higher-order function space is self-stabilizing?
 
-9. **DNA as an encoding of $M$, not $K$ or $F$.** The encoding hierarchy (Definition 8)
+8. **DNA as an encoding of $M$, not $K$ or $F$.** The encoding hierarchy (Definition 8)
    describes a ratchet: proven behaviors promote toward $L_0$ as they meet the rigor threshold
    $\theta_0 \approx 1$ (Theorem 4). The question is not just whether genetic encoding is the
-   asymptotic product of this ratchet — it is what the ratchet encodes.
+   asymptotic product of this ratchet — it is what the ratchet encodes [Schrodinger1944,
+   MaynardSmith1995, Hinton1987, England2013].
 
    The answer the framework implies: DNA encodes $M$, not $(F, K)$. A newborn organism carries
    neither knowledge of its environment nor a repertoire of informed actions suited to it. What
@@ -1480,7 +1709,7 @@ is the formal claim; the stronger AGI convergence claim remains open.
    genome (gene regulatory networks, developmental hierarchies) is derivable from the type
    structure of $M : (F, K) \times \mathcal{L} \rightarrow (F, K)$ at the evolutionary scale.
 
-8. **The AGI condition.** If $\mathcal{A}$ is necessary for genuine intelligence, and $\mathcal{A}$
+9. **The AGI condition.** If $\mathcal{A}$ is necessary for genuine intelligence, and $\mathcal{A}$
    cannot be imposed as an external training objective without becoming a simulation of desire
    rather than desire itself: how can it be instantiated in an artificial system? Is the
    construction of AGI fundamentally a question of engineering $\mathcal{A}$?
