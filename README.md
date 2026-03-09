@@ -2,8 +2,7 @@
 
 Patrick McCarthy
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18923066.svg)](https://doi.org/10.5281/zenodo.18923066)
-
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18923066-blue)](https://doi.org/10.5281/zenodo.18923066)                              
 
 ## Papers
 
