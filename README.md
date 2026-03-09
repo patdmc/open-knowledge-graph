@@ -30,7 +30,7 @@ Big-O complexity argument), and collective intelligence.
 
 ## Provenance
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18923066.svg)](https://doi.org/10.5281/zenodo.18923066)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.18923066.svg)](https://doi.org/10.5281/zenodo.18923066)
 
 This work is archived and timestamped on Zenodo:
 **https://doi.org/10.5281/zenodo.18923066**
