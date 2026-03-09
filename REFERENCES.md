@@ -19,6 +19,18 @@ imperative from selection pressure, does not constrain the generative model via 
 inseparability, assumes top-down precision allocation (which Theorem 2a shows is
 self-undermining under C_n constraints), and has no account of collective intelligence.
 
+### [Friston2021]
+Friston, K., Da Costa, L., Hafner, D., Hesp, C., & Parr, T. (2021).
+Sophisticated inference. *Neural Computation*, 33(3), 713–763.
+https://doi.org/10.1162/neco_a_01351
+
+**Supports:** Section 11 Related Work (FEP extension 4 — collective intelligence);
+THEORY_FEP.md Section 6 (Extension 4, multi-agent FEP).
+**Stance:** Engaged directly. Sophisticated inference extends active inference to
+recursive, multi-step planning and multi-agent coordination. Extension 4 shows what
+this framework lacks: a formal fidelity threshold ($\lambda_{min}$), provenance as
+the mechanism maintaining it, and truth as the limit of collective action-validation.
+
 ### [Friston2017]
 Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017).
 Active inference: A process theory. *Neural Computation*, 29(1), 1–49.

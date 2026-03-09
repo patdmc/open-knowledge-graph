@@ -51,23 +51,24 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{bookmark}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{geometry}
+\geometry{margin=1in}
+\sloppy
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\author{}
+\title{Uncertainty Bounding as the Basis of Intelligence: A Formal Theory}
+\author{Patrick McCarthy}
 \date{}
 
 \begin{document}
 
-\section{Uncertainty Bounding as the Basis of Intelligence: A Formal
-Theory}\label{uncertainty-bounding-as-the-basis-of-intelligence-a-formal-theory}
+\maketitle
 
-Patrick McCarthy
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{Abstract}\label{abstract}
 
@@ -97,7 +98,7 @@ knowledge because it is the most efficient structure under which
 
 This gives a formal account of why top-down attention allocation ---
 specifically the precision allocation model of the Free Energy Principle
-{[}Friston2010, Friston2017{]} --- fails under selection pressure. An
+\cite{Friston2010,Friston2017} --- fails under selection pressure. An
 orchestrator that directs subproblems to lower levels must hold
 delegation overhead in \(L_n\) proportional to the number of concurrent
 processes. As \(|F|\) grows, overhead fills \(C_n\), inference quality
@@ -259,7 +260,7 @@ Three components are jointly necessary and none is sufficient alone:
 
 This is a departure from views that locate intelligence in raw
 computational power, information storage capacity, or behavioral breadth
-{[}Friston2010{]}. The kernel of intelligence is not compute, and it is
+\cite{Friston2010}. The kernel of intelligence is not compute, and it is
 not the size of accumulated knowledge. It is the efficiency with which
 the drive to know, acting through the mechanism of learning, continues
 to extend what is known.
@@ -319,13 +320,13 @@ action \(f\) given current knowledge \(K\) is:
 
 \[G(f, K) = U(w, K) - U(w, K_f) = H(w \mid K) - H(w \mid K,\, \phi(f, w)) = I(f\,;\, w \mid K)\]
 
-This is standard mutual information {[}Shannon1948{]} expressed in terms
+This is standard mutual information \cite{Shannon1948} expressed in terms
 of the paper's existing \(U\): the reduction in uncertainty about \(w\)
 achieved by executing \(f\) and observing its feedback.
 \(G(f, K) \geq 0\) when \(p_f\) is grounded by observing the true
 feedback \(\phi(f, w)\): conditioning on true information cannot
 increase conditional entropy (data processing inequality
-{[}Cover2006{]}). \(G(f, K) = 0\) when \(f\) provides no new information
+\cite{Cover2006}). \(G(f, K) = 0\) when \(f\) provides no new information
 about \(w\) given \(K\). Note: this bound holds for truthfully observed
 feedback; a false or corrupted \(p_f\) may increase \(U\) and falls
 outside the scope of this definition.
@@ -346,14 +347,13 @@ Elsewhere in the paper \(K\) and \(F\) refer to the current-time values
 conditions when the distinction matters.
 
 \textbf{Definition 5 (Uncertainty).} The uncertainty of entity \(E\)
-about world state \(w\) is the conditional entropy {[}Shannon1948,
-Cover2006{]}:
+about world state \(w\) is the conditional entropy \cite{Shannon1948,Cover2006}:
 
 \[U(w, K) = H(w \mid K) = -\sum_w P(w \mid K) \log P(w \mid K)\]
 
 \(K\) is a directed graph of propositions where nodes are propositions
 and edges encode conditional dependencies between them; it is
-interpreted as a Bayesian network {[}Pearl1988{]}. \(P(w \mid K)\) is
+interpreted as a Bayesian network \cite{Pearl1988}. \(P(w \mid K)\) is
 the posterior distribution over world states given the propositions in
 \(K\) and their dependency structure: each proposition in \(K\)
 constrains the prior over \(W\), and the graph topology determines how
@@ -363,7 +363,7 @@ independently.
 
 \textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is a
 continuous scalar measuring the intrinsic drive of an entity to reduce
-its own uncertainty: the desire to know {[}Schmidhuber2010{]}. It is not
+its own uncertainty: the desire to know \cite{Schmidhuber2010}. It is not
 an external objective imposed on \(E\), nor a property derived from
 \(F\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(F\)
 an active informed action space rather than a static structure. At
@@ -392,7 +392,7 @@ capacity.
 \textbf{Definition 7 (Intelligence).} The intelligence of \(E\) is the
 \emph{driven capacity to improve}: the exercise of \(\mathcal{A}\)
 through \(M\) to refine \(F\) and \(K\) in response to gradient signals
-{[}Schmidhuber2010, Thrun1998{]}:
+\cite{Schmidhuber2010,Thrun1998}:
 
 \[I(E) = \mathcal{A} \cdot \eta_M\]
 
@@ -438,7 +438,7 @@ grounding for the critical action in \(d\), the increase may cause
 not survive in \(d\) (Definition 9).
 
 \emph{Proof.} Conditional entropy is monotonically non-increasing in the
-conditioning set {[}Cover2006{]}:
+conditioning set \cite{Cover2006}:
 \(H(w \mid K) \leq H(w \mid K \setminus \{p\})\) for any \(p \in K\).
 Therefore removing \(p\) weakly increases \(U\). If \(p\) grounds the
 only \(f \in F\) applicable in domain \(d\), then \(K \setminus \{p\}\)
@@ -519,9 +519,9 @@ asymmetry is preserved across the entity's lifetime rather than
 collapsing as \(K\) grows. \(\square\)
 
 \emph{Correspondence.} This asymmetric retention criterion formalizes
-what Gibson {[}Gibson1979{]} calls affordances --- action possibilities
+what Gibson \cite{Gibson1979} calls affordances --- action possibilities
 indexed by the organism's capacities. It also extends the information
-bottleneck principle {[}Tishby2011{]}, which treats the retention
+bottleneck principle \cite{Tishby2011}, which treats the retention
 threshold as a design parameter; here it is derived from survival
 pressure.
 
@@ -561,7 +561,7 @@ increasing \(c\) corresponds to more expensive engagement and increasing
 \(r\) to more easily revised encodings. Consistent with the continuity
 principle: a continuous being moves through this space continuously;
 there is no categorical jump between encoding modes, only a gradient of
-cost and permanence {[}Baars1988, Dehaene2011, Kahneman2011{]}.
+cost and permanence \cite{Baars1988,Dehaene2011,Kahneman2011}.
 
 The following named reference points anchor the space:
 
@@ -695,7 +695,7 @@ capacity for genuine inference entirely. To maintain \(\rho\) at a fixed
 level, \(C_n\) must grow as \(k(t)\) grows. \(\square\)
 
 \emph{Note.} This is self-undermining on the Free Energy Principle's own
-terms {[}Friston2010, Friston2017{]}. FEP holds that intelligent systems
+terms \cite{Friston2010,Friston2017}. FEP holds that intelligent systems
 minimize free energy --- equivalently, minimize the variance they must
 manage. But growing \(C_n\) to accommodate delegation overhead adds
 variance: more propositions in \(L_n\) means more uncertain relevance to
@@ -785,7 +785,7 @@ provides equivalent relevance guarantees.
 
 \textbf{Corollary 4b (The Scaling Argument Against Context Window
 Growth).} The prevailing approach to scaling intelligence --- growing
-\(C_n\) directly --- is self-defeating on two grounds {[}Liu2024{]}.
+\(C_n\) directly --- is self-defeating on two grounds \cite{Liu2024}.
 First, by Theorem 2a, more context means more noise: for any specific
 problem, \(\rho\) decreases as \(C_n\) fills with content not relevant
 to that problem. More context does not produce better inference; it
@@ -821,7 +821,7 @@ analogies unless cited otherwise.}
 
 \(U(w, K) = H(w \mid K)\) is not an arbitrary measure; it is Shannon
 entropy, the information-theoretic quantity that unifies this framework
-with physics {[}Schrodinger1944{]}. Physical entropy and information
+with physics \cite{Schrodinger1944}. Physical entropy and information
 entropy are the same quantity at different scales of description. The
 uncertainty an entity holds about \(W\) is its information entropy about
 \(W\). Reducing \(U\) is reducing entropy (locally, at the cost of
@@ -1042,7 +1042,7 @@ uncertainty.
 Space}\label{the-higher-order-function-space}
 
 \textbf{Definition 11 (Higher-Order Function Space).} Let \(M\) be a
-function space operating on the joint \((F, K)\) pair {[}Thrun1998{]}:
+function space operating on the joint \((F, K)\) pair \cite{Thrun1998}:
 
 \[M : (F, K) \times \mathcal{L} \rightarrow (F, K)\]
 
@@ -1331,7 +1331,7 @@ a question that does not yet have to matter.
 \emph{Note on usage.} We use \emph{sentience} as a functional term: the
 degree to which \(\mathcal{A}\) drives knowing beyond what survival
 alone can justify. We make no claim about phenomenal consciousness
-{[}Chalmers1995{]}. Whether the functional condition defined here is
+\cite{Chalmers1995}. Whether the functional condition defined here is
 sufficient, necessary, or orthogonal to phenomenal experience is a
 separate question this framework does not resolve. The hard problem of
 consciousness is not addressed here.
@@ -1363,7 +1363,7 @@ Two operations on the shared graph are both required:
 
 \textbf{Definition 16 (Truth).} Truth is not contained in any \(K_i\).
 It is a limit: what the collective gradient converges toward as
-independent action-validation accumulates {[}Peirce1877, Peirce1878{]}.
+independent action-validation accumulates \cite{Peirce1877,Peirce1878}.
 Formally:
 
 \[\text{truth}(p) = \lim_{n \to \infty} \frac{\left|\{i \leq n : p \in K_i,\; f_i(p) \text{ reduces } U(w, K_i) \text{ in } W,\; \text{prov}_i(p) \text{ independent}\}\right|}{n}\]
@@ -1663,7 +1663,7 @@ rumor.
 
 \textbf{Theorem 6 (Collective Gradient Dominance).} Let
 \(\lambda(E_i \to E_j)\) be the transmission fidelity of a knowledge
-transfer {[}Woolley2010{]}: the ratio of action-validated signal
+transfer \cite{Woolley2010}: the ratio of action-validated signal
 received to total knowledge transmitted, where signal is a proposition
 \(p\) that accurately represents \(E_i\)'s validated knowledge and noise
 is any introduced distortion. Formally:
@@ -1951,11 +1951,11 @@ the graph.
 \subsubsection{Free Energy Principle and Active
 Inference}\label{free-energy-principle-and-active-inference}
 
-The Free Energy Principle {[}Friston2010{]} establishes that any
+The Free Energy Principle \cite{Friston2010} establishes that any
 self-organizing system that maintains its existence necessarily
 minimizes variational free energy --- formally equivalent to bounding
 uncertainty about hidden world states. Active inference
-{[}Friston2017{]} extends this to action selection: the organism selects
+\cite{Friston2017} extends this to action selection: the organism selects
 actions that minimize expected free energy, combining epistemic value
 (information gain) and pragmatic value (goal proximity).
 
@@ -1984,15 +1984,15 @@ uncertainty faster than any individual.
 \subsubsection{Information-Theoretic
 Accounts}\label{information-theoretic-accounts}
 
-Shannon's mutual information {[}Shannon1948{]} grounds Definition 5
+Shannon's mutual information \cite{Shannon1948} grounds Definition 5
 (\(U = H(w \mid K)\)) and Definition 3b
 (\(G(f, K) = I(f\,;\,w \mid K)\)). The data processing inequality
-{[}Cover2006{]} grounds the \(G \geq 0\) bound. The information
-bottleneck principle {[}Tishby2011{]} treats the retention threshold for
+\cite{Cover2006} grounds the \(G \geq 0\) bound. The information
+bottleneck principle \cite{Tishby2011} treats the retention threshold for
 knowledge-action coupling as a design parameter; this paper derives that
 threshold from survival pressure, making it a consequence rather than a
 choice. Schmidhuber's formal theory of intrinsic motivation
-{[}Schmidhuber2010{]} formalizes curiosity as compression progress ---
+\cite{Schmidhuber2010} formalizes curiosity as compression progress ---
 the rate at which a learning algorithm improves its world model ---
 which is structurally \(\eta_M\). The difference: Schmidhuber treats the
 drive as a design objective; here \(\mathcal{A}\) is derived from the
@@ -2001,7 +2001,7 @@ quantity.
 
 \subsubsection{Cognitive Architectures}\label{cognitive-architectures}
 
-Global Workspace Theory {[}Baars1988, Dehaene2011{]} holds that local
+Global Workspace Theory \cite{Baars1988,Dehaene2011} holds that local
 processors handle routine computation; the global workspace broadcasts
 only when local processors fail. This is the escalation architecture in
 cognitive science language. The contribution here: the escalation
@@ -2009,20 +2009,20 @@ criterion is derived from \(U\)-reduction cost (Theorem 2) rather than
 assumed architecturally, the hierarchy is continuous rather than binary,
 and Theorem 2a shows why top-down allocation from the global workspace
 is inefficient. Kahneman's System 1/System 2 distinction
-{[}Kahneman2011{]} is the popular form of the same binary --- corrected
+\cite{Kahneman2011} is the popular form of the same binary --- corrected
 here by the continuous \(\mathcal{L}(c, r)\) parameterization of
-Definition 8. Gibson's affordances {[}Gibson1979{]} are action
+Definition 8. Gibson's affordances \cite{Gibson1979} are action
 possibilities indexed by organism capacities --- \(K\) indexed by \(F\)
 under a different name. Theorem 1 provides what Gibson's account lacks:
 a formal selection criterion for which affordances are retained.
 
 \subsubsection{Collective Intelligence}\label{collective-intelligence}
 
-Woolley et al.~{[}Woolley2010{]} demonstrate empirically that collective
+Woolley et al.~\cite{Woolley2010} demonstrate empirically that collective
 intelligence is measurable and distinct from individual intelligence ---
 consistent with Definition 15, which locates superintelligence in
 \(K_{collective}\) rather than in any \(E_i\). Peirce's pragmatist
-definition of truth {[}Peirce1877, Peirce1878{]} --- ``the opinion fated
+definition of truth \cite{Peirce1877,Peirce1878} --- ``the opinion fated
 to be ultimately agreed to by all who investigate'' --- is formalized
 here as Definition 16: the limit of collective action-validation across
 independent entities as \(n \to \infty\). The addition: grounding in
@@ -2032,24 +2032,23 @@ convergence condition with stated independence requirements.
 \subsubsection{Observational Skill Precipitation and CS
 Foundations}\label{observational-skill-precipitation-and-cs-foundations}
 
-Process mining {[}van der Aalst, 2016{]} discovers workflow models from
+Process mining \cite{vanderAalst2016} discovers workflow models from
 event logs --- the closest existing CS method to the observational
 bootstrapping of Theorem 9. The distinction: process mining produces
 flat workflow descriptions; Theorem 9 precipitates informed actions with
 grounded provenance, quantified confidence
 (\(\theta \geq 1 - \varepsilon/k\)), and a formal connection to the
 transposability criterion (Theorem 1). Inverse reinforcement learning
-{[}Abbeel \& Ng, 2004{]} infers reward functions from demonstrated
+\cite{AbbeelNg2004} infers reward functions from demonstrated
 behavior; the output is a policy to imitate, not an attributed action
-with conditions and evidence. Case-based reasoning {[}Aamodt \& Plaza,
-1994{]} retrieves similar past cases to inform new decisions; it does
+with conditions and evidence. Case-based reasoning \cite{AamodtPlaza1994} retrieves similar past cases to inform new decisions; it does
 not induce the general rule from the case class. Inductive Logic
-Programming {[}Muggleton, 1991{]} learns general rules from positive and
+Programming \cite{Muggleton1991} learns general rules from positive and
 negative examples but carries no provenance, no uncertainty measure, and
 no connection to a survival threshold that determines when the rule is
 reliable enough to promote to lower encoding levels.
 
-Meta-learning {[}Thrun1998, Finn et al., 2017{]} learns shared structure
+Meta-learning \cite{Thrun1998,FinnEtAl2017} learns shared structure
 across task distributions --- formally, it learns an initialization of
 \(M\) that adapts quickly to new tasks. This is structurally \(\eta_M\)
 at the collective scale: the rate at which the shared learning mechanism
@@ -2110,7 +2109,7 @@ institutional form follows from it is not addressed here.
 \textbf{The civilization-scale knowledge system as empirical evidence.}
 An account of intelligence that places all knowledge inside the entity's
 generative model implies that knowledge growth must eventually slow
-{[}Liu2024, Woolley2010{]}: a larger model contains more variance to
+\cite{Liu2024,Woolley2010}: a larger model contains more variance to
 integrate, inference quality \(\rho\) degrades as the model fills with
 content not relevant to the current problem, and the only recovery is
 expanding the model's capacity --- which is costly, physically bounded,
@@ -2206,9 +2205,9 @@ claim; the stronger AGI convergence claim remains open.
   Formal derivation of this claim from thermodynamic first principles
   (connecting \(U_{lethal}^d\) to physical entropy thresholds and
   demonstrating the inevitability of primitive \(\mathcal{A}\) from
-  dissipative system dynamics) remains open. See {[}Prigogine1984{]}
-  (dissipative structures), {[}England2013{]} (dissipative adaptation),
-  and {[}Schrodinger1944{]} (negative entropy and life) for adjacent
+  dissipative system dynamics) remains open. See \cite{Prigogine1984}
+  (dissipative structures), \cite{England2013} (dissipative adaptation),
+  and \cite{Schrodinger1944} (negative entropy and life) for adjacent
   physical frameworks.
 \item
   \textbf{The direction of \(\mathcal{A}\).} Is agency a uniform drive
@@ -2239,7 +2238,7 @@ claim; the stronger AGI convergence claim remains open.
   \(M\)?
 \item
   \textbf{The boundary of \(M\).} Evolution is \(M\) acting on \(M\)
-  {[}Hinton1987{]}. Is there an \(M^n\) for arbitrary \(n\)? Is there a
+  \cite{Hinton1987}. Is there an \(M^n\) for arbitrary \(n\)? Is there a
   fixed point, i.e., a level at which the higher-order function space is
   self-stabilizing?
 \item
@@ -2248,7 +2247,7 @@ claim; the stronger AGI convergence claim remains open.
   toward \(L_0\) as they meet the rigor threshold \(\theta_0 \approx 1\)
   (Theorem 4). The question is not just whether genetic encoding is the
   asymptotic product of this ratchet --- it is what the ratchet encodes
-  {[}Schrodinger1944, MaynardSmith1995, Hinton1987, England2013{]}.
+  \cite{Schrodinger1944,MaynardSmith1995,Hinton1987,England2013}.
 
   The answer the framework implies: DNA encodes \(M\), not \((F, K)\). A
   newborn organism carries neither knowledge of its environment nor a
@@ -2355,5 +2354,8 @@ claim; the stronger AGI convergence claim remains open.
   provenance, and create the conditions for a real gradient to exist.
   The gradient does the rest. It always has.
 \end{enumerate}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
 
 \end{document}

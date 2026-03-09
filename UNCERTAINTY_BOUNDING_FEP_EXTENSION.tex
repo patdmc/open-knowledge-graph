@@ -40,24 +40,24 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{bookmark}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{geometry}
+\geometry{margin=1in}
+\sloppy
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\author{}
+\title{Uncertainty Bounding as the Basis of Intelligence: An Extension of the Free Energy Principle}
+\author{Patrick McCarthy}
 \date{}
 
 \begin{document}
 
-\section{Uncertainty Bounding as the Basis of Intelligence: An Extension
-of the Free Energy
-Principle}\label{uncertainty-bounding-as-the-basis-of-intelligence-an-extension-of-the-free-energy-principle}
+\maketitle
 
-Patrick McCarthy
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{Abstract}\label{abstract}
 
@@ -116,12 +116,12 @@ assuming it.
 
 \subsection{1. Introduction}\label{introduction}
 
-The Free Energy Principle {[}Friston2010{]} is the most ambitious
+The Free Energy Principle \cite{Friston2010} is the most ambitious
 unified account of intelligent behavior in the biological sciences. Its
 central claim --- that any self-organizing system maintaining a Markov
 blanket necessarily minimizes variational free energy --- provides a
 single objective function that unifies perception, action, learning, and
-attention under one formalism. Active inference {[}Friston2017{]}
+attention under one formalism. Active inference \cite{Friston2017}
 operationalizes this: organisms select actions that minimize expected
 free energy, trading off epistemic value (uncertainty reduction) against
 pragmatic value (goal proximity). The precision hierarchy weights
@@ -358,7 +358,7 @@ The only recovery is growing \(C_n\): the active context window must
 scale linearly with capability to maintain fixed \(\rho\). But this is
 self-undermining on FEP's own terms. FEP holds that intelligent systems
 minimize free energy --- equivalently, minimize the variance they must
-manage {[}Friston2010, Friston2017{]}. Growing \(C_n\) adds variance:
+manage \cite{Friston2010,Friston2017}. Growing \(C_n\) adds variance:
 more propositions in \(L_n\) means more uncertain relevance to any
 specific problem. FEP's precision allocation architecture violates FEP's
 own minimization imperative as capability scales.
@@ -412,7 +412,7 @@ Intelligence}\label{extension-4-collective-intelligence}
 
 \textbf{The gap.} FEP formalizes individual agents maintaining
 individual Markov blankets. Extensions to multi-agent settings
-{[}Friston et al., 2020{]} model multiple agents with shared generative
+\cite{Friston2021} model multiple agents with shared generative
 models or synchronizing blankets. These extensions describe how agents
 coordinate but do not formally address: how knowledge is shared with
 maintained attribution, under what fidelity conditions shared knowledge
@@ -572,44 +572,7 @@ active context? The answers converge on the same gradient. They diverge
 on the architecture required to follow it without self-defeating as
 capability scales.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{References}\label{references}
-
-{[}Friston2010{]} Friston, K. (2010). The free-energy principle: a
-unified brain theory? \emph{Nature Reviews Neuroscience}, 11(2),
-127--138.
-
-{[}Friston2017{]} Friston, K., FitzGerald, T., Rigoli, F.,
-Schwartenbeck, P., \& Pezzulo, G. (2017). Active inference: A process
-theory. \emph{Neural Computation}, 29(1), 1--49.
-
-{[}Shannon1948{]} Shannon, C. E. (1948). A mathematical theory of
-communication. \emph{Bell System Technical Journal}, 27(3), 379--423.
-
-{[}Cover2006{]} Cover, T. M., \& Thomas, J. A. (2006). \emph{Elements of
-Information Theory} (2nd ed.). Wiley-Interscience.
-
-{[}Pearl1988{]} Pearl, J. (1988). \emph{Probabilistic Reasoning in
-Intelligent Systems}. Morgan Kaufmann.
-
-{[}Baars1988{]} Baars, B. J. (1988). \emph{A Cognitive Theory of
-Consciousness}. Cambridge University Press.
-
-{[}Dehaene2011{]} Dehaene, S., \& Changeux, J.-P. (2011). Experimental
-and theoretical approaches to conscious processing. \emph{Neuron},
-70(2), 200--227.
-
-{[}Woolley2010{]} Woolley, A. W., Chabris, C. F., Pentland, A., Hashmi,
-N., \& Malone, T. W. (2010). Evidence for a collective intelligence
-factor in the performance of human groups. \emph{Science}, 330(6004),
-686--688.
-
-{[}Liu2024{]} Liu, N. F., et al.~(2024). Lost in the middle: How
-language models use long contexts. \emph{Transactions of the Association
-for Computational Linguistics}, 12, 157--173.
-
-{[}Peirce1878{]} Peirce, C. S. (1878). How to make our ideas clear.
-\emph{Popular Science Monthly}, 12, 286--302.
+\bibliographystyle{plainnat}
+\bibliography{references}
 
 \end{document}
