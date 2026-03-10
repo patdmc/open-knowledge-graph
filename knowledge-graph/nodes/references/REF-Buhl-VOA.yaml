@@ -3,94 +3,120 @@ type: reference
 name: "Buhl and Karaali (2008) — Spanning Sets for Möbius Vertex Algebras Satisfying Arbitrary Difference Conditions"
 citation: "Buhl, G. and Karaali, G. (2008). Spanning sets for Möbius vertex algebras satisfying arbitrary difference conditions. Journal of Algebra, 320(8), 3345–3364."
 doi: "10.1016/j.jalgebra.2008.06.038"
+arxiv: "0803.3819"
 citation_status: VERIFIED
-fidelity: low
+fidelity: high
 
 context: |
-  Geoff Buhl and Gizem Karaali work in the mathematical space of vertex operator algebras.
-  This paper proves spanning set results for Möbius vertex algebras: for a suitably chosen
-  generating set, any N-graded Möbius vertex algebra is spanned by monomials satisfying
-  a difference-N ordering condition. This extends earlier difference-zero and difference-one
-  results to arbitrary N. The difference conditions control the order in which vertex
-  operators can be composed — the fundamental combinatorial structure of VOA computations.
+  Geoff Buhl and Gizem Karaali prove spanning set results for Möbius vertex algebras.
+  The main result (Theorem 5.1) shows that for a suitably chosen generating set — specifically,
+  homogeneous representatives of a spanning set for the quotient V/C_{N+1}(V) — any N-graded
+  Möbius vertex algebra is spanned by monomials of vertex operators satisfying a difference-N
+  ordering condition: the mode indices n_i satisfy n_i - n_{i+1} >= N in any monomial. This
+  extends prior difference-zero (Karel-Li) and difference-one (Gaberdiel-Neitzke) results to
+  arbitrary positive integer N. The proof proceeds by constructing a family of filtrations
+  (Section 3), deriving straightening identities (Section 4), and using induction on filtration
+  level and monomial length (Section 5). The paper cites Buhl's own earlier work: [Bu1]
+  (spanning sets for VOA modules, J. Algebra 2002) and [Bu2] (ordered spanning sets for
+  quasimodules for Möbius VAs, arXiv 2007), as well as Gaberdiel-Neitzke [GN] and Karel-Li [KL]
+  as the results being generalized.
+
+  Scope note: this node covers only the Buhl-Karaali (2008) paper. Buhl has at least two
+  additional prior papers ([Bu1], [Bu2]) that could be added as separate REF nodes.
 
 propositions:
   GB0:
-    statement: "Difference-N spanning theorem: for a suitably chosen generating set, any N-graded Möbius vertex algebra is spanned by monomials of vertex operators satisfying a difference-N ordering condition — meaning the mode indices in any monomial differ by at least N."
+    statement: "Theorem 5.1 (Difference-N spanning theorem): For an N-graded Möbius vertex algebra V and N ∈ Z+, let X be a set of homogeneous representatives of a spanning set for V/C_{N+1}(V). Then V is spanned by monomials x^1_{n_1} x^2_{n_2} · · · x^k_{n_k} 1 where x_i ∈ X, n_i ∈ Z-, n_1 < n_2 < ... < n_k < 0, and n_i - n_{i+1} >= N for each i. The proof uses a family of difference-N filtrations and straightening identities derived from the VOA associativity identity."
     maps_to: [NV04-intersection-acceleration, EC08-compression-factoring, NV01-graph-necessity]
+    attribution: "Buhl and Karaali (2008) — this is the paper's specific contribution"
     note: |
-      The difference-N condition is a ordering constraint on how vertex operators
-      (knowledge operators) can be composed. A spanning set satisfying difference-N
-      is a minimal factored basis for the VOA — EC08 compression applied to the
-      infinite-dimensional algebra. The result says you can always find such a basis:
-      any VOA has a compressed (difference-N) spanning set, regardless of N. This is
-      a generalization of NV01's two-option argument: at the context boundary, a
-      compressed spanning representation always exists.
+      The difference-N condition is an ordering constraint on how vertex operators
+      can be composed. The spanning set using representatives of V/C_{N+1}(V) is a
+      structured basis for the VOA — EC08 compression applied to the infinite-dimensional
+      algebra. The result proves existence: any N-graded Möbius VOA has such a spanning
+      set, for any N. This is the algebraic analog of NV01's existence clause: a
+      graph-structured representation always exists.
+
+      Precision note: the generating set X is not "minimal" in the sense of being smallest
+      possible — it grows with N (larger N requires more generators from V/C_{N+1}(V)).
+      The minimality is within the difference-N constraint: given the ordering condition,
+      these are the necessary generators.
     potential_em: |
-      GB0 + NV01 + EC08: the difference-N spanning theorem proves that a factored
-      (ordered, compressed) representation exists for any Möbius VOA. The 'difference
-      condition' is the algebraic analog of provenance ordering — vertex operators must
-      be applied in a structured sequence, not arbitrarily. This is graph necessity
-      (NV01) stated for VOAs: the ordered monomial basis IS the graph structure of the
-      algebra, and it is provably constructible under the N-grading constraint.
+      GB0 + NV01 + EC08: the difference-N spanning theorem proves that an ordered,
+      structured representation exists for any Möbius VOA. The difference condition
+      is the algebraic analog of provenance ordering — vertex operators must be
+      applied in a structured sequence. This is graph necessity (NV01) stated for VOAs:
+      the ordered monomial basis IS the graph structure of the algebra, provably
+      constructible under the N-grading constraint. (EM16 in the current graph.)
 
   GB1:
-    statement: "Möbius vertex algebra: a vertex algebra equipped with a Möbius symmetry — an action of the Möbius group SL(2,C) on the state space. Weaker than a full VOA (which has Virasoro symmetry); stronger than a bare vertex algebra."
+    statement: "Definition 2.1 (Möbius vertex algebra): A Möbius vertex algebra is a Z-graded vector space equipped with vertex operator map Y and a representation ρ of sl(2) (as a Lie subalgebra of the Virasoro algebra), satisfying the Jacobi identity, lower truncation, vacuum property, and creation property. It is a generalization of a conformal vertex algebra: the latter admits Virasoro (infinite-dimensional) symmetry; the former admits only sl(2) (three-dimensional) symmetry."
     maps_to: [EC01-context-bound, EC09-encoding-levels]
+    attribution: "Huang, Lepowsky, and Zhang — paper explicitly states 'Möbius vertex algebras appear in the work of Huang, Lepowsky, and Zhang [H]'. Buhl-Karaali use the definition but did not introduce it."
     note: |
-      The Möbius group = the symmetry group of the Riemann sphere (the simplest bounded
-      context). A Möbius VA is a vertex algebra whose context has Möbius (fractional
-      linear) symmetry — a weaker constraint than full conformal (Virasoro) symmetry.
-      This positions Möbius VAs as intermediate: more constrained than bare VAs,
-      less constrained than full CFTs. EC09 encoding levels have an analog: the Möbius
-      level is the intermediate encoding between raw vertex algebra (L0) and full CFT (L3).
+      The Möbius group (SL(2,C)) is the symmetry group of the Riemann sphere.
+      A Möbius VA is intermediate: more constrained than a bare vertex algebra
+      (no symmetry group), less constrained than a full VOA (Virasoro symmetry).
+      This positions Möbius VAs between bare VAs and full CFTs. The EC09 encoding
+      level analogy (Möbius level as intermediate encoding) is a structural
+      observation, not a claim made in the paper.
 
   GB2:
-    statement: "N-grading: the state space V = ⊕_{n≥0} V_n decomposes into graded pieces. The grading is preserved under the VOA operations. Spanning sets can be chosen to respect the grading — graded spanning sets are more computationally tractable."
+    statement: "Definition 2.2 (N-graded Möbius vertex algebra): A Möbius vertex algebra V = ⊕_{n∈Z} V_n is N-graded if V_n = 0 for n < 0. This lower-truncation condition means the state space has no components below grade zero."
     maps_to: [EC09-encoding-levels, EC08-compression-factoring]
+    attribution: "Standard VOA framework; used throughout the paper as a standing assumption."
     note: |
-      N-grading of the VOA = encoding level structure. V_n for low n = the low-level
-      (crystallized, frequently used) states; V_n for high n = the high-level (contextual,
-      rare) states. The graded spanning set respects this structure — it is the factored
-      representation that preserves encoding-level information.
-
-  GB3:
-    statement: "Fusion rules for VOA modules: given modules M_1 and M_2 for a VOA V, the fusion product M_1 ⊗_V M_2 is determined by the intertwining operators between them. Fusion rules encode which module combinations are permitted by the algebraic structure."
-    maps_to: [NV04-intersection-acceleration, BO1-locality-axiom]
-    note: |
-      Fusion rules = the formal rule for K_i and K_j intersection. The intertwining
-      operator from M_1 ⊗ M_2 to M_3 is the provenance-verified edge in UB language.
-      NV04 (intersection accelerates M) is the physical consequence of valid fusion.
-
-  GB2:
-    statement: "Characterization of VOAs: a VOA V is characterized by its central charge c, its weight-graded structure (the spectrum of L_0 eigenvalues), and its fusion category. Two VOAs with the same characterization data are isomorphic."
-    maps_to: [EC01-context-bound, EC08-compression-factoring]
-    note: |
-      Characterization = the minimal sufficient description. The central charge c + weight
-      spectrum + fusion category is the minimal factored representation (EC08) of the
-      VOA — everything recoverable from these three data. This is graph structure applied
-      to algebraic objects: the VOA is fully encoded by its structural invariants.
-
-  GB3:
-    statement: "Module categories for rational VOAs form modular tensor categories: the fusion category has a well-defined notion of braiding and duality, and the S-matrix (encoding the mutual statistics of modules) transforms under the modular group."
-    maps_to: [EC07-collective-knowledge, EM09-collective-intelligence-thermodynamically-favored]
-    note: |
-      Modular tensor category = the full structure of K_collective interaction rules.
-      The S-matrix encodes how any two modules (K_i and K_j) braid around each other
-      — their mutual information in algebraic terms. The modular group symmetry says
-      this interaction structure is invariant under context changes (modular
-      transformations), which is the algebraic form of provenance persistence.
+      N-grading means the grading is truncated from below (V_n = 0 for n < 0).
+      This is the condition under which Theorem 5.1 is proved. The grade index n
+      corresponds to the energy level (weight) of a state. Low-n states are lower
+      weight (more primitive); high-n states are higher weight (built from compositions
+      of lower-weight operators). The graded spanning set respects this structure.
 
 provenance:
   attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
   evidence:
     type: literature-node
-    status: PENDING_CITATION_VERIFICATION
+    status: VERIFIED
+    doi_confirmed: "10.1016/j.jalgebra.2008.06.038"
+    arxiv_confirmed: "0803.3819v1"
+    paper_text_read: true
     references: [REF-Borcherds1992, REF-FrenkelLepowskyMeurman1988, NV04-intersection-acceleration]
+
+validation_notes: |
+  Paper text read in full (arXiv:0803.3819, 26 pages). Validation findings:
+
+  GB0: ACCURATE — Theorem 5.1 states exactly what the node claims. The "difference-N
+  ordering condition with mode indices differing by at least N" matches the paper's
+  statement precisely (n_i - n_{i+1} >= N).
+
+  GB1: ACCURATE description, CORRECTED attribution — paper explicitly credits
+  Huang-Lepowsky-Zhang for the Möbius VA concept. Buhl-Karaali use the definition,
+  they did not introduce it.
+
+  GB2: ACCURATE — Definition 2.2 in the paper.
+
+  REMOVED (were in prior version as duplicate GB2 and GB3 entries):
+  - Characterization by central charge + weight spectrum + fusion category: NOT IN PAPER
+  - Fusion rules for VOA modules: NOT IN PAPER
+  - Modular tensor categories / S-matrix: NOT IN PAPER
+  These are standard VOA theory concepts that do not appear in this spanning-set paper.
+  They should be attributed to FLM (1988), Huang, and the broader VOA literature if
+  they are to be included in the graph — in a separate REF-VOA-Theory.yaml node.
+
+  STATUS: Updated from PENDING_CITATION_VERIFICATION to VERIFIED.
 
 gap_analysis:
   present_here_not_in_ub:
-    - "Fusion rules as formal intersection specification — UB states intersection informally"
-    - "Modular tensor category structure — full algebraic structure of K_collective interaction"
-    - "Characterization theorems — minimal sufficient description of VOA structure"
-  user_action_required: "Provide specific paper titles and publication details to complete this node"
+    - "Difference-N filtration family — formal mechanism for the spanning set construction"
+    - "Straightening identities — explicit algebraic identities for rewriting monomials"
+    - "Poincaré-Birkhoff-Witt-like basis structure for infinite-dimensional algebras"
+  present_in_ub_not_here:
+    - "Survival threshold — VOA theory has no selection pressure"
+    - "A parameterization — all states participate by construction"
+    - "K/F grounding relation — the paper proves spanning sets exist, not which ones are action-relevant"
+    - "Graph necessity proof — the paper proves existence of a structured basis; UB proves necessity"
+
+additional_buhl_papers:
+  Bu1: "Buhl, G. (2002). A spanning set for VOA modules. J. Algebra, 254(1), 125–151."
+  Bu2: "Buhl, G. (2007). Ordered spanning sets for quasimodules for Möbius vertex algebras. arXiv:0710.0886."
+  ABD: "Abe, T., Buhl, G., and Dong, C. (2004). Rationality, regularity, and C2-cofiniteness. Trans. Amer. Math. Soc., 356(8), 3391–3402."
