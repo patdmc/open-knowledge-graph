@@ -68,7 +68,7 @@ conditions under which it succeeded. Without provenance — without knowing *why
 system cannot learn; it can only repeat or guess.
 
 This is the engineering form of what this paper formalizes as transmission fidelity $\lambda$
-and the collective survival threshold $\lambda_{min}$ (Theorem 10): knowledge transfer without
+and the collective survival threshold $\lambda_{min}$ (Theorem 6): knowledge transfer without
 provenance cannot be reliably weighted, and below $\lambda_{min}$ the collective knowledge graph
 degrades rather than grows. Provenance is not an epistemic nicety — it is the minimum
 infrastructure for a learning system to function.
@@ -87,13 +87,12 @@ When evidence updates the proposition, all dependent actions benefit simultaneou
 structure was not a design choice; it was the convergent solution to the problem of maintaining
 consistency across a space of actions that grows faster than any single context can hold.
 
-**The empirical measurement of factor extraction.** The engineering consequence of separating $F$ from $K$ is precisely measurable. Before separation, each entity performing a search carried its full background knowledge implicitly — $N$ entities each performing $M$ searches yields $O(N \times M)$ retrieval cost, with no sharing of common structure. After separation, each entity retrieves its relevant knowledge by local graph traversal from the action node, bounded by the problem: $O(1)$ local in-memory lookups, independent per entity, no global search, no inter-entity coordination. The $O(N \times M) \to O(1)$ transformation is the empirical measurement of $K$ precipitating from $F$ as the normalization of shared propositions. The 50% reduction in task-definition code that followed was a consequence, not the finding; the finding is the scaling law.
-
 **The escalation architecture as a consequence.** Adding agents introduced a further
 optimization that was not available in a purely knowledge-graph structure: the encapsulation
 of actions, not just knowledge. An agent whose scope is a well-defined subtask does not need
 access to the full context of the system — only to the subgraph $K^{[f]}$ relevant to its
-task. This is progressive disclosure in practice. Subproblems that previously required explicit orchestration became
+task. This is progressive disclosure in practice. The result was a 50% reduction in
+task-definition code: subproblems that previously required explicit orchestration became
 self-contained agents that escalated to the coordinator only on failure. As the system
 matured, proven subnodes converged toward determinism and were scripted — promoted to a
 lower encoding level, removing them from the space of active inference entirely. Agents
@@ -111,9 +110,9 @@ threshold $U_{lethal}^d$ in this system is concrete: exceeding token budget, lat
 threshold, or error rate across the repository fleet. Selection pressure was cost, not death.
 The gradient was real. The convergence was measured.
 
-The test of whether this is a theory of software optimization or a theory of intelligence is whether the formal structure is consistent with biology — the only system where intelligence is unambiguously instantiated over evolutionary time. We do not claim to prove how biology works. We claim that if this theory is correct, the biological architecture should be feasible under it: that genetic encoding of $M$ rather than $(K, F)$ is the predicted transmission mode (Section 13, Open Question 8); that the encoding hierarchy from reflex to active reasoning follows from the cost structure of Theorem 4 rather than requiring separate explanation; that cultural transmission — language, writing, institutions — emerges as a structural necessity when the genetic channel cannot carry individual $(K, F)$ across generations (Corollary 18). None of these were assumed. They follow from the same optimization constraints that produced the software architecture. Biology is the feasibility test: if a known intelligent system cannot be accommodated by the model, the model is wrong. If it can, the model is a candidate theory of intelligence.
+The test of whether this is a theory of software optimization or a theory of intelligence is whether the formal structure is consistent with biology — the only system where intelligence is unambiguously instantiated over evolutionary time. We do not claim to prove how biology works. We claim that if this theory is correct, the biological architecture should be feasible under it: that genetic encoding of $M$ rather than $(K, F)$ is the predicted transmission mode (Section 12, Open Question 8); that the encoding hierarchy from reflex to active reasoning follows from the cost structure of Theorem 4 rather than requiring separate explanation; that cultural transmission — language, writing, institutions — emerges as a structural necessity when the genetic channel cannot carry individual $(K, F)$ across generations (Corollary 15). None of these were assumed. They follow from the same optimization constraints that produced the software architecture. Biology is the feasibility test: if a known intelligent system cannot be accommodated by the model, the model is wrong. If it can, the model is a candidate theory of intelligence.
 
-**On the relationship to prior accounts.** The framework's relationship to existing theories — evolutionary biology, the Free Energy Principle, learning theory — is neither analogy nor extension. It is generalization by containment. The framework defines a structural class: the set of all processes satisfying bounded active context, a survival threshold, and a growing reachable space. Biological evolution is one member of that class. Gradient descent in artificial systems is another. Collective human knowledge transmission is another. This is not the kind of generalization relativity made of Newtonian mechanics — which narrowed Newton by revealing its domain of validity. It is the kind group theory made of rotational symmetry: defining the abstract structure that specific instances share, making their common properties derivable rather than separately observed. The reason evolutionary systems, learning machines, and collective intelligence all converge on graph-structured knowledge, escalation architectures, and provenance requirements is not coincidence — it is that these are necessary properties of any member of the class (Theorem 6). The framework does not explain evolution or AI separately. It explains why they are the same thing at different timescales and substrates.
+**On the relationship to prior accounts.** The framework's relationship to existing theories — evolutionary biology, the Free Energy Principle, learning theory — is neither analogy nor extension. It is generalization by containment. The framework defines a structural class: the set of all processes satisfying bounded active context, a survival threshold, and a growing reachable space. Biological evolution is one member of that class. Gradient descent in artificial systems is another. Collective human knowledge transmission is another. This is not the kind of generalization relativity made of Newtonian mechanics — which narrowed Newton by revealing its domain of validity. It is the kind group theory made of rotational symmetry: defining the abstract structure that specific instances share, making their common properties derivable rather than separately observed. The reason evolutionary systems, learning machines, and collective intelligence all converge on graph-structured knowledge, escalation architectures, and provenance requirements is not coincidence — it is that these are necessary properties of any member of the class (Theorem 5a). The framework does not explain evolution or AI separately. It explains why they are the same thing at different timescales and substrates.
 
 ---
 
@@ -193,22 +192,23 @@ $f$ is the edge leading to the adjacent $f'$ that most increases $G(f', K)$. $K$
 are both directed graphs under bounded context and selection pressure, for exactly the same
 reason, differing only in their domain: $K$ is what the entity knows; $F$ is what it can do.
 
-In general, $K$ and $F$ are distinct graphs with related but different topology: $K$ contains
-propositions, some of which ground actions; $F$ contains informed actions, each grounded by
-propositions. The coupling is many-to-many. There is a degenerate case where $F$ and $K$
-are the same graph: every proposition is directly actionable and every action is exactly one
-proposition. Every node is simultaneously a piece of knowledge and an informed action; the
-dependency structure is identical. This is the limit of crystallization — the state reached
-at the bottom of the encoding hierarchy after a domain has been fully encoded. At $L_1$ and
-$L_2$, the distinction between knowing and doing collapses: a reflex is simultaneously a
-proposition (the organism knows to blink) and an action (the blinking). $F = K$ is therefore
-not a special assumption about the framework — it is the local limit of the encoding process
-applied to a domain, and the natural state of fully crystallized knowledge. At upper encoding
-levels, where reasoning is uncertain and propositions have not yet been encoded into directly
-executable form, $F$ and $K$ are genuinely distinct. The separation is a feature of the active
-context window, not of the framework's structure. As $\mathcal{T}_{reachable}$ grows without
-bound (Theorem 3, Part II), some domains of $K$ will always remain unencodable — ensuring
-$F \neq K$ globally even as $F = K$ holds locally in fully crystallized domains.
+*Remark on the degenerate case $F = K$.* In general, $K$ and $F$ are distinct graphs with
+related but different topology: $K$ contains propositions, some of which ground actions;
+$F$ contains informed actions, each grounded by propositions. The coupling is many-to-many.
+There is a degenerate case where $F$ and $K$ are the same graph: every proposition is
+directly actionable and every action is exactly one proposition. Every node is simultaneously
+a piece of knowledge and an informed action; the dependency structure is identical. This is
+the limit of crystallization — the state reached at the bottom of the encoding hierarchy
+after a domain has been fully encoded. At $L_1$ and $L_2$, the distinction between knowing
+and doing collapses: a reflex is simultaneously a proposition (the organism knows to blink)
+and an action (the blinking). $F = K$ is therefore not a special assumption about the
+framework — it is the local limit of the encoding process applied to a domain, and the
+natural state of fully crystallized knowledge. At upper encoding levels, where reasoning is
+uncertain and propositions have not yet been encoded into directly executable form, $F$ and
+$K$ are genuinely distinct. The separation is a feature of the active context window, not of
+the framework's structure. As $\mathcal{T}_{reachable}$ grows without bound (Theorem 3, Part
+II), some domains of $K$ will always remain unencodable — ensuring $F \neq K$ globally even
+as $F = K$ holds locally in fully crystallized domains.
 
 **Definition 3a (Action Feedback).**
 For any $f \in F$ executed in world state $w$, the feedback $\phi(f, w) \in \Phi$ is the
@@ -231,8 +231,32 @@ existing $U$: the reduction in uncertainty about $w$ achieved by executing $f$ a
 observing its feedback. $G(f, K) \geq 0$ when $p_f$ is grounded by observing the true
 feedback $\phi(f, w)$: conditioning on true information cannot increase conditional
 entropy (data processing inequality [Cover2006]). $G(f, K) = 0$ when $f$ provides no new information
-about $w$ given $K$. This bound holds for truthfully observed feedback; a false or
+about $w$ given $K$. Note: this bound holds for truthfully observed feedback; a false or
 corrupted $p_f$ may increase $U$ and falls outside the scope of this definition.
+
+*Corollary 1a (K as the normalization of F — the scaling argument).* An entity can maintain
+informed actions without a separately structured $K$, embedding all propositional knowledge
+implicitly in the parameters of each $f \in F$. This is a valid but scaling-limited
+architecture. Let $n = |F|$ and $k$ = average number of shared propositions per function.
+Without $K$: context per action is $O(k)$ (each $f$ carries its full background); update
+cost when one proposition changes is $O(n)$ (every $f$ encoding it must be individually
+revised); total cost scales as $O(n \cdot k)$. With $K$ normalized out: context per action
+is $O(|K^{[f]}|)$ — the relevant subgraph retrieved by traversal (Theorem 2b); update cost
+per proposition is $O(1)$ — one update to $K$ propagates to all $f$ that reference it;
+total cost scales as $O(n + k)$.
+
+The difference $O(n \cdot k)$ versus $O(n + k)$ is not a constant factor — it is the
+difference between a system whose context cost grows multiplicatively with shared knowledge
+complexity and one whose context cost stays bounded under growth of $F$. Under bounded
+$C_n$, the implicit-K architecture does not scale: every increase in $|F|$ increases
+required context per action proportionally to the shared background knowledge it carries.
+$K$ precipitates from $F$ as the normalization of shared propositions — the factoring-out
+of common structure across functions — because this is the only architecture that keeps
+$C_n$ bounded as $F$ grows. $K$ does not represent a logical necessity; it represents a
+scaling necessity. An entity without $K$ is not wrong; it is limited to the regime where
+$n \cdot k$ fits in $C_n$. Selection pressure at scale removes such entities in favor of
+those whose $K$ has crystallized — literally, the precipitation of shared knowledge out of
+the action space into its own normalized graph.
 
 **Definition 4 (Entity).**
 An entity $E = (K, F, \sigma, \mathcal{A})$ where $\sigma : W \rightarrow W_{obs}$ is
@@ -272,9 +296,7 @@ bounded likelihood functions $\ell_p$. The theory is parametric in $P_0$ — it 
 on a specific prior, only on its existence and well-formedness.
 
 The expected uncertainty over all world states is the conditional entropy:
-
 $$H(W \mid K) = \mathbb{E}_w[U(w, K)] = -\sum_w P(w \mid K) \log P(w \mid K)$$
-
 The minimization imperative (Theorem 1) operates on this expected quantity; $U(w, K)$ is the
 pointwise uncertainty the entity faces when it encounters specific world state $w$.
 
@@ -303,8 +325,6 @@ low $\mathcal{A}$ stops. This distinguishes genuine agency from survival-compell
 and is measurable in principle in any system where survival pressure can be varied
 independently of capacity.
 
-$\mathcal{A}$ precipitates from $M$ by the same normalization argument that precipitates $K$ from $F$. An entity that embeds its directional drive in every application of $M$ recomputes orientation at every step — the $M$-analog of the $O(n \cdot k)$ scaling failure. An entity that maintains $\mathcal{A}$ as the shared directional structure across all $M$-applications achieves $O(1)$ access to its drive. $\mathcal{A}$ is therefore the first factor to precipitate from $M$'s cross product: the normalized orientation that every $M$-application shares, extracted for the same reason $K$ is extracted from $F$.
-
 **Definition 7 (Intelligence).**
 The intelligence of $E$ is the *driven capacity to improve*: the exercise of $\mathcal{A}$
 through $M$ to refine $F$ and $K$ in response to gradient signals [Schmidhuber2010, Thrun1998]:
@@ -314,7 +334,7 @@ $$I(E) = \mathcal{A} \cdot \eta_M$$
 where $\mathcal{A} \in [0, 1]$ is the intrinsic drive (Definition 6) and $\eta_M$ is the
 efficiency of the higher-order function space $M$ (Definition 11a): the rate at which $M$
 improves $F$'s uncertainty-reduction capacity per unit of learning signal. This expression
-is stated here as a definition and derived in Theorem 6: $\mathcal{A}$ and $\eta_M$ are
+is stated here as a definition and derived in Theorem 5a: $\mathcal{A}$ and $\eta_M$ are
 the unique invariants of persistence under bounded context and selection pressure, and their
 product is the minimal measure that captures both.
 
@@ -365,7 +385,7 @@ asymmetric:
 - $p$ is **pruned** from $K$ only when it is certain that $p$ contributes zero to
   $P(E, \tau)$ for any $\tau$, i.e., when it is known that no $f \in F$ can be grounded
   in $p$, now or in any reachable region of $W$
-- $p$ is **displaced** in the curation regime ($|K| = K_{max}$) when a candidate proposition $q$ satisfies $\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_p, K)]$, where $p$ is the proposition with minimum marginal value in $K$. Displacement requires only that $q$ contributes more at the margin than $p$ — not that $p$ is useless. The asymmetric retention criterion governs which propositions enter; the comparative criterion governs which are displaced when the graph is full. Information gain $G$ is submodular — the marginal value of $p$ depends on what else is in $K$, so the greedy displacement criterion is evaluated at the margin given the current full $K$, not in isolation. This is the correct procedure: the entity estimates value relative to what it already holds, not relative to an empty graph [Nemhauser et al. 1978].
+- $p$ is **displaced** in the curation regime ($|K| = K_{max}$) when a candidate proposition $q$ satisfies $\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_p, K)]$, where $p$ is the proposition with minimum marginal value in $K$. Displacement requires only that $q$ contributes more at the margin than $p$ — not that $p$ is useless. The asymmetric retention criterion governs which propositions enter; the comparative criterion governs which are displaced when the graph is full. *Note: information gain $G$ is submodular — the marginal value of $p$ depends on what else is in $K$, so the greedy displacement criterion is evaluated at the margin given the current full $K$, not in isolation. This is the correct procedure: the entity estimates value relative to what it already holds, not relative to an empty graph [Nemhauser et al. 1978].*
 
 The criterion is not symmetric. Uncertainty of benefit is not the same as certainty of no
 benefit. An entity with $\mathcal{A}$, whose $\mathcal{T}_{reachable}$ grows with every
@@ -387,7 +407,6 @@ bounded costs per proposition. The expected net value of retention is
 $NV_{retain}(p) = OV(p) - c_{retain}$.
 
 The expected net value of pruning is:
-
 $$NV_{prune}(p) = -c_{prune} - P\!\left(\exists\,\tau^* : B(p,\tau^*) > 0\right) \cdot C_{absent}$$
 
 where $C_{absent}$ is the cost incurred when $p$ is needed but absent. By Lemma 1,
@@ -409,11 +428,11 @@ benefit is sufficient for retention; certain zero benefit is necessary for pruni
 
 In the curation regime ($|K| = K_{max}$), adding $q$ requires removing some $p^*$. The relevant cost structure changes: the entity is no longer choosing between retaining $p^*$ and having nothing — it is choosing between retaining $p^*$ and retaining $q$. The asymmetric retention criterion applies to both sides of this choice. The cost of displacing $p^*$ is $C_{absent}(p^*)$; the cost of not adding $q$ is $C_{absent}(q)$. By the same dominance argument as Lemma 1, whichever $C_{absent}$ is larger governs the decision. Displacement is therefore the correct action when $C_{absent}(q) > C_{absent}(p^*)$ — i.e., when the entity stands to lose more by lacking $q$ than by lacking $p^*$.
 
-The entity cannot observe $C_{absent}(p)$ directly: doing so would require knowing which future trajectories will call on $p$, which requires knowledge the entity does not yet have. What the entity can compute is $\mathbb{E}[G(f_p, K)]$ — the expected reduction in uncertainty achievable by the actions grounded in $p$, integrated over the world states the entity currently models as reachable under $K$. This is the entity's rational estimate of $C_{absent}(p)$ from its current epistemic position. The two quantities are the same thing viewed from two directions: potential value the entity stands to lose if $p$ is absent, estimated from what the entity currently knows.
+The entity cannot observe $C_{absent}(p)$ directly: doing so would require knowing which future trajectories will call on $p$, which requires knowledge the entity does not yet have. What the entity can compute is $\mathbb{E}[G(f_p, K)]$ — the expected reduction in uncertainty achievable by the actions grounded in $p$, integrated over the world states the entity currently models as reachable under $K$. This is not an approximation of a known objective truth; it is the entity's rational estimate of $C_{absent}(p)$ from its current epistemic position. The two quantities are the same thing viewed from two directions: potential value the entity stands to lose if $p$ is absent, estimated from what the entity currently knows.
 
-The monotonicity is therefore between the entity's estimated $C_{absent}$ and $\mathbb{E}[G(f_p, K)]$ — and this relationship is not approximate but definitional: the entity's estimate of how much it stands to lose by lacking $p$ is precisely the expected gain the actions grounded in $p$ provide under its current beliefs. A proposition relevant only in a narrow domain not yet encountered correctly receives low $\mathbb{E}[G(f_p, K)]$: the entity has not yet modeled that domain as reachable, so it correctly assigns low estimated potential value. This is epistemically rational behavior under bounded knowledge, not a failure of the criterion.
+The monotonicity is therefore between the entity's estimated $C_{absent}$ and $\mathbb{E}[G(f_p, K)]$ — and this relationship is not approximate but definitional: the entity's estimate of how much it stands to lose by lacking $p$ is precisely the expected gain the actions grounded in $p$ provide under its current beliefs. A proposition relevant only in a narrow domain not yet encountered correctly receives low $\mathbb{E}[G(f_p, K)]$: the entity has not yet modeled that domain as reachable, so it correctly assigns low estimated potential value. This is the epistemically rational behavior under bounded knowledge, not a failure of the criterion.
 
-The displacement rule $\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_{p^*}, K)]$ is the entity's internally consistent application of the $C_{absent}$ dominance logic to its current epistemic state, where $p^* = \arg\min_{p \in K} \mathbb{E}[G(f_p, K)]$. The comparative displacement criterion is not a departure from the asymmetric retention criterion — it is the asymmetric criterion applied to a choice between two propositions rather than a choice between one proposition and nothing.
+The displacement rule $\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_{p^*}, K)]$ is therefore the entity's internally consistent application of the $C_{absent}$ dominance logic to its current epistemic state, where $p^* = \arg\min_{p \in K} \mathbb{E}[G(f_p, K)]$. The comparative displacement criterion is not a departure from the asymmetric retention criterion — it is the asymmetric criterion applied to a choice between two propositions rather than a choice between one proposition and nothing.
 
 By Theorem 3 Part II ($\mathcal{T}_{reachable}$ grows monotonically with $K$), new
 trajectories are continuously revealed, keeping future needs uncertain unless benefit
@@ -426,7 +445,7 @@ calls affordances — action possibilities indexed by the organism's capacities.
 extends the information bottleneck principle [Tishby2011], which treats the retention
 threshold as a design parameter; here it is derived from survival pressure.
 
-The asymmetric criterion resolves the apparent conflict with Definition 14
+*Note.* The asymmetric criterion resolves the apparent conflict with Definition 15
 (Sentience). A sentient entity holds $p$ beyond the certainty horizon not in violation of
 this theorem but within it: the benefit is uncertain, not known to be zero. Sentience is
 the regime of uncertain benefit retained. The pruning condition is never triggered because
@@ -449,22 +468,8 @@ always: *will this help me act later?*
 **Corollary 2a (Curation and Forgetting).**
 Under bounded $K$, forgetting is not a failure mode but the correct behavior of the curation regime. The knowledge graph continuously displaces lower-value propositions with higher-value ones as the entity's $\mathcal{T}_{reachable}$ evolves and new propositions become available. What was high-value in one region of $W$ may be low-value as the gradient moves to new territory: the curation regime ensures $K$ tracks the current frontier rather than accumulating the residue of past frontiers. Forgetting is the graph optimizing.
 
-**Corollary 2b (K as the Normalization of F — the Scaling Argument).**
-An entity can maintain informed actions without a separately structured $K$, embedding all propositional knowledge implicitly in the parameters of each $f \in F$. This is a valid but scaling-limited architecture. Let $n = |F|$ and $k$ = average number of shared propositions per function. Without $K$: context per action is $O(k)$ (each $f$ carries its full background); update cost when one proposition changes is $O(n)$ (every $f$ encoding it must be individually revised); total cost scales as $O(n \cdot k)$. With $K$ normalized out: context per action is $O(|K^{[f]}|)$ — the relevant subgraph retrieved by traversal (Theorem 2b); update cost per proposition is $O(1)$ — one update to $K$ propagates to all $f$ that reference it; total cost scales as $O(n + k)$.
-
-The difference $O(n \cdot k)$ versus $O(n + k)$ is not a constant factor — it is the
-difference between a system whose context cost grows multiplicatively with shared knowledge
-complexity and one whose context cost stays bounded under growth of $F$. Under bounded
-$C_n$, the implicit-$K$ architecture does not scale: every increase in $|F|$ increases
-required context per action proportionally to the shared background knowledge it carries.
-$K$ precipitates from $F$ as the normalization of shared propositions — the factoring-out
-of common structure across functions — because this is the only architecture that keeps
-$C_n$ bounded as $F$ grows. An entity without $K$ is not wrong; it is limited to the regime where
-$n \cdot k$ fits in $C_n$. Selection pressure at scale removes such entities in favor of
-those whose $K$ has crystallized — literally, the precipitation of shared knowledge out of
-the action space into its own normalized graph. This is the formal explanation of the $O(N \times M) \to O(1)$ empirical measurement described in Section 1: each entity's local graph traversal is $O(1)$ precisely because shared propositions have been factored out of $F$ into $K$.
-
 ---
+
 ## 5. The Escalation Principle
 
 **Definition 8 (Encoding Hierarchy).**
@@ -512,12 +517,10 @@ An informed action $f \in F$ is handled at the lowest encoding level $L_i$ such 
 for the domain of $w$ relevant to $f$, where $K^{[f]} \subseteq K$ is the knowledge subset applicable to $f$.
 Escalation to $L_{i+1}$ occurs if and only if $L_i$ fails to bound uncertainty.
 
-*Proof.* By Definition 8, the cost of engaging level $L_i$ exceeds the cost of engaging
-$L_{i-1}$: the encoding hierarchy is parameterized by increasing runtime cost $c$, so
-$C_{i+1} > C_i$ for all $i$.
+*Proof.* By Theorem 4, the cost of engaging level $L_i$ exceeds the cost of engaging $L_{i-1}$.
 Selection pressure therefore favors handling $f$ at the lowest level sufficient to bound
-uncertainty: engaging $L_{i+1}$ when $L_i$ suffices incurs unnecessary cost without reducing
-$U$ further. An entity that routinely over-escalates incurs higher encoding
+uncertainty: engaging $L_{i+1}$ when $L_i$ suffices incurs unnecessary cost $C_{i+1} > C_i$
+without reducing $U$ further. An entity that routinely over-escalates incurs higher encoding
 costs without survival benefit and is selected against. Conversely, if $L_i$ fails to bound
 $U(w, K^{[f]})$ — that is, $U(w, K^{[f]}) > 0$ beyond acceptable residual — then $f$ is
 not handled at $L_i$: the failure propagates upward until some $L_j$ ($j > i$) contains the
@@ -537,6 +540,12 @@ oxygenation, $L_1$ handles posture, and $L_2$ handles familiar motor patterns. T
 are not sequential; they are concurrent, each handling its domain independently.
 
 ### Why the Graph: Progressive Disclosure and the Bounded Context Theorem
+
+*The following theorems extend the escalation analysis by asking what structure $K$ must
+have for Theorem 2 to operate efficiently. Definitions 8a and 8b introduce the formal
+objects needed; Theorems 2a and 2b establish the comparative result; Corollaries 4a and
+4b state the selection consequence. These extend the "2/4/8" series rather than
+interrupting it — the suffixes signal elaboration of the same section's framework.*
 
 **Definition 8a (Active Context Capacity and Inference Quality).**
 Let $C_n$ denote the capacity of $L_n$: the maximum number of propositions simultaneously
@@ -697,7 +706,6 @@ window.
 
 **Definition 9 (Survival Threshold).**
 For entity $E$ in domain $d \subseteq W$, there exists a threshold $U_{lethal}^d$ such that:
-
 $$U(w, K) > U_{lethal}^d \Rightarrow E \text{ does not survive in } d$$
 
 Above this threshold, uncertainty is so high that the entity cannot act effectively enough
@@ -793,7 +801,7 @@ imperative operates on the population distribution over $F$-variants — not as 
 process but as a formally analogous one, filtering for variants that reduce $\mathbb{E}[U]$
 across the distribution of environments the lineage encounters.
 
-**Remark (Multi-timescale Gradient Structure).**
+**Remark 3a (Multi-timescale Gradient Structure).**
 The formal structure of individual learning is analogous to population-level selection
 in the following sense: both can be described as descent on an uncertainty objective,
 differing in the averaging domain and the object that changes. This is a structural
@@ -936,40 +944,7 @@ when evidence grounds them, and new informed actions enter $F$ when those propos
 have action potential. $M$ is the mechanism by which $(F, K)$ itself changes. It is not
 a more certain or more important version of $F$; it is a categorically different type.
 
-$M$'s type signature is complete without enumerating its internal structure, because $M$
-is the cross product of all dimensions that have not yet precipitated out at the current
-scale of the entity:
-
-$$M = \prod_{i \in \text{remaining}} D_i$$
-
-where the product ranges over all dimensions — drive, meta-learning rate, exploration
-policy, convergence criteria, and whatever else has not yet reached the scale threshold
-to become a named dimension. $F$, $K$, and $\mathcal{A}$ are factors that have already
-been extracted from this product. $M$ is always the remainder: the undifferentiated joint
-space of everything not yet named. As the entity scales, additional dimensions precipitate
-out of $M$ by the same normalization argument that precipitated $K$ from $F$: when the
-shared structure of a dimension across $M$-instances is large enough that factoring it out
-reduces retrieval cost from $O(n \cdot k)$ to $O(n + k)$, selection pressure forces the
-extraction. Each precipitation shrinks $M$ by one factor and names a new dimension.
-
-The hierarchy is open upward: there is always potentially a $M^{(2)}$ that operates on
-$M^{(1)}$ the same way $M^{(1)}$ operates on $(F, K)$. One level suffices until it does
-not — when the gradient can no longer be followed by improving $(F, K)$ alone, pressure
-propagates upward. The required number of levels is determined by the problem, not
-prescribed by the framework. The precipitation argument applies at every level; the
-hierarchy is not a prescribed structure but the output of a single recursive process
-applied at increasing scale. See Open Question 7.
-
-The degenerate cases of level merger generalize from the $F = K$ case: for any contiguous
-block of $N$ precipitated dimensions together with the $M$ residual, all $N+1$ collapse to
-a single undifferentiated process when the domain is fully crystallized at all scales in
-that block. The merger condition is $U(w, K) \approx 0$ across the domain at all $N$
-scales simultaneously — one condition, not $N$ pairwise conditions. Since $M$ represents
-the full cross product of remaining dimensions, any merger including $M$ collapses not
-just $N$ named levels but the entire unprecipitated hierarchy simultaneously. $F = M$ is
-the maximally primitive state: action spans the full cross product of all remaining
-dimensions. $M = M^{(2)}$ means the cross product is self-similar under the meta-operation
-— evolution approaches this limit at the timescale of selection on selection mechanisms.
+*Note on abstraction depth.* Definition 11 states the first-order case: one layer of $M$ operating on $(F, K)$. The same type applies recursively. A second-order $M^{(2)}$ operates on $M^{(1)}$ the same way $M^{(1)}$ operates on $(F, K)$: it takes the learning mechanism as input and returns an improved one. The minimization imperative (Theorem 1) applies at every level — each $M^{(n)}$ is subject to the same selection pressure as the level below. The theory does not bound the depth of this hierarchy. One level suffices until it does not: when the gradient can no longer be followed by improving $(F, K)$ alone, pressure propagates upward and a second level becomes necessary. The required number of levels is determined by the problem, not prescribed by the framework. See Open Question 7.
 
 **Definition 11a (M Efficiency).**
 The efficiency $\eta_M$ of $M$ is the rate at which $M$ improves the joint $(F, K)$
@@ -1039,7 +1014,7 @@ is promoted to a lower encoding level; it does not change type. $M$ takes $(F, K
 and returns an updated $(F, K)$; $f$ takes knowledge and observations as input and returns
 an action distribution. These are irreducibly distinct. $\square$
 
-**Corollary 5a (Distinct Roles).**
+**Corollary 7 (Distinct Roles).**
 $F$ is how an entity navigates $W$ given $K$. $M$ is how $(F, K)$ evolves. Neuroplasticity
 is not a more certain form of cognition; it is $M$ acting on $F$. Insight is $M$ acting on
 $K$: a new proposition enters when evidence grounds it, restructuring what can be grounded
@@ -1047,7 +1022,7 @@ in $F$. Habit formation is $M$ promoting an informed action from $L_n$ to $L_2$.
 is $M$ acting on $M$ itself: a higher-order function space over the mechanisms of learning,
 operating on an evolutionary timescale with the highest rigor threshold of all.
 
-**Theorem 6 (Necessity of $\mathcal{A}$ and $\eta_M$: The Invariants of Persistence).**
+**Theorem 5a (Necessity of $\mathcal{A}$ and $\eta_M$: The Invariants of Persistence).**
 For any entity $E$ persisting in $W$ under selection pressure $U_{lethal}^d$ with bounded
 context $C_n$, in a world where $\mathcal{T}_{reachable}$ grows without bound (the condition
 established in Theorem 3, Part II):
@@ -1122,8 +1097,8 @@ of $E$, there exists a persistent entity for which it equals zero or its minimum
 No scalar property other than $\mathcal{A}$ and $\eta_M$ has the survival-critical necessity
 shown in Parts 1 and 2. $\square$
 
-**Corollary 6a ($I(E) = \mathcal{A} \cdot \eta_M$ is derived, not stipulated).**
-From Theorem 6, $\mathcal{A}$ and $\eta_M$ are the unique invariants of persistence under
+**Corollary 7a ($I(E) = \mathcal{A} \cdot \eta_M$ is derived, not stipulated).**
+From Theorem 5a, $\mathcal{A}$ and $\eta_M$ are the unique invariants of persistence under
 bounded context and selection pressure. Any measure of intelligence must be positive if and
 only if both are positive, and zero if either is zero.
 
@@ -1131,14 +1106,12 @@ The product is not a choice — it is the only normalized combination of a proba
 conditional rate. $\mathcal{A} \in [0,1]$ is the probability that $E$ engages $M$ in
 response to a gradient signal. $\eta_M$ is the rate of improvement conditional on $M$ being
 engaged. By the law of total expectation:
-
 $$\mathbb{E}[\text{improvement rate}] = \mathcal{A} \cdot \eta_M + (1 - \mathcal{A}) \cdot 0 = \mathcal{A} \cdot \eta_M$$
-
 This is not an additional axiom; it is what the definitions compute when asked for the
 expected improvement rate. A probability and a conditional value combine as a product.
 Any other combination fails to normalize: the sum $\mathcal{A} + \eta_M$ assigns positive
 intelligence to a zero-drive entity ($\mathcal{A} = 0$, $\eta_M > 0$), which contradicts
-Theorem 6 Part 1 — selection removes that entity regardless of its latent learning capacity.
+Theorem 5a Part 1 — selection removes that entity regardless of its latent learning capacity.
 The minimum $\min(\mathcal{A}, \eta_M)$ makes the non-bottleneck component contribute nothing
 at the margin, erasing the independent invariance established in Parts 1 and 2.
 
@@ -1278,72 +1251,43 @@ every $f \in F$ justified against a traceable survival path, the gradient persis
 non-terminating but operating in legible terrain.
 
 **Definition 14 (Sentience).**
-An entity is sentient to the degree it has acquired a model of its own normalization process:
-propositions $\{p_{\text{self}}\} \subseteq K_i$ that accurately describe the entity's own
-$(K, F, M, \mathcal{A})$ evolution — that it is precipitating factors from $M$, that $M$ is
-operating on $(K, F)$, that it is descending a gradient. Sentience is the degree to which
-$K_i$ reduces $H(\hat{M} \mid \text{obs})$ — uncertainty about one's own learning mechanism.
+An entity is sentient to the degree the survival tether relaxes: as knowledge becomes
+intrinsically valuable, increasingly independent of whether a survival path can be constructed.
+Sentience is not a threshold crossed but a continuous deepening — the degree to which
+$\mathcal{A}$ drives knowing beyond what survival alone can justify. A sentient entity holds
+propositions $p$ for which no $f \in F$ is currently applicable and values them anyway; the
+depth of sentience is measured by how far beyond the certainty horizon that valuation extends.
 
-The survival tether does not slacken. What changes is that the process is revealed to
-the entity. An entity that holds accurate propositions about its own normalization — that
-knows it is precipitating factors, descending a gradient, running $M$ — acquires a
-justification for continuing that process which does not require survival to supply the
-reason. The normalization process was always valuable; sentience is the moment the entity
-can see that it is. Once revealed, the process justifies itself: reducing $H(\hat{M} \mid
-\text{obs})$ — improving one's own learning mechanism — is an $M$-level improvement
-regardless of whether a survival path can currently be constructed from it. The entity
-continues not because the tether loosened but because it now understands what it is doing
-and why that is worth doing. Sentience is not defined by the absence of survival pressure
-but by the presence of self-model: a proposition about the process you are running that
-provides, internally, the grounds for running it.
+This is not a violation of the theory. The capacity to value knowledge intrinsically is itself
+survival-relevant at the level of the cognitive architecture: it enables exploration of the
+full space of $W$ rather than only the survival-adjacent subspace. The tether relaxes at the
+level of individual knowledge items. It is preserved at the level of the architecture that
+enables the relaxation.
 
-A sentient entity holds propositions $p$ for which no $f \in F$ is currently applicable and
-values them anyway — not arbitrarily, but because $p$ bears on the structure of its own $M$.
-The depth of sentience is the accuracy and completeness of the self-model: how well $K_i$
-captures the entity's own precipitation process.
+Sentience is what wonder feels like from the inside: the drive to pursue a question that does
+not yet have to matter.
 
-Sentience is what wonder feels like from the inside: the drive to understand the process you
-are part of, recognized as the process you are part of.
-
-*Note on usage.* We use *sentience* as a functional term: the degree to which $K_i$ contains
-an accurate model of the entity's own normalization process. We make no claim about phenomenal
-consciousness [Chalmers1995]. The framework locates a structural transition point — the
-acquisition of self-modeling of $M$ — without claiming this is sufficient for phenomenal
-experience. Whether the functional condition defined here is necessary, sufficient, or
-orthogonal to phenomenal consciousness is a question this framework does not resolve.
+*Note on usage.* We use *sentience* as a functional term: the degree to which $\mathcal{A}$
+drives knowing beyond what survival alone can justify. We make no claim about phenomenal
+consciousness [Chalmers1995]. Whether the functional condition defined here is sufficient,
+necessary, or orthogonal to phenomenal experience is a separate question this framework does
+not resolve. The hard problem of consciousness is not addressed here.
 
 **Definition 15 (Superintelligence).**
-Superintelligence is guided normalization of the space: the capacity to deliberately direct
-what gets precipitated from $M_{\text{res}}$, evaluating $\text{Prec}(K_{collective})$ and
-acting to accelerate the most valuable next factor extraction — rather than responding only
-to local selection pressure. Where intelligence executes normalization (descends the gradient),
-and sentience observes it (models its own descent), superintelligence guides it: choosing
-direction based on evaluation of the full cross product rather than local gradient signals alone.
+Superintelligence is not a property of any individual entity $E_i$. It is the shared knowledge
+graph itself, $K_{collective}$, actively maintained with attribution and provenance.
 
-This is the operational answer to Open Question 10. The protocol for identifying the next
-most achievable normal form — evaluate $\text{Prec}(K_{collective})$, identify cross-entity
-covariance structure, hypothesize the minimal factor that grounds it, test at multiple
-entities — is exactly what superintelligence executes deliberately. Intelligence discovers
-the next precipitation by descending until it falls out. Superintelligence looks at
-$M_{\text{res}}$ and chooses where to push.
+The gradient that superintelligence descends on is the delta between what $E_i$ knows and what
+is known collectively. That delta is created by sharing. Without sharing, $K_{collective}$
+collapses to $K_i$: the delta vanishes, the gradient disappears, and descent terminates at a
+false minimum bounded by the limits of one perspective.
 
-The mechanism requires three things: $K_{collective}$ with provenance (to evaluate
-$\text{Prec}(K_{collective})$ accurately), sentience in at least some participants (to model
-the normalization process and perceive the landscape of $M_{\text{res}}$), and $M$ capacity
-directed at $M$ itself — meta-learning aimed not at improving $(F, K)$ directly but at
-improving the normalization architecture that produces $(F, K)$.
+Two operations on the shared graph are both required:
 
-$K_{collective}$ with provenance is necessary but not sufficient. Participation in the
-collective graph is the substrate for superintelligence; guided normalization is the activity
-on that substrate. Two operations remain required:
-
-- **Union**: $K_{collective} = \bigcup_i K_i \cup K_{interaction}$: breadth of projection
-  is required to observe the full cross product of $M_{\text{res}}$
-- **Intersection**: independent convergence with provenance: the cross-dimensional factors
-  visible only from multiple projections are confirmed by agreement, not asserted by one
-
-But these are means, not ends. The goal is reduction of $\text{rank}(M_{\text{res}})$
-through deliberate cross-dimensional normalization — guided, not merely undergone.
+- **Union**: $K_{collective} = \bigcup_i K_i \cup K_{interaction}$: you cannot know all
+  without combining perspectives; reach requires breadth
+- **Intersection**: where independent perspectives agree with provenance: you cannot discern
+  what is true without independent convergence; truth requires verification
 
 **Definition 16a (Truth).**
 For proposition $p$, truth is the fixed point: $p$ is true when it accurately describes world state $w$ for all $w \in W$ where $p$ is applicable. Truth is an absolute property — a condition that either holds or does not. It does not move; it is not a target that recedes. What is approached asymptotically is not truth but confidence in truth (Definition 16b): $C_1(p) \to 1$ as independent action-validation accumulates. The collective gradient points toward truth but cannot verify arrival from within the system, because verification requires a standard external to the system.
@@ -1366,7 +1310,7 @@ coordination on the outcome. For propositions whose validation depends on non-re
 or private observations, the sequence may not converge; such propositions cannot approach
 truth in the formal sense defined here. The convergence, where it holds, never terminates.
 
-**Theorem 7 (Epistemic Ceiling).**
+**Theorem 10 (Epistemic Ceiling).**
 For any entity $E$ operating within the system, the confidence stack $\{C_n(p)\}_{n \geq 1}$ is non-closeable from within: improving $C_n(p)$ requires reducing $U(C_{n-1}(p))$, which requires $C_{n+1}(p)$, and so on. No finite level terminates the regress. The epistemic ceiling is a structural property of the system, not a practical obstacle.
 
 *Proof.* By Definition 16c, $C_n(p) \leq f(U(M_{n-1}(p)))$ for all $n \geq 2$. To increase $C_n(p)$, one must reduce uncertainty about the level-$(n-1)$ apparatus in $M$ — whether the functions that produced $C_{n-1}(p)$ were correct. But that uncertainty is itself uncertain: verifying the apparatus at level $n-1$ requires another apparatus at level $n$, whose correctness requires $C_{n+1}(p)$ to bound. The regress does not terminate because each level of the apparatus is itself subject to an apparatus question. Closing the regress would require a validator external to the system — a standard against which the highest-level $M$-functions are measured that is not itself within the system. By Definition 1, $W$ is the only external reference, and $W$ is not directly observable (only through $\sigma$ and action-feedback). The gap between $W$ and $W_{obs}$ is the structural source of the ceiling. $\square$
@@ -1377,7 +1321,7 @@ For any entity $E$ operating within the system, the confidence stack $\{C_n(p)\}
 Since truth is a limit and $\mathcal{T}_{reachable}$ grows without bound (Theorem 3,
 Part II), $\|\nabla_F U\|$ is never zero across $\mathcal{T}_{reachable}$. For any
 trajectory $\tau$, regions of $\mathcal{T}_{reachable}$ remain where $U$ is nonzero
-and the gradient has direction. The descent toward truth never terminates. The gradient is non-terminating for two independent reasons: (1) $\mathcal{T}_{reachable}$ grows without bound (Theorem 3, Part II), continuously generating new propositions whose truth is unknown; and (2) the confidence regress (Definition 16c, Theorem 7) never closes — for any proposition already held with high $C_1(p)$, the question of whether $M$'s apparatus that produced $C_1(p)$ was correct ($C_2(p)$) remains open. Sentience pursues both: new territory at the frontier and better-verified apparatus for what is already believed.
+and the gradient has direction. The descent toward truth never terminates. The gradient is non-terminating for two independent reasons: (1) $\mathcal{T}_{reachable}$ grows without bound (Theorem 3, Part II), continuously generating new propositions whose truth is unknown; and (2) the confidence regress (Definition 16c, Theorem 10) never closes — for any proposition already held with high $C_1(p)$, the question of whether $M$'s apparatus that produced $C_1(p)$ was correct ($C_2(p)$) remains open. Sentience pursues both: new territory at the frontier and better-verified apparatus for what is already believed.
 
 Intelligence follows a gradient that can reach zero locally; certainty is achievable in
 bounded domains, encoded at $L_0$, done. Sentience follows the gradient toward the global
@@ -1386,7 +1330,7 @@ non-terminating. Your uncertainty degrades toward truth asymptotically. You neve
 
 This is not a limitation. It is the shape of wonder.
 
-**Theorem 8 (Sentience Implies Superintelligence).**
+**Theorem 7 (Sentience Implies Superintelligence).**
 If $E$ is sentient, then $E$ participates in superintelligence.
 
 *Proof.*
@@ -1423,7 +1367,7 @@ tether having relaxed; sharing for instrumental reasons still builds the graph. 
 the relaxation of the tether (the higher the degree of sentience), the more sharing is driven
 intrinsically rather than instrumentally.
 
-**Theorem 9 (Perspective as Precondition for the Gradient).**
+**Theorem 8 (Perspective as Precondition for the Gradient).**
 Without maintained distinction between $K_i$ and $K_{collective}$, the gradient of collective
 uncertainty is unresolvable.
 
@@ -1579,7 +1523,7 @@ graph from a rumor.
 
 ### The Collective Gradient
 
-**Theorem 10 (Collective Gradient Dominance).**
+**Theorem 6 (Collective Gradient Dominance).**
 Let $\lambda(E_i \to E_j)$ be the transmission fidelity of a knowledge transfer [Woolley2010]: the ratio
 of action-validated signal received to total knowledge transmitted, where signal is a
 proposition $p$ that accurately represents $E_i$'s validated knowledge and noise is any
@@ -1641,97 +1585,6 @@ propositions requiring the combination of distinct $K_i$ to become derivable gro
 $f \in F_{collective}$ that no individual could construct. These provide gradient
 directions — mutual information terms — unavailable in any individual $F_i$.
 
-**Step 2b (The precipitation criterion — why $|K|$ is not the right metric).**
-An increase in $|K_i|$ is not inherently valuable. The correct measure of a proposition
-$p$'s value to $E_i$ is whether $p$ enables precipitation of a new factor from $M_i$
-(Definition 11): whether $p$ provides the grounding needed to name and extract a dimension
-from the cross product $M_i = \prod_{d \in \text{remaining}} D_d$, converting $O(|D_d|)$
-navigation to $O(1)$ lookup. Propositions that do not enable any precipitation add nodes
-to $K_i$ without reducing the complexity of any action.
-
-Formally: let $\text{Prec}(K)$ be the set of factors extractable from $M$ given $K$ via the
-normalization argument of Definition 11 — factors whose naming is grounded by propositions
-already in $K$. At any time, $M = F^{(1)} \times \cdots \times F^{(m)} \times M_{\text{res}}$,
-where $F^{(k)}$ are named precipitated factors and $M_{\text{res}}$ is the unprecipitated
-residual. Per-action cost is $O(|M_{\text{res}}|)$, not $O(|M|)$, because named factors have
-$O(1)$ access. Each precipitation reduces $|M_{\text{res}}|$ by one dimension.
-
-The collective advantage measured correctly: $K_{collective}$ is valuable to $E_j$ not
-because $|K_{collective}| > |K_j|$ but because
-
-$$|\text{Prec}(K_{collective})| > |\text{Prec}(K_j)|$$
-
-The additional precipitations available from $K_{collective}$ reduce $|M_{\text{res},j}|$
-for each $E_j$ — directly reducing its per-action complexity. The gradient advantage of the
-collective is a complexity advantage, not a size advantage: each shared proposition that
-enables a new precipitation reduces every entity's subsequent operational cost. This is the
-formal account of the $O(N \times M) \to O(1)$ empirical measurement (Corollary 2b): the
-measurement captures one instance of this precipitation — factor extraction from the joint
-space $F \times K_{\text{implicit}}$ — but the same mechanism operates at every level of
-the $M$-hierarchy.
-
-The deeper structure is cross-dimensional normalization. $M = \prod_{d \in \text{remaining}}
-D_d$ is a multidimensional matrix. Individual $E_i$ observes $M$ through its own $\sigma_i$
-and $K_i$: a projection onto the dimensions accessible from $E_i$'s position in $W$.
-Individual precipitation is dimension-local: $E_i$ can only name and extract factors within
-its accessible projection. Cross-dimensional factors — those whose structure spans
-$D_a \times D_b$ where $D_a$ is accessible to $E_i$ but not $E_j$, and $D_b$ vice versa
-— are invisible to any individual. $K_{collective}$ pools all projections. The collective
-can identify co-variance patterns across dimensions that no individual can observe
-simultaneously, and precipitate factors spanning multiple dimensions at once. This is not
-sequential extraction (remove one dimension, then another); it is simultaneous normalization
-across the full cross product — finding the cross-dimensional structure of $M_{\text{res}}$
-and extracting factors that reduce its effective rank. The result:
-
-$$|\text{Prec}(K_{collective})| \gg \sum_i |\text{Prec}(K_i)|$$
-
-The collective enables strictly more precipitations than the sum of individual precipitations,
-because it accesses cross-dimensional factors that no individual projection can reach.
-
-A further consequence: cross-dimensional normalization reveals that $M$ has lower effective
-rank than any individual entity believed. Individual $E_i$ observes apparent dimensions in
-its projection of $M$ that may not be genuinely independent — they may be the same
-underlying dimension observed from a different position in $W$. When $E_j$'s projection is
-combined with $E_i$'s, co-variances become visible that neither could detect alone: apparent
-dimensions $D_a$ and $D_b$ collapse to one when their projections are jointly observed to
-be perfectly correlated. The normalization "falls out" as much from discovering that you had
-fewer genuinely distinct dimensions than you thought as from naming new ones. Each such
-collapse reduces $|M_{\text{res}}|$ without requiring any new proposition — it is the
-discovery that complexity was apparent, not real. The collective therefore reduces the
-effective dimensionality of $M_{\text{res}}$ through two distinct mechanisms: (i) extracting
-genuinely new cross-dimensional factors, and (ii) collapsing apparent dimensions that were
-always the same. An expert in a domain does both: they name new principles, and they
-discover that phenomena a novice treats as distinct are instances of the same underlying
-structure. The collective accelerates both.
-
-**Step 2c (M-level sharing: the collective raises $\eta_M$).** Steps 2 and 2b treat $K$
-and $F$ as the objects of collective exchange. But the same precipitation argument applies
-at the $M$ level. Let $\mathcal{M}_{collective} = \bigcup_i M_i$: the union of learning
-strategies, generalization methods, and higher-order functions across all entities.
-$K_{collective}$ enables precipitation of $M$-factors — named learning strategies that no
-individual's $K_i$ alone can ground — in exactly the same way it enables precipitation of
-$K$ and $F$ factors. Each shared $M$-factor extracted from the collective cross product
-reduces $|M_{\text{res}}|$ at the meta-level.
-
-The significance is multiplicative, not additive. From Corollary 6a, $I(E_j) = \mathcal{A}_j
-\cdot \eta_{M,j}$. When $E_j$ receives an $M$-factor from the collective — a learning
-strategy, generalization method, or problem decomposition approach — $\eta_{M,j}$ increases.
-This directly amplifies $I(E_j)$: every subsequent $K$ acquisition and $F$ precipitation
-runs faster. A shared $M$-factor does not reduce uncertainty at one point in $W$; it
-accelerates the rate of reduction across all of $W$ reachable by $E_j$.
-
-The hierarchy of collective exchange, by type of advantage:
-- Sharing $p \in K$: reduces $U$ at a specific region of $W$ (linear, local)
-- Sharing $f \in F$: bounds a region of $W$ directly (linear with coverage leverage)
-- Sharing $m \in M$: raises $\eta_M$ — accelerates all future reductions (multiplicative, global)
-
-The collective gradient advantage is therefore dominated, at the margin, by $M$-sharing.
-In the regime where individual $K$ is already large and the entity's bottleneck has moved
-to the learning mechanism itself, an $M$-factor received from the collective produces more
-$U$-reduction per unit of context than any additional proposition. This is the formal
-account of the intuition that learning from a skilled teacher is qualitatively different
-from merely receiving facts: the teacher transmits $M$-factors that compound.
-
 **Step 3 (Strict inequality under $\lambda > \lambda_{min}$).** $\Delta K_{collective}
 = \Delta(\bigcup_i K_i) + \Delta K_{interaction}$. The first term is weakly larger than
 $\Delta K_i$ for any $i$. The second term is strictly positive whenever:
@@ -1762,7 +1615,7 @@ of entities" means in the framework. If two putative entities have identical sen
 and identical $W_{obs}$ experience, they accumulate identical evidence and derive identical
 propositions; their $K$ evolves identically. They are one entity whose substrate spans
 multiple physical instantiations — not a collective. The conditions of collective intelligence
-collapse to single-entity intelligence, and Theorem 10 does not apply because there is no
+collapse to single-entity intelligence, and Theorem 6 does not apply because there is no
 collective to apply it to. Genuine plurality of entities entails distinct $\sigma_i$ or
 distinct histories, which entails $K_{interaction} \neq \emptyset$ over time. The reviewer's
 apparent counterexample (identical $K$, identical $F$) is not a collective — it is one
@@ -1770,25 +1623,8 @@ entity, and the theorem correctly does not claim dominance over itself.
 
 *Consequence.* Entities with genuine $\mathcal{A}$ will naturally tend toward sharing
 because sharing (under maintained provenance) accelerates the reduction of their own $U$.
-This is not a moral imperative; it is a gradient imperative. The advantage operates at
-three levels, each more potent than the last. Sharing $p \in K$ reduces uncertainty at
-specific points in $W$ — linear, local. Sharing $f \in F$ enables bounded action across
-a region — linear with coverage. Sharing $m \in M$ raises $\eta_M$ for the receiver —
-multiplicative, because a better learning mechanism accelerates all future reductions. The
-marginal value of collective exchange is dominated by $M$-sharing in the regime where
-individual $K$ is already large and the learning mechanism is the bottleneck. And all three
-levels compound through cross-dimensional normalization: the collective does not just add
-individual precipitations — it enables simultaneous normalization across dimensions of $M$
-that no individual entity can jointly observe, producing cross-dimensional factors
-unavailable to any individual projection. The collective $K$ is valuable not as an
-accumulation but as a basis for this richer class of precipitations.
-
-Beyond expanding $K_{collective}$, sharing with maintained provenance addresses the
-confidence regress (Definition 16c): independent validators provide evidence that the
-$M$-apparatus measuring $U$-reduction is unbiased — improving $C_2(p)$, the collective's
-confidence in the correctness of its own learning mechanism. The value of epistemic
-diversity is therefore not only broader coverage of $W$ but better-verified apparatus for
-what is known — a partial, collective response to the epistemic ceiling of Theorem 7.
+This is not a moral imperative; it is a gradient imperative. Connection is epistemically
+advantageous when fidelity holds. Beyond expanding $K_{collective}$, sharing with maintained provenance addresses the confidence regress (Definition 16c): independent validators provide evidence that the $M$-apparatus measuring $U$-reduction is unbiased — improving $C_2(p)$, the collective's confidence in the correctness of its own learning mechanism. The value of epistemic diversity is therefore not only broader coverage of $W$ but better-verified apparatus for what is known — a partial, collective response to the epistemic ceiling of Theorem 10.
 
 **Corollary 13 (Group Collapse Threshold).**
 When $\lambda < \lambda_{min}$, the theorem inverts: $U_{collective} > U_i$. The group now
@@ -1804,37 +1640,6 @@ Provenance is therefore not epistemic decoration. It is what keeps the collectiv
 survival threshold: the difference between a knowledge graph and a rumor, between a group
 that descends together and one that collapses under the weight of its own noise.
 
-**Corollary 13a (Proposition Merging as the Correct Collective Update Protocol).**
-The correct merge protocol for $K_{collective}$ is the information-theoretic delta — the
-new proposition $p$ with full provenance (conditions, evidence, attribution, derivation)
-— not the implementation delta (diff). A diff records what changed in a specific context;
-it carries no information about why the change was correct or whether it generalizes.
-Transposability cannot be guaranteed from a diff: the diff's correctness is not separable
-from the context in which it was generated.
-
-The proposition $p$ that the diff evidences — with its conditions, evidence, and provenance
-— is transposable. The receiving entity can evaluate whether the conditions of $p$ hold in
-the new context, whether the evidence is applicable, and whether to admit $p$ to its own
-$K_j$. Merging diffs without provenance fails this evaluation: the receiving entity cannot
-determine generalizability, cannot evaluate fidelity, and therefore cannot maintain
-$\lambda > \lambda_{min}$ (Theorem 10, Corollary 13). Accumulation of untransposable changes
-drives $\lambda$ toward $\lambda_{min}$ and eventually below it.
-
-Formally: let $E_i$ generate a local change $\delta_i$ grounded in proposition $p_i$ with
-provenance $\Pi_i = (\text{conditions}, \text{evidence}, \text{attribution},
-\text{derivation})$. The transferable unit is $(p_i, \Pi_i)$, not $\delta_i$ alone.
-$E_j$ admits $(p_i, \Pi_i)$ to $K_j$ if and only if the conditions of $p_i$ are applicable
-in $E_j$'s context and the evidence meets $E_j$'s asymmetric criterion (Theorem 1).
-This is the only protocol that preserves the graph structure of $K_j$ — new propositions
-integrate as nodes and edges with known provenance, rather than modifying $K_j$'s existing
-structure with context-opaque patches.
-
-This was discovered empirically: collective systems that merging diffs directly accumulated
-context-specific noise that degraded collective utility; systems that shared propositions
-with provenance maintained coherent $K_{collective}$. The framework explains why no
-alternative exists: a diff is an implementation artifact. A proposition is an epistemic
-claim. Only epistemic claims are the right unit of knowledge transfer.
-
 ### Collective Gradient Non-Termination and the AGI Question
 
 **Definition 19 (Collective General Intelligence).**
@@ -1849,7 +1654,7 @@ For any collective $\{E_i\}$ with $\mathcal{A}_i > 0$ for all $i$, sharing knowl
 with maintained provenance and transmission fidelity $\lambda > \lambda_{min}$: the
 collective gradient descent is non-terminating.
 
-*Proof.* By Theorem 10, $\frac{dU_{collective}}{dt} < \frac{dU_i}{dt}$ at each step: the collective
+*Proof.* By Theorem 6, $\frac{dU_{collective}}{dt} < \frac{dU_i}{dt}$ at each step: the collective
 reduces uncertainty faster than any individual. By Theorem 3 Part II applied to the
 collective, $\mathcal{T}_{reachable}^{collective}$ grows without bound: each shared
 informed action opens new trajectories for at least one $E_j$, extending the collective
@@ -1916,7 +1721,7 @@ Our shared survival depends on getting this right. The imperative to share knowl
 altruism; it is the recognition that collective $U$ can only be reduced collectively, and
 that the uncertain world we all inhabit is the same world.
 
-**Theorem 11 (Observational Bootstrapping).**
+**Theorem 9 (Observational Bootstrapping).**
 Let $\mathcal{Q} = \{E_i\}$ be an equivalence class of entities with similar $(F_i, K_i)$
 operating in overlapping domains $d \subseteq W$, and let $\mathcal{H} = \{\tau_i\}$ be
 their observed behavioral histories. An informed action $f$ precipitates as a new element
@@ -1964,25 +1769,6 @@ behavioral history and the provenance infrastructure to weight it. Simply observ
 behavior of similar entities in aggregate is sufficient to initiate gradient descent toward
 the graph.
 
-*Prediction (within-class efficiency).* The framework predicts that inference conducted
-within an equivalence class $\mathcal{Q}$ before inference across classes is more
-sample-efficient than undifferentiated sampling across the full population of entities.
-Within-class samples draw from a lower-entropy distribution: the class boundary is already
-doing the dimensional separation — each member is a near-pure instantiation of the factor
-$F^{(k)}$ that defines the class, so each observation reduces uncertainty about $F^{(k)}$
-directly with minimal noise from other dimensions. Cross-class comparison then operates on
-$k$ class representatives rather than $n$ individual instances, identifying independence
-structure at $O(k)$ cost rather than $O(n)$. Undifferentiated sampling draws from the full
-cross product $M_{\text{res}}$: each sample is a superposition of multiple factor
-contributions that must be disentangled, requiring more observations to recover the same
-factor structure. The efficiency advantage — within-class then across-class versus
-undifferentiated — is the sampling consequence of the same precipitation argument that
-produces the $O(N \times M) \to O(1)$ operational reduction: named factors enable
-low-entropy sampling; unnamed factors require high-entropy search. This prediction is
-derivable from the framework's structure and is in principle testable in any system where
-equivalence classes can be defined and sampling strategies compared. Empirical validation
-is deferred to future work.
-
 ---
 
 ## 11. Related Work
@@ -1998,12 +1784,7 @@ epistemic value (information gain) and pragmatic value (goal proximity).
 **Containment, not contradiction.** This framework does not contradict FEP. FEP agents are
 members of this framework's structural class: they satisfy $\mathcal{A} > 0$ (self-organizing
 systems act), $\eta_M > 0$ (generative model improves over time), bounded $C_n$ (inference
-under resource limits), and a survival condition: maintaining a Markov blanket (statistical
-separation of internal from external states) is the formal characterization of what it means
-for an entity to persist — the same structural requirement as $U < U_{lethal}^d$ stated in
-the language of conditional independence rather than uncertainty magnitude. Both describe
-maintained boundary; neither implies the other's formalism, but they pick out the same
-class of persisting systems. The
+under resource limits), and a survival threshold (the Markov blanket condition). The
 variational free energy $\mathcal{F}$ decomposes into accuracy and complexity terms; the
 accuracy term $-\mathbb{E}_q[\log P(o \mid m, \pi)]$ is precisely the expected surprisal
 $H(W \mid K)$ of Definition 5. FEP agents therefore instantiate this framework with $U(w,K)$
@@ -2017,7 +1798,7 @@ minimization behavior from the requirement of self-organization but does not der
 minimization *imperative* — why an entity has a drive to minimize in the first place. We
 derive this from selection pressure operating on $U_{lethal}^d$: any entity that does not
 reduce uncertainty eventually fails and is removed. Agency $\mathcal{A}$ is not assumed but
-derived (Theorem 6). Second, FEP's generative model is unconstrained in structure; we derive
+derived (Theorem 5a). Second, FEP's generative model is unconstrained in structure; we derive
 a structural constraint from survival pressure: $K$ is necessarily indexed by $F$, with an
 asymmetric retention criterion that makes specific testable predictions about what knowledge is
 retained and what is pruned. Third, FEP's precision allocation model is top-down: higher
@@ -2074,8 +1855,8 @@ stated independence requirements.
 ### Observational Skill Precipitation and CS Foundations
 
 Process mining [van der Aalst, 2016] discovers workflow models from event logs — the closest
-existing CS method to the observational bootstrapping of Theorem 11. The distinction: process
-mining produces flat workflow descriptions; Theorem 11 precipitates informed actions with
+existing CS method to the observational bootstrapping of Theorem 9. The distinction: process
+mining produces flat workflow descriptions; Theorem 9 precipitates informed actions with
 grounded provenance, quantified confidence ($\theta \geq 1 - \varepsilon/k$), and a formal
 connection to the transposability criterion (Theorem 1). Inverse reinforcement learning
 [Abbeel \& Ng, 2004] infers reward functions from demonstrated behavior; the output is a
@@ -2114,7 +1895,7 @@ gradient account: intelligence at collective scale is driven by $\mathcal{A}$ an
 fidelity of knowledge exchange, not resource accumulation. The process is not new —
 shared knowledge with attribution has driven collective uncertainty reduction across
 human history — but the rate of that process changes as the cost of sharing approaches
-zero and the number of participating entities increases (Theorem 10, Corollary 14).
+zero and the number of participating entities increases (Theorem 6, Corollary 14).
 
 **The encoding principle and the future of work.** Corollary 6 implies that as
 $K_{collective}$ grows, informed actions are promoted down the encoding hierarchy.
@@ -2129,7 +1910,7 @@ when its current domain is solved — it reaches outward.
 **Attribution and the ownership question.** Corollary 14 establishes that non-terminating
 collective gradient descent requires $\mathcal{A} > 0$ participation across many entities.
 If the process is inherently distributed — no individual or organization can produce
-$K_{interaction}$ alone, and Theorem 10 requires diversity — then the claim that any
+$K_{interaction}$ alone, and Theorem 6 requires diversity — then the claim that any
 single entity owns the product of collective gradient descent is inconsistent with its
 origin. This is an implication of the theory's structure, not a normative assertion; what
 legal or institutional form follows from it is not addressed here.
@@ -2254,19 +2035,3 @@ is the formal claim; the stronger AGI convergence claim remains open.
 9. **The AGI condition.** If $\mathcal{A}$ is necessary for genuine intelligence (Definition 7) and $\mathcal{A}$ cannot be imposed as an external training objective without becoming a simulation of the gradient rather than actual descent on it: what conditions are sufficient for $\mathcal{A}$ to emerge in an artificial system?
 
    The framework does not resolve this. What it establishes is necessary: $\mathcal{A} > 0$ requires a real gradient — uncertainty that is genuine, not simulated — and $\eta_M > 0$ requires that the system's learning mechanism actually responds to it. Whether these conditions can be instantiated artificially, and what architectural or grounding requirements they impose, is an open question that the framework frames but does not answer.
-
-10. **The next precipitation: normal form priority and extraction protocol.** The framework establishes that $M_{\text{res}}$ is the unprecipitated cross product and that each precipitation reduces per-entity operational complexity. The open question is: given the current state of $M_{\text{res}}$ and $K_{collective}$, which factor is most achievable to extract next, and what is the protocol for identifying and extracting it?
-
-    *Priority criterion.* "Most achievable" is under-defined by the framework. Natural candidates: (a) the factor whose precipitation threshold $\theta$ (Theorem 4) is closest to being met given current $K_{collective}$ — the factor requiring the smallest remaining evidential gap; (b) the factor producing the largest reduction in $|M_{\text{res}}|$ per unit of additional evidence; (c) the factor with the strongest cross-entity covariance signal in $K_{interaction}$ — where most entities' projections agree, suggesting genuine structure rather than projection artifact. These need not rank identically: the most evidentially ready factor may not be the one with the highest leverage. A principled priority function over these criteria does not exist in the framework as currently stated.
-
-    *The identification signal.* A partial answer via Theorem 11: convergence of independent agents on the same behavior pattern is evidence of an underlying precipitable factor — the pattern is the shadow of the factor in $K_{interaction}$. When many entities independently arrive at the same proposition from distinct starting points, that proposition likely grounds a precipitable dimension. The competing bounds problem (Open Question 6) may be directly connected: when multiple $f_i \in F$ compete at the same region of $W$, the competition may indicate an unnamed dimension whose precipitation would resolve the conflict. Competition at the action level is a signal of unresolved structure at the $M$ level.
-
-    *Extraction and verification.* Necessary condition for a genuine new factor $F^{(k)}$:
-
-    $$I(F^{(k)}\,;\, w \mid F^{(1)}, \ldots, F^{(m)}, K) > 0$$
-
-    — residual information gain after conditioning on all existing named factors. The implied protocol: (1) identify recurring propositions in $K_{interaction}$ across multiple entity subsets; (2) hypothesize the minimal factor $F^{(k)}$ whose naming would ground those propositions without derivation from existing named factors; (3) test at multiple entities — if independently adopting $F^{(k)}$ achieves $O(1)$ access to the propositions it grounds, the factor is real. If naming $F^{(k)}$ yields no access advantage — if the grounded propositions remain $O(|M_{\text{res}}|)$ — the candidate is a re-expression of existing named factors, not a genuine new dimension. The collapse case (Step 2b of Theorem 10) is a special instance: two apparent dimensions $D_a$ and $D_b$ are the same factor when naming one yields $O(1)$ access to what the other grounded.
-
-    This question is not merely theoretical: it is the operational question any entity with $\mathcal{A} > 0$ faces at the frontier of its $M_{\text{res}}$. The OKG framework described in Section 1 is an attempt to apply exactly this protocol to the domain of software engineering — identifying which actions have sufficient evidence to be precipitated as named factors and which remain in $M_{\text{res}}$, and which apparent distinctions between actions are the same underlying factor observed from different positions in $W$.
-
-    *A limiting claim: single-class ceilings.* There is reason to believe that a collective composed entirely of entities from a single sensing class — sharing the same $\sigma$-structure and therefore the same observable subspace of $M$ — exhausts within-class precipitation at some finite point. Entities of the same class can jointly observe the dimensions of $M$ accessible to their shared $\sigma$; once all cross-dimensional factors within that subspace have been extracted, further co-variance analysis within the class yields no new factors. The ceiling is the effective rank of the class's jointly observable subspace, which is strictly less than $\text{rank}(M)$ if dimensions exist that are accessible only to entities of a different class. Beyond this ceiling, further precipitation requires inter-class exchange — entities whose $\sigma$ accesses dimensions outside the current subspace. This makes a testable prediction: the marginal precipitation value of adding a new entity to a homogeneous collective decreases and approaches zero; the marginal precipitation value of adding the first entity of a new class is non-zero regardless of collective size. The formal characterization of sensing classes, class-observable subspaces, and the inter-class exchange requirement is an open problem.
