@@ -1,0 +1,33 @@
+id: REF-Chaitin1975
+type: reference
+name: "Chaitin (1975) — A Theory of Program Size Formally Identical to Information Theory"
+citation: "Chaitin, G.J. (1975). A theory of program size formally identical to information theory. Journal of the ACM, 22(3), 329–340."
+fidelity: low
+
+propositions:
+  CH1:
+    statement: "Omega (Chaitin's constant): the halting probability of a universal Turing machine is a well-defined real number that is maximally uncompressible — K(Omega) ≈ |Omega|. It encodes the boundary of the knowable."
+    maps_to: [EC05-incompleteness, NV02-mn-bound]
+    potential_em: "CH1 + EC05: Omega is the formal object that lives at M = N — the limit point of complete knowledge. It exists but is uncomputable. UB's M→N trajectory is a gradient descent toward Omega. The asymptote is not just unreachable in practice but provably uncomputable in principle."
+
+  CH2:
+    statement: "Incompleteness from information theory: for any formal system F, there is a finite bound B_F such that F cannot prove K(x) > B_F for any string x — regardless of how complex x actually is. Incompleteness is a consequence of compression limits."
+    maps_to: [EC05-incompleteness, REF-Godel1931]
+    note: "CH2 re-derives Gödel incompleteness from compression/information theory rather than from self-reference. EC05 gains a third independent derivation (Gödel via self-reference, Tarski via truth predicates, Chaitin via compression bounds)."
+
+  CH3:
+    statement: "The number of provable facts about Omega is finite for any fixed formal system. Most true statements about Omega are formally unprovable."
+    maps_to: [EC05-incompleteness, NV02-mn-bound]
+    note: "The dimension space W has Omega-like structure: most true facts about W are not reachable by any finite K from within any fixed inference system."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC05-incompleteness, REF-Godel1931, REF-Kolmogorov1965]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Omega — the formal object at M=N — UB treats the limit analytically but not as a named computable object"
+    - "Information-theoretic incompleteness derivation (CH2) — independent of self-reference"
+  ec05_now_has_four_derivations: "Gödel (self-reference), Tarski (truth predicates), Shannon/Cover (data processing), Chaitin (compression bounds)"

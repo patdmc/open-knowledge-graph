@@ -1,0 +1,41 @@
+id: REF-Deacon2012
+type: reference
+name: "Deacon (2012) — Incomplete Nature: How Mind Emerged from Matter"
+citation: "Deacon, T.W. (2012). Incomplete Nature: How Mind Emerged from Matter. W.W. Norton."
+fidelity: low
+
+propositions:
+  DE1:
+    statement: "Absential causation: causal processes driven by what is absent — by constraints, ends, purposes, values. Not all causation is present-to-present; the absent target (the end state, the need) shapes present dynamics."
+    maps_to: [EC10-uncertainty-driver, EC06-belief-as-action]
+    note: "Absential causation = gradient descent toward an absent target. EC10 (U(w,K)>0 drives the entity) is absential causation: the present state is shaped by the absent goal (U=0, full knowledge). The gradient IS the absential cause."
+    potential_em: "DE1 + EC10 + EC06: the uncertainty gradient (EC10) is the formal specification of absential causation (DE1). Both say: present behavior is caused by an absent attractor (the un-sensed dimensions of W). Deacon gives the causal ontology; UB gives the formal mechanics."
+
+  DE2:
+    statement: "Teleodynamics: the highest level of emergent dynamics — systems that maintain and reproduce their own end-directedness. Life is teleodynamic: the organism works to preserve the conditions of its own continuation."
+    maps_to: [EC04-survival-threshold, EC02-improvement-rate]
+    note: "Teleodynamics = UB's survival imperative formalized in causal terms. U < U_lethal is the condition for teleodynamic continuation. eta_M > 0 is the mechanism of self-maintenance."
+
+  DE3:
+    statement: "Morphodynamics: self-organizing processes that produce and maintain their own boundary conditions — the intermediate level between thermodynamic and teleodynamic dynamics."
+    maps_to: [EC08-compression-factoring, EC04-survival-threshold]
+    note: "Morphodynamics = self-organization below the survival threshold. Prigogine's dissipative structures (REF-Prigogine1984) are morphodynamic. The graph construction process (NV01) is morphodynamic: it self-organizes the entity's boundary conditions (what is retained vs. discarded)."
+
+  DE4:
+    statement: "The homunculus problem dissolved: mind is not a thing inside the brain but an emergent constraint — a pattern of absences organized into a self-sustaining attractor. The self is an absence made causally effective."
+    maps_to: [D14-sentience, EM08-sentience-is-metalanguage]
+    note: "DE4 maps to UB's treatment of higher-order sentience: sentience is not a thing in the entity but an emergent property of the entity's K achieving metalanguage structure. The 'self' that observes K is the strange loop (Hofstadter) / metalanguage (Tarski) / absential pattern (Deacon)."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC10-uncertainty-driver, EC04-survival-threshold, D14-sentience, EM08-sentience-is-metalanguage]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Absential causation as causal category — UB has gradient but not causal ontology"
+    - "Teleodynamics / morphodynamics distinction — levels of emergence"
+  present_in_ub_not_here:
+    - "Formal quantification — Deacon is entirely philosophical"
+    - "A parameterization, graph structure, survival threshold numeric form"

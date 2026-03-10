@@ -1,0 +1,41 @@
+id: REF-Kolmogorov1965
+type: reference
+name: "Kolmogorov (1965) — Three Approaches to the Quantitative Definition of Information"
+citation: "Kolmogorov, A.N. (1965). Three approaches to the quantitative definition of information. Problems of Information Transmission, 1(1), 1–7."
+fidelity: low
+
+propositions:
+  KC1:
+    statement: "The complexity of a string x is the length of the shortest program that produces x: K(x) = min{|p| : U(p) = x}. This is algorithmic (Kolmogorov) complexity."
+    maps_to: [EC08-compression-factoring]
+    note: "K(x) is the information-theoretic ground truth for compression. EC08 (factoring = compression = sufficient statistic) is grounded here: the minimal factored representation IS the Kolmogorov-minimal program."
+
+  KC2:
+    statement: "K(x|y) — conditional complexity — measures irreducible information in x not recoverable from y. K(x) - K(x|y) is the algorithmic mutual information."
+    maps_to: [EC05-incompleteness, NV02-mn-bound]
+    note: "K(W|K) > 0 always for finite K and infinite W: the residual complexity of W given K is never zero. This grounds M < N in algorithmic terms — not just probabilistically (Shannon) but combinatorially."
+
+  KC3:
+    statement: "For any computable probability distribution P, K(x) ≈ -log P(x) up to an additive constant. Kolmogorov complexity and Shannon entropy coincide in expectation."
+    maps_to: [EC01-context-bound, EC08-compression-factoring]
+    note: "Bridges Shannon (SH1-SH4) and algorithmic information theory. C_n as Shannon channel capacity (EM04) and C_n as Kolmogorov complexity bound are the same constraint."
+
+  KC4:
+    statement: "K(x) is uncomputable — no algorithm can compute the exact minimal description length for arbitrary x. The optimal compression is formally unreachable."
+    maps_to: [EC05-incompleteness, NV02-mn-bound]
+    potential_em: "KC4 + EC05 + NV02: the optimal K is provably unreachable — not just practically hard but formally uncomputable. The M→N limit (Theorem 3) approaches an uncomputable target. This is stronger than 'slow convergence': the entity is gradient-descending toward a value it can never compute it has reached."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC08-compression-factoring, EC05-incompleteness, NV02-mn-bound, REF-Shannon1948]
+
+gap_analysis:
+  present_in_ub_not_here:
+    - "A parameterization (KC has no engagement probability)"
+    - "K/F coupling — KC treats strings, not action-grounded knowledge"
+    - "Survival threshold — KC has no selection pressure"
+  present_here_not_in_ub:
+    - "Uncomputability of optimal compression (KC4) — UB does not invoke uncomputability explicitly"
+    - "Algorithmic mutual information (KC2) — UB uses Shannon mutual information"

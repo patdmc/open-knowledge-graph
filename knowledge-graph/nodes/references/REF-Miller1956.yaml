@@ -1,0 +1,36 @@
+id: REF-Miller1956
+type: reference
+name: "Miller (1956) — The Magical Number Seven, Plus or Minus Two"
+citation: "Miller, G.A. (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. Psychological Review, 63(2), 81–97."
+fidelity: low
+
+propositions:
+  MI1:
+    statement: "Working memory capacity: humans can hold 7 ± 2 chunks in immediate memory. This is the empirical bound on simultaneous active processing."
+    maps_to: [EC01-context-bound]
+    note: "MI1 is the empirical measurement of C_n for human working memory. Definition 7 (bounded context) is grounded here: C_n ≈ 7±2 chunks for the human cognitive system. This is the most-cited empirical anchor for the context bound."
+
+  MI2:
+    statement: "Chunking: the limit is on chunks, not bits. Information can be recoded into larger chunks to expand effective capacity. The capacity limit is on the number of units, not their information content."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: "Chunking IS factoring (EC08). Recoding into larger chunks = extracting shared structure = graph construction (NV01). Miller (1956) empirically demonstrates what NV01 formally proves: compression via chunking is the mechanism for operating under C_n."
+    potential_em: "MI2 + NV01 + EC08: Miller's chunking is the psychological observation of the NV01 mechanism. Humans spontaneously construct graph-structured chunks under the C_n constraint — this is empirical confirmation of the gradient-drives-toward-graph prediction (EM06)."
+
+  MI3:
+    statement: "The limit is channel capacity in Shannon's sense: 7±2 bits per chunk, not per stimulus. Working memory is an information channel with bounded capacity."
+    maps_to: [EC01-context-bound, EM04-Cn-is-channel-capacity]
+    note: "MI3 directly confirms EM04: C_n = Shannon channel capacity. Miller explicitly uses Shannon's framework to interpret the 7±2 finding. This is empirical grounding for EM04."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC01-context-bound, EC08-compression-factoring, EM04-Cn-is-channel-capacity, EM06-gradient-drives-toward-graph]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Empirical measurement — UB derives C_n formally; Miller measures it"
+    - "Chunking as explicit psychological mechanism"
+  present_in_ub_not_here:
+    - "Formal derivation of why C_n exists"
+    - "Selection pressure, survival threshold, K/F coupling"

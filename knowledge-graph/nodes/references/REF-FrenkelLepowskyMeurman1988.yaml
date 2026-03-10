@@ -1,0 +1,36 @@
+id: REF-FrenkelLepowskyMeurman1988
+type: reference
+name: "Frenkel, Lepowsky, Meurman (1988) — Vertex Operator Algebras and the Monster"
+citation: "Frenkel, I., Lepowsky, J., and Meurman, A. (1988). Vertex Operator Algebras and the Monster. Academic Press."
+fidelity: low
+
+propositions:
+  FL1:
+    statement: "Vertex operator algebra (VOA): a vertex algebra with an additional conformal vector omega in V such that the Virasoro algebra operators L_n = Res_z(z^{n+1} Y(omega,z)) satisfy [L_m, L_n] = (m-n)L_{m+n} + c/12(m^3-m)delta_{m+n,0}. The central charge c measures the 'size' of the conformal symmetry."
+    maps_to: [EC01-context-bound, EC08-compression-factoring]
+    note: "Central charge c = C_n at the conformal field theory level. A VOA with central charge c can represent exactly c units of conformal degrees of freedom — its capacity is c. EM04 (C_n = Shannon channel capacity) has a VOA analog: c = capacity of the conformal field theory as an information channel."
+    potential_em: "FL1 + EM04 + EC01: central charge c is C_n in conformal field theory language. The Virasoro algebra's central charge bounds the information content of the VOA exactly as C_n bounds the entity's context. A VOA with c=24 (the Moonshine module) has exactly 24 units of conformal capacity — the bound that generates the Monster group's structure."
+
+  FL2:
+    statement: "Moonshine module V^natural: the unique VOA with central charge 24 and no weight-1 states whose automorphism group is the Monster group M. The graded dimension of V^natural is J(q) = j(q) - 744 = q^{-1} + 196884q + ..., the McKay-Thompson series."
+    maps_to: [EC08-compression-factoring, EM09-collective-intelligence-thermodynamically-favored]
+    note: "V^natural is the unique maximally compressed representation at c=24. The graded dimension formula encodes the infinite-dimensional structure of the Monster group in the single analytic function J(q). EC08 (compression = sufficient statistic) has no more extreme instance: the Monster's entire representation theory lives in one function."
+
+  FL3:
+    statement: "Operator product expansion (OPE): the product of two vertex operators Y(a,z)Y(b,w) has a well-defined expansion as a Laurent series in (z-w). The OPE encodes how operators interact — it is the algebraic structure of the interaction, not just the commutativity."
+    maps_to: [NV04-intersection-acceleration, EC07-collective-knowledge]
+    note: "OPE = the formal rule for K_i and K_j intersection. When two vertex operators (knowledge operators) interact at separated points, the OPE gives the full expansion of their interaction — the algebraic structure of what NV04 calls 'provenance-verified intersection.' The OPE is the intersection rule at the algebraic level."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC01-context-bound, EC08-compression-factoring, NV04-intersection-acceleration, REF-Borcherds1992]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Central charge as formal capacity measure — more precise than C_n definition"
+    - "OPE as formal intersection rule"
+    - "Moonshine: unique maximum-compression structure at given capacity"
+  present_in_ub_not_here:
+    - "Selection pressure, survival threshold, A parameterization, K/F action coupling"

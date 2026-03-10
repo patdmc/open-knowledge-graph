@@ -1,0 +1,37 @@
+id: REF-WattsStrogatz1998
+type: reference
+name: "Watts and Strogatz (1998) — Collective Dynamics of Small-World Networks"
+citation: "Watts, D.J. and Strogatz, S.H. (1998). Collective dynamics of 'small-world' networks. Nature, 393, 440–442."
+fidelity: low
+
+propositions:
+  WS1:
+    statement: "Small-world networks: most real-world networks have high clustering (neighbors of neighbors are neighbors) and short path lengths (any two nodes connected by few steps). This combination — high local clustering, low global diameter — is the small-world property."
+    maps_to: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection]
+    note: "K_collective has small-world structure: propositions cluster by domain (high local coherence) with short paths between domains (enabling cross-domain intersection). Small-world topology is the graph structure that maximizes NV04 (intersection acceleration) — short paths between K_i enable efficient intersection."
+
+  WS2:
+    statement: "Transition from regular to small-world to random: a small number of random long-range edges (rewiring probability p between 0 and 1) dramatically reduces path length while preserving local clustering. The small-world regime is at intermediate p."
+    maps_to: [NV04-intersection-acceleration, EC07-collective-knowledge]
+    note: "Long-range rewiring edges = provenance-verified cross-domain citations. The small-world regime is the optimal K_collective topology: enough local coherence to maintain provenance chains, enough long-range edges to enable cross-domain intersection (NV04)."
+    potential_em: "WS2 + NV04: the optimal K_collective graph topology for intersection acceleration is the small-world regime — not fully clustered (no cross-domain reach) and not fully random (no local coherence for provenance). K_collective networks that evolve toward small-world topology are better positioned to produce EM nodes. This is a structural prediction: scientific communities with small-world citation topology produce more emergent knowledge."
+
+  WS3:
+    statement: "Small-world property is robust: found in neural networks, power grids, social networks, the internet. It emerges from local attachment preference plus occasional long-range links."
+    maps_to: [EM09-collective-intelligence-thermodynamically-favored, EC08-compression-factoring]
+    note: "WS3 confirms EM09 at the network level: small-world topology emerges spontaneously — it is the thermodynamically favored network structure because it minimizes average path length (information transmission cost) while maintaining local compression (clustering = factoring)."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC07-collective-knowledge, NV04-intersection-acceleration, EM09-collective-intelligence-thermodynamically-favored, EM10-Kcollective-unit-of-selection]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Graph topology — UB has K/F graph but no topology specification"
+    - "Small-world as optimal topology for collective knowledge"
+    - "Quantitative rewiring model"
+  present_in_ub_not_here:
+    - "Content semantics — WS1-3 are purely structural"
+    - "Provenance, survival threshold, A parameterization"

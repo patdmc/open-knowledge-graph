@@ -1,0 +1,40 @@
+id: REF-Jaynes1957
+type: reference
+name: "Jaynes (1957) — Information Theory and Statistical Mechanics"
+citation: "Jaynes, E.T. (1957). Information theory and statistical mechanics. Physical Review, 106(4), 620–630."
+fidelity: low
+
+propositions:
+  JA1:
+    statement: "Maximum entropy principle (MaxEnt): given constraints, the probability distribution that best represents current knowledge is the one with maximum entropy — the distribution that introduces no unjustified assumptions beyond the known constraints."
+    maps_to: [EC01-context-bound, EC10-uncertainty-driver]
+    note: "MaxEnt is the formal prior-selection rule when K is incomplete. It operationalizes EC10 (U(w,K)>0 as compression gap): the MaxEnt distribution is the one that acknowledges remaining uncertainty rather than pretending to know more."
+
+  JA2:
+    statement: "Statistical mechanics (thermodynamics) is a special case of Bayesian inference under MaxEnt priors. Physical entropy and information entropy are the same quantity."
+    maps_to: [EC04-survival-threshold, EC08-compression-factoring]
+    potential_em: "JA2 + EC04: U_lethal is not just an information-theoretic threshold — it is a thermodynamic threshold. The survival condition (U < U_lethal) is a constraint on physical entropy, not just epistemic uncertainty. This makes the survival threshold derivable from statistical mechanics, not just from selection arguments."
+
+  JA3:
+    statement: "Insufficient reason: when no information distinguishes outcomes, assign equal probability. MaxEnt generalizes this to arbitrary constraint sets."
+    maps_to: [EC05-incompleteness]
+    note: "JA3 is the decision rule for acting in unobserved dimensions (N-M). When the entity has no K for a dimension, MaxEnt assigns uniform prior — which is the formal specification of what 'unobserved' means for action selection."
+
+  JA4:
+    statement: "Bayesian updating is the unique consistent procedure for revising probability assignments given new evidence — derivable from Cox's axioms."
+    maps_to: [EC02-improvement-rate, NV02-mn-bound]
+    note: "JA4 grounds eta_M formally: the rate at which the entity's K improves under MaxEnt/Bayesian updating. EC02 (eta_M = compression rate = dF/dt) is the Bayesian update rate in disguise."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC01-context-bound, EC04-survival-threshold, EC10-uncertainty-driver, REF-Shannon1948]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "MaxEnt as the prior-selection rule — UB treats priors implicitly"
+    - "Physical entropy = information entropy (JA2) — stronger than England's statistical mechanics result alone"
+  present_in_ub_not_here:
+    - "Selection pressure driving update (Jaynes has no survival threshold)"
+    - "A parameterization (MaxEnt assumes A=1: agent always updates)"

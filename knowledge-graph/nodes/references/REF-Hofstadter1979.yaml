@@ -1,0 +1,36 @@
+id: REF-Hofstadter1979
+type: reference
+name: "Hofstadter (1979) — Gödel, Escher, Bach: An Eternal Golden Braid"
+citation: "Hofstadter, D.R. (1979). Gödel, Escher, Bach: An Eternal Golden Braid. Basic Books."
+fidelity: low
+
+propositions:
+  HO1:
+    statement: "Strange loops: a strange loop occurs when, moving through a hierarchy of levels, you unexpectedly find yourself back where you started. Self-reference at sufficient complexity generates meaning from meaninglessness — the I emerges from strange loops."
+    maps_to: [EM08-sentience-is-metalanguage, D14-sentience]
+    note: "Strange loops are the informal mechanism for what EM08 formalizes: the metalanguage that evaluates the object language is itself produced by the object language (through Gödel numbering). The 'I' that observes K_i is produced by K_i — higher-order sentience is the strange loop."
+    potential_em: "HO1 + EM08 + G3: the strange loop structure is the informal description of Gödel numbering (G3) applied at the cognitive level. EM08 says higher-order sentience IS the metalanguage. Hofstadter says the 'I' IS the strange loop. These are the same claim: the entity that can refer to itself is one whose object language can model its own metalanguage."
+
+  HO2:
+    statement: "Tangled hierarchies: systems where levels are supposed to be cleanly separated instead loop back on themselves. Tangled hierarchies are the source of paradox, creativity, and consciousness."
+    maps_to: [EC09-encoding-levels, EC05-incompleteness]
+    note: "Tangled hierarchy = the encoding level structure of UB under self-reference. L0-L3 are cleanly separated by assumption; when the entity models its own encoding levels (higher-order sentience), the hierarchy tangles. EC05 is the formal consequence: the tangled hierarchy produces incompleteness."
+
+  HO3:
+    statement: "Isomorphism as the carrier of meaning: meaning arises not in symbols but in the isomorphism between symbol systems and the world. The map that carries meaning is the structure-preserving mapping, not the symbols themselves."
+    maps_to: [EC06-belief-as-action, EM11-truth-equals-action-relevance]
+    note: "HO3 is the informal version of EM11: meaning = the isomorphism between K (symbol system) and W (world) mediated by F (actions). The structure-preserving map IS the K/F graph."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EM08-sentience-is-metalanguage, REF-Godel1931, EC09-encoding-levels]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Strange loop as generative mechanism for self-reference"
+    - "GEB's cultural/aesthetic framing — formal systems and music and art as isomorphisms"
+  present_in_ub_not_here:
+    - "Formalism — GEB is philosophical/literary"
+    - "Survival threshold, A parameterization, quantitative bounds"

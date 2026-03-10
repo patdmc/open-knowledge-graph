@@ -1,0 +1,36 @@
+id: REF-Waddington1957
+type: reference
+name: "Waddington (1957) — The Strategy of the Genes"
+citation: "Waddington, C.H. (1957). The Strategy of the Genes. George Allen & Unwin."
+fidelity: low
+
+propositions:
+  WA1:
+    statement: "Epigenetic landscape: developmental trajectories follow canalized paths (chreodes) down valleys in a fitness landscape. Once a trajectory enters a valley, it is buffered against perturbations — small disturbances do not deflect it from the canalized path."
+    maps_to: [EC04-survival-threshold, EC02-improvement-rate]
+    note: "Canalization = crystallization to lower encoding level. A proposition that has become canalized is one that has descended to L0 or L1 in UB terms — it no longer requires active attention, it runs automatically. The valley depth = robustness to U perturbations."
+    potential_em: "WA1 + EC04 + EC09: canalization is the biological form of encoding-level descent. The entity's chreode = the path from L3 (effortful, contextual) to L0 (automatic, subconscious). Selection pressure (EC04) drives canalization: entities that crystallize proven actions to lower levels survive better."
+
+  WA2:
+    statement: "Genetic assimilation: phenotypic responses to environmental perturbations can become genetically fixed — behavior that was originally plastic (learned) becomes innate (wired). Learned responses are assimilated into the genotype over evolutionary time."
+    maps_to: [EC02-improvement-rate, EC09-encoding-levels]
+    note: "Genetic assimilation = collective encoding across generations. WA2 is the evolutionary timescale version of UB's encoding-level descent: what was K (explicit knowledge) becomes wired into the organism's structure (L0 encoding). This connects EM10 (K_collective as unit of selection) to developmental biology."
+
+  WA3:
+    statement: "Homeorhesis: the tendency to return to a developmental trajectory after perturbation — not homeostasis (fixed point) but homeorrhesis (fixed trajectory). The attractor is a path, not a state."
+    maps_to: [EC04-survival-threshold, EC10-uncertainty-driver]
+    note: "Homeorhesis maps to the trajectory constraint in UB: U_lethal is not a fixed state but a bound on the trajectory. The entity must stay on the trajectory K toward lower U — not just maintain a current state."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC04-survival-threshold, EC09-encoding-levels, EC02-improvement-rate]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Epigenetic landscape geometry — UB has encoding levels but not the trajectory/valley visualization"
+    - "Genetic assimilation — evolutionary crystallization across generations"
+  present_in_ub_not_here:
+    - "Formal quantification — Waddington is entirely qualitative"
+    - "A parameterization, K/F graph structure"

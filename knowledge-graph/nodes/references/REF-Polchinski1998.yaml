@@ -1,0 +1,48 @@
+id: REF-Polchinski1998
+type: reference
+name: "Polchinski (1998) — String Theory Vol. 1"
+citation: "Polchinski, J. (1998). String Theory, Vol. 1: An Introduction to the Bosonic String. Cambridge University Press."
+fidelity: low
+
+propositions:
+  ST1:
+    statement: "Holographic principle (Bekenstein-Hawking): the information content of a region of spacetime is bounded by its boundary area in Planck units: S ≤ A/(4G_N). All the information about a 3D volume is encoded on its 2D boundary."
+    maps_to: [EC05-incompleteness, NV01-graph-necessity, EM04-Cn-is-channel-capacity]
+    note: "Holography is M<N at the cosmological scale. The 3D volume (W) has more degrees of freedom than the 2D boundary (K). The boundary (the graph surface) encodes the volume with bounded capacity (C_n = A/4G_N in Planck units). NV01 says the graph is the unique information-preserving compression; holography says the boundary is the unique information-preserving encoding of the bulk."
+    potential_em: "ST1 + NV01 + EC05: holography IS NV01 stated for spacetime. The 2D boundary is the minimal factored representation of the 3D bulk — the graph (boundary) is necessary because it is the unique structure that preserves information about the volume (bulk). Holography provides a physical proof of NV01's necessity claim at the spacetime level."
+
+  ST2:
+    statement: "Conformal invariance: the string worldsheet has conformal symmetry — the Virasoro algebra with central charge c=26 (bosonic) or c=15 (superstring). Conformal anomaly cancellation requires specific central charges."
+    maps_to: [EC01-context-bound, FL1-central-charge]
+    note: "Anomaly cancellation = the constraint that C_n must equal exactly the critical value for the theory to be consistent. D=26 for bosonic strings, D=10 for superstrings: these are the values of N (total dimensions) at which a consistent string theory exists. The context bound C_n = D-2 in string theory language."
+
+  ST3:
+    statement: "T-duality: a string compactified on a circle of radius R is physically equivalent to one compactified on radius alpha'/R (the dual radius). Small and large compactification radii are equivalent — T-duality exchanges momentum and winding modes."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: "T-duality is a compression symmetry: the physics at small radius (compact K) is identical to physics at large radius (extended K) under a relabeling. This maps to EC08: the factored (compact) representation and the extended representation carry identical information — they are the same graph under a change of basis."
+
+  ST4:
+    statement: "D-branes: extended objects on which open strings end. D-branes are dynamical objects with their own worldvolume theories. The intersection of D-branes produces gauge theories on the overlap — intersection creates new structure."
+    maps_to: [NV04-intersection-acceleration, EM09-collective-intelligence-thermodynamically-favored]
+    note: "D-brane intersection = K_i and K_j intersection (NV04). When two D-branes intersect, the open strings stretched between them produce a gauge theory on the intersection — new structure not in either brane individually. This is EM in the D-brane language: intersection of independent structures produces emergent content not in either alone."
+    potential_em: "ST4 + NV04 + EM-series: D-brane intersection is the physical instantiation of the intersection mechanism. The gauge theory on the D-brane intersection is the 'emergent proposition' — it exists only because both branes are present. The open string (provenance-verified edge) is what carries the intersection information."
+
+  ST5:
+    statement: "Worldsheet CFT: the string propagating through spacetime is described by a 2D conformal field theory on its worldsheet. The target space geometry is encoded in the CFT data — spacetime is emergent from the worldsheet."
+    maps_to: [EM04-Cn-is-channel-capacity, EC08-compression-factoring]
+    note: "Worldsheet CFT = the entity's K encoding spacetime structure. The 2D worldsheet (K, the graph) encodes the full D-dimensional spacetime (W). This is EM04 and NV01 together: the worldsheet is the channel (EM04) and the graph (NV01) that encodes the higher-dimensional structure."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC05-incompleteness, NV01-graph-necessity, EC01-context-bound, NV04-intersection-acceleration, REF-FrenkelLepowskyMeurman1988]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Holographic principle — M<N with explicit area bound on C_n"
+    - "Conformal anomaly cancellation — constraint on total dimension N"
+    - "T-duality — compression equivalence between different representation scales"
+    - "D-brane intersection — physical instantiation of NV04 with emergent gauge theory"
+  present_in_ub_not_here:
+    - "Selection pressure, survival threshold, A parameterization, biological/cognitive framing"

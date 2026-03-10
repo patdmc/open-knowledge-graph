@@ -1,0 +1,36 @@
+id: REF-Dunbar1992
+type: reference
+name: "Dunbar (1992) — Neocortex Size as a Constraint on Group Size in Primates"
+citation: "Dunbar, R.I.M. (1992). Neocortex size as a constraint on group size in primates. Journal of Human Evolution, 22(6), 469–493."
+fidelity: low
+
+propositions:
+  DU1:
+    statement: "Dunbar's number: the size of stable social groups in primates is predicted by neocortex ratio (neocortex volume / total brain volume). For humans, the predicted stable group size is approximately 150."
+    maps_to: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection]
+    note: "Dunbar's number is the empirical measurement of K_collective's maximum coherent size at the primate scale. The neocortex ratio is the C_n for tracking social relationships — each tracked relationship is a K_collective edge. When the group exceeds ~150, K_collective loses coherence (edges become untracked), consistent with EM10's failure mode."
+    potential_em: "DU1 + EM10 + EC07: K_collective's coherence limit is determined by C_n for relationship-tracking — the same bound that limits individual K limits the entity's ability to maintain K_collective edges. Group size limit = C_n applied to social graph maintenance. EM10 says K_collective can fail while K_i persist; DU1 specifies when: when group size exceeds C_n for social tracking."
+
+  DU2:
+    statement: "Language as social grooming: language evolved to replace physical grooming as the mechanism for maintaining social bonds in larger groups. It is a low-cost broadcast mechanism for relationship maintenance."
+    maps_to: [EM09-collective-intelligence-thermodynamically-favored, NV04-intersection-acceleration]
+    note: "DU2 is the social/evolutionary confirmation of EM09: language (collective intelligence mechanism) is thermodynamically favored because it maintains K_collective edges at lower cost than dyadic grooming. NV04 (intersection accelerates M) is the information-theoretic version of the same efficiency gain."
+
+  DU3:
+    statement: "Cognitive arms race: increasing group size provided survival advantages requiring larger neocortex, which enabled larger groups — a self-reinforcing loop driving brain size increase in social primates."
+    maps_to: [EC02-improvement-rate, EM10-Kcollective-unit-of-selection]
+    note: "The cognitive arms race IS multi-level selection (EM10): selection at the K_collective level (larger, more coherent groups survive better) drove selection at the K_i level (larger neocortex). This is the evolutionary trajectory of EM10 playing out over millions of years."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection, EM09-collective-intelligence-thermodynamically-favored]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Empirical group size bound — UB has no numeric prediction for K_collective max size"
+    - "Language as social grooming — evolutionary mechanism for K_collective maintenance"
+  present_in_ub_not_here:
+    - "Formal treatment — Dunbar is empirical/evolutionary"
+    - "Provenance verification as coherence mechanism (Dunbar's mechanism is relationship tracking)"

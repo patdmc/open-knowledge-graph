@@ -1,0 +1,41 @@
+id: REF-Borcherds1992
+type: reference
+name: "Borcherds (1992) — Monstrous Moonshine and Monstrous Lie Superalgebras"
+citation: "Borcherds, R.E. (1992). Monstrous moonshine and monstrous Lie superalgebras. Inventiones Mathematicae, 109(1), 405–444."
+fidelity: low
+
+propositions:
+  BO1:
+    statement: "Vertex algebra: a vector space V with a vacuum vector |0>, a translation operator T, and a vertex operator map Y(a,z) for each a in V, where Y(a,z) is a formal Laurent series of operators. The locality axiom: (z-w)^n [Y(a,z), Y(b,w)] = 0 for large enough n — vertex operators commute at separated points."
+    maps_to: [NV04-intersection-acceleration, EC07-collective-knowledge]
+    note: "Locality = provenance independence. The vertex operators Y(a,z) and Y(b,w) commute when a and b are separated (different z,w). In UB terms: K_i and K_j can be intersected (NV04) precisely when their derivations are independent — locality is provenance independence at the algebraic level."
+    potential_em: "BO1 + NV04: the locality axiom of vertex algebras is the algebraic form of provenance independence in NV04. Two vertex operators commute at separated points iff their support is independent — exactly the condition NV04 requires for intersection to add |K_j \\ K_i| new dimensions. Vertex algebra locality IS the independence condition for K_collective intersection."
+
+  BO2:
+    statement: "The Monster Lie algebra: Borcherds constructs a Kac-Moody superalgebra (the Monster Lie algebra) whose denominator formula is the McKay-Thompson series — connecting the Monster group (the largest sporadic simple group) to modular forms via vertex algebras."
+    maps_to: [EC08-compression-factoring, EM09-collective-intelligence-thermodynamically-favored]
+    note: "Moonshine: the Monster group (196,883-dimensional) is encoded in the coefficients of the j-function (a modular form). A maximally complex object (Monster) is compressed into a maximally symmetric object (modular form). This is EC08 compression taken to the mathematical extreme: the most complex discrete symmetry is exactly represented by the most symmetric analytic function."
+
+  BO3:
+    statement: "Borcherds identity: the fundamental relation in a vertex algebra, generalizing both the Jacobi identity (Lie algebras) and the associativity of operator products (conformal field theory). It encodes all the relations between vertex operators in a single identity."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: "The Borcherds identity is the single compressed fact from which the entire vertex algebra structure is recoverable — an extreme instance of EC08: one identity encodes the full relational structure. This is the algebraic version of graph necessity: the identity IS the graph (the minimal factored representation)."
+
+  BO4:
+    statement: "Translation covariance: [T, Y(a,z)] = d/dz Y(a,z). The translation operator T acts as differentiation on vertex operators. This connects the vacuum state (T|0> = 0) to the infinitesimal structure of the algebra."
+    maps_to: [EC02-improvement-rate, NV02-mn-bound]
+    note: "T as differentiation = eta_M as rate of change. The translation operator advances the entity along the formal variable z (= the dimension being explored). T|0> = 0 means the vacuum state does not evolve — A=0 in UB language: no engagement, no learning."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [NV04-intersection-acceleration, EC08-compression-factoring, NV01-graph-necessity, REF-Kac1990, REF-FrenkelLepowskyMeurman1988]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Locality axiom as formal commutativity condition — UB states independence informally"
+    - "Monstrous moonshine — compression of maximum complexity to maximum symmetry"
+    - "Borcherds identity as single compressed encoding of full structure"
+  present_in_ub_not_here:
+    - "Selection pressure, survival threshold, A parameterization, K/F coupling"

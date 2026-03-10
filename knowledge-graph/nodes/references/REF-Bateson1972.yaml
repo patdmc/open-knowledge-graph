@@ -1,0 +1,42 @@
+id: REF-Bateson1972
+type: reference
+name: "Bateson (1972) — Steps to an Ecology of Mind"
+citation: "Bateson, G. (1972). Steps to an Ecology of Mind. University of Chicago Press."
+fidelity: low
+
+propositions:
+  BA1:
+    statement: "Information is 'the difference that makes a difference': only differences in the environment that cause differences in the organism's state constitute information. Irrelevant differences are not information."
+    maps_to: [EC06-belief-as-action, EC10-uncertainty-driver]
+    note: "BA1 is the informal statement of EC06 (K grounds F): only dimensions of W that affect F are retained in K. 'The difference that makes a difference' = G(f,K) > 0, the condition for retaining a proposition."
+    potential_em: "BA1 + EC06 + EM11: Bateson's definition of information = Peirce's pragmatic maxim = Tarski's model-relative truth = UB's K/F coupling. All four say the same thing from different directions. This is EC06's convergence count: now 4 independent frameworks."
+
+  BA2:
+    statement: "Double bind: a communication situation where the recipient receives contradictory injunctions at different logical levels, with no ability to exit. Double binds produce pathological behavior — schizophrenia as a failure of meta-communication."
+    maps_to: [EC09-encoding-levels, EM08-sentience-is-metalanguage]
+    note: "Double bind = failure of metalanguage access. The entity cannot step outside the object language to evaluate the contradiction. EM08 (higher-order sentience = metalanguage possession) maps directly: double-bind pathology is the clinical presentation of metalanguage absence."
+    potential_em: "BA2 + EM08: double bind is the pathological failure mode of systems without metalanguage access — exactly EM08's Consequence 1 (entities with only lower-order sentience cannot evaluate their own K's reliability). BA2 gives the clinical phenomenology; EM08 gives the formal structure."
+
+  BA3:
+    statement: "Learning levels: Learning 0 (no change), Learning I (change within fixed alternatives), Learning II (change in set of alternatives — deutero-learning), Learning III (change in Learning II — rare, transformative). Each level is a meta-level relative to the one below."
+    maps_to: [EC09-encoding-levels, D14-sentience]
+    note: "Bateson's learning levels map to UB encoding levels L0-L3. Learning III = higher-order sentience: the entity can change the process that generates its alternatives, not just select among them."
+
+  BA4:
+    statement: "Context determines meaning: the same signal has different meaning at different logical levels / contexts. Meaning is not in the signal but in the relationship between signal and context."
+    maps_to: [EC06-belief-as-action, EM11-truth-equals-action-relevance]
+    note: "BA4 is EM11 stated in ecosystemic terms: meaning = context-relative action consequence. The 'context' in BA4 is the model in Tarski TA3 — the same structure."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC06-belief-as-action, EC09-encoding-levels, EM08-sentience-is-metalanguage, EM11-truth-equals-action-relevance]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Double bind — clinical failure mode of metalanguage absence"
+    - "Ecological/relational framing of information — UB is entity-centric"
+  present_in_ub_not_here:
+    - "Formal treatment — Bateson is entirely qualitative"
+    - "Survival threshold, A parameterization, graph structure"

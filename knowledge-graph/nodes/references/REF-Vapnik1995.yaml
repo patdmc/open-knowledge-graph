@@ -1,0 +1,42 @@
+id: REF-Vapnik1995
+type: reference
+name: "Vapnik (1995) — The Nature of Statistical Learning Theory"
+citation: "Vapnik, V.N. (1995). The Nature of Statistical Learning Theory. Springer."
+fidelity: low
+
+propositions:
+  VC1:
+    statement: "VC dimension: the Vapnik–Chervonenkis dimension of a hypothesis class H is the size of the largest set of points H can shatter (correctly classify in all 2^n labelings). It measures the complexity of the learnable."
+    maps_to: [EC08-compression-factoring, NV02-mn-bound]
+    note: "VC dimension bounds what can be learned from a sample. VC = capacity of the learning system ≈ M in UB terms. High VC = high M potential; low sample = slow M growth."
+
+  VC2:
+    statement: "Generalization bound: with probability 1-δ, the true risk R(α) ≤ empirical risk R_emp(α) + sqrt(h(ln(2l/h)+1) - ln(δ/4)) / l, where h is VC dimension and l is sample size. Generalization error is bounded by capacity relative to sample."
+    maps_to: [EM07-action-accuracy-bound, NV02-mn-bound]
+    note: "VC2 is a formal bound on EM07 (action accuracy bounded by M/N). The generalization bound is the statistical form of U_residual(f) >= U(w,K)*(N-M)/N: error is bounded by unobserved dimensions relative to total."
+    potential_em: "VC2 + EM07: VC generalization bounds and EM07 action accuracy bounds are the same structural result in different languages. VC bounds it from sample complexity; EM07 bounds it from dimensional coverage. Intersection: M/N ratio = h/l ratio. Both say accuracy improves as coverage ratio improves."
+
+  VC3:
+    statement: "Structural risk minimization (SRM): minimize empirical risk plus a complexity penalty. Optimal learning balances fit to data against model complexity — the bias-variance tradeoff has a formal information-theoretic solution."
+    maps_to: [EC08-compression-factoring, EC02-improvement-rate]
+    note: "SRM is the formal decision rule for what to keep in K at the C_n boundary: minimize complexity (factored representation) subject to maintaining predictive accuracy. This is the graph construction criterion in statistical learning language."
+
+  VC4:
+    statement: "PAC learning (Probably Approximately Correct): a concept is efficiently learnable if there exists a polynomial-time algorithm that produces a hypothesis within epsilon of the target with probability 1-delta."
+    maps_to: [EC02-improvement-rate, NV05-sentience-derivation]
+    note: "PAC learning bounds M growth rate — it is the formal statement of how fast eta_M can grow given sample access."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EM07-action-accuracy-bound, NV02-mn-bound, EC08-compression-factoring]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Sample complexity bounds — UB treats M growth qualitatively"
+    - "VC dimension as formal capacity measure — UB has C_n but not VC formalism"
+  present_in_ub_not_here:
+    - "Survival threshold — VC has no selection pressure"
+    - "A parameterization — VC assumes A=1"
+    - "Graph structure necessity — SRM picks structure by complexity penalty, not by necessity proof"

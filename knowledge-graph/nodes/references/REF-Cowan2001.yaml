@@ -1,0 +1,32 @@
+id: REF-Cowan2001
+type: reference
+name: "Cowan (2001) — The Magical Number 4 in Short-Term Memory"
+citation: "Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. Behavioral and Brain Sciences, 24(1), 87–114."
+fidelity: low
+
+propositions:
+  CO1:
+    statement: "The focus of attention holds approximately 4 chunks, not 7±2. Miller's 7±2 conflated chunks with sub-chunks. The true capacity of the focus of attention is approximately 4 items."
+    maps_to: [EC01-context-bound]
+    note: "CO1 refines Miller: C_n ≈ 4 chunks (focus of attention) rather than 7±2. The distinction matters for Definition 7: which C_n value is the binding constraint — activated long-term memory (7±2) or focus of attention (4)? UB's C_n is the focus-of-attention bound, not the broader activated-memory bound."
+
+  CO2:
+    statement: "Embedded process model: working memory is not a separate store but the activated portion of long-term memory plus the focus of attention. The focus (4 chunks) is a subset of activated memory (7±2)."
+    maps_to: [EC09-encoding-levels, EC01-context-bound]
+    note: "CO2 maps to UB's encoding levels: activated long-term memory = L1 (available, chunked); focus of attention = L2/L3 (active, contextual). The escalation architecture (Theorem 2a) is consistent with CO2: routine items in activated LTM, novel items escalated to the focus."
+
+  CO3:
+    statement: "Capacity is not in bits but in slots. The 4-slot limit is independent of item complexity — a chunk of 1 letter and a chunk of 10 letters each occupy one slot."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: "Slot structure = graph node structure. Each node in K occupies one slot regardless of how much it encodes — compression (factoring) is what determines how much W-coverage each slot provides. High-compression nodes (L0) provide more W-coverage per slot than low-compression nodes (L3)."
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC01-context-bound, EC09-encoding-levels, REF-Miller1956]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Empirical refinement of C_n — Cowan's 4 vs. Miller's 7±2"
+    - "Embedded process model — architectural distinction between activated LTM and focus"
