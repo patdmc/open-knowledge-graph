@@ -1,0 +1,100 @@
+id: D08-encoding-hierarchy
+type: definition
+number: 8
+name: "Encoding Hierarchy"
+statement: |
+  The encoding hierarchy is a continuous two-dimensional space E(c, r) parameterized by
+  runtime cost c >= 0 and reversibility r in [0,1], where increasing c corresponds to more
+  expensive engagement and increasing r to more easily revised encodings.
+
+  A continuous space has boundaries — regions where the qualitative character of encoding
+  changes in ways that require information to be translated as it crosses. These boundaries
+  require interfaces: formal structures through which signals pass when moving between
+  qualitatively distinct encoding regimes.
+
+  The named levels L_0, L_1, ..., L_n are the interfaces at the significant boundaries of
+  E(c, r), not points or regions within it:
+
+    L_n  | Active reasoning / novel uncertainty | O(compute) cost | Fully reversible
+    ...  | Learned patterns, habits             | Decreasing      | Decreasing
+    L_1  | Reflex / autonomic                   | ~0              | Semi-permanent
+    L_0  | Genetic encoding                     | 0               | Permanent within lineage
+
+  Escalation (Theorem 2) is the upward interface protocol: the specification of what form
+  a failure signal takes when crossing a boundary from lower c to higher c. Promotion
+  (Theorem 4) is the downward interface protocol: the condition under which an action may
+  cross a boundary from higher c to lower c.
+
+  The cost C_i in Theorem 4 is a property of the interface, not of the continuous space
+  between interfaces: it is the cost of failure when an encoding error has crossed the
+  boundary and propagates at the lower level's permanence.
+
+  The number of interfaces is substrate-determined. The theory specifies the properties
+  every interface must have; it does not prescribe how many exist.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Derived from the cost structure of Theorem 4 and the escalation principle. The continuous parameterization corrects the binary System 1/System 2 distinction (Kahneman 2011) by recognizing the full (c,r) space. Level names correspond to boundary interfaces in this space."
+    references: [REF-Baars1988, REF-Dehaene2011, REF-Kahneman2011]
+  derivation:
+    from: [D03-uncertainty, D09-survival-threshold]
+    method: "The hierarchy follows from the observation that different encoding levels have different costs of failure (C_i) and different reversibility (r). The interface structure is imposed by the requirement that signals must be re-represented when crossing qualitative boundaries."
+
+edges:
+  - to: T04-rigor-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 4 derives the certainty threshold theta_i = 1 - epsilon/C_i for promotion to level L_i; C_i is a property of the interfaces defined here"
+      derivation:
+        method: "Theorem 4 explicitly references encoding levels L_i and their costs C_i as defined in Definition 8"
+
+  - to: T05-escalation-principle
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Escalation (Theorem 2) is the upward interface protocol of the encoding hierarchy"
+      derivation:
+        method: "Theorem 2 is stated as: an informed action is handled at the lowest L_i such that U approx 0; escalation is the protocol when L_i fails"
+
+  - to: REF-Baars1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Global Workspace Theory's local-to-global broadcast corresponds to the escalation architecture; cited for the cognitive science parallel"
+      derivation:
+        method: "Cited in Definition 8 for the continuity principle"
+
+  - to: REF-Kahneman2011
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Kahneman's System 1/System 2 is the popular binary form of the encoding hierarchy; corrected here by the continuous E(c,r) parameterization"
+      derivation:
+        method: "Cited in Definition 8 for the continuity correction"

@@ -1,0 +1,80 @@
+id: D06-agency
+type: definition
+number: 6
+name: "Agency"
+statement: |
+  Agency A in [0,1] is a continuous scalar measuring the intrinsic drive of an entity to
+  reduce its own uncertainty: the desire to know [Schmidhuber2010]. It is not an external
+  objective imposed on E, nor a property derived from F or K. It is constitutive: A is
+  what makes F an active informed action space rather than a static structure.
+
+  At A = 0: F is a set of possible functions with no internal reason to engage W.
+  At A = 1: F is maximally oriented toward the unbounded frontier.
+  Intermediate values are meaningful: the drive can be stronger or weaker, shaped by
+  architecture, encoding history, and the density of unresolved uncertainty in the
+  entity's reachable W.
+
+  A is operationalizable as:
+
+    A(E) proportional to lim_{U_lethal^d -> infinity} dU/dt(E)
+
+  An entity with high A continues descending when not forced to. An entity with low A stops.
+  This distinguishes genuine agency from survival-compelled updating.
+
+  A precipitates from M by the same normalization argument that precipitates K from F.
+  A is the first factor to precipitate from M's cross product: the normalized orientation
+  that every M-application shares.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Agency is derived as a necessary invariant of persistence under selection pressure (Theorem 6 Part 1). Its operationalization as the rate of uncertainty reduction as survival pressure approaches zero distinguishes genuine drive from compelled updating."
+    references: [REF-Schmidhuber2010]
+  derivation:
+    from: [D03-uncertainty, D09-survival-threshold, D11-higher-order-function-space]
+    method: "A precipitates from M as the shared directional structure across all M-applications, by the same normalization argument that extracts K from F. Necessity proven in Theorem 6."
+
+edges:
+  - to: T07-intelligence-measure
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "I(E) = A * eta_M; A is one of two necessary invariants in the intelligence measure"
+      derivation:
+        method: "Definition 7 states I(E) = A * eta_M; A is constitutive"
+
+  - to: T03-agency-produces-gradient-descent
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 3 proves A > 0 necessarily produces gradient descent on U; A is the driver"
+      derivation:
+        method: "Theorem 3 is stated in terms of A: 'Agency Necessarily Produces Gradient Descent'"
+
+  - to: REF-Schmidhuber2010
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Schmidhuber's formal theory of intrinsic motivation relates to agency as the drive to reduce uncertainty"
+      derivation:
+        method: "Cited in Definition 6"

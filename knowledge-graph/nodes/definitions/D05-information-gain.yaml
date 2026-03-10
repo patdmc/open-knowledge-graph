@@ -1,0 +1,91 @@
+id: D05-information-gain
+type: definition
+number: "3b"
+name: "Information Gain"
+statement: |
+  The information gain of action f given current knowledge K is:
+
+    G(f, K) = E_w[U(w, K) - U(w, K_f)]
+             = H(W | K) - H(W | K, phi(f, w))
+             = I(f ; W | K)
+
+  where K_f = K union {p_f} is the updated knowledge after executing f and observing its
+  feedback phi(f, w), and p_f is the proposition grounded by observing phi(f, w).
+
+  This is standard mutual information [Shannon1948] expressed in terms of U: the reduction
+  in uncertainty about w achieved by executing f and observing its feedback.
+
+  G(f, K) >= 0 when p_f is grounded by observing the true feedback phi(f, w): conditioning
+  on true information cannot increase conditional entropy (data processing inequality [Cover2006]).
+
+  G(f, K) = 0 when f provides no new information about w given K.
+
+  This bound holds for truthfully observed feedback; a false or corrupted p_f may increase U
+  and falls outside the scope of this definition.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Standard mutual information I(f;W|K) re-expressed using the paper's uncertainty measure U. Non-negativity follows from the data processing inequality (Cover & Thomas 2006): conditioning on true information cannot increase conditional entropy."
+    references: [REF-Shannon1948, REF-Cover2006]
+  derivation:
+    from: [D03-uncertainty, D02-knowledge-graph]
+    method: "G(f,K) = I(f;W|K) = H(W|K) - H(W|K,phi(f,w)) by definition of mutual information, with H(W|K) = E[U(w,K)] per Definition 5"
+
+edges:
+  - to: D03-uncertainty
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "G(f,K) is defined as the expected reduction in U(w,K); requires U as defined in Definition 5"
+      derivation:
+        method: "G(f,K) = E_w[U(w,K) - U(w,K_f)] directly references U"
+
+  - to: REF-Shannon1948
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Shannon's mutual information I(f;W|K) is the formal basis of G(f,K)"
+      derivation:
+        method: "Cited in Definition 3b"
+
+  - to: REF-Cover2006
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Data processing inequality grounds G(f,K) >= 0 for truthfully observed feedback"
+      derivation:
+        method: "Cited in Definition 3b for non-negativity bound"
+
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The rate of uncertainty reduction in Theorem 10 is bounded by max_f G(f,K); G is the per-action gradient signal"
+      derivation:
+        method: "Theorem 10 Step 2 uses G(f,K) = I(f;w|K) as the measure of collective advantage"

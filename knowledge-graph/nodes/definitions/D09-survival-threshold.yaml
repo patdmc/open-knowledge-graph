@@ -1,0 +1,86 @@
+id: D09-survival-threshold
+type: definition
+number: 9
+name: "Survival Threshold"
+statement: |
+  For entity E in domain d subset W, there exists a threshold U_lethal^d such that:
+
+    U(w, K) > U_lethal^d => E does not survive in d
+
+  Above this threshold, uncertainty is so high that the entity cannot act effectively enough
+  to persist. U_lethal^d is not a choice or a preference; it is imposed by W.
+
+  The lethality threshold is domain-specific: U_lethal^d applies to domain d subset W.
+  An entity may survive in some domains while failing in others, depending on its K relative
+  to each domain's threshold.
+
+  In the engineering context (Section 1), U_lethal^d is concrete: exceeding token budget,
+  latency threshold, or error rate across the repository fleet. Selection pressure was cost,
+  not death. The gradient was real. The convergence was measured.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: axiomatic
+    description: "Foundational assumption: W imposes a survival threshold. This is not derived but asserted as a property of any world in which entities can fail. It is necessary for selection pressure to operate and for gradient descent to be non-elective (Theorem 3 Part I)."
+    references: []
+  derivation:
+    from: [D01-world-state-space, D03-uncertainty]
+    method: "U_lethal^d is the threshold above which the entity's uncertainty in domain d is incompatible with continued existence. Its existence follows from the assumption that W can destroy entities."
+
+edges:
+  - to: D01-world-state-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U_lethal^d is imposed by W — the survival threshold is a property of W acting on the entity, not a preference of the entity"
+      derivation:
+        method: "Definition 9 explicitly states 'imposed by W'"
+
+  - to: D03-uncertainty
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The threshold is expressed in terms of U(w,K); requires U to be defined"
+      derivation:
+        method: "Definition 9 is stated as U(w,K) > U_lethal^d; requires Definition 5"
+
+  - to: T03-agency-produces-gradient-descent
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The survival threshold is the mechanism by which W compels gradient descent: entities that do not update face U > U_lethal^d and are removed"
+      derivation:
+        method: "Theorem 3 Part I uses U_lethal^d to establish that gradient descent is non-elective"
+
+  - to: T04-rigor-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The cost C_i in Theorem 4 is the cost of failure at encoding level L_i, grounded by U_lethal^d"
+      derivation:
+        method: "Theorem 4 derives theta_i = 1 - epsilon/C_i where C_i is failure cost, which for L_0 is lineage survival"

@@ -1,0 +1,102 @@
+id: D03-uncertainty
+type: definition
+number: 5
+name: "Uncertainty as Surprisal"
+statement: |
+  The uncertainty of entity E about world state w is the surprisal of w given K [Shannon1948, Cover2006]:
+
+    U(w, K) = -log P(w | K)
+
+  U(w, K) measures how surprising — how informationally costly — the specific world state w
+  is given what K contains. It is high when K gives little constraint on w, and low when K
+  makes w highly predictable.
+
+  K is a directed graph of propositions interpreted as a Bayesian network [Pearl1988]. Each
+  proposition p in K contributes a likelihood factor l_p : W -> [0,1]. The posterior over
+  world states given the full knowledge graph is:
+
+    P(w | K) proportional to P_0(w) * product_{p in K} l_p(w)
+
+  The expected uncertainty over all world states is the conditional entropy:
+
+    H(W | K) = E_w[U(w, K)] = -sum_w P(w | K) log P(w | K)
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Defined via Shannon surprisal. The posterior is standard Bayes conditioning on all propositions in K simultaneously. The graph's edge structure encodes conditional independence following Pearl's Bayesian network formalism."
+    references: [REF-Shannon1948, REF-Cover2006, REF-Pearl1988]
+  derivation:
+    from: [D01-world-state-space, D02-knowledge-graph]
+    method: "Shannon surprisal applied to the posterior P(w|K) derived from K as a Bayesian network over W"
+
+edges:
+  - to: D01-world-state-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U(w,K) is defined over world states w in W; W must exist for U to be defined"
+      derivation:
+        method: "Definitional dependency — U maps W x K to real values"
+
+  - to: D02-knowledge-graph
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "K is the conditioning set that determines P(w|K); uncertainty is defined relative to K"
+      derivation:
+        method: "Definitional dependency — U(w,K) conditions on K"
+
+  - to: REF-Shannon1948
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Shannon's information theory grounds the surprisal definition U = -log P(w|K)"
+      derivation:
+        method: "Direct citation in Definition 5"
+
+  - to: REF-Pearl1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "K is interpreted as a Bayesian network following Pearl's formalism"
+      derivation:
+        method: "Direct citation in Definition 5"
+
+  - to: T01-minimization-imperative
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The minimization imperative (Theorem 1) operates on H(W|K), the expected uncertainty defined here"
+      derivation:
+        method: "Theorem 1 is stated in terms of U(w,K) as defined in Definition 5"

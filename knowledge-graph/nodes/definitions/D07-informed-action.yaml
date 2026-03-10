@@ -1,0 +1,83 @@
+id: D07-informed-action
+type: definition
+number: 3
+name: "Informed Action Space"
+statement: |
+  Let F subset (K x W_obs -> Delta_A) be a set of functions, where W_obs is an entity's
+  observable projection of W and Delta_A is a distribution over possible actions. Each
+  element f in F has type f : K x W_obs -> Delta_A. F is the complete set of informed
+  actions available to an entity.
+
+  An informed action f in F is an action grounded in K, validated against W, and attributed
+  to its origins: one that knows why it works. An uninformed action (grounded in no K) is
+  not an element of F. Knowledge with no action potential is not an element of F either;
+  it is data. An informed action is specifically the coupling: knowledge that enables action,
+  action that is justified by knowledge.
+
+  F carries graph structure. The elements of F are nodes; typed relations between them are
+  edges. This structure is forced by the same three constraints (retrieval O(|F^[f]|),
+  bounded C_n, deduplication) that force K to be a directed graph (Theorem 2b Part 3).
+
+  Edge types on F:
+  - depends_on: hard dependencies between actions (feasibility constraints)
+  - recommends_before/after: probabilistic ordering evidence (soft gradient directions)
+  - enhanced_by: combined actions that outperform either alone
+
+  F is discrete as a graph — a set of nodes connected by typed edges. Each individual f in F
+  maps into Delta_A, a probability simplex, which is continuous and metrizable. Gradient
+  descent in F is traversal on this discrete graph, directed by the continuous-valued G(f',K)
+  at each adjacent node: discrete steps, continuously-valued objective.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: axiomatic
+    description: "Foundational definition establishing the type of informed actions and the graph structure of F. The graph structure of F is derived from the same three constraints as K (Theorem 2b Part 3)."
+    references: []
+  derivation:
+    from: [D01-world-state-space, D02-knowledge-graph]
+    method: "F is defined as a function space over K x W_obs, grounded in the world state space and knowledge graph"
+
+edges:
+  - to: D02-knowledge-graph
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "F is constitutively indexed by K — each f in F takes K as input and is grounded by propositions in K"
+      derivation:
+        method: "Definition 3 type signature f : K x W_obs -> Delta_A makes K a structural dependency"
+
+  - to: T02-encoding-hierarchy-efficiency
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 2b Part 3 proves F must have graph structure under the same retrieval, context, and memory constraints as K"
+      derivation:
+        method: "The three joint constraints on F (retrieval O(|F^[f]|), bounded C_n, deduplication) are established in Theorem 2b"
+
+  - to: T09-type-irreducibility
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 5 proves F and M are type-irreducible; the type of F (K x W_obs -> Delta_A) is established here"
+      derivation:
+        method: "Type irreducibility requires the types of both F and M to be specified; F's type is given in Definition 3"

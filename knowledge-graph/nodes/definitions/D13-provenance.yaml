@@ -1,0 +1,80 @@
+id: D13-provenance
+type: definition
+number: 18
+name: "Provenance"
+statement: |
+  For any proposition p in K_collective, provenance is the triple:
+
+    prov(p) = (attribution(p), evidence(p), derivation(p))
+
+  where attribution identifies who established p, evidence records how it was verified,
+  and derivation captures how it was inferred from prior knowledge.
+
+  Knowledge without provenance cannot be reliably weighted in K_collective:
+
+    P(p is reliable) proportional to prov(p)
+
+  A fact with no provenance is indistinguishable from noise. This is not a social norm;
+  it is an epistemic requirement. Attribution and provenance are the infrastructure that
+  makes K_collective more than the sum of individual beliefs. They are what separates a
+  knowledge graph from a rumor.
+
+  Provenance is the mechanism that maintains transmission fidelity lambda > lambda_min
+  (Theorem 10): it allows each entity to weight received knowledge against its source,
+  to distinguish signal from noise, and to apply the intersection test of Definition 16
+  independently. Without provenance, noise accumulates unchecked and fidelity cannot be
+  assessed.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Provenance is derived as the minimum infrastructure for a collective knowledge system to function above the survival threshold lambda_min. Without provenance, entities cannot distinguish signal from noise in transferred knowledge. The proportionality P(p reliable) proportional to prov(p) is the operational consequence."
+    references: []
+  derivation:
+    from: [D12-collective-knowledge, T10-collective-gradient-dominance]
+    method: "Provenance is required for lambda > lambda_min (Theorem 10); its triple structure (attribution, evidence, derivation) is the minimum specification for reliable weighting of transferred propositions"
+
+edges:
+  - to: D12-collective-knowledge
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Provenance is required for K_collective to be more than a sum of beliefs; it is the mechanism that makes K_interaction accessible and reliable"
+      derivation:
+        method: "Definition 18 states provenance is the infrastructure for K_collective"
+
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Provenance is the mechanism maintaining lambda > lambda_min; without it, collective gradient degrades below threshold"
+      derivation:
+        method: "Theorem 10 explicitly states: 'Provenance is the mechanism that maintains lambda > lambda_min'"
+
+  - to: C15-self-assembly
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Provenance infrastructure self-assembles under selection pressure because entities without it fall below lambda_min (Corollary 15)"
+      derivation:
+        method: "Corollary 15 proves provenance practices are selected for by the same pressure as graph structure"

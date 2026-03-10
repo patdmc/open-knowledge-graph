@@ -1,0 +1,86 @@
+id: D10-gradient-descent
+type: definition
+number: 10
+name: "Certainty and Multi-Timescale Gradient Descent"
+statement: |
+  An informed action f is certain when U(w, K_f) ~= 0 across sufficient variation in W that
+  it meets the threshold theta_i for promotion to L_0 (Theorem 4). Certainty is the limit of
+  the gradient descent process: there is no categorical transition out of the probabilistic
+  domain, only decreasing density of uncertainty until the cost of active engagement no longer
+  justifies the residual gradient. A sufficiently certain informed action is promoted to a
+  lower encoding level and no longer occupies the active context window. Its participation in
+  gradient descent asymptotically approaches zero; it does not cease.
+
+  Multi-timescale gradient descent on U operates at two rates:
+
+    Delta F_individual = -eta_ind * grad_F U(w, K)         [individual learning]
+    Delta F_species ~ -eta_evo * grad_F E_individuals[U(w, K)]  [evolutionary analogy]
+
+  where eta_evo << eta_ind.
+
+  The learning rate eta_i at encoding level L_i is inversely proportional to the rigor
+  threshold theta_i:
+
+    eta_i proportional to 1/theta_i = C_i / (C_i - epsilon)
+
+  For individual learning at L_n: C_n is the cost of a single wrong action, so eta_ind is
+  large. For evolutionary learning at L_0: C_0 is lineage survival, so theta_0 ~= 1 and
+  eta_evo ~= 1/C_0, giving eta_evo << eta_ind.
+
+  The individual and evolutionary processes are formally analogous — both descend on U —
+  but operate on mathematically distinct objects: one entity's F vs. a population
+  distribution over F-variants.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Certainty is defined as Definition 10; multi-timescale gradient structure is derived in the Remark following Corollary 5. The learning rate relationship eta_evo << eta_ind follows from Theorem 4 applied at different encoding levels."
+    references: []
+  derivation:
+    from: [D03-uncertainty, D08-encoding-hierarchy, D09-survival-threshold, T04-rigor-threshold]
+    method: "Certainty is the limit of gradient descent at which theta_i is met; eta_i is derived from theta_i = 1 - epsilon/C_i by inverting the rigor-cost relationship"
+
+edges:
+  - to: T04-rigor-threshold
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "eta_i = C_i/(C_i - epsilon) is derived by inverting the rigor threshold theta_i = 1 - epsilon/C_i from Theorem 4"
+      derivation:
+        method: "eta_i proportional to 1/theta_i; theta_i defined in Theorem 4"
+
+  - to: T03-agency-produces-gradient-descent
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The gradient descent characterized here (Delta F = -eta * delta) is proved in Theorem 3 to be the necessary consequence of A > 0 under selection pressure"
+      derivation:
+        method: "Theorem 3 Part I establishes the compulsion; Definition 10 and the Remark characterize the multi-timescale structure"
+
+  - to: D08-encoding-hierarchy
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "The timescale distinction (eta_ind vs eta_evo) maps onto the encoding hierarchy levels L_n vs L_0"
+      derivation:
+        method: "Each encoding level L_i has its own learning rate eta_i derived from C_i"

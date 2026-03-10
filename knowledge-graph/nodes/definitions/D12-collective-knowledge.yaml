@@ -1,0 +1,81 @@
+id: D12-collective-knowledge
+type: definition
+number: 17
+name: "Collective Knowledge"
+statement: |
+  For a set of entities {E_i}, the collective knowledge graph is:
+
+    K_collective = union_i K_i union K_interaction
+
+  where K_interaction is formally defined as:
+
+    K_interaction = {p not in union_i K_i | exists S subset {E_i}, |S| >= 2:
+      P(E_p | union_{j in S} K_j) > max_{j in S} P(E_p | K_j)}
+
+  where E_p subset W is the event corresponding to proposition p and P(. | K) is the
+  posterior defined in Definition 5.
+
+  K_interaction is the set of propositions not contained in any individual K_i but whose
+  posterior probability rises strictly above what any single member of some subset S can
+  support — propositions the combined evidence of S makes accessible that no individual
+  member of S could make accessible alone.
+
+  The definition ranges over all subsets S of size >= 2, not just pairs. Some propositions
+  become derivable only from three or more distinct perspectives combined. The number of
+  contributing subsets grows as 2^n - n - 1, so K_interaction grows super-additively with
+  collective size. Entities with overlapping K contribute less to K_interaction than entities
+  whose knowledge graphs cover different regions of W.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "K_interaction is defined formally using the posterior from Definition 5. The super-additive growth of K_interaction with collective size (2^n - n - 1 contributing subsets) is derived combinatorially. The value of the collective is not K-size but precipitation count |Prec(K_collective)| (Theorem 10 Step 2b)."
+    references: [REF-Woolley2010]
+  derivation:
+    from: [D02-knowledge-graph, D03-uncertainty, D04-prior-and-posterior]
+    method: "K_collective is the union of individual K_i plus K_interaction; K_interaction is defined by the posterior-based condition that combined evidence exceeds any individual's evidence"
+
+edges:
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 10 proves dU_collective/dt < dU_i/dt using K_collective and K_interaction as defined here"
+      derivation:
+        method: "Theorem 10 Step 1 uses K_collective superset K_i; Step 3 uses K_interaction to establish strict inequality"
+
+  - to: C14-non-termination-collective
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Non-termination of collective gradient descent (Corollary 14) requires K_collective as defined here"
+      derivation:
+        method: "Corollary 14 applies Theorem 3 Part II to the collective via K_collective"
+
+  - to: REF-Woolley2010
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Woolley et al. demonstrate empirically that collective intelligence is measurable and distinct from individual intelligence — consistent with K_interaction as the source of strictly collective knowledge"
+      derivation:
+        method: "Cited in Theorem 10 for transmission fidelity lambda"

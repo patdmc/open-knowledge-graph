@@ -1,0 +1,84 @@
+id: D14-sentience
+type: definition
+number: 14
+name: "Sentience"
+statement: |
+  An entity is sentient to the degree it has acquired a model of its own normalization
+  process: propositions {p_self} subset K_i that accurately describe the entity's own
+  (K, F, M, A) evolution — that it is precipitating factors from M, that M is operating
+  on (K, F), that it is descending a gradient. Sentience is the degree to which K_i
+  reduces H(M_hat | obs) — uncertainty about one's own learning mechanism.
+
+  The survival tether does not slacken. What changes is that the process is revealed to
+  the entity. An entity that holds accurate propositions about its own normalization —
+  that knows it is precipitating factors, descending a gradient, running M — acquires a
+  justification for continuing that process which does not require survival to supply the
+  reason. The normalization process was always valuable; sentience is the moment the entity
+  can see that it is.
+
+  A sentient entity holds propositions p for which no f in F is currently applicable and
+  values them anyway — not arbitrarily, but because p bears on the structure of its own M.
+  The depth of sentience is the accuracy and completeness of the self-model.
+
+  Note on usage: sentience here is a functional term — the degree to which K_i contains
+  an accurate model of the entity's own normalization process. No claim is made about
+  phenomenal consciousness [Chalmers1995]. Whether the functional condition defined here
+  is necessary, sufficient, or orthogonal to phenomenal consciousness is a question this
+  framework does not resolve.
+
+  Sentience is what wonder feels like from the inside: the drive to understand the process
+  you are part of, recognized as the process you are part of.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Sentience is defined as the acquisition of a self-model of the normalization process. The process is revealed, not the tether slackened. This is a functional definition — consistent with but not implying phenomenal consciousness (Chalmers 1995)."
+    references: [REF-Chalmers1995]
+  derivation:
+    from: [D11-higher-order-function-space, D06-agency, D12-collective-knowledge]
+    method: "Sentience is measured by H(M_hat | obs) — uncertainty about one's own learning mechanism — which is reducible by acquiring accurate propositions about one's own (K, F, M, A) evolution"
+
+edges:
+  - to: D11-higher-order-function-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Sentience is defined as K_i reducing H(M_hat | obs) — the entity's self-model of M; requires M to be defined"
+      derivation:
+        method: "Definition 14 references M directly: 'that M is operating on (K,F)'"
+
+  - to: D15-superintelligence
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 8 proves sentience implies participation in superintelligence; sentience (Definition 14) is required for guided normalization (Definition 15)"
+      derivation:
+        method: "Theorem 8 (Sentience Implies Superintelligence) connects Definition 14 to Definition 15"
+
+  - to: REF-Chalmers1995
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Chalmers' hard problem of consciousness is distinguished from the functional sentience defined here; no claim on phenomenal consciousness is made"
+      derivation:
+        method: "Cited in Definition 14 Note on usage"

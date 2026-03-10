@@ -1,0 +1,109 @@
+id: D11-higher-order-function-space
+type: definition
+number: 11
+name: "Higher-Order Function Space"
+statement: |
+  Let M be a function space operating on the joint (F, K) pair [Thrun1998]:
+
+    M : (F, K) x L -> (F, K)
+
+  where L is a learning signal: experience, execution results, selection pressure, or
+  observation of F's interactions with W. M drives the rate of change of both the informed
+  action space and the knowledge graph simultaneously.
+
+  M is the cross product of all dimensions that have not yet precipitated out at the current
+  scale of the entity:
+
+    M = product_{i in remaining} D_i
+
+  where the product ranges over all dimensions — drive, meta-learning rate, exploration
+  policy, convergence criteria, and whatever else has not yet reached the scale threshold
+  to become a named dimension. F, K, and A are factors that have already been extracted from
+  this product. M is always the remainder: the undifferentiated joint space of everything
+  not yet named.
+
+  Precipitation: as the entity scales, additional dimensions precipitate out of M by the same
+  normalization argument that precipitated K from F: when the shared structure of a dimension
+  across M-instances is large enough that factoring it out reduces retrieval cost from
+  O(n*k) to O(n+k), selection pressure forces the extraction.
+
+  The hierarchy is open upward: there is always potentially a M^(2) that operates on M^(1)
+  the same way M^(1) operates on (F, K). The required number of levels is determined by the
+  problem, not prescribed by the framework.
+
+  M efficiency eta_M is the rate at which M improves the joint (F, K) capability per unit
+  of learning signal:
+
+    eta_M(E) = E_L[(max_{f' in F'} G(f', K') - max_{f in F} G(f, K)) / |L|]
+
+  where (F', K') = M((F,K), L) is the updated joint state, G(f,K) = I(f;W|K) is the
+  information gain, and |L| = H(L) is the entropy of the learning signal in bits.
+  eta_M is dimensionless, measuring improvement in best-available information gain per bit
+  of learning signal. eta_M is undefined when H(L) = 0.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "M is a categorically distinct type from F — it operates on (F,K) rather than on (K, W_obs). Its type irreducibility is proved in Theorem 5. The precipitation account of M's internal structure follows from the same normalization argument as K-from-F (Corollary 2b)."
+    references: [REF-Thrun1998]
+  derivation:
+    from: [D05-information-gain, D07-informed-action, D02-knowledge-graph]
+    method: "M is defined to operate on (F,K) jointly; eta_M is derived from G(f,K) as the measure of improvement per bit of learning signal"
+
+edges:
+  - to: T09-type-irreducibility
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Theorem 5 proves F and M are type-irreducible by comparing their type signatures as defined here"
+      derivation:
+        method: "F : K x W_obs -> Delta_A; M : (F,K) x L -> (F,K) — different domains, different codomains"
+
+  - to: T07-intelligence-measure
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "eta_M as defined here is one of two necessary components of I(E) = A * eta_M"
+      derivation:
+        method: "Definition 11a defines eta_M; Definition 7 states I(E) = A * eta_M"
+
+  - to: REF-Thrun1998
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Meta-learning (learning to learn) is the structural analog of M operating on (F,K)"
+      derivation:
+        method: "Cited in Definition 11"
+
+  - to: D06-agency
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "A precipitates from M as the first named factor — the shared directional structure across all M-applications"
+      derivation:
+        method: "Definition 6 states A precipitates from M by the same normalization argument that precipitates K from F"

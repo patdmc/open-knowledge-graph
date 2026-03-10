@@ -1,0 +1,65 @@
+id: D04-prior-and-posterior
+type: definition
+number: "4-5 (prior/posterior structure)"
+name: "Prior and Posterior over World States"
+statement: |
+  Let (W, F, P_0) be a probability space with prior P_0 over world states. The prior P_0(w)
+  is the entity's initial distribution over W before conditioning on any knowledge.
+
+  Each proposition p in K contributes a likelihood factor l_p : W -> [0,1], where l_p(w)
+  is the probability of observing the evidence that grounds p if the true world state were w.
+  The graph's edge structure encodes conditional independence: if p and q have no path
+  between them in K, their factors are conditionally independent given their shared ancestors,
+  yielding a valid factorization.
+
+  The posterior over world states given the full knowledge graph is:
+
+    P(w | K) proportional to P_0(w) * product_{p in K} l_p(w)
+
+  This is the standard Bayes posterior obtained by conditioning P_0 on all propositions
+  simultaneously. P(w | K) is well-defined and normalizable for any proper prior P_0 and
+  bounded likelihood functions l_p.
+
+  The theory is parametric in P_0 — it does not depend on a specific prior, only on its
+  existence and well-formedness.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "Standard Bayesian conditioning. The prior-likelihood-posterior factorization follows directly from Bayes' theorem applied to the Bayesian network structure of K. Well-definedness follows from properness of P_0 and boundedness of likelihood factors."
+    references: [REF-Pearl1988, REF-Shannon1948]
+  derivation:
+    from: [D01-world-state-space, D02-knowledge-graph, D03-uncertainty]
+    method: "Bayesian updating: prior P_0 updated by likelihood factors from each proposition p in K via standard Bayes posterior"
+
+edges:
+  - to: D03-uncertainty
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U(w,K) = -log P(w|K) requires P(w|K) as defined by the prior-posterior structure"
+      derivation:
+        method: "Definition 5 explicitly depends on P(w|K) whose derivation is the prior-posterior structure"
+
+  - to: REF-Pearl1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cited
+        description: "Pearl's Bayesian network formalism provides the conditional independence structure for the factorization"
+      derivation:
+        method: "Cited in Definition 5 for the Bayesian network interpretation of K"
