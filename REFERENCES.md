@@ -53,6 +53,18 @@ all information-theoretic grounding throughout.
 Shannon mutual information. The paper's uncertainty measure is this quantity
 exactly.
 
+### [Tarski1936]
+Tarski, A. (1936). The concept of truth in formalized languages.
+In J. H. Woodger (Trans.), *Logic, Semantics, Metamathematics* (pp. 152–278).
+Oxford University Press (1956).
+
+**Supports:** Theorem 10 (Epistemic Ceiling); Definition 16a (Truth as fixed point).
+**Stance:** Formal grounding. Tarski's undefinability theorem establishes that truth
+in a formal system cannot be defined within that system. Theorem 10 is the
+information-theoretic operational form of this result: the confidence regress is
+non-closeable from within, which is the epistemic consequence of Tarski's theorem
+applied to the framework's truth definition.
+
 ### [Peirce1877]
 Peirce, C. S. (1877). The fixation of belief. *Popular Science Monthly*, 12, 1–15.
 

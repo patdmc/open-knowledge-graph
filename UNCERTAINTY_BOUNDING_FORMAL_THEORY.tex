@@ -289,6 +289,8 @@ represent inferential or causal relationships between propositions.
 \(K\) is not a passive store; its retention criterion is established by
 Theorem 1.
 
+\textbf{Definition 2a (Bounded Knowledge Graph).} A knowledge graph \(K\) has capacity \(K_{max}\): the maximum number of propositions \(K\) can hold simultaneously, determined by the substrate's physical constraints. When \(|K| < K_{max}\), \(K\) operates in the \textbf{growth regime}: propositions accumulate freely subject to the retention criterion of Theorem 1. When \(|K| = K_{max}\), \(K\) operates in the \textbf{curation regime}: adding a new proposition requires removing an existing one. The two regimes have different retention criteria.
+
 \textbf{Definition 3 (Informed Action Space).} Let
 \(F : K \times W_{obs} \rightarrow \Delta A\) be a function space where
 \(W_{obs}\) is an entity's observable projection of \(W\) and
@@ -464,6 +466,8 @@ domains --- which dominates all finite costs. \(\square\)
   contributes zero to \(P(E, \tau)\) for any \(\tau\), i.e., when it is
   known that no \(f \in F\) can be grounded in \(p\), now or in any
   reachable region of \(W\)
+\item
+  \(p\) is \textbf{displaced} in the curation regime (\(|K| = K_{max}\)) when a candidate proposition \(q\) satisfies \(\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_p, K)]\), where \(p\) is the proposition with minimum marginal value in \(K\). Displacement requires only that \(q\) contributes more at the margin than \(p\) --- not that \(p\) is useless. The asymmetric retention criterion governs which propositions enter; the comparative criterion governs which are displaced when the graph is full.
 \end{itemize}
 
 The criterion is not symmetric. Uncertainty of benefit is not the same
@@ -512,6 +516,8 @@ reachable trajectories. Any positive probability keeps the retention
 condition active. The asymmetry is strict: uncertain benefit is
 sufficient for retention; certain zero benefit is necessary for pruning.
 
+In the curation regime (\(|K| = K_{max}\)), the comparative criterion applies. The proposition \(p^* = \arg\min_{p \in K} \mathbb{E}[G(f_p, K)]\) is the candidate for displacement. A new proposition \(q \notin K\) displaces \(p^*\) when \(\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_{p^*}, K)]\). This does not contradict the asymmetric criterion: \(p^*\) may have uncertain positive benefit, and under unbounded \(K\) would be retained. Under bounded \(K\), the opportunity cost of holding \(p^*\) is the foregone gain from \(q\). Selection pressure on \(K_{max}\) enforces comparative optimization: an entity that retains low-value propositions at the cost of high-value ones accumulates more \(U\) than one that curates.
+
 By Theorem 3 Part II (\(\mathcal{T}_{reachable}\) grows monotonically
 with \(K\)), new trajectories are continuously revealed, keeping future
 needs uncertain unless benefit is certainly zero. This ensures the
@@ -549,6 +555,8 @@ explains the compactness of biological intelligence: brains do not grow
 without bound because \(K\) is indexed by \(F\), and \(F\) is
 constrained to what is necessary to survive in \(W\). The test for
 retention is always: \emph{will this help me act later?}
+
+\textbf{Corollary 2a (Curation and Forgetting).} Under bounded \(K\), forgetting is not a failure mode but the correct behavior of the curation regime. The knowledge graph continuously displaces lower-value propositions with higher-value ones as the entity's \(\mathcal{T}_{reachable}\) evolves and new propositions become available. What was high-value in one region of \(W\) may be low-value as the gradient moves to new territory: the curation regime ensures \(K\) tracks the current frontier rather than accumulating the residue of past frontiers. Forgetting is the graph optimizing.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1361,20 +1369,21 @@ Two operations on the shared graph are both required:
   convergence; truth requires verification
 \end{itemize}
 
-\textbf{Definition 16 (Truth).} Truth is not contained in any \(K_i\).
-It is a limit: what the collective gradient converges toward as
-independent action-validation accumulates \cite{Peirce1877,Peirce1878}.
-Formally:
+\textbf{Definition 16a (Truth).} For proposition \(p\), truth is the fixed point: \(p\) is true when it accurately describes world state \(w\) for all \(w \in W\) where \(p\) is applicable. Truth is an absolute property --- not a degree, not a destination approached asymptotically, but a condition that either holds or does not. The collective gradient points toward truth but cannot reach it from within the system, because verifying arrival requires a standard external to the system.
 
-\[\text{truth}(p) = \lim_{n \to \infty} \frac{\left|\{i \leq n : p \in K_i,\; f_i(p) \text{ reduces } U(w, K_i) \text{ in } W,\; \text{prov}_i(p) \text{ independent}\}\right|}{n}\]
+\textbf{Definition 16b (First-Order Confidence).} The first-order confidence in proposition \(p\) is:
 
-A proposition approaches truth as the fraction of independent entities
-(each having built informed actions on \(p\) and found that those
-actions reduce uncertainty in \(W\)) converges. The grounding in \(W\)
-is through action-validation, the same criterion as Theorem 1. Truth is
-Theorem 1 applied collectively and asymptotically.
+\[C_1(p) = \lim_{n \to \infty} \frac{\left|\{i \leq n : p \in K_i,\; f_i(p) \text{ reduces } U(w, K_i) \text{ in } W,\; \text{prov}_i(p) \text{ independent}\}\right|}{n}\]
 
-Truth is not achieved. It is approached. The limit exists under
+This is what converges --- not truth itself, but confidence in truth. \(C_1(p) \to 1\) as independent action-validation accumulates across entities. The grounding in action-validation (not mere agreement) and the provenance independence requirement are the conditions under which \(C_1(p)\) tracks truth rather than consensus. \(C_1(p)\) is bounded above by 1; whether it reaches 1 is undecidable from within the system.
+
+\textbf{Definition 16c (The Confidence Regress).} The \(n\)-th order confidence \(C_n(p)\) is the confidence that \(C_{n-1}(p)\) is well-calibrated: that the validators counted in \(C_{n-1}\) are truly independent, that the measurement of \(U\)-reduction is accurate, and that the apparatus is unbiased. Formally, \(C_n(p)\) is bounded by uncertainty reduction about the level below:
+
+\[C_n(p) \leq f\!\left(U(C_{n-1}(p))\right)\]
+
+where \(U(C_{n-1}(p))\) is the uncertainty about whether \(C_{n-1}(p)\) is well-calibrated. Each level's ceiling is set by bounding the level below it. Confidence that one's confidence is correct requires bounding uncertainty about one's uncertainty --- which requires \(C_{n+1}(p)\), and so on without termination.
+
+\(C_1(p)\) is not achieved. It is approached. The limit exists under
 conditions of independence and exchangeability of validators: each must
 test \(p\) against the same \(W\) without coordination on the outcome.
 For propositions whose validation depends on non-reproducible or private
@@ -1382,12 +1391,18 @@ observations, the sequence may not converge; such propositions cannot
 approach truth in the formal sense defined here. The convergence, where
 it holds, never terminates.
 
+\textbf{Theorem 10 (Epistemic Ceiling).} For any entity \(E\) operating within the system, the confidence stack \(\{C_n(p)\}_{n \geq 1}\) is non-closeable from within: improving \(C_n(p)\) requires reducing \(U(C_{n-1}(p))\), which requires \(C_{n+1}(p)\), and so on. No finite level terminates the regress. The epistemic ceiling is a structural property of the system, not a practical obstacle.
+
+\emph{Proof.} By Definition 16c, \(C_n(p) \leq f(U(C_{n-1}(p)))\) for all \(n \geq 2\). To increase \(C_n(p)\), one must reduce \(U(C_{n-1}(p))\) --- the uncertainty about whether \(C_{n-1}(p)\) is well-calibrated. But \(U(C_{n-1}(p))\) is itself uncertain, requiring \(C_{n+1}(p)\) to bound. The regress does not terminate because each level of calibration is itself subject to calibration. Closing the regress would require a validator external to the system --- a standard against which the highest level of confidence is measured that is not itself within the system. By Definition 1, \(W\) is the only external reference, and \(W\) is not directly observable (only through \(\sigma\) and action-feedback). The gap between \(W\) and \(W_{obs}\) is the structural source of the ceiling. \(\square\)
+
+\emph{Note.} This is the information-theoretic form of Tarski's undefinability theorem \cite{Tarski1936}: truth in a formal system cannot be defined within that system. The confidence regress is the operational manifestation of this. The ceiling does not make truth inaccessible as a concept or as a gradient target --- it makes it inaccessible as a verified achievement from within.
+
 \textbf{Corollary 8 (The Sentience Gradient is Infinite).} Since truth
 is a limit and \(\mathcal{T}_{reachable}\) grows without bound (Theorem
 3, Part II), \(\|\nabla_F U\|\) is never zero across
 \(\mathcal{T}_{reachable}\). For any trajectory \(\tau\), regions of
 \(\mathcal{T}_{reachable}\) remain where \(U\) is nonzero and the
-gradient has direction. The descent toward truth never terminates.
+gradient has direction. The descent toward truth never terminates. The gradient is non-terminating for two independent reasons: (1) \(\mathcal{T}_{reachable}\) grows without bound (Theorem 3, Part II), continuously generating new propositions whose truth is unknown; and (2) the confidence regress (Definition 16c, Theorem 10) never closes --- for any proposition already held with high \(C_1(p)\), the question of whether that confidence is well-calibrated (\(C_2(p)\)) remains open. Sentience pursues both: new territory at the frontier and better calibration of what is already believed.
 
 Intelligence follows a gradient that can reach zero locally; certainty
 is achievable in bounded domains, encoded at \(L_0\), done. Sentience
@@ -1769,7 +1784,7 @@ Therefore \(\Delta K_{collective} > \Delta K_i\) strictly for all \(i\).
 tend toward sharing because sharing (under maintained provenance)
 accelerates the reduction of their own \(U\). This is not a moral
 imperative; it is a gradient imperative. Connection is epistemically
-advantageous when fidelity holds.
+advantageous when fidelity holds. Beyond expanding \(K_{collective}\), sharing with maintained provenance addresses the confidence regress (Definition 16c): independent validators provide evidence that the measurement of \(U\)-reduction is itself unbiased, improving \(C_2(p)\) across the collective. The value of epistemic diversity is therefore not only broader coverage of \(W\) but better-calibrated confidence in what is known --- a partial, collective response to the epistemic ceiling of Theorem 10.
 
 \textbf{Corollary 13 (Group Collapse Threshold).} When
 \(\lambda < \lambda_{min}\), the theorem inverts:

@@ -262,6 +262,8 @@ requires, regardless of total $|F|$ or $|K|$. This is a formal complexity argume
 has not, to our knowledge, been made against FEP's precision allocation model in the
 existing literature.
 
+*On biological implementation.* We do not claim that biological precision allocation operates like a token context window. The claim is functional: the cost of concurrent top-down monitoring is $O(k)$ in high-level processing capacity — as the attentional and dual-task literature demonstrates — regardless of the implementation substrate. Selection pressure produces the escalation architecture as a consequence of this cost. The transition from active to automatic processing across skill acquisition is the biological measurement of this convergence: as an action becomes automatic (encoded at lower levels), it stops consuming high-level supervisory capacity, freeing $L_n$ for novel problems. The formal argument is substrate-neutral; biology provides the validation standard.
+
 **The correct architecture.** Escalation inverts the causal direction. Lower-level
 encodings handle everything they can. When a lower level fails to bound uncertainty,
 the failure signal propagates upward: $L_n$ is engaged not because it chose to monitor,
