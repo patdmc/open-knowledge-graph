@@ -62,3 +62,20 @@ edges:
         description: "NV01 enables EM03: because NV01 proves graph necessity, it provides the derivation that FEP7 needs."
       derivation:
         method: "NV01 + FEP7 -> EM03"
+
+independent_derivations:
+  - source: EM11-truth-equals-action-relevance
+    description: |
+      EM11 provides a second, independent derivation of graph necessity from the
+      intersection of Peirce PC4 (meaning = practical consequences) and Tarski TA3
+      (truth is model-relative). For any entity where truth-criteria and action-criteria
+      must be aligned, the K/F graph is the necessary mediating structure. This derivation
+      comes from philosophy of language rather than information theory — the two routes are
+      formally independent, increasing C_1(NV01).
+    method: "PC4 + TA3 -> truth=action-relevance -> K/F graph required for alignment"
+    increases_confidence: true
+    note: |
+      NV01 was derived from the data processing inequality (Cover CT1) + two-option
+      argument at C_n. EM11 reaches the same structural conclusion from semantic theory.
+      If these routes are genuinely independent (they use disjoint base assumptions),
+      C_1(NV01) updates from the product formula: C_1 increases from 0.82 toward 0.87.

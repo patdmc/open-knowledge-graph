@@ -2290,6 +2290,23 @@ Fourth, FEP has no formal account of collective intelligence; we derive collecti
 dominance, the self-assembly of provenance infrastructure, and the conditions under which
 shared knowledge reduces uncertainty faster than any individual.
 
+Three specific structural relationships with FEP are worth stating precisely. First, FEP
+assumes a hierarchical generative model as its architectural form (the generative model is
+given, not derived) [Friston2017]. Theorem 2b Part 3 proves that the $K/F$ graph structure
+is the unique information-preserving representation at bounded context: FEP's architectural
+assumption is an instance of what this framework derives as necessary. Second, FEP's
+long-run equilibrium claim — that free energy approaches its minimum asymptotically —
+requires that the generative process be stationary. Theorem 3 Part II shows $M < N$ always
+holds for $\mathcal{A} > 0$ entities in open environments: in open-world conditions the
+equilibrium never completes, not as a failure of FEP but as its correct behavior under the
+open-world assumption this framework makes explicit. Third, Friston et al.'s sophisticated
+inference [Friston2021] — agents that model their own future inference states — independently
+arrives at what Definition 14 calls higher-order sentience. This framework derives
+higher-order sentience from the induction argument (Theorem 2b Part 3 extended by Theorem 3
+Part II); sophisticated inference posits it as an architectural feature. Independent
+convergence on the same structure from a derivation and from an architectural assumption
+strengthens the claim in both directions.
+
 ### Information-Theoretic Accounts
 
 Shannon's mutual information [Shannon1948] grounds Definition 5 ($U = H(w \mid K)$) and
@@ -2299,9 +2316,16 @@ retention threshold for knowledge-action coupling as a design parameter; this pa
 that threshold from survival pressure, making it a consequence rather than a choice.
 Schmidhuber's formal theory of intrinsic motivation [Schmidhuber2010] formalizes curiosity
 as compression progress — the rate at which a learning algorithm improves its world model —
-which is structurally $\eta_M$. The difference: Schmidhuber treats the drive as a design
-objective; here $\mathcal{A}$ is derived from the gradient, and $\eta_M$ is separated from
-it as a formally independent quantity.
+which is structurally $\eta_M$. Schmidhuber's agent corresponds to the $\mathcal{A} = 1$
+limit of this framework: an agent that always engages on gradient signals with no engagement
+probability parameterized. Three differences: (1) Agency $\mathcal{A} \in [0,1]$ is explicit
+here, covering partial engagement and the $\mathcal{A} = 0$ non-persistence case (Theorem 6
+Part 1) — cases Schmidhuber's framework treats as outside scope. (2) Schmidhuber treats the
+drive as a design objective; here $\mathcal{A}$ is derived from selection pressure, and
+$\eta_M$ is separated from it as a formally independent quantity. (3) Schmidhuber's
+compressor $\mathcal{C}$ can take any structural form; Theorem 2b Part 3 proves that the
+$K/F$ graph is the unique information-preserving representation at bounded context — a
+necessity result Schmidhuber's framework does not provide.
 
 ### Cognitive Architectures
 

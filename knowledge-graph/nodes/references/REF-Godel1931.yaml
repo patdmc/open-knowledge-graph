@@ -1,0 +1,77 @@
+id: REF-Godel1931
+type: reference
+name: "Gödel (1931) — On Formally Undecidable Propositions"
+citation: "Gödel, K. (1931). Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I. Monatshefte für Mathematik und Physik, 38(1), 173–198."
+doi: "10.1007/BF01700692"
+
+propositions:
+  G1:
+    id: G1
+    statement: |
+      First Incompleteness Theorem: any consistent formal system F that is capable of
+      expressing elementary arithmetic contains statements that are neither provable nor
+      refutable within F. Formal completeness (every true statement provable from within)
+      is impossible for any sufficiently expressive consistent system.
+    maps_to:
+      - EC05-incompleteness
+      - NV02-mn-bound
+    note: |
+      G1 is the formal grounding for EC05's claim that M < N is a logical consequence:
+      any system capable of modeling W with sufficient expressiveness cannot fully represent
+      W from within itself. The incompleteness of K_i with respect to W (M < N, Theorem 3
+      Part II) is an instance of G1 applied to the entity's inference system.
+
+  G2:
+    id: G2
+    statement: |
+      Second Incompleteness Theorem: no consistent formal system can prove its own
+      consistency. A system cannot certify its own reliability from within.
+    maps_to:
+      - EM08-sentience-is-metalanguage
+      - EC05-incompleteness
+    note: |
+      G2 connects to EM08: an entity cannot ground its own epistemic claims from within
+      its own K. The metalanguage (higher-order sentience, provenance records) is required
+      precisely because G2 prohibits self-grounding from within the object language.
+
+  G3:
+    id: G3
+    statement: |
+      Gödel numbering: statements about a formal system can be encoded as statements
+      within the system — enabling self-reference. This encoding is what makes the
+      Incompleteness Theorems possible and what Tarski's undefinability theorem extends.
+    maps_to:
+      - EM08-sentience-is-metalanguage
+      - REF-Tarski1936
+    note: |
+      Gödel numbering is the technical mechanism that Tarski (1936) extends to truth
+      predicates. EM08 traces through both: G3 (self-reference mechanism) -> TA2
+      (self-referential truth requires metalanguage) -> higher-order sentience as
+      metalanguage possession.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Knowledge Graph Reference Node — Gödel 1931"
+    date: "2025"
+  evidence:
+    type: literature-node
+    description: |
+      Standard reference for formal incompleteness. EC05-incompleteness.yaml references
+      Gödel as part of the equivalency class M<N = variational gap = Tarski undefinability
+      = Gödel incompleteness (C_1=0.97). This node provides the bibtex-traceable anchor.
+    references: [EC05-incompleteness, EM08-sentience-is-metalanguage, REF-Tarski1936]
+
+overlap_with_ub:
+  - proposition: G1
+    ub_proposition: NV02-mn-bound
+    relation: G1 grounds NV02 — M < N is an instance of first incompleteness applied to inference systems
+    grade: structural
+  - proposition: G2
+    ub_proposition: EM08-sentience-is-metalanguage
+    relation: G2 motivates why metalanguage (higher-order sentience) is required for self-grounding
+    grade: structural
+  - proposition: G3
+    ub_proposition: REF-Tarski1936
+    relation: G3 is the technical predecessor Tarski (1936) extends to truth predicates
+    grade: formal
