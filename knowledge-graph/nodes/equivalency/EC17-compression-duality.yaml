@@ -1,0 +1,164 @@
+id: EC17-compression-duality
+type: equivalency-class
+name: "Compression Duality: Weyl Symmetry = T-Duality = Data Processing Inequality — Representation-Level Descent Is a Universal Structure-Preserving Operation"
+underlying_proposition: |
+  When a system compresses a representation, it does not merely discard information —
+  it descends to a lower-dimensional description that is dual to the original under
+  a symmetry transformation. This duality is the formal content of compression: the
+  compressed representation and the original are related by a transformation that
+  preserves certain invariants while discarding others. Three bodies of literature —
+  Weyl's conformal symmetry (differential geometry/physics), string theory T-duality,
+  and Shannon's data processing inequality — all arrive at the same structure: useful
+  compression is a symmetry-preserving descent, not an arbitrary projection. The
+  invariant preserved by compression is the action-relevant structure; the discarded
+  information is the action-irrelevant detail.
+
+members:
+  - id: Weyl-conformal-symmetry
+    framework: "Weyl (1929) — Conformal/Scale Symmetry"
+    formulation: |
+      Weyl's conformal symmetry is the invariance of a physical theory under local
+      rescaling of the metric: distances change but angles (and hence the causal
+      structure of the theory) are preserved. A conformal transformation is a
+      compression that preserves angles while changing scales. KM3 maps this to
+      K-node compression: the conformal symmetry is the formal statement that a
+      compressed K-node preserves the angular relationships (structural connections
+      to other nodes) while discarding scale information (absolute magnitudes).
+      Weyl's insight: the physically meaningful content of a theory is its conformal
+      invariants — the properties that survive any local rescaling. Compression of
+      K-nodes should similarly preserve conformal invariants: the structural
+      relationships that determine action implications. The information discarded
+      in conformal compression (scale) is exactly the information that is action-
+      irrelevant when the action requires only relational structure.
+    epistemic_status: formal-mathematical
+    derivation: "KM3: conformal symmetry as structure-preserving compression; from REF-Weyl1929"
+
+  - id: String-T-duality
+    framework: "Polchinski (1998) — T-Duality in String Theory"
+    formulation: |
+      T-duality relates two string theories compactified on a circle of radius R and
+      radius alpha'/R respectively: large R and small R theories are dual descriptions
+      of the same physics. A string winding around a large circle is equivalent to
+      a string with high momentum on a small circle. ST3 maps this to K-node duality:
+      a fine-grained K-representation (large R, many details) and a coarse-grained
+      K-representation (small R, fewer details) are dual when they agree on all
+      action-relevant predictions. T-duality is the physics derivation of the
+      compression claim: the detailed and compressed representations are not
+      approximations of each other — they are exactly equivalent descriptions at
+      different resolutions, related by a precise duality transformation. The
+      implication for K-nodes: compression to a coarse-grained representation is
+      lossless (in the T-duality sense) when the action-relevant degrees of freedom
+      are identical in both representations.
+    epistemic_status: formal-theoretical
+    derivation: "ST3: T-duality as K-representation duality; from REF-Polchinski1998"
+
+  - id: Shannon-data-processing
+    framework: "Shannon (1948) — Data Processing Inequality"
+    formulation: |
+      The data processing inequality (DPI) states that for a Markov chain X → Y → Z,
+      I(X; Z) ≤ I(X; Y): processing Y to produce Z cannot increase the mutual
+      information between Z and X. Any deterministic transformation of a representation
+      can only preserve or reduce the information it contains about the original signal.
+      GB2 maps DPI to K-node compression: compression of a K-node Y to produce Z
+      can only reduce the mutual information between Z and the world state X. Lossless
+      compression (Z contains the same I(X; Z) as Y) is possible only when Z is a
+      sufficient statistic for X — when Z captures all the information Y has about X
+      that matters for the downstream task. DPI is the information-theoretic proof
+      that compression cannot invent information; it can only preserve or destroy it.
+      The goal of good compression is to find the sufficient statistic: the minimal
+      representation that preserves all action-relevant information.
+    epistemic_status: formal-mathematical
+    derivation: "GB2: data processing inequality as K-compression bound; from REF-Shannon1948"
+
+  - id: Kolmogorov-sufficient-statistic
+    framework: "Kolmogorov (1968) — Algorithmic Sufficient Statistic"
+    formulation: |
+      A sufficient statistic for a parameter θ captures all the information about θ
+      that the data contains: once you know the sufficient statistic, the raw data
+      adds nothing about θ. The Kolmogorov sufficient statistic extends this to
+      algorithmic information: the minimal description that captures all meaningful
+      structure in the data (the structure that would remain in typical samples from
+      the same source). CT1 maps this to K-node compression: the ideal compressed
+      K-node is the sufficient statistic for the action-relevant properties of the
+      world. A K-node that contains more information than the sufficient statistic
+      is carrying noise (action-irrelevant detail); a K-node that contains less is
+      missing signal (action-relevant structure lost). The sufficient statistic is
+      the precise formal target for K-node compression: compress to the minimum
+      representation that preserves action-relevant mutual information.
+    epistemic_status: formal-mathematical
+    derivation: "CT1: Kolmogorov sufficient statistic as K-compression target; from REF-Kolmogorov1968"
+
+equivalence_analysis: |
+  Four frameworks from differential geometry, string theory, information theory, and
+  algorithmic complexity converge on the same compression criterion.
+
+  Formal translations:
+  - Weyl conformal symmetry: preserve angles (relational structure), discard scale
+  - T-duality: coarse-grained = fine-grained for action-relevant predictions
+  - DPI: compression cannot increase mutual information with the world
+  - Kolmogorov sufficient statistic: minimal representation that preserves all I(X; Y)
+
+  The structural equivalence: all four identify the same compression target — the
+  representation that preserves all action-relevant information while discarding
+  everything else. The formalisms differ (angles vs. winding numbers vs. mutual
+  information vs. Kolmogorov complexity) because they operate on different spaces,
+  but the target is the same: sufficient statistic for action.
+
+  The duality structure is what makes this an EC rather than simply a convergence:
+  each framework identifies not just that there is a target but that the compressed
+  and uncompressed representations are DUAL — related by a precise transformation
+  that is invertible within the action-relevant subspace. This is stronger than
+  saying "compression should preserve structure" — it says there is a symmetry
+  group relating the two representations.
+
+  Note on relationship to EC11 (graph necessity): EC11 says K must be indexed by F
+  to preserve information. EC17 says when K IS compressed, the compression should
+  be the sufficient statistic for F-relevant predictions. EC11 specifies what structure
+  must be preserved; EC17 specifies how to compress while preserving it.
+
+  Note on relationship to EC05 (incompleteness): DPI formalizes the M < N claim: any
+  processing of a representation can only preserve or reduce mutual information with
+  the world. M < N means the agent's representation already has less information than
+  the world; compression makes it less still. The sufficient statistic is the target
+  that minimizes the loss while reducing M.
+
+confidence_C1p:
+  estimate: 0.84
+  basis: "Formal mathematical proofs in two frameworks (DPI from Shannon information theory, Kolmogorov sufficient statistic) + formal-theoretical in string theory (T-duality, well-established in physics) + formal-mathematical in differential geometry (Weyl symmetry). The physics derivations (T-duality, conformal symmetry) carry the usual caveat about physical theories as formal models."
+  weakest_link: "The T-duality mapping to K-representation duality is a structural analogy. In string theory, T-duality is an exact equivalence between specific physical theories with precise mathematical content. The claim that coarse-grained and fine-grained K-representations are 'T-dual' is metaphorical: they share the same structure but the duality transformation is not explicitly specified. The DPI and Kolmogorov sufficient statistic provide formal grounding; the T-duality framing is suggestive rather than proven."
+
+contradictions:
+  - source: "Lossy compression literature (JPEG, MP3, etc.)"
+    claim: "Useful compression is often not lossless with respect to the sufficient statistic — it discards information that turns out to be perceptually relevant. The sufficient statistic criterion is too strict for practical compression."
+    resolution: "EC17's sufficient statistic criterion is relative to the action task. JPEG compression discards high-frequency components that are below perceptual threshold for the action task (viewing an image). If the action task changes (forensic analysis, medical imaging), JPEG may discard action-relevant information. The resolution: the sufficient statistic is always relative to a specific downstream task (F-graph). EC17's claim is that the correct compression target for K-nodes is the sufficient statistic for the agent's specific F-graph, not a universal sufficient statistic. Task-relative compression is the correct operationalization."
+
+implications_for_ub: |
+  EC17 provides the compression theory that UB currently lacks. The theory specifies
+  that agents compress their K-graphs under C_n, but does not specify how compression
+  should proceed. EC17 supplies that specification: compress to the sufficient statistic
+  for the F-relevant predictions.
+
+  This has a direct practical implication: when a skill-builder agent compresses its
+  context (due to context window limits), it should prioritize retaining the K-nodes
+  that are most informative about the current F-action. This is the information-theoretic
+  grounding for the layered reference model in SKILL_REFERENCE_STRATEGY.md: the
+  metadata layer (50 tokens) is the sufficient statistic for skill selection; the
+  detailed reference files are the full representation that provides additional
+  information when the action requires it.
+
+  EC17 also motivates the "session-management" pattern (pattern 9 in SKILL_BEST_PRACTICES.md):
+  multi-day workflows must compress context at session boundaries by retaining sufficient
+  statistics for the next day's F-actions. The compression is not arbitrary — it should
+  target what the next action requires.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks from differential geometry, string theory, information theory, and algorithmic complexity converge on the same compression target: sufficient statistic for action-relevant predictions. The DPI and Kolmogorov sufficient statistic provide formal proofs; the physics frameworks (Weyl, T-duality) provide structural corroboration."
+  derivation:
+    from: [KM3-weyl-symmetry, ST3-t-duality, GB2-data-processing, CT1-sufficient-statistic]
+    method: "Cross-framework identification of compression target; verification that all four frameworks select the sufficient statistic as the target for structure-preserving compression"

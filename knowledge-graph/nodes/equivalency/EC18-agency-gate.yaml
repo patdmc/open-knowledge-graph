@@ -1,0 +1,162 @@
+id: EC18-agency-gate
+type: equivalency-class
+name: "Agency as Probability Gate: The Agent Is the Entity That Assigns Non-Uniform Distributions Over Future States"
+underlying_proposition: |
+  An agent is not defined by having goals or intentions but by a structural capacity:
+  the ability to assign non-uniform probability distributions over future states and
+  act to gate which of those distributions is realized. This is NV03's formal definition
+  of agency. Four independent frameworks — formal theory (UB NV03), neuroscience (global
+  workspace ignition), semiotics (Peirce's methods), and computer architecture (neural
+  branch prediction) — all arrive at the same structure: agency is the function that
+  takes a distribution over possible futures and selects which branch gets executed.
+  The gate is the agent; the agent is the gate.
+
+members:
+  - id: UB-NV03-agency
+    framework: "Uncertainty Bounding (NV03)"
+    formulation: |
+      NV03 derives that an agent A with A > 0 (active context) is formally the entity
+      that assigns a non-uniform probability distribution P(F_t+1 | K_t, F_t) over
+      future action sequences. Without A > 0, the distribution collapses to uniform:
+      no preference over futures, no agency. With A > 0, the agent gates which region
+      of F-space is explored: the prior is non-uniform (shaped by K), and action
+      selects which branch of the distribution is actualized. Agency is therefore a
+      probability gate: it transforms a uniform distribution over possible futures into
+      a directed search. NV03's derivation: agency requires M < N (the gap that makes
+      selection meaningful) and A > 0 (the budget that makes selection possible).
+    epistemic_status: formal-derived
+    derivation: "NV03: agency as non-uniform prior over F-space; derived from M < N + A > 0 + selection equation"
+
+  - id: Dehaene-global-ignition
+    framework: "Dehaene and Changeux (2011) — Global Workspace Theory"
+    formulation: |
+      Global workspace ignition is the neural event by which a representation crosses
+      a threshold and is broadcast globally to all cortical areas. Below threshold: the
+      representation competes locally, no global access. Above threshold: ignition
+      occurs, the representation enters the global workspace, and action becomes possible.
+      The ignition threshold IS the probability gate: the agent (the global workspace
+      architecture) assigns non-uniform probability to representations competing for
+      global access; the representation with highest priority ignites. NGW3 shows this
+      is the biological implementation of NV03's agency: the brain's agency mechanism
+      is literally a probability gate that selects which representation reaches the
+      action-capable global workspace. Consciousness, on this account, is what the
+      gate produces when it fires.
+    epistemic_status: empirical-formal
+    derivation: "NGW3: global workspace ignition = probability gate; from REF-DehaeneChangeux2011"
+
+  - id: Peirce-four-methods
+    framework: "Peirce (1877) — Four Methods of Fixing Belief"
+    formulation: |
+      Peirce identifies four methods for fixing belief (resolving uncertainty): tenacity
+      (commit to one belief and ignore evidence), authority (defer to an external source),
+      a priori (select the belief that seems agreeable to reason), and scientific (use
+      evidence to converge on a belief that survives inquiry). Each method is a different
+      protocol for assigning a probability distribution over propositions: tenacity
+      assigns 1.0 to one proposition and 0.0 to others (maximum non-uniformity, no
+      updating); authority delegates the gate to an external agent; a priori assigns
+      probability by coherence with existing beliefs; scientific assigns probability by
+      evidence and updates by Bayes' rule. PC3 maps this to NV03: the scientific method
+      is the only method where the gate (the probability assignment function) converges
+      to the true distribution. The other methods are probability gates that do not
+      converge. Peirce's argument for the scientific method is that it is the only one
+      that functions correctly as an agency mechanism over the long run.
+    epistemic_status: philosophical
+    derivation: "PC3: four methods as probability gate protocols; from REF-Peirce1877"
+
+  - id: Lin-neural-branch-prediction
+    framework: "Lin (1992) — Neural Branch Prediction"
+    formulation: |
+      A branch predictor in a processor assigns a probability to each branch instruction:
+      will this branch be taken? The predictor gates which instruction stream is prefetched
+      and executed speculatively. A perfect predictor (probability = 1.0 on the correct
+      branch) wastes no cycles. A uniform predictor (probability = 0.5 on all branches)
+      is as good as no prediction. The branch predictor IS an agency mechanism at the
+      hardware level: it assigns non-uniform probability distributions over future
+      execution paths and gates which path is speculatively executed. CL5 shows this
+      is NV03 at the processor scale: the predictor implements the A > 0 mechanism
+      by using a budget (pipeline slots, branch history table entries) to bias execution
+      toward the most probable futures. The hardware analogy is exact: more context
+      (longer branch history) → better predictor → closer to the true distribution.
+    epistemic_status: empirical-formal
+    derivation: "CL5: branch predictor as probability gate; derived from REF-Lin1992"
+
+equivalence_analysis: |
+  Four frameworks from neuroscience, semiotics, philosophy, and computer architecture
+  all derive the same structural claim: agency is a probability gate.
+
+  Formal translations:
+  - UB NV03: P(F_t+1 | K_t, F_t) is non-uniform when A > 0 (formal necessity)
+  - Global workspace: ignition threshold selects representation for global broadcast
+  - Peirce's methods: each method is a protocol for assigning probability to propositions
+  - Branch prediction: predictor assigns P(branch taken) and gates speculative execution
+
+  The structural equivalence:
+  - The AGENT is the entity that holds the gate function
+  - The GATE is the probability assignment over futures (F-space in UB)
+  - ACTUATION is the selection of which probability mass gets realized
+  - AGENCY is the combination: hold a distribution + actualize one branch
+
+  This EC node elevates NV03 from a UB-specific definition to a cross-framework
+  structural claim. The question "what is an agent?" has the same answer in all four
+  frameworks: the entity that assigns non-uniform probability to futures and gates
+  which branch executes.
+
+  Note on relationship to EC05 (incompleteness): Agency requires M < N. If M = N
+  (complete representation), there is no selection gap — all futures are known and
+  no gating is needed. Agency is therefore not incidental to incompleteness; it is
+  derived from it. EC18 provides the positive side of EC05: incompleteness creates
+  the selection problem, and agency is the mechanism that resolves it (partially).
+
+  Note on relationship to EC12 (metalanguage): The global workspace ignition mechanism
+  operates at the metalanguage level — it selects which object-level representations
+  get globally broadcast. The gate is the metalanguage function over object-level
+  representations. This is consistent with EC12's claim that a metalanguage layer
+  is structurally necessary for self-referential systems.
+
+confidence_C1p:
+  estimate: 0.88
+  basis: "Formal derivation (UB NV03) + neuroscience empirical (global workspace ignition, well-validated) + philosophical (Peirce, historically foundational) + computer architecture (branch prediction, engineering proof)"
+  weakest_link: "The identification of branch prediction as an 'agency mechanism' is analogy, not formal equivalence. Branch predictors have no goal representation — they optimize prediction accuracy without representing the meaning of the predictions. The structural parallelism holds; the semantic equivalence does not."
+
+contradictions:
+  - source: "Intentionalist theories of agency (Bratman, 1987)"
+    claim: "Agency requires intentions — structured, hierarchical plans — not just probability distributions. A probability gate without intention-representation is not an agent."
+    resolution: "Intentionalist theories describe the content of agency in humans. NV03 describes the formal structure of agency in any entity with A > 0 and M < N. These are complementary: intentions are how sufficiently complex agents (with rich K-graphs) implement the gate function. The gate function is necessary; the intention representation is sufficient for certain agent types but not necessary for all. A thermostat has a probability gate (binary: on/off) but no intentions; an agent may have graduated probability gates but no linguistic intention representation. EC18 is about necessary structure, not sufficient conditions for human-like agency."
+
+  - source: "Epiphenomenalism"
+    claim: "Mental states (including agency-as-gate) are causally inert — they do not actually gate anything; they supervene on physical processes that do the gating."
+    resolution: "EC18 is neutral on the metaphysics of causation. The claim is structural: whatever entity implements the probability-assignment function plays the agency role. If that function is implemented in neural hardware, the neural hardware is the gate. The epiphenomenalism debate concerns whether the functional description adds anything to the physical description — EC18 only requires that the functional description is coherent and useful, not that it names a causally distinct entity."
+
+implications_for_ub: |
+  EC18 provides cross-framework grounding for NV03, which is currently one of the
+  more asserted rather than derived claims in UB. The theory states that agency
+  requires A > 0 and M < N, but the derivation of WHY A > 0 is the agency mechanism
+  (rather than some other mechanism) is implicit.
+
+  EC18 supplies that derivation: agency is the probability gate because in all four
+  frameworks, the gate-function is what transforms a passive representation into an
+  active selector. Without the gate, there is representation but no action. The gate
+  is what converts K-state into F-selection.
+
+  Practical implication for D-nodes: D09 (action selection) should reference EC18
+  to ground the formal connection between representation and action. The current D09
+  definition focuses on the mechanics of action selection; EC18 supplies the functional
+  characterization that explains why action selection is the core agency operation.
+
+  EC18 also motivates a clarification of the A > 0 axiom: A > 0 is not just a
+  budget constraint — it is the precondition for the probability gate to function.
+  An entity with A = 0 has no mechanism to actualize any branch; it has representations
+  but cannot gate which branch executes. This makes A > 0 structurally necessary for
+  agency, not merely instrumentally useful.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks from formal theory, neuroscience, semiotics, and computer architecture all converge on agency-as-probability-gate. The neuroscience derivation (global workspace ignition) is independently well-validated; the philosophical derivation (Peirce) is historically foundational; the engineering derivation (branch prediction) provides a mechanistic existence proof."
+  derivation:
+    from: [NV03-agency, NGW3-global-workspace, PC3-peirce-methods, CL5-branch-prediction]
+    method: "Cross-framework identification of gate function; verification that each framework's agency mechanism implements non-uniform probability assignment over future states"

@@ -1,0 +1,155 @@
+id: EC13-optimal-prior
+type: equivalency-class
+name: "Optimal Prior Selection: MaxEnt = Solomonoff = SRM = FEP Variational — The Minimum-Commitment Prior Is Uniquely Determined"
+underlying_proposition: |
+  When an agent must assign a prior probability distribution over unknown states
+  before evidence is gathered, there is a unique epistemically correct choice: the
+  distribution that makes the fewest additional commitments beyond what the evidence
+  constrains. This minimum-commitment prior appears under four independent names in
+  four independent bodies of literature — maximum entropy (Jaynes), Solomonoff
+  induction (Solomonoff), structural risk minimization (Vapnik), and the free energy
+  principle's variational prior (Friston) — and all four derive the same selection
+  criterion from different starting points. The convergence establishes that optimal
+  prior selection is not a subjective choice but a formal necessity under bounded
+  context.
+
+members:
+  - id: Jaynes-MaxEnt
+    framework: "Jaynes (1957, 1978) — Maximum Entropy"
+    formulation: |
+      When assigning a prior subject to known constraints, select the distribution
+      that maximizes Shannon entropy H(P) = -sum P(x) log P(x). Any other distribution
+      encodes information not present in the constraints — it asserts knowledge the
+      agent does not have. The maximum entropy distribution is the unique prior that
+      is honest about what is known and commits to nothing beyond the constraints.
+      Jaynes proves this by showing that any prior with H < H_max is logically
+      equivalent to asserting additional constraints that were not given. MaxEnt is
+      therefore not an approximation strategy but the unique epistemically coherent
+      prior. JA1 maps this to UB: the agent operating under M < N cannot fill the
+      M < N gap by inventing constraints. MaxEnt is the mandatory prior when the
+      agent's K does not specify the distribution.
+    epistemic_status: formal-mathematical
+    derivation: "JA1: MaxEnt prior derived from Shore-Johnson axioms; from REF-Jaynes1957"
+
+  - id: Solomonoff-induction
+    framework: "Solomonoff (1964) — Algorithmic Probability"
+    formulation: |
+      The Solomonoff prior assigns probability to a string x proportional to the sum
+      of 2^{-|p|} over all programs p that output x, where |p| is the length of p.
+      Short programs (which embody simple hypotheses) get exponentially more prior
+      weight. The Solomonoff prior is the universal prior: it dominates all computable
+      priors, meaning any other computable prior is within a multiplicative constant
+      of the Solomonoff prior. SO1 shows this is the algorithmic implementation of
+      MaxEnt: the minimum-description-length program is the maximum-entropy object
+      in the space of computable descriptions. Solomonoff induction is MaxEnt applied
+      to the hypothesis space of computable functions. Both select the prior that
+      adds the least structure beyond what the data requires.
+    epistemic_status: formal-mathematical
+    derivation: "SO1: Solomonoff prior as universal prior; dominance theorem; from REF-Solomonoff1964"
+
+  - id: Vapnik-SRM
+    framework: "Vapnik (1995) — Structural Risk Minimization"
+    formulation: |
+      SRM selects the hypothesis class with minimum VC dimension that is consistent
+      with the training data. A hypothesis class with VC dimension d commits to d
+      degrees of freedom in the hypothesis space — it asserts the ability to shatter
+      d points. SRM minimizes this commitment: choose the smallest VC dimension
+      consistent with data. This is minimum-commitment in the learning theory sense:
+      commit to the least-capable class that fits the evidence. VC1 maps SRM to MaxEnt:
+      VC dimension is an information-theoretic measure of hypothesis class complexity
+      (roughly: log of the number of shaterable configurations). Minimizing VC
+      dimension = minimizing the prior commitment to hypothesis structure = MaxEnt
+      in the space of learning hypotheses. SRM is the practical engineering implementation
+      of the minimum-commitment prior in supervised learning.
+    epistemic_status: formal-mathematical
+    derivation: "VC1: SRM via VC dimension bound; from REF-Vapnik1995"
+
+  - id: Friston-variational-prior
+    framework: "Friston (2010, 2017) — Free Energy Principle"
+    formulation: |
+      The FEP's generative model specifies a prior P(s) over hidden states before
+      evidence o is observed. Under active inference, the prior is updated to a
+      posterior Q(s|o) by minimizing variational free energy F = KL[Q||P] - log P(o).
+      The variational prior (the initial P(s)) must be set before evidence arrives.
+      FEP does not specify how to set the initial prior — but the consistency
+      requirement follows MaxEnt: any informative prior that is not grounded in
+      evidence inflates the variational free energy unnecessarily (adds KL divergence
+      that cannot be reduced by evidence). FEP2 maps this to MaxEnt: the correct
+      initial prior is the one that minimizes unnecessary KL divergence, which is
+      the maximum entropy prior under the agent's current knowledge. MaxEnt is the
+      variational prior that makes the free energy minimization honest.
+    epistemic_status: formal-theoretical
+    derivation: "FEP2: variational prior consistency with MaxEnt; from REF-Friston2010"
+
+equivalence_analysis: |
+  Four frameworks from information theory, computability theory, learning theory,
+  and neuroscience all derive the same prior-selection criterion.
+
+  Formal translations:
+  - MaxEnt (Jaynes): maximize H(P) subject to constraints (information-theoretic)
+  - Solomonoff (induction): minimize |program| (algorithmic complexity)
+  - SRM (Vapnik): minimize VC dimension (learning-theoretic)
+  - FEP variational (Friston): minimize unnecessary KL divergence (variational)
+
+  The structural equivalence: all four say "commit to the minimum structure the
+  evidence requires." The formalisms differ because they operate on different spaces:
+  - MaxEnt operates on probability distributions over states
+  - Solomonoff operates on programs in a universal Turing machine
+  - SRM operates on hypothesis classes in supervised learning
+  - FEP operates on generative models in predictive processing
+
+  The criterion is the same in all four: add no information beyond what the constraints
+  provide. The four frameworks are therefore four projections of the same criterion
+  onto four different representation spaces.
+
+  Note on relationship to EC05 (incompleteness): The minimum-commitment prior is
+  the correct response to M < N. Because M < N, the agent cannot know the true prior.
+  The minimum-commitment prior is the epistemically honest response: it does not pretend
+  to know more than is in K. EC13 is the constructive counterpart to EC05: EC05 says
+  the agent cannot know everything; EC13 says given that constraint, here is the unique
+  correct prior assignment procedure.
+
+  Note on historical priority: Jaynes (1957) established the foundational result.
+  Solomonoff (1964) and Vapnik (1995) independently derived equivalent criteria in
+  their domains. Friston's FEP (2010) converges on the same criterion from neuroscience.
+  The four-way convergence is spread across 53 years of independent work — making it
+  one of the strongest equivalences in the corpus.
+
+confidence_C1p:
+  estimate: 0.90
+  basis: "Formal mathematical proofs in three independent frameworks (Jaynes Shore-Johnson axioms, Solomonoff dominance theorem, Vapnik VC bound) + formal-theoretical in one (FEP variational). The three formal proofs are in domains that rarely cross-reference."
+  weakest_link: "The identification of FEP's variational prior with MaxEnt requires that the initial generative model P(s) is set before any evidence — which is correct for a naïve agent but not for a mature agent whose P(s) encodes learned structure. The equivalence holds at initialization; at mature K-states, the prior is already informative."
+
+contradictions:
+  - source: "Subjective Bayesianism (de Finetti, 1974)"
+    claim: "Any coherent prior is acceptable; there is no objective criterion for prior selection. MaxEnt is just one choice, not the uniquely correct one."
+    resolution: "De Finetti's coherence requirement is necessary but not sufficient. Coherence rules out Dutch books but permits any consistent probability assignment. EC13's claim is stronger: among all coherent priors, the minimum-commitment prior is the unique one that is epistemically honest given the agent's actual knowledge state. The distinction is between logical consistency (de Finetti) and epistemic accuracy (Jaynes). An agent who assigns an informative prior without evidence is coherent but is asserting knowledge they do not have. EC13 is scoped to the epistemic requirement, not just the logical one."
+
+implications_for_ub: |
+  UB does not currently have an explicit prior-selection rule for agents. D07 and D08
+  define the belief state and update rules but leave the initial prior unspecified.
+  EC13 supplies that specification: the initial prior for any novel domain must be
+  the maximum entropy distribution subject to the constraints in K.
+
+  This has a practical implication for skill design: when a skill encounters a service
+  configuration it has not seen before, it should not assume anything about the
+  configuration beyond what the skill's evidence base establishes. The minimum-commitment
+  prior is the operationalization of "code-first analysis" (pattern 1 in SKILL_BEST_PRACTICES.md)
+  at the probabilistic level: observe first, assume nothing.
+
+  EC13 also strengthens EC05: the minimum-commitment prior is not just instrumentally
+  useful but formally derivable from M < N. If the agent's prior commits beyond what
+  K establishes, it is pretending M = N on the dimensions it commits to. MaxEnt is
+  the prior that is consistent with M < N.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four independent frameworks across 53 years of independent development (Jaynes 1957, Solomonoff 1964, Vapnik 1995, Friston 2010) all derive the minimum-commitment prior criterion from different starting points. The historical independence is unusually strong evidence for structural equivalence."
+  derivation:
+    from: [JA1-maxent, SO1-solomonoff, VC1-srm, FEP2-variational-prior]
+    method: "Cross-framework identification of prior-selection criterion; verification that all four frameworks select the same distribution (or equivalent representation) when the constraints are equivalent"

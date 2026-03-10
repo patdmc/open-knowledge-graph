@@ -56,29 +56,56 @@ members:
     epistemic_status: empirical
     derivation: "Cognitive dissonance research; cognitive ease/disfluency as System 2 activator"
 
+  - id: DE1-absence-causation
+    framework: "Deacon (2012) — Incomplete Nature: Absential Causation"
+    formulation: |
+      Deacon's central thesis: absence is causally efficacious. Teleodynamic systems
+      (those with ends/purposes) are not caused by what is present but by what is
+      absent — the end-state that does not yet exist. A thermostat is caused to act
+      by the difference between current temperature and the set point that is not yet
+      achieved. DE1 maps to EC10's uncertainty driver: U(w,K) is an absential cause.
+      The agent is driven by the gap between current K and the K it does not yet have —
+      the absent knowledge. This is Deacon's absential causation applied to UB: the
+      inquiry driver is absence, not presence. The agent is pulled toward a non-existent
+      K-state, not pushed by the existing one. This framing resolves a philosophical
+      difficulty: how can non-existent states cause behavior? Deacon's answer: the
+      end-state is represented as an absence in the current system structure, and the
+      dynamics of the system are organized around that absence. U(w,K) is the
+      operational measure of the absence; A > 0 is the mechanism that allows absence
+      to drive action. EC10's uncertainty gradient is Deacon's absential cause at the
+      K-graph level.
+    epistemic_status: philosophical
+    derivation: "DE1: absential causation as inquiry driver; from REF-Deacon2012"
+
 equivalence_analysis: |
-  Five frameworks express the same driver: the gap between current representation and
+  Six frameworks express the same driver: the gap between current representation and
   world structure. The formal translations:
 
-  - U(w,K) (UB) = F (FEP) = doubt (Peirce) = compression gap (Schmidhuber) = cognitive dissonance (Kahneman)
+  - U(w,K) (UB) = F (FEP) = doubt (Peirce) = compression gap (Schmidhuber) = cognitive dissonance (Kahneman) = absential cause (Deacon)
   - All are the same quantity: the residual incompleteness of the agent's representation
-    relative to the world it must navigate.
+    relative to the world it must navigate — the gap, the absence, the doubt.
 
   The formal translation: U(w,K) = F = -log p(o) approximately = compression gap = doubt.
   These are not just similar — they describe the same information-theoretic quantity
   at different levels of formalism.
+
+  Deacon's absential causation adds a philosophical resolution to the question "how
+  can a gap cause action?" The absence is causally efficacious because it is represented
+  in the system's current structure as a constraint on the possible — the system's
+  dynamics are organized around the end-state that is not yet achieved. This is why
+  U(w,K) > 0 is the driver: the absence (incomplete K) organizes the agent's action.
 
   CRITICAL STRUCTURAL CONSEQUENCE: if EC05 (incompleteness) holds — and it does, with
   C_1(p) = 0.97 — then EC10 (driver always positive) follows immediately. Because M < N
   always, U(w,K) > 0 always. Because U > 0 always, the drive never terminates. This is
   the derivation chain: EC05 -> EC10 -> non-termination.
 
-  Strength of equivalence: VERY HIGH. Five independent traditions converge. The chain
+  Strength of equivalence: VERY HIGH. Six independent traditions converge. The chain
   EC05 -> EC10 means the drive's non-termination is as secure as EC05 (C_1(p) = 0.97).
 
 confidence_C1p:
   estimate: 0.93
-  basis: "Information-theoretic foundation (Shannon entropy, Jensen's inequality) + formal (UB, FEP) + philosophical (Peirce) + empirical (Kahneman). Chain from EC05 adds further support."
+  basis: "Information-theoretic foundation (Shannon entropy, Jensen's inequality) + formal (UB, FEP) + philosophical (Peirce, Deacon) + empirical (Kahneman). Chain from EC05 adds further support. Confidence unchanged: Deacon addition provides philosophical grounding but does not change the formal evidence base."
   weakest_link: "The exact identity U(w,K) = F requires showing that conditional entropy and variational free energy are the same measure under the same assumptions — approximately true but not formally proved here"
 
 contradictions: []
@@ -99,5 +126,5 @@ provenance:
     type: cross-framework-intersection
     description: "Five frameworks from information theory, cognitive science, philosophy, and AI independently ground uncertainty/surprise/doubt as the driver. Chain from EC05 makes the non-termination argument very strong."
   derivation:
-    from: [D03-uncertainty, REF-Friston2010, REF-Peirce1877, REF-Schmidhuber2010, REF-Kahneman2011]
+    from: [D03-uncertainty, REF-Friston2010, REF-Peirce1877, REF-Schmidhuber2010, REF-Kahneman2011, REF-Deacon2012]
     method: "Equivalency: uncertainty/surprise/doubt as the same information-theoretic quantity across traditions"

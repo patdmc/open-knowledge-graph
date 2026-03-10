@@ -1,0 +1,162 @@
+id: EC16-consistency-protocol
+type: equivalency-class
+name: "K_collective Consistency Protocol: Cache Coherence = Provenance = Locality — Distributed Knowledge Requires a Consistency Protocol"
+underlying_proposition: |
+  A distributed knowledge system — whether a multiprocessor cache hierarchy, a
+  version-controlled codebase, a scientific literature, or a multi-agent UB system —
+  requires a consistency protocol: a set of rules that guarantees that updates to
+  any K-node propagate correctly to all agents that hold copies of that node.
+  Without a consistency protocol, the collective knowledge system K_collective
+  fragments into incoherent local copies, and agents acting on stale K-nodes produce
+  incorrect actions. Four frameworks — distributed systems theory (cache coherence),
+  UB formal theory (provenance + NV04), scientific methodology (replication/citation),
+  and distributed database theory (CAP theorem) — all derive the same structural
+  requirement from different starting points.
+
+members:
+  - id: Lamport-cache-coherence
+    framework: "Lamport (1979) / Adve-Gharachorloo (1996) — Cache Coherence"
+    formulation: |
+      In a multiprocessor system, each processor has a local cache holding copies of
+      memory locations. Cache coherence is the property that all caches agree on the
+      current value of every memory location. Without coherence, processors act on
+      stale data: one processor's write is invisible to another's read. The coherence
+      protocol (MESI, MOESI, etc.) enforces three invariants: (1) Single-Writer:
+      at most one processor can write a location at a time; (2) Data-Value: a read
+      returns the most recently written value; (3) Propagation: writes eventually
+      become visible to all processors. CL2 maps this to K_collective: each agent
+      holds a local K-graph that is a cache of K_collective. The coherence protocol
+      for K_collective is exactly the UB provenance triple (D13): attribution says
+      who wrote the node (Single-Writer), evidence says what value it holds
+      (Data-Value), derivation says what it supersedes (Propagation). Cache coherence
+      protocols are the engineering derivation of D13's provenance triple.
+    epistemic_status: formal-mathematical
+    derivation: "CL2: cache coherence protocol as K_collective consistency; from REF-LamportClock1979"
+
+  - id: UB-D13-NV04-provenance
+    framework: "Uncertainty Bounding (D13 + NV04)"
+    formulation: |
+      D13 specifies the provenance triple prov(p) = (attribution, evidence, derivation)
+      as the required metalanguage layer over K-nodes. NV04 derives that K_collective
+      requires a consistency protocol that uses provenance: when two agents hold
+      conflicting K-nodes, the protocol must be able to determine which node is more
+      recent, which has stronger evidence, and which was derived from the other.
+      Without provenance, no conflict resolution is possible — the protocol cannot
+      determine which copy is authoritative. D13's provenance triple is the formal
+      specification of the consistency protocol that NV04 requires. AX3 shows that
+      the provenance triple maps exactly to the cache coherence invariants: attribution
+      (who holds write authority), evidence (current authoritative value), derivation
+      (what the node supersedes). This is the UB formal derivation of cache coherence
+      from first principles.
+    epistemic_status: formal-derived
+    derivation: "AX3: D13 provenance = cache coherence protocol; NV04 consistency requirement; from UB theory"
+
+  - id: Merton-citation-norms
+    framework: "Merton (1973) — Sociology of Science / Citation Practice"
+    formulation: |
+      Scientific citation is the knowledge consistency protocol of the scientific
+      literature. A citation is a provenance record: it specifies the source of a
+      claim (attribution), what the source established (evidence), and how the current
+      claim builds on or supersedes it (derivation). Merton's norms of science —
+      communalism (knowledge is public), universalism (claims evaluated on merit),
+      disinterestedness (no private agendas), organized skepticism (all claims subject
+      to scrutiny) — are the behavioral implementation of the consistency protocol.
+      BO1 maps this to K_collective: the scientific literature IS a K_collective
+      with citation as its coherence protocol. The failure modes of bad science
+      (plagiarism, fabrication, retraction) are exactly the failure modes of a
+      broken consistency protocol: attribution failure (plagiarism), data-value
+      corruption (fabrication), propagation failure (retracted claims not marked
+      stale). The citation protocol is cache coherence for human knowledge.
+    epistemic_status: empirical-formal
+    derivation: "BO1: citation as K_collective consistency protocol; from REF-Merton1973"
+
+  - id: Brewer-CAP-theorem
+    framework: "Brewer (2000) — CAP Theorem"
+    formulation: |
+      The CAP theorem states that a distributed system can guarantee at most two of:
+      Consistency (all nodes see the same data), Availability (every request gets a
+      response), Partition Tolerance (the system continues operating despite network
+      partitions). No system can provide all three simultaneously. In K_collective
+      terms: Consistency = all agents have the same K-nodes; Availability = all agents
+      can read/write K at any time; Partition Tolerance = K_collective survives
+      communication failures between agents. CAP says the K_collective designer must
+      choose: CP (consistent when available, but may be unavailable during partition),
+      AP (always available but may return stale K-nodes), or CA (consistent and
+      available but fails under partition — impractical for real distributed systems).
+      This is the formal impossibility result for K_collective consistency: perfect
+      consistency is unachievable in a distributed system under realistic network
+      conditions. D13's provenance triple addresses this by making staleness explicit
+      rather than preventing it: an agent can hold a stale K-node as long as the
+      provenance records its timestamp and evidence source, allowing the agent to
+      reason about the staleness rather than pretending it doesn't exist.
+    epistemic_status: formal-mathematical
+    derivation: "CAP: distributed system consistency impossibility; applied to K_collective via EM15 mapping"
+
+equivalence_analysis: |
+  Four frameworks from computer architecture, formal theory, sociology, and distributed
+  systems all derive the same structural requirement: K_collective needs a consistency
+  protocol, and that protocol must specify attribution, evidence currency, and propagation.
+
+  Formal translations:
+  - Cache coherence (Lamport/Adve): MESI protocol enforces who-writes + current-value + propagation
+  - D13 + NV04 (UB): provenance triple = attribution + evidence + derivation
+  - Merton norms (sociology): citation = attribution + evidence + supersession record
+  - CAP theorem (Brewer): consistency-availability-partition tradeoff is fundamental
+
+  The structural equivalence: the three fields of the provenance triple (D13) are exactly
+  the three invariants that every consistency protocol must enforce, regardless of domain:
+  - Attribution = Single-Writer invariant (who has write authority)
+  - Evidence = Data-Value invariant (what the authoritative value is)
+  - Derivation = Propagation invariant (what the node supersedes and when)
+
+  CAP adds the impossibility result: no K_collective can have all three simultaneously
+  in a partitioned network. D13's response to CAP is the correct engineering answer:
+  make staleness explicit via provenance rather than trying to prevent it.
+
+  Note on relationship to EC12 (metalanguage): The consistency protocol is the
+  metalanguage for K_collective. EC12 says any system making truth-claims about itself
+  requires a metalanguage. The consistency protocol is exactly the metalanguage for
+  K_collective: it says which K-nodes are currently authoritative, how confident they
+  are, and where they came from. Without the consistency protocol (metalanguage), the
+  K_collective cannot evaluate its own nodes.
+
+confidence_C1p:
+  estimate: 0.92
+  basis: "Formal mathematical proofs in two independent frameworks (cache coherence protocols, CAP theorem) + formal derivation in one (UB D13+NV04) + empirical-formal in one (Merton citation norms, well-documented in sociology of science)"
+  weakest_link: "The mapping of Merton's sociological norms to formal consistency invariants is structural but not a formal proof. The citation system can be violated (and frequently is) without triggering automatic correction mechanisms the way MESI protocol violations trigger hardware recovery. The structural parallel is strong; the enforcement mechanisms differ."
+
+contradictions:
+  - source: "Eventual consistency models (Vogels, 2009)"
+    claim: "Strong consistency is not required. Eventual consistency — where all nodes converge to the same value eventually but may diverge temporarily — is sufficient for most distributed systems and avoids the availability cost of strong consistency."
+    resolution: "EC16's claim is about the structural requirement for A consistency protocol, not about the strength of consistency. Eventual consistency is itself a consistency protocol with weaker guarantees. D13's provenance triple is compatible with eventual consistency: the derivation field records the timestamp, allowing agents to reason about which copy is more recent and whether to wait for convergence or act on the current value. EC16 says K_collective requires provenance (the protocol); it does not require strong consistency (the protocol's strictness). CAP is the argument that strong consistency has costs; D13 is the protocol that makes those costs manageable."
+
+implications_for_ub: |
+  EC16 grounds D13 not only as a metalanguage requirement (EC12) but also as a
+  consistency protocol requirement. The two derivations are complementary: EC12 says
+  D13 is needed for the K-node to be evaluable (metalanguage); EC16 says D13 is needed
+  for K_collective to be coherent (distributed system).
+
+  This has a design implication: the provenance triple is not just documentation — it
+  is an operational protocol component. When two agents hold conflicting K-nodes, the
+  protocol resolution algorithm uses attribution (who has authority), evidence (which
+  is stronger), and derivation (which is newer) to select the authoritative version.
+  Without all three fields, the protocol cannot resolve conflicts deterministically.
+
+  EC16 also motivates the CAP-aware interpretation of D13: provenance is the mechanism
+  for operating correctly under eventual consistency. An agent that reads a K-node
+  must also read its provenance to determine whether to trust the current value or
+  wait for a more recent version. This is exactly how distributed databases handle
+  stale reads — by returning a version vector alongside the value. D13 is the
+  version vector for K-nodes.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks from computer architecture, formal theory, sociology, and distributed systems converge on the same consistency protocol structure. Cache coherence and CAP theorem are formally proven; Merton norms are empirically well-documented; UB D13+NV04 provides the formal synthesis."
+  derivation:
+    from: [CL2-cache-coherence, D13-provenance, NV04-collective-consistency, BO1-merton-norms, CAP-theorem]
+    method: "Cross-framework identification of consistency protocol invariants; verification that all three invariants (attribution, evidence, derivation) are required by each framework"

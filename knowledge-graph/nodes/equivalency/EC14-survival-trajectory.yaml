@@ -1,0 +1,152 @@
+id: EC14-survival-trajectory
+type: equivalency-class
+name: "Survival as Trajectory Bound: Homeorhesis = Viable System = Autopoiesis — Persistence Requires a Bounded Developmental Trajectory"
+underlying_proposition: |
+  A living or adaptive system does not merely maintain a point equilibrium — it
+  maintains a developmental trajectory: a bounded path through state space that
+  allows change, growth, and adaptation while remaining within the bounds of
+  continued existence. This trajectory-bounding is the formal content of persistence
+  under selection. Three independent frameworks — Waddington's homeorhesis
+  (developmental biology), Beer's Viable System Model (cybernetics), and Varela and
+  Maturana's autopoiesis (theoretical biology) — all derive the same structural
+  requirement from different starting points, and all are captured by UB's selection
+  equation. The bound is not on position but on trajectory: the system must remain
+  on a viable developmental path, not merely at a viable state.
+
+members:
+  - id: Waddington-homeorhesis
+    framework: "Waddington (1957) — Homeorhesis and Epigenetic Landscape"
+    formulation: |
+      Homeostasis maintains a fixed equilibrium point; homeorhesis maintains a
+      developmental trajectory (chreod). Waddington's epigenetic landscape: embryonic
+      development follows valleys (chreods) in a landscape; perturbations displace
+      the developing system but it returns to the trajectory, not to any fixed point.
+      The system's persistence criterion is trajectory-following, not point-maintenance.
+      WA3 maps this to UB: the system's K-graph and F-graph must evolve along a viable
+      developmental path. Catastrophic knowledge disruption (the system is displaced
+      off its chreod) is more dangerous than momentary state perturbation (the system
+      is displaced within its chreod). The chreod IS the bounded developmental
+      trajectory of K: the knowledge structure grows along a constrained path shaped
+      by the system's previous K-graph and environmental pressures.
+    epistemic_status: empirical-formal
+    derivation: "WA3: homeorhesis as trajectory bound; from REF-Waddington1957"
+
+  - id: Beer-viable-system
+    framework: "Beer (1972) — Viable System Model"
+    formulation: |
+      Beer's Viable System Model (VSM) specifies the minimum organizational structure
+      for a system to remain viable (capable of independent existence) in a changing
+      environment. A viable system has five recursive subsystems (S1-S5) implementing
+      operations, coordination, control, intelligence, and policy. PR3 maps the VSM
+      to UB: S4 (intelligence) is the K-graph, S3 (control) is the F-graph, S5
+      (policy) is the selection criteria. A system that loses any subsystem is no
+      longer viable — it cannot maintain the trajectory of continued existence.
+      VSM is the organizational-systems derivation of homeorhesis: it specifies what
+      must be maintained for a system to remain on a viable trajectory. Beer's key
+      insight: viability is a structural property (requires all five subsystems), not
+      a performance property (requires acceptable metrics). A system can perform well
+      on all metrics and still become non-viable if it loses structural components.
+    epistemic_status: empirical-formal
+    derivation: "PR3: VSM as trajectory viability structure; from REF-Beer1972"
+
+  - id: Varela-autopoiesis
+    framework: "Maturana and Varela (1980) — Autopoiesis"
+    formulation: |
+      An autopoietic system is a system that produces and maintains the components
+      that constitute it. It is a network of processes that produces the boundary
+      (the distinction between the system and its environment) and the components
+      (the processes within that boundary). EN2 maps autopoiesis to UB: the K-graph
+      and F-graph together constitute the autopoietic boundary — the self-production
+      process. A system loses autopoiesis when it can no longer produce the processes
+      that maintain its K-F structure. Autopoiesis is the most radical version of
+      homeorhesis: the trajectory is not just maintained but self-produced. The
+      persistence criterion is not "remain within the viable envelope" but "continuously
+      reproduce the process that defines the envelope." NV01's K/F graph necessity
+      is the minimum structure for autopoiesis: without the K-graph (knowledge of what
+      to produce) indexed by the F-graph (the production operations), self-production
+      is impossible.
+    epistemic_status: philosophical
+    derivation: "EN2: autopoiesis as K/F self-production; from REF-VarelaMaturana1980"
+
+  - id: UB-selection-trajectory
+    framework: "Uncertainty Bounding (selection equation)"
+    formulation: |
+      UB's selection equation E[fitness | K_t, F_t] = f(I(E), coverage, coherence)
+      specifies the fitness of a knowledge-action system at each timestep. The
+      trajectory is the path of K_t, F_t through time under repeated selection.
+      A system on a viable trajectory has fitness above the selection floor at each
+      step; a system below the floor at any step is removed. The trajectory-bounding
+      requirement follows: the system must maintain K_t and F_t such that expected
+      fitness stays above the floor, not just that it happens to be above the floor
+      at t=0. This is the formal derivation of homeorhesis from UB: the selection
+      equation imposes a trajectory constraint, not a point constraint. Homeorhesis
+      (trajectory maintenance), VSM (structural viability), and autopoiesis
+      (self-production of boundary) are all implementations of this trajectory
+      constraint at different system scales.
+    epistemic_status: formal-derived
+    derivation: "UB selection equation: trajectory constraint derived from repeated selection; links to WA3, PR3, EN2"
+
+equivalence_analysis: |
+  Three frameworks from developmental biology, organizational cybernetics, and
+  theoretical biology converge on trajectory-bounding as the persistence criterion,
+  grounded by UB's selection equation.
+
+  Formal translations:
+  - Homeorhesis (Waddington): chreod = viable developmental trajectory in K-space
+  - VSM (Beer): five-subsystem structure = minimum viable organizational K/F architecture
+  - Autopoiesis (Varela/Maturana): self-production of K/F boundary = trajectory through self-reference
+  - UB selection equation: fitness above selection floor at each t = formal trajectory constraint
+
+  The structural equivalence: all four say the same thing at different scales —
+  - Cell: autopoiesis (the membrane produces itself)
+  - Organism: homeorhesis (development follows the chreod)
+  - Organization: viable system (all five subsystems intact)
+  - Formal system: selection trajectory (fitness > floor at each t)
+
+  The common content: survival is not a state but a path. Being alive (or viable, or
+  autopoietic, or on-trajectory) at t is not sufficient; the system must remain alive
+  at t+1, t+2, ... The selection criterion is applied repeatedly, and the system must
+  maintain viability under repeated application.
+
+  Note on relationship to EC05 (incompleteness): The trajectory constraint emerges
+  from M < N. A system with M = N (complete knowledge) would know its exact future
+  and could guarantee trajectory-following. Under M < N, the system cannot guarantee
+  the trajectory — it can only maintain the structural conditions (K/F graph, provenance,
+  coherence) that make trajectory-following probable. The trajectory is not determined
+  but bounded by structural conditions.
+
+confidence_C1p:
+  estimate: 0.86
+  basis: "Empirical-formal in developmental biology (homeorhesis, well-validated experimentally) + empirical-formal in organizational theory (VSM, applied in real organizations) + philosophical in theoretical biology (autopoiesis, highly influential but contested in some aspects) + formal-derived (UB selection equation)"
+  weakest_link: "Autopoiesis as a framework has been criticized for circularity — a system that produces itself is defined by the production process, which is itself what needs to be explained. The structural parallel to UB's K/F graph is strong, but the philosophical foundations of autopoiesis are less settled than the other three frameworks."
+
+contradictions:
+  - source: "Punctuated equilibrium (Gould and Eldredge, 1977)"
+    claim: "Evolutionary trajectories are not smooth chreods — they are periods of stasis punctuated by rapid change. The trajectory-bounding metaphor misrepresents the actual dynamics of evolutionary change."
+    resolution: "Punctuated equilibrium is consistent with EC14. The stasis periods ARE the chreod (trajectory-following within a stable basin); the punctuation events ARE trajectory jumps to a new chreod. Homeorhesis does not claim the trajectory is smooth — it claims the system is always on some viable trajectory. Rapid transitions between trajectories (punctuations) are consistent with trajectory-bounding as long as the system lands on a new viable trajectory after the jump. Catastrophic selection failure (extinction) is the case where no viable trajectory is available — consistent with UB's selection floor."
+
+implications_for_ub: |
+  EC14 grounds UB's persistence criterion more precisely than the current theory
+  provides. The selection equation specifies fitness at each t but does not make
+  explicit that the criterion is applied repeatedly and that a single fitness failure
+  removes the system. EC14 supplies this: the selection criterion is a trajectory
+  constraint, not a point constraint.
+
+  This has a design implication for skill-builder: a service that passes a migration
+  at t=0 but becomes non-viable at t+1 (because the migration introduced structural
+  fragility) has failed the trajectory constraint. The validation checklist for
+  migrations should include trajectory criteria, not just point criteria: not just
+  "does it pass now" but "will it remain viable under the next change." This is the
+  formal grounding for the "test-first-baseline" pattern (pattern 20 in SKILL_BEST_PRACTICES.md).
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Three independent frameworks from developmental biology, organizational cybernetics, and theoretical biology all derive trajectory-bounding as the persistence criterion. The frameworks rarely cross-reference each other; the convergence is independent."
+  derivation:
+    from: [WA3-homeorhesis, PR3-vsm, EN2-autopoiesis, UB-selection-equation]
+    method: "Cross-framework identification of persistence criterion; verification that all three frameworks identify trajectory-maintenance (not point-maintenance) as the survival requirement"

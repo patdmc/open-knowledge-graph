@@ -56,6 +56,42 @@ members:
     epistemic_status: formal
     derivation: "Information-theoretic: chain rule + sufficient statistic + data processing inequality"
 
+  - id: MI2-chunking-as-NV01
+    framework: "Miller (1956) — Chunking as Graph Construction"
+    formulation: |
+      Miller's chunking is the empirical observation that human working memory organizes
+      items into higher-order groups. A chunk IS a structured representation: it is a
+      K-node that indexes the items it groups (a micro-K/F-graph). When an expert chess
+      player sees a board, they do not see 32 pieces — they see 6-8 chunks, each a named
+      configuration with known action implications. MI2 maps chunking to NV01 (graph
+      necessity): chunking IS the cognitive implementation of K-node construction.
+      The chunk is the K-node; the items the chunk groups are its indexed sub-nodes;
+      the action implications of the chunk are its F-edges. Expert chunking = dense
+      K-graph; novice non-chunking = flat list. The performance difference between
+      experts and novices (Chase and Simon, 1973) is direct empirical evidence for
+      the superiority of structured representation over flat lists — NV01 confirmed
+      in human cognitive science.
+    epistemic_status: empirical
+    derivation: "MI2: chunking as K-node construction; from REF-Miller1956; Chase and Simon 1973 chess expertise evidence"
+
+  - id: TR1-transformer-attention
+    framework: "Vaswani et al. (2017) — Transformer Architecture"
+    formulation: |
+      The transformer's self-attention mechanism computes, for each token embedding
+      (the representation), a weighted sum over all other token embeddings weighted
+      by their query-key relevance. This is a structured representation: the attention
+      matrix is a relational structure where each token is connected to other tokens
+      by relevance weights. Uniform attention (no structure) would average all tokens
+      equally — losing all relational information. The structured attention IS the
+      K/F graph: each token is a K-node; the attention weights are F-relevant edges.
+      The empirical finding that transformers dramatically outperform flat sequence
+      models (RNNs without attention) is engineering evidence for the necessity of
+      structured representation over flat sequential encoding. TR1 is EC03's best
+      large-scale engineering validation: at 175B parameters, the architecture that
+      imposes relational structure (attention) outperforms architectures that do not.
+    epistemic_status: empirical-formal
+    derivation: "TR1: transformer attention as structured representation; from REF-VaswaniEtAl2017; large-scale engineering evidence for NV01"
+
 equivalence_analysis: |
   The underlying claim is: the representation must be structured (relational, factored,
   hierarchical). The frameworks agree on this but ground it differently:
@@ -66,7 +102,7 @@ equivalence_analysis: |
   - Gibson describes it qualitatively (affordance relations)
   - Cover/Tishby ground it information-theoretically (sufficient statistic, chain rule)
 
-  The equivalency is between the structural form, not the derivation. All five say
+  The equivalency is between the structural form, not the derivation. All seven say
   the same thing: the representation cannot be unstructured. UB says WHY; the others
   say THAT.
 
@@ -75,13 +111,23 @@ equivalence_analysis: |
   internal structured representation. The tension resolves by scope: Gibson addresses
   moment-to-moment perception; this class addresses knowledge accumulated over time.
 
-  Strength of equivalence: HIGH for UB/FEP/Cover-Tishby. MODERATE for Schmidhuber
-  (structure implied but not constrained). PARTIAL for Gibson (scoped differently).
+  The transformer addition (TR1) is the most practically significant extension: it
+  is a large-scale engineering existence proof that structured representation (attention)
+  outperforms flat sequential representation at a scale where the difference cannot be
+  dismissed as noise. The chunking evidence (MI2) confirms the same claim in human
+  cognition with a different methodology (expertise studies).
+
+  Note on EC03 vs. EC11: EC03 says the representation must be structured; EC11 says
+  specifically the K/F graph is the unique information-preserving structure. EC11 grounds
+  EC03: the graph form is not just one sufficient structure but the uniquely necessary one.
+
+  Strength of equivalence: HIGH for UB/FEP/Cover-Tishby/Transformer. MODERATE for
+  Schmidhuber (structure implied but not constrained). PARTIAL for Gibson (scoped differently).
 
 confidence_C1p:
-  estimate: 0.85
-  basis: "Formal necessity proof (UB) + theoretical assumption (FEP) + information-theoretic grounding (Cover/Tishby) + qualitative (Gibson/Schmidhuber)"
-  weakest_link: "The exact graph form (vs. other structured representations like tensor factorizations) is only fully derived in UB"
+  estimate: 0.88
+  basis: "Formal necessity proof (UB) + theoretical assumption (FEP) + information-theoretic grounding (Cover/Tishby) + large-scale engineering evidence (Transformer/TR1) + empirical expertise studies (Miller/MI2) + qualitative (Gibson/Schmidhuber). Updated from 0.85 with transformer and chunking additions."
+  weakest_link: "The exact graph form (vs. other structured representations like tensor factorizations) is only fully derived in UB; EC11 provides the cross-framework grounding for the specific graph-form claim"
 
 contradictions:
   - source: "Gibson (1979)"
@@ -103,5 +149,5 @@ provenance:
     type: cross-framework-intersection
     description: "Five frameworks independently ground structured internal representation. UB derives the specific graph form; others ground the structural requirement."
   derivation:
-    from: [D02-knowledge-graph, NV01-graph-necessity, REF-Friston2017, REF-Gibson1979, REF-Cover2006, REF-Tishby2011]
+    from: [D02-knowledge-graph, NV01-graph-necessity, REF-Friston2017, REF-Gibson1979, REF-Cover2006, REF-Tishby2011, REF-Miller1956, REF-VaswaniEtAl2017]
     method: "Equivalency by structural translation across representational frameworks"

@@ -55,31 +55,54 @@ members:
     epistemic_status: theoretical-physical
     derivation: "Physical chemistry: aperiodic structure maximizes information density"
 
+  - id: SO1-solomonoff-factoring
+    framework: "Solomonoff (1964) — Universal Prior as Factoring"
+    formulation: |
+      The Solomonoff universal prior assigns probability to strings proportional to
+      the total measure of programs that generate them. The minimum-description-length
+      (MDL) program IS the most factored representation: it extracts all compressible
+      structure into the program, leaving only incompressible residuals. Solomonoff
+      induction is therefore a third independent derivation of the same factoring
+      claim: the optimal learner is the one that factors its observations to the maximum
+      extent computably possible. SO1 maps to UB: the agent's ideal K-graph IS the
+      Solomonoff-factored representation of its observation history. The MDL principle
+      (the practical implementation of Solomonoff) is the engineering version of
+      Theorem 2b Part 3: both say the optimal representation is maximally factored.
+      Note: SO1 also grounds EC13 (optimal prior selection); EC08 and EC13 are
+      complementary aspects of the Solomonoff framework — EC08 covers the factoring
+      mechanism, EC13 covers the prior assignment criterion.
+    epistemic_status: formal-mathematical
+    derivation: "SO1: Solomonoff MDL as maximum factoring; third independent derivation of compression-through-factoring; from REF-Solomonoff1964"
+
 equivalence_analysis: |
-  Five frameworks express the same compression-through-factoring claim:
+  Six frameworks express the same compression-through-factoring claim:
   - UB: factoring IS graph construction (necessity proved)
   - Schmidhuber: compression progress IS finding patterns (factoring)
   - Cover/Thomas: chain rule IS entropy-preserving factoring
   - Tishby: information bottleneck IS factoring the relevant structure
   - Schrödinger: aperiodic encoding IS maximally factored biological substrate
+  - Solomonoff: MDL principle IS maximum factoring in hypothesis space
 
   The formal translation is tight:
   factoring (UB) = d/dt compression (Schmidhuber) = chain rule decomposition (Cover)
   = information bottleneck (Tishby) = aperiodic encoding (Schrödinger)
+  = MDL program (Solomonoff)
 
-  All five say: structured compression (factoring) is the mechanism of intelligence
+  All six say: structured compression (factoring) is the mechanism of intelligence
   scaling. UB derives it as necessary; the others ground it as the right approach.
+  Solomonoff provides the third fully independent formal derivation alongside Cover's
+  chain rule and UB's Theorem 2b Part 3.
 
   This is the second most important equivalency class for UB after EC05.
   Theorem 2b Part 3's necessity proof adds "this is the ONLY way" to the shared claim.
 
-  Strength of equivalence: VERY HIGH. Information-theoretic foundations (Cover) provide
-  the formal backbone; five independent traditions ground the claim.
+  Strength of equivalence: VERY HIGH. Information-theoretic foundations (Cover, Solomonoff)
+  provide the formal backbone; six independent traditions ground the claim.
 
 confidence_C1p:
-  estimate: 0.91
-  basis: "Formal proof (Cover chain rule) + necessity proof (UB Theorem 2b Part 3) + physical evidence (Schrödinger) + computational (Schmidhuber) + decision theory (Tishby)"
-  weakest_link: "The specific claim that graph form (not just any factored structure) is necessary is only in UB"
+  estimate: 0.93
+  basis: "Formal proof (Cover chain rule) + necessity proof (UB Theorem 2b Part 3) + algorithmic proof (Solomonoff MDL) + physical evidence (Schrödinger) + computational (Schmidhuber) + decision theory (Tishby). Updated from 0.91 with Solomonoff addition."
+  weakest_link: "The specific claim that graph form (not just any factored structure) is necessary is only in UB; EC11 provides cross-framework grounding for the graph-form claim"
 
 contradictions: []
 
@@ -99,5 +122,5 @@ provenance:
     type: cross-framework-intersection
     description: "Five frameworks from information theory, biology, AI, and decision theory all ground compression-through-factoring independently."
   derivation:
-    from: [NV01-graph-necessity, T02-graph-structure-necessity, REF-Schmidhuber2010, REF-Cover2006, REF-Tishby2011, REF-Schrodinger1944]
+    from: [NV01-graph-necessity, T02-graph-structure-necessity, REF-Schmidhuber2010, REF-Cover2006, REF-Tishby2011, REF-Schrodinger1944, REF-Solomonoff1964]
     method: "Equivalency: compression = factoring across formal and physical frameworks"

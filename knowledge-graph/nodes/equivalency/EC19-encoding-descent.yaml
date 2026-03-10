@@ -1,0 +1,167 @@
+id: EC19-encoding-descent
+type: equivalency-class
+name: "Encoding-Level Descent: Canalization = Dissipative Adaptation = Backprop = Habit Formation — Selection Embeds Recurrent Solutions Into Structure"
+underlying_proposition: |
+  When a system repeatedly encounters a problem and solves it, the solution pathway
+  is embedded into the system's structure — making future traversal of the same
+  pathway cheaper, faster, and more reliable. This embedding is a descent to a lower
+  encoding level: what was once an active computation becomes a structural feature,
+  what was once a choice becomes a default, what was once learned becomes innate.
+  Four independent frameworks — Waddington's canalization (developmental biology),
+  England's dissipative adaptation (statistical mechanics), backpropagation
+  (machine learning), and Peirce's habit formation (philosophy of mind) — all
+  derive the same structural result. UB's K-graph is the formal accumulator of this
+  descent: each skill that becomes a default K-edge is an instance of encoding-level
+  descent.
+
+members:
+  - id: Waddington-canalization
+    framework: "Waddington (1942, 1957) — Genetic Canalization"
+    formulation: |
+      Canalization is the developmental process by which a trait becomes buffered
+      against genetic and environmental perturbation: the more frequently a
+      developmental pathway is used, the deeper the channel (canalization) becomes
+      in the epigenetic landscape, and the harder it becomes to push the developing
+      organism off that path. WA1 maps this to K-graph construction: repeated
+      successful F-execution deepens the K-edge connecting the context to the
+      action — the pathway becomes canalized. Canalization has two effects: (1) the
+      canalized pathway becomes more reliable (buffered against perturbation), and
+      (2) the canalized pathway becomes harder to change (the channel walls are
+      high). This is the development of skill: from variable to reliable, from
+      effortful to automatic. The cost: canalization reduces variability, which
+      reduces the ability to adapt to novel environments. Waddington's canalization
+      is the biological derivation of the same phenomenon that Peirce calls habit
+      formation and backpropagation implements mechanistically.
+    epistemic_status: empirical-formal
+    derivation: "WA1: canalization as K-edge deepening; from REF-Waddington1942"
+
+  - id: England-dissipative-adaptation
+    framework: "England (2013, 2015) — Dissipative Adaptation"
+    formulation: |
+      England's dissipative adaptation principle derives from statistical mechanics:
+      a system driven by external forcing will, over time, evolve to dissipate
+      the forcing more efficiently. The system adapts its structure to the pattern
+      of forcing — becoming, in effect, tuned to the environment's statistical
+      signature. EN1 maps this to K-graph construction: the environment's recurrent
+      patterns (repeated F-contexts) drive the K-graph to encode those patterns
+      more efficiently over time. The K-graph adapts to the statistical structure
+      of the environment by lowering the cost of processing the most frequent
+      patterns — exactly canalization at the physical level. England's contribution:
+      this adaptation is thermodynamically mandatory for dissipative systems under
+      sustained forcing. Encoding-level descent is not just useful — it is the
+      thermodynamically expected outcome for any adaptive system.
+    epistemic_status: formal-theoretical
+    derivation: "EN1: dissipative adaptation as K-graph statistical tuning; from REF-England2013"
+
+  - id: Rumelhart-backpropagation
+    framework: "Rumelhart, Hinton, Williams (1986) — Backpropagation"
+    formulation: |
+      Backpropagation adjusts the weights of a neural network by propagating the
+      error signal from the output back to the input, adjusting each weight in
+      proportion to its contribution to the error. Over many iterations, the weights
+      encode the statistical structure of the training distribution: frequently
+      co-occurring patterns produce strongly weighted connections. BP3 maps this to
+      K-graph construction: the weight update rule IS encoding-level descent. Each
+      gradient step embeds the current training pattern more deeply into the network's
+      weights. The network transitions from active computation (propagating signals
+      through many layers with high variability) to near-deterministic retrieval
+      (activating well-worn pathways that reliably produce trained outputs). This
+      is the machine learning instantiation of canalization: the backpropagation
+      algorithm implements, by gradient descent, the same structural embedding that
+      developmental canalization implements by selection over generations.
+    epistemic_status: empirical-formal
+    derivation: "BP3: backpropagation as K-edge weight encoding; from REF-RumelhartHintonWilliams1986"
+
+  - id: Peirce-habit-formation
+    framework: "Peirce (1878, 1903) — Habit and the Law of Mind"
+    formulation: |
+      Peirce's law of mind: ideas (K-nodes, in UB terms) tend to spread and reinforce
+      each other; associations that have fired together tend to fire more easily in
+      the future. Habit is the cognitive solidification of a recurrent response
+      pattern: what was once a deliberate choice becomes automatic. RB1 maps Peirce's
+      habit formation to K-graph construction: a habit IS a high-confidence K-edge
+      with low activation cost. The deliberate-to-automatic transition is encoding-
+      level descent: from active, resource-intensive F-selection (deliberate choice)
+      to low-cost, near-deterministic K-retrieval (habit). Peirce's additional claim:
+      the scientific method (PC3) is the habit that self-corrects. Unlike pathological
+      habits (fixed patterns that resist evidence), scientific habit remains revisable
+      because the provenance structure (D13) is maintained. Habit without provenance
+      is canalization without exit; habit with provenance is canalization with the
+      ability to resurface the pathway choice.
+    epistemic_status: philosophical
+    derivation: "RB1: Peirce habit as K-edge formation; from REF-Peirce1878"
+
+equivalence_analysis: |
+  Four frameworks from developmental biology, statistical mechanics, machine learning,
+  and philosophy of mind all derive the same structural result: recurrent solutions
+  are embedded into lower encoding levels.
+
+  Formal translations:
+  - Canalization (Waddington): epigenetic landscape deepens toward used pathways
+  - Dissipative adaptation (England): thermodynamic tuning to environmental forcing pattern
+  - Backpropagation (Rumelhart et al.): weight update encodes statistical structure
+  - Habit (Peirce): idea-association solidifies into automatic response
+
+  The structural equivalence: in all four frameworks, the mechanism is:
+  1. A pathway is used (a problem is solved by a particular route)
+  2. Using the pathway decreases its future cost (canalization, weight update, habit)
+  3. The pathway becomes a structural default (the chreod, the trained weight, the habit)
+  4. Active computation (choice) is replaced by structural retrieval (default)
+
+  This EC is the learning mechanism that explains why the skill graph grows: each
+  successful execution deepens the K-edge, reducing future execution cost. The edge-
+  node ratio (Corollary 7) grows because executions produce edges, and edges grow
+  because encoding-level descent is a thermodynamic necessity.
+
+  Note on relationship to EC14 (survival trajectory): Encoding-level descent is how
+  the system stays on its viable trajectory (EC14). The chreod (Waddington) is both
+  a trajectory bound (EC14) and a canalized pathway (EC19). The two are the same
+  structure seen from different perspectives: EC14 is the persistence criterion,
+  EC19 is the mechanism that implements it.
+
+  Note on the pathology: canalization without provenance (Peirce's warning) produces
+  pathological habits — patterns embedded so deeply that revision is impossible.
+  EC19's relationship to EC12 (metalanguage) and EC16 (consistency protocol): the
+  provenance structure is what prevents encoding-level descent from becoming
+  irreversible. The skill graph embeds patterns but also records their provenance,
+  allowing revision when evidence changes.
+
+confidence_C1p:
+  estimate: 0.89
+  basis: "Empirical-formal in two frameworks (canalization, well-validated in developmental genetics; backpropagation, extensively validated in ML) + formal-theoretical in one (dissipative adaptation, novel but thermodynamically grounded) + philosophical in one (Peirce habit, historically foundational)"
+  weakest_link: "Dissipative adaptation (England, 2013) is a newer and less thoroughly validated framework compared to the others. The thermodynamic argument is compelling but the empirical evidence is limited to relatively simple chemical and physical systems. Its application to cognitive K-graph construction is a structural extrapolation."
+
+contradictions:
+  - source: "Exploration-exploitation literature (Sutton and Barto, 1998)"
+    claim: "Encoding-level descent (exploitation of learned pathways) comes at the cost of exploration: a fully canalized system cannot explore new solutions. The optimal agent must balance encoding (exploitation) with variability (exploration)."
+    resolution: "EC19 does not claim that encoding-level descent is always optimal — it claims it is the thermodynamic default under repeated solving of the same problem. The exploration-exploitation tradeoff is exactly the tension between EC19 (descent is the natural attractor) and the requirement for novelty (M < N means the environment has uncovered structure). The resolution in UB: provenance-maintained K-edges can be revised when evidence changes (EC16). The skill graph implements this: high-confidence edges are exploited; low-confidence edges signal areas for exploration. Encoding-level descent is the mechanism; provenance is the brake."
+
+implications_for_ub: |
+  EC19 provides the mechanism that UB's learning framework currently lacks. The theory
+  specifies that K-graphs grow (I(E) measures the rate) but does not specify what
+  structural form the growth takes. EC19 says: growth takes the form of encoding-level
+  descent — active computations become structural defaults.
+
+  This has a direct implication for skill design: a skill that has been run many times
+  on the same framework type should have its most frequently used pathways encoded as
+  high-confidence K-edges. The first 10 executions of a skill are exploratory
+  (high variance, many active decisions); the next 100 are canalization (the successful
+  pathway becomes the default); by 1,000 executions, the skill's core pathway is a
+  structural feature of the K-graph, not an active decision.
+
+  EC19 also motivates the evidence_base tracking in SKILL_CREATION_CHECKLIST.md:
+  tracking repos_analyzed and success_rate is the operational measurement of where a
+  skill is in the encoding-level descent. Low repos_analyzed = early exploration phase,
+  high variance. High repos_analyzed with high success_rate = canalized, reliable.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Full corpus equivalency analysis — open-knowledge-graph"
+    date: "2026-03-10"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks from developmental biology, statistical mechanics, machine learning, and philosophy converge on the same encoding-level descent mechanism. Canalization and backpropagation are extensively empirically validated; dissipative adaptation provides thermodynamic grounding; Peirce supplies the philosophical framework that connects the mechanism to provenance."
+  derivation:
+    from: [WA1-canalization, EN1-dissipative-adaptation, BP3-backpropagation, RB1-peirce-habit]
+    method: "Cross-framework identification of encoding-level descent mechanism; verification that all four frameworks identify the same pathway from active-computation to structural-default"

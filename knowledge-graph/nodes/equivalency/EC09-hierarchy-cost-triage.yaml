@@ -48,46 +48,92 @@ members:
     epistemic_status: formal-theoretical
     derivation: "Active inference: precision-weighted prediction errors drive hierarchical processing"
 
+  - id: DE3-teleodynamics-levels
+    framework: "Deacon (2012) — Incomplete Nature: Teleodynamics"
+    formulation: |
+      Deacon identifies three hierarchical levels of emergent dynamics: thermodynamics
+      (physical processes, no constraints), morphodynamics (self-organizing processes,
+      partial constraints), and teleodynamics (purposive processes, full constraints
+      toward an end-state). The hierarchy is cost-ordered: thermodynamic processes
+      require no reference to higher levels; morphodynamic processes require reference
+      to current pattern; teleodynamic processes require reference to absent end-states
+      (absential causation). DE3 maps to UB's L0-L3: L0 corresponds to thermodynamic
+      processing (no inference, direct physical response), L1-L2 to morphodynamic
+      processing (pattern matching against current K), L3 to teleodynamic processing
+      (architectural change toward a distant goal). Deacon's key contribution: the
+      highest level (L3 equivalent) is characterized by absence — it is motivated by
+      what is not yet present. This is the formal content of L3 (architectural change):
+      the agent is acting toward a K-structure it does not yet have.
+    epistemic_status: philosophical
+    derivation: "DE3: teleodynamics hierarchy as cost-ordered processing levels; from REF-Deacon2012"
+
+  - id: HO2-hofstadter-isomorphism
+    framework: "Hofstadter (1979) — Isomorphism as the Source of Meaning"
+    formulation: |
+      Hofstadter's central thesis in Gödel, Escher, Bach: meaning arises from
+      isomorphism between a formal system and a referent. The hierarchy of levels
+      in a formal system (symbols, rules about symbols, rules about rules) maps to
+      the hierarchy of levels in the referent. The cost of accessing a higher level
+      increases: direct symbol-level access is cheap; meta-level access (rules about
+      rules) requires explicit encoding of the meta-level. HO2 maps to EC09's hierarchy:
+      L0 is direct symbol access; L1-L2 is rule access; L3 is meta-rule access (the
+      architectural level where the system modifies its own rule-structure). Hofstadter's
+      strange loop (EC12 connection) is the pathological case where level hierarchy
+      collapses — the system confuses its own level. The L0-L3 hierarchy prevents
+      strange loops by maintaining level distinctions explicitly. The cost structure
+      is Hofstadter's encoding cost: each level up adds a layer of indirection.
+    epistemic_status: philosophical
+    derivation: "HO2: level hierarchy as meaning-structure; from REF-Hofstadter1979"
+
 equivalence_analysis: |
-  Four frameworks independently ground the same hierarchical cost-triage structure:
+  Six frameworks independently ground the same hierarchical cost-triage structure:
 
   Formal translation:
-  - L0 (UB) = System 1 (Kahneman) = below-threshold (Baars) = high-precision local (FEP)
-  - L2/L3 (UB) = System 2 (Kahneman) = above-threshold global (Baars) = low-precision global (FEP)
-  - Cost threshold theta_i (UB) = cognitive ease (Kahneman) = ignition threshold (Dehaene) = precision (FEP)
+  - L0 (UB) = System 1 (Kahneman) = below-threshold (Baars) = high-precision local (FEP) = thermodynamic (Deacon) = symbol-level (Hofstadter)
+  - L2/L3 (UB) = System 2 (Kahneman) = above-threshold global (Baars) = low-precision global (FEP) = teleodynamic (Deacon) = meta-rule level (Hofstadter)
+  - Cost threshold theta_i (UB) = cognitive ease (Kahneman) = ignition threshold (Dehaene) = precision (FEP) = constraint density (Deacon) = encoding indirection (Hofstadter)
 
   The routing mechanism: when local processing can handle the uncertainty (certainty >
-  threshold), it does not escalate. When it cannot, it escalates. All four frameworks
+  threshold), it does not escalate. When it cannot, it escalates. All six frameworks
   independently derive this routing rule from their respective formalisms.
 
   The formal equivalence is very clean: precision (FEP) = 1/uncertainty = certainty =
   the inverse of U(w,K). High precision = low U(w,K) = L0 territory.
 
-  Strength of equivalence: VERY HIGH. Four traditions including two formal frameworks
-  (UB, FEP) and two empirical traditions (Kahneman, Baars/Dehaene).
+  Deacon adds the characterization of L3: it is absence-driven (teleodynamic). The
+  L3 architectural change is motivated by what is not yet present in the K-graph.
+  Hofstadter adds the level-confusion pathology: EC12's strange loop is the failure
+  mode when L0-L3 separation breaks down; the hierarchy prevents level confusion
+  by making each level's cost explicit.
+
+  Strength of equivalence: VERY HIGH. Six traditions including two formal frameworks
+  (UB, FEP) and four empirical/philosophical traditions (Kahneman, Baars/Dehaene,
+  Deacon, Hofstadter).
 
 confidence_C1p:
-  estimate: 0.90
-  basis: "Two formal frameworks (UB, FEP) + extensive empirical evidence (Kahneman, Dehaene) + theoretical grounding (Baars)"
+  estimate: 0.91
+  basis: "Two formal frameworks (UB, FEP) + extensive empirical evidence (Kahneman, Dehaene) + theoretical grounding (Baars) + philosophical (Deacon teleodynamics, Hofstadter level hierarchy). Updated from 0.90 with two new independent groundings."
   weakest_link: "The exact cost structure (theta_i thresholds) is specific to UB; the others ground the qualitative hierarchy but not the specific quantitative thresholds"
 
 contradictions: []
 
 implications_for_ub: |
-  The L0-L3 hierarchy and Theorem 4 (Escalation Principle) are well-grounded. Four
+  The L0-L3 hierarchy and Theorem 4 (Escalation Principle) are well-grounded. Six
   frameworks converge on the same structure. UB's contribution: the formal derivation
   of the hierarchy from C_n (not just as a design choice) and the Escalation Principle
   theorem. The empirical evidence from Kahneman and Dehaene provides strong support
-  for the practical validity of the hierarchy.
+  for the practical validity of the hierarchy. Deacon's teleodynamics characterizes
+  L3 as absence-driven (goal-directed toward non-existent end-state); Hofstadter
+  connects the hierarchy to the metalanguage requirement (EC12).
 
 provenance:
   attribution:
     author: "Patrick McCarthy"
-    source: "Novelty Analysis — Knowledge Graph"
+    source: "Novelty Analysis — Knowledge Graph (extended 2026-03-10)"
     date: "2025"
   evidence:
     type: cross-framework-intersection
-    description: "Four frameworks from formal AI theory, cognitive psychology, and neuroscience independently ground hierarchical cost-based triage."
+    description: "Six frameworks from formal AI theory, cognitive psychology, neuroscience, philosophy of emergence, and cognitive science independently ground hierarchical cost-based triage."
   derivation:
-    from: [D08-encoding-hierarchy, REF-Kahneman2011, REF-Baars1988, REF-Dehaene2011, REF-Friston2017]
+    from: [D08-encoding-hierarchy, REF-Kahneman2011, REF-Baars1988, REF-Dehaene2011, REF-Friston2017, REF-Deacon2012, REF-Hofstadter1979]
     method: "Equivalency: hierarchy levels translated across formal and empirical frameworks"
