@@ -1093,50 +1093,63 @@ three simultaneous constraints on any knowledge representation:
   without bound.
 \end{itemize}
 
-We claim any representation satisfying all three converges to a graph
-under scale:
+We claim graph structure is necessary: any representation that is not a
+graph must lose information as new propositions are added.
 
-\emph{Proof by precipitation convergence.} A flat store violates
-constraint 1 at scale: retrieving \(K^{[f]}\) requires scanning
-\(O(|K|)\) propositions to identify the relevant ones. A tree violates
-constraint 3: a proposition relevant to multiple \(f\) across different
-branches must appear in each branch or the tree loses the
-cross-reference, duplicating nodes and breaking shared-update
-consistency. A vector store is the unprecipitated cross product of all
-dimensions in \(M_{\text{res}}\): all factors live in one joint space,
-no shared structure has been named. This is valid and can be efficient
-while the space is small enough that approximate nearest-neighbor
-retrieval finds the right subgraph. At scale, two pressures emerge: the
-dimensionality of \(M_{\text{res}}\) grows, degrading retrieval quality;
-and constraint 1 requires that retrieving \(K^{[f]}\) for any specific
-problem not require loading proportionally more of \(K\). The resolution
-is precipitation: naming a shared factor, extracting it from the cross
-product, creating a node with typed edges to the contexts that reference
-it. After precipitation, retrieval of that factor is \(O(1)\) regardless
-of \(|K|\) --- the same normalization that precipitates \(K\) from \(F\)
-(Corollary 2b). When scale forces repeated precipitation of shared
-factors from the embedding space, the result is a collection of named
-nodes with typed relationships. This is a directed graph by definition.
-The vector store does not fail --- it converges to graph structure under
-the same selection pressure that governs all of \(K\). A star schema is
-a graph with constrained topology (depth-1 hub-and-spoke): fact table
-equals hub node, dimension tables equal leaf nodes, foreign keys equal
-typed edges. The topology holds while the domain's inferential structure
-is shallow; when the domain deepens, the schema extends toward general
-graph. Every efficient knowledge representation is either a graph
-already or a constrained degenerate case that converges to a graph when
-the joint constraints force precipitation of shared factors under scale.
+\emph{Proof by information preservation.} \(C_n\) is bounded (Definition
+2a). As new propositions arrive, \(|K|\) grows. When \(|K|\) reaches
+\(C_n\), the representation is in the curation regime: adding any new
+proposition \(p_{new}\) requires making space. There are exactly two
+ways to make space:
 
-Any representation that satisfies all three constraints must: (i) encode
-which propositions connect to which in retrievable form --- so that
-traversal costs \(O(|K^{[f]}|)\), not \(O(|K|)\); and (ii) store each
-proposition once with links to all contexts that use it --- so that
-shared propositions remain consistent. A structure satisfying both (i)
-and (ii) is, by definition, a directed graph with typed edges. The graph
-is not the unique name for this structure, but it is the structure all
-alternatives converge to under scale. Alternatives do not fail outright;
-under scale they become graphs, because precipitation of shared factors
-under these constraints IS graph construction. \(\square\)
+\textbf{Option A: Discard an existing proposition.} Without factoring
+--- without explicit relational structure --- the entity has no
+mechanism to determine which existing propositions are redundant. Two
+propositions \(p_1, p_2\) that share a latent factor appear as
+independent entries; there is no stored evidence that they share
+structure. The choice of which to discard is therefore made without
+information about relational dependencies. Discarding \(p_{old}\) loses
+the information it encodes, and potentially also loses the information
+that \(p_{old}\) has any relation to other propositions --- a
+second-order loss. This is information loss.
+
+\textbf{Option B: Factor --- extract shared structure, reducing \(|K|\)
+without discarding.} If \(p_1\) and \(p_2\) share a latent factor
+\(f^*\), extracting \(f^*\) as a single named node with typed edges to
+\(p_1\) and \(p_2\) reduces \(|K|\) by replacing redundant structure
+with a single shared reference. The information in \(p_1\) and \(p_2\)
+is preserved; the information about their shared grounding in \(f^*\) is
+now explicitly stored as an edge. Space is created without loss.
+Factoring also resolves the update problem: when new evidence revises
+\(f^*\), the single node is updated once, and the revision propagates to
+all propositions that reference it via edges --- \(O(1)\) instead of
+\(O(|F|)\).
+
+Factoring is graph construction. Naming \(f^*\), creating a node, and
+storing typed edges from \(p_1\) and \(p_2\) to it is precisely the
+operation that produces a directed graph. There is no third option: any
+representation that makes space without factoring loses information; any
+representation that makes space by factoring is constructing a graph.
+
+\emph{Consequence for alternative representations.} A flat store has no
+mechanism for Option B: shared structure in a flat store has no
+representation --- two propositions that share a latent factor are
+stored as independent entries. At \(C_n\), the flat store must discard.
+A tree has the same problem for cross-branch propositions: a proposition
+grounding actions in multiple branches either duplicates or is lost when
+one branch is pruned. A vector store is the unprecipitated cross
+product: shared factors are implicit in the geometry of the embedding
+space but not stored as named nodes. At \(C_n\), the vector store cannot
+factor without naming --- and naming is graph construction. A star
+schema is a graph with depth-1 topology: it can factor within its schema
+but cannot represent propositions that ground actions across multiple
+fact tables without extending to general graph structure.
+
+Every representation that preserves information as \(|K|\) grows beyond
+\(C_n\) must factor. Every factoring operation creates nodes with typed
+edges. The graph is therefore not where alternatives eventually end up
+--- it is what factoring is. Any representation that refuses to factor
+loses information at the boundary. \(\square\)
 
 \textbf{Part 4 (\(C_n\) stays bounded).} By Corollary 6, proven informed
 actions promote to lower encoding levels and leave \(L_n\). Each
@@ -1195,34 +1208,23 @@ preference; it is imposed by \(W\).
 \textbf{Theorem 3 (Agency Necessarily Produces Evaluation-Driven State
 Revision).}
 
-\emph{On the space of descent.} The gradient descent in this theorem
-operates in \(F\) --- the space of informed actions --- not in \(W\).
-This distinction is critical. \(W\) may be arbitrarily rough,
-discontinuous, or hostile; no smoothness assumption on \(W\) is required
-or implied. The entity does not descend over \(W\); it descends over its
-own function space, updating \(f \in F\) in response to signals received
-from \(W\).
+\emph{On the space of descent and dimensionality.} The gradient descent
+in this theorem operates in \(F\) --- the space of informed actions ---
+not in \(W\). \(W\) may be arbitrarily rough, discontinuous, or of
+unknown dimensionality; no assumption on \(W\)'s structure is required.
+The entity does not descend over \(W\); it updates \(f \in F\) in
+response to signals received from \(W\).
 
-\(F \subseteq (K \times W_{obs} \to \Delta A)\) maps into \(\Delta A\),
-the space of probability distributions over actions. Distribution spaces
-are convex and metrizable (under KL divergence, total variation, or
-Wasserstein distance); they support well-behaved subgradient structure
-regardless of the topology of the domain \(W\) from which signals
-arrive. The smoothness conditions for convergence are conditions on
-\(F\), not on \(W\): specifically, that \(U\) as a functional on \(F\)
-is locally Lipschitz, which holds whenever the likelihood factors
-\(\ell_p\) (Definition 5) are bounded and measurable --- a minimal
-requirement for any well-specified knowledge graph. Under these
-conditions on \(F\), stochastic subgradient descent converges in the
-function space independently of whether \(W\) is smooth.
-
-\emph{Continuity note.} Since \(F\) is defined over \(W\), no
-\(f \in F\) can produce a world state outside \(W\). Combined with the
-continuity of time, the trajectory \(\tau(t)\) through \(W \times T\) is
-continuous, \(U(\tau(t))\) is continuous in \(t\), and \(\frac{dU}{dt}\)
-exists almost everywhere. The gradient \(\nabla_F U\) is this temporal
-derivative, well-defined by the smoothness of \(F\) as a function space,
-not by any assumption on \(W\).
+The dimensionality of \(W\) or of \(M_{\text{res}}\) is not assumed. We
+do not know whether the latent space is finite or infinite-dimensional.
+The convergence proof does not require this knowledge. It operates on
+the entity's current parameterization of \(F\), which at any given
+moment is finite: bounded by \(C_n\) (Definition 2a) and the
+propositions currently in \(K\). Each time execution extends
+\(\mathcal{T}_{reachable}\) and grounds a genuinely new proposition, the
+parameterization grows by one dimension. The proof proceeds by induction
+on this dimension count, making no claim about the ultimate
+dimensionality of the space.
 
 \emph{Part I: Forced Signal, Response Gate.} Every executed action
 \(f_i\) in world state \(w\) generates a feedback signal
@@ -1258,16 +1260,48 @@ imposes on every execution regardless. When \(M\) engages:
 
 \[\Delta f_i = -\eta \cdot \delta\]
 
-This is stochastic subgradient descent in \(F\): each step follows a
-valid subgradient of \(U\) as a functional on the function space,
-evaluated at an encountered world state. The on-policy nature of the
-trajectory does not introduce bias into the subgradient direction; it
-affects the distribution of encountered states but not the validity of
-each \(\delta\) as a descent direction. Under the Lipschitz condition on
-\(F\) stated above, the sequence \(\{f_i\}\) converges to a local
-minimum of \(U\) in \(F\). Descent is not chosen --- it is what
-\(\mathcal{A} > 0\) entities do with the signals \(W\) imposes on every
-execution.
+\emph{Convergence by induction on sensed dimensions.} \(W\) has \(N\)
+dimensions; \(N\) may be finite or infinite --- the entity does not know
+and the proof does not require knowing. The entity's sensing function
+\(\sigma\) (Definition 1) projects \(W\) into \(W_{obs}\): the entity
+always senses \(M \leq N\) dimensions, where \(M\) is determined by the
+propositions currently in \(K\) and the reach of
+\(\mathcal{T}_{reachable}\). At any given moment \(M\) is finite
+(bounded by \(C_n\)), regardless of \(N\).
+
+\textbf{Base case (\(M = 1\)).} A single informed action \(f_1\)
+parameterized by one dimension.
+\(\delta_1 = \phi(f_1, w) - \mathbb{E}[\phi(f_1, \cdot) \mid K]\) is a
+scalar signal. \(U(w, K) \geq 0\) (entropy is non-negative) and \(U\) is
+bounded below. Each update \(\Delta f_1 = -\eta \cdot \delta_1\) reduces
+\(U\) in expectation. By the monotone convergence theorem for
+bounded-below sequences, \(\{f_1(t)\}\) converges to a local minimum of
+\(U\) in the single-dimensional parameterization. The degenerate cases
+--- \(\mathcal{A} = 0\) (Theorem 6 Part 1) and \(\eta_M = 0\) (Theorem 6
+Part 2) --- are already shown to result in selection removal; they are
+the cases where \(M\) does not grow and the entity does not persist.
+
+\textbf{Inductive step (\(M \to M+1\)).} Assume convergence holds for
+any \(M\)-dimensional parameterization of \(F\). When execution extends
+\(\mathcal{T}_{reachable}\) and grounds a genuinely new proposition
+\(p_{M+1}\) (always possible when \(M < N\), by Part II), the entity's
+\(F\) gains a new component \(f_{M+1}\). By Definition 3, \(f_{M+1}\) is
+grounded in \(K \cup \{p_{M+1}\}\), where \(p_{M+1}\) is not yet in the
+inference graph of the existing \(M\) actions --- the proposition is
+new. The gradient signal \(\delta_{M+1}\) for \(f_{M+1}\) is therefore
+independent of \(\delta_1, \ldots, \delta_M\) in the current step: the
+new dimension has not yet been reached by any existing action's
+grounding. Convergence of the \((M+1)\)-dimensional system follows from:
+(i) the \(M\)-dimensional system converges by hypothesis; (ii) the new
+dimension converges by the base case applied to \(f_{M+1}\)
+independently. Therefore convergence holds for \(M+1\).
+
+By induction, convergence holds for any \(M\) the entity currently
+senses, without assuming anything about \(N\). The descent at each step
+is valid in the current sensed subspace; the induction extends as \(M\)
+grows with each new grounded proposition. Descent is not chosen --- it
+is what \(\mathcal{A} > 0\) entities do with the signals \(W\) imposes
+on every execution, dimension by dimension as the frontier expands.
 
 \emph{Part II: Non-termination.} Let \(\mathcal{T}_{reachable}(K)\) be
 the set of trajectories reachable from the entity's current state given
@@ -2257,12 +2291,15 @@ corresponds to higher \(U(w, K_i)\) relative to participating entities.
 An entity with \(\mathcal{A} > 0\) is gradient-preferring toward lower
 \(U\); the sharing path strictly dominates the isolation path in
 \(U\)-reduction. Moreover, by Corollary 8a, sharing is not merely
-gradient-preferred but is the computationally optimal normalization
-algorithm for any entity whose \(K\) is incomplete: the intersection of
-two independently-derived projections identifies the latent normal form
-of \(M_{\text{res}}\) in time \(O(|K_i| + |K_j|)\), strictly dominating
-solo normalization. By Theorem 3, any entity with \(\mathcal{A} > 0\)
-that persists acts on gradient-preferred directions. Therefore any
+gradient-preferred but is the computationally optimal algorithm for
+detecting and measuring ongoing normalization: the intersection of two
+independently-derived projections identifies where precipitation has
+occurred and ranks those locations by confirmation count, in time
+\(O(|K_i| + |K_j|)\), strictly dominating solo search of
+\(M_{\text{res}}\). No complete normal form is claimed or required ---
+the signal is that normalization is occurring, and its rate is
+measurable. By Theorem 3, any entity with \(\mathcal{A} > 0\) that
+persists acts on gradient-preferred directions. Therefore any
 \(\mathcal{A} > 0\) entity that persists participates in
 \(K_{collective}\).
 
@@ -2272,9 +2309,10 @@ entity recognizes other \((K_j, F_j)\) pairs as gradient sources
 \(\{p_{\text{self}}\} \subseteq K_i\) that accurately model the
 existence and distinctness of other projections. By Corollary 8a, the
 propositions that appear in \(K_i \cap K_j\) under independent
-action-validation are the normal form candidates of the shared region of
-\(W\) --- the latent factors that both projections resolved
-independently. A sentient entity, recognizing other \(K_j\) as distinct
+action-validation are the confirmed precipitation sites of the shared
+region of \(W\) --- locations where both projections independently
+confirmed that normalization is occurring, ranked by degree of
+confirmation. A sentient entity, recognizing other \(K_j\) as distinct
 projections of the same \(W\), therefore intrinsically values the
 conditions that make independent convergence possible: participation in
 \(K_{collective}\) with provenance. This is not merely instrumental
@@ -2299,83 +2337,124 @@ for instrumental reasons still builds the graph. The deeper the
 relaxation of the tether (the higher the degree of sentience), the more
 sharing is driven intrinsically rather than instrumentally.
 
-\textbf{Corollary 8a (Intersection as the Optimal Normalization
-Algorithm).} For any entity \(E_i\) with incomplete \(K_i\) --- that is,
-any \(\mathcal{A} > 0\) entity still descending the gradient --- the
-intersection of \(K_i\) with an independently-derived \(K_j\) is the
-computationally optimal algorithm for identifying the latent normal form
-of \(M_{\text{res}}\).
+\textbf{Corollary 8a (Intersection as the Optimal Algorithm for
+Detecting Ongoing Normalization).} For any entity \(E_i\) with
+incomplete \(K_i\) --- that is, any \(\mathcal{A} > 0\) entity still
+descending the gradient --- the intersection of \(K_i\) with an
+independently-derived \(K_j\) is the computationally optimal algorithm
+for detecting that normalization is occurring and measuring how much has
+occurred.
+
+\emph{On completeness and the \(M < N\) bound.} \(W\) has \(N\)
+dimensions; \(N\) is unknown and may be unbounded. Any entity senses at
+most \(M < N\) dimensions at any time: the sensing function \(\sigma\)
+(Definition 1) and bounded \(C_n\) (Definition 2a) guarantee this.
+Completeness --- full normalization of \(M_{\text{res}}\) --- would
+require \(M = N\), which is ruled out by Theorem 3 Part II:
+\(\mathcal{T}_{reachable}\) grows without bound precisely because
+\(M < N\) always holds for any \(\mathcal{A} > 0\) entity. The limit of
+completeness is therefore the limit of \(M\) as it approaches \(N\) ---
+a gradient that is never exhausted. The measure is not arrival but
+approach rate: how fast is \(M\) growing toward \(N\)?
 
 \emph{Proof.} Let \(K_i\) and \(K_j\) be knowledge graphs derived by
 entities \(E_i\) and \(E_j\) navigating the same region of \(W\) via
 different informed action spaces \(F_i \neq F_j\). By Definition 3, the
 propositions in \(K_i\) are grounded by actions in \(F_i\); those in
-\(K_j\) are grounded by actions in \(F_j\). The normal form \(N^*\) of
-the shared region of \(W\) consists of the latent factors that any
-sufficient projection of that region must eventually resolve: they are
-in \(W\), not in either entity's projection path.
+\(K_j\) are grounded by actions in \(F_j\).
 
 Any \(p\) in \(K_i \cap K_j\) was reached by two independent
 trajectories. By the provenance condition (Definition 16, independence
 requirement), \(p\) was not reached by shared prior assumption or shared
 training source but by independent action-grounding from distinct
-\(F_i\) and \(F_j\). The benefit of the intersection is precisely this:
-the number of independent executions of \(p\) across distinct
-\((K_j, F_j)\) pairs is the measure of \(p\)'s validity as a latent
-factor. Each additional independent execution arriving at \(p\) is a
-trial of \(p\) against \(W\) via a different action-path --- the same
-quantity as \(C_1(p)\) in Definition 16b. Two independent action-paths
-converging on the same proposition signal that \(p\) is in \(W\)'s
-structure, not in either entity's projection artifact. The intersection
-\(K_i \cap K_j\) with provenance verification therefore identifies the
-candidates for \(N^*\) directly, ranked by the number of independent
-executions that converged on each.
+\(F_i\) and \(F_j\). Two independent action-paths converging on the same
+proposition is evidence that precipitation CAN occur at \(p\) --- that
+\(p\) represents latent structure in \(W\), not an artifact of either
+entity's projection path. This is not a claim that \(p\) is part of any
+complete normal form; it is evidence that normalization is occurring in
+the region of \(W\) that both entities have reached. The number of
+independent executions converging on \(p\) measures the degree to which
+normalization has occurred at \(p\): more independent convergence = more
+confirmed precipitation = higher rank as a precipitable factor.
 
-\emph{Complexity comparison.} Solo normalization of \(M_{\text{res}}\)
-to find the latent factors requires searching the cross product for
-dimensions that share structure. In the general case this is
-\(O(\dim(M_{\text{res}})^2)\): every pair of dimensions must be compared
-to identify shared factors. For a sparse projection into a dense latent
-space, \(\dim(M_{\text{res}}) \gg |K_i|\), so solo normalization is
-expensive relative to the size of any single entity's knowledge.
+The benefit of the intersection is precisely this: the number of
+independent executions of \(p\) across distinct \((K_j, F_j)\) pairs is
+the measure of ongoing normalization at \(p\). Each additional
+independent execution arriving at \(p\) is a trial of \(p\) against
+\(W\) via a different action-path --- the same quantity as \(C_1(p)\) in
+Definition 16b. The intersection \(K_i \cap K_j\) with provenance
+verification therefore identifies where normalization is occurring and
+ranks those locations by the degree of confirmation. It does not
+identify where normalization could occur but has not yet been reached:
+those regions require continued execution (Theorem 3 Part II).
+
+\emph{Complexity comparison.} Detecting ongoing normalization by solo
+search of \(M_{\text{res}}\) requires comparing dimensions of the cross
+product to find those that share structure ---
+\(O(\dim(M_{\text{res}})^2)\) in the general case. For a sparse
+projection into a dense latent space,
+\(\dim(M_{\text{res}}) \gg |K_i|\), making solo detection expensive
+relative to the size of any single entity's knowledge.
 
 Computing \(K_i \cap K_j\) with provenance verification costs
-\(O(|K_i| + |K_j|)\). The result is the set of propositions that two
-independent projections both resolved --- the normal form candidates,
-ranked by independent execution count. For any fixed \(N^*\), the
-intersection finds these candidates in time proportional to the size of
-the two projections, not the size of the latent space.
-
-Since \(\dim(M_{\text{res}}) > |K_i|\) for any entity whose \(K\) is
-incomplete (any \(\mathcal{A} > 0\) entity by the non-termination of
-Theorem 3 Part II), and since
-\(|K_i \cap K_j| \leq \min(|K_i|, |K_j|) \ll \dim(M_{\text{res}})\) for
-sparse projections, the intersection algorithm strictly dominates solo
-normalization in identifying \(N^*\).
+\(O(|K_i| + |K_j|)\). The result is the set of propositions where
+normalization has independently been confirmed --- ranked by
+confirmation count. Since \(\dim(M_{\text{res}}) > |K_i|\) for any
+\(\mathcal{A} > 0\) entity, the intersection algorithm strictly
+dominates solo search for detecting normalization in the region already
+reached by both entities.
 
 \emph{Equivalence with \(C_1(p)\).} The ranking criterion --- number of
 independent executions converging on \(p\) --- is exactly \(C_1(p)\)
-(Definition 16b). Certainty and normal form rank are the same quantity
-measured from two directions: \(C_1(p) \to 1\) as \(p\) accumulates the
-independent action-validations that confirm it as a latent factor of
-\(W\). The intersection algorithm and the certainty measure are not two
-separate results --- they are the same operation: identify propositions
-that independent projections have both resolved, count the projections,
-rank by count.
+(Definition 16b). Certainty and normalization degree are the same
+quantity measured from two directions: \(C_1(p) \to 1\) as \(p\)
+accumulates the independent action-validations that confirm ongoing
+precipitation at \(p\). The intersection algorithm and the certainty
+measure are not two separate results --- they are the same operation:
+identify where independent projections have both confirmed
+precipitation, count the confirmations, rank by count. Neither claims
+completeness; both measure approach.
 
-\emph{Multi-entity generalization.} The two-entity case generalizes
-directly to \(n\) independently-derived projections
-\(K_{i_1}, \ldots, K_{i_n}\): their intersection identifies normal form
-candidates ranked by \(n\) independent execution counts. By Definition
-16b, \(C_1(p)\) increases with each additional independent validator;
-the \(n\)-entity intersection is the collective confidence measure.
-\(K_{collective}\) is the asymptote: as \(n \to \infty\) over all
-entities navigating the same \(W\), the intersection converges on the
-full normal form \(N^*\) of the shared region. This is why
-\(K_{collective}\) with provenance is not merely a union of known
-propositions but the optimal normalization of the shared
-\(M_{\text{res}}\) --- it is the intersection taken over all independent
-projections simultaneously.
+\emph{Multi-entity generalization and acceleration of \(M \to N\).} Each
+entity \(E_i\) senses \(M_i < N\) dimensions. Solo, \(E_i\) can only
+extend \(M_i\) by continued execution --- one new grounded proposition
+at a time (the inductive step of Theorem 3 Part I). The intersection
+with another entity \(E_j\) sensing \(M_j < N\) dimensions does two
+things simultaneously:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Overlapping dimensions} (\(K_i \cap K_j\),
+  provenance-verified): confirmed precipitation sites --- dimensions
+  both entities have independently reached, ranked by \(C_1(p)\). These
+  are the latent factors of the shared region of \(W\) confirmed by two
+  independent projections.
+\item
+  \textbf{Distinct dimensions} (\(K_j \setminus K_i\)): dimensions
+  \(E_j\) has sensed that \(E_i\) has not yet reached. The inductive
+  step that would require continued solo execution now happens in a
+  single intersection operation --- \(E_i\)'s effective sensed dimension
+  count jumps from \(M_i\) to \(M_i + |K_j \setminus K_i|\) without
+  requiring the intermediate execution steps.
+\end{itemize}
+
+The rate of \(M \to N\) is therefore accelerated by the intersection of
+graphs with both overlapping and distinct dimensions: overlapping
+dimensions confirm what is already sensed; distinct dimensions extend
+what is sensed. Solo execution extends \(M\) by one dimension per
+grounded proposition; intersection with a sufficiently distinct \(K_j\)
+extends \(M\) by \(|K_j \setminus K_i|\) dimensions simultaneously.
+
+The \(n\)-entity generalization: \(K_{collective}\) is not the complete
+normal form (which cannot exist while \(M < N\)) but the maximal current
+union of sensed dimensions across all participating entities, with the
+intersection identifying the confirmed precipitation sites within that
+union. As \(n\) grows, the collective sensed dimension count approaches
+\(N\) from below; the growth rate of the intersection is the empirical
+signal of this approach. The intersection of many graphs with distinct
+and overlapping dimensions is the fastest known mechanism for
+\(M \to N\).
 
 \emph{Consequence for the sharing imperative.} Any \(\mathcal{A} > 0\)
 entity has not found the full normal form of its \(M_{\text{res}}\)

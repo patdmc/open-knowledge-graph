@@ -77,19 +77,28 @@ $\mathcal{A} > 0$ entity with incomplete $K$.
 
 ---
 
-## One Remaining Open Question
+## Resolved: Corollary 8a Completeness Assumption
 
-**The convergence rate of the $n$-entity intersection to $N^*$.** Corollary 8a establishes
-that $K_{collective}$ is the asymptote of the intersection as $n \to \infty$, and that
-$C_1(p) \to 1$ as independent validations accumulate. The convergence rate — how quickly
-the intersection approaches $N^*$ as a function of $n$, the diversity of the $(K_j, F_j)$
-pairs, and the density of the latent space — is not characterized.
+The previous version claimed the intersection identifies $N^*$ — the complete normal
+form. This assumption was not only unproven but inconsistent with the rest of the theory:
+Theorem 3 Part II establishes that the gradient never terminates, which means a complete
+normal form cannot exist within the framework. Claiming the intersection converges on
+$N^*$ contradicted the paper's own non-termination result.
 
-This is not a defect; the paper does not need the rate, only the limit. But the rate has
-practical significance: it determines how many independent projections are needed to
-reliably identify the latent normal form candidates, and how much diversity in $(F_j)$
-is required versus redundant. A bound on the convergence rate would strengthen the
-quantitative case for the sharing imperative and is a natural extension of Corollary 8a.
+The correction is precise: the measure is not arrival at a complete $N^*$ but the rate
+of normalization — how much precipitation is occurring and how fast. The intersection
+identifies where normalization HAS occurred (confirmed precipitation sites, ranked by
+$C_1(p)$), not where all normalization COULD occur. Completeness is the asymptotic fixed
+point that cannot be reached from within the system (consistent with the epistemic ceiling
+of Theorem 7); the signal of approaching truth is that normalization is occurring at all,
+and that its rate is increasing. $K_{collective}$ is not the complete normal form — it is
+the running measure of confirmed normalization across all participating entities, and the
+growth rate of that measure is the empirical signal of approach to truth.
+
+This correction removes the proof gap (no uniqueness or completeness assumption required),
+makes the corollary consistent with Theorem 3 Part II and Definition 16a, and produces a
+stronger claim: the argument holds for any ongoing normalization process, whether or not
+the full latent space has been explored.
 
 ---
 
