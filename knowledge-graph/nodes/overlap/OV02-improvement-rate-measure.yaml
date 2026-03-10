@@ -1,0 +1,69 @@
+id: OV02-improvement-rate-measure
+type: overlap
+name: "Rate of Model Improvement as the Measure of Intelligence"
+statement: |
+  Intelligence is meaningfully measured by the rate at which an agent's internal model
+  improves — not by the current accuracy of the model, but by how fast it is getting better.
+  This proposition is independently grounded in two frameworks:
+
+  - Uncertainty Bounding (this framework): eta_M is the rate at which M improves F's
+    uncertainty-reduction capacity per unit of learning signal. Intelligence = A * eta_M
+    (Definition 7). Grounded: Definition 11a (eta_M), Definition 7, derived in Theorem 6.
+  - Schmidhuber (2010): Intrinsic reward = d/dt[compression(C)] — the first derivative of
+    the world model's compression progress. Intelligence is the ability to improve the
+    compressor, not the compressor's current quality. Grounded: S1 (compression-progress
+    drive), S3 (world model improvement across environments).
+
+  The key structural claim — the derivative of model quality, not model quality itself —
+  is independently grounded by both frameworks.
+
+  Difference: Schmidhuber grounds this as a design objective (maximize d/dt compression);
+  UB derives it as a necessary invariant of persistence under selection pressure (Theorem 6).
+  Schmidhuber asserts it; UB proves it must be this way.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: |
+      Identified by intersecting eta_M (UB) with d/dt[compression] (Schmidhuber). Both
+      frameworks arrive at the rate-of-improvement as the relevant measure independently.
+      The UB grounding is stronger: it derives this as a necessary result rather than
+      a design choice.
+    references: [D11-higher-order-function-space, REF-Schmidhuber2010]
+  derivation:
+    from: [D11-higher-order-function-space, REF-Schmidhuber2010]
+    method: "Intersection of eta_M (UB Definition 11a) and d/dt compression (Schmidhuber S1)"
+
+edges:
+  - to: D11-higher-order-function-space
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "eta_M (Definition 11a) is the UB instantiation of OV02."
+      derivation:
+        method: "eta_M = rate of improvement of M; OV02 is the overlap claim"
+
+  - to: NV03-agency-as-gate
+    relation: contrasts_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          OV02 shows overlap on eta_M; NV03 shows where UB diverges from Schmidhuber
+          on A. The combination of OV02 and NV03 characterizes the relationship precisely:
+          same on improvement rate, different on engagement probability.
+      derivation:
+        method: "Overlap (OV02) + novel (NV03) together characterize the Schmidhuber relationship"

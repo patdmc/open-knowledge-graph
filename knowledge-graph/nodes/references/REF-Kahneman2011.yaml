@@ -1,0 +1,52 @@
+id: REF-Kahneman2011
+type: reference
+name: "Kahneman (2011) — Thinking, Fast and Slow"
+statement: |
+  Two-system model of cognition: System 1 (fast, automatic, associative) and System 2
+  (slow, deliberate, effortful). Key propositions:
+
+  KH1 (dual process): Cognition operates at two speeds/modes. Fast (System 1) handles
+       routine pattern-matching; slow (System 2) handles novel reasoning. Corresponds to
+       L0 vs. higher levels in the encoding hierarchy: L0 handles certain, low-cost
+       actions; higher levels handle uncertain, costly inference.
+  KH2 (cognitive ease): Familiar patterns processed with cognitive ease do not enter
+       deliberate processing. Corresponds to C_1(p) near 1: certain propositions are
+       retained and applied without engaging M.
+  KH3 (attention as finite resource): Deliberate attention is limited and depletes.
+       Corresponds to C_n: the context window is the formal representation of this limit.
+  KH4 (heuristics and biases): Fast processing introduces systematic biases — patterns
+       that are easy to process are treated as true. Corresponds to false positives in K:
+       propositions retained with insufficient evidence (low C_1(p)).
+
+provenance:
+  attribution:
+    author: "Daniel Kahneman"
+    source: "Farrar, Straus and Giroux"
+    date: "2011"
+    bibtex_key: "Kahneman2011"
+  evidence:
+    type: cited
+    description: |
+      KH3 (attention as finite resource) provides psychological grounding for C_n as a
+      real constraint, not just a formal abstraction. KH1 maps to the encoding hierarchy:
+      the two speeds correspond to L0 (certain, cheap) vs. L2-L3 (uncertain, expensive).
+      KH4 grounds the provenance requirement: propositions retained without sufficient
+      evidence correspond to System 1 heuristics that may be wrong.
+    references: [D08-encoding-hierarchy, D13-provenance]
+  derivation:
+    from: []
+    method: "External citation — psychological grounding for bounded attention and dual processing"
+
+edges:
+  - to: D08-encoding-hierarchy
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: "KH1 (dual process / fast-slow) and the L0 vs. higher-level hierarchy independently ground the same claim: cognition operates at multiple cost levels with a bounded integration capacity."
+      derivation:
+        method: "Intersection of dual-process model and encoding hierarchy"

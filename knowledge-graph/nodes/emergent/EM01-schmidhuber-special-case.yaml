@@ -1,0 +1,61 @@
+id: EM01-schmidhuber-special-case
+type: emergent
+name: "Schmidhuber's Formal Agent Is Uncertainty Bounding with A = 1"
+statement: |
+  Schmidhuber's formal agent (2010) is a special case of the Uncertainty Bounding framework
+  with A = 1 (always engages on gradient signals). This proposition is not contained in
+  either framework individually — it arises only from holding both simultaneously.
+
+  The argument:
+  - Schmidhuber's agent always responds to compression progress signals (S4: implicit A = 1).
+    There is no parameterization of engagement probability — the agent is defined as the
+    compression-progress maximizer.
+  - UB's agency parameter A in [0,1] allows for partial engagement (NV03).
+  - Setting A = 1 in UB recovers Schmidhuber's agent: an entity that always engages on
+    gradient signals, with eta_M corresponding to d/dt[compression(C)].
+  - The remaining difference: UB's K/F graph structure vs. Schmidhuber's compressor C.
+    These are not the same — C is an arbitrary compression algorithm (Kolmogorov complexity
+    basis); K/F is specifically a proposition graph with grounding relations. But the
+    ROLE they play is equivalent at A = 1.
+
+  Consequence for the paper: Schmidhuber's framework does not need to be opposed.
+  It is a special case that UB generalizes in two directions:
+  (1) A in [0,1]: partial engagement is now formal.
+  (2) Graph structure necessity (NV01): UB proves the K/F structure is required; Schmidhuber
+      does not constrain the form of C.
+  The paper should say: "Schmidhuber [2010] is the A = 1 limit of this framework. The
+  general case adds the A in (0,1) parameterization and the necessity proof for graph
+  structure — two results not present in Schmidhuber's formalism."
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      This proposition does not appear in Schmidhuber (2010) or in the UB paper as written.
+      It emerges from comparing NV03 (A as gate with A in [0,1]) against S4 (implicit A = 1).
+      The intersection makes the containment relationship visible.
+    references: [NV03-agency-as-gate, REF-Schmidhuber2010, OV02-improvement-rate-measure]
+  derivation:
+    from: [NV03-agency-as-gate, REF-Schmidhuber2010]
+    method: |
+      S4 (Schmidhuber) + NV03 (UB A parameterization) -> Schmidhuber = UB with A = 1.
+      OV02 confirms the overlap on improvement rate (eta_M ~ d/dt compression).
+      NV01 identifies the remaining gap: graph necessity not in Schmidhuber.
+
+edges:
+  - to: REF-Schmidhuber2010
+    relation: characterizes
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "EM01 characterizes the relationship between UB and Schmidhuber precisely: containment as special case."
+      derivation:
+        method: "Intersection of NV03 and S4 produces the containment claim"

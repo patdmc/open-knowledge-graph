@@ -1,0 +1,55 @@
+id: REF-Friston2021
+type: reference
+name: "Friston et al. (2021) — Sophisticated Inference"
+statement: |
+  Sophisticated inference extends active inference to agents that can reason about the
+  consequences of their own belief-updating — agents that model their own inference
+  process. Key propositions:
+
+  SI1 (self-modeling): A sophisticated agent models not just the world but its own
+       future inference states — it considers what it will believe after taking an action.
+  SI2 (epistemic depth): Epistemic value deepens: the agent values information that
+       will inform future inference, not just current uncertainty reduction.
+  SI3 (counterfactual reasoning): The agent evaluates counterfactual policies by
+       simulating what it would believe under each.
+  SI4 (meta-cognitive awareness): Sophisticated inference is structurally analogous to
+       what this framework calls higher-order sentience — awareness of the inference
+       process itself, not just its outputs.
+
+provenance:
+  attribution:
+    author: "Karl Friston, Lancelot Da Costa, Danijar Hafner, Casper Hesp, Thomas Parr"
+    source: "PLOS Computational Biology"
+    date: "2021"
+    doi: "10.1371/journal.pcbi.1008762"
+    bibtex_key: "Friston2021"
+  evidence:
+    type: cited
+    description: |
+      SI4 (meta-cognitive awareness in sophisticated inference) overlaps with Definition 14
+      (higher-order sentience). Both frameworks independently ground the same structure:
+      an agent that models its own inference/normalization process. This is an overlap node —
+      see OV04-meta-cognitive-awareness.
+    references: [D14-sentience, OV04-meta-cognitive-awareness]
+  derivation:
+    from: []
+    method: "External citation — not derived from this framework"
+
+edges:
+  - to: D14-sentience
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          SI4 (modeling own inference process) overlaps with Definition 14 higher-order
+          sentience (understanding that the normalization process is occurring and operating
+          on a dimension space beyond current K_i). Independent grounding of the same
+          structural claim. Key difference: UB derives this from the induction argument;
+          FEP sophisticated inference defines it as a richer inference architecture.
+      derivation:
+        method: "Intersection of SI4 and D14-sentience"

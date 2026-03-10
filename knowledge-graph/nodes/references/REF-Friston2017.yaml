@@ -1,0 +1,112 @@
+id: REF-Friston2017
+type: reference
+name: "Friston et al. (2017) — Active Inference: A Process Theory"
+statement: |
+  Active inference extends the free-energy principle to a process theory of action and
+  perception: agents minimize variational free energy under a hierarchical generative model
+  by simultaneously updating beliefs (perception) and acting to fulfill predictions (action).
+  Key propositions:
+
+  FEP1 (free energy minimization): Agents minimize F = E_q[log q(s) - log p(o,s)], where
+       q is the approximate posterior over hidden states s, p is the generative model, and
+       o are observations. F is an upper bound on surprise (negative log evidence).
+  FEP2 (active inference): Action minimizes expected free energy — the expected surprise of
+       future observations given a policy. This unifies epistemic (exploratory) and
+       instrumental (goal-directed) behavior.
+  FEP3 (hierarchical generative models): The generative model is hierarchically structured;
+       each level predicts the level below and passes prediction errors upward.
+  FEP4 (precision weighting): Attention is formally precision — the confidence in
+       prediction errors at each level. High precision = more influence on updating.
+  FEP5 (Markov blanket): The agent is defined by its Markov blanket — the set of states
+       that separate internal states from external states. Agency = Markov blanket dynamics.
+  FEP6 (long-run equilibrium): In the long run, free energy minimization approaches an
+       equilibrium where the generative model closely approximates the generative process.
+       This implies surprise approaches its minimum — an equilibrium state.
+  FEP7 (assumed graph structure): The generative model is hierarchically (graph) structured
+       by assumption. The necessity of this structure is not derived within FEP.
+  FEP8 (no A parameterization): Engagement with the environment is defined by the Markov
+       blanket — there is no separate parameter for engagement probability. The agent always
+       minimizes free energy by definition.
+
+provenance:
+  attribution:
+    author: "Karl Friston, Thomas FitzGerald, Francesco Rigoli, Philipp Schwartenbeck, Giovanni Pezzulo"
+    source: "Neural Computation"
+    date: "2017"
+    doi: "10.1162/NECO_a_00912"
+    bibtex_key: "Friston2017"
+  evidence:
+    type: cited
+    description: |
+      The FEP companion document is referenced in the main paper. FEP1 overlaps with the
+      bounded-context structure (OV01); FEP6 is in tension with the M < N bound (EM02);
+      FEP7 (assumed graph structure) is grounded by Theorem 2b Part 3 (EM03); FEP8
+      (no A parameterization) is the same gap as Schmidhuber S4 — addressed by NV03.
+    references: [T02-graph-structure-necessity, NV02-mn-bound, NV03-agency-as-gate]
+  derivation:
+    from: []
+    method: "External citation — not derived from this framework"
+
+edges:
+  - to: OV01-bounded-world-model
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          FEP1 grounds OV01: both frameworks independently ground that agents operate under
+          a bounded internal representation of W. FEP grounds this via the Markov blanket
+          + approximate posterior; UB grounds it via C_n (bounded context window).
+      derivation:
+        method: "Intersection of FEP1 and D01-world-state-space / D02-knowledge-graph"
+
+  - to: OV03-nontermination
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          FEP6 (equilibrium approached but never fully reached in open environments) overlaps
+          with Theorem 3 Part II (M < N always). Both ground non-termination of learning.
+          The FEP grounding is informal (equilibrium requires stationary environment);
+          the UB grounding is formal (M < N derived from C_n and execution dynamics).
+      derivation:
+        method: "Intersection of FEP6 and T03-agency-produces-gradient-descent Part II"
+
+  - to: EM02-fep-mn-qualification
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: |
+          FEP6 (equilibrium approached) is in tension with NV02 (M < N, never fully sensed).
+          This tension is only visible when both frameworks are held simultaneously.
+      derivation:
+        method: "Intersection of FEP6 and NV02-mn-bound"
+
+  - to: EM03-graph-necessity-grounds-fep
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: |
+          FEP7 (hierarchical graph structure assumed) is grounded by NV01 (graph structure
+          necessary by information-preservation proof). UB provides the derivation FEP needs.
+      derivation:
+        method: "Intersection of FEP7 and NV01-graph-necessity"

@@ -1,0 +1,50 @@
+id: REF-Shannon1948
+type: reference
+name: "Shannon (1948) — A Mathematical Theory of Communication"
+statement: |
+  Establishes the mathematical foundations of information theory. Key propositions used
+  in this framework:
+
+  SH1 (entropy as uncertainty): H(X) = -sum p(x) log p(x) is the unique measure of
+       uncertainty consistent with continuity, monotonicity, and additivity. This is the
+       formal grounding of U(w, K) as a well-defined quantity.
+  SH2 (conditional entropy): H(X|Y) <= H(X) — conditioning never increases uncertainty.
+       Grounds the information gain definition: G(p, K) = H(W|K) - H(W|K + {p}).
+  SH3 (channel capacity): Information cannot be transmitted faster than channel capacity.
+       Analogous to C_n: the bounded context window is the channel capacity of the
+       entity's inference step.
+  SH4 (data compression): The entropy bound gives the minimum average code length.
+       Grounds the connection between K's compactness and information preservation.
+
+provenance:
+  attribution:
+    author: "Claude E. Shannon"
+    source: "Bell System Technical Journal"
+    date: "1948"
+    doi: "10.1002/j.1538-7305.1948.tb01338.x"
+    bibtex_key: "Shannon1948"
+  evidence:
+    type: foundational
+    description: |
+      Shannon entropy is the mathematical grounding for U(w,K) throughout this framework.
+      SH1 and SH2 ground Definitions 3, 5, and the retention criterion of Theorem 1.
+      SH4 grounds the information-preservation necessity proof of Theorem 2b Part 3.
+      Without Shannon, the claim that factoring preserves information cannot be made precise.
+    references: [D03-uncertainty, D05-information-gain, T02-graph-structure-necessity]
+  derivation:
+    from: []
+    method: "Foundational external reference — mathematical grounding for information-theoretic claims"
+
+edges:
+  - to: D03-uncertainty
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U(w,K) is formally defined as a conditional entropy quantity; Shannon (1948) establishes that H(W|K) is well-defined and non-negative."
+      derivation:
+        method: "Definition 3 cites information-theoretic grounding"

@@ -1,0 +1,50 @@
+id: REF-Peirce1877
+type: reference
+name: "Peirce (1877) — The Fixation of Belief"
+statement: |
+  Establishes that belief-formation is a process of settling doubt through inquiry. Key
+  propositions relevant to this framework:
+
+  PC1 (doubt as driver): Inquiry is driven by doubt — the unsettled state that motivates
+       action. Corresponds to U(w,K) > 0: uncertainty is the gradient signal for inquiry.
+  PC2 (fixation as attractor): Belief-fixation is the attractor state of inquiry —
+       the stable proposition that terminates the doubt it arose to resolve.
+       Corresponds to propositions approaching K with C_1(p) near 1.
+  PC3 (four methods): Tenacity, authority, a priori reasoning, and scientific inquiry
+       are four strategies for fixing belief. Only scientific inquiry (exposed to external
+       reality W) is consistent with long-run survival — the others eventually fail when
+       confronted with world states they cannot predict. This maps to the A > 0 + eta_M > 0
+       necessity argument: only genuine engagement with W sustains persistence.
+
+provenance:
+  attribution:
+    author: "Charles S. Peirce"
+    source: "Popular Science Monthly"
+    date: "1877"
+    bibtex_key: "Peirce1877"
+  evidence:
+    type: foundational
+    description: |
+      Peirce's pragmatist theory of inquiry is a philosophical antecedent of the gradient
+      descent model. PC1 (doubt as driver) maps to A > 0 producing gradient signals.
+      PC3 (only scientific inquiry survives) is an informal statement of Theorem 6:
+      entities that do not genuinely engage W are removed by selection pressure.
+      The formal theory replaces Peirce's qualitative argument with a derivation.
+    references: [D06-agency, T01-minimization-imperative]
+  derivation:
+    from: []
+    method: "Philosophical antecedent — qualitative predecessor to formal results"
+
+edges:
+  - to: D06-agency
+    relation: philosophical_precursor
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: conceptual
+        description: "PC1 (doubt as driver of inquiry) is the qualitative predecessor of A > 0 producing gradient signals. The formal theory replaces 'doubt' with U(w,K) > 0 and 'inquiry' with gradient descent."
+      derivation:
+        method: "Conceptual mapping from pragmatist epistemology to formal framework"

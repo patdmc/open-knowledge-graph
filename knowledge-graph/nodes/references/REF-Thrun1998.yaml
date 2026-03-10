@@ -1,0 +1,48 @@
+id: REF-Thrun1998
+type: reference
+name: "Thrun and Pratt (1998) — Learning to Learn"
+statement: |
+  Introduces meta-learning: agents that improve their learning algorithm over time, not just
+  their performance. Key propositions:
+
+  TH1 (meta-learning): An agent can learn to learn — improve the learning mechanism M,
+       not just the outputs of M. This is the empirical grounding for eta_M (the efficiency
+       of M itself as an improvable quantity).
+  TH2 (inductive bias transfer): Learned structure from past tasks improves learning on
+       new tasks. The learned bias IS the K/F structure — retained compressed knowledge
+       that accelerates new grounding.
+  TH3 (task distribution): Meta-learning works when tasks are drawn from a distribution
+       that shares structure. Grounding for the K/F intersection — shared structure is
+       exactly what the intersection detects.
+
+provenance:
+  attribution:
+    author: "Sebastian Thrun and Lorien Pratt"
+    source: "Learning to Learn, Kluwer Academic Publishers"
+    date: "1998"
+    bibtex_key: "Thrun1998"
+  evidence:
+    type: cited
+    description: |
+      Cited in Definition 7 (intelligence as driven capacity to improve). TH1 grounds
+      eta_M as the measurable, improvable rate of M's performance. TH2 grounds the
+      claim that K (the compressed knowledge graph) IS the transferred inductive bias
+      across tasks — the retained structure that makes M faster on new problems.
+    references: [D11-higher-order-function-space, D07-informed-action]
+  derivation:
+    from: []
+    method: "External citation — empirical grounding for meta-learning claims"
+
+edges:
+  - to: D11-higher-order-function-space
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: empirical
+        description: "TH1 establishes empirically that M is improvable — meta-learning is real. This provides empirical grounding for eta_M as a meaningful quantity."
+      derivation:
+        method: "Cited in Definition 7; meta-learning evidence supports eta_M > 0 claim"

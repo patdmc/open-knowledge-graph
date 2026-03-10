@@ -1,0 +1,50 @@
+id: REF-Tarski1936
+type: reference
+name: "Tarski (1936/1956) — The Concept of Truth in Formalized Languages"
+statement: |
+  Establishes the formal semantic theory of truth. Key propositions:
+
+  TA1 (semantic truth): A sentence S is true iff S. Truth is a property of sentences
+       relative to an interpretation (model). This grounds the provenance requirement:
+       a proposition p in K is true iff there exists a world state w where the action
+       grounded by p produces the predicted outcome.
+  TA2 (object/meta-language distinction): Truth cannot be defined within the language
+       it applies to — requires a metalanguage. Corresponds to the M < N structure:
+       the entity cannot fully represent W from within W using its own K.
+  TA3 (model-theoretic grounding): Truth is always relative to a model (interpretation).
+       Grounds the provenance triple: (attribution, evidence, derivation) establishes
+       what model the proposition is grounded in.
+
+provenance:
+  attribution:
+    author: "Alfred Tarski"
+    source: "Logic, Semantics, Metamathematics (translation)"
+    date: "1956 (original Polish 1933)"
+    bibtex_key: "Tarski1936"
+  evidence:
+    type: foundational
+    description: |
+      TA2 provides a philosophical grounding for M < N: the incompleteness of K relative
+      to W is analogous to Tarski's undefinability theorem — a system cannot fully
+      represent its own truth conditions from within. The formal theory makes this
+      precise: K is always a proper projection of W (M < N) for any A > 0 entity.
+      TA3 grounds the provenance system: propositions in K are true relative to the
+      model established by (attribution, evidence, derivation).
+    references: [D02-knowledge-graph, D13-provenance, NV02-mn-bound]
+  derivation:
+    from: []
+    method: "Foundational external reference — semantic grounding for truth and provenance"
+
+edges:
+  - to: D13-provenance
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal
+        description: "TA3 grounds the provenance triple: truth is relative to a model; the provenance triple specifies the model (attribution = who, evidence = what supports it, derivation = how it follows)."
+      derivation:
+        method: "Definition 18 (Provenance) operationalizes model-relative truth"

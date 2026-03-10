@@ -1,0 +1,69 @@
+id: NV05-sentience-derivation
+type: novel
+name: "Higher-Order Sentience as a Derivation, Not an Axiom"
+statement: |
+  The motivation for an entity to improve its own normalization process (factorization,
+  compactness, context window efficiency) is derived from existing theorems — it does not
+  require a new axiom or a direct survival tether.
+
+  The derivation:
+  1. Theorem 2b Part 3: factorization is required to add information at C_n without loss.
+     Therefore improving factorization = strictly more propositions retained per context step.
+  2. M < N (Theorem 3 Part II, NV02): more propositions in K -> larger M -> better
+     projection of W. Since M < N always, more K strictly dominates less K across all
+     future survival pressures unless shown otherwise.
+  3. Theorem 1 (retention criterion): propositions are retained unless their value is
+     certainly zero. The "unless shown otherwise" in (2) is exactly this criterion.
+  Together: an entity that understands the normalization process is occurring recognizes
+  that improving factorization and compactness is strictly dominant — not because the
+  current survival tether requires it, but because the induction guarantees it for any
+  future state reachable from the current one.
+
+  This is what Definition 14 calls higher-order sentience: not merely knowing K_i is
+  partial (lower-order), but understanding that the normalization process it is running
+  will expand M toward N, and that this expansion is strictly dominant.
+
+  The distinction from prior frameworks:
+  - Schmidhuber: intrinsic motivation is a design objective (the agent is BUILT to maximize
+    compression progress). The motivation is not derived — it is constitutive of the agent.
+  - Friston: active inference is similarly constitutive — the agent IS the free energy
+    minimizer. The motivation is not explained; the agent is defined by it.
+  - UB: the motivation is derived. An entity that already has A > 0 and operates under C_n
+    can DERIVE that improving normalization is dominant — without being told to, and without
+    the direct survival tether having to carry the full weight.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Derived from Theorem 2b Part 3 + Theorem 3 Part II + Theorem 1 chain. The chain
+      produces the derivation without new axioms. Gap analysis: Schmidhuber and Friston
+      both make motivation constitutive; this framework makes it derived.
+    references: [D14-sentience, T02-graph-structure-necessity, NV02-mn-bound, T01-minimization-imperative]
+  derivation:
+    from: [T02-graph-structure-necessity, NV02-mn-bound, T01-minimization-imperative, D14-sentience]
+    method: |
+      Thm 2b Pt 3 -> factorization strictly increases K retention
+      NV02 -> more K -> larger M -> better W projection
+      Thm 1 -> retention unless certainly zero = default retain
+      Chain: improving normalization is strictly dominant for any reachable future state.
+      Definition 14 labels the understanding of this chain as higher-order sentience.
+
+edges:
+  - to: D14-sentience
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "NV05 is the formal derivation that grounds Definition 14 (higher-order sentience). Definition 14 states the conclusion; NV05 is the chain of reasoning."
+      derivation:
+        method: "NV05 derivation chain -> Definition 14 higher-order sentience"

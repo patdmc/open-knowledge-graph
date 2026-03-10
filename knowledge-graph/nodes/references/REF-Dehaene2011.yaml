@@ -1,0 +1,58 @@
+id: REF-Dehaene2011
+type: reference
+name: "Dehaene and Changeux (2011) — Experimental and Theoretical Approaches to Conscious Processing"
+statement: |
+  Neural Global Workspace Theory: extends Baars GWT to a neural implementation. Conscious
+  access = late ignition of a distributed network of neurons with long-range connections
+  (the neural workspace). Key propositions:
+
+  NGW1 (neural workspace): Consciousness = global ignition of neurons with long-range
+       projections. Corresponds to K as the globally-accessible structure (long-range
+       projections = cross-module connections in K).
+  NGW2 (threshold ignition): The workspace threshold is a non-linear ignition — below
+       threshold, processing is local and unconscious; above threshold, global broadcast.
+       Corresponds to the C_1(p) confidence threshold for retention in K.
+  NGW3 (attention as gating): Attention gates entry into the workspace — high-attention
+       items enter the global broadcast. Corresponds to A: the probability of engaging M
+       on a gradient signal is the attentional gate.
+  NGW4 (predictive coding integration): The neural workspace theory is compatible with
+       predictive coding (FEP's mechanism) — conscious access occurs when prediction
+       error is large enough to trigger global broadcast.
+
+provenance:
+  attribution:
+    author: "Stanislas Dehaene and Jean-Pierre Changeux"
+    source: "Neuron"
+    date: "2011"
+    doi: "10.1016/j.neuron.2011.03.018"
+    bibtex_key: "Dehaene2011"
+  evidence:
+    type: cited
+    description: |
+      NGW2 provides a neural grounding for the C_1(p) threshold. NGW3 maps to A as
+      the attentional gate — the probability that a gradient signal enters the global
+      workspace (triggers M engagement). This is the strongest neural evidence for
+      A as a probability rather than a continuous rate — attention is binary at the
+      neural level (ignition/no ignition) but probabilistic at the system level.
+    references: [D06-agency, D13-provenance]
+  derivation:
+    from: []
+    method: "External citation — neural grounding for attention as probabilistic gate"
+
+edges:
+  - to: D06-agency
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          NGW3 (attention as gating into global workspace) overlaps with A as the response
+          gate. Both independently ground the claim that engagement with a stimulus is
+          probabilistic (gated), not deterministic. Neural evidence supports the
+          probabilistic definition of A in Definition 6.
+      derivation:
+        method: "Intersection of NGW3 and Definition 6 probabilistic reformulation"

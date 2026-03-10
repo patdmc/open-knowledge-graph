@@ -1,0 +1,68 @@
+id: NV04-intersection-acceleration
+type: novel
+name: "Intersection of Independent Projections Accelerates M toward N"
+statement: |
+  When two entities E_i and E_j with independently-derived knowledge graphs K_i and K_j
+  intersect their graphs (with provenance verification), the resulting K_combined has a
+  strictly higher M (sensed dimension count) than either K_i or K_j alone. The acceleration
+  has two components:
+
+  (A) Overlapping dimensions (K_i ∩ K_j, provenance-verified): confirmed precipitation
+      sites — propositions both entities have independently grounded. These are the latent
+      factors of the shared region of W confirmed by two independent projections. Their
+      C_1(p) increases because they now have two independent groundings.
+  (B) Distinct dimensions (K_j \ K_i): dimensions E_j has sensed that E_i has not yet
+      reached. Solo, E_i would need continued execution to reach these. Intersection
+      provides them in a single operation — E_i's effective sensed dimension count jumps
+      from M_i to M_i + |K_j \ K_i| without intermediate execution steps.
+
+  The rate of M → N is therefore accelerated by intersection. Formally: the inductive step
+  of Theorem 3 Part I adds one dimension per execution; intersection adds |K_j \ K_i|
+  dimensions per operation. For a sufficiently distinct K_j, this is a large multiplier.
+
+  K_collective (Definition 12) is the maximal current realization of this: the union of
+  all independently-derived K_i is the collective projection of W, maximizing M_collective
+  across all entities. (Corollary 8a)
+
+  No prior framework derives this:
+  - Schmidhuber: no multi-agent knowledge intersection mechanism.
+  - Friston: no formal treatment of independent agent K intersection; FEP2 addresses
+    active inference for single agents.
+  - Maynard Smith (1995): MS2 grounds the qualitative claim (cooperation as information
+    integration transition) but does not derive the acceleration formally.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Corollary 8a derives the intersection mechanism from the M < N bound and the
+      inductive proof of Theorem 3 Part I. Gap analysis: Schmidhuber has no multi-agent
+      intersection; Friston's active inference is single-agent; Maynard Smith grounds
+      cooperation qualitatively but not the formal acceleration rate.
+    references: [D12-collective-knowledge, NV02-mn-bound, REF-MaynardSmith1995]
+  derivation:
+    from: [D12-collective-knowledge, NV02-mn-bound, T03-agency-produces-gradient-descent]
+    method: |
+      From M < N (NV02) and the inductive step (one dimension per execution), intersection
+      provides |K_j \ K_i| dimensions per operation. The overlapping dimensions increase
+      C_1(p) for shared propositions. Together: acceleration = overlap confirmation +
+      distinct dimension extension.
+
+edges:
+  - to: D12-collective-knowledge
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "NV04 is the formal content behind Definition 12 (collective knowledge) and Corollary 8a."
+      derivation:
+        method: "Corollary 8a instantiates NV04"

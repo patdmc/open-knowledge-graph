@@ -3,27 +3,34 @@ type: definition
 number: 6
 name: "Agency"
 statement: |
-  Agency A in [0,1] is a continuous scalar measuring the intrinsic drive of an entity to
-  reduce its own uncertainty: the desire to know [Schmidhuber2010]. It is not an external
-  objective imposed on E, nor a property derived from F or K. It is constitutive: A is
-  what makes F an active informed action space rather than a static structure.
+  Agency A in [0,1] is the probability that entity E engages its learning mechanism M in
+  response to a gradient signal from W: the response gate. It is not an external objective
+  imposed on E, nor a property derived from F or K. It is constitutive: A is what makes F
+  an active informed action space rather than a static structure. The informal gloss —
+  the desire to know [Schmidhuber2010], intrinsic drive to reduce uncertainty — is a
+  phenomenological description of this gate, not the definition.
 
-  At A = 0: F is a set of possible functions with no internal reason to engage W.
-  At A = 1: F is maximally oriented toward the unbounded frontier.
-  Intermediate values are meaningful: the drive can be stronger or weaker, shaped by
-  architecture, encoding history, and the density of unresolved uncertainty in the
-  entity's reachable W.
+  At A = 0: E does not respond to gradient signals; (F(t), K(t)) = (F(0), K(0)) for all t.
+  At A = 1: E engages on every gradient signal it encounters.
+  Intermediate values: response probability is shaped by architecture, encoding history,
+  and the density of unresolved uncertainty in E's reachable W.
 
   A is operationalizable as:
 
     A(E) proportional to lim_{U_lethal^d -> infinity} dU/dt(E)
 
-  An entity with high A continues descending when not forced to. An entity with low A stops.
-  This distinguishes genuine agency from survival-compelled updating.
+  An entity with A > 0 continues descending when not forced to; an entity with A = 0
+  that was updating only under survival compulsion stops. The limit correctly isolates
+  intrinsic engagement from survival-compelled updating.
 
   A precipitates from M by the same normalization argument that precipitates K from F.
   A is the first factor to precipitate from M's cross product: the normalized orientation
   that every M-application shares.
+
+  Relationship to Schmidhuber (2010): Schmidhuber's formal agent implicitly has A = 1 —
+  it always responds to compression progress signals. Definition 6 generalizes this to
+  A in [0,1], covering agents that engage with positive but less-than-certain probability.
+  This generalization is novel to this framework. See NV03-agency-as-gate.
 
 provenance:
   attribution:
