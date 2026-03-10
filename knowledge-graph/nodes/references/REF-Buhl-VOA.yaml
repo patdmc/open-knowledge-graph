@@ -1,0 +1,69 @@
+id: REF-Buhl-VOA
+type: reference
+name: "Buhl — Vertex Operator Algebras: Modules, Intertwining Operators, and Fusion"
+citation_status: NEEDS_VERIFICATION
+citation_placeholder: |
+  Buhl, G. (YEAR). TITLE. JOURNAL/PUBLISHER.
+  NOTE: User to provide specific publications. Geoff Buhl's work is in the VOA space
+  (modules for vertex operator algebras, intertwining operators, fusion rules).
+  This node is structurally pre-built for his contributions; citation to be filled.
+fidelity: low
+
+context: |
+  Geoff Buhl works in the mathematical space of vertex operator algebras — the rigorous
+  framework that formalizes string theory worldsheet CFT and provides the algebraic
+  foundation for monstrous moonshine. His work likely includes:
+  - Characterization theorems for specific VOAs
+  - Module theory: representations of VOAs (analogous to representations of Lie algebras)
+  - Intertwining operators: morphisms between VOA modules
+  - Fusion rules: the product structure on VOA modules
+
+propositions:
+  GB1:
+    statement: "Fusion rules for VOA modules: given modules M_1 and M_2 for a VOA V, the fusion product M_1 ⊗_V M_2 is determined by the intertwining operators between them. Fusion rules encode which module combinations are permitted by the algebraic structure."
+    maps_to: [NV04-intersection-acceleration, BO1-locality-axiom]
+    note: |
+      Fusion rules = the formal rule for K_i and K_j intersection. The intertwining
+      operator from M_1 ⊗ M_2 to M_3 is the 'provenance-verified edge' in UB language:
+      it is the map that carries the interaction between two knowledge modules while
+      preserving the algebraic constraints. NV04 (intersection accelerates M) is the
+      physical consequence of valid fusion.
+    potential_em: |
+      GB1 + NV04 + BO1: fusion rules are the algebraic specification of WHEN intersection
+      is valid. The locality axiom (BO1) says operators commute at separated points;
+      fusion rules say WHAT the product is when they interact. Together they fully specify
+      the K_i × K_j → K_collective map at the algebraic level. This is the algebraic
+      completeness result that NV04's cardinality argument implies but does not formalize.
+
+  GB2:
+    statement: "Characterization of VOAs: a VOA V is characterized by its central charge c, its weight-graded structure (the spectrum of L_0 eigenvalues), and its fusion category. Two VOAs with the same characterization data are isomorphic."
+    maps_to: [EC01-context-bound, EC08-compression-factoring]
+    note: |
+      Characterization = the minimal sufficient description. The central charge c + weight
+      spectrum + fusion category is the minimal factored representation (EC08) of the
+      VOA — everything recoverable from these three data. This is graph structure applied
+      to algebraic objects: the VOA is fully encoded by its structural invariants.
+
+  GB3:
+    statement: "Module categories for rational VOAs form modular tensor categories: the fusion category has a well-defined notion of braiding and duality, and the S-matrix (encoding the mutual statistics of modules) transforms under the modular group."
+    maps_to: [EC07-collective-knowledge, EM09-collective-intelligence-thermodynamically-favored]
+    note: |
+      Modular tensor category = the full structure of K_collective interaction rules.
+      The S-matrix encodes how any two modules (K_i and K_j) braid around each other
+      — their mutual information in algebraic terms. The modular group symmetry says
+      this interaction structure is invariant under context changes (modular
+      transformations), which is the algebraic form of provenance persistence.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    status: PENDING_CITATION_VERIFICATION
+    references: [REF-Borcherds1992, REF-FrenkelLepowskyMeurman1988, NV04-intersection-acceleration]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Fusion rules as formal intersection specification — UB states intersection informally"
+    - "Modular tensor category structure — full algebraic structure of K_collective interaction"
+    - "Characterization theorems — minimal sufficient description of VOA structure"
+  user_action_required: "Provide specific paper titles and publication details to complete this node"

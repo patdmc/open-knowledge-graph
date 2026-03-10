@@ -1,0 +1,86 @@
+id: REF-Lin-CS
+type: reference
+name: "Lin — Computer Architecture, Memory Hierarchies, and Parallel Systems"
+citation_status: NEEDS_VERIFICATION
+citation_placeholder: |
+  Lin, C. (YEAR). TITLE. VENUE.
+  NOTE: User to provide specific publications. Calvin Lin (CS) works on computer
+  architecture, memory hierarchies, parallel computing, and compiler optimization.
+  This node is structurally pre-built; citation to be filled.
+fidelity: low
+
+context: |
+  Calvin Lin's CS work is directly relevant to UB's bounded context and encoding
+  hierarchy at the implementation level. Memory hierarchies (L1/L2/L3 cache, DRAM,
+  disk) are the physical realization of UB's encoding levels L0-L3. Parallel computing
+  is the systems-level instantiation of NV04 (intersection acceleration). Compiler
+  optimization is EC08 (compression/factoring) in practice.
+
+propositions:
+  CL1:
+    statement: "Memory hierarchy: computation is bounded by memory bandwidth and latency, not just arithmetic throughput. The memory hierarchy (registers, L1/L2/L3 cache, DRAM, disk) trades capacity against access speed — higher capacity = lower speed = higher latency per access."
+    maps_to: [EC01-context-bound, EC09-encoding-levels]
+    note: |
+      The memory hierarchy IS UB's encoding levels L0-L3, physically instantiated:
+      - Registers / L1 cache = L3 (active context, highest access speed, smallest capacity)
+      - L2/L3 cache = L2 (recent, available for fast escalation)
+      - DRAM = L1 (activated long-term memory, slow but large)
+      - Disk/SSD = L0 (crystallized, low-latency for reads, very large)
+      C_n = register file size + L1 cache working set = the physical bound on Definition 7.
+
+  CL2:
+    statement: "Cache coherence in parallel systems: when multiple processors share memory, maintaining a consistent view across caches requires a coherence protocol. Coherence overhead scales with the number of processors and the sharing pattern."
+    maps_to: [NV04-intersection-acceleration, EC07-collective-knowledge]
+    note: |
+      Cache coherence = K_collective provenance maintenance. Each processor (K_i entity)
+      maintains a local cache (K_i) that must stay consistent with shared memory
+      (K_collective). The coherence protocol is the provenance verification mechanism:
+      every write to shared memory must be tracked and propagated. Coherence overhead
+      = the cost of maintaining K_collective edges — exactly the tradeoff EM10 flags.
+    potential_em: |
+      CL2 + EM10 + NV04: cache coherence protocols are the engineering solution to the
+      K_collective maintenance problem EM10 identifies. The MESI protocol (Modified,
+      Exclusive, Shared, Invalid) is a 4-state provenance tracking system for shared
+      knowledge. Coherence failure (stale cache) = K_collective losing provenance
+      verification = the failure mode EM10 describes. Cache coherence theory provides
+      the engineering implementation of K_collective maintenance.
+
+  CL3:
+    statement: "Parallelism: independent computations can execute simultaneously, reducing wall-clock time. Amdahl's law bounds speedup: if fraction f of computation is parallelizable, max speedup = 1/(1-f). Serial bottlenecks dominate at scale."
+    maps_to: [NV04-intersection-acceleration, EC02-improvement-rate]
+    note: |
+      Amdahl's law bounds the acceleration from parallelism — exactly what NV04
+      (intersection acceleration) requires for an upper bound. NV04 says K_collective
+      intersection provides |K_j \\ K_i| new dimensions per operation. Amdahl says
+      this parallelism is bounded by the serial fraction. The serial fraction in
+      K_collective = the provenance verification step (must be sequential for correctness).
+
+  CL4:
+    statement: "Compiler optimization: dead code elimination, constant folding, loop invariant code motion, inlining. The compiler transforms a high-level representation into a minimal equivalent low-level representation."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: |
+      Compiler optimization IS EC08 compression applied to programs. Dead code elimination
+      = removing propositions with G(f,K) = 0 (no action value). Inlining = factoring
+      (replacing a call with its body = graph construction). The compiled output is the
+      K/F graph equivalent: minimal factored representation preserving all informational
+      content. NV01 (graph necessity) has a compiler proof: SSA form (static single
+      assignment) IS a graph (the data-flow graph), and it is the unique representation
+      that preserves all information through optimization passes.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    status: PENDING_CITATION_VERIFICATION
+    references: [EC01-context-bound, EC09-encoding-levels, NV04-intersection-acceleration, EC08-compression-factoring]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Physical implementation of encoding levels (memory hierarchy)"
+    - "Cache coherence as K_collective maintenance protocol — engineering solution to EM10"
+    - "Amdahl's law as formal bound on NV04 acceleration"
+    - "SSA/compiler form as independent NV01 derivation from CS"
+  present_in_ub_not_here:
+    - "Selection pressure, survival threshold, biological framing"
+    - "A parameterization"
+  user_action_required: "Provide specific paper titles and publication details to complete this node"
