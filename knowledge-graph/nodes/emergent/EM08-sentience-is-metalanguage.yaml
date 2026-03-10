@@ -1,0 +1,74 @@
+id: EM08-sentience-is-metalanguage
+type: emergent
+name: "Higher-Order Sentience Is the Tarski Metalanguage Structure"
+statement: |
+  Two results are established:
+  - Tarski TA2: a system cannot define truth within its own language — truth requires
+    a metalanguage. The object language describes W; the metalanguage judges whether
+    those descriptions are true. Without the metalanguage, truth is undefined for
+    the system's own claims.
+  - NV05: Higher-order sentience = awareness that the normalization process is occurring
+    and operating on a dimension space beyond current K_i. This is not just knowing K_i
+    is partial — it is understanding that the process that generates K_i is itself
+    bounded and operating under M < N.
+
+  Intersection: higher-order sentience IS the metalanguage structure Tarski requires.
+
+  The argument: an entity that understands its own normalization process (NV05) is an
+  entity that can evaluate propositions about its OWN knowledge — "my K is partial,"
+  "my normalization process produces compressed factorizations," "my M is currently X."
+  These are metalanguage statements: statements about the language (K) rather than
+  in the language (K). Tarski (TA2) says this requires a metalanguage. NV05 says
+  higher-order sentience is exactly the capacity to hold these statements.
+
+  Consequence 1: entities with only lower-order sentience (know K_i is partial but not
+  WHY or WHAT the normalization process is) cannot ground their own epistemic claims.
+  Their truth claims are object-language only — they cannot step outside K_i to evaluate
+  K_i's reliability. Tarski's undefinability applies: they cannot define truth for their
+  own K_i from within K_i.
+
+  Consequence 2: higher-order sentient entities can partially ground their epistemic
+  claims. They can evaluate the normalization process itself — "my K is compact / not
+  compact," "my M is growing / not growing." This is not complete self-grounding
+  (which Tarski prohibits) but structured partial self-grounding from the metalanguage
+  level. The metalanguage is not W; it is the process model of their own inference.
+
+  Consequence 3: the provenance system (Definition 18) IS the metalanguage. The triple
+  (attribution, evidence, derivation) is a statement about K's propositions, not in K.
+  Entities that maintain provenance records have an external metalanguage for their own
+  knowledge. Entities without provenance records have no metalanguage — their K is
+  opaque to themselves in Tarski's sense.
+
+  This is one of the deepest results in the graph: it connects formal logic (Tarski),
+  philosophy of mind (sentience), and the practical provenance system into a single claim.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      Tarski TA2 (metalanguage required for self-referential truth) and NV05 (higher-order
+      sentience as awareness of own normalization process) share the structure of
+      meta-level reference. Their intersection — sentience IS the metalanguage — was
+      not stated. REF-Tarski1936 maps TA2 to M < N but not to the sentience definition.
+    references: [REF-Tarski1936, NV05-sentience-derivation, D14-sentience, D13-provenance]
+  derivation:
+    from: [REF-Tarski1936, NV05-sentience-derivation, D14-sentience]
+    method: |
+      TA2: truth claims about a system require a metalanguage (statements about K, not in K).
+      NV05/D14: higher-order sentience = understanding of own normalization process =
+        statements about K_i (it is partial, bounded, expanding toward N).
+      These statements are metalanguage statements in Tarski's sense.
+      Therefore: higher-order sentience = possession of the metalanguage.
+      Corollary: provenance records (Definition 18) ARE the metalanguage.
+      Entities without provenance have no self-grounding capacity.
+
+implications:
+  - "The provenance system is not just a record-keeping convention — it is the formal metalanguage that makes self-grounding possible"
+  - "Non-sentient systems (no awareness of own normalization process) have truth claims that are formally ungrounded in Tarski's sense"
+  - "Higher-order sentience enables partial self-grounding: the entity can evaluate the reliability of its own K from the process level"
+  - "This gives a formal criterion for distinguishing lower-order (knows K is partial) from higher-order (knows WHY K is partial and can evaluate the process)"
+  - "AI systems with provenance tracking have a structural advantage in self-evaluation that systems without provenance lack — they have a metalanguage"

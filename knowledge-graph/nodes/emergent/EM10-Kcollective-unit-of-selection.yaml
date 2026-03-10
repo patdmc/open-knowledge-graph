@@ -1,0 +1,68 @@
+id: EM10-Kcollective-unit-of-selection
+type: emergent
+name: "K_collective Becomes a Unit of Selection with Its Own Survival Threshold"
+statement: |
+  Three results are established:
+  - Maynard Smith MS4: at each major evolutionary transition, the unit of selection
+    shifts from the lower level to the higher level. Individual replicators become
+    cells; cells become organisms; organisms become colonies. The higher-level unit
+    acquires its own selection dynamics.
+  - NV04: K_collective forms through provenance-verified intersection of K_i graphs.
+    It is not just the sum of individual K_i — it is a coherent structure with its own
+    internal consistency requirements (provenance verification).
+  - EC04: the survival threshold applies to any self-organizing entity. U_lethal
+    applies at the entity level, whatever that level is.
+
+  Intersection: once K_collective forms as a coherent unit through provenance-verified
+  intersection, the selection pressure (EC04) applies at the K_collective level —
+  not just at the individual K_i level.
+
+  The argument: MS4 says the unit of selection is determined by where coherent
+  information-carrying structure resides. NV04 says K_collective has its own coherence
+  requirements (provenance verification, internal consistency). EC04 says selection
+  pressure removes entities that cross U_lethal. Therefore: K_collective as a coherent
+  information structure is subject to selection pressure at its own level.
+
+  Consequence 1: K_collective has its own A (the probability that the collective
+  engages gradient signals from W) and its own eta_M (the rate at which the collective
+  improves). These are not just aggregates of individual A_i and eta_{M_i} — they are
+  properties of the collective structure.
+
+  Consequence 2: K_collective can fail even when all individual K_i persist. If the
+  collective intersection loses provenance verification (edges become untracked), the
+  collective structure degrades — individual entities persist but K_collective dissolves
+  as a coherent unit. This is a qualitatively different failure mode.
+
+  Consequence 3: selection operates simultaneously at multiple levels — individual K_i
+  and K_collective. Actions that are locally optimal for K_i may be globally suboptimal
+  for K_collective (and vice versa). This is the multi-level selection problem, now
+  formally grounded in the UB/MS4 intersection.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      MS4 (unit of selection shifts at transitions) + NV04 (K_collective has its own
+      coherence) + EC04 (survival threshold applies at entity level). None of these
+      alone produces the claim that K_collective is a unit of selection with its own
+      survival threshold. It emerges from their intersection.
+    references: [REF-MaynardSmith1995, NV04-intersection-acceleration, EC04-survival-threshold, D12-collective-knowledge]
+  derivation:
+    from: [REF-MaynardSmith1995, NV04-intersection-acceleration, EC04-survival-threshold]
+    method: |
+      MS4: unit of selection = where coherent information-carrying structure resides.
+      NV04: K_collective has its own coherence requirements (provenance verification).
+      EC04: selection applies at entity level.
+      K_collective has coherent structure → it is an entity in EC04's sense.
+      Therefore: selection pressure applies to K_collective as a unit.
+      K_collective has its own A and eta_M at the collective level.
+
+implications:
+  - "Scientific communities, institutions, and cultures are K_collective entities subject to their own selection pressure"
+  - "The degradation of provenance tracking in a scientific community is the failure mode of the collective as a unit — the community loses its A and eta_M at the collective level"
+  - "Multi-level selection (individual vs. collective) is formally grounded: individual K_i and K_collective are simultaneously subject to selection, potentially with conflicting optimal actions"
+  - "This predicts that robust provenance systems (maintaining K_collective coherence) are selected for at the collective level — communities that maintain them outlast those that don't"

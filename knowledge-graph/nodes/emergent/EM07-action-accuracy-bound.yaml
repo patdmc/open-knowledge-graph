@@ -1,0 +1,61 @@
+id: EM07-action-accuracy-bound
+type: emergent
+name: "Every Action Carries a Residual Uncertainty Bound Determined by M/N"
+statement: |
+  Two results are established:
+  - EC05: M < N always — K can never fully represent W. The entity senses M of N
+    world dimensions. The residual (N - M) dimensions are unobserved.
+  - EC06: Belief has value only through action — K grounds F; every proposition's
+    value is its effect on the action space.
+
+  Intersection: every action f in F is grounded in K, which covers only M of N
+  dimensions of W. The action's expected utility is computed over the M dimensions
+  the entity senses. But W has N dimensions. The unobserved (N - M) dimensions
+  may affect the outcome of f in ways K cannot predict.
+
+  Therefore: for any action f in F, there exists a residual uncertainty:
+    U_residual(f) >= U(w, K) * (N - M) / N  [approximately]
+  This residual cannot be reduced by improving M alone — it depends on how many
+  of the remaining (N - M) dimensions affect f's outcome. But it is always positive
+  as long as M < N.
+
+  Consequence: no action is perfectly informed. Every F-grounded action carries
+  residual uncertainty from the unobserved dimensions. The accuracy of any action
+  choice is bounded by M/N — the ratio of sensed dimensions to world dimensions.
+
+  As M → N, U_residual → 0. The intersection mechanism (NV04) accelerates M → N,
+  which means it improves the accuracy bound on every action in F simultaneously —
+  not just the actions directly related to the new K_j dimensions.
+
+  This is a quantitative bound on the imprecision of every intelligent action, not
+  just a qualitative statement about incompleteness. It was not derived in the main
+  paper and does not appear in any prior framework.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      EC05 (M < N, every representation is partial) and EC06 (belief has value through
+      action) are separately established. Their intersection — every action carries a
+      residual uncertainty bound from unobserved dimensions — was not derived.
+    references: [EC05-incompleteness, EC06-belief-as-action, NV02-mn-bound, NV04-intersection-acceleration]
+  derivation:
+    from: [EC05-incompleteness, EC06-belief-as-action, NV02-mn-bound]
+    method: |
+      f in F grounded in K (EC06).
+      K covers M of N dimensions (EC05, NV02).
+      f's outcome depends on W, which has N dimensions.
+      The (N - M) unobserved dimensions may affect f's outcome.
+      Therefore: f carries residual uncertainty from (N - M) unobserved dimensions.
+      Bound: U_residual(f) > 0 as long as M < N.
+      As M → N (via NV04 intersection): U_residual → 0.
+
+implications:
+  - "Intelligence is not just about reducing U in sensed dimensions — it is about expanding M to reduce U_residual in previously unobserved dimensions"
+  - "NV04 (intersection acceleration) has a second benefit beyond extending M: it reduces U_residual on ALL existing actions, not just the new dimensions"
+  - "The practical value of collective intelligence (K_collective) includes improving action accuracy across every existing F, not just expanding F"
+  - "This quantifies the cost of incomplete information in action selection — a formal bound where prior frameworks only stated the qualitative problem"

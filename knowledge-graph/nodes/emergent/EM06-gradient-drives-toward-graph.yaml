@@ -1,0 +1,61 @@
+id: EM06-gradient-drives-toward-graph
+type: emergent
+name: "The Uncertainty Gradient Drives Specifically Toward Graph Construction"
+statement: |
+  Three results are established separately in the graph:
+  - EC10: U(w,K) > 0 is the driver — the gradient always points toward reducing uncertainty.
+  - EC08: Factoring (graph construction) is the compression mechanism.
+  - NV01: At C_n, graph construction is the UNIQUE information-preserving option.
+
+  Intersecting these three: the gradient that drives the entity toward reducing U(w,K)
+  under bounded context C_n drives specifically toward graph construction — not toward
+  uncertainty reduction in general, but toward the specific structured representation
+  that is the unique solution at the C_n boundary.
+
+  The formal statement: for any entity with A > 0 operating under C_n, the long-run
+  attractor of the uncertainty gradient is a K/F graph structure. The entity does not
+  choose graph structure — the gradient descends toward it. Any non-graph representation
+  that the entity attempts to maintain under C_n will either (a) fail to preserve
+  information (discard without structure) or (b) implicitly be a graph (because factoring
+  IS graph construction). There is no third option.
+
+  This is not the same as "the entity learns." It is stronger: under bounded context,
+  the FORM of what is learned is constrained to the graph structure. The gradient has
+  a direction not just in the space of beliefs but in the space of representation forms.
+
+  Consequence: the K/F graph is not a modeling choice by the theorist — it is what
+  the entity's own gradient descent produces under bounded context. The theory does not
+  impose the graph form; the gradient descent toward it is derived.
+
+  This closes a potential objection to NV01: "graph structure might be the right choice
+  but is it what actually emerges?" EM06 answers yes — under EC10 (gradient active) +
+  EC08 (factoring is compression) + NV01 (graph is necessary), the gradient drives toward
+  the graph.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      EC10 (gradient active), EC08 (factoring = compression), and NV01 (graph = necessary)
+      are each established separately. Their intersection — gradient drives specifically
+      toward graph construction — was not declared as a combined result.
+    references: [EC10-inquiry-driver, EC08-compression-factoring, NV01-graph-necessity, T02-graph-structure-necessity]
+  derivation:
+    from: [EC10-inquiry-driver, EC08-compression-factoring, NV01-graph-necessity]
+    method: |
+      EC10: A > 0 → gradient descends toward reducing U(w,K).
+      EC08: Compression under bounded context = factoring.
+      NV01: Factoring at C_n = graph construction (two-option proof).
+      Chain: gradient → compression → factoring → graph construction.
+      Therefore: the gradient drives toward the graph. Not just toward "less uncertainty"
+      but toward the specific representation form that is the unique solution at C_n.
+
+implications:
+  - "The K/F graph structure is an attractor of gradient descent under bounded context, not an assumed representation"
+  - "Any sufficiently capable agent operating under physical bounded context will converge toward graph-structured knowledge — regardless of initial representation"
+  - "This provides an empirical prediction: agents trained under tight context bounds should develop graph-structured internal representations spontaneously"
+  - "The direction of learning (toward graph) is as constrained as the existence of learning (A > 0)"

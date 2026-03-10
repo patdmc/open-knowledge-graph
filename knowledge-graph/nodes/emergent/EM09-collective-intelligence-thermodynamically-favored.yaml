@@ -1,0 +1,64 @@
+id: EM09-collective-intelligence-thermodynamically-favored
+type: emergent
+name: "Collective Intelligence Is Thermodynamically Favored"
+statement: |
+  Two results are established:
+  - England EN1: systems that dissipate energy more efficiently are thermodynamically
+    favored to self-replicate and persist. Efficient dissipation = more structure per
+    unit of energy. This is a statistical mechanics result, not a biological assumption.
+  - NV04: Intersection of K_i and K_j provides |K_j \ K_i| new sensed dimensions per
+    operation. Solo execution provides 1 new dimension per step. Intersection is more
+    efficient at expanding M per operation.
+
+  Intersection: collective knowledge integration (K_collective) is more energy-efficient
+  per dimension of W sensed than solo learning — and therefore, by England's theorem,
+  is thermodynamically favored.
+
+  The argument: sensing a dimension of W requires energy — an inference step, a learning
+  signal, an update to K. Solo execution: 1 dimension per inference step = 1 unit of
+  energy dissipation per dimension sensed. Intersection with K_j: |K_j \ K_i| dimensions
+  per operation — the same energy cost of an intersection (verify provenance, merge) provides
+  |K_j \ K_i| dimensions rather than 1. This is more energy-efficient per dimension sensed.
+
+  By England EN1: systems that achieve more structure per unit of dissipation are
+  thermodynamically favored. Entities that participate in K_collective intersection
+  achieve more dimensions of W coverage per unit of energy than solo learners. Over
+  evolutionary time, these entities are selected for.
+
+  This provides a thermodynamic explanation for why collective intelligence, language,
+  knowledge sharing, and collaborative science emerged: they are not just epistemically
+  superior (NV04, OV04, EC07) — they are the thermodynamically optimal strategy for
+  expanding M under energy constraints.
+
+  Neither England (who does not discuss knowledge graphs) nor UB (which grounds
+  intersection in information theory, not thermodynamics) states this result.
+  It emerges from their intersection.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      England EN1 (dissipation efficiency is thermodynamically favored) and NV04
+      (intersection provides more dimensions per operation than solo) share the
+      efficiency-per-operation structure. Their intersection — collective intelligence
+      is thermodynamically favored — was not declared.
+    references: [REF-England2013, NV04-intersection-acceleration, EC07-collective-knowledge, EC04-survival-threshold]
+  derivation:
+    from: [REF-England2013, NV04-intersection-acceleration]
+    method: |
+      NV04: intersection provides |K_j \ K_i| dimensions per operation (vs. 1 solo).
+      Inference step ≈ unit of energy dissipation (physical).
+      Intersection is more energy-efficient per dimension sensed.
+      EN1: more structure per unit of dissipation → thermodynamically favored.
+      Therefore: collective intelligence is thermodynamically favored → selected for.
+
+implications:
+  - "The emergence of language, collaborative science, and knowledge sharing has a thermodynamic explanation, not just an epistemic one"
+  - "EN1 provides physical grounding for why K_collective forms: it is not just epistemically superior but physically selected for"
+  - "This connects England's work on self-replication to the collective knowledge intersection — they are the same phenomenon at different scales"
+  - "Entities that do NOT participate in K_collective intersection are thermodynamically disadvantaged relative to those who do"
+  - "This is testable: measure energy expenditure per new dimension sensed in solo vs. collaborative learning systems"

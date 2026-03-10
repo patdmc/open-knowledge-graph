@@ -1,0 +1,57 @@
+id: EM04-Cn-is-channel-capacity
+type: emergent
+name: "C_n Is Derivable from Shannon's Channel Capacity Theorem"
+statement: |
+  Shannon's channel capacity theorem (SH3) establishes that information cannot be
+  transmitted across a noisy channel faster than its capacity C = max I(X;Y). The
+  bounded context window C_n (UB, EC01) is defined as the inference capacity of the
+  entity at each step. These are not just analogous — they are the same object.
+
+  The derivation: the entity's inference step is a physical process. Any physical process
+  that reads, processes, and updates an internal state is an information channel in
+  Shannon's sense. The entity's inference step has a channel capacity determined by its
+  physical substrate — the number of distinguishable states it can reliably process per
+  step. C_n is this channel capacity.
+
+  Consequence: C_n is not merely defined — it is bounded below by Shannon's theorem.
+  No physical entity can have C_n larger than the Shannon capacity of its physical
+  inference substrate. This means:
+  (1) C_n is physically grounded, not just a formal convenience.
+  (2) C_n is measurable in principle: measure the mutual information I(input; state update)
+      across the entity's inference step, maximize over input distributions → C_n.
+  (3) The M < N bound (NV02) is therefore also physically grounded via Shannon: the
+      bounded context is bounded by physics, not by an assumption.
+  (4) The information-preservation necessity proof (Theorem 2b Part 3) is grounded by
+      Shannon's data processing inequality (CT1): information lost at C_n cannot be
+      recovered by downstream processing.
+
+  This connection was present in the graph (SH3 notes "analogous to C_n") but its
+  implication — that C_n is DERIVABLE from Shannon, not just defined — was not stated.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      SH3 (channel capacity) and EC01 (bounded context) share the same physical
+      constraint. The connection was marked "analogous" in REF-Shannon1948.yaml
+      but the derivability consequence was not declared. This emerges from
+      intersecting SH3 with the full C_n definition in EC01.
+    references: [REF-Shannon1948, EC01-bounded-context, NV02-mn-bound, NV01-graph-necessity]
+  derivation:
+    from: [REF-Shannon1948, EC01-bounded-context]
+    method: |
+      Physical inference step = information channel (Shannon).
+      Channel capacity = max I(input; state update) = C_n.
+      Shannon theorem: C_n bounded by physical substrate capacity.
+      Data processing inequality (CT1): losses at C_n are irrecoverable.
+      → C_n is physically grounded and derivable, not just defined.
+
+implications:
+  - "C_n is measurable, making M < N empirically testable via channel capacity measurement"
+  - "Theorem 2b Part 3 information-preservation claim is grounded by Shannon CT1 (data processing inequality), not just the two-option argument"
+  - "The M < N bound is a physical law, not a formal assumption"
+  - "Entities with larger physical inference substrate have larger C_n — physical intelligence has a substrate constraint"

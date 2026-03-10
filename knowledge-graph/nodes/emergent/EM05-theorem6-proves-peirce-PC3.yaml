@@ -1,0 +1,69 @@
+id: EM05-theorem6-proves-peirce-PC3
+type: emergent
+name: "Theorem 6 Is the Formal Proof of Peirce's 1877 Philosophical Claim"
+statement: |
+  Peirce (1877) argued that four methods exist for fixing belief: tenacity (stubborn
+  attachment to current belief), authority (deference to external authority), a priori
+  reasoning (internal coherence alone), and scientific inquiry (exposure to W's actual
+  structure). He argued — qualitatively, without formal proof — that only scientific
+  inquiry produces beliefs that persist long-run: the other three methods eventually fail
+  when confronted with world states they cannot predict [Peirce1877].
+
+  UB's Theorem 6 is the formal proof of this claim, 148 years later.
+
+  The mapping:
+  - Tenacity: A > 0, but K is never updated from W — i.e., eta_M = 0. The entity
+    retains its current beliefs regardless of gradient signals. Theorem 6 Part 2:
+    eta_M = 0 => no improvement in F => selection pressure removes the entity.
+  - Authority: A = 0 — the entity does not respond to gradient signals from W,
+    only to external commands. Theorem 6 Part 1: A = 0 => no engagement with W =>
+    no update => selection removes the entity.
+  - A priori reasoning: K grows from internal inference alone, not from grounding
+    in W. This means new propositions enter K without grounding in evidence —
+    Definition 3 (grounding) is violated. Such propositions have C_1(p) = 0 by
+    the provenance criterion.
+  - Scientific inquiry: A > 0 (engages gradient signals from W) AND eta_M > 0
+    (M improves from the signals). Theorem 6: both are necessary for persistence.
+    Together they define exactly "scientific inquiry" in Peirce's sense.
+
+  Peirce stated this as a philosophical argument grounded in the pragmatics of inquiry.
+  Theorem 6 provides the formal derivation from information-theoretic and selection-
+  pressure premises. Neither paper states this equivalence explicitly.
+
+  The implication flows both directions:
+  - Forward: Peirce's 148-year-old argument provides independent philosophical validation
+    for Theorem 6. The survival argument is not a new formal trick — it formalizes
+    an insight with a long verification history.
+  - Backward: Theorem 6 converts Peirce's qualitative argument into a formal theorem
+    with explicit premises (C_n, A, eta_M, U_lethal) and a derivation. This is what
+    formal epistemology owes the pragmatist tradition.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      REF-Peirce1877 notes PC3 is "an informal statement of Theorem 6" but marks this
+      only as a cited philosophical precursor. The formal equivalence — Theorem 6 IS
+      the proof of PC3 — was not declared. This emerges from intersecting PC3 (four
+      methods, only scientific inquiry persists) with Theorem 6 (A>0 and eta_M>0
+      necessary for persistence).
+    references: [REF-Peirce1877, T06-epistemic-ceiling, NV03-agency-as-gate, EC04-survival-threshold]
+  derivation:
+    from: [REF-Peirce1877, T06-epistemic-ceiling]
+    method: |
+      Map Peirce's four methods to UB parameters:
+      Tenacity -> eta_M = 0 (Theorem 6 Part 2: removed)
+      Authority -> A = 0 (Theorem 6 Part 1: removed)
+      A priori -> C_1(p) = 0 for ungrounded propositions (Definition 3 + provenance)
+      Scientific inquiry -> A > 0 AND eta_M > 0 (Theorem 6: necessary for persistence)
+      QED: Peirce's qualitative survival claim = Theorem 6's formal derivation.
+
+implications:
+  - "Theorem 6's C_1(p) is strengthened by Peirce PC3 as an independent philosophical grounding with long verification history"
+  - "Peirce's pragmatist tradition provides pre-formal evidence for the selection pressure argument before information theory existed"
+  - "The four-methods taxonomy maps to a complete partition of (A, eta_M) parameter space: {A=0} U {eta_M=0} U {ungrounded} U {A>0, eta_M>0, grounded}"
+  - "This suggests the four-methods partition is exhaustive — there is no fifth method"

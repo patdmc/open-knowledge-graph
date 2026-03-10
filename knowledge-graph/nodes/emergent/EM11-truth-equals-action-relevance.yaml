@@ -1,0 +1,87 @@
+id: EM11-truth-equals-action-relevance
+type: emergent
+name: "For an Entity with A > 0, Truth and Action-Relevance Are the Same Criterion"
+statement: |
+  Two results are established:
+  - Peirce PC4 (Pragmatic Maxim): the meaning of a proposition is exhausted by its
+    practical consequences — by the difference it makes to action. A proposition with
+    no practical consequences has no meaning.
+  - Tarski TA3: truth is model-relative. A sentence is true relative to a model (a
+    semantic interpretation), not in the abstract. Different models may assign different
+    truth values to the same sentence. The model determines what "true" means.
+
+  Intersection: for an entity with A > 0 operating under the UB framework, the semantic
+  model that determines truth (Tarski) IS the action model (Peirce). The two are not
+  separate structures — they are the same structure viewed from two sides.
+
+  The argument: in the UB framework, an entity with A > 0 engages W through its action
+  space F. K grounds F (EC06 / D10). The entity's semantic model — the structure that
+  determines whether a proposition is true or false — is its K/F graph. A proposition
+  p is true (in the entity's model) if and only if it reliably produces correct action
+  predictions in F. This is exactly PC4: truth = practical consequence. And it is exactly
+  TA3: truth = model-relative, where the model = the K/F graph.
+
+  Consequence 1: for an entity with A > 0, there is no gap between "semantically true"
+  and "action-relevant." A proposition that has no effect on F is not false — it is
+  meaningless in both Peirce's sense (no practical consequences) and Tarski's sense
+  (it falls outside the model that determines truth). The model IS the action space.
+
+  Consequence 2: for an entity with A = 0 (response gate closed), the connection
+  breaks. K does not update; F does not update; the semantic model ossifies. Truth
+  claims accumulate that have no action consequences — and by PC4, these are
+  meaningless. By TA3, the model has no updating mechanism, so "true" becomes
+  progressively detached from W. This is the epistemic failure mode of A = 0
+  entities formalized simultaneously in logic (Tarski) and pragmatism (Peirce).
+
+  Consequence 3: this grounds Definition 10 (K grounds F) in two independent
+  philosophical traditions that did not know each other's formalisms. Peirce (1878)
+  said meaning = consequences. Tarski (1936) said truth = model. The UB framework
+  says K grounds F, where K is the model and F is the consequence space. All three
+  are the same claim.
+
+  Consequence 4: the K/F graph is not just a computational convenience — it is the
+  minimally necessary structure for an entity whose truth-criteria and action-criteria
+  are the same. Any entity for which truth and action-relevance must be aligned must
+  maintain a K/F graph (or an isomorphic structure). This provides an independent
+  ground for NV01 (graph necessity) from the Peirce-Tarski intersection.
+
+  Neither Peirce nor Tarski stated this result. Peirce did not have Tarski's model
+  theory; Tarski did not have Peirce's action-grounding. Their intersection — mediated
+  by the UB framework — produces a result that is in neither.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, Emergent Results"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      Peirce PC4 (meaning = practical consequences, 1878) and Tarski TA3 (truth is
+      model-relative, 1936) share the structure of grounding semantic value in a
+      reference structure. Their intersection — the semantic model IS the action space,
+      so truth and action-relevance are the same criterion — was not stated. The UB
+      framework provides the mediating structure (K/F graph) that makes the equivalence
+      visible. Neither Peirce nor Tarski had access to this formalism.
+    references: [REF-Peirce1878, REF-Tarski1936, EC06-belief-as-action, NV01-graph-necessity, D10-knowledge-grounds-action]
+  derivation:
+    from: [REF-Peirce1878, REF-Tarski1936, EC06-belief-as-action]
+    method: |
+      PC4: meaning(p) = practical consequences of p in action space.
+      TA3: truth(p) = p is true relative to model M.
+      EC06/D10: K grounds F — the K/F graph connects propositions to actions.
+      In UB: the entity's semantic model = its K/F graph.
+      K/F graph determines which propositions have practical consequences (via F).
+      Therefore: the model that determines truth (TA3) = the structure that determines
+        action-relevance (PC4) = the K/F graph.
+      For A > 0: truth-criterion ≡ action-relevance criterion (same structure).
+      For A = 0: the connection is severed — model ossifies, truth detaches from W.
+      Independent ground for NV01: any entity requiring truth ≡ action-relevance
+        must maintain a K/F graph (or isomorphic structure).
+
+implications:
+  - "The K/F graph is not a modeling choice — it is the necessary structure for any entity where truth and action-relevance must be aligned"
+  - "Propositions with no effect on F are meaningless in Peirce's sense and outside the model in Tarski's sense — same conclusion from two independent traditions"
+  - "A = 0 entities accumulate truth claims that detach from W — both epistemically (Tarski: model no longer tracks W) and pragmatically (Peirce: no consequences)"
+  - "This provides an independent derivation of graph necessity (NV01) from philosophy of language, distinct from the information-theoretic derivation in the main paper"
+  - "The 58-year gap between Peirce (1878) and Tarski (1936) makes this intersection entirely undeclared — neither could have known the other's formalism"
