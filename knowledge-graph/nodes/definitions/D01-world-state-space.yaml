@@ -1,0 +1,49 @@
+id: D01-world-state-space
+type: definition
+number: 1
+name: "World State Space"
+statement: |
+  The world W is the complete set of states an entity might face. W is assumed:
+  (1) non-empty and infinite; (2) not fully observable by any single entity;
+  (3) inexhaustible — no entity can reduce uncertainty to zero across all of W.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: axiomatic
+    description: "Foundational axiom — assumed as the operating environment for all subsequent derivations. Inexhaustibility is required for non-termination of gradient descent (Theorem 3 Part II)."
+    references: []
+  derivation:
+    from: []
+    method: "Axiomatic — no prior nodes required"
+
+edges:
+  - to: D02-knowledge-graph
+    relation: grounded_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "K is defined as a set of propositions about W — the relation to W is definitional"
+      derivation:
+        method: "Definition 2 references Definition 1 explicitly"
+
+  - to: D09-survival-threshold
+    relation: grounded_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U_lethal^d is imposed by W — the survival threshold is a property of W acting on the entity"
+      derivation:
+        method: "Definition 9 explicitly states 'imposed by W'"

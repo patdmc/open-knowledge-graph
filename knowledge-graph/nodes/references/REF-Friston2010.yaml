@@ -1,0 +1,36 @@
+id: REF-Friston2010
+type: reference
+name: "Friston (2010) — The Free-Energy Principle"
+statement: |
+  The free-energy principle: any self-organizing system that maintains its existence
+  necessarily minimizes variational free energy — formally equivalent to bounding
+  uncertainty about hidden world states.
+
+provenance:
+  attribution:
+    author: "Karl Friston"
+    source: "Nature Reviews Neuroscience"
+    date: "2010"
+    doi: "10.1038/nrn2787"
+    bibtex_key: "Friston2010"
+  evidence:
+    type: cited
+    description: "Establishes that FEP agents satisfy A > 0, eta_M > 0, bounded C_n, and a survival condition (Markov blanket maintenance). The framework contains FEP as a structural class — FEP is not contradicted, it is a special case."
+    references: [T06-epistemic-ceiling, T10-collective-gradient-dominance]
+  derivation:
+    from: []
+    method: "External citation — not derived from this framework; discovered through literature"
+
+edges:
+  - to: T06-epistemic-ceiling
+    relation: cited_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "FEP's precision-allocation model is the top-down attention architecture this framework identifies as failing under selection pressure (Theorem 5 / Escalation Principle)"
+      derivation:
+        method: "Theorem 5 proof uses FEP as the foil for the escalation argument"

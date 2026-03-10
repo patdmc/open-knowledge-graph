@@ -1,0 +1,50 @@
+id: D02-knowledge-graph
+type: definition
+number: 2
+name: "Knowledge Graph"
+statement: |
+  K is a directed acyclic graph where nodes are propositions p about W
+  and edges represent inferential or causal relationships between propositions.
+  K_max is the maximum number of propositions that fit in C_n.
+  K^[f] denotes the subgraph of propositions relevant to action f (progressive disclosure).
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: "The DAG structure is not assumed — it is derived: provenance forces acyclicity because a proposition cannot be derived from a proposition that was itself derived from it. Graph structure is the most efficient architecture for progressive disclosure under bounded C_n."
+    references: [T01-minimization-imperative, T02-encoding-hierarchy]
+  derivation:
+    from: [D01-world-state-space, D07-encoding-hierarchy]
+    method: "Definition over W; graph structure motivated by Theorem 2 (encoding hierarchy) and progressive disclosure argument"
+
+edges:
+  - to: D03-uncertainty
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "U(w, K) is defined in terms of K — uncertainty is a function of the knowledge graph"
+      derivation:
+        method: "Definition 3 (Uncertainty) references K from Definition 2"
+
+  - to: D05-information-gain
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "G(f, K) is the expected reduction in H(W|K) — information gain requires K"
+      derivation:
+        method: "Definition 3b (Information Gain) is a function of K"
