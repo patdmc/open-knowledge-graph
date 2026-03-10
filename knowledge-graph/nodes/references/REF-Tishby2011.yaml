@@ -1,0 +1,52 @@
+id: REF-Tishby2011
+type: reference
+name: "Tishby and Polani (2011) — Information Theory of Decisions and Actions"
+statement: |
+  Applies information theory to the structure of decision-making and action. Key propositions:
+
+  TB1 (information bottleneck for action): Relevant information for action is the minimal
+       sufficient statistic of past observations with respect to future rewards. The agent
+       should compress history, retaining only what matters for action.
+  TB2 (empowerment): The agent's empowerment is the channel capacity between its actions
+       and future states — the maximum mutual information I(A; S') the agent can achieve.
+  TB3 (compression-action trade-off): There is a fundamental trade-off between compressing
+       the world model and retaining action-relevant information.
+  TB4 (rate-distortion): The information bottleneck is a rate-distortion problem — the
+       compression rate of history vs. distortion of future reward predictions.
+
+provenance:
+  attribution:
+    author: "Naftali Tishby and Daniel Polani"
+    source: "Perception-Action Cycle: Models, Architectures, and Hardware"
+    date: "2011"
+    bibtex_key: "Tishby2011"
+  evidence:
+    type: cited
+    description: |
+      TB1 overlaps with Theorem 2b Part 3 (factoring required to add information without loss).
+      Both ground the claim that structured compression is necessary for continued learning.
+      TB3 (compression-action trade-off) maps to the C_n boundary problem: at C_n, the entity
+      must choose what to compress and what to retain. Theorem 2b Part 3 proves factoring is
+      the unique resolution of this trade-off that preserves information.
+    references: [T02-graph-structure-necessity, NV01-graph-necessity]
+  derivation:
+    from: []
+    method: "External citation — information-theoretic grounding for compression claims"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          TB1 and TB3 overlap with the information-preservation claim: structured compression
+          retains action-relevant information. Key difference: Tishby grounds this as a
+          rate-distortion optimization; UB grounds it as a necessity proof from two options
+          at C_n. Tishby does not prove graph structure is required; UB does.
+      derivation:
+        method: "Partial overlap — both ground compression necessity, UB adds structural necessity"

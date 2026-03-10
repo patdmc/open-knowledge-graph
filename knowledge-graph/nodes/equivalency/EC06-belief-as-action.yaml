@@ -1,0 +1,101 @@
+id: EC06-belief-as-action
+type: equivalency-class
+name: "Belief as Action Disposition: K grounds F = Habit of Action = Affordance = Active Inference"
+underlying_proposition: |
+  Retained knowledge (belief) is not an end in itself — it is a disposition to act
+  differently than without it. A proposition's value is entirely its effect on the
+  action space. Knowledge and action are not two separate things; knowledge IS the
+  structure that shapes action. A proposition with no consequences for any possible
+  action has no cognitive value.
+
+members:
+  - id: UB-K-grounds-F
+    framework: "Uncertainty Bounding"
+    formulation: |
+      K grounds F: each proposition p in K grounds at least one informed action f
+      in F. The grounding relation is the connection between knowledge and action.
+      Propositions with no grounded actions are not retained (Theorem 1 retention
+      criterion: retain unless value is certainly zero).
+    epistemic_status: formal-definition
+    derivation: "Definition 2 (K/F grounding); Theorem 1 (retention criterion)"
+
+  - id: PC-belief-as-habit
+    framework: "Peirce (1878)"
+    formulation: |
+      Belief is not a mental state but a habit of action — a settled disposition
+      to act in a certain way given certain conditions. Beliefs that produce no
+      different actions are empty (pragmatic maxim: meaning = conceivable practical
+      effects).
+    epistemic_status: philosophical
+    derivation: "Pragmatic maxim: meaning = practical consequences"
+
+  - id: FEP-active-inference
+    framework: "Friston (2017)"
+    formulation: |
+      Active inference: action minimizes expected free energy under the generative
+      model. The belief state (posterior) directly drives action. A belief that
+      changes no expected free energy reduction does not drive action.
+    epistemic_status: formal-theoretical
+    derivation: "FEP2: active inference unifies perception and action under free energy minimization"
+
+  - id: GI-affordances
+    framework: "Gibson (1979)"
+    formulation: |
+      Affordances ARE beliefs in action-relevant terms. To perceive an affordance
+      is to perceive what action is possible. There is no separation between
+      perceiving (knowing) and affording (action potential).
+    epistemic_status: conceptual
+    derivation: "Ecological psychology: direct perception of action possibilities"
+
+  - id: BA-workspace-as-action
+    framework: "Baars (1988)"
+    formulation: |
+      Global workspace broadcast = making information available for action selection.
+      Information in the workspace influences all processors, including motor systems.
+      Knowledge that is not broadcast does not influence action.
+    epistemic_status: empirical-theoretical
+    derivation: "GWT: global broadcast = action-availability; local processing = not yet action-relevant"
+
+equivalence_analysis: |
+  Five frameworks independently derive the same proposition: knowledge (belief, posterior,
+  affordance, broadcast) has value only through its effect on action. No retained knowledge
+  exists without action consequence.
+
+  Formal translation:
+  - K grounds F (UB) = belief as habit of action (Peirce) = affordance (Gibson)
+  - The grounding relation in UB IS Peirce's pragmatic maxim formalized
+  - FEP active inference: the posterior that drives action = K that grounds F
+
+  This is one of the deepest equivalency classes because it bridges formal AI theory
+  (UB, FEP), philosophy (Peirce), ecological psychology (Gibson), and cognitive
+  neuroscience (Baars). Five traditions arrive at the same structural claim
+  through completely independent derivations.
+
+  Strength of equivalence: VERY HIGH. Peirce's 1878 formulation is explicitly
+  instantiated in UB's Definition 2 grounding relation.
+
+confidence_C1p:
+  estimate: 0.95
+  basis: "Five independent traditions, with Peirce (1878) as the formal philosophical grounding that UB directly instantiates"
+  weakest_link: "The exact formal grounding (K grounds F) vs. Peirce's qualitative habit is a translation — the formal equivalence requires showing the grounding relation IS a habit in Peirce's sense"
+
+contradictions: []
+
+implications_for_ub: |
+  The K/F grounding relation is among UB's most-supported premises. Peirce, Gibson,
+  Baars, and Friston all independently motivate it. The UB contribution is making
+  the grounding relation formal and deriving the retention criterion (Theorem 1) from it.
+  This is a case where EC maps UB's formal definition to a rich existing literature
+  — deepening the philosophical grounding significantly.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Five traditions independently derive belief-as-action-disposition. Peirce's pragmatic maxim is explicitly instantiated by UB's grounding relation."
+  derivation:
+    from: [D02-knowledge-graph, D07-informed-action, REF-Peirce1878, REF-Friston2017, REF-Gibson1979, REF-Baars1988]
+    method: "Philosophical grounding chain: Peirce 1878 -> formal instantiation in UB Definition 2"

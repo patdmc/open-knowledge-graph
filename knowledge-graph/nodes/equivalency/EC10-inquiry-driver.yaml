@@ -1,0 +1,103 @@
+id: EC10-inquiry-driver
+type: equivalency-class
+name: "Uncertainty as Inquiry Driver: U(w,K) > 0 = Free Energy > 0 = Doubt = Surprise"
+underlying_proposition: |
+  The gradient signal that drives intelligent behavior is the gap between the agent's
+  current representation and the world's actual structure — uncertainty, free energy,
+  doubt, surprise. When this gap is zero, the drive terminates. As long as M < N,
+  this gap is always positive (EC05). Therefore the drive is always present for A > 0
+  entities. The gap IS the fuel.
+
+members:
+  - id: UB-uncertainty-gradient
+    framework: "Uncertainty Bounding"
+    formulation: |
+      U(w, K) > 0 is the gradient signal. The entity's drive (A) responds to this
+      gradient. Gradient descent on U produces learning: each update delta_f = -eta * delta
+      reduces U in expectation. U > 0 always (M < N) so the drive never terminates.
+    epistemic_status: formal-definition
+    derivation: "Definitions 3-5, Theorem 3 Part I (gradient descent from A > 0)"
+
+  - id: FEP-surprise
+    framework: "Friston (2010)"
+    formulation: |
+      Variational free energy F = E[log q(s)] - E[log p(o,s)] is always positive
+      (Jensen's inequality). F is an upper bound on surprise -log p(o). Minimizing
+      F = reducing surprise. The drive is active as long as F > 0 (which is always
+      true under EC05).
+    epistemic_status: formal-theoretical
+    derivation: "Jensen's inequality: KL[q||p] >= 0 -> F >= -log p(o) >= 0"
+
+  - id: PC-doubt
+    framework: "Peirce (1877)"
+    formulation: |
+      Doubt is the unsettled state that drives inquiry. Inquiry is activated by doubt
+      and terminates at fixation of belief. As long as doubt remains (M < N in UB terms),
+      inquiry continues. The drive is the doubt; fixation is the local minimum.
+    epistemic_status: philosophical
+    derivation: "Pragmatist epistemology: doubt-belief cycle as the engine of inquiry"
+
+  - id: S-compression-gap
+    framework: "Schmidhuber (2010)"
+    formulation: |
+      Compression progress is possible as long as there is compressible structure not
+      yet compressed. The compression gap (current description length - optimal description
+      length) is the driver. The agent is motivated by this gap, not by absolute
+      description length.
+    epistemic_status: formal
+    derivation: "Compression progress is positive iff the current description is suboptimal"
+
+  - id: KH-cognitive-dissonance
+    framework: "Kahneman (2011) / Festinger (1957) [implied]"
+    formulation: |
+      Cognitive dissonance: the tension between current belief and new evidence drives
+      belief updating. System 2 is activated by the failure of System 1 to process
+      smoothly — the disfluency IS the gradient signal.
+    epistemic_status: empirical
+    derivation: "Cognitive dissonance research; cognitive ease/disfluency as System 2 activator"
+
+equivalence_analysis: |
+  Five frameworks express the same driver: the gap between current representation and
+  world structure. The formal translations:
+
+  - U(w,K) (UB) = F (FEP) = doubt (Peirce) = compression gap (Schmidhuber) = cognitive dissonance (Kahneman)
+  - All are the same quantity: the residual incompleteness of the agent's representation
+    relative to the world it must navigate.
+
+  The formal translation: U(w,K) = F = -log p(o) approximately = compression gap = doubt.
+  These are not just similar — they describe the same information-theoretic quantity
+  at different levels of formalism.
+
+  CRITICAL STRUCTURAL CONSEQUENCE: if EC05 (incompleteness) holds — and it does, with
+  C_1(p) = 0.97 — then EC10 (driver always positive) follows immediately. Because M < N
+  always, U(w,K) > 0 always. Because U > 0 always, the drive never terminates. This is
+  the derivation chain: EC05 -> EC10 -> non-termination.
+
+  Strength of equivalence: VERY HIGH. Five independent traditions converge. The chain
+  EC05 -> EC10 means the drive's non-termination is as secure as EC05 (C_1(p) = 0.97).
+
+confidence_C1p:
+  estimate: 0.93
+  basis: "Information-theoretic foundation (Shannon entropy, Jensen's inequality) + formal (UB, FEP) + philosophical (Peirce) + empirical (Kahneman). Chain from EC05 adds further support."
+  weakest_link: "The exact identity U(w,K) = F requires showing that conditional entropy and variational free energy are the same measure under the same assumptions — approximately true but not formally proved here"
+
+contradictions: []
+
+implications_for_ub: |
+  The uncertainty gradient (Definition 3, Theorem 3) is strongly grounded. The chain
+  EC05 -> EC10 provides a tight derivation: incompleteness (EC05, C_1(p) = 0.97) entails
+  the driver always positive (EC10). UB's contribution: formal treatment of U(w,K) as
+  a defined conditional entropy, and the gradient descent theorem (Theorem 3 Part I)
+  that shows A > 0 + U > 0 => convergence in each sensed dimension.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Five frameworks from information theory, cognitive science, philosophy, and AI independently ground uncertainty/surprise/doubt as the driver. Chain from EC05 makes the non-termination argument very strong."
+  derivation:
+    from: [D03-uncertainty, REF-Friston2010, REF-Peirce1877, REF-Schmidhuber2010, REF-Kahneman2011]
+    method: "Equivalency: uncertainty/surprise/doubt as the same information-theoretic quantity across traditions"

@@ -1,0 +1,80 @@
+id: EM03-graph-necessity-grounds-fep
+type: emergent
+name: "UB's Graph Necessity Proof Provides the Missing Derivation for FEP's Assumed Architecture"
+statement: |
+  The Free Energy Principle assumes hierarchical (graph-structured) generative models
+  (FEP7) but does not derive their necessity. Uncertainty Bounding proves that graph
+  structure is the unique information-preserving representation at bounded context (NV01).
+  The intersection reveals that NV01 is the derivation FEP7 needs — and that the two
+  frameworks are mutually supportive in a way neither states explicitly.
+
+  The argument:
+  - FEP7: The FEP generative model is hierarchically structured. This is assumed as the
+    architectural basis of the framework. The necessity of this structure — why it cannot
+    be otherwise — is not derived within FEP.
+  - NV01 (Theorem 2b Part 3): At C_n, the only information-preserving representation is
+    a factored (graph-structured) one. Any entity that maintains information under bounded
+    context must use graph structure. This is a necessity proof.
+  - Together: NV01 provides the derivation that FEP7 needs. The FEP's assumption of
+    hierarchical generative models is not an arbitrary architectural choice — it is the
+    necessary consequence of operating under bounded context (C_n), which any physical
+    agent must do. FEP7 is correct; NV01 explains WHY.
+
+  Consequence for both frameworks:
+  - UB's necessity proof gets a large independent support base: FEP's empirical and
+    theoretical success is evidence that hierarchical graph-structured representations
+    work — and NV01 explains why they must.
+  - FEP gains a foundational derivation for its architectural assumption: the hierarchical
+    generative model is not a modeling choice but a mathematical necessity.
+  - The two frameworks are complementary, not competing: FEP describes HOW free energy
+    is minimized; UB proves WHY the architecture that does it must be graph-structured.
+
+  The paper should say: "The FEP's hierarchical generative model architecture [Friston 2010,
+  2017] is exactly the structure Theorem 2b Part 3 proves necessary. The FEP assumes this
+  structure; this framework derives it. The two results are mutually supporting."
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      FEP7 (assumed hierarchical architecture) + NV01 (derived graph necessity) -> EM03.
+      Neither framework states this relationship. It emerges from the intersection:
+      NV01 proves what FEP7 assumes; FEP's success supports what NV01 derives.
+    references: [NV01-graph-necessity, REF-Friston2017, REF-Friston2010]
+  derivation:
+    from: [NV01-graph-necessity, REF-Friston2017]
+    method: |
+      FEP7 (assumption) + NV01 (necessity proof for same structure) -> mutual support.
+      NV01 provides the foundation for FEP7; FEP's success provides empirical evidence
+      for NV01. The intersection produces a bilateral strengthening.
+
+edges:
+  - to: NV01-graph-necessity
+    relation: supported_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "FEP's empirical and theoretical success is evidence that graph-structured representations work — empirically supporting NV01's formal necessity claim."
+      derivation:
+        method: "FEP success -> empirical support for graph necessity -> supports NV01"
+
+  - to: REF-Friston2010
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "EM03 grounds FEP7 (assumed hierarchical architecture) with a formal derivation from Theorem 2b Part 3."
+      derivation:
+        method: "NV01 -> grounds FEP7 -> EM03 is the linking proposition"

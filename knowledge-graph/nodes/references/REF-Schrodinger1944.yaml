@@ -1,0 +1,50 @@
+id: REF-Schrodinger1944
+type: reference
+name: "Schrödinger (1944) — What is Life?"
+statement: |
+  Life is characterized by the capacity to extract negative entropy (negentropy) from the
+  environment — to maintain order against thermodynamic dissipation. Key propositions:
+
+  SCH1 (negentropy): Living systems maintain low entropy by consuming high-quality energy
+       from the environment. This is the thermodynamic grounding of U_lethal: below a
+       certain capacity to extract negentropy, the system cannot maintain its structure.
+  SCH2 (aperiodic crystal): The genetic material that encodes life is an "aperiodic crystal"
+       — a structure that stores information without the redundancy that kills information
+       content (periodic crystals repeat; aperiodic crystals do not). Corresponds to K:
+       the knowledge graph encodes the entity's accumulated non-redundant information.
+  SCH3 (order from order): Biological reproduction preserves information through ordered
+       copying. Corresponds to the encoding permanence theorem: propositions, once grounded,
+       preserve their information content through the K/F structure.
+
+provenance:
+  attribution:
+    author: "Erwin Schrödinger"
+    source: "Cambridge University Press"
+    date: "1944"
+    bibtex_key: "Schrodinger1944"
+  evidence:
+    type: foundational
+    description: |
+      SCH1 provides the physical basis for survival as negentropy maintenance — grounding
+      the survival threshold in thermodynamics (also supported by England2013). SCH2
+      is a precursor to the aperiodic (non-redundant) structure of K: the knowledge graph
+      should be compact and factored, not periodic (redundant). The compactness requirement
+      of Theorem 2b Part 3 is grounded in SCH2's aperiodic information structure.
+    references: [D09-survival-threshold, T02-graph-structure-necessity, REF-England2013]
+  derivation:
+    from: []
+    method: "Foundational external reference — thermodynamic grounding for survival and information"
+
+edges:
+  - to: D09-survival-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: physical
+        description: "SCH1 grounds U_lethal as the threshold below which negentropy extraction fails — the physical basis of the survival condition in Definition 9."
+      derivation:
+        method: "Thermodynamic grounding of survival threshold"

@@ -1,0 +1,52 @@
+id: OV04-meta-cognitive-awareness
+type: overlap
+name: "Meta-Cognitive Awareness of Own Inference Process"
+statement: |
+  A higher-order cognitive capacity consists of an entity modeling its own inference
+  process — not just producing outputs but representing that inference is occurring and
+  operating on a bounded projection of W. This is independently grounded in two frameworks:
+
+  - Uncertainty Bounding (this framework): Definition 14 (higher-order sentience) — an
+    entity is sentient at the higher order iff it represents that other projections of W
+    exist beyond K_i, and understands that the normalization process it is running will
+    expand M toward N. Derived from Theorem 2b Part 3 + Theorem 3 Part II + Theorem 1.
+  - Friston et al. (2021) Sophisticated Inference: SI1-SI4 — sophisticated agents model
+    their own future inference states. The agent considers what it will believe after
+    taking an action, evaluating policies by their effect on its own belief states.
+    SI4 is explicitly labeled as analogous to meta-cognitive awareness.
+
+  Key difference: UB derives higher-order sentience from the induction argument — it
+  follows necessarily from factorization + M < N + retention criterion. Sophisticated
+  inference defines it as a richer inference architecture. UB's derivation explains WHY
+  meta-cognitive awareness is adaptive; sophisticated inference describes HOW it works.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: |
+      Both frameworks independently arrive at meta-cognitive awareness as a significant
+      cognitive capacity. UB grounds it as a derivation from information-theoretic
+      structure; sophisticated inference grounds it as a richer inference architecture.
+      The independent convergence strengthens both claims.
+    references: [D14-sentience, REF-Friston2021]
+  derivation:
+    from: [D14-sentience, REF-Friston2021]
+    method: "Intersection of Definition 14 (UB) and SI4 (Friston 2021)"
+
+edges:
+  - to: D14-sentience
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "Definition 14 (higher-order sentience) is the UB instantiation of OV04."
+      derivation:
+        method: "OV04 overlap identified by matching Definition 14 to SI4"

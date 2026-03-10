@@ -1,0 +1,64 @@
+id: NV01-graph-necessity
+type: novel
+name: "Graph Structure Is the Unique Information-Preserving Representation at Bounded Context"
+statement: |
+  At the C_n boundary, there are exactly two options for an entity that has accumulated
+  knowledge up to its context limit:
+  (A) Discard propositions without extracting relational structure: information is lost
+      (the discarded proposition's contribution to uncertainty reduction cannot be recovered
+      when new information arrives that would have interacted with it).
+  (B) Factor: extract shared structure, reduce |K| without discarding content. This IS
+      graph construction — factoring propositions into shared and distinct components is
+      precisely what a knowledge graph represents.
+  Option B is the unique path that preserves information. Therefore graph structure
+  (K/F graph) is the necessary representation for any entity that maintains information
+  across bounded context steps.
+
+  This is a necessity proof, not a design choice. The graph structure is not chosen for
+  convenience — it is the only structure that satisfies the information-preservation
+  requirement at bounded context. (Theorem 2b Part 3)
+
+  No other framework derives this necessity. Specifically:
+  - Schmidhuber (2010): Compression can take any form — no necessity proof for graph structure.
+  - Friston (2010/2017): Hierarchical generative models are assumed as the architecture;
+    their necessity is not derived within FEP.
+  - Tishby and Polani (2011): Rate-distortion trade-off grounds compression necessity but
+    not the structural form (graph) required to preserve information.
+  - Cover and Thomas (2006) CT1 (data processing inequality) provides the information-
+    theoretic grounding but does not derive graph structure specifically.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Theorem 2b Part 3: at C_n, the two-option argument proves graph construction is
+      the necessary choice. Evidence that no prior framework derives this: gap analysis
+      of Schmidhuber (S7: no graph necessity), Friston (FEP7: graph assumed), Tishby
+      (TB3: rate-distortion grounds compression but not graph structure specifically).
+    references: [T02-graph-structure-necessity, REF-Schmidhuber2010, REF-Friston2017, REF-Tishby2011, REF-Cover2006]
+  derivation:
+    from: [D08-encoding-hierarchy, D02-knowledge-graph, REF-Cover2006]
+    method: |
+      Two-option proof at C_n boundary: (A) discard without structure = information loss
+      by data processing inequality (Cover and Thomas CT1); (B) factor = graph construction
+      = information preservation. No third option exists. Therefore graph construction is
+      necessary.
+
+edges:
+  - to: EM03-graph-necessity-grounds-fep
+    relation: enables
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "NV01 enables EM03: because NV01 proves graph necessity, it provides the derivation that FEP7 needs."
+      derivation:
+        method: "NV01 + FEP7 -> EM03"

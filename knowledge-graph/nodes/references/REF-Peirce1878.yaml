@@ -1,0 +1,50 @@
+id: REF-Peirce1878
+type: reference
+name: "Peirce (1878) — How to Make Our Ideas Clear"
+statement: |
+  Establishes the pragmatic maxim: the meaning of a concept is the totality of its
+  conceivable practical effects. Key propositions:
+
+  PC4 (pragmatic maxim): A concept p is meaningful iff there exists at least one action
+       f that would yield different results depending on whether p is true. This is exactly
+       the grounding condition in Definition 3 — p grounds f iff f's uncertainty depends
+       on p. Propositions with no grounded actions have no practical meaning.
+  PC5 (belief as habit of action): Belief is not a mental state but a disposition to act.
+       Corresponds to K: retained propositions are dispositions that alter F.
+  PC6 (truth as long-run convergence): Truth is the limit of inquiry — the proposition
+       that would be agreed upon by a community of inquirers given unlimited time.
+       Corresponds to N* in this framework: the complete normal form approached but never
+       reached (M < N always under A > 0).
+
+provenance:
+  attribution:
+    author: "Charles S. Peirce"
+    source: "Popular Science Monthly"
+    date: "1878"
+    bibtex_key: "Peirce1878"
+  evidence:
+    type: foundational
+    description: |
+      PC4 provides the philosophical grounding for the K/F grounding relation (Definition 3).
+      PC6 is a qualitative predecessor to the M < N bound: Peirce notes truth is approached
+      but only reached "in the long run" — the formal theory replaces this with the M < N
+      derivation showing the approach never terminates for A > 0 entities.
+      PC5 maps beliefs (K) to dispositions that modify action (F).
+    references: [D02-knowledge-graph, D07-informed-action, NV02-mn-bound]
+  derivation:
+    from: []
+    method: "Philosophical antecedent — qualitative predecessor to K/F grounding and M < N"
+
+edges:
+  - to: D02-knowledge-graph
+    relation: philosophical_precursor
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: conceptual
+        description: "PC5 (belief as habit of action) is the qualitative predecessor of K as propositions that ground F. Definition 2 formalizes 'habit' as the grounding relation."
+      derivation:
+        method: "Conceptual mapping from pragmatist epistemology to K/F definition"

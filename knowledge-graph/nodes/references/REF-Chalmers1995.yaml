@@ -1,0 +1,50 @@
+id: REF-Chalmers1995
+type: reference
+name: "Chalmers (1995) — Facing Up to the Problem of Consciousness"
+statement: |
+  Distinguishes the easy problems (explaining cognitive functions) from the hard problem
+  (explaining why there is subjective experience). Key propositions:
+
+  CH1 (hard problem): The hard problem of consciousness is explaining why physical
+       processes give rise to subjective experience (qualia). Functional explanations
+       leave the subjective character unexplained.
+  CH2 (easy problems): The easy problems — explaining attention, memory, learning,
+       self-report — are hard scientifically but conceptually tractable: they reduce to
+       functional organization.
+  CH3 (explanatory gap): There is an explanatory gap between the third-person description
+       of cognitive processes and the first-person character of experience.
+
+provenance:
+  attribution:
+    author: "David J. Chalmers"
+    source: "Journal of Consciousness Studies"
+    date: "1995"
+    bibtex_key: "Chalmers1995"
+  evidence:
+    type: cited
+    description: |
+      This framework deliberately avoids the hard problem. Definition 14 (sentience) is a
+      functional definition: an entity is sentient iff it represents that other projections
+      of W exist. This is an "easy problem" definition in Chalmers' sense. The framework
+      makes no claim about why this functional organization gives rise to subjective
+      experience — that is CH1, which remains open. The contribution is to show that
+      sentience in the functional sense is derivable from the information-theoretic
+      structure, not axiomatic.
+    references: [D14-sentience]
+  derivation:
+    from: []
+    method: "External citation — scopes the framework relative to consciousness debate"
+
+edges:
+  - to: D14-sentience
+    relation: scopes
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: conceptual
+        description: "Definition 14 addresses the easy problem (functional sentience); CH1 is deliberately left open. The citation scopes the framework's claims."
+      derivation:
+        method: "Scoping: framework claims functional sentience is derivable, makes no claim about qualia"

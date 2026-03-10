@@ -1,0 +1,63 @@
+id: NV03-agency-as-gate
+type: novel
+name: "Agency as Engagement Probability: The A = 0 Case and the Generalization of Prior Frameworks"
+statement: |
+  Agency A in [0,1] is the probability that an entity engages its learning mechanism M in
+  response to a gradient signal. This parameterization has two novel properties that no
+  prior framework provides:
+
+  (1) The A = 0 case: an entity with A = 0 does not engage even when gradient signals are
+      present. It is not that no gradient exists — it is that the entity does not respond.
+      This is the formal treatment of entities that fail to learn despite having capacity.
+      Prior frameworks either assume A = 1 (Schmidhuber: the agent always maximizes
+      compression progress) or define the agent by its engagement (FEP: the Markov blanket
+      is the agent boundary; an entity that does not engage is by definition not an agent).
+      UB shows A = 0 entities are removed by selection pressure (Theorem 6 Part 1) —
+      providing the formal account of WHY prior frameworks can assume engagement.
+
+  (2) The A in (0,1) generalization: for A strictly between 0 and 1, the entity engages
+      on gradient signals with positive but less-than-certain probability. This covers:
+      - Biological organisms that sometimes fail to update beliefs when they should
+      - AI systems with dropout, exploration noise, or attention mechanisms
+      - Any entity where engagement is context-dependent rather than guaranteed
+      Neither Schmidhuber nor Friston parameterizes this range.
+
+  Consequence: Schmidhuber's formal agent is the special case A = 1. Friston's FEP agent
+  has no A parameter — it is defined by its Markov blanket, not its engagement probability.
+  UB generalizes both by making A explicit. The generalization is not trivial: A in (0,1)
+  changes the convergence argument (Theorem 3 Part I) and the persistence condition
+  (Theorem 6). See also EM01.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Definition 6 (probabilistic formulation), Theorem 6 Part 1 (A = 0 removes entity),
+      Theorem 3 Part I (convergence requires A > 0). Gap analysis: Schmidhuber S4 (implicit
+      A = 1), Friston FEP8 (no A parameterization).
+    references: [D06-agency, REF-Schmidhuber2010, REF-Friston2017, REF-Dehaene2011]
+  derivation:
+    from: [D06-agency, T06-epistemic-ceiling]
+    method: |
+      Theorem 6 Part 1: A = 0 => no update => selection removes entity. Therefore A > 0 is
+      necessary for persistence. Definition 6 makes A a probability (response gate) rather
+      than a binary flag. Dehaene2011 (NGW3) provides neural evidence for A as probabilistic.
+
+edges:
+  - to: EM01-schmidhuber-special-case
+    relation: enables
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "NV03 (A as gate with A = 1 special case) directly produces EM01 (Schmidhuber = UB with A = 1)."
+      derivation:
+        method: "NV03 characterizes the Schmidhuber relationship as special case"

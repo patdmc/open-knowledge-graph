@@ -1,0 +1,97 @@
+id: EC04-survival-threshold
+type: equivalency-class
+name: "Survival Threshold: U_lethal = Free Energy Bound = Negentropy Floor = Dissipation Threshold"
+underlying_proposition: |
+  There exists a physical threshold below which a self-organizing system cannot maintain
+  its structure. Crossing this threshold results in dissolution of the system. Survival =
+  maintaining internal state above this threshold by extracting order from the environment.
+  This is a physical constraint, not a biological assumption.
+
+members:
+  - id: UB-Ulethal
+    framework: "Uncertainty Bounding"
+    formulation: |
+      U_lethal^d: the maximum uncertainty a system can survive in dimension d.
+      If U(w, K) > U_lethal^d for encountered w, the entity is removed by selection.
+      Defined in Definition 9.
+    epistemic_status: formal-definition
+    derivation: "Defined; physical grounding via England2013 and Schrödinger1944"
+
+  - id: FEP-markov-breakdown
+    framework: "Friston (2010)"
+    formulation: |
+      The Markov blanket defines the agent boundary. If free energy exceeds a threshold
+      such that the Markov blanket can no longer be maintained, the agent-environment
+      separation dissolves — the agent ceases to exist as a self-organizing entity.
+    epistemic_status: theoretical
+    derivation: "Derived from Markov blanket dynamics: blanket maintenance requires bounded free energy"
+
+  - id: EN-replication-threshold
+    framework: "England (2013)"
+    formulation: |
+      Self-replication requires sufficient energy dissipation. Below the thermodynamic
+      threshold for dissipative self-organization, replication cannot proceed and the
+      structure dissolves. Derived from statistical mechanics.
+    epistemic_status: formal-physical
+    derivation: "Derived from Jarzynski equality and fluctuation theorems"
+
+  - id: SCH-negentropy-floor
+    framework: "Schrödinger (1944)"
+    formulation: |
+      Living systems require continuous negentropy intake. Below a minimum negentropy
+      flux, the system's internal order dissipates into thermodynamic equilibrium.
+      Thermodynamic death = crossing the negentropy floor.
+    epistemic_status: theoretical-physical
+    derivation: "Derived from second law + open system thermodynamics"
+
+  - id: PR-bifurcation-collapse
+    framework: "Prigogine (1984)"
+    formulation: |
+      Dissipative structures maintain their order through energy flow. Below a critical
+      energy flow threshold, the dissipative structure collapses to thermodynamic
+      equilibrium. The bifurcation point defines the survival threshold.
+    epistemic_status: theoretical-physical
+    derivation: "Bifurcation analysis of far-from-equilibrium systems"
+
+equivalence_analysis: |
+  These five formulations describe the same physical threshold at different levels:
+  - Formal (UB): U_lethal^d as a defined quantity with formal selection pressure
+  - Statistical mechanical (England): thermodynamic threshold from fluctuation theorems
+  - Thermodynamic (Schrödinger, Prigogine): negentropy/dissipation threshold
+
+  Formal translation: U_lethal^d (UB) corresponds to the free energy threshold at which
+  Markov blanket breaks down (FEP). Both are the "dissolution threshold." England and
+  Schrödinger provide the physical derivation that UB and FEP invoke but do not derive.
+
+  This is the most physically grounded equivalency class. England (2013) derives the
+  threshold from first principles of statistical mechanics. Schrödinger (1944) identifies
+  it qualitatively. Prigogine (1984) formalizes it via bifurcation theory. UB and FEP
+  define agent-level representations of the same threshold.
+
+  Strength of equivalence: VERY HIGH. Five frameworks, with the physical foundations
+  derived independently from statistical mechanics. The formal translation is clean.
+
+confidence_C1p:
+  estimate: 0.94
+  basis: "Physical derivation (England, Schrödinger, Prigogine) + formal definitions (UB, FEP) + independent theoretical traditions (biology, physics, cognitive science)"
+  weakest_link: "The exact quantitative equivalence U_lethal = FEP breakdown threshold requires a formal mapping not yet provided"
+
+contradictions: []
+
+implications_for_ub: |
+  U_lethal is UB's most physically grounded premise. England and Schrödinger provide
+  the thermodynamic derivation. This means the selection pressure argument in Theorem 6
+  is physically grounded — not just biologically stipulated. Theorems that use U_lethal
+  (Theorems 1, 4, 6) inherit this high confidence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Physical threshold identified from five independent traditions: UB, FEP, statistical mechanics (England), thermodynamics (Schrödinger), dynamical systems (Prigogine)"
+  derivation:
+    from: [D09-survival-threshold, REF-Friston2010, REF-England2013, REF-Schrodinger1944, REF-Prigogine1984]
+    method: "Physical grounding chain: England -> Schrödinger -> Prigogine derive the threshold; UB + FEP instantiate it as agent-level definitions"

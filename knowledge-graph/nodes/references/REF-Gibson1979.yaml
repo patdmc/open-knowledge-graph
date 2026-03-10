@@ -1,0 +1,52 @@
+id: REF-Gibson1979
+type: reference
+name: "Gibson (1979) — The Ecological Approach to Visual Perception"
+statement: |
+  Introduces affordance theory: perception is directly of action-relevant structure in the
+  environment, not of raw sensory data that is then processed. Key propositions:
+
+  GI1 (affordances): The environment directly affords actions — the information perceived
+       is not neutral but is already structured by what it enables. Corresponds to F: the
+       informed action space already encodes what is possible, not just what is observed.
+  GI2 (direct perception): No internal reconstruction of W is required — the structure is
+       in the optic array. This is a competing hypothesis to the K/F graph structure:
+       Gibson would say K is unnecessary if affordances are perceived directly.
+  GI3 (ecological validity): Perception should be studied in the context of the natural
+       environment, not abstracted laboratory stimuli. Grounds the W as an active, dynamic
+       space rather than a fixed dataset.
+
+provenance:
+  attribution:
+    author: "James J. Gibson"
+    source: "Houghton Mifflin"
+    date: "1979"
+    bibtex_key: "Gibson1979"
+  evidence:
+    type: cited
+    description: |
+      GI1 (affordances) provides an alternative framing of the F/K relationship: F as
+      affordance space rather than explicitly computed informed actions. The K/F graph
+      structure can be read as a formalization of affordance-grounding: K makes explicit
+      what Gibson leaves implicit — the propositions that give F its action-relevance.
+      GI2 is in tension with the framework: the necessity proof (Theorem 2b Part 3)
+      asserts that factored representation IS necessary, which contradicts direct perception.
+      The tension resolves by scope: Gibson addresses perceptual coupling; this framework
+      addresses learning and knowledge accumulation over time under bounded context.
+    references: [D07-informed-action, D02-knowledge-graph]
+  derivation:
+    from: []
+    method: "External citation — ecological grounding for affordance-action relationship"
+
+edges:
+  - to: D07-informed-action
+    relation: philosophical_precursor
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: conceptual
+        description: "GI1 (affordances) is a qualitative predecessor of the grounded informed action. The K/F graph makes the grounding relation explicit and formal."
+      derivation:
+        method: "Conceptual mapping from ecological psychology to formal action grounding"

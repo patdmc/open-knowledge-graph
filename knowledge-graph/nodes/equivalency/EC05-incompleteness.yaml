@@ -1,0 +1,112 @@
+id: EC05-incompleteness
+type: equivalency-class
+name: "Epistemic Incompleteness: M < N = q(s) != p(s) = Truth as Long-Run Limit = Undefinability"
+underlying_proposition: |
+  Any cognitive system operating under bounded context can never fully represent the
+  world from which it emerged. The internal representation is always a proper subset
+  of the world's structure. This is not an approximation error to be corrected — it
+  is a structural consequence of operating under physical bounds. Completeness is
+  asymptotically approached, never reached.
+
+members:
+  - id: UB-MlessThanN
+    framework: "Uncertainty Bounding"
+    formulation: |
+      M < N always for A > 0 entities. M is the sensed dimension count; N is the
+      world's dimension count. Theorem 3 Part II derives that M < N is maintained
+      at every t from C_n and execution dynamics. N may be unbounded.
+    epistemic_status: formal-derived
+    derivation: "Theorem 3 Part II: derived from C_n + A > 0 + execution extends T_reachable"
+
+  - id: FEP-variational-gap
+    framework: "Friston (2010, 2017)"
+    formulation: |
+      The variational free energy F >= -log p(o) is positive precisely because
+      q(s) != p(s): the approximate posterior is always strictly less accurate
+      than the true posterior. The variational gap is always positive; it approaches
+      zero asymptotically but never reaches it.
+    epistemic_status: formal-theoretical
+    derivation: "From Jensen's inequality: KL[q||p] >= 0, equality only when q = p exactly"
+
+  - id: PC-truth-limit
+    framework: "Peirce (1878)"
+    formulation: |
+      Truth is the limit of inquiry — the proposition agreed upon by a community
+      of inquirers given unlimited time. Any finite inquiry is incomplete. Truth
+      is asymptotically approached, not attained at any finite step.
+    epistemic_status: philosophical
+    derivation: "Pragmatist epistemology: truth as convergent series, not fixed point"
+
+  - id: TA-undefinability
+    framework: "Tarski (1936)"
+    formulation: |
+      Truth cannot be defined within the language it applies to — it requires a
+      metalanguage. A system cannot fully represent its own truth conditions from
+      within. Any self-referential truth assertion is bounded by this limit.
+    epistemic_status: formal-mathematical
+    derivation: "Tarski undefinability theorem: formal proof by diagonal argument"
+
+  - id: GD-incompleteness
+    framework: "Gödel (1931) [implicit via Tarski]"
+    formulation: |
+      Any sufficiently powerful formal system contains true statements it cannot
+      prove. There is always a true statement outside the system's reach.
+      M < N is the cognitive analog: always dimensions of W outside current K.
+    epistemic_status: formal-mathematical
+    derivation: "Gödel incompleteness theorems"
+    note: "Not in references.bib — should be added as a reference node"
+
+equivalence_analysis: |
+  These formulations all express the same structural constraint: the system can never
+  fully represent the world from within. The formal translations:
+
+  - M < N (UB): sensed dimensions < world dimensions (cardinality bound)
+  - q(s) != p(s) (FEP): approximate posterior != true posterior (statistical gap)
+  - Truth as limit (Peirce): inquiry converges but never terminates (epistemic limit)
+  - Undefinability (Tarski): representation bounded by metalanguage requirement (logical limit)
+  - Incompleteness (Gödel): formal system bounded by undecidable true statements (mathematical limit)
+
+  These are formally the same constraint expressed at different levels:
+  - Cardinality: M < N
+  - Statistical: KL[q||p] > 0
+  - Epistemic: finite inquiry
+  - Logical: self-reference limit
+  - Mathematical: incompleteness
+
+  CRITICAL TENSION with FEP equilibrium (FEP6): FEP claims free energy approaches
+  its minimum (q approaches p). This is only consistent with EC05 if the approach is
+  asymptotic and the minimum is never reached — which is exactly EM02's qualification.
+  FEP6 (equilibrium claim) is in tension with EC05 (incompleteness) unless the
+  equilibrium is strictly asymptotic and the minimum is never attained.
+
+  Strength of equivalence: VERY HIGH across UB/FEP/Tarski/Gödel. The logical and
+  mathematical foundations (Tarski, Gödel) provide the deepest grounding.
+
+confidence_C1p:
+  estimate: 0.97
+  basis: "Formal mathematical proofs (Gödel, Tarski) + formal theoretical (FEP Jensen inequality) + formal derivation (UB Theorem 3 Part II) + philosophical (Peirce)"
+  weakest_link: "The exact cardinality claim M < N (vs. qualitative incompleteness) is specific to UB — the others state incompleteness qualitatively; UB gives it a specific measure"
+
+contradictions:
+  - source: "Friston (2017) FEP6"
+    claim: "Free energy approaches its minimum — generative model approximates true posterior in the long run"
+    resolution: "EM02: FEP6 holds under stationarity. EC05 says the minimum is never exactly reached (KL >= 0, equality requires q = p exactly). In an open non-stationary world, FEP6's equilibrium is an idealization; EC05 is the reality. The tension is resolved by making the stationarity assumption explicit."
+
+implications_for_ub: |
+  The M < N bound is one of UB's most strongly supported claims — it has formal proofs
+  in three independent frameworks (UB Theorem 3 Part II, FEP Jensen inequality, Tarski
+  undefinability, Gödel incompleteness). The UB contribution is making the bound
+  precise at the cardinality level (M and N as dimension counts) and deriving the
+  measure of approach (I(E) = A * eta_M measures M/N convergence rate).
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Five frameworks from three independent traditions (cognitive science, mathematics, philosophy) all derive incompleteness. The formal convergence across traditions is strong evidence for C_1(p) = 0.97."
+  derivation:
+    from: [NV02-mn-bound, REF-Friston2017, REF-Tarski1936, REF-Peirce1878]
+    method: "Equivalency across levels: cardinality (UB) = statistical gap (FEP) = epistemic limit (Peirce) = logical limit (Tarski)"

@@ -1,0 +1,103 @@
+id: REF-Schmidhuber2010
+type: reference
+name: "Schmidhuber (2010) — Formal Theory of Creativity, Fun, and Intrinsic Motivation"
+statement: |
+  A formal theory of creativity and intrinsic motivation: a learning agent consists of a
+  world model (compressor C) and a controller (P). Intrinsic reward = the first derivative
+  of compression progress — the rate at which C improves its compression of the agent's
+  history. The agent is motivated to seek novel situations that improve C. Key propositions:
+
+  S1 (compression-progress drive): The agent's intrinsic reward is d/dt[compression(C)].
+     This is the formal definition of curiosity, fun, and creativity.
+  S2 (beauty as compressibility): Beauty is perceived compressibility — patterns the agent
+     can learn to predict. Ugly = incompressible. Art = compressible in a novel way.
+  S3 (world model improvement): Intelligence is measured by the agent's ability to improve
+     its world model across diverse environments.
+  S4 (implicit A = 1): The agent always responds to compression progress signals — there
+     is no parameterization of engagement probability. The controller P always uses C.
+  S5 (algorithmic grounding): Compression progress is grounded in Kolmogorov complexity /
+     algorithmic information theory — the shortest program that describes the data.
+  S6 (no M < N bound): The framework does not derive a formal bound on sensed dimensions
+     relative to world dimensions. Non-termination of learning is assumed, not derived.
+  S7 (no graph necessity): The framework does not prove that structured (graph-shaped)
+     world models are necessary. Compression can take any form.
+  S8 (no A = 0 case): The framework has no formal treatment of agents that fail to engage.
+     Persistence is assumed; the non-persistence case is not analyzed.
+
+provenance:
+  attribution:
+    author: "Jürgen Schmidhuber"
+    source: "IEEE Transactions on Autonomous Mental Development"
+    date: "2010"
+    doi: "10.1109/TAMD.2010.2051167"
+    bibtex_key: "Schmidhuber2010"
+  evidence:
+    type: cited
+    description: |
+      Cited in Definition 6 (agency as desire to know) and Definition 7 (intelligence).
+      The compression-progress drive (S1) overlaps with eta_M as the rate-of-improvement
+      measure. The implicit A = 1 assumption (S4) is generalized by Definition 6's A in
+      [0,1]. The absence of M < N (S6), graph necessity (S7), and A = 0 analysis (S8)
+      are the gaps this framework addresses.
+    references: [D06-agency, D11-higher-order-function-space, NV03-agency-as-gate]
+  derivation:
+    from: []
+    method: "External citation — not derived from this framework"
+
+edges:
+  - to: D06-agency
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          S1 (compression progress as intrinsic reward) overlaps with A * eta_M:
+          both measure the rate at which an entity's model improves. The key difference:
+          Schmidhuber grounds this as a design objective (maximize d/dt compression);
+          this framework derives it as a necessary invariant of persistence under selection
+          pressure (Theorem 6). Schmidhuber asserts A = 1; this framework parameterizes it.
+      derivation:
+        method: "Overlap identified by intersection of proposition sets. See OV02-improvement-rate."
+
+  - to: OV02-improvement-rate-measure
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: "S1 is one of two independent groundings for OV02."
+      derivation:
+        method: "Intersection of REF-Schmidhuber2010 and D11-higher-order-function-space"
+
+  - to: NV03-agency-as-gate
+    relation: generalized_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: "S4 (implicit A = 1) is the special case; NV03 identifies the generalization."
+      derivation:
+        method: "Gap analysis: Schmidhuber has no A in (0,1) case; this framework does"
+
+  - to: EM01-schmidhuber-special-case
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "EM01 emerges from comparing S4 against Definition 6."
+      derivation:
+        method: "Intersection of Schmidhuber propositions with UB definitions"

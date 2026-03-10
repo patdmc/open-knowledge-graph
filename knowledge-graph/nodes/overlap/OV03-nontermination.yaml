@@ -1,0 +1,67 @@
+id: OV03-nontermination
+type: overlap
+name: "Non-Termination of Learning for Persistent Entities"
+statement: |
+  For any entity with genuine engagement in an open environment, learning does not
+  terminate — there is always more to learn. This proposition is independently grounded
+  in two frameworks at different levels of formality:
+
+  - Uncertainty Bounding (this framework): M < N always for A > 0 entities
+    (Theorem 3 Part II). The world W has N dimensions; any entity senses M < N.
+    Because N is unbounded and execution always extends T_reachable, the frontier
+    of unsensed dimensions never closes. Grounded formally: Theorem 3 Part II.
+  - Free Energy Principle (Friston 2017): FEP's equilibrium (FEP6) approaches but
+    never reaches zero surprise in an open, non-stationary environment. The generative
+    model can always be improved. Grounded: FEP6 (long-run equilibrium is asymptotic
+    in non-stationary conditions).
+
+  Difference: FEP grounds non-termination informally (non-stationary environment is
+  an assumption, not a derivation). UB grounds it formally: M < N is derived from
+  C_n and the execution dynamics, independent of any assumption about stationarity.
+  M < N holds even in a stationary environment — the bound is structural, not empirical.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: |
+      Both frameworks independently arrive at non-termination of learning. UB's derivation
+      is stronger: M < N is formal (Theorem 3 Part II) rather than contingent on
+      environment stationarity. FEP6 is empirically motivated; Theorem 3 Part II is
+      mathematically derived from the bounded context structure.
+    references: [T03-agency-produces-gradient-descent, REF-Friston2017]
+  derivation:
+    from: [T03-agency-produces-gradient-descent, REF-Friston2017]
+    method: "Intersection of Theorem 3 Part II (UB) and FEP6 (Friston 2017)"
+
+edges:
+  - to: NV02-mn-bound
+    relation: precedes
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "OV03 (non-termination observed by both frameworks) is grounded by NV02 (M < N formally derived). The novel contribution is the formal derivation."
+      derivation:
+        method: "OV03 is the shared observation; NV02 is what UB adds that FEP does not"
+
+  - to: EM02-fep-mn-qualification
+    relation: enables
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: |
+          Holding OV03 and NV02 simultaneously reveals EM02: FEP's equilibrium claim (FEP6)
+          is in tension with M < N. The tension is only visible by intersection.
+      derivation:
+        method: "OV03 + NV02 -> EM02 (intersection produces emergent proposition)"

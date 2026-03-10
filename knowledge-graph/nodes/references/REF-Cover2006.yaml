@@ -1,0 +1,51 @@
+id: REF-Cover2006
+type: reference
+name: "Cover and Thomas (2006) — Elements of Information Theory"
+statement: |
+  Comprehensive treatment of information theory. Key results used in this framework:
+
+  CT1 (data processing inequality): Processing cannot create information: I(X;Z) <= I(X;Y)
+       for any Markov chain X -> Y -> Z. Grounds Theorem 2b Part 3: no processing step
+       can recover information lost by discarding without structure.
+  CT2 (chain rule for entropy): H(X_1,...,X_n) = sum H(X_i | X_1,...,X_{i-1}).
+       Grounds the factorization claim: shared structure can be extracted without loss.
+  CT3 (sufficient statistics): A statistic T(X) is sufficient for theta iff I(X;theta) =
+       I(T(X);theta). Grounds K as a sufficient statistic of F for W: K is sufficient
+       iff the grounded actions contain all the information about W that any action could use.
+  CT4 (Kolmogorov complexity bound): The expected description length is lower-bounded by
+       entropy. The compactness requirement of K is grounded: a compact K is closer to the
+       entropy bound.
+
+provenance:
+  attribution:
+    author: "Thomas M. Cover and Joy A. Thomas"
+    source: "Wiley-Interscience"
+    date: "2006"
+    bibtex_key: "Cover2006"
+  evidence:
+    type: foundational
+    description: |
+      CT1 (data processing inequality) provides the information-theoretic grounding for
+      the necessity proof of Theorem 2b Part 3: discarding without structure violates
+      CT1 when new information arrives — the discarded information cannot be recovered.
+      CT2 grounds the factorization claim: shared structure can be extracted by chain rule.
+      CT3 grounds K as a sufficient statistic — the knowledge graph is the minimal
+      sufficient statistic of the world for the action space.
+    references: [T02-graph-structure-necessity, D02-knowledge-graph, D05-information-gain]
+  derivation:
+    from: []
+    method: "Foundational reference — information-theoretic grounding for K/F structure"
+
+edges:
+  - to: T02-graph-structure-necessity
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: formal
+        description: "CT1 (data processing inequality) is the information-theoretic grounding for Theorem 2b Part 3: discarding without structure loses information that cannot be recovered."
+      derivation:
+        method: "Theorem 2b Part 3 proof uses the two-option argument; CT1 grounds the 'no recovery after discard' claim"

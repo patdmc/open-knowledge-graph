@@ -1,0 +1,63 @@
+id: EM02-fep-mn-qualification
+type: emergent
+name: "FEP's Equilibrium Claim Requires the M < N Qualification"
+statement: |
+  The Free Energy Principle's long-run equilibrium claim (FEP6: free energy approaches
+  its minimum asymptotically) is in tension with the M < N bound (NV02: M < N always
+  for A > 0 entities). This tension is not visible within either framework individually
+  — it emerges from their intersection.
+
+  The tension:
+  - FEP6 states: in the long run, the agent's generative model closely approximates the
+    generative process. Free energy approaches its minimum — the model approaches W.
+  - NV02 (Theorem 3 Part II) states: M < N always for A > 0 entities. The sensed
+    dimension count never reaches N. The model never fully approximates W.
+  These appear to contradict. The resolution:
+  - FEP6 is not wrong — it holds for fixed, stationary generative processes. If W has
+    a fixed finite structure, free energy can approach its minimum.
+  - NV02 is structural: C_n and execution dynamics ensure M < N as long as the world W
+    continues to extend T_reachable. In a non-stationary world (the biologically and
+    cognitively relevant case), NV02 holds.
+  - The resolution is that FEP6 requires a stationarity assumption that NV02 makes
+    explicit: FEP's equilibrium is a fixed-world idealization; the M < N bound is the
+    open-world reality.
+
+  This is a genuine clarification: not a refutation of FEP, but a qualification that
+  makes the scope of FEP's equilibrium claim precise. The paper should say: "Friston's
+  [2010/2017] FEP equilibrium holds for stationary generative processes. The M < N bound
+  (Theorem 3 Part II) shows that in open environments, the equilibrium is never reached
+  for A > 0 entities — not because FEP is wrong, but because the open-world assumption
+  prevents the stationarity FEP6 requires."
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      The tension between FEP6 and Theorem 3 Part II is not visible within either
+      framework alone. FEP does not engage with the M < N bound; UB does not directly
+      address FEP equilibrium. The intersection makes the qualification necessary.
+    references: [NV02-mn-bound, REF-Friston2017, OV03-nontermination]
+  derivation:
+    from: [NV02-mn-bound, REF-Friston2017]
+    method: |
+      FEP6 (equilibrium approached) + NV02 (M < N structural bound) -> tension.
+      Resolution: FEP6 requires stationarity; NV02 holds in non-stationary W.
+      The intersection makes the stationarity assumption explicit in FEP6.
+
+edges:
+  - to: REF-Friston2017
+    relation: qualifies
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "EM02 qualifies FEP6: the equilibrium holds under stationarity, which NV02 shows is not the general case."
+      derivation:
+        method: "Intersection of FEP6 and NV02 -> stationarity qualification for FEP6"

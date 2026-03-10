@@ -1,0 +1,58 @@
+id: REF-MaynardSmith1995
+type: reference
+name: "Maynard Smith and Szathmáry (1995) — The Major Transitions in Evolution"
+statement: |
+  Analyzes the major transitions in evolution as changes in the way information is stored,
+  transmitted, and expressed. Key propositions:
+
+  MS1 (information transitions): Each major transition involves a change in how hereditary
+       information is encoded — from RNA to DNA, from genes to chromosomes, from unicell
+       to multicell. K grows through transitions, not just incremental accumulation.
+  MS2 (cooperation as transition): The transition from selfish replicators to cooperating
+       units (cells, multicellular organisms, eusocial colonies) is an information integration
+       event. Corresponds to Corollary 8a: the intersection of K_i entities into K_collective
+       is a major transition — individual K's become a shared, collective knowledge structure.
+  MS3 (division of cognitive labor): Multicellular organisms divide information-processing
+       across specialized cells. Corresponds to the encoding hierarchy: lower levels (L0)
+       handle specialized certain processing; the organism-level integrates.
+  MS4 (unit of selection shifts): At each transition, the unit of selection shifts from
+       the lower level to the higher level. Corresponds to the M -> N acceleration argument:
+       at the collective level, K_collective is the entity under selection pressure, not K_i.
+
+provenance:
+  attribution:
+    author: "John Maynard Smith and Eörs Szathmáry"
+    source: "Oxford University Press"
+    date: "1995"
+    bibtex_key: "MaynardSmith1995"
+  evidence:
+    type: cited
+    description: |
+      MS2 grounds the collective knowledge claim (Corollary 8a): the intersection of
+      independent K_i projections is a major transition — the same structure that drove
+      evolution from individual replicators to cooperating units. The K_collective
+      framework formalizes what Maynard Smith identified qualitatively.
+      MS4 grounds the claim that K_collective is the relevant unit for long-run analysis.
+    references: [D12-collective-knowledge, T10-collective-gradient-dominance]
+  derivation:
+    from: []
+    method: "External citation — evolutionary grounding for collective knowledge transitions"
+
+edges:
+  - to: D12-collective-knowledge
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          MS2 (cooperation as information integration transition) overlaps with D12-collective-
+          knowledge / Corollary 8a. Both independently ground the claim that knowledge
+          integration across independent entities produces qualitative transitions in
+          collective epistemic capacity. Maynard Smith grounds this in evolutionary biology;
+          UB grounds it in the information-theoretic intersection argument.
+      derivation:
+        method: "Intersection of MS2 and Corollary 8a intersection efficiency"

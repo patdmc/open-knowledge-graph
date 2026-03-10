@@ -1,0 +1,65 @@
+id: OV01-bounded-world-model
+type: overlap
+name: "Bounded Internal World Representation"
+statement: |
+  Any persisting cognitive agent operates under a bounded internal representation of W.
+  The representation cannot be W itself — it is always a compressed, partial projection.
+  This is independently grounded in three frameworks:
+
+  - Uncertainty Bounding (this framework): C_n is the bounded context window at each
+    inference step. The entity can only process M < N dimensions of W at any moment.
+    Grounded formally: Definition 8 (C_n), Theorem 3 Part II (M < N).
+  - Free Energy Principle (Friston 2010/2017): The agent operates under an approximate
+    posterior q(s) that is strictly bounded by its generative model's complexity.
+    Minimizing variational free energy = improving but never completing the approximation.
+    Grounded: FEP1 (approximate posterior), FEP5 (Markov blanket defines the bound).
+  - Global Workspace Theory (Baars 1988, Dehaene 2011): The global workspace has
+    strictly limited capacity. Only a small amount of information is globally broadcast
+    at once. Grounded: GWT2 (limited workspace capacity), NGW2 (threshold ignition).
+
+  This is a confirmed precipitation site: three independent frameworks ground the same
+  proposition. The C_1(p) for this claim across the combined literature is high.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: |
+      Identified by intersecting the proposition sets of UB, FEP, and GWT. All three
+      independently arrive at bounded internal representation without citing each other
+      for this specific claim. The UB grounding is the most formal (C_n is a defined
+      quantity with a derived bound); FEP and GWT ground it empirically and theoretically.
+    references: [D08-encoding-hierarchy, REF-Friston2010, REF-Baars1988, REF-Dehaene2011]
+  derivation:
+    from: [D08-encoding-hierarchy, REF-Friston2010, REF-Friston2017, REF-Baars1988, REF-Dehaene2011]
+    method: "Intersection of independently-derived propositions from three frameworks"
+
+edges:
+  - to: D08-encoding-hierarchy
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "C_n (Definition 8) is the UB instantiation of OV01. The encoding hierarchy is the consequence of operating under bounded C_n."
+      derivation:
+        method: "OV01 -> C_n -> encoding hierarchy"
+
+  - to: NV02-mn-bound
+    relation: precedes
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "OV01 (bounded representation exists) is a necessary precondition for NV02 (M < N formally derived). The novel contribution is the derivation, not the observation."
+      derivation:
+        method: "OV01 is the shared premise; NV02 is what UB adds that others do not"

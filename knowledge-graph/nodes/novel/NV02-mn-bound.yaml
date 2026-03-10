@@ -1,0 +1,69 @@
+id: NV02-mn-bound
+type: novel
+name: "M < N: Formal Derivation of the Sensing Bound"
+statement: |
+  For any entity with A > 0, the number of dimensions M it currently senses is strictly
+  less than the number of dimensions N of the world W. This is not an assumption or an
+  empirical observation — it is derived from the structure of bounded context (C_n) and
+  the execution dynamics of grounding new propositions.
+
+  The derivation: at any moment t, M is the number of propositions currently in K. C_n
+  bounds M from above at each step (only M propositions fit in context). Execution extends
+  T_reachable, grounding new propositions. But for any A > 0 entity, there always exist
+  reachable world states w not covered by current K (Theorem 3 Part II). Therefore M < N
+  is maintained at every t — the frontier never closes.
+
+  Corollary: the rate of M approaching N is the quantity intelligence measures. I(E) =
+  A * eta_M measures not absolute knowledge but the rate at which the sensing bound M/N
+  improves.
+
+  No other framework derives this bound formally:
+  - Schmidhuber (2010): S6 — non-termination is assumed; M < N is not derived.
+  - Friston (2010/2017): FEP6 — approximation improves but the formal bound on how
+    far it is from complete is not derived from the structure of the framework.
+  - Peirce (1878): PC6 — "truth as long-run convergence" is the qualitative predecessor,
+    but the formal bound (M/N at any t) is not stated.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+    date: "2025"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Theorem 3 Part II derives M < N for all t given A > 0 and C_n bounded context.
+      Gap analysis: Schmidhuber S6, Friston FEP6, Peirce PC6 all ground non-termination
+      informally. The formal bound is novel to this framework.
+    references: [T03-agency-produces-gradient-descent, REF-Schmidhuber2010, REF-Friston2017, REF-Peirce1878]
+  derivation:
+    from: [D08-encoding-hierarchy, D06-agency, T03-agency-produces-gradient-descent]
+    method: "Theorem 3 Part II: bounded C_n + execution extends T_reachable + A > 0 -> M < N always"
+
+edges:
+  - to: EM02-fep-mn-qualification
+    relation: enables
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: emergent
+        description: "NV02 (M < N formal) + FEP6 (equilibrium) -> EM02 (tension between FEP equilibrium and M < N bound)"
+      derivation:
+        method: "NV02 + FEP6 -> EM02"
+
+  - to: NV04-intersection-acceleration
+    relation: precedes
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: formal-derivation
+        description: "M < N (NV02) is the necessary precondition for intersection acceleration (NV04): the benefit of intersection is measured by how much faster M approaches N."
+      derivation:
+        method: "NV02 defines the quantity NV04 accelerates"

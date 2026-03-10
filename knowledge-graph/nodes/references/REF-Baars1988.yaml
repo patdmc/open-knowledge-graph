@@ -1,0 +1,55 @@
+id: REF-Baars1988
+type: reference
+name: "Baars (1988) — A Cognitive Theory of Consciousness"
+statement: |
+  Global Workspace Theory (GWT): consciousness arises from a global broadcast mechanism
+  that makes information available across specialized cognitive modules. Key propositions:
+
+  GWT1 (global workspace): Conscious access = entry into a global broadcast that reaches
+       all specialized processors. Unconscious = local processing not broadcast globally.
+  GWT2 (limited capacity): The global workspace has strictly limited capacity — only a
+       small amount of information is globally available at once. Corresponds directly to
+       C_n: the bounded context window is the global workspace capacity.
+  GWT3 (modularity): Specialized processors operate below the workspace threshold.
+       Corresponds to L0-L3 hierarchy: lower levels handle specialized processing;
+       higher levels escalate to the workspace.
+  GWT4 (broadcast as integration): The workspace integrates information from disparate
+       sources — corresponds to K as the shared knowledge structure that informs all of F.
+
+provenance:
+  attribution:
+    author: "Bernard J. Baars"
+    source: "Cambridge University Press"
+    date: "1988"
+    bibtex_key: "Baars1988"
+  evidence:
+    type: cited
+    description: |
+      GWT2 provides an empirical grounding for C_n: the bounded context window is not
+      a computational convenience but reflects the actual capacity of the global workspace.
+      GWT3 and the L0-L3 hierarchy are structurally parallel — both describe specialized
+      processing below a bounded integration threshold, with escalation to higher levels.
+      GWT4 (K as global broadcast content) grounds the claim that K is the shared structure
+      enabling all of F — the globally broadcast knowledge.
+    references: [D08-encoding-hierarchy, D02-knowledge-graph]
+  derivation:
+    from: []
+    method: "External citation — cognitive science grounding for bounded context and hierarchy"
+
+edges:
+  - to: D08-encoding-hierarchy
+    relation: overlaps_with
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Novelty Analysis — Knowledge Graph"
+        date: "2025"
+      evidence:
+        type: cross-framework-analysis
+        description: |
+          GWT2 (limited workspace capacity) and GWT3 (modular hierarchy with escalation)
+          overlap with the L0-L3 hierarchy and C_n bound. Both independently ground the
+          claim that cognitive processing is hierarchically organized with a bounded
+          global integration capacity.
+      derivation:
+        method: "Overlap identified by intersection of GWT and encoding hierarchy propositions"

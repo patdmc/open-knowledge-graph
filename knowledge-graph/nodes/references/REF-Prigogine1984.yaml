@@ -1,0 +1,50 @@
+id: REF-Prigogine1984
+type: reference
+name: "Prigogine and Stengers (1984) — Order Out of Chaos"
+statement: |
+  Dissipative structures: far-from-equilibrium systems that maintain order by dissipating
+  energy, spontaneously self-organizing into complex structures. Key propositions:
+
+  PR1 (dissipative structures): Systems far from thermodynamic equilibrium spontaneously
+       organize into ordered structures sustained by energy flow. Life is a dissipative
+       structure — it maintains order through metabolism.
+  PR2 (bifurcation): At critical points (bifurcations), dissipative systems can branch
+       into qualitatively different stable states. Corresponds to the threshold dynamics
+       at C_n: at the boundary, factoring creates a bifurcation between information
+       preservation and information loss.
+  PR3 (irreversibility): Far-from-equilibrium processes are irreversible — time has a
+       direction. Corresponds to the encoding permanence theorem: once a proposition is
+       grounded, the information it represents is permanently accessible (irreversible gain).
+
+provenance:
+  attribution:
+    author: "Ilya Prigogine and Isabelle Stengers"
+    source: "Bantam Books"
+    date: "1984"
+    bibtex_key: "Prigogine1984"
+  evidence:
+    type: cited
+    description: |
+      PR1 provides the thermodynamic framing for survival as dissipative structure maintenance.
+      PR2 maps to the bifurcation at C_n (Theorem 2b Part 3): two options, one leads to
+      information preservation (factoring = graph construction), one to information loss.
+      PR3 grounds encoding permanence: the irreversibility of thermodynamic processes
+      corresponds to the irreversibility of information gain in K.
+    references: [D09-survival-threshold, T02-graph-structure-necessity, REF-England2013]
+  derivation:
+    from: []
+    method: "External citation — thermodynamic grounding for dissipative structure and bifurcation"
+
+edges:
+  - to: T02-graph-structure-necessity
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: physical
+        description: "PR2 (bifurcation at critical points) maps to the two-option structure of Theorem 2b Part 3: at C_n, the system bifurcates between information-preserving (factoring) and information-losing paths."
+      derivation:
+        method: "Physical grounding of bifurcation at C_n boundary"

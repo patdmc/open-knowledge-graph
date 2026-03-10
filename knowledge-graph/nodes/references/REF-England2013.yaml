@@ -1,0 +1,49 @@
+id: REF-England2013
+type: reference
+name: "England (2013) — Statistical Physics of Self-Replication"
+statement: |
+  Derives thermodynamic conditions under which self-replicating structures are favored.
+  Key propositions:
+
+  EN1 (dissipation as self-replication driver): Systems that dissipate energy efficiently
+       are thermodynamically favored to self-replicate. Self-replication is not biologically
+       special — it emerges from statistical mechanics.
+  EN2 (survival as energy dissipation): Biological survival is a special case of
+       dissipative self-organization. The survival threshold U_lethal maps to the
+       thermodynamic threshold below which self-replication cannot proceed.
+  EN3 (physical grounding of selection): Darwinian selection is the macroscopic expression
+       of thermodynamic favorability for dissipative structures.
+
+provenance:
+  attribution:
+    author: "Jeremy L. England"
+    source: "Journal of Chemical Physics"
+    date: "2013"
+    doi: "10.1063/1.4818538"
+    bibtex_key: "England2013"
+  evidence:
+    type: cited
+    description: |
+      Grounds the physical basis of the survival threshold U_lethal. EN2 establishes that
+      the survival condition is not an assumption introduced for convenience — it has a
+      thermodynamic derivation. This strengthens Theorem 6 (necessity of A > 0 and eta_M > 0
+      for persistence): the selection pressure that removes non-persisting entities is
+      thermodynamically grounded, not just stipulated.
+    references: [D09-survival-threshold, T06-epistemic-ceiling]
+  derivation:
+    from: []
+    method: "External citation — physical grounding for survival and selection claims"
+
+edges:
+  - to: D09-survival-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory"
+        date: "2025"
+      evidence:
+        type: empirical
+        description: "EN2 establishes that U_lethal corresponds to a thermodynamic threshold — grounding the survival condition in statistical mechanics rather than biological stipulation."
+      derivation:
+        method: "Physical grounding of Definition 9 (survival threshold)"
