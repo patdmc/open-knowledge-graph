@@ -509,10 +509,12 @@ An informed action $f \in F$ is handled at the lowest encoding level $L_i$ such 
 for the domain of $w$ relevant to $f$, where $K^{[f]} \subseteq K$ is the knowledge subset applicable to $f$.
 Escalation to $L_{i+1}$ occurs if and only if $L_i$ fails to bound uncertainty.
 
-*Proof.* By Theorem 4, the cost of engaging level $L_i$ exceeds the cost of engaging $L_{i-1}$.
+*Proof.* By Definition 8, the cost of engaging level $L_i$ exceeds the cost of engaging
+$L_{i-1}$: the encoding hierarchy is parameterized by increasing runtime cost $c$, so
+$C_{i+1} > C_i$ for all $i$.
 Selection pressure therefore favors handling $f$ at the lowest level sufficient to bound
-uncertainty: engaging $L_{i+1}$ when $L_i$ suffices incurs unnecessary cost $C_{i+1} > C_i$
-without reducing $U$ further. An entity that routinely over-escalates incurs higher encoding
+uncertainty: engaging $L_{i+1}$ when $L_i$ suffices incurs unnecessary cost without reducing
+$U$ further. An entity that routinely over-escalates incurs higher encoding
 costs without survival benefit and is selected against. Conversely, if $L_i$ fails to bound
 $U(w, K^{[f]})$ — that is, $U(w, K^{[f]}) > 0$ beyond acceptable residual — then $f$ is
 not handled at $L_i$: the failure propagates upward until some $L_j$ ($j > i$) contains the
