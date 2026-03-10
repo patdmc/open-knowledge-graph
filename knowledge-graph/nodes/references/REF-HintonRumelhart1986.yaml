@@ -1,0 +1,42 @@
+id: REF-HintonRumelhart1986
+type: reference
+name: "Rumelhart, Hinton, and Williams (1986) — Learning Representations by Back-Propagating Errors"
+citation: "Rumelhart, D.E., Hinton, G.E., and Williams, R.J. (1986). Learning representations by back-propagating errors. Nature, 323, 533–536."
+doi: "10.1038/323533a0"
+citations_approx: 40000
+fidelity: low
+
+propositions:
+  BP1:
+    statement: "Backpropagation: the gradient of the loss function with respect to all weights in a multi-layer network can be computed efficiently by propagating error signals backward through the network using the chain rule. This makes gradient descent tractable for deep networks."
+    maps_to: [EC02-improvement-rate, EC10-uncertainty-driver]
+    note: |
+      Backprop is the computational implementation of eta_M under gradient descent.
+      The loss gradient IS the U(w,K) gradient — the signal that drives K toward W.
+      EC10 (U(w,K)>0 drives the entity) is the statement that backprop operates on:
+      the entity descends the loss landscape (U) toward the minimum (M→N).
+
+  BP2:
+    statement: "Distributed representations: each concept is represented by a pattern of activation across many units, not a single unit. This allows generalization — similar inputs produce similar representations."
+    maps_to: [EC08-compression-factoring, NV01-graph-necessity]
+    note: |
+      Distributed representations = the factored K that NV01 proves necessary. Each
+      weight in the network encodes shared structure across many concepts — the network
+      is a compressed (factored) representation of the training distribution. The
+      hidden layer IS the graph structure: nodes represent distributed features (shared
+      sub-concepts); edges (weights) encode the relational structure.
+
+  BP3:
+    statement: "Hidden layer representations: the intermediate layers of the network learn to represent the training data in a form that makes classification easier — they discover structure in the data that the input layer does not make explicit."
+    maps_to: [EC09-encoding-levels, EC08-compression-factoring]
+    note: |
+      Hidden layers = encoding levels L1-L2. The first hidden layer extracts L1
+      features (edges, textures); deeper layers extract L2/L3 features (objects,
+      scenes). This is the encoding hierarchy UB derives from the C_n constraint:
+      higher levels encode more abstract (compressed) representations.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC02-improvement-rate, EC10-uncertainty-driver, EC09-encoding-levels]

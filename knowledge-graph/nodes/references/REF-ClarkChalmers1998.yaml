@@ -1,0 +1,51 @@
+id: REF-ClarkChalmers1998
+type: reference
+name: "Clark and Chalmers (1998) — The Extended Mind"
+citation: "Clark, A. and Chalmers, D. (1998). The extended mind. Analysis, 58(1), 7–19."
+doi: "10.1093/analys/58.1.7"
+citations_approx: 7000
+fidelity: low
+
+propositions:
+  CC1:
+    statement: "Extended mind thesis: mental states and cognitive processes can extend beyond the brain and body into the environment. When an external resource reliably functions as part of the cognitive process, it is part of the mind."
+    maps_to: [EC07-collective-knowledge, D15-collective-knowledge, EM10-Kcollective-unit-of-selection]
+    note: |
+      The extended mind = K_collective. An external resource (notebook, tool, other
+      person) that reliably participates in cognitive processing is part of the entity's
+      effective K. Definition 15 (K_collective) is the formalization of the extended
+      mind: K_collective is what the entity can reliably access, not just what is
+      internal. The Parity Principle (CC2) is the formal criterion.
+    potential_em: |
+      CC1 + D15 + EM10: the extended mind thesis and K_collective are the same claim
+      at different levels of formalism. But EM10 adds what CC1 lacks: K_collective
+      becomes a unit of selection with its own survival threshold. The extended mind
+      thesis has no selection pressure; EM10 provides it. Together they predict:
+      external cognitive scaffolding that is reliably integrated into K_i is subject
+      to the same survival pressure as K_i — organizations that lose their tools/records
+      fail as units even if individual members persist.
+
+  CC2:
+    statement: "Parity Principle: if a part of the world functions in a process in a way that, if it were done in the head, we would count it as part of the cognitive process, then that part of the world is part of the cognitive process."
+    maps_to: [EC06-belief-as-action, EC07-collective-knowledge]
+    note: |
+      The Parity Principle = the UB K/F coupling criterion applied externally.
+      A resource is part of K if it functions as part of F-grounding — if it is
+      reliably used to make actions. This is EC06: K grounds F. Whether the resource
+      is internal or external is irrelevant to its epistemic role.
+
+  CC3:
+    statement: "Active externalism: the environment actively shapes and constitutes cognition — it is not just a passive backdrop. The organism-environment system is the unit of cognitive analysis."
+    maps_to: [EC07-collective-knowledge, D12-collective-knowledge]
+    note: |
+      Active externalism = K_collective as the cognitive unit. The boundary of the
+      cognitive system is not the skull but the extent of reliable K/F coupling.
+      This provides philosophical grounding for treating K_collective as the primary
+      unit of analysis — the argument UB makes on information-theoretic grounds
+      (K_collective has higher M/N coverage per unit of energy, EM09).
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection, D15-collective-knowledge]

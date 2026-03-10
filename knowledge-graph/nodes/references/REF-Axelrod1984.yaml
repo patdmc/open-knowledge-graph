@@ -1,0 +1,52 @@
+id: REF-Axelrod1984
+type: reference
+name: "Axelrod (1984) — The Evolution of Cooperation"
+citation: "Axelrod, R. (1984). The Evolution of Cooperation. Basic Books."
+citations_approx: 14000
+fidelity: low
+
+propositions:
+  AX1:
+    statement: "Tit-for-tat: in iterated prisoner's dilemma tournaments, the simplest strategy (cooperate on first move; then do whatever the opponent did last) outperforms all other strategies. Cooperation emerges without central coordination."
+    maps_to: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection]
+    note: |
+      Tit-for-tat is the minimal provenance-tracking cooperation protocol: it stores
+      exactly one bit of history (what did the opponent do last) and acts on it.
+      This is K_collective maintenance at minimum provenance depth. EM10 (K_collective
+      as unit of selection) is what tit-for-tat instantiates: the collective (the
+      mutually cooperating cluster) survives better than defectors, but only if
+      provenance is tracked (who defected last).
+
+  AX2:
+    statement: "Conditions for cooperation to emerge: (1) indefinitely repeated interactions — shadow of the future; (2) recognition — ability to identify the same partner again; (3) reciprocity — ability to base current action on past interactions."
+    maps_to: [NV04-intersection-acceleration, EC07-collective-knowledge, D13-provenance]
+    note: |
+      Axelrod's three conditions = the UB conditions for K_collective formation:
+      (1) Repeated interaction = A > 0 over time (the entity keeps engaging W)
+      (2) Recognition = provenance tracking (Definition 13/18 — who said what)
+      (3) Reciprocity = K/F coupling (past K informs present F)
+      NV04 (intersection accelerates M) only works when these three conditions hold.
+    potential_em: |
+      AX2 + D13 + NV04: Axelrod's conditions for cooperation ARE the conditions for
+      K_collective formation stated in game-theoretic terms. Provenance (condition 2,
+      recognition) is the formal requirement in both. K_collective forms when and only
+      when the same conditions hold as Axelrod requires for cooperation emergence.
+      This provides a game-theoretic grounding for the provenance requirement in D13:
+      without provenance, K_collective cannot form — just as without recognition,
+      cooperation cannot evolve.
+
+  AX3:
+    statement: "Invasion by defectors: a cooperating population can be invaded by defectors when the defectors' short-term gain exceeds the long-term cost of destroyed cooperation. The stability of cooperation depends on the shadow of the future."
+    maps_to: [EM10-Kcollective-unit-of-selection, EC04-survival-threshold]
+    note: |
+      Defector invasion = K_collective dissolution when provenance is lost. EM10
+      says K_collective can fail while all K_i persist — the same way a cooperating
+      population can dissolve even though all individuals survive. The shadow of the
+      future = the entity's A > 0 extended over time: only entities that maintain
+      engagement (A > 0) over repeated interactions sustain K_collective.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC07-collective-knowledge, EM10-Kcollective-unit-of-selection, D13-provenance]

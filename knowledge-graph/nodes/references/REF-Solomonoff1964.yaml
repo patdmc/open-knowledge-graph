@@ -1,0 +1,51 @@
+id: REF-Solomonoff1964
+type: reference
+name: "Solomonoff (1964) — A Formal Theory of Inductive Inference"
+citation: "Solomonoff, R.J. (1964). A formal theory of inductive inference. Parts I and II. Information and Control, 7(1), 1–22 and 7(2), 224–254."
+doi: "10.1016/S0019-9958(64)90223-2"
+fidelity: low
+
+propositions:
+  SO1:
+    statement: "Universal prior: the Solomonoff prior assigns probability to a string x proportional to 2^{-K(x)}, where K(x) is its Kolmogorov complexity. Simpler strings (shorter programs) receive higher prior probability — maximum prior is given to the most compressed description."
+    maps_to: [EC08-compression-factoring, EC01-context-bound, JA1-maxent]
+    note: |
+      The Solomonoff prior is the unique computable approximation to Jaynes's MaxEnt:
+      it assigns maximum probability to the most compressed (simplest) hypothesis,
+      weighted by Kolmogorov complexity. EC08 (factoring = compression = sufficient
+      statistic) is the prior-selection rule under the Solomonoff distribution.
+      The entity that uses the most compressed K (the Solomonoff prior over W)
+      has the highest expected predictive accuracy.
+    potential_em: |
+      SO1 + JA1 + EC08: the Solomonoff prior unifies MaxEnt (JA1) and Kolmogorov
+      complexity (KC1) into a single computable (in the limit) prior. The entity
+      whose K assigns probability by compression length is implementing the Solomonoff
+      prior — and by Jaynes/Shannon, this is the unique prior that introduces no
+      unjustified assumptions. EC08 (compression = sufficient statistic) has now
+      been derived from three independent directions: Shannon (sufficiency),
+      Jaynes (MaxEnt), and Solomonoff (Kolmogorov prior). EC08 confidence increases.
+
+  SO2:
+    statement: "Universal induction: given a sequence of observations, the Solomonoff predictor assigns the highest probability to the continuation consistent with the shortest program that generates the sequence so far. It converges to the true distribution faster than any computable predictor."
+    maps_to: [EC02-improvement-rate, NV02-mn-bound]
+    note: |
+      Solomonoff induction = the theoretical optimum for eta_M. The rate at which
+      the Solomonoff predictor converges to the true distribution is the upper bound
+      on eta_M for any computable entity. All computable learning algorithms have
+      eta_M bounded by the Solomonoff convergence rate. This provides the formal
+      upper bound on improvement rate that UB does not state explicitly.
+
+  SO3:
+    statement: "Convergence: the Solomonoff predictor's cumulative squared error is bounded by K(true_distribution)/ln(2). The error decreases as more observations arrive — eventually the predictor converges to the true distribution."
+    maps_to: [EC02-improvement-rate, EC04-survival-threshold]
+    note: |
+      SO3 gives the formal convergence rate of M → N under Solomonoff induction.
+      The bound K(mu)/ln(2) where mu is the true distribution = the minimum number
+      of observations needed to approximate W. This bounds the survival threshold:
+      an entity needs at least K(mu)/ln(2) observations before U drops below U_lethal.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC08-compression-factoring, REF-Kolmogorov1965, REF-Jaynes1957]

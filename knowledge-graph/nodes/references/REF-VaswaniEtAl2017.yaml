@@ -1,0 +1,61 @@
+id: REF-VaswaniEtAl2017
+type: reference
+name: "Vaswani et al. (2017) — Attention Is All You Need"
+citation: "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., and Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30."
+citations_approx: 60000
+fidelity: low
+
+propositions:
+  TR1:
+    statement: "Self-attention: each position in a sequence attends to all other positions and computes a weighted sum of their values, where weights are determined by the query-key dot product. This allows the model to directly capture long-range dependencies."
+    maps_to: [EC01-context-bound, EC08-compression-factoring]
+    note: |
+      Self-attention is the mechanism that overcomes C_n for sequence dependencies.
+      The attention map IS the K/F graph at inference time: each token (action in F)
+      attends to the tokens (propositions in K) most relevant to it. Attention scores
+      = G(f,K) values — how much knowledge is relevant to each action.
+      The quadratic scaling of self-attention (O(n^2)) is the cost of maintaining
+      full K/F coupling — exactly the overhead Theorem 2a identifies.
+
+  TR2:
+    statement: "Position-independent: unlike RNNs, the Transformer processes all positions simultaneously. The positional encoding supplies sequential order as an explicit feature rather than through network structure."
+    maps_to: [EC09-encoding-levels, NV04-intersection-acceleration]
+    note: |
+      Parallel processing = NV04 instantiated at the architecture level. All positions
+      process simultaneously = all K_i intersect simultaneously, not sequentially.
+      The O(1) parallel processing time (versus O(n) sequential RNN) is the
+      architectural realization of NV04's acceleration claim.
+
+  TR3:
+    statement: "Scaled dot-product attention with multi-head mechanism: multiple attention heads allow the model to jointly attend to information from different representation subspaces at different positions."
+    maps_to: [EC09-encoding-levels, EC07-collective-knowledge]
+    note: |
+      Multi-head attention = simultaneous operation at multiple encoding levels.
+      Each head attends to a different subspace of K — a different dimension of W.
+      The multiple heads are effectively multiple K_i entities operating in parallel
+      (NV04) on different aspects of the input, then combining their intersection.
+
+  TR4:
+    statement: "Context window: the Transformer can attend to a fixed window of tokens (typically 512–128k depending on implementation). Beyond the context window, earlier tokens are not attended to."
+    maps_to: [EC01-context-bound, D07-bounded-context]
+    note: |
+      The context window IS C_n measured in tokens. The Transformer is the most
+      direct engineering instantiation of Definition 7 (bounded context): the context
+      window is literally C_n, and everything outside it is not in K for that forward
+      pass. Lin's work on cache replacement has a direct analog: the context window
+      eviction problem (which tokens to retain in long contexts) is Belady's OPT
+      applied to Transformer inference.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC01-context-bound, EC08-compression-factoring, NV04-intersection-acceleration]
+
+gap_analysis:
+  present_here_not_in_ub:
+    - "Specific O(n^2) attention cost as the quantitative overhead of full K/F coupling"
+    - "Context window as precise engineering instantiation of C_n"
+  present_in_ub_not_here:
+    - "Selection pressure, survival threshold, A parameterization, biological framing"
+    - "Graph necessity proof — Transformers use attention, not graph structure, though they approximate graph-structured computation"

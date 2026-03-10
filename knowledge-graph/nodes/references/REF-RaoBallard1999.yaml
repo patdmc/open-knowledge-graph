@@ -1,0 +1,50 @@
+id: REF-RaoBallard1999
+type: reference
+name: "Rao and Ballard (1999) — Predictive Coding in the Visual Cortex"
+citation: "Rao, R.P.N. and Ballard, D.H. (1999). Predictive coding in the visual cortex: a functional interpretation of some extra-classical receptive-field effects. Nature Neuroscience, 2(1), 79–87."
+doi: "10.1038/4580"
+citations_approx: 5000
+fidelity: low
+
+propositions:
+  RB1:
+    statement: "Predictive coding: higher cortical areas send top-down predictions to lower areas; lower areas send bottom-up prediction errors. Only the error (surprise) propagates upward — the prediction is subtracted, and only the residual is transmitted."
+    maps_to: [EC09-encoding-levels, EC02-improvement-rate, EC10-uncertainty-driver]
+    note: |
+      Predictive coding is the neural implementation of the escalation architecture
+      (Theorem 2a). The top-down prediction = the L0/L1 crystallized expectation.
+      The bottom-up error = the U(w,K) signal that something does not match. Only
+      the error (gradient signal) propagates up — exactly the escalation criterion:
+      routine processing stays at L0; only prediction failures escalate.
+    potential_em: |
+      RB1 + Theorem 2a + EC09: predictive coding IS the neural implementation of
+      UB's escalation architecture. Theorem 2a shows top-down precision allocation
+      (FEP) degrades under bounded context; escalation (bottom-up error) does not.
+      Rao & Ballard show the cortex implements bottom-up error propagation, not
+      top-down allocation. This means the cortex implements the efficient architecture
+      (escalation), not the inefficient one (top-down precision allocation).
+
+  RB2:
+    statement: "Hierarchical generative model: each cortical level maintains a generative model of the level below. The model predicts the lower level's activity; the error is the unpredicted residual."
+    maps_to: [EC03-graph-as-generative-model, NV01-graph-necessity]
+    note: |
+      The hierarchical generative model is EC03 (K/F graph = hierarchical generative
+      model) empirically implemented. RB2 confirms that the cortex uses the graph
+      structure derived as necessary by NV01 — not because someone designed it that
+      way, but because gradient descent toward prediction error minimization converges
+      to this structure (EM06: gradient drives toward graph construction).
+
+  RB3:
+    statement: "Receptive field effects: the model explains extra-classical receptive field phenomena — end-stopping, surround suppression, contextual effects — as consequences of top-down predictions subtracting the expected component of the signal."
+    maps_to: [EC01-context-bound, EC08-compression-factoring]
+    note: |
+      Context-dependent receptive field modulation = the C_n constraint in action.
+      The context (surrounding stimulus) subtracts the predicted component — reducing
+      the effective C_n required to represent the stimulus. This is EC08 compression:
+      the predictable part is factored out, leaving only the informative residual.
+
+provenance:
+  attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
+  evidence:
+    type: literature-node
+    references: [EC09-encoding-levels, EC03-graph-as-generative-model, REF-Friston2017]
