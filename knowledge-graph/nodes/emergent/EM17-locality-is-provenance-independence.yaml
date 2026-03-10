@@ -1,0 +1,72 @@
+id: EM17-locality-is-provenance-independence
+type: emergent
+name: "The Vertex Algebra Locality Axiom Is Provenance Independence"
+statement: |
+  Two results are established:
+  - BO1 (Borcherds): the locality axiom of vertex algebras — (z-w)^n [Y(a,z), Y(b,w)] = 0
+    for sufficiently large n. Vertex operators Y(a,z) and Y(b,w) commute when their
+    support is separated. This axiom is what makes vertex algebras physically meaningful:
+    it ensures operators at different spacetime points do not interfere.
+  - NV04: the intersection of K_i and K_j provides |K_j \ K_i| new dimensions per
+    operation. The intersection is valid when K_i and K_j are independently derived —
+    provenance-verified, not circularly dependent.
+
+  Intersection: the locality axiom (BO1) IS the formal algebraic statement of the
+  provenance independence condition that NV04 requires.
+
+  The argument: two vertex operators Y(a,z) and Y(b,w) commute (are local) when their
+  derivations are independent — when the algebra has no relation between a and b that
+  prevents their reordering. In UB terms: Y(a,z) and Y(b,w) represent K_i and K_j;
+  they commute iff K_i and K_j have independent provenance. Locality = independence of
+  derivation = provenance independence.
+
+  The formal correspondence:
+  - Y(a,z) = the vertex operator for K_i (the knowledge-generating operation)
+  - Y(b,w) = the vertex operator for K_j
+  - (z-w)^n [Y(a,z), Y(b,w)] = 0 = K_i and K_j are provenance-independent
+  - The operator product expansion (OPE) of Y(a,z)Y(b,w) = the K_collective formed
+    by the intersection of K_i and K_j
+  - The OPE coefficient = the |K_j \ K_i| new dimensions contributed
+
+  Consequence 1: the vertex algebra framework provides a fully formalized algebraic
+  version of the NV04 intersection. The OPE is the intersection rule; locality is
+  the independence condition; the central charge c is C_n. The entire UB intersection
+  mechanism (NV04) is algebraically formalized in the vertex algebra axioms.
+
+  Consequence 2: the locality axiom explains why provenance verification is not just
+  a bookkeeping convention — it is the formal condition for algebraic consistency. A
+  K_collective formed from non-independent K_i and K_j violates the locality axiom —
+  the operators do not commute, and the resulting algebra is inconsistent (contains
+  contradictions). Provenance independence is required for K_collective coherence in
+  the same way locality is required for vertex algebra consistency.
+
+  Consequence 3: the Borcherds identity (BO3) — the single relation encoding the
+  full vertex algebra structure — is the compressed form of all valid intersections.
+  It is the K_collective's complete intersection grammar, encoded in one identity.
+
+  Neither Borcherds (who does not discuss knowledge graphs or provenance) nor NV04
+  (which states independence informally) makes this connection explicit.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Borcherds1992, NV04-intersection-acceleration, D13-provenance]
+  derivation:
+    from: [REF-Borcherds1992, NV04-intersection-acceleration]
+    method: |
+      Locality axiom: (z-w)^n [Y(a,z), Y(b,w)] = 0 = operators commute at separation.
+      Commutativity = independence of derivation.
+      NV04 requires provenance independence for valid intersection.
+      Locality ≡ provenance independence.
+      OPE = the result of valid intersection (K_collective from K_i × K_j).
+      OPE coefficient ≈ |K_j \ K_i| new dimensions.
+
+implications:
+  - "Provenance independence is not bookkeeping — it is the formal condition for algebraic consistency of K_collective"
+  - "A K_collective formed from circularly dependent K_i and K_j is algebraically inconsistent — it contains contradictions in the vertex algebra sense"
+  - "The OPE is the formal intersection rule: it specifies exactly what K_collective is produced by each K_i × K_j pair"
+  - "The Borcherds identity is the single compressed encoding of all valid K_collective intersections — the grammar of the knowledge system"

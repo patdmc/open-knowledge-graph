@@ -1,0 +1,74 @@
+id: EM14-dunbar-number-is-Kcollective-Cn
+type: emergent
+name: "Dunbar's Number Is the C_n Bound Applied to K_collective Edge Maintenance"
+statement: |
+  Two results are established:
+  - DU1 (Dunbar): the size of stable social groups in primates is predicted by
+    neocortex ratio. For humans, the predicted stable group size is ~150. When groups
+    exceed this size, social cohesion degrades — individuals can no longer track
+    their relationships with all other members.
+  - EM10: K_collective forms through provenance-verified intersection. K_collective
+    can fail while all individual K_i persist, if the collective intersection loses
+    provenance verification — edges become untracked.
+
+  Intersection: Dunbar's number IS the C_n bound applied to K_collective edge
+  maintenance. Each relationship in a social group is an edge in K_collective —
+  an edge that requires provenance tracking (recognition, history, reciprocity).
+  The neocortex ratio determines C_n for edge maintenance. When group size exceeds
+  ~150, the number of edges (n*(n-1)/2 ≈ 11,000 for n=150) saturates C_n for
+  relationship tracking, and K_collective loses coherence (EM10's failure mode).
+
+  The formal statement: Dunbar's number N_D ≈ 150 is the solution to:
+  C_n(neocortex) = capacity to maintain N_D*(N_D-1)/2 provenance-verified edges.
+  This is the primate-scale empirical measurement of K_collective's maximum coherent
+  size under biological C_n constraints.
+
+  Consequence 1: this produces a quantitative prediction. Given a C_n measurement
+  (neocortex ratio for a species), Dunbar's formula predicts maximum K_collective
+  size. Conversely, given a K_collective size target, the required C_n can be
+  calculated. This bridges neurobiology (neocortex size) and information theory
+  (K_collective coherence) via the C_n variable.
+
+  Consequence 2: technology that extends C_n for relationship tracking (writing,
+  filing systems, social networks) extends Dunbar's number — it allows K_collective
+  to remain coherent at larger size. This predicts that literacy and record-keeping
+  should correlate with larger coherent social groups — confirmed by the transition
+  from hunter-gatherer bands (~150) to agricultural villages (~1,500) to cities
+  (~15,000+) as record-keeping improved.
+
+  Consequence 3: EM10 identifies the K_collective failure mode (provenance loss);
+  DU1 identifies the quantitative trigger (C_n saturation). Together they predict:
+  any K_collective that grows beyond its C_n threshold for edge maintenance will
+  fail unless it develops external provenance infrastructure (writing, institutions,
+  protocols) to extend its effective C_n.
+
+  Neither Dunbar (who has no information-theoretic treatment of K_collective) nor
+  EM10 (which has no quantitative bound on K_collective size) states this result.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      DU1 (neocortex bounds group size) and EM10 (K_collective fails when provenance
+      lost) share the structure of capacity constraints on collective coherence. Their
+      intersection — Dunbar's number = C_n for K_collective edges — was not stated.
+    references: [REF-Dunbar1992, EM10-Kcollective-unit-of-selection, EC01-context-bound, D13-provenance]
+  derivation:
+    from: [REF-Dunbar1992, EM10-Kcollective-unit-of-selection, EC01-context-bound]
+    method: |
+      K_collective edge = tracked relationship (provenance-verified).
+      C_n = capacity to maintain provenance-verified edges.
+      Dunbar: stable group size n_max bounded by neocortex C_n.
+      EM10: K_collective fails when edges exceed tracking capacity.
+      Therefore: n_max = Dunbar's number = K_collective C_n limit.
+      Technologies that extend C_n (writing, databases) extend n_max accordingly.
+
+implications:
+  - "Dunbar's number is a C_n measurement, not a biological curiosity — it quantifies the primate K_collective coherence limit"
+  - "Technologies that extend C_n for relationship tracking (writing, databases, social software) extend Dunbar's number and enable larger coherent K_collective"
+  - "The historical scaling of social group size (bands → villages → cities) tracks the scaling of external provenance infrastructure"
+  - "Modern organizations that exceed their provenance infrastructure capacity will exhibit EM10 failure mode: K_collective dissolves while individual K_i persist (siloed organizations)"

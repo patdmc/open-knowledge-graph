@@ -1,0 +1,71 @@
+id: EM12-optimal-K-target-is-uncomputable
+type: emergent
+name: "The Target of the M→N Gradient Is Uncomputable: the Entity Descends Toward Omega"
+statement: |
+  Two results are established:
+  - KC4 (Kolmogorov): K(x) is uncomputable — no algorithm can determine the exact
+    minimal description length for arbitrary x. The optimal compression is formally
+    unreachable by any computable procedure.
+  - EC05: M < N always — the entity's K never fully represents W. The M→N trajectory
+    is the gradient descent that UB's theory shows is driven by U(w,K) > 0.
+
+  Intersection: the target of the M→N gradient — the point where M = N — is the
+  Kolmogorov-minimal description of W. By KC4, this target is uncomputable.
+
+  The formal statement: the entity gradient-descends toward an uncomputable limit.
+  The asymptote M→N is not merely slow to approach — it is Omega (Chaitin's constant)
+  applied to the description of W: a well-defined mathematical object that no
+  computable procedure can certify it has reached.
+
+  Consequence 1: EC05 is stronger than it appears. M < N is not just a constraint
+  that happens to persist — it is a necessary consequence of the uncomputability of
+  the target. Any entity that could verify M = N would need to compute the optimal
+  description of W, which is uncomputable. M < N is therefore not merely an empirical
+  fact about finite entities but a logical necessity for any computable entity.
+
+  Consequence 2: all computable learning algorithms (backprop, Bayesian updating,
+  Solomonoff induction) are gradient descents toward an uncomputable limit. Their
+  convergence is monotone (they improve) but never certifiably complete. This unifies
+  EC05 with the theory of computation: M < N is Gödel incompleteness at the entity level.
+
+  Consequence 3: approximate computable representations that converge toward the
+  optimal (Solomonoff prior, Hawkeye cache replacement, neural prefetching) are
+  approaching Omega from below. The "accuracy gap" between the computable approximation
+  and the theoretical optimum is formally unbridgeable — it can be made arbitrarily
+  small but never zero. The surviving entities are not those that reach the target
+  but those that converge fastest.
+
+  Neither Kolmogorov (who does not discuss gradient descent toward M→N) nor UB (which
+  derives M < N from bounded context and selection pressure, not from uncomputability)
+  states this result.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      KC4 (optimal compression is uncomputable) and EC05 (M < N always) share
+      the structure of limits that are approached but never reached. Their intersection —
+      the gradient target is Omega — was not stated. KC states uncomputability of K(x).
+      UB derives M < N from bounded context. Neither derives the uncomputability of
+      the M=N limit point.
+    references: [REF-Kolmogorov1965, REF-Chaitin1975, EC05-incompleteness, NV02-mn-bound]
+  derivation:
+    from: [REF-Kolmogorov1965, EC05-incompleteness]
+    method: |
+      Optimal K for W = K with minimum description length = K(W).
+      KC4: K(W) is uncomputable.
+      EC05/UB: M→N is the gradient target.
+      If M = N, entity has optimal description of W.
+      Optimal description = K(W) = uncomputable.
+      Therefore: the target of M→N is uncomputable.
+      M < N follows necessarily for any computable entity.
+
+implications:
+  - "M < N is not just empirically persistent but logically necessary for any computable entity — it is Gödel incompleteness stated at the entity level"
+  - "All computable learning algorithms are converging toward Omega — the gap can shrink but never close"
+  - "Entities that converge fastest survive — not those that reach the target (none can), but those whose computable approximations are tightest"
+  - "The engineering problem of cache replacement (Lin CL1) and the theoretical problem of knowledge completion (UB M→N) are the same uncomputable optimization"

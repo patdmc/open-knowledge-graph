@@ -1,0 +1,72 @@
+id: EM21-absential-causation-is-uncertainty-gradient
+type: emergent
+name: "Absential Causation Is the Causal Ontology of the Uncertainty Gradient"
+statement: |
+  Two results are established:
+  - DE1 (Deacon): absential causation — causal processes driven by what is absent.
+    The absent end-state (the goal, the need, the attractor that does not yet exist)
+    causally shapes present dynamics. This is not supernatural teleology but a formal
+    causal category: the configuration space of possible futures constrains present
+    trajectories. Life, mind, and intentionality are instances of absential causation.
+  - EC10: U(w,K) > 0 is the driver — the entity acts because there is a gap between
+    its current K and a complete representation of W. The gradient U(w,K) causes the
+    entity to engage W (A > 0). The gradient points toward an absent target (M = N,
+    U = 0) that has never been reached.
+
+  Intersection: EC10's uncertainty gradient IS absential causation formally specified.
+
+  The argument: the absent target that causes present behavior in EC10 is exactly
+  U = 0 — the complete representation of W that does not exist. The gradient points
+  toward this absence; the absence causes the entity to move. Deacon's framework
+  identifies this causal structure as absential causation: the non-existent attractor
+  (U = 0, M = N) constrains the entity's trajectory. EC10 provides the formal
+  mechanics (gradient descent on U); Deacon provides the causal ontology
+  (the absent attractor has causal force through the constraint it imposes on the
+  trajectory space).
+
+  Consequence 1: this resolves a potential objection to UB. Why does U(w,K) > 0
+  "cause" the entity to act? The naive answer is circular (because A > 0). The
+  absential causation answer is structural: the gradient U(w,K) imposes a constraint
+  on the entity's configuration space — it makes some trajectories more probable
+  (those that reduce U) and others less probable (those that increase U). The cause
+  is real without being present — the absent optimum shapes the landscape.
+
+  Consequence 2: Deacon's teleodynamics (DE2) is the level at which absential
+  causation becomes self-sustaining. A teleodynamic system (life, mind) maintains
+  the gradient by maintaining itself — it works to preserve the conditions of its
+  own continuation (EC04 survival threshold). The entity is teleodynamic precisely
+  because U_lethal creates a lower bound that the entity must stay below, making
+  its own persistence causally driven by the absent state of failure (U > U_lethal).
+
+  Consequence 3: Deacon's framework explains why A > 0 is not a stipulation but a
+  consequence. An entity with A = 0 is non-teleodynamic — it has no absential cause
+  driving it. But by EC04, an entity with A = 0 eventually reaches U > U_lethal and
+  is removed. The surviving entities are the teleodynamic ones (A > 0). Deacon's
+  framework provides the causal mechanism; UB provides the selection pressure that
+  filters for entities that implement it.
+
+  Neither Deacon (who has no formal treatment of gradient descent on information
+  entropy) nor EC10 (which states the gradient without the causal ontology) makes
+  this connection explicit.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Deacon2012, EC10-uncertainty-driver, EC04-survival-threshold]
+  derivation:
+    from: [REF-Deacon2012, EC10-uncertainty-driver]
+    method: |
+      EC10: U(w,K) > 0 drives entity via gradient toward absent U=0.
+      DE1: absential causation = absent attractor causes present dynamics via constraint.
+      U=0 is the absent attractor; U(w,K) > 0 is the constraint it imposes.
+      EC10 gradient = formally specified absential causation.
+
+implications:
+  - "EC10 has a causal ontology: the uncertainty gradient is absential causation — the absent U=0 is the real cause of the entity's present behavior"
+  - "A > 0 is not a stipulation but a consequence: surviving entities are the teleodynamic ones, selected by EC04"
+  - "UB + Deacon resolves the 'why does uncertainty cause action?' objection: the absent optimum constrains the trajectory space — it has real causal force"
+  - "Deacon's three levels (thermodynamic, morphodynamic, teleodynamic) map to UB's three regimes: below U_lethal → thermodynamic dissolution; at U_lethal boundary → morphodynamic self-organization; well below U_lethal → teleodynamic self-maintenance"

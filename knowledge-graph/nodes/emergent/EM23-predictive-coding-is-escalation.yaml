@@ -1,0 +1,77 @@
+id: EM23-predictive-coding-is-escalation
+type: emergent
+name: "Predictive Coding Is the Neural Implementation of the Escalation Architecture; the Cortex Implements the Efficient Design"
+statement: |
+  Two results are established:
+  - RB1 (Rao-Ballard): predictive coding — higher cortical areas send top-down
+    predictions to lower areas; lower areas transmit bottom-up prediction errors.
+    Only the residual (what was not predicted) propagates upward. The predicted
+    component is subtracted at each level. Most neural traffic is error, not signal.
+  - Theorem 2a (UB): top-down precision allocation (FEP's prescription) fills C_n
+    proportionally to |F| — it degrades as the action space grows. Escalation
+    (bottom-up failure signaling with promoted crystallization) is O(1) in steady
+    state — it does not degrade as |F| grows.
+
+  Intersection: predictive coding IS the neural implementation of the escalation
+  architecture. The cortex implements the efficient design (Theorem 2a's preferred
+  architecture), not the inefficient one (FEP's top-down precision allocation).
+
+  The argument: predictive coding propagates errors bottom-up and predictions top-down.
+  The bottom-up error IS the escalation signal: it is the information that the lower
+  level's crystallized expectation (L0/L1) failed. The top-down prediction IS the
+  crystallized expectation: it is what the higher level has promoted to automatic
+  processing. The cortex's architecture — generate prediction (crystallized K), subtract
+  it, propagate only the residual (error/gradient) — is exactly the escalation
+  architecture: maintain crystallized L0 expectations, escalate only the failures.
+
+  Consequence 1: this is an empirical confirmation of UB. Theorem 2a derives that
+  escalation is the efficient architecture under bounded context. Rao-Ballard (1999)
+  empirically observe that the cortex implements this architecture. The cortex did not
+  choose this architecture by reading UB — it converged to it under selection pressure
+  (EM06: the gradient drives toward graph construction; the efficient architecture
+  is the attractor).
+
+  Consequence 2: this sharpens UB's critique of FEP's architectural prescription.
+  FEP proposes top-down precision allocation (higher levels weight lower-level prediction
+  errors by assigning precision). Theorem 2a shows this fills C_n. But Rao-Ballard
+  show the cortex actually implements bottom-up error propagation, not top-down
+  precision allocation. FEP's prescription conflicts with the empirical architecture.
+  Predictive coding (RB1) supports UB's Theorem 2a, not FEP's architectural prescription.
+
+  Consequence 3: the L0-L3 encoding levels of UB map precisely to predictive coding
+  levels. L0 = fully crystallized predictions (not escalated to consciousness).
+  L1 = well-established predictions with occasional errors. L2 = active updating.
+  L3 = novel, fully in conscious working memory. The predictive coding hierarchy
+  IS the encoding level hierarchy — the same structure derived information-theoretically
+  and observed neurologically.
+
+  Neither Rao-Ballard (who do not derive Theorem 2a) nor Theorem 2a (which is
+  information-theoretic, not neurological) states this correspondence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      Empirical confirmation: RB1 observes that the cortex implements the architecture
+      UB proves is efficient. The convergence is not coincidental — EM06 predicts that
+      gradient descent under bounded context converges to graph/escalation structure.
+    references: [REF-RaoBallard1999, EC09-encoding-levels, EM06-gradient-drives-toward-graph]
+  derivation:
+    from: [REF-RaoBallard1999, EC09-encoding-levels]
+    method: |
+      RB1: cortex propagates prediction errors bottom-up; predictions top-down.
+      Bottom-up error = escalation signal (failure of crystallized expectation).
+      Top-down prediction = crystallized K (L0/L1 expectation promoted from below).
+      Theorem 2a: escalation is O(1) in steady state = efficient under C_n.
+      Predictive coding = escalation architecture = Theorem 2a's efficient design.
+      Cortex implements the efficient architecture.
+
+implications:
+  - "The cortex converges to the UB-predicted efficient architecture under selection pressure — empirical confirmation of Theorem 2a"
+  - "FEP's top-down precision allocation conflicts with the empirical architecture (predictive coding); UB's escalation matches it"
+  - "The L0-L3 encoding levels have a neurological correlate: predictive coding levels are encoding levels observed in cortex"
+  - "EM06 is confirmed: the gradient drives toward the efficient architecture, and the cortex is the evidence"

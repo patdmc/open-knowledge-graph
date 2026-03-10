@@ -1,0 +1,52 @@
+id: OV05-vc-bound-equals-EM07
+type: overlap
+name: "VC Generalization Bound and EM07 Action Accuracy Bound Are the Same Structural Result"
+statement: |
+  Two results are established independently:
+  - VC2 (Vapnik): generalization error is bounded by sqrt(h(ln(2l/h)+1)/l) where
+    h = VC dimension (capacity of the hypothesis class) and l = sample size. Error
+    decreases as the ratio h/l decreases — as coverage (sample) increases relative
+    to capacity.
+  - EM07: every action in F carries a residual uncertainty U_residual(f) >= U(w,K) *
+    (N-M)/N, bounded by the fraction of unobserved dimensions. Error decreases as
+    M/N increases — as coverage (sensed dimensions) increases relative to total.
+
+  Both results say: prediction/action error is bounded by (unsensed capacity / total
+  capacity). The structural form is identical under the translation:
+  - VC dimension h ↔ M (what has been learned)
+  - Sample size l ↔ observations (gradient steps)
+  - Generalization error ↔ U_residual(f) (residual uncertainty on actions)
+  - h/l ratio ↔ M/N ratio
+
+  The VC bound is derived from PAC learning theory (statistical learning of concept
+  classes from i.i.d. samples). EM07 is derived from UB (gradient descent under
+  dimensional incompleteness). They are independently derived instances of the same
+  structural bound: coverage-ratio bounds prediction error.
+
+  Both frameworks state this bound explicitly. The overlap (this node) is the claim
+  that the two bounds are structurally identical — which neither framework states.
+  The equivalence under translation raises C_1(EM07) by providing an independent
+  derivation from statistical learning theory.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: overlap-identification
+    grade: structural
+    description: |
+      Both VC2 and EM07 independently derive a coverage-ratio bound on prediction/action
+      error. Neither derives the other's result. The structural equivalence under
+      translation is the overlap claim.
+    references: [REF-Vapnik1995, EM07-action-accuracy-bound]
+  derivation:
+    from: [REF-Vapnik1995, EM07-action-accuracy-bound]
+    method: |
+      VC2: generalization error ≤ O(sqrt(h/l)) as h→0 or l→∞.
+      EM07: U_residual(f) ≥ U(w,K)*(N-M)/N → 0 as M→N.
+      Under translation h↔M, l↔observations, both give: error ∝ (1 - coverage/total).
+      Structural equivalence: same bound, different formal languages.
+
+confidence_update: "C_1(EM07) increases: now has two independent derivations (UB information theory + VC statistical learning theory)"

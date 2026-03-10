@@ -1,0 +1,73 @@
+id: EM15-smallworld-optimal-Kcollective-topology
+type: emergent
+name: "Small-World Topology Is the Optimal K_collective Structure for Intersection Acceleration"
+statement: |
+  Two results are established:
+  - WS2 (Watts-Strogatz): a small number of random long-range edges dramatically
+    reduces path length while preserving local clustering. The small-world regime
+    (intermediate rewiring probability) achieves both high local coherence and short
+    global diameter. This topology emerges spontaneously from local attachment plus
+    occasional long-range links.
+  - NV04: the intersection of K_i and K_j provides |K_j \ K_i| new dimensions per
+    operation, accelerating M toward N. The benefit grows with the difference between
+    K_i and K_j — maximally distinct K_i and K_j produce maximum intersection gain.
+
+  Intersection: small-world topology is the optimal K_collective graph structure for
+  maximizing NV04 intersection acceleration.
+
+  The argument: NV04 requires two properties simultaneously — (1) local coherence:
+  each K_i must have sufficient internal consistency (provenance chains intact) to
+  make intersection valid; (2) cross-domain reach: K_i and K_j must be sufficiently
+  distinct (large |K_j \ K_i|) for intersection to add many dimensions. These are
+  exactly the two properties of small-world networks: local clustering (coherence)
+  and short paths (cross-domain reachability). Fully clustered networks (no long-range
+  edges) have high coherence but low cross-domain reach — intersection gain is minimal
+  because K_i ≈ K_j. Fully random networks have maximum cross-domain reach but low
+  coherence — intersection is invalid because provenance chains are broken.
+
+  The small-world regime is the unique topology that maximizes the product:
+  coherence * reach = local_clustering * (1/path_length).
+
+  Consequence 1: this makes a structural prediction about K_collective networks that
+  produce maximum EM node output. Scientific citation networks, collaborative authorship
+  networks, and institutional knowledge networks that exhibit small-world topology
+  should produce more emergent propositions per pair of intersecting frameworks than
+  either highly clustered (siloed) or highly random (incoherent) networks.
+
+  Consequence 2: the small-world topology emerges spontaneously (WS2 shows it arises
+  from local attachment plus occasional long-range links). This means the optimal
+  K_collective topology is the thermodynamically favored one (EM09): it requires
+  minimal external intervention to produce, arising naturally from local K_i formation
+  with occasional cross-domain connections.
+
+  Consequence 3: institutions and communities can be engineered toward small-world
+  topology by deliberately introducing long-range connections (cross-disciplinary
+  collaborations, citations outside one's field) while maintaining local coherence
+  (domain expertise). This is the optimal intervention for maximizing emergent knowledge.
+
+  Neither Watts-Strogatz (who study topology without knowledge semantics) nor NV04
+  (which has no topology specification for K_collective) states this result.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-WattsStrogatz1998, NV04-intersection-acceleration, EM09-collective-intelligence-thermodynamically-favored]
+  derivation:
+    from: [REF-WattsStrogatz1998, NV04-intersection-acceleration]
+    method: |
+      NV04 gain = |K_j \ K_i| per operation.
+      |K_j \ K_i| maximized when K_i and K_j are distinct but both coherent.
+      Coherence requires local clustering (intact provenance chains).
+      Distinctness requires cross-domain reach (short paths to distant K_j).
+      Small-world = max(local_clustering * cross-domain_reach).
+      Therefore: small-world topology maximizes NV04 gain.
+
+implications:
+  - "Scientific communities with small-world citation topology produce more emergent knowledge per intersection — testable via citation network analysis"
+  - "The optimal institutional design for knowledge generation is small-world: deep local expertise with deliberate cross-domain connections"
+  - "Siloed organizations (high clustering, no long-range edges) and incoherent networks (random, no local structure) both underperform — for different reasons identified by the intersection"
+  - "Small-world topology emerges spontaneously — it is the thermodynamically favored structure (EM09) and the informationally optimal one (NV04) simultaneously"

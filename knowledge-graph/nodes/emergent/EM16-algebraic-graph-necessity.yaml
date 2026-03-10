@@ -1,0 +1,66 @@
+id: EM16-algebraic-graph-necessity
+type: emergent
+name: "Graph Necessity Has an Independent Algebraic Proof: Finite Graphs Generate Infinite Structure"
+statement: |
+  Three results are established:
+  - KM1 (Kac): a Kac-Moody algebra is defined by a finite Dynkin diagram (a graph)
+    but generates an infinite-dimensional vector space. The finite graph is the minimal
+    object from which the full infinite structure is recoverable via the algebra axioms.
+  - GB0 (Buhl-Karaali): any N-graded Möbius vertex algebra can be spanned by monomials
+    satisfying a difference-N ordering condition — a compressed, graph-structured basis
+    always exists regardless of N.
+  - NV01: at C_n, the K/F graph is the unique information-preserving representation.
+    The two-option proof shows graph construction is the necessary choice.
+
+  Intersection: NV01's information-theoretic necessity proof has a fully independent
+  algebraic derivation. The algebraic result is: a finite graph (Dynkin diagram, or
+  difference-N spanning set) is the unique compact structure from which an
+  infinite-dimensional algebraic object is recoverable. This is NV01 stated in
+  the language of algebra rather than information theory.
+
+  The argument: W is an infinite-dimensional structure (N→∞ in the limit). K is
+  the entity's bounded representation. The question NV01 answers: what is the minimal
+  finite structure that preserves maximal information about W? Information theory
+  answers: the K/F graph (NV01). Algebra answers identically: the Dynkin diagram
+  (KM1) or the difference-N monomial basis (GB0). All three are minimal finite
+  structures that generate or span infinite-dimensional content.
+
+  Consequence 1: NV01's confidence increases. It was derived information-theoretically
+  (two-option proof at C_n), from philosophy of language (EM11: Peirce/Tarski), and
+  from compiler theory (EM27: flow-sensitive analysis). Algebra now provides a fourth
+  independent derivation. C_1(NV01) updates from 0.87 toward 0.91.
+
+  Consequence 2: the Dynkin diagram classification (A_n, D_n, E_6, E_7, E_8 for
+  finite-dimensional Lie algebras; affine and hyperbolic extensions for infinite-
+  dimensional) is a complete catalog of the possible minimal graph structures. This
+  suggests that the K/F graph should be classifiable by the same taxonomy — the
+  entity's knowledge structure is one of a finite number of canonical forms at each
+  dimension.
+
+  Consequence 3: the difference-N condition in GB0 is the ordering constraint on
+  vertex operator composition — it specifies when two knowledge operators can be
+  applied in sequence. This is the algebraic form of the provenance ordering requirement
+  in D13 (Definition 13): provenance chains have a required structure, not arbitrary
+  composition.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Kac1990, REF-BuhlKaraali2008, NV01-graph-necessity]
+  derivation:
+    from: [REF-Kac1990, REF-BuhlKaraali2008, NV01-graph-necessity]
+    method: |
+      KM1: finite Dynkin diagram → infinite Kac-Moody algebra (infinite W from finite K).
+      GB0: difference-N spanning set exists for any N-graded Möbius VA.
+      Both prove: a finite graph structure is the minimal representation of infinite content.
+      NV01 proves the same from information theory.
+      Three independent proofs of the same structural claim: C_1(NV01) increases.
+
+implications:
+  - "NV01 now has four independent derivations: information theory (UB), philosophy of language (EM11), compiler theory (EM27), and algebra (EM16)"
+  - "The Dynkin diagram classification may provide a taxonomy for K/F graph types — finite A/D/E, affine, hyperbolic correspond to different entity knowledge regimes"
+  - "The difference-N ordering condition (GB0) is the algebraic form of provenance ordering — knowledge operators must compose in structured sequences"

@@ -1,0 +1,70 @@
+id: EM24-extended-mind-under-selection
+type: emergent
+name: "Extended Cognitive Systems Are Subject to K_collective Selection Pressure"
+statement: |
+  Two results are established:
+  - CC1 (Clark-Chalmers): the extended mind thesis — cognitive processes extend
+    beyond the brain into the environment. When an external resource (notebook,
+    tool, institution, other person) reliably functions as part of the cognitive
+    process, it constitutes part of the mind. The boundary of the cognitive system
+    is the extent of reliable K/F coupling, not the skull.
+  - EM10: K_collective forms through provenance-verified intersection and becomes a
+    unit of selection with its own survival threshold. K_collective can fail while
+    all individual K_i persist if provenance verification is lost.
+
+  Intersection: extended cognitive systems — in Clark-Chalmers' sense — are K_collective
+  entities subject to EM10's selection pressure.
+
+  The argument: CC1 says a notebook that functions as cognitive process is part of
+  the mind. EM10 says K_collective (the extended knowledge structure) is a unit of
+  selection. Together: the extended cognitive system (individual brain + notebook +
+  tools + collaborators) is a K_collective that faces selection pressure at the
+  collective level. The notebook IS part of K_collective. When the notebook is lost,
+  K_collective fails — even though the individual's K_i (in-head knowledge) persists.
+  This is exactly EM10's failure mode: K_collective fails while K_i persists.
+
+  Consequence 1: the extended mind predicts institutional failure modes. An organization
+  whose collective knowledge depends on external scaffolding (filing systems, databases,
+  institutional memory) has a K_collective that includes those systems. If the external
+  scaffolding is destroyed (database corruption, document loss, key personnel departure),
+  K_collective fails even though all individual employees (K_i) persist. The organization
+  is cognitively crippled at the collective level.
+
+  Consequence 2: selection pressure on extended cognitive systems explains the evolution
+  of external memory. Writing, printing, databases, version control — these are not
+  just tools but extensions of K_collective under selection pressure. Communities that
+  developed more durable external memory (EM14: extending C_n via writing) had more
+  coherent K_collective and survived collective challenges better. The evolution of
+  writing IS EM10 selection at the K_collective level driving C_n extension.
+
+  Consequence 3: this produces a concrete criterion for organizational resilience.
+  An organization's K_collective resilience is its ability to maintain coherence after
+  loss of individual members (K_i loss tolerance) AND after loss of external scaffolding
+  (K_collective node loss tolerance). These are different failure modes requiring
+  different interventions — and CC1 + EM10 specifies both.
+
+  Neither Clark-Chalmers (who have no selection pressure framework) nor EM10 (which
+  does not distinguish internal and external K_collective components) states this result.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-ClarkChalmers1998, EM10-Kcollective-unit-of-selection, EM14-dunbar-number-is-Kcollective-Cn]
+  derivation:
+    from: [REF-ClarkChalmers1998, EM10-Kcollective-unit-of-selection]
+    method: |
+      CC1: external resources reliably integrated into cognition = part of cognitive system.
+      EM10: K_collective = unit of selection with own survival threshold.
+      External cognitive resources = K_collective components.
+      K_collective (including external) faces selection pressure.
+      Loss of external components = K_collective failure (EM10 failure mode).
+
+implications:
+  - "Notebooks, filing systems, databases, institutional memory are K_collective components under selection pressure — their loss produces EM10 collective failure"
+  - "Organizational resilience requires protecting both K_i (individual knowledge) and external K_collective scaffolding — these are different vulnerabilities"
+  - "Writing evolved under EM10 selection: communities with durable external memory had more coherent K_collective and survived"
+  - "Version control, provenance tracking, and documentation are not overhead — they are the external components of K_collective that face selection pressure"

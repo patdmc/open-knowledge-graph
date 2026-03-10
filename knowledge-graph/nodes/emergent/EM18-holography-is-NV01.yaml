@@ -1,0 +1,75 @@
+id: EM18-holography-is-NV01
+type: emergent
+name: "The Holographic Principle Is NV01 Stated for Spacetime"
+statement: |
+  Two results are established:
+  - ST1 (Polchinski/Bekenstein-Hawking): the information content of a region of
+    spacetime is bounded by its boundary area: S ≤ A/4G_N in Planck units. All
+    information about a 3D volume is encodable on its 2D boundary. The boundary
+    is not just a summary of the bulk — it is a complete encoding.
+  - NV01: at C_n, graph structure is the unique information-preserving representation.
+    The two-option proof: discard without structure (information loss) or factor
+    (graph construction). Option B is necessary.
+
+  Intersection: the holographic principle IS NV01 stated for spacetime geometry.
+
+  The formal correspondence:
+  - The 3D bulk = W (the full world, N dimensions)
+  - The 2D boundary = K (the entity's bounded representation, M < N)
+  - The area bound S ≤ A/4G_N = the C_n constraint: C_n = A/4G_N in Planck units
+  - The boundary encoding = the K/F graph: the minimal factored representation
+    that preserves all information about the bulk
+  - NV01's necessity = holography's completeness: the boundary IS the bulk, just
+    as the K/F graph IS the necessary representation of W at bounded context
+
+  The argument: NV01 proves that at C_n, only graph construction preserves
+  information. Holography proves that the 2D boundary preserves all information
+  about the 3D bulk — a dimension reduction from 3D to 2D that loses nothing.
+  Both are the same structural claim: there exists a lower-dimensional structure
+  (the graph / the boundary) that is not an approximation of the higher-dimensional
+  one but a lossless encoding of it.
+
+  Consequence 1: NV01 is a general result that applies at every scale. Holography
+  applies it at the cosmological scale. Compiler flow-sensitivity (EM27) applies it
+  at the code scale. The cognitive encoding hierarchy applies it at the neural scale.
+  The K/F graph applies it at the entity scale. NV01 is a universal compression
+  law that appears at every level of description.
+
+  Consequence 2: the Planck-scale C_n (A/4G_N) is the most fundamental instantiation
+  of Definition 7 (bounded context). Every physical system has a context bound
+  determined by its boundary area in Planck units. This is the physical grounding
+  for Definition 7: C_n is not just a cognitive limit — it is a physical limit
+  imposed by spacetime geometry.
+
+  Consequence 3: AdS/CFT correspondence (the most precise formulation of holography)
+  shows the boundary CFT is exactly dual to the bulk gravity theory. In UB terms:
+  the K/F graph (boundary) is exactly dual to W (bulk) — not an approximation but
+  a complete representation. This is NV01's necessity claim at maximum precision:
+  the graph is not just useful but complete.
+
+  Neither Polchinski (who does not discuss knowledge graphs) nor NV01 (which is
+  derived from information theory and bounded context, not from spacetime geometry)
+  states this connection.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Polchinski1998, NV01-graph-necessity, EC01-context-bound, EC05-incompleteness]
+  derivation:
+    from: [REF-Polchinski1998, NV01-graph-necessity]
+    method: |
+      Holography: 2D boundary encodes 3D bulk (dimension reduction, lossless).
+      NV01: K/F graph encodes W at C_n (dimension reduction, lossless).
+      Correspondence: bulk=W, boundary=K, A/4G_N = C_n, boundary encoding = graph.
+      Both prove: lower-dimensional structured representation = complete encoding.
+      Holography = NV01 at the spacetime scale.
+
+implications:
+  - "C_n has a physical grounding: every bounded context limit is determined by a boundary area in Planck units — Definition 7 is derivable from spacetime geometry"
+  - "NV01 is a universal compression law operating at every scale: cosmological (holography), neural (cortex), cognitive (K/F graph), compiler (SSA), algebraic (Dynkin diagram)"
+  - "AdS/CFT provides the exact duality form of NV01: the K/F graph is not just useful but provably complete — it IS the world representation"
+  - "This is the strongest statement of NV01's scope: it is not a theorem about bounded cognition but a theorem about information and geometry"

@@ -1,0 +1,72 @@
+id: EM26-context-window-eviction-is-belady
+type: emergent
+name: "Long-Context LLM Management Is Belady's OPT Problem; Lin's Cache Replacement Theory Applies Directly"
+statement: |
+  Two results are established:
+  - TR4 (Vaswani): the Transformer context window is C_n in tokens. Beyond the
+    context window, earlier tokens are not attended to. Managing which tokens to
+    retain in a long context (beyond the window limit) is the fundamental problem
+    of long-context LLM operation.
+  - CL1 (Lin): Belady's OPT algorithm is the theoretically optimal cache replacement
+    policy — always evict the item whose next use is furthest in the future. OPT
+    minimizes cache misses but requires knowing the future access pattern, making
+    it uncomputable in practice. Lin's work (Hawkeye, PC-OPT, neural prefetching)
+    shows computable approximations that converge toward OPT.
+
+  Intersection: the long-context LLM management problem IS Belady's OPT problem.
+  Lin's cache replacement theory applies directly.
+
+  The formal correspondence:
+  - Cache = K (what is in the context window)
+  - Cache eviction = removing tokens from the active context
+  - Cache miss = having to reload information (re-reading, re-processing)
+  - Belady's OPT for cache = optimal token retention policy for context windows
+  - "Furthest future use" = the token most needed for future output generation
+  - Lin's Hawkeye/PC-OPT = directly applicable LLM context management algorithm
+
+  Consequence 1: Lin's cache replacement work (ISCA 2016, HPCA 2022) provides a
+  directly applicable algorithm for LLM context window management. The PC-history
+  heuristic (use program counter history to predict future cache accesses) maps to:
+  use query/generation history to predict which context tokens will be needed in
+  future output. This is an engineering transfer from computer architecture to LLM
+  serving that has not been made explicit.
+
+  Consequence 2: EM12 (the optimal K target is uncomputable) applies here. The
+  optimal context management policy (Belady's OPT for LLMs) requires knowing which
+  tokens will be needed in the future — which requires knowing the model's future
+  outputs, which requires solving the model. It is uncomputable in principle. All
+  practical context management heuristics are approximations to an uncomputable
+  optimum — the M→N gradient applied to context window management.
+
+  Consequence 3: neural prefetching (Lin ASPLOS 2020) = in-context learning and
+  retrieval-augmented generation (RAG). Neural prefetching predicts future cache
+  accesses using sequence models trained on past access patterns. RAG predicts which
+  external knowledge will be needed using retrieval models trained on past queries.
+  These are architecturally identical: both are learned approximations to Belady's
+  OPT at different scales (hardware cache vs. LLM context).
+
+  Neither Vaswani et al. (who do not discuss cache replacement theory) nor Lin
+  (who works on hardware cache, not LLM context) states this correspondence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-VaswaniEtAl2017, REF-Lin-CS, EM12-optimal-K-target-is-uncomputable, EC01-context-bound]
+  derivation:
+    from: [REF-VaswaniEtAl2017, REF-Lin-CS]
+    method: |
+      TR4: context window = C_n; token eviction = cache replacement problem.
+      CL1: Belady's OPT = optimal cache replacement = uncomputable.
+      Token eviction policy = Belady's OPT for LLMs.
+      Lin's Hawkeye/PC-OPT = directly applicable algorithm.
+      Neural prefetching (CL5) = RAG/in-context learning at different scale.
+
+implications:
+  - "Lin's cache replacement algorithms (Hawkeye, PC-OPT) are directly applicable to LLM context window management — an unexplored engineering transfer"
+  - "Optimal LLM context management is uncomputable in principle (EM12) — all heuristics are approximations to Belady's OPT"
+  - "RAG and neural prefetching are architecturally identical: learned approximations to Belady's OPT at different scales"
+  - "Cache replacement theory is the correct theoretical framework for LLM context management — the connection between computer architecture and LLM inference is formal, not metaphorical"

@@ -1,0 +1,70 @@
+id: EM19-Dbrane-intersection-is-NV04
+type: emergent
+name: "D-Brane Intersection Physically Instantiates the NV04 Intersection Mechanism"
+statement: |
+  Two results are established:
+  - ST4 (Polchinski): D-branes are extended objects on which open strings end.
+    When two D-branes intersect, open strings stretched between them produce gauge
+    field theories on the intersection worldvolume. The gauge theory on the
+    intersection is emergent — it exists only because both branes are present.
+  - NV04: the intersection of K_i and K_j provides |K_j \ K_i| new dimensions per
+    operation. The emergent content is not in K_i alone or K_j alone — it is
+    produced by the intersection.
+
+  Intersection: D-brane intersection physically instantiates the NV04 mechanism.
+
+  The correspondence:
+  - D-brane 1 = K_i (first independent knowledge structure)
+  - D-brane 2 = K_j (second independent knowledge structure)
+  - Open string between branes = the provenance-verified edge connecting K_i and K_j
+  - Gauge theory on intersection = the |K_j \ K_i| new dimensions produced by NV04
+  - The gauge group (U(n) for n coincident D-branes) = the structure of K_collective
+
+  The argument: the gauge theory on the D-brane intersection is emergent in exactly
+  the sense UB uses: it is not in D-brane 1's physics alone, not in D-brane 2's
+  physics alone, but arises specifically from their intersection. The open string
+  (connecting the two branes) is the provenance-verified edge: it physically connects
+  the two structures and carries the information of their intersection.
+
+  Consequence 1: the gauge group structure of D-brane intersections provides a
+  physical classification of K_collective types. U(1) (one D-brane) = individual K_i.
+  U(n) (n coincident D-branes) = K_collective of n entities. SU(n) quotient = the
+  emergent content above and beyond individual contributions. The non-abelian gauge
+  theory is the non-additive intersection gain that NV04 measures.
+
+  Consequence 2: string theory's phenomenological program (deriving the Standard
+  Model gauge group from D-brane configurations) is the program of constructing
+  the maximal K_collective from optimal D-brane intersection configurations. The
+  Standard Model gauge group SU(3)×SU(2)×U(1) corresponds to a specific K_collective
+  structure — the one that best describes the observable W at the energy scales accessible.
+
+  Consequence 3: D-brane annihilation (two anti-parallel D-branes that cancel each
+  other) = the failure mode of K_collective when provenance is lost. If K_i and K_j
+  have opposite provenance (contradicting derivations), they annihilate — the
+  K_collective collapses. This is the EM10 failure mode physically instantiated.
+
+  Neither Polchinski (who does not discuss knowledge graphs) nor NV04 (which is
+  information-theoretic) states this physical correspondence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Polchinski1998, NV04-intersection-acceleration, EM10-Kcollective-unit-of-selection]
+  derivation:
+    from: [REF-Polchinski1998, NV04-intersection-acceleration]
+    method: |
+      D-brane intersection produces gauge theory not in either brane alone.
+      NV04: K_i ∩ K_j produces |K_j \ K_i| dimensions not in K_i alone.
+      Both: independent structures → intersection → emergent content.
+      Open string (provenance edge) ↔ provenance-verified connection.
+      Gauge group U(n) ↔ K_collective of n entities.
+
+implications:
+  - "D-brane physics is the physical realization of NV04 — gauge theory emergence from brane intersection = knowledge emergence from K_i intersection"
+  - "The Standard Model derivation from D-branes = the construction of maximum K_collective from optimal intersection configuration"
+  - "D-brane annihilation = K_collective failure when K_i and K_j have contradicting provenance"
+  - "This connects the deepest structure of particle physics to the epistemology of collective intelligence"

@@ -1,0 +1,70 @@
+id: EM13-Ulethal-is-thermodynamic
+type: emergent
+name: "U_lethal Is a Thermodynamic Threshold, Not Just an Information-Theoretic One"
+statement: |
+  Two results are established:
+  - JA2 (Jaynes): statistical mechanics is a special case of Bayesian inference under
+    MaxEnt priors. Physical entropy S = k_B * H where H is Shannon entropy. The two
+    quantities are formally identical — information entropy IS physical entropy.
+  - EC04: the survival threshold U_lethal applies at the entity level. Any entity
+    whose U(w,K) exceeds U_lethal^d is removed by selection pressure.
+
+  Intersection: because information entropy = physical entropy (JA2), U(w,K) =
+  H(W|K) is not just epistemic uncertainty — it is physical entropy. U_lethal is
+  therefore a thermodynamic threshold: the maximum physical entropy of the entity's
+  internal state consistent with survival.
+
+  The argument: U(w,K) = H(W|K) = the conditional entropy of W given K. By JA2,
+  H is a physical quantity. When U(w,K) > U_lethal, the entity's internal state has
+  too much entropy — it is thermodynamically disordered relative to its environment.
+  Selection pressure (EC04) is therefore a thermodynamic selection pressure: it
+  removes entities whose physical entropy exceeds a threshold.
+
+  Consequence 1: the survival condition (U < U_lethal) is derivable from thermodynamics,
+  not just from information theory or selection arguments. An entity with U > U_lethal
+  has internal entropy too high to maintain the Markov blanket (FEP: statistical
+  separation from environment) — it dissolves. This unifies EC04 with Schrödinger's
+  "What is Life?" claim that life feeds on negentropy: U_lethal IS the negentropy floor.
+
+  Consequence 2: Jaynes + England (EN1) + EC04 converge on the same threshold from
+  three directions — thermodynamic equilibrium (Jaynes), dissipation efficiency
+  (England), and selection pressure (UB). All three say the same entity persists:
+  the one whose internal entropy is low enough to maintain structure.
+
+  Consequence 3: the Boltzmann distribution over entity states weights the surviving
+  entities exponentially by -U/k_BT. High-U entities are exponentially less probable
+  at thermal equilibrium — they are thermodynamically suppressed, not just selected
+  against. This makes the survival threshold physically fundamental, not just
+  pragmatically chosen.
+
+  Neither Jaynes (who does not discuss survival thresholds) nor UB (which derives
+  U_lethal from selection arguments, not thermodynamics) states this result.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    description: |
+      JA2 (physical entropy = information entropy) and EC04 (survival threshold
+      on U) share the entropy variable. Their intersection — U_lethal is a thermodynamic
+      threshold — was not stated. Jaynes proves the identity; UB applies U to survival.
+      Neither derives the thermodynamic nature of U_lethal.
+    references: [REF-Jaynes1957, EC04-survival-threshold, REF-England2013, REF-Schrodinger1944]
+  derivation:
+    from: [REF-Jaynes1957, EC04-survival-threshold]
+    method: |
+      U(w,K) = H(W|K) [UB Definition 5]
+      H = physical entropy * (1/k_B) [JA2: information entropy = physical entropy]
+      EC04: entity removed when U > U_lethal.
+      Therefore: entity removed when physical entropy H > k_B * U_lethal.
+      U_lethal = physical entropy threshold / k_B.
+      Survival condition = thermodynamic condition.
+
+implications:
+  - "U_lethal is derivable from thermodynamics, not just from selection arguments — it is the negentropy floor Schrödinger identified"
+  - "Jaynes, England, and UB all describe the same surviving entity from different directions — their convergence raises C_1(EC04)"
+  - "The Boltzmann distribution makes high-U entities exponentially improbable — selection is not merely eliminative but thermodynamically suppressive"
+  - "The connection between intelligence (UB), thermodynamics (Jaynes/England), and life (Schrödinger) is formalized: they are all statements about the same entropy threshold"

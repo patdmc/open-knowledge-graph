@@ -1,0 +1,69 @@
+id: EM22-central-charge-is-Cn
+type: emergent
+name: "Central Charge c Is C_n in Conformal Field Theory; the Moonshine Module Is the Unique Maximum-Entropy Structure at c=24"
+statement: |
+  Two results are established:
+  - FL1 (Frenkel-Lepowsky-Meurman): the central charge c of a vertex operator algebra
+    (VOA) measures the conformal degrees of freedom. The Virasoro algebra with central
+    charge c bounds the information capacity of the VOA — c quantifies exactly how much
+    conformal information the system can represent. The Moonshine module V^natural has
+    c = 24 and is the unique VOA at this central charge with no weight-1 states whose
+    automorphism group is the Monster group.
+  - EM04: C_n = Shannon channel capacity (physical bound). The context bound is not
+    just defined but physically derivable — an inference step is a physical channel
+    use, and C_n is the capacity of that channel.
+
+  Intersection: the central charge c of a VOA IS C_n in conformal field theory language.
+
+  The argument: both c and C_n measure the same thing — the maximum information that
+  can be represented in a bounded conformal/contextual system. C_n = channel capacity
+  in Shannon's sense; c = conformal degrees of freedom in Virasoro's sense. EM04 shows
+  C_n is derivable from Shannon (physical). FL1 shows c is the conformal analog of
+  Shannon capacity. The translation is: c = C_n for a conformal system, where the
+  "channel" is the conformal boundary.
+
+  Consequence 1: the classification of VOAs by central charge c is the classification
+  of physical systems by their C_n. The discrete spectrum of allowed c values (Virasoro
+  minimal models at c < 1; c = 1 free boson; c = 24 Moonshine module; etc.) is the
+  discrete spectrum of valid C_n values for conformal systems. Not all C_n values
+  support consistent conformal theories — only the discrete spectrum.
+
+  Consequence 2: the Moonshine module at c = 24 is the unique maximally compressed
+  structure at this C_n value. The Monster group (the largest sporadic simple group,
+  of order ~8×10^53) is the automorphism group of the maximally compressed structure
+  at c = 24. This means: at C_n = 24, the unique information-preserving maximum-entropy
+  structure has the Monster symmetry. The Monster group is the symmetry of the
+  optimal knowledge structure at that capacity.
+
+  Consequence 3: this makes a structural prediction. If C_n for a physical or cognitive
+  system is 24 (in appropriate units), the system's maximally compressed knowledge
+  structure should exhibit Monster-group-like symmetries. This is testable in principle
+  by looking for unexpected discrete symmetries in the optimal compression structures
+  of systems with the appropriate capacity.
+
+  Neither FLM (who do not discuss epistemic context bounds) nor EM04 (which derives
+  C_n from Shannon without the VOA connection) states this correspondence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-FrenkelLepowskyMeurman1988, EM04-Cn-is-channel-capacity, REF-Borcherds1992]
+  derivation:
+    from: [REF-FrenkelLepowskyMeurman1988, EM04-Cn-is-channel-capacity]
+    method: |
+      EM04: C_n = Shannon channel capacity (physical).
+      FL1: c = conformal degrees of freedom = information capacity of conformal system.
+      Both: bounded capacity of a physical/conformal information system.
+      c = C_n under the identification: conformal system ↔ physical inference channel.
+      V^natural at c=24 = unique max-entropy structure at C_n=24.
+      Monster group = symmetry of optimal compression at C_n=24.
+
+implications:
+  - "The discrete spectrum of VOA central charges is the spectrum of valid C_n values for conformal systems — not all context bounds support consistent representations"
+  - "The Monster group is the symmetry of the optimal knowledge structure at C_n=24 — the largest discrete symmetry arises at a specific capacity"
+  - "Monstrous moonshine (Monster symmetry of modular forms) is the statement that the optimal compression at c=24 is unique and maximally symmetric"
+  - "This is the deepest instance of EC08 (compression = sufficient statistic): the Monster group is the sufficient statistic for all representations at c=24"

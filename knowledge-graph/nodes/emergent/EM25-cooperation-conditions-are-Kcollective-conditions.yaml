@@ -1,0 +1,76 @@
+id: EM25-cooperation-conditions-are-Kcollective-conditions
+type: emergent
+name: "Axelrod's Conditions for Cooperation Emergence Are the Conditions for K_collective Formation"
+statement: |
+  Two results are established:
+  - AX2 (Axelrod): cooperation emerges in iterated prisoner's dilemma when three
+    conditions hold: (1) repeated interaction — shadow of the future, making cooperation
+    worth maintaining; (2) recognition — ability to identify the same partner again;
+    (3) reciprocity — ability to base current action on the partner's past behavior.
+    Remove any of these and cooperation collapses.
+  - D13 (UB Definition 13): provenance = the triple (attribution, evidence, derivation).
+    The provenance system is the formal requirement for K_collective: without provenance
+    tracking, K_collective cannot maintain its provenance-verified intersection.
+
+  Intersection: Axelrod's three conditions ARE the K_collective formation conditions
+  stated in game-theoretic terms.
+
+  The formal correspondence:
+  - Repeated interaction (AX2-1) = A > 0 over time: the entity keeps engaging W
+    (without repeated engagement, K cannot grow; K_collective cannot form)
+  - Recognition (AX2-2) = provenance tracking (D13 attribution): knowing who
+    contributed what proposition to K_collective
+  - Reciprocity (AX2-3) = K/F coupling (EC06): basing current actions on past
+    K — the provenance chain from evidence to current action
+
+  These are not analogies — they are the same conditions at different levels of
+  formalism. Axelrod identifies them empirically in game-theoretic simulations.
+  UB derives them formally from information theory and selection pressure.
+
+  Consequence 1: this provides game-theoretic grounding for the provenance requirement
+  (D13). Why is provenance required for K_collective? Because without recognition
+  (provenance), cooperation cannot be maintained — the K_collective is invaded by
+  "defectors" (entities that take from K_collective without contributing provenance-
+  verified knowledge). Axelrod's defector-invasion result (AX3) = the K_collective
+  failure mode when provenance is removed.
+
+  Consequence 2: the shadow of the future (AX2-1) quantifies the minimum A required
+  for K_collective stability. If the discount rate on future interactions exceeds a
+  threshold, cooperation collapses. In UB terms: if A is too low (the entity does not
+  expect to engage W long enough), K_collective is not worth maintaining. The discount
+  threshold in Axelrod's model = 1 - (cost of cooperation / benefit of cooperation) =
+  a formal expression of A's minimum value for K_collective viability.
+
+  Consequence 3: tit-for-tat's success is the success of minimum-provenance cooperation.
+  Tit-for-tat tracks exactly one bit of history (the partner's last action) — minimum
+  viable provenance depth. This predicts that the minimum viable K_collective requires
+  exactly one step of attribution history: who contributed the most recent proposition.
+  More provenance depth enables more stable K_collective but minimum viable provenance
+  is one step.
+
+  Neither Axelrod (who has no information-theoretic treatment of K_collective) nor
+  D13 (which derives provenance from formal requirements, not from game theory) states
+  this connection.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph, EC Evaluation Pass"
+    date: "2025"
+  evidence:
+    type: emergent-intersection
+    references: [REF-Axelrod1984, D13-provenance, NV04-intersection-acceleration, EC06-belief-as-action]
+  derivation:
+    from: [REF-Axelrod1984, D13-provenance]
+    method: |
+      AX2: cooperation requires repeated interaction + recognition + reciprocity.
+      D13: K_collective requires A>0 (repeated) + attribution (recognition) + K/F (reciprocity).
+      One-to-one correspondence: AX2-1↔A>0, AX2-2↔D13 attribution, AX2-3↔EC06.
+      Axelrod's conditions = UB's K_collective conditions at different formalisms.
+      AX3 defector invasion = K_collective failure when attribution (recognition) is removed.
+
+implications:
+  - "Provenance tracking is the formal requirement that prevents K_collective defection — Axelrod provides the game-theoretic proof"
+  - "The minimum viable K_collective requires one step of attribution history (tit-for-tat's one-bit memory) — minimum viable provenance depth"
+  - "The shadow of the future bounds the minimum A for K_collective viability — entities that do not expect long-term engagement cannot sustain K_collective"
+  - "Open-source software communities, scientific collaborations, and institutions that lose attribution (provenance) are invaded by defectors — Axelrod's model is the social proof of D13"
