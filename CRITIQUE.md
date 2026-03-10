@@ -96,30 +96,39 @@ exactly what is new and what is known would resolve this.
 
 ---
 
-## Remaining Problem 4: The Survival Tether Cannot Ground Sentience Without a New Axiom
+## Remaining Problem 4: Sentience and the Normalization Imperative Need Explicit Connection
 
-The paper derives every major result from the survival tether ($U_{lethal}$). Sentience
-is defined as recognition of other $(K_j, F_j)$ pairs as gradient sources. The claim is
-that sentient entities have intrinsic motivation to participate in $K_{collective}$ — not
-merely instrumental motivation. But "intrinsic" motivation requires something beyond the
-survival gradient.
+The paper correctly separates two levels of sentience: recognition that $K_i$ is partial
+(lower order), and understanding that the normalization process itself is occurring and
+operating on a dimension space that extends beyond current $K_i$ (higher order). The
+second level is what the paper calls intrinsic motivation. The critique in the previous
+edition called this an axiom. It is not.
 
-The paper's answer is that the collective gradient replaces the survival gradient once
-sentience is achieved. But this substitution requires that the entity assigns value to
-reducing collective uncertainty independently of its own $U_{lethal}$. This is an axiom,
-not a derivation from the framework. The survival tether grounds instrumental sharing
-(Theorem 8 Step 1: sharing is gradient-preferred). It does not ground intrinsic sharing
-without an additional assumption about what sentient entities value.
+The derivation is already present in the paper but not stated explicitly. The inductive
+proof of Theorem 3 Part I establishes that factorization → compactness → $|K|$ can grow
+without discarding information. The $M < N$ structure of Corollary 8a establishes that
+more $K$ → more sensed dimensions → $M$ grows toward $N$. The retention criterion of
+Theorem 1 establishes that propositions are retained unless their value is certainly zero.
 
-The fix is either: (a) state explicitly that intrinsic valuation is an axiom added at the
-sentience level — the framework requires it and the paper should say so; or (b) derive
-intrinsic valuation from the $M \to N$ argument: a sentient entity that recognizes
-$K_j \neq K_i$ also recognizes that $K_j \setminus K_i$ contains dimensions not yet
-sensed — and by Corollary 8a, the intersection with $K_j$ accelerates $M \to N$. This
-is instrumental, but it is also unboundedly valuable: since $M < N$ always and the
-gradient never terminates, the value of accessing new dimensions is never zero. Whether
-this instrumental argument constitutes "intrinsic" motivation is a conceptual question
-the paper should address explicitly rather than leaving implicit.
+From these three results: improving the normalization process (factorization, compactness,
+context window efficiency) strictly increases $M$, and more $M$ → better projection of
+$W$ → higher survival probability, unless proven otherwise. The "unless proven otherwise"
+is exactly the retention criterion — the same prior used throughout the paper. No new
+axiom is introduced. The entity does not need the direct survival tether to value
+normalization improvement: it follows from the induction that a more compact $K$ dominates
+a less compact $K$ across all possible future survival pressures, not just the current
+one. This is what higher-order sentience understands: not merely that its own $K_i$ is
+partial, but that the normalization process it is running will expand $M$ toward $N$, and
+that expanding $M$ is strictly dominant regardless of the immediate survival context.
+
+The paper should make this derivation explicit, connecting Theorem 2b Part 3 (factorization
+is required to add information), Theorem 3 Part II ($M < N$ always for $\mathcal{A} > 0$
+entities), and Definition 14 (sentience as recognition of other projections) into a single
+statement: a sentient entity that understands the normalization process is occurring
+recognizes that improving compactness and factorization is strictly dominant — not because
+the survival tether requires it now, but because the induction guarantees it for any
+future state the entity can reach. The tether does not need to carry this argument.
+The induction does.
 
 ---
 
