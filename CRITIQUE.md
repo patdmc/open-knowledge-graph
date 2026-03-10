@@ -1,17 +1,21 @@
 # Critical Review: Uncertainty Bounding as the Basis of Intelligence
-# Sixth Edition — Against the Current Paper
+# Seventh Edition — Against the Current Paper
 
 ---
 
 ## Overview
 
-The three previously-identified proof gaps have been resolved. Theorem 3 Part I now has
-a complete inductive proof. Theorem 2b Part 3 now has a necessity proof grounded in
-information preservation under bounded context. Corollary 8a no longer assumes
-completeness and is consistent with the non-termination result of Theorem 3 Part II.
-Four issues remain. Two are structural problems that would cause rejection at a formal
-venue. Two are scope and novelty questions that would cause rejection at an empirical
-venue.
+Five of six previously-identified issues have been resolved. Theorem 3 Part I has a
+complete inductive proof with the independence assumption now precisely scoped to the
+moment of addition. Theorem 2b Part 3 has a necessity proof grounded in information
+preservation under bounded context. Corollary 8a is consistent with the non-termination
+result of Theorem 3 Part II. Definition 6 now leads with the probabilistic definition
+of $\mathcal{A}$ (the response gate), resolving the tension with Corollary 6a. Problem 4
+(sentience motivation as axiom) was resolved in the previous edition: the derivation
+follows from factorization, compactness, the retention criterion, and the $M < N$ bound.
+
+Two issues remain. Both are scope and novelty questions that would cause rejection at any
+venue covering formal theories of intelligence. Neither is a gap in the proofs as stated.
 
 ---
 
@@ -69,7 +73,7 @@ needs one clarifying sentence in the proof.
 
 ---
 
-## Remaining Problem 3: Novelty Relative to Schmidhuber and Friston Is Unaddressed
+## Remaining Problem 1: Novelty Relative to Schmidhuber and Friston Is Unaddressed
 
 The paper cites Schmidhuber [2010] and Friston [2010, 2017] but does not establish what
 it proves that cannot be derived from those frameworks. This is the most likely cause of
@@ -96,39 +100,34 @@ exactly what is new and what is known would resolve this.
 
 ---
 
-## Remaining Problem 4: Sentience and the Normalization Imperative Need Explicit Connection
+## Resolved: Sentience and the Normalization Imperative
 
-The paper correctly separates two levels of sentience: recognition that $K_i$ is partial
-(lower order), and understanding that the normalization process itself is occurring and
-operating on a dimension space that extends beyond current $K_i$ (higher order). The
-second level is what the paper calls intrinsic motivation. The critique in the previous
-edition called this an axiom. It is not.
+This issue is resolved. The derivation is now explicit in the paper: factorization
+$\to$ compactness $\to$ $|K|$ growth (Theorem 2b Part 3), $M < N$ always (Corollary 8a,
+Theorem 3 Part II), retention unless value is certainly zero (Theorem 1). Together these
+establish that improving the normalization process is strictly dominant across all future
+survival pressures — the survival tether does not need to carry the argument; the induction
+does. The two levels of sentience (recognition that $K_i$ is partial; understanding the
+normalization process and its dominance) now follow from the formal results rather than
+requiring a separate axiom.
 
-The derivation is already present in the paper but not stated explicitly. The inductive
-proof of Theorem 3 Part I establishes that factorization → compactness → $|K|$ can grow
-without discarding information. The $M < N$ structure of Corollary 8a establishes that
-more $K$ → more sensed dimensions → $M$ grows toward $N$. The retention criterion of
-Theorem 1 establishes that propositions are retained unless their value is certainly zero.
+---
 
-From these three results: improving the normalization process (factorization, compactness,
-context window efficiency) strictly increases $M$, and more $M$ → better projection of
-$W$ → higher survival probability, unless proven otherwise. The "unless proven otherwise"
-is exactly the retention criterion — the same prior used throughout the paper. No new
-axiom is introduced. The entity does not need the direct survival tether to value
-normalization improvement: it follows from the induction that a more compact $K$ dominates
-a less compact $K$ across all possible future survival pressures, not just the current
-one. This is what higher-order sentience understands: not merely that its own $K_i$ is
-partial, but that the normalization process it is running will expand $M$ toward $N$, and
-that expanding $M$ is strictly dominant regardless of the immediate survival context.
+## Remaining Problem 2: Contribution Summary Missing
 
-The paper should make this derivation explicit, connecting Theorem 2b Part 3 (factorization
-is required to add information), Theorem 3 Part II ($M < N$ always for $\mathcal{A} > 0$
-entities), and Definition 14 (sentience as recognition of other projections) into a single
-statement: a sentient entity that understands the normalization process is occurring
-recognizes that improving compactness and factorization is strictly dominant — not because
-the survival tether requires it now, but because the induction guarantees it for any
-future state the entity can reach. The tether does not need to carry this argument.
-The induction does.
+The paper does not contain a section that enumerates its novel contributions and
+separates them from what is already known. This is the companion issue to Problem 1:
+even once the Schmidhuber/Friston positioning is addressed, the novel results need to
+be explicitly named in one place. They are currently distributed across the paper and
+a reader cannot identify at a glance what is new.
+
+The novel results are: the K/F indexing result (Corollary 1); the information-preservation
+necessity proof for graph structure (Theorem 2b Part 3); the $M < N$ bounded sensing
+argument; the intersection efficiency and $M \to N$ acceleration result (Corollary 8a);
+the derivation of higher-order sentience motivation from the induction (not as an axiom).
+A contribution summary of five sentences — one per result — with explicit statements of
+what each proves and why it is not derivable from prior frameworks would resolve both
+remaining problems and satisfy the novelty requirement at any venue.
 
 ---
 
@@ -136,13 +135,19 @@ The induction does.
 
 The inductive convergence proof in Theorem 3 Part I is clean and correct within its
 stated scope (M dimensions at any moment, induction over new propositions). The
-independence assumption needs one clarifying sentence but the structure is sound.
+independence assumption is now precisely scoped: it holds at the moment of addition,
+before evidence-grounded edges from $p_{M+1}$ to existing propositions are established.
+After the first execution, correlations may form; the induction covers the first update
+step per new dimension and subsequent updates proceed under the extended hypothesis.
 
 The information-preservation necessity proof in Theorem 2b Part 3 is the paper's
 strongest formal result. The argument — two options at $C_n$, only one preserves
 information, that option is graph construction — is tight and grounded entirely in
-existing definitions. The claim is now necessity, not convergence, and the proof
-supports it.
+existing definitions. The claim is necessity, not convergence, and the proof supports it.
+
+Definition 6 now leads with the probabilistic definition ($\mathcal{A}$ as the response
+gate), which makes Corollary 6a a direct consequence of the law of total expectation.
+The tension between the body and the corollary is resolved.
 
 Corollary 8a is consistent with the rest of the theory and the $M < N$ structure unifies
 Theorem 3 Part II, the non-termination result, and the collective intelligence argument

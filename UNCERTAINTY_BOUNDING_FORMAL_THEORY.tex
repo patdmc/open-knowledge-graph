@@ -481,31 +481,36 @@ The minimization imperative (Theorem 1) operates on this expected
 quantity; \(U(w, K)\) is the pointwise uncertainty the entity faces when
 it encounters specific world state \(w\).
 
-\textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is a
-continuous scalar measuring the intrinsic drive of an entity to reduce
-its own uncertainty: the desire to know {[}Schmidhuber2010{]}. It is not
+\textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is the
+probability that entity \(E\) engages its learning mechanism \(M\) in
+response to a gradient signal from \(W\): the response gate. It is not
 an external objective imposed on \(E\), nor a property derived from
 \(F\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(F\)
 an active informed action space rather than a static structure. At
 \(\mathcal{A} = 0\), \(F\) is a set of possible functions with no
-internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(F\) is
-maximally oriented toward the unbounded frontier. Intermediate values
-are meaningful: the drive can be stronger or weaker, shaped by
+internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(E\) engages
+on every gradient signal it encounters. Intermediate values are
+meaningful: the response probability can be higher or lower, shaped by
 architecture, encoding history, and the density of unresolved
-uncertainty in the entity's reachable \(W\).
+uncertainty in the entity's reachable \(W\). The informal gloss --- the
+desire to know {[}Schmidhuber2010{]}, the intrinsic drive to reduce
+uncertainty --- is a phenomenological description of this gate, not the
+definition.
 
 Agency is the reason gradient descent has a runner. The landscape of
-uncertainty exists independently of any entity; \(\mathcal{A}\) is what
-determines how strongly an entity moves through it.
+uncertainty exists independently of any entity; \(\mathcal{A}\) is the
+probability that any given entity moves through it when a gradient
+appears.
 
 Three formulations of \(\mathcal{A}\) appear in this paper. Their
 relationship: \textbf{Formulation 3 (primary formal definition,
 Corollary 6a):} \(\mathcal{A} \in [0,1]\) is the probability that \(E\)
 engages \(M\) in response to a gradient signal --- the response gate.
-\textbf{Formulation 1 (informal description):} ``intrinsic drive to
-reduce uncertainty'' is a metaphorical gloss on Formulation 3; it
-conveys the phenomenology but is not the definition. \textbf{Formulation
-2 (empirical operationalization):} \(\mathcal{A}(E) \propto
+This is the definition stated in the body above. \textbf{Formulation 1
+(informal description):} ``intrinsic drive to reduce uncertainty'' is a
+phenomenological gloss; it conveys what it feels like from the inside
+but is not the formal definition. \textbf{Formulation 2 (empirical
+operationalization):} \(\mathcal{A}(E) \propto
 dU/dt\) as \(U_{lethal}^d \to \infty\) is a valid empirical projection
 of Formulation 3 onto a measurable quantity. It is valid because Theorem
 3 Part II establishes that \(\mathcal{T}_{reachable}\) grows from
@@ -1291,10 +1296,19 @@ inference graph of the existing \(M\) actions --- the proposition is
 new. The gradient signal \(\delta_{M+1}\) for \(f_{M+1}\) is therefore
 independent of \(\delta_1, \ldots, \delta_M\) in the current step: the
 new dimension has not yet been reached by any existing action's
-grounding. Convergence of the \((M+1)\)-dimensional system follows from:
+grounding. This independence holds at the moment of addition --- the
+first execution of \(f_{M+1}\) --- before any evidence-grounded edges
+from \(p_{M+1}\) to existing propositions have been established in the
+K/F graph. After the first execution, \(\delta_{M+1}\) may correlate
+with existing dimensions as the graph forms edges grounded in the new
+evidence; subsequent updates proceed in the full \((M+1)\)-dimensional
+system under the inductive hypothesis extended by one step, and the
+induction covers exactly this first update step for each newly added
+dimension. Convergence of the \((M+1)\)-dimensional system follows from:
 (i) the \(M\)-dimensional system converges by hypothesis; (ii) the new
 dimension converges by the base case applied to \(f_{M+1}\)
-independently. Therefore convergence holds for \(M+1\).
+independently at the moment of addition. Therefore convergence holds for
+\(M+1\).
 
 By induction, convergence holds for any \(M\) the entity currently
 senses, without assuming anything about \(N\). The descent at each step
