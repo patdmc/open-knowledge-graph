@@ -1,0 +1,93 @@
+id: EC09-hierarchy-cost-triage
+type: equivalency-class
+name: "Hierarchical Cost Triage: L0-L3 = System 1/2 = GWT Levels = FEP Precision Hierarchy"
+underlying_proposition: |
+  Cognition is organized across levels where lower levels handle cheaper, more certain
+  processing and higher levels handle more expensive, uncertain processing. There is a
+  cost-based triage mechanism that routes processing to the appropriate level.
+  This hierarchy is necessary given bounded context: without it, all processing would
+  compete for the same bounded context window, causing the O(n*k) scaling failure.
+
+members:
+  - id: UB-L0-L3
+    framework: "Uncertainty Bounding"
+    formulation: |
+      L0 (certain actions, no inference cost), L1 (routine exceptions), L2 (novel
+      problems), L3 (architectural changes). Each level has a cost threshold theta_i.
+      Escalation occurs when L_i cannot handle within its epsilon_acceptable.
+      Definition 8; Theorem 4 (Escalation Principle).
+    epistemic_status: formal-definition-with-theorem
+    derivation: "Definition 8 + Theorem 4: hierarchy derived from cost structure of C_n"
+
+  - id: KH-system1-2
+    framework: "Kahneman (2011)"
+    formulation: |
+      System 1 (fast, automatic, low-cost) handles routine pattern-matching.
+      System 2 (slow, deliberate, high-cost) handles novel, uncertain reasoning.
+      The routing between systems is based on cognitive ease — when System 1
+      has low uncertainty, no System 2 activation.
+    epistemic_status: empirical
+    derivation: "Extensive experimental evidence: dual-task interference, cognitive ease manipulation"
+
+  - id: BA-GWT-levels
+    framework: "Baars (1988), Dehaene (2011)"
+    formulation: |
+      Below-threshold processing (local, unconscious = L0 equivalent) vs.
+      above-threshold global broadcast (conscious, high-cost = L2-L3 equivalent).
+      The threshold is cost-based: global broadcast uses more resources.
+    epistemic_status: empirical-theoretical
+    derivation: "Neuroimaging evidence: below-threshold stimuli activate local circuits; above-threshold activate global networks"
+
+  - id: FEP-precision-hierarchy
+    framework: "Friston (2017)"
+    formulation: |
+      Precision weighting in the FEP: higher-precision (more certain) prediction
+      errors at lower levels are resolved locally. Lower-precision (more uncertain)
+      errors propagate upward in the hierarchy. Precision = inverse variance =
+      certainty measure. High certainty = handled locally (L0 equivalent).
+    epistemic_status: formal-theoretical
+    derivation: "Active inference: precision-weighted prediction errors drive hierarchical processing"
+
+equivalence_analysis: |
+  Four frameworks independently ground the same hierarchical cost-triage structure:
+
+  Formal translation:
+  - L0 (UB) = System 1 (Kahneman) = below-threshold (Baars) = high-precision local (FEP)
+  - L2/L3 (UB) = System 2 (Kahneman) = above-threshold global (Baars) = low-precision global (FEP)
+  - Cost threshold theta_i (UB) = cognitive ease (Kahneman) = ignition threshold (Dehaene) = precision (FEP)
+
+  The routing mechanism: when local processing can handle the uncertainty (certainty >
+  threshold), it does not escalate. When it cannot, it escalates. All four frameworks
+  independently derive this routing rule from their respective formalisms.
+
+  The formal equivalence is very clean: precision (FEP) = 1/uncertainty = certainty =
+  the inverse of U(w,K). High precision = low U(w,K) = L0 territory.
+
+  Strength of equivalence: VERY HIGH. Four traditions including two formal frameworks
+  (UB, FEP) and two empirical traditions (Kahneman, Baars/Dehaene).
+
+confidence_C1p:
+  estimate: 0.90
+  basis: "Two formal frameworks (UB, FEP) + extensive empirical evidence (Kahneman, Dehaene) + theoretical grounding (Baars)"
+  weakest_link: "The exact cost structure (theta_i thresholds) is specific to UB; the others ground the qualitative hierarchy but not the specific quantitative thresholds"
+
+contradictions: []
+
+implications_for_ub: |
+  The L0-L3 hierarchy and Theorem 4 (Escalation Principle) are well-grounded. Four
+  frameworks converge on the same structure. UB's contribution: the formal derivation
+  of the hierarchy from C_n (not just as a design choice) and the Escalation Principle
+  theorem. The empirical evidence from Kahneman and Dehaene provides strong support
+  for the practical validity of the hierarchy.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks from formal AI theory, cognitive psychology, and neuroscience independently ground hierarchical cost-based triage."
+  derivation:
+    from: [D08-encoding-hierarchy, REF-Kahneman2011, REF-Baars1988, REF-Dehaene2011, REF-Friston2017]
+    method: "Equivalency: hierarchy levels translated across formal and empirical frameworks"

@@ -1,0 +1,91 @@
+id: EC02-improvement-rate
+type: equivalency-class
+name: "Rate of Model Improvement: eta_M = d/dt Compression = dF/dt Learning Signal"
+underlying_proposition: |
+  Intelligence is meaningfully measured by the rate at which an agent's internal model
+  improves — the derivative of model quality with respect to time/experience, not the
+  current quality. The measure that matters is how fast the model is getting better,
+  not where it currently stands.
+
+members:
+  - id: UB-etaM
+    framework: "Uncertainty Bounding"
+    formulation: |
+      eta_M: the rate at which M improves F's uncertainty-reduction capacity per unit
+      of learning signal. I(E) = A * eta_M. Defined in Definition 11a; necessity of
+      eta_M > 0 proved in Theorem 6 Part 2.
+    epistemic_status: formal-definition-with-necessity-proof
+    derivation: "Theorem 6 Part 2: eta_M = 0 => no improvement => selection removes entity. Necessity derived."
+
+  - id: S-compression-progress
+    framework: "Schmidhuber (2010)"
+    formulation: |
+      Intrinsic reward = d/dt[compression(C)]. The first derivative of compression
+      progress. The agent is rewarded for actions that improve C's compression rate,
+      not for C's current compression level.
+    epistemic_status: design-objective
+    derivation: "Defined as the objective function; not derived from necessity"
+
+  - id: FEP-dFdt
+    framework: "Friston (2010, 2017)"
+    formulation: |
+      The rate of free energy reduction: dF/dt is what the agent minimizes over time.
+      The learning signal is the gradient of F — improving the generative model reduces F.
+      The agent's intelligence (in the FEP sense) is its capacity to reduce F over time.
+    epistemic_status: theoretical
+    derivation: "Follows from FEP: minimizing F over time = improving generative model; rate is the measure"
+
+  - id: TH-meta-learning-rate
+    framework: "Thrun and Pratt (1998)"
+    formulation: |
+      Meta-learning rate: the rate at which the learning algorithm itself improves
+      across tasks. The relevant measure is not performance on a single task but
+      improvement of the learning mechanism.
+    epistemic_status: empirical
+    derivation: "Empirically demonstrated: meta-learning produces faster learning on new tasks"
+
+equivalence_analysis: |
+  These four formulations converge on the same underlying claim: the derivative, not
+  the absolute value, is what intelligence measures.
+
+  Formal translation:
+  - eta_M (UB) = d/dt[compression(C)] (Schmidhuber): both are the rate of model
+    improvement per unit of experience. The difference is the object improved:
+    eta_M improves M (the learning mechanism); d/dt compression improves C (the
+    world model / compressor). These are the same object at different abstractions.
+  - dF/dt (Friston): free energy reduction rate = uncertainty reduction rate =
+    eta_M in UB. Minimizing F = reducing U(w,K) = improving F's prediction.
+  - Meta-learning rate (Thrun): improving M itself = eta_M at the meta level.
+
+  Asymmetry: UB derives that eta_M > 0 is necessary (Theorem 6 Part 2). Schmidhuber
+  asserts it as an objective; Friston derives it from free energy minimization;
+  Thrun demonstrates it empirically. UB's necessity proof is the strongest grounding.
+
+  Strength of equivalence: HIGH for UB/Schmidhuber/Friston. MODERATE for Thrun
+  (same concept at different level of abstraction).
+
+confidence_C1p:
+  estimate: 0.88
+  basis: "Three independent formal frameworks + empirical evidence from meta-learning literature"
+  weakest_link: "The exact mapping eta_M = dF/dt requires showing that uncertainty reduction = free energy reduction, which is approximately but not exactly true (FEP uses variational free energy, not exact entropy)"
+
+contradictions: []
+
+implications_for_ub: |
+  eta_M is well-grounded: Schmidhuber, Friston, and Thrun all independently motivate
+  the same measure. The UB contribution is the necessity proof (Theorem 6 Part 2):
+  the others don't prove eta_M > 0 is required; UB does. This is NV02's companion —
+  just as M < N is the novel bound on representation, Theorem 6 Part 2 is the novel
+  derivation that eta_M > 0 is necessary for persistence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Intersection of eta_M (UB), d/dt compression (Schmidhuber), dF/dt (Friston), meta-learning rate (Thrun). Four independent groundings of the derivative-as-measure claim."
+  derivation:
+    from: [D11-higher-order-function-space, REF-Schmidhuber2010, REF-Friston2017, REF-Thrun1998]
+    method: "Formal translation: improvement rate across frameworks"

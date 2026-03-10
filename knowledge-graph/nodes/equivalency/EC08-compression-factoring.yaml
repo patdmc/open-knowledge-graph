@@ -1,0 +1,103 @@
+id: EC08-compression-factoring
+type: equivalency-class
+name: "Compression as Factoring: Factorization = Compression Progress = Sufficient Statistic = Aperiodic Encoding"
+underlying_proposition: |
+  Retaining more knowledge in less space requires extracting shared structure — factoring
+  the representation. Pure compression without structure extraction loses information;
+  structural compression (factoring) retains information while reducing representation size.
+  This is the mechanism by which intelligence scales.
+
+members:
+  - id: UB-factoring
+    framework: "Uncertainty Bounding"
+    formulation: |
+      Factoring at C_n: extracting shared structure from propositions reduces |K| without
+      discarding content. This IS graph construction. Theorem 2b Part 3: factoring is
+      the unique information-preserving compression method at bounded context.
+    epistemic_status: formal-necessity-proof
+    derivation: "Theorem 2b Part 3: two options at C_n; factoring preserves; discarding loses"
+
+  - id: S-compression-progress
+    framework: "Schmidhuber (2010)"
+    formulation: |
+      Compression progress = finding patterns that allow shorter description. Finding
+      a pattern IS factoring — extracting shared structure. Schmidhuber's agent is
+      rewarded for factoring its history into shorter descriptions.
+    epistemic_status: design-objective
+    derivation: "Compression progress implies factoring; Schmidhuber grounds it as objective"
+
+  - id: CT-chain-rule
+    framework: "Cover and Thomas (2006)"
+    formulation: |
+      Chain rule for entropy: H(X_1,...,X_n) = sum H(X_i | X_{1..i-1}).
+      Conditional entropy H(X_i | X_{1..i-1}) <= H(X_i). Factoring the joint
+      distribution preserves the total entropy while reducing the individual terms.
+      Factoring IS the entropy-preserving compression.
+    epistemic_status: formal-mathematical
+    derivation: "Shannon entropy theory: chain rule is the formal statement of factoring"
+
+  - id: TB-information-bottleneck
+    framework: "Tishby and Polani (2011)"
+    formulation: |
+      The information bottleneck: retain the minimal description of past observations
+      sufficient for predicting future rewards. This is factoring: extract the
+      action-relevant structure, compress the rest. The bottleneck IS a factoring
+      operation on the information.
+    epistemic_status: formal-theoretical
+    derivation: "Rate-distortion theory applied to sequential decision-making"
+
+  - id: SCH-aperiodic
+    framework: "Schrödinger (1944)"
+    formulation: |
+      The genetic material is an aperiodic crystal: non-redundant encoding.
+      Aperiodic = factored = each element adds information (no repetition).
+      Maximum information per unit of physical substrate = maximum factoring.
+    epistemic_status: theoretical-physical
+    derivation: "Physical chemistry: aperiodic structure maximizes information density"
+
+equivalence_analysis: |
+  Five frameworks express the same compression-through-factoring claim:
+  - UB: factoring IS graph construction (necessity proved)
+  - Schmidhuber: compression progress IS finding patterns (factoring)
+  - Cover/Thomas: chain rule IS entropy-preserving factoring
+  - Tishby: information bottleneck IS factoring the relevant structure
+  - Schrödinger: aperiodic encoding IS maximally factored biological substrate
+
+  The formal translation is tight:
+  factoring (UB) = d/dt compression (Schmidhuber) = chain rule decomposition (Cover)
+  = information bottleneck (Tishby) = aperiodic encoding (Schrödinger)
+
+  All five say: structured compression (factoring) is the mechanism of intelligence
+  scaling. UB derives it as necessary; the others ground it as the right approach.
+
+  This is the second most important equivalency class for UB after EC05.
+  Theorem 2b Part 3's necessity proof adds "this is the ONLY way" to the shared claim.
+
+  Strength of equivalence: VERY HIGH. Information-theoretic foundations (Cover) provide
+  the formal backbone; five independent traditions ground the claim.
+
+confidence_C1p:
+  estimate: 0.91
+  basis: "Formal proof (Cover chain rule) + necessity proof (UB Theorem 2b Part 3) + physical evidence (Schrödinger) + computational (Schmidhuber) + decision theory (Tishby)"
+  weakest_link: "The specific claim that graph form (not just any factored structure) is necessary is only in UB"
+
+contradictions: []
+
+implications_for_ub: |
+  Theorem 2b Part 3 is UB's strongest formal result AND has the best cross-framework
+  support. The shared claim (factoring is needed) is supported by four traditions;
+  the novel claim (graph form specifically is needed) is UB's unique contribution.
+  The combined confidence in the general claim is ~0.91; the specific graph-form
+  claim depends on Theorem 2b Part 3 alone.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Five frameworks from information theory, biology, AI, and decision theory all ground compression-through-factoring independently."
+  derivation:
+    from: [NV01-graph-necessity, T02-graph-structure-necessity, REF-Schmidhuber2010, REF-Cover2006, REF-Tishby2011, REF-Schrodinger1944]
+    method: "Equivalency: compression = factoring across formal and physical frameworks"

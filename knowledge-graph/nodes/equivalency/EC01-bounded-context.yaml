@@ -1,0 +1,83 @@
+id: EC01-bounded-context
+type: equivalency-class
+name: "Bounded Internal Representation: C_n = Approximate Posterior = Global Workspace Capacity"
+underlying_proposition: |
+  Any physically instantiated cognitive agent has a strictly bounded capacity for internal
+  representation at any moment. The internal state cannot be W itself — it is always a
+  finite, compressed projection. This bound is a hard constraint, not an approximation
+  error that shrinks over time.
+
+members:
+  - id: UB-Cn
+    framework: "Uncertainty Bounding"
+    formulation: |
+      C_n: the bounded context window at each inference step. Only M propositions can
+      be held in context simultaneously. Formally defined in Definition 8.
+    epistemic_status: formal-definition
+    derivation: "Defined as the inference capacity; used to derive M < N in Theorem 3 Part II"
+
+  - id: FEP-approx-posterior
+    framework: "Friston (2010, 2017)"
+    formulation: |
+      The agent's approximate posterior q(s) is bounded by the complexity of its
+      generative model. q(s) != p(s) because the model has finite parameters.
+      Variational free energy is positive precisely because q != p.
+    epistemic_status: theoretical-assumption
+    derivation: "Foundational to FEP — the approximate posterior is definitionally not the true posterior"
+
+  - id: GWT-workspace-capacity
+    framework: "Baars (1988), Dehaene (2011)"
+    formulation: |
+      The global workspace has strictly limited capacity — only a small amount of
+      information is globally broadcast at once. Below the workspace threshold,
+      processing is local and bounded.
+    epistemic_status: empirical
+    derivation: "Empirically observed: working memory capacity ~7±2 items (Miller 1956); neural workspace ignition is capacity-limited"
+
+  - id: KH-finite-attention
+    framework: "Kahneman (2011)"
+    formulation: |
+      System 2 (deliberate attention) is a finite resource that depletes.
+      Cognitive load limits the amount of information processed deliberately.
+    epistemic_status: empirical
+    derivation: "Extensive experimental evidence: dual-task interference, ego depletion, attention as resource"
+
+equivalence_analysis: |
+  These four formulations express the same constraint at different levels of analysis:
+  - Physical level: finite neural/computational substrate = finite representation capacity
+  - Information-theoretic level (UB): C_n defines the bound precisely as context window
+  - Statistical level (FEP): approximate posterior is bounded by model complexity
+  - Cognitive level (GWT): global workspace has empirically measured capacity
+  - Psychological level (Kahneman): attention is a finite resource
+
+  The formal translation: C_n (UB) = dim(q(s)) (FEP) = workspace capacity (GWT).
+  All three describe the same constraint. UB provides the most formal definition;
+  GWT provides the empirical grounding; FEP provides the statistical mechanics.
+
+  Strength of equivalence: HIGH. All three are independently motivated and converge
+  on the same structural constraint. Mutual derivation is not immediate but the
+  constraint is the same object described at different levels.
+
+confidence_C1p:
+  estimate: 0.92
+  basis: "Four independent frameworks, empirical evidence from cognitive science, formal grounding in information theory"
+  weakest_link: "The exact quantitative equivalence C_n = dim(q(s)) = workspace capacity is not formally proven"
+
+contradictions: []
+
+implications_for_ub: |
+  C_n is one of UB's most secure premises. Four independent frameworks converge on it.
+  This means theorems that rest on C_n (Theorem 2b Part 3, Theorem 3 Part II) inherit
+  this high C_1(p) for their premise.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Identified by intersecting C_n (UB), approximate posterior (FEP), workspace capacity (GWT), finite attention (Kahneman). All four independently ground the same structural constraint."
+  derivation:
+    from: [D08-encoding-hierarchy, REF-Friston2017, REF-Baars1988, REF-Kahneman2011]
+    method: "Equivalency identified by formal translation across frameworks"

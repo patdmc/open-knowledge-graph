@@ -1,0 +1,94 @@
+id: EC07-collective-knowledge
+type: equivalency-class
+name: "Collective Knowledge as Information Integration: K_collective = Major Transitions = Cultural Evolution"
+underlying_proposition: |
+  When multiple independent agents pool their knowledge structures, the collective
+  representation is strictly superior to any individual representation. This is not
+  merely additive — the intersection of independent projections produces confirmed
+  knowledge (higher confidence) and extended sensing (more dimensions covered).
+  Collective knowledge integration is a qualitative transition, not a quantitative one.
+
+members:
+  - id: UB-Kcollective
+    framework: "Uncertainty Bounding"
+    formulation: |
+      K_collective: the intersection of independently-derived K_i graphs, with
+      provenance verification. Two mechanisms: overlapping dimensions increase C_1(p);
+      distinct dimensions extend M without intermediate execution. Formally: solo
+      extends M by 1 per step; intersection extends by |K_j \ K_i| per operation.
+      (Corollary 8a, NV04)
+    epistemic_status: formal-derived
+    derivation: "Corollary 8a: derived from M < N + inductive structure of Theorem 3 Part I"
+
+  - id: MS-major-transitions
+    framework: "Maynard Smith and Szathmáry (1995)"
+    formulation: |
+      Major evolutionary transitions = changes in how hereditary information is
+      stored and integrated. The transition from individual replicators to cooperating
+      units IS an information integration event: individual K's become a shared
+      collective information structure.
+    epistemic_status: empirical-theoretical
+    derivation: "Historical analysis of evolutionary transitions; information-theoretic framing"
+
+  - id: FEP-extended-markov
+    framework: "Friston (2010, extended)"
+    formulation: |
+      Extended Markov blankets: the FEP applies to groups of agents sharing a
+      collective Markov blanket. The group-level generative model is the
+      collective representation — K_collective in UB terms.
+    epistemic_status: theoretical-extension
+    derivation: "Extension of FEP to multi-agent systems; not yet fully formalized"
+
+  - id: PC-community-of-inquiry
+    framework: "Peirce (1877)"
+    formulation: |
+      Truth is what a community of inquirers would agree on given unlimited time.
+      The community's collective inquiry converges faster than any individual's —
+      independent lines of evidence reinforce each other.
+    epistemic_status: philosophical
+    derivation: "Pragmatist epistemology: community of inquirers as convergence accelerator"
+
+equivalence_analysis: |
+  Four frameworks independently ground the claim that collective knowledge integration
+  produces qualitatively superior representations:
+
+  - UB: formal acceleration mechanism (NV04), with explicit cardinality
+  - Maynard Smith: empirical evidence from evolutionary history
+  - FEP extended: theoretical extension (less developed)
+  - Peirce: philosophical grounding of community of inquiry as convergence accelerator
+
+  Formal translation: K_collective (UB) = the collective generative model (FEP extended) =
+  the integrated information structure at a major transition (Maynard Smith) = the
+  convergent community of inquiry (Peirce).
+
+  The UB contribution: formal derivation of the acceleration mechanism with explicit
+  cardinality (|K_j \ K_i| distinct dimensions gained per intersection). The others
+  ground the qualitative claim; UB provides the quantitative mechanism.
+
+  Strength of equivalence: HIGH for UB/Peirce/Maynard Smith. MODERATE for FEP
+  extended (less developed formalization).
+
+confidence_C1p:
+  estimate: 0.83
+  basis: "Evolutionary evidence (Maynard Smith) + philosophical grounding (Peirce) + formal derivation (UB). FEP extension not yet fully formalized."
+  weakest_link: "The exact cardinality acceleration (|K_j \ K_i| per operation) is specific to UB and not independently verified by the other frameworks"
+
+contradictions: []
+
+implications_for_ub: |
+  NV04 (intersection acceleration) and D12 (collective knowledge) have moderate support.
+  The qualitative claim (collective > individual) is well-grounded; the quantitative
+  mechanism (|K_j \ K_i| cardinality) is novel to UB and represents its specific
+  contribution beyond the qualitative claim.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Novelty Analysis — Knowledge Graph"
+    date: "2025"
+  evidence:
+    type: cross-framework-intersection
+    description: "Four frameworks ground collective knowledge integration. UB provides the formal acceleration mechanism; Maynard Smith provides evolutionary evidence; Peirce provides philosophical grounding."
+  derivation:
+    from: [D12-collective-knowledge, NV04-intersection-acceleration, REF-MaynardSmith1995, REF-Peirce1877]
+    method: "Equivalency: collective integration across levels of analysis"
