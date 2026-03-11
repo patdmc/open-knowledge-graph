@@ -1,0 +1,187 @@
+id: OQ11-DNA-transitive-closure
+type: open-question
+name: "DNA as Transitive Closure of Environmental Knowledge Encoding"
+status: conjecture
+
+statement: |
+  CONJECTURE (not a claim of the framework): Genetic encoding at L_0 may
+  represent the transitive closure of the knowledge graph under environmental
+  constraint — specifically, the closure of all replication dependencies that
+  cannot be assumed to be provided by the environment.
+
+  Formal statement: Let E_env denote the set of propositions reliably provided
+  by the environment (ambient energy gradients, chemical precursors, physical
+  constants within the lineage's range). Let K_rep be the full dependency graph
+  required for replication. Then the conjecture is:
+
+    DNA ≈ TC(K_rep) \ E_env
+
+  where TC(K_rep) is the transitive closure of the replication dependency graph
+  and E_env is the set of propositions that can be deferred to environmental
+  context. This is the bounded active context principle (Definition 4) applied
+  at the evolutionary timescale: the genome encodes what the organism cannot
+  defer to context.
+
+  Equivalently: the genome is the maximum knowledge transmissible given the
+  channel capacity imposed by transmission fidelity λ and environmental noise.
+  Not a minimal specification — the upper bound on heritable information given
+  the constraints.
+
+  Three component conjectures:
+
+  (A) STRUCTURAL: The genome is a knowledge graph (transitive closure of
+      dependencies), not a linear program. The linear sequence is a path
+      encoding of an underlying graph — a traversal, not the structure.
+      STATUS: Empirically confirmed by EM28 (pangenome research independently
+      recovers graph structure). This component is no longer conjecture.
+
+  (B) ENVIRONMENTAL CONSTRAINT: The genome encodes specifically what cannot be
+      assumed from environment. Organisms in stable, information-rich environments
+      should encode less (smaller functional genomes); organisms in variable
+      environments should encode more developmental flexibility.
+      STATUS: Consistent with observed genome size variation and the C-value
+      paradox (genome size does not correlate with organismal complexity, but
+      does correlate with environmental variability in some lineages). Empirical
+      question not resolved by the framework.
+
+  (C) DIRECTIONAL ENCODING: Evolutionary mutation is better characterized as
+      directed knowledge encoding than uniform random sampling from a flat prior.
+      The mutation distribution has lower entropy than maximum — it is shaped by
+      the system's response to environmental gradient signals.
+      STATUS: Supported by: (i) non-uniform mutation rates across genomic loci
+      and stress conditions; (ii) somatic hypermutation in immune cells (explicit
+      real-time encoding of environmental information — antigen structure — into
+      the B-cell lineage); (iii) observed adaptive evolution timescales
+      inconsistent with neutral drift rates at realistic population sizes.
+      Random mutation (radiation damage, replication error at baseline) is a
+      special case — noise on the channel — not the general mechanism.
+      STATUS: Conjecture; empirical literature is suggestive but not conclusive.
+
+  WHAT THE FRAMEWORK PREDICTS (claims, not conjectures):
+  - Selection pressure favors developmental generality over content specificity
+    at θ_0 (Open Question 8, proven from Theorem 4)
+  - Knowledge at bounded context requires graph structure (NV01)
+  - The encoding hierarchy has L_0 as genetic encoding with cost C_0 → ∞
+    (Definition 8)
+  - Evolutionary gradient descent is the same process as learning at a slower
+    timescale (Section 6, multi-timescale gradient descent)
+
+  WHAT IS CONJECTURED (this node):
+  - That the specific content of L_0 is the transitive closure of replication
+    dependencies under environmental constraint
+  - That mutation distributions are meaningfully informed by environmental
+    gradient signals beyond what selection pressure alone explains
+  - That the soma-to-germline channel has sufficient bandwidth to support
+    real-time encoding updates (the Weismann barrier is leaky via small RNAs
+    and retrotransposons — extent is empirically open)
+
+framework_connection: |
+  Open Question 11 in UNCERTAINTY_BOUNDING_FORMAL_THEORY.md. The framework
+  derives the escalation architecture (Section 5) and the encoding hierarchy
+  (Definition 8). This conjecture applies those structures to the specific
+  content of L_0. The framework is consistent with the conjecture but does not
+  entail it.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Uncertainty Bounding as the Basis of Intelligence: A Formal Theory — Open Question 11"
+    date: "2026-03-11"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: formal-derivation
+    description: |
+      Derived by applying Definition 4 (bounded active context), Definition 8
+      (encoding hierarchy, L_0 = genetic encoding), NV01 (graph necessity), and
+      the multi-timescale gradient descent (Section 6) to the biological substrate.
+      Component (A) is additionally supported by EM28 (empirical confirmation).
+      Components (B) and (C) are empirical conjectures consistent with the
+      framework but not entailed by it.
+    references: [D04-prior-and-posterior, D08-encoding-hierarchy, NV01-graph-necessity, EM28-pangenome-confirms-NV01]
+  derivation:
+    from: [D04-prior-and-posterior, D08-encoding-hierarchy, NV01-graph-necessity, T04-rigor-threshold]
+    method: |
+      Step 1: D08 defines L_0 as genetic encoding (the lowest-cost, highest-permanence
+      encoding level).
+      Step 2: NV01 proves that knowledge at bounded context requires graph structure.
+      Step 3: L_0 is a bounded context (capacity constrained by channel capacity of
+      the soma-to-germline transmission channel).
+      Step 4: Applying NV01 to L_0: the content of L_0 has graph structure — it is
+      the transitive closure of its dependency relations.
+      Step 5: Definition 4 (bounded active context) implies encoding only what cannot
+      be assumed from context. Applied to L_0: encode only replication dependencies
+      not provided by E_env.
+      Conclusion: DNA ≈ TC(K_rep) \ E_env. This is the transitive closure conjecture.
+
+edges:
+  - to: D04-prior-and-posterior
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11"
+        date: "2026-03-11"
+      evidence:
+        type: formal-derivation
+        description: "Bounded active context (D04) is the formal basis for the environmental exclusion: encode only what cannot be assumed from context"
+      derivation:
+        method: "D04 defines bounded active context; OQ11 applies this to L_0"
+
+  - to: D08-encoding-hierarchy
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11"
+        date: "2026-03-11"
+      evidence:
+        type: formal-derivation
+        description: "D08 defines L_0 as genetic encoding; OQ11 is a conjecture about the specific content of L_0"
+      derivation:
+        method: "D08 establishes L_0 as the genetic interface; OQ11 conjectures what L_0 encodes"
+
+  - to: NV01-graph-necessity
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11"
+        date: "2026-03-11"
+      evidence:
+        type: formal-derivation
+        description: "NV01 proves graph structure is necessary at bounded context; OQ11 applies this to L_0 to predict genome is a graph"
+      derivation:
+        method: "NV01 at L_0 -> genome has graph structure -> transitive closure conjecture"
+
+  - to: EM28-pangenome-confirms-NV01
+    relation: supported_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11"
+        date: "2026-03-11"
+      evidence:
+        type: empirical
+        description: |
+          EM28 confirms the structural component (A) of OQ11: the genome is
+          empirically a graph. This does not confirm (B) or (C), but it removes
+          the structural component from conjecture status.
+      derivation:
+        method: "EM28 -> genome is a graph -> OQ11(A) is no longer conjecture"
+
+  - to: T04-rigor-threshold
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11"
+        date: "2026-03-11"
+      evidence:
+        type: formal-derivation
+        description: |
+          T04 (rigor threshold) governs what promotes to L_0: θ_0 ≈ 1. The
+          transitive closure conjecture is consistent with T04: only dependencies
+          that clear θ_0 across the full distribution of environments the lineage
+          encounters are encoded at L_0.
+      derivation:
+        method: "T04 theta_0 ≈ 1 implies L_0 carries only what generalizes across the lineage's environmental distribution"

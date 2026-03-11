@@ -3713,6 +3713,84 @@ precipitated as named factors and which remain in \(M_{\text{res}}\),
 and which apparent distinctions between actions are the same underlying
 factor observed from different positions in \(W\).
 
+\textbf{11. DNA as the transitive closure of environmental knowledge encoding.}
+Open Question 8 asks what genetic encoding carries --- developmental machinery
+vs.\ specific content. A sharper conjecture concerns the \emph{structure} of
+what is encoded: if knowledge necessarily has graph structure (Section 3), and
+genetic encoding is the product of evolutionary gradient descent on \(K\), then
+the genome may represent the \emph{transitive closure} of the knowledge graph
+under environmental constraint --- specifically, the closure of all dependencies
+required for replication that cannot be assumed to be provided by the
+environment.
+
+Let \(E_{env}\) denote the set of propositions reliably provided by the
+environment (ambient energy gradients, chemical precursors, physical constants
+within the lineage's range). Let \(K_{rep}\) be the full dependency graph
+required for replication. The conjecture is:
+\[
+  \text{DNA} \approx \mathrm{TC}(K_{rep}) \setminus E_{env}
+\]
+where \(\mathrm{TC}(K_{rep})\) is the transitive closure of the replication
+dependency graph. This is the bounded active context principle (Definition 4)
+applied at the evolutionary timescale: the genome encodes what the organism
+cannot defer to context. The genome is not a minimal specification --- it is
+the upper bound on heritable information given the channel capacity imposed by
+transmission fidelity \(\lambda\) and environmental noise.
+
+This conjecture has three component claims at different confidence levels.
+
+\emph{(A) Structural.} The genome is a knowledge graph (transitive closure of
+dependencies), not a linear program. The linear sequence is a path encoding of
+an underlying graph --- a traversal, not the structure. This component is
+independently confirmed by pangenomics: genome assembly from sequencing reads
+requires constructing a de Bruijn graph of k-mer overlaps before any linear
+sequence can be recovered; the graph is prior, the sequence is a path through
+it. The Human Pangenome Reference Consortium \cite{HPRC2023} represents the
+genome of a species as a directed variation graph in which individual haplotypes
+are paths and shared sequence is shared nodes. The variation graph toolkit
+\cite{GarrisonEtAl2018} demonstrates that the linear reference model is
+insufficient to represent population-level genetic variation without information
+loss. Bioinformaticians did not impose graph structure by design --- they
+recovered it because the linear model failed. This is the empirical signature of
+necessity. Component (A) is no longer conjecture; it is confirmed by independent
+empirical work.
+
+\emph{(B) Environmental exclusion.} The genome encodes specifically what cannot
+be assumed from environment. Organisms in stable, information-rich environments
+should encode less (smaller functional genomes); organisms in variable
+environments should encode more developmental flexibility. This is consistent
+with observed genome size variation and the C-value paradox (genome size does
+not correlate simply with organismal complexity, but does correlate with
+environmental variability in some lineages). This component is an empirical
+conjecture consistent with the framework but not entailed by it.
+
+\emph{(C) Directional encoding.} Evolutionary mutation may be better
+characterized as directed knowledge encoding than uniform random sampling from a
+flat prior. The mutation distribution has lower entropy than maximum --- it is
+shaped by the system's response to environmental gradient signals. This is
+supported by: (i) non-uniform mutation rates across genomic loci and under
+stress conditions; (ii) somatic hypermutation in immune cells, which is explicit
+real-time encoding of environmental information --- antigen structure --- into
+the B-cell lineage; (iii) observed adaptive evolution timescales inconsistent
+with neutral drift rates at realistic population sizes (fixation by neutral drift
+requires \(O(N)\) generations; observed adaptive evolution operates orders of
+magnitude faster at the same population sizes). Random mutation --- radiation
+damage, baseline replication error --- is a special case, noise on the channel,
+not the general mechanism. This component is conjecture; the literature is
+suggestive but not conclusive.
+
+What the framework predicts (claims, not conjectures): selection pressure favors
+developmental generality over content specificity at \(\theta_0\) (Open Question
+8); knowledge at bounded context requires graph structure (NV01); the encoding
+hierarchy has \(L_0\) as genetic encoding with cost \(C_0 \to \infty\)
+(Definition 8); evolutionary gradient descent is the same process as learning at
+a slower timescale (Section 6). The conjecture is that the specific content of
+\(L_0\) is \(\mathrm{TC}(K_{rep}) \setminus E_{env}\), that mutation
+distributions are meaningfully gradient-informed beyond what selection alone
+explains, and that the soma-to-germline channel has sufficient bandwidth to
+support real-time encoding updates. These remain empirical questions the
+framework does not resolve.
+
 \emph{A limiting claim: single-class ceilings.} There is reason to
 believe that a collective composed entirely of entities from a single
 sensing class --- sharing the same \(\sigma\)-structure and therefore

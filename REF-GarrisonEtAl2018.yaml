@@ -1,0 +1,52 @@
+id: REF-GarrisonEtAl2018
+type: reference
+name: "Garrison et al. 2018 — Variation Graph Toolkit (vg)"
+citation: |
+  Garrison, E., Sirén, J., Novak, A.M., Hickey, G., Eizenga, J.M., Dawson, E.T.,
+  Jones, W., Garg, S., Markello, C., Lin, M.F., Paten, B., & Durbin, R. (2018).
+  Variation graph toolkit improves read mapping by representing genetic variation
+  in the reference. Nature Biotechnology, 36(9), 875-879.
+
+statement: |
+  Introduces the variation graph (vg) toolkit, representing genomes as directed
+  graphs where nodes are sequence segments, edges are adjacencies, and paths are
+  individual haplotypes. Demonstrates that the linear reference genome model is
+  insufficient to represent population-level genetic variation without information
+  loss; graph representation is required.
+
+  Key result: variant-aware read mapping using graph genomes improves alignment
+  accuracy over linear reference alignment, because the graph encodes the actual
+  structure of variation rather than projecting it onto a single path.
+
+provenance:
+  attribution:
+    author: "Garrison et al."
+    source: "Nature Biotechnology, 2018"
+    date: "2018"
+  evidence:
+    type: cited
+    description: |
+      Primary source establishing variation graphs as the correct representational
+      form for species-level genomic information. The graph structure was required
+      by the data, not imposed by design — the linear model failed.
+    references: []
+  derivation:
+    from: []
+    method: "Original research paper; primary citation"
+
+edges:
+  - to: EM28-pangenome-confirms-NV01
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11 analysis"
+        date: "2026-03-11"
+      evidence:
+        type: empirical
+        description: |
+          vg toolkit is the primary empirical instantiation that genome structure
+          requires graph representation — independently confirming NV01's prediction
+          that knowledge at bounded context requires graph structure.
+      derivation:
+        method: "NV01 predicts graph necessity; vg toolkit independently recovers graph structure from genomic data"

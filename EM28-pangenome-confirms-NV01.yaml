@@ -1,0 +1,110 @@
+id: EM28-pangenome-confirms-NV01
+type: emergent
+name: "Pangenome Graph Structure Is Independent Empirical Confirmation of NV01"
+statement: |
+  NV01 (Graph Structure Is the Unique Information-Preserving Representation at
+  Bounded Context) is a formal-derivation result internal to the UB framework.
+  Pangenomics provides an independent empirical route to the same structural
+  conclusion in biology:
+
+  (1) Genome assembly from sequencing reads requires constructing a de Bruijn
+      graph of k-mer overlaps before any linear sequence can be recovered. The
+      graph is prior; the sequence is a path through it.
+  (2) The linear reference genome (GRCh38) proved insufficient to represent
+      population-level genetic variation without systematic information loss and
+      reference bias. The correct representation of a species' genome is a
+      directed variation graph in which individual haplotypes are paths
+      (Garrison et al. 2018, HPRC 2023).
+  (3) Bioinformaticians did not impose graph structure by design — they recovered
+      it because the linear model failed. This is the empirical signature of
+      necessity: the alternative was tried, found insufficient, and abandoned.
+
+  The intersection: NV01 proves that at the C_n boundary, the unique
+  information-preserving representation is graph structure. Pangenomics
+  independently demonstrates that the genome — the carrier of hereditary
+  information at the C_n boundary of evolutionary encoding (L_0) — requires
+  graph structure to represent without information loss. The routes are
+  formally independent (NV01 derives from the data processing inequality and
+  the two-option argument; pangenomics derives from empirical failure of the
+  linear model). Both arrive at the same structural conclusion.
+
+  This is an emergent confirmation: NV01 + pangenomics -> the genome's graph
+  structure is predicted by the theory and independently confirmed by biology.
+  The prediction was not made post-hoc; it follows from NV01 applied to any
+  information store at bounded context, of which L_0 (genetic encoding) is
+  the biological instance.
+
+  Confidence note: this emergent result increases C_1(NV01). NV01 was derived
+  from formal arguments; EM28 provides a second, empirically independent route
+  to the same structural necessity. If the routes are genuinely independent
+  (they use disjoint base assumptions), C_1(NV01) updates upward by the
+  product formula (Corollary 8a).
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Knowledge Graph — Open Question 11 analysis"
+    date: "2026-03-11"
+  evidence:
+    type: empirical
+    description: |
+      Empirical base: Garrison et al. 2018 (vg toolkit), HPRC 2023 (draft human
+      pangenome). Both establish that genome structure requires directed graph
+      representation; linear sequences are paths, not the structure. De Bruijn
+      graphs in assembly (Pevzner et al. 2001, SPAdes, Velvet) establish the
+      graph as the intermediate structure required before any linear assembly
+      is possible.
+    references: [NV01-graph-necessity, REF-GarrisonEtAl2018, REF-HPRC2023]
+  derivation:
+    from: [NV01-graph-necessity, REF-GarrisonEtAl2018, REF-HPRC2023]
+    method: |
+      NV01 predicts graph necessity at bounded context. L_0 (genetic encoding,
+      Definition 8) is the bounded context of evolutionary encoding. Applying
+      NV01 to L_0 predicts genome structure is a graph. Pangenomics
+      independently arrives at graph structure by empirical failure of the
+      linear model. The two routes are independent; intersection = emergent
+      confirmation.
+
+edges:
+  - to: NV01-graph-necessity
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11 analysis"
+        date: "2026-03-11"
+      evidence:
+        type: empirical
+        description: "EM28 provides independent empirical support for NV01 from biological domain"
+      derivation:
+        method: "Independent empirical confirmation increases C_1(NV01)"
+
+  - to: D08-encoding-hierarchy
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11 analysis"
+        date: "2026-03-11"
+      evidence:
+        type: formal-derivation
+        description: "L_0 (genetic encoding) is defined in D08; EM28 is the application of NV01 to L_0"
+      derivation:
+        method: "D08 defines L_0; NV01 applies at any bounded context level including L_0"
+
+  - to: OQ11-DNA-transitive-closure
+    relation: supports_by
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Knowledge Graph — Open Question 11 analysis"
+        date: "2026-03-11"
+      evidence:
+        type: empirical
+        description: |
+          EM28 provides the empirical grounding for OQ11: if genome structure is
+          a graph (EM28), then the genome is a representation of a knowledge graph,
+          which is consistent with OQ11's conjecture that it is the transitive
+          closure of replication dependencies under environmental constraint.
+      derivation:
+        method: "Graph structure necessary (EM28) -> genome is a graph -> consistent with transitive-closure conjecture (OQ11)"
