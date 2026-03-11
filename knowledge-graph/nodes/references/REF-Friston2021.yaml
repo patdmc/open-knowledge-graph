@@ -1,5 +1,6 @@
 id: REF-Friston2021
 type: reference
+fidelity: low
 name: "Friston et al. (2021) — Sophisticated Inference"
 statement: |
   Sophisticated inference extends active inference to agents that can reason about the

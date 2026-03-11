@@ -1,5 +1,6 @@
 id: REF-Dehaene2011
 type: reference
+fidelity: low
 name: "Dehaene and Changeux (2011) — Experimental and Theoretical Approaches to Conscious Processing"
 statement: |
   Neural Global Workspace Theory: extends Baars GWT to a neural implementation. Conscious

@@ -1,5 +1,6 @@
 id: REF-Friston2010
 type: reference
+fidelity: low
 name: "Friston (2010) — The Free-Energy Principle"
 statement: |
   The free-energy principle: any self-organizing system that maintains its existence

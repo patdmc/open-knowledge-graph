@@ -1,5 +1,6 @@
 id: REF-Friston2017
 type: reference
+fidelity: low
 name: "Friston et al. (2017) — Active Inference: A Process Theory"
 statement: |
   Active inference extends the free-energy principle to a process theory of action and

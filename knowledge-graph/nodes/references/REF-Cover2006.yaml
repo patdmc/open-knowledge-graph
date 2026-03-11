@@ -1,5 +1,6 @@
 id: REF-Cover2006
 type: reference
+fidelity: low
 name: "Cover and Thomas (2006) — Elements of Information Theory"
 statement: |
   Comprehensive treatment of information theory. Key results used in this framework:

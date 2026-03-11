@@ -1,5 +1,6 @@
 id: REF-Tarski1936
 type: reference
+fidelity: low
 name: "Tarski (1936/1956) — The Concept of Truth in Formalized Languages"
 statement: |
   Establishes the formal semantic theory of truth. Key propositions:

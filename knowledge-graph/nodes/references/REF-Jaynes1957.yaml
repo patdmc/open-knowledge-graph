@@ -24,12 +24,35 @@ propositions:
     statement: "Bayesian updating is the unique consistent procedure for revising probability assignments given new evidence — derivable from Cox's axioms."
     maps_to: [EC02-improvement-rate, NV02-mn-bound]
     note: "JA4 grounds eta_M formally: the rate at which the entity's K improves under MaxEnt/Bayesian updating. EC02 (eta_M = compression rate = dF/dt) is the Bayesian update rate in disguise."
+    attribution_note: |
+      Scope correction: Cox's axioms for probability as logic originate in Cox (1946) 'Probability,
+      Frequency and Reasonable Expectation.' The full derivation that Bayesian updating is uniquely
+      consistent under those axioms is the subject of Jaynes' 'Probability Theory: The Logic of
+      Science' (2003), which builds on the 1957 MaxEnt framework but is a separate work. The 1957
+      paper establishes JA1-JA3 (MaxEnt applied to statistical mechanics and thermodynamics). JA4
+      reaches beyond the 1957 paper; it belongs to Cox (1946) and Jaynes (2003). Retaining JA4
+      here as part of the Jaynes epistemic program is reasonable, but the primary citation should
+      be Cox (1946) and/or Jaynes (2003), not Jaynes (1957).
 
 provenance:
   attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
   evidence:
     type: literature-node
     references: [EC01-context-bound, EC04-survival-threshold, EC10-uncertainty-driver, REF-Shannon1948]
+
+validation_notes: |
+  Verification conducted 2025. JA1-JA3 are accurately stated as core results of the 1957 Physical
+  Review paper 'Information Theory and Statistical Mechanics': MaxEnt as the prior-selection rule
+  (JA1), statistical mechanics as Bayesian inference under MaxEnt (JA2), and insufficient reason
+  as the uniform-prior special case (JA3). These are the paper's main contributions.
+
+  JA4 ATTRIBUTION CORRECTION: Bayesian updating derivable from Cox's axioms is NOT from Jaynes
+  (1957). Cox's probability-as-logic framework is from Cox (1946); the systematic derivation
+  of Bayesian inference from Cox's axioms is developed in Jaynes' 'Probability Theory: The Logic
+  of Science' (2003). The 1957 paper does not discuss Cox's axioms. JA4 has been flagged with an
+  attribution_note; a future REF-Cox1946 or REF-Jaynes2003 node would be the correct home.
+
+  Status: JA1, JA2, JA3 ACCURATE for Jaynes (1957). JA4 MISATTRIBUTED to 1957 paper.
 
 gap_analysis:
   present_here_not_in_ub:

@@ -1,5 +1,6 @@
 id: REF-England2013
 type: reference
+fidelity: low
 name: "England (2013) — Statistical Physics of Self-Replication"
 statement: |
   Derives thermodynamic conditions under which self-replicating structures are favored.

@@ -9,6 +9,17 @@ propositions:
     statement: "Holographic principle (Bekenstein-Hawking): the information content of a region of spacetime is bounded by its boundary area in Planck units: S ≤ A/(4G_N). All the information about a 3D volume is encoded on its 2D boundary."
     maps_to: [EC05-incompleteness, NV01-graph-necessity, EM04-Cn-is-channel-capacity]
     note: "Holography is M<N at the cosmological scale. The 3D volume (W) has more degrees of freedom than the 2D boundary (K). The boundary (the graph surface) encodes the volume with bounded capacity (C_n = A/4G_N in Planck units). NV01 says the graph is the unique information-preserving compression; holography says the boundary is the unique information-preserving encoding of the bulk."
+    attribution_note: |
+      Attribution correction: the entropy bound S ≤ A/4G_N was derived by Bekenstein (1972-1973)
+      and Hawking (1975). The holographic principle as a general framework was formulated by
+      't Hooft (1993) and Susskind (1995). AdS/CFT (the concrete realization) is due to
+      Maldacena (1997). Polchinski (1998) Vol. 1 is a string theory textbook that covers these
+      developments as context; it did not originate ST1. The D-brane content (ST4) is from
+      Polchinski's original research (Polchinski 1995), which is covered in the textbook. For
+      ST2-ST5 (string theory formalism, conformal invariance, T-duality, D-branes, worldsheet
+      CFT), Polchinski (1998) is a correct citation. For ST1 (holographic principle specifically),
+      the originating references are Bekenstein (1973), Hawking (1975), 't Hooft (1993),
+      Susskind (1995), and Maldacena (1997).
     potential_em: "ST1 + NV01 + EC05: holography IS NV01 stated for spacetime. The 2D boundary is the minimal factored representation of the 3D bulk — the graph (boundary) is necessary because it is the unique structure that preserves information about the volume (bulk). Holography provides a physical proof of NV01's necessity claim at the spacetime level."
 
   ST2:
@@ -37,6 +48,21 @@ provenance:
   evidence:
     type: literature-node
     references: [EC05-incompleteness, NV01-graph-necessity, EC01-context-bound, NV04-intersection-acceleration, REF-FrenkelLepowskyMeurman1988]
+
+validation_notes: |
+  Verification conducted 2025. ST2-ST5 are accurately stated as content covered in Polchinski (1998)
+  String Theory Vol. 1: conformal invariance and Virasoro algebra (ST2), T-duality (ST3), D-branes
+  (ST4 — Polchinski's own discovery), worldsheet CFT (ST5).
+
+  ST1 ATTRIBUTION CORRECTION: the holographic principle and Bekenstein-Hawking entropy bound predate
+  Polchinski (1998). The entropy formula S = A/4G_N is from Bekenstein (1973) and Hawking (1975).
+  The holographic principle as a general framework is from 't Hooft (1993) and Susskind (1995).
+  Maldacena (1997) provided the concrete AdS/CFT realization. Polchinski's textbook covers this
+  material but did not originate it. ST1 has been flagged with an attribution_note.
+
+  Status: ST2, ST3, ST4, ST5 ACCURATE for Polchinski (1998). ST1 MISATTRIBUTED — holographic
+  principle predates the textbook. Correct attribution: Bekenstein (1973), Hawking (1975),
+  't Hooft (1993), Susskind (1995).
 
 gap_analysis:
   present_here_not_in_ub:

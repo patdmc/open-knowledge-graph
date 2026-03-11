@@ -1,5 +1,6 @@
 id: REF-Shannon1948
 type: reference
+fidelity: low
 name: "Shannon (1948) — A Mathematical Theory of Communication"
 statement: |
   Establishes the mathematical foundations of information theory. Key propositions used

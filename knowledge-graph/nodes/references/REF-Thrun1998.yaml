@@ -1,5 +1,6 @@
 id: REF-Thrun1998
 type: reference
+fidelity: low
 name: "Thrun and Pratt (1998) — Learning to Learn"
 statement: |
   Introduces meta-learning: agents that improve their learning algorithm over time, not just

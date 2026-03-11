@@ -1,5 +1,6 @@
 id: REF-Schrodinger1944
 type: reference
+fidelity: low
 name: "Schrödinger (1944) — What is Life?"
 statement: |
   Life is characterized by the capacity to extract negative entropy (negentropy) from the

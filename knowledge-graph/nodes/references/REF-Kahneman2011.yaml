@@ -1,5 +1,6 @@
 id: REF-Kahneman2011
 type: reference
+fidelity: low
 name: "Kahneman (2011) — Thinking, Fast and Slow"
 statement: |
   Two-system model of cognition: System 1 (fast, automatic, associative) and System 2

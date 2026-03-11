@@ -2,8 +2,10 @@ id: REF-VaswaniEtAl2017
 type: reference
 name: "Vaswani et al. (2017) — Attention Is All You Need"
 citation: "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., and Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30."
+arxiv: "1706.03762"
 citations_approx: 60000
-fidelity: low
+fidelity: high
+citation_status: VERIFIED
 
 propositions:
   TR1:
@@ -45,12 +47,45 @@ propositions:
       pass. Lin's work on cache replacement has a direct analog: the context window
       eviction problem (which tokens to retain in long contexts) is Belady's OPT
       applied to Transformer inference.
+    precision_note: |
+      The original Vaswani et al. (2017) paper does not state a fixed maximum sequence
+      length as an architectural constraint. The self-attention mechanism operates over
+      all positions in the input sequence with O(n^2) cost; the paper discusses the
+      possibility of restricting to a neighborhood of size r for long sequences (Section 4)
+      but does not impose a context window in the architecture. The "512" in the paper
+      refers to d_model (the embedding dimension), not a sequence length limit. The
+      "512–128k" range in the statement describes practical implementations (BERT: 512,
+      GPT-3: 4096, modern long-context models: 128k) that postdate the original paper.
+      The concept is real and the structural observation is correct; the specific numbers
+      are implementation artifacts, not claims of the 2017 paper.
 
 provenance:
   attribution: {author: "Patrick McCarthy", source: "Knowledge Graph Reference Node", date: "2025"}
   evidence:
     type: literature-node
     references: [EC01-context-bound, EC08-compression-factoring, NV04-intersection-acceleration]
+
+validation_notes: |
+  Paper text read in full (arXiv:1706.03762v7, 15 pages). Validation findings:
+
+  TR1 ACCURATE: Self-attention formula Attention(Q,K,V) = softmax(QK^T/sqrt(dk))V is exactly
+  as stated. The description "each position attends to all other positions, weighted sum of values,
+  weights from query-key dot product" matches the paper's Section 3.2.1 precisely.
+
+  TR2 ACCURATE: Paper explicitly states all positions are processed simultaneously (no recurrence);
+  positional encoding supplies sequential information (Section 3.5). The parallel processing claim
+  is the paper's central motivation (Section 1: "more parallelizable").
+
+  TR3 ACCURATE: Direct quote from paper: "Multi-head attention allows the model to jointly attend
+  to information from different representation subspaces at different positions." h=8 heads,
+  dk=dv=64, dmodel=512 confirmed from Section 3.2.2.
+
+  TR4 ACCURATE AS STRUCTURAL CLAIM, PRECISION NOTE ADDED: The context window concept is real for
+  Transformers; the paper discusses O(n^2) attention over full sequences with possible restriction
+  to neighborhood size r. The specific "512" in "512–128k" refers to d_model in the paper, not a
+  context window; the 128k range refers to later implementations. Precision note added to node.
+
+  STATUS: TR1, TR2, TR3 VERIFIED from paper text. TR4 ACCURATE in substance with precision note.
 
 gap_analysis:
   present_here_not_in_ub:
