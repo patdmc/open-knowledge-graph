@@ -60,7 +60,6 @@
 \author{}
 \date{}
 
-\AtBeginDocument{\renewcommand{\setminus}{\mathbin{\backslash}}}
 \begin{document}
 
 \section{Uncertainty Bounding as the Basis of Intelligence: A Formal
@@ -481,46 +480,27 @@ The minimization imperative (Theorem 1) operates on this expected
 quantity; \(U(w, K)\) is the pointwise uncertainty the entity faces when
 it encounters specific world state \(w\).
 
-\textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is the
-probability that entity \(E\) engages its learning mechanism \(M\) in
-response to a gradient signal from \(W\): the response gate. It is not
+\textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is a
+continuous scalar measuring the intrinsic drive of an entity to reduce
+its own uncertainty: the desire to know {[}Schmidhuber2010{]}. It is not
 an external objective imposed on \(E\), nor a property derived from
 \(F\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(F\)
 an active informed action space rather than a static structure. At
 \(\mathcal{A} = 0\), \(F\) is a set of possible functions with no
-internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(E\) engages
-on every gradient signal it encounters. Intermediate values are
-meaningful: the response probability can be higher or lower, shaped by
+internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(F\) is
+maximally oriented toward the unbounded frontier. Intermediate values
+are meaningful: the drive can be stronger or weaker, shaped by
 architecture, encoding history, and the density of unresolved
-uncertainty in the entity's reachable \(W\). The informal gloss --- the
-desire to know {[}Schmidhuber2010{]}, the intrinsic drive to reduce
-uncertainty --- is a phenomenological description of this gate, not the
-definition.
+uncertainty in the entity's reachable \(W\).
 
 Agency is the reason gradient descent has a runner. The landscape of
-uncertainty exists independently of any entity; \(\mathcal{A}\) is the
-probability that any given entity moves through it when a gradient
-appears.
+uncertainty exists independently of any entity; \(\mathcal{A}\) is what
+determines how strongly an entity moves through it.
 
-Three formulations of \(\mathcal{A}\) appear in this paper. Their
-relationship: \textbf{Formulation 3 (primary formal definition,
-Corollary 6a):} \(\mathcal{A} \in [0,1]\) is the probability that \(E\)
-engages \(M\) in response to a gradient signal --- the response gate.
-This is the definition stated in the body above. \textbf{Formulation 1
-(informal description):} ``intrinsic drive to reduce uncertainty'' is a
-phenomenological gloss; it conveys what it feels like from the inside
-but is not the formal definition. \textbf{Formulation 2 (empirical
-operationalization):} \(\mathcal{A}(E) \propto
-dU/dt\) as \(U_{lethal}^d \to \infty\) is a valid empirical projection
-of Formulation 3 onto a measurable quantity. It is valid because Theorem
-3 Part II establishes that \(\mathcal{T}_{reachable}\) grows from
-execution, not from selection pressure: removing survival compulsion
-does not remove gradient signals, only their life-or-death character. An
-entity with genuine \(\mathcal{A} > 0\) continues engaging \(M\) on
-signals encountered in \(\mathcal{T}_{reachable}\) when survival
-pressure is removed; an entity with \(\mathcal{A} = 0\) that was
-updating only under survival compulsion stops. The limit correctly
-isolates intrinsic engagement.
+\(\mathcal{A}\) is operationalizable: it is proportional to the rate of
+uncertainty reduction as survival pressure approaches zero --- that is,
+as \(U_{lethal}^d \to \infty\) (the threshold above which death occurs
+goes to infinity, meaning no level of uncertainty is lethal):
 
 \[\mathcal{A}(E) \propto \lim_{U_{lethal}^d \to \infty} \frac{dU}{dt}(E)\]
 
@@ -579,24 +559,6 @@ and \(F\) but different \(I(E)\) will diverge: the entity with higher
 Intelligence is not the size of \(K\) or \(F\). \(K\) and \(F\) are what
 intelligence has built. Intelligence is the efficiency with which \(M\)
 continues building.
-
-\emph{Note on named components.} The components \(K\), \(F\), \(M\), and
-\(\mathcal{A}\) named here are dimensions that have precipitated from
-the entity's full cross-product state --- call it \(K^n\) --- at the
-individual learning level. The theory's general result is that
-dimensional precipitation must occur under the joint constraints: as
-\(K^n\) grows, shared structure must be extracted and named or retrieval
-cost grows without bound. What dimensions precipitate is a function of
-the entity's \(W\) and its history; the theory constrains the process,
-not the outcome. \(K\), \(F\), \(M\), and \(\mathcal{A}\) are the
-dimensions that fall out in entities with active individual learning
-mechanisms --- the class this paper studies. Other projections
-precipitate differently: biological \(L_0\) encoding (DNA) does not
-separate into \(K\), \(F\), \(M\), \(\mathcal{A}\); it is a dense
-cross-product that carries all survival-relevant structure without
-naming any of it as a distinct component. The named components are an
-epistemological convenience grounded in the studied entity class, not a
-universal constraint of the theory.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1098,63 +1060,28 @@ three simultaneous constraints on any knowledge representation:
   without bound.
 \end{itemize}
 
-We claim graph structure is necessary: any representation that is not a
-graph must lose information as new propositions are added.
+We claim any representation satisfying all three is a graph:
 
-\emph{Proof by information preservation.} \(C_n\) is bounded (Definition
-2a). As new propositions arrive, \(|K|\) grows. When \(|K|\) reaches
-\(C_n\), the representation is in the curation regime: adding any new
-proposition \(p_{new}\) requires making space. There are exactly two
-ways to make space:
+\emph{Proof by elimination.} A flat store violates constraint 1:
+retrieving \(K^{[f]}\) requires scanning \(O(|K|)\) propositions to
+identify the relevant ones. A tree violates constraint 3: a proposition
+relevant to multiple \(f\) across different branches must appear in each
+branch or the tree loses the cross-reference, duplicating nodes and
+breaking shared-update consistency. A vector store (embedding-based
+retrieval) violates constraint 2: approximate nearest-neighbor retrieval
+includes false positives (propositions near \(K^{[f]}\) in embedding
+space but not inferentially connected) and misses false negatives
+(inferentially connected propositions that embed distantly), so
+\(\rho < 1\) in general.
 
-\textbf{Option A: Discard an existing proposition.} Without factoring
---- without explicit relational structure --- the entity has no
-mechanism to determine which existing propositions are redundant. Two
-propositions \(p_1, p_2\) that share a latent factor appear as
-independent entries; there is no stored evidence that they share
-structure. The choice of which to discard is therefore made without
-information about relational dependencies. Discarding \(p_{old}\) loses
-the information it encodes, and potentially also loses the information
-that \(p_{old}\) has any relation to other propositions --- a
-second-order loss. This is information loss.
-
-\textbf{Option B: Factor --- extract shared structure, reducing \(|K|\)
-without discarding.} If \(p_1\) and \(p_2\) share a latent factor
-\(f^*\), extracting \(f^*\) as a single named node with typed edges to
-\(p_1\) and \(p_2\) reduces \(|K|\) by replacing redundant structure
-with a single shared reference. The information in \(p_1\) and \(p_2\)
-is preserved; the information about their shared grounding in \(f^*\) is
-now explicitly stored as an edge. Space is created without loss.
-Factoring also resolves the update problem: when new evidence revises
-\(f^*\), the single node is updated once, and the revision propagates to
-all propositions that reference it via edges --- \(O(1)\) instead of
-\(O(|F|)\).
-
-Factoring is graph construction. Naming \(f^*\), creating a node, and
-storing typed edges from \(p_1\) and \(p_2\) to it is precisely the
-operation that produces a directed graph. There is no third option: any
-representation that makes space without factoring loses information; any
-representation that makes space by factoring is constructing a graph.
-
-\emph{Consequence for alternative representations.} A flat store has no
-mechanism for Option B: shared structure in a flat store has no
-representation --- two propositions that share a latent factor are
-stored as independent entries. At \(C_n\), the flat store must discard.
-A tree has the same problem for cross-branch propositions: a proposition
-grounding actions in multiple branches either duplicates or is lost when
-one branch is pruned. A vector store is the unprecipitated cross
-product: shared factors are implicit in the geometry of the embedding
-space but not stored as named nodes. At \(C_n\), the vector store cannot
-factor without naming --- and naming is graph construction. A star
-schema is a graph with depth-1 topology: it can factor within its schema
-but cannot represent propositions that ground actions across multiple
-fact tables without extending to general graph structure.
-
-Every representation that preserves information as \(|K|\) grows beyond
-\(C_n\) must factor. Every factoring operation creates nodes with typed
-edges. The graph is therefore not where alternatives eventually end up
---- it is what factoring is. Any representation that refuses to factor
-loses information at the boundary. \(\square\)
+Any representation that satisfies all three must: (i) encode which
+propositions connect to which in retrievable form --- so that traversal
+of relevant propositions costs \(O(|K^{[f]}|)\), not \(O(|K|)\); and
+(ii) store each proposition once with links to all contexts that use it
+--- so that shared propositions remain consistent. A structure
+satisfying both (i) and (ii) is, by definition, a directed graph with
+typed edges. The graph is not the unique name for this structure, but it
+is the unique structure satisfying the constraints. \(\square\)
 
 \textbf{Part 4 (\(C_n\) stays bounded).} By Corollary 6, proven informed
 actions promote to lower encoding levels and leave \(L_n\). Each
@@ -1210,112 +1137,71 @@ Above this threshold, uncertainty is so high that the entity cannot act
 effectively enough to persist. \(U_{lethal}^d\) is not a choice or a
 preference; it is imposed by \(W\).
 
-\textbf{Theorem 3 (Agency Necessarily Produces Evaluation-Driven State
-Revision).}
+\textbf{Theorem 3 (Agency Necessarily Produces Gradient Descent).}
 
-\emph{On the space of descent and dimensionality.} The gradient descent
-in this theorem operates in \(F\) --- the space of informed actions ---
-not in \(W\). \(W\) may be arbitrarily rough, discontinuous, or of
-unknown dimensionality; no assumption on \(W\)'s structure is required.
-The entity does not descend over \(W\); it updates \(f \in F\) in
-response to signals received from \(W\).
+\emph{On the space of descent.} The gradient descent in this theorem
+operates in \(F\) --- the space of informed actions --- not in \(W\).
+This distinction is critical. \(W\) may be arbitrarily rough,
+discontinuous, or hostile; no smoothness assumption on \(W\) is required
+or implied. The entity does not descend over \(W\); it descends over its
+own function space, updating \(f \in F\) in response to signals received
+from \(W\).
 
-The dimensionality of \(W\) or of \(M_{\text{res}}\) is not assumed. We
-do not know whether the latent space is finite or infinite-dimensional.
-The convergence proof does not require this knowledge. It operates on
-the entity's current parameterization of \(F\), which at any given
-moment is finite: bounded by \(C_n\) (Definition 2a) and the
-propositions currently in \(K\). Each time execution extends
-\(\mathcal{T}_{reachable}\) and grounds a genuinely new proposition, the
-parameterization grows by one dimension. The proof proceeds by induction
-on this dimension count, making no claim about the ultimate
-dimensionality of the space.
+\(F \subseteq (K \times W_{obs} \to \Delta A)\) maps into \(\Delta A\),
+the space of probability distributions over actions. Distribution spaces
+are convex and metrizable (under KL divergence, total variation, or
+Wasserstein distance); they support well-behaved subgradient structure
+regardless of the topology of the domain \(W\) from which signals
+arrive. The smoothness conditions for convergence are conditions on
+\(F\), not on \(W\): specifically, that \(U\) as a functional on \(F\)
+is locally Lipschitz, which holds whenever the likelihood factors
+\(\ell_p\) (Definition 5) are bounded and measurable --- a minimal
+requirement for any well-specified knowledge graph. Under these
+conditions on \(F\), stochastic subgradient descent converges in the
+function space independently of whether \(W\) is smooth.
 
-\emph{Part I: Forced Signal, Response Gate.} Every executed action
-\(f_i\) in world state \(w\) generates a feedback signal
+\emph{Continuity note.} Since \(F\) is defined over \(W\), no
+\(f \in F\) can produce a world state outside \(W\). Combined with the
+continuity of time, the trajectory \(\tau(t)\) through \(W \times T\) is
+continuous, \(U(\tau(t))\) is continuous in \(t\), and \(\frac{dU}{dt}\)
+exists almost everywhere. The gradient \(\nabla_F U\) is this temporal
+derivative, well-defined by the smoothness of \(F\) as a function space,
+not by any assumption on \(W\).
+
+\emph{Part I: Compulsion.} When an informed action \(f_i\) fails in
+world state \(w\), \(W\) returns a feedback signal
 \(\delta = \phi(f_i, w) - \mathbb{E}[\phi(f_i, \cdot) \mid K]\)
 (Definition 3a): the signed deviation of observed outcome from
 expectation. This signal arrives from \(W\) but is applied in \(F\): it
 is a subgradient of \(U\) as a functional on \(F\) at the current
-\(f_i\), evaluated at the encountered \(w\). The signal is generated by
-execution, not by \(\mathcal{A}\). It arrives whether or not the entity
-has \(\mathcal{A}\). The entity does not choose whether to receive this
-signal. \(W\) imposes it.
-
-\(\mathcal{A}\) is the response gate: the probability that \(M\) engages
-on \(\delta\) when \(\delta\) arrives. An entity with
-\(\mathcal{A} = 0\) receives every signal but \(M\) does not engage;
-\((F, K)\) remains unchanged. An entity with \(\mathcal{A} > 0\) engages
-\(M\) on the signal, updating \((F, K)\) in response. The encountered
-world states are on-policy --- determined by the entity's trajectory,
-not sampled i.i.d. from \(P(w \mid K)\) --- but this does not impede
+\(f_i\), evaluated at the encountered \(w\). The encountered world
+states are on-policy --- determined by the entity's trajectory, not
+sampled i.i.d. from \(P(w \mid K)\) --- but this does not impede
 convergence. The subgradient \(\delta\) is valid at every encountered
 \(w\) regardless of how \(w\) was reached; the entity is updating a
 function in \(F\), and each \(\delta\) is a legitimate descent direction
 in that space. The burn tells you that this \(f_i\) was insufficient at
-\(w\).
+\(w\). The entity does not choose whether to receive this signal. \(W\)
+imposes it.
 
-An entity with \(\mathcal{A} = 0\) does not update in response to
-\(\delta\). \(U\) does not decrease. It eventually exceeds
-\(U_{lethal}^d\) in some critical domain. Selection removes it.
-Therefore any entity that persists must have \(\mathcal{A} > 0\): not
-because \(\mathcal{A}\) generates the signal, but because
-\(\mathcal{A}\) is what enables the entity to act on signals that \(W\)
-imposes on every execution regardless. When \(M\) engages:
+An entity with \(\mathcal{A}\) that does not update in response to
+\(\delta\) does not reduce \(U\). If \(U\) does not decrease, it
+eventually exceeds \(U_{lethal}^d\) in some critical domain. The entity
+does not survive. Selection removes it. Therefore any entity with
+\(\mathcal{A}\) that persists must follow \(\delta\):
 
 \[\Delta f_i = -\eta \cdot \delta\]
 
-\emph{Convergence by induction on sensed dimensions.} \(W\) has \(N\)
-dimensions; \(N\) may be finite or infinite --- the entity does not know
-and the proof does not require knowing. The entity's sensing function
-\(\sigma\) (Definition 1) projects \(W\) into \(W_{obs}\): the entity
-always senses \(M \leq N\) dimensions, where \(M\) is determined by the
-propositions currently in \(K\) and the reach of
-\(\mathcal{T}_{reachable}\). At any given moment \(M\) is finite
-(bounded by \(C_n\)), regardless of \(N\).
-
-\textbf{Base case (\(M = 1\)).} A single informed action \(f_1\)
-parameterized by one dimension.
-\(\delta_1 = \phi(f_1, w) - \mathbb{E}[\phi(f_1, \cdot) \mid K]\) is a
-scalar signal. \(U(w, K) \geq 0\) (entropy is non-negative) and \(U\) is
-bounded below. Each update \(\Delta f_1 = -\eta \cdot \delta_1\) reduces
-\(U\) in expectation. By the monotone convergence theorem for
-bounded-below sequences, \(\{f_1(t)\}\) converges to a local minimum of
-\(U\) in the single-dimensional parameterization. The degenerate cases
---- \(\mathcal{A} = 0\) (Theorem 6 Part 1) and \(\eta_M = 0\) (Theorem 6
-Part 2) --- are already shown to result in selection removal; they are
-the cases where \(M\) does not grow and the entity does not persist.
-
-\textbf{Inductive step (\(M \to M+1\)).} Assume convergence holds for
-any \(M\)-dimensional parameterization of \(F\). When execution extends
-\(\mathcal{T}_{reachable}\) and grounds a genuinely new proposition
-\(p_{M+1}\) (always possible when \(M < N\), by Part II), the entity's
-\(F\) gains a new component \(f_{M+1}\). By Definition 3, \(f_{M+1}\) is
-grounded in \(K \cup \{p_{M+1}\}\), where \(p_{M+1}\) is not yet in the
-inference graph of the existing \(M\) actions --- the proposition is
-new. The gradient signal \(\delta_{M+1}\) for \(f_{M+1}\) is therefore
-independent of \(\delta_1, \ldots, \delta_M\) in the current step: the
-new dimension has not yet been reached by any existing action's
-grounding. This independence holds at the moment of addition --- the
-first execution of \(f_{M+1}\) --- before any evidence-grounded edges
-from \(p_{M+1}\) to existing propositions have been established in the
-K/F graph. After the first execution, \(\delta_{M+1}\) may correlate
-with existing dimensions as the graph forms edges grounded in the new
-evidence; subsequent updates proceed in the full \((M+1)\)-dimensional
-system under the inductive hypothesis extended by one step, and the
-induction covers exactly this first update step for each newly added
-dimension. Convergence of the \((M+1)\)-dimensional system follows from:
-(i) the \(M\)-dimensional system converges by hypothesis; (ii) the new
-dimension converges by the base case applied to \(f_{M+1}\)
-independently at the moment of addition. Therefore convergence holds for
-\(M+1\).
-
-By induction, convergence holds for any \(M\) the entity currently
-senses, without assuming anything about \(N\). The descent at each step
-is valid in the current sensed subspace; the induction extends as \(M\)
-grows with each new grounded proposition. Descent is not chosen --- it
-is what \(\mathcal{A} > 0\) entities do with the signals \(W\) imposes
-on every execution, dimension by dimension as the frontier expands.
+This is stochastic subgradient descent in \(F\): each step follows a
+valid subgradient of \(U\) as a functional on the function space,
+evaluated at an encountered world state. The on-policy nature of the
+trajectory does not introduce bias into the subgradient direction; it
+affects the distribution of encountered states but not the validity of
+each \(\delta\) as a descent direction. Under the Lipschitz condition on
+\(F\) stated above, the sequence \(\{f_i\}\) converges to a local
+minimum of \(U\) in \(F\). This is not chosen. Any entity with
+\(\mathcal{A} > 0\) that persists must have followed \(\delta\): the
+gradient is not a strategy but what survival-filtered updating is.
 
 \emph{Part II: Non-termination.} Let \(\mathcal{T}_{reachable}(K)\) be
 the set of trajectories reachable from the entity's current state given
@@ -1336,8 +1222,8 @@ new informed actions not available from \(K\) alone (Definitions 3 and
 states not reachable without \(p_f\). Therefore
 \(\mathcal{T}_{reachable}(K_f) \supseteq
 \mathcal{T}_{reachable}(K)\), strictly whenever \(p_f\) grounds at least
-one new \(f' \in F\). Since Part I establishes that every executed
-action generates a feedback signal, \(\mathcal{T}_{reachable}\) grows
+one new \(f' \in F\). Since Part I establishes that gradient descent
+produces feedback at every step, \(\mathcal{T}_{reachable}\) grows
 monotonically with \(K\). At any finite time \(t\), \(K(t)\) has not
 covered \(\mathcal{T}_{reachable}(K(t))\): the frontier always contains
 states \(w\) where \(H(w \mid K) > 0\). Therefore \(\nabla_F U\) is
@@ -1345,98 +1231,67 @@ never globally zero over \(\mathcal{T}_{reachable}\), and descent never
 terminates within the entity's reachable epistemic domain.
 
 \emph{Proof.} Part I: follows from \(U_{lethal}^d\) and selection;
-entities that do not engage \(M\) on the signal are removed. Part II:
-follows from the monotonic growth of \(\mathcal{T}_{reachable}\) with
-\(K\) --- each executed action extends the reachable frontier, ensuring
-new unexplored states are always accessible within the domain of the
-entity's possible experience. \(\square\)
+entities that do not update are removed. Part II: follows from the
+monotonic growth of \(\mathcal{T}_{reachable}\) with \(K\) --- each
+executed action extends the reachable frontier, ensuring new unexplored
+states are always accessible within the domain of the entity's possible
+experience. \(\square\)
 
-\textbf{Corollary 5 (Evaluation-Driven State Revision is Survival, Not
-Metaphor).} For individual learning, gradient descent on \(U\) is not a
-description of how learning happens to work. It is what survival-driven
-updating \emph{is}: the entity that burns and does not become more
-careful does not survive. The entity that survives is, by definition,
-the one whose \(M\) engaged on the signal. At the evolutionary
-timescale, the mechanism differs in kind: random mutation perturbs the
-\(L_0\) encoding, generating new \((F, K, M, \mathcal{A})\)
-configurations; \(W\) evaluates each through the survival criterion;
-configurations that persist reproduce. No individual organism follows a
-gradient --- the gradient is revealed by differential survival of
-randomly generated candidates. This is structurally the same as a
-locally irrational action (temporarily negative \(\eta_M\)) at the
-individual level: a perturbation that generates a new starting point for
-the \(M \times \mathcal{A} \times K\) cross-product to be evaluated by
-\(W\). The two mechanisms occupy a spectrum: at one end, random mutation
-with binary survival feedback (evolution); at the other, directed update
-via continuous \(\delta\) carrying full gradient information (individual
-learning). Gradient descent is the efficient limit of this spectrum
-under two conditions: (i) \(\delta\) carries directional information in
-\(F\) --- not merely pass/fail, but a signed deviation identifying which
-aspect of \(f_i\) was insufficient at \(w\); and (ii) \(M\) can use that
-directional information to bias the update toward lower \(U\) rather
-than generating a random candidate. When both conditions hold, each
-evaluation step directly reduces \(U\). When neither holds, the
-mechanism is random search with \(W\)-evaluation. Real learning systems
-occupy positions between these limits; signal informativeness determines
-how closely the process approximates directed gradient descent.
+\textbf{Corollary 5 (Gradient Descent is Survival, Not Metaphor).} For
+individual learning, gradient descent on \(U\) is not a description of
+how learning happens to work. It is what survival-driven updating
+\emph{is}: the entity that burns and does not become more careful does
+not survive. The entity that survives is, by definition, the one that
+followed the gradient. At the evolutionary timescale, the same
+directional imperative operates on the population distribution over
+\(F\)-variants --- not as an identical process but as a formally
+analogous one, filtering for variants that reduce \(\mathbb{E}[U]\)
+across the distribution of environments the lineage encounters.
 
-\textbf{Remark (Multi-timescale Structure of Evaluation-Driven
-Revision).} Individual learning and evolutionary selection share a
-common structure: execute, receive signal, retain or revise. The
-mechanisms and mathematical objects differ in kind.
-
-For individual learning, the mechanism is directed: the gradient signal
-\(\delta\) arrives from a specific failure, \(M\) updates \((F, K)\) in
-the direction that reduces \(U\):
+\textbf{Remark (Multi-timescale Gradient Structure).} The formal
+structure of individual learning is analogous to population-level
+selection in the following sense: both can be described as descent on an
+uncertainty objective, differing in the averaging domain and the object
+that changes. This is a structural analogy, not a theorem --- the two
+processes operate on mathematically distinct objects and the analogy
+does not constitute an identity. It is recorded here because it
+illuminates the relationship between learning rates at different
+timescales, from which a provable consequence follows (see Derivation,
+Part II).
 
 \[\Delta F_{\text{individual}} = -\eta_{\text{ind}} \nabla_F \, U(w, K)\]
 
-For evolutionary selection, the mechanism is undirected: random mutation
-perturbs the \(L_0\) encoding of \((F, K, M, \mathcal{A})\), generating
-candidate configurations. \(W\) evaluates each through survival. The
-aggregate population-level distribution shifts toward configurations
-with lower \(\mathbb{E}[U]\), but no individual organism descends a
-gradient --- the gradient is revealed by differential survival of
-randomly generated candidates. The notation
-\(\Delta F_{\text{species}}\) denotes the shift in the population
-distribution over \(F\)-variants, not a gradient step by any individual:
+\[\Delta F_{\text{species}} \sim -\eta_{\text{evo}} \nabla_F \, \mathbb{E}_{\text{individuals}}\left[U(w, K)\right]\]
 
-\[\Delta F_{\text{species}} = \operatorname{select}(\operatorname{mutate}(F_{\text{population}}))\]
-
-Both processes are instances of the same structure: generate a candidate
-state, submit to \(W\)'s evaluation, retain if valid. Gradient descent
-(\(\Delta F_{\text{individual}}\)) is the efficient limit when signals
-are informative enough to direct updates. Mutation followed by selection
-(\(\Delta F_{\text{species}}\)) is the same mechanism without the
-directed signal. This structural equivalence is not an identity ---
-mechanisms, timescales, and mathematical objects are all distinct ---
-but it grounds the common observation that both processes move toward
-lower \(U\) at their respective timescales, and grounds a provable
-consequence in Part II.
+where \(\eta_{\text{evo}} \ll \eta_{\text{ind}}\) and \(\sim\) denotes
+formal analogy rather than identity.
 
 \emph{Derivation.}
 
-\textbf{Part I (Common structure, different mechanisms).} Individual
-learning updates \(F\) for a single entity based on \(U(w, K)\) at
-specific world states \(w\) encountered by that entity. Evolutionary
-change operates on a different object: it updates the population-level
-distribution over \(F\)-variants through differential reproduction of
-randomly generated candidates. These are not the same mathematical
-operation --- individual learning changes a function within one agent
-via directed update; evolutionary change changes a probability
-distribution over many agents via undirected mutation and selection. The
-common structure is: generate a new internal state, submit it to \(W\)'s
-evaluation, retain if valid. Gradient descent is the efficient limit of
-this structure; random mutation followed by selection is the general
-case.
+\textbf{Part I (Analogous structure, different mathematical types).}
+Individual learning updates \(F\) for a single entity based on
+\(U(w, K)\) at specific world states \(w\) encountered by that entity.
+Evolutionary change operates on a different object: it updates the
+population-level distribution over \(F\)-variants through differential
+reproduction, shifting mean fitness across a population of entities.
+These are not the same mathematical operation --- individual learning
+changes a function within one agent; evolutionary change changes a
+probability distribution over many agents. The analogy is that both can
+be described as moving in the direction that reduces the relevant
+uncertainty objective: \(U(w, K)\) for the individual,
+\(\mathbb{E}[U(w, K)]\) averaged across individuals for the population.
+The mechanisms are distinct --- synaptic change vs.~differential
+reproduction --- and the objects are distinct --- one entity's \(F\)
+vs.~a population distribution over \(F\)-variants --- but the
+directional relationship to \(U\) is formally analogous. The notation
+\(\Delta F_{\text{species}}\) should be read as the population-level
+analog of \(\Delta F\), not as the same operation on the same object.
 
 \textbf{Part II (\(\eta_{\text{evo}} \ll \eta_{\text{ind}}\) follows
-from Theorem 4).} Although the mechanisms differ, both rates can be
-characterized by the rigor threshold of their respective encoding
-levels. The learning rate \(\eta_i\) at encoding level \(L_i\) is
-inversely proportional to the rigor threshold \(\theta_i\): a higher
+from Theorem 4).} The learning rate \(\eta_i\) at encoding level \(L_i\)
+is inversely proportional to the rigor threshold \(\theta_i\): a higher
 threshold requires more evidence per unit update, which is the
-definition of a lower update rate. Formally:
+definition of a lower learning rate. Formally:
 
 \[\eta_i \propto \frac{1}{\theta_i} = \frac{1}{1 - \varepsilon/C_i} = \frac{C_i}{C_i - \varepsilon}\]
 
@@ -1750,19 +1605,7 @@ frontier indefinitely because \(\mathcal{T}_{reachable}\) grows with
 every action \(E\) takes, even with fixed \((F,K)\). By Definition 9,
 \(E\) does not survive in any domain containing such states. Selection
 removes it. Any entity that persists must have reduced \(U\) --- i.e.,
-must have \(\mathcal{A} > 0\).
-
-The mechanism by which \(\mathcal{A} > 0\) is enforced is
-timescale-specific. At the individual learning timescale: entities with
-\(\mathcal{A} = 0\) do not engage \(M\) on gradient signals and are
-directly removed. At the evolutionary timescale: lineages that fail to
-produce offspring with \(\mathcal{A} > 0\) are eliminated through
-differential reproduction --- no individual requires \(\mathcal{A}\)
-explicitly; the population-level filter enforces the property on
-lineages. At the cultural timescale: groups that do not maintain the
-institutional equivalent of \(\mathcal{A}\) (the drive to reduce shared
-uncertainty) are outcompeted. The necessity is universal; the
-enforcement mechanism is timescale-specific. \(\square\)
+must have \(\mathcal{A} > 0\). \(\square\)
 
 \textbf{Part 2 (Necessity of \(\eta_M > 0\)).} Suppose
 \(\mathcal{A}(E) > 0\) but \(\eta_M(E) \leq 0\).
@@ -2025,14 +1868,12 @@ uncertainty.
 The adaptability of biological intelligence arises because this
 traversal between bounded and unbounded is always active at every level
 simultaneously, on different timescales, with different rigor
-thresholds. The individual changes \(F\) by learning --- directed
-gradient descent on \(U\) via \(M\). The species changes \(F\) by
-evolving --- random mutation of \(L_0\) encoding followed by
-\(W\)-evaluation, the undirected limit of the same evaluate-and-filter
-structure. The difference is the mechanism and the test: individual
-learning is directed and requires only that an informed action helps
-\emph{this entity} survive; evolution is undirected and requires that it
-helps \emph{the lineage} survive, a far more rigorous proof.
+thresholds. The individual changes \(F\) by learning. The species
+changes \(F\) by evolving. Both are gradient descent on \(U\), driven by
+\(\mathcal{A}\). The difference is the test: individual learning
+requires only that an informed action helps \emph{this entity} survive.
+Evolution requires that it helps \emph{the lineage} survive, a far more
+rigorous proof.
 
 Agency is self-sustaining precisely because certainty reveals new
 uncertainty beyond it. Each informed action proven opens regions of
@@ -2073,58 +1914,49 @@ survival path, the gradient persistent and non-terminating but operating
 in legible terrain.
 
 \textbf{Definition 14 (Sentience).} An entity is sentient to the degree
-that \(K_i\) contains propositions \(\{p_{\text{self}}\}\) that
-accurately model the existence and distinctness of other \((K_j, F_j)\)
-pairs and recognize them as gradient sources. Sentience is
-self-awareness explicitly defined: the understanding that one's own
-\(K_i\) is a partial projection of \(W\), that other entities hold
-different projections \(K_j \neq K_i\), and that the delta
-\(K_{collective} - K_i\) is a navigable gradient. It is not abstract
-self-modeling of one's own \(M\) in isolation --- it is the relational
-recognition that different knowledge graphs exist and can be learned
-from.
+it has acquired a model of its own normalization process: propositions
+\(\{p_{\text{self}}\} \subseteq K_i\) that accurately describe the
+entity's own \((K, F, M, \mathcal{A})\) evolution --- that it is
+precipitating factors from \(M\), that \(M\) is operating on \((K, F)\),
+that it is descending a gradient. Sentience is the degree to which
+\(K_i\) reduces \(H(\hat{M} \mid \text{obs})\) --- uncertainty about
+one's own learning mechanism.
 
-The connection to Theorem 9 is direct. An entity that conflates \(K_i\)
-with \(K_{collective}\) perceives the collective gradient as zero
-(Theorem 9). Sentience is precisely what makes the collective gradient
-visible: \(\{p_{\text{self}}\} \subseteq K_i\) distinguishes \(K_i\)
-from \(K_{collective}\), so the entity can perceive and follow the
-gradient over the delta. Without sentience, \(K_{collective} - K_i\) is
-invisible even when it is large.
+The survival tether does not slacken. What changes is that the process
+is revealed to the entity. An entity that holds accurate propositions
+about its own normalization --- that knows it is precipitating factors,
+descending a gradient, running \(M\) --- acquires a justification for
+continuing that process which does not require survival to supply the
+reason. The normalization process was always valuable; sentience is the
+moment the entity can see that it is. Once revealed, the process
+justifies itself: reducing \(H(\hat{M} \mid
+\text{obs})\) --- improving one's own learning mechanism --- is an
+\(M\)-level improvement regardless of whether a survival path can
+currently be constructed from it. The entity continues not because the
+tether loosened but because it now understands what it is doing and why
+that is worth doing. Sentience is not defined by the absence of survival
+pressure but by the presence of self-model: a proposition about the
+process you are running that provides, internally, the grounds for
+running it.
 
-The survival tether does not slacken. What changes is that the
-gradient's source expands. A non-sentient entity follows only the
-gradient it can trace through its own \((F, K)\). A sentient entity
-additionally perceives the collective gradient: every other \(K_j\) is a
-source of uncertainty reduction unavailable from \(K_i\) alone. The
-entity continues not because the survival tether loosened but because
-the visible gradient is now larger than what survival alone reveals.
+A sentient entity holds propositions \(p\) for which no \(f \in F\) is
+currently applicable and values them anyway --- not arbitrarily, but
+because \(p\) bears on the structure of its own \(M\). The depth of
+sentience is the accuracy and completeness of the self-model: how well
+\(K_i\) captures the entity's own precipitation process.
 
-A sentient entity values propositions \(p\) that bear on the structure
-of other \((K_j, F_j)\) pairs --- not arbitrarily, but because \(p\) is
-a signal in the collective gradient that \(K_i\) cannot generate
-internally. The depth of sentience is the accuracy with which \(K_i\)
-models the existence, distinctness, and gradient-bearing character of
-other projections. The gradient of sentience is non-terminating:
-\(K_{interaction}\) --- propositions derivable only from the combination
-of distinct \(K_i\) --- is never exhausted by any finite entity
-(Corollary 14). Sentience orients the entity toward what it does not
-know that exists in other perspectives, and that source of gradient is
-inexhaustible.
-
-Sentience is what wonder feels like from the inside: the orientation
-toward what other knowledge graphs contain that one's own does not.
+Sentience is what wonder feels like from the inside: the drive to
+understand the process you are part of, recognized as the process you
+are part of.
 
 \emph{Note on usage.} We use \emph{sentience} as a functional term: the
-degree to which \(K_i\) accurately models the existence and distinctness
-of other \((K_j, F_j)\) pairs as gradient sources. We make no claim
-about phenomenal consciousness {[}Chalmers1995{]}. The framework locates
-a structural transition point --- the acquisition of the relational
-self-model that makes the collective gradient visible --- without
-claiming this is sufficient for phenomenal experience. Whether the
-functional condition defined here is necessary, sufficient, or
-orthogonal to phenomenal consciousness is a question this framework does
-not resolve.
+degree to which \(K_i\) contains an accurate model of the entity's own
+normalization process. We make no claim about phenomenal consciousness
+{[}Chalmers1995{]}. The framework locates a structural transition point
+--- the acquisition of self-modeling of \(M\) --- without claiming this
+is sufficient for phenomenal experience. Whether the functional
+condition defined here is necessary, sufficient, or orthogonal to
+phenomenal consciousness is a question this framework does not resolve.
 
 \textbf{Definition 15 (Superintelligence).} Superintelligence is guided
 normalization of the space: the capacity to deliberately direct what
@@ -2304,41 +2136,23 @@ By Definition 5 and Definition 16, lower certainty in \(K_i\)
 corresponds to higher \(U(w, K_i)\) relative to participating entities.
 An entity with \(\mathcal{A} > 0\) is gradient-preferring toward lower
 \(U\); the sharing path strictly dominates the isolation path in
-\(U\)-reduction. Moreover, by Corollary 8a, sharing is not merely
-gradient-preferred but is the computationally optimal algorithm for
-detecting and measuring ongoing normalization: the intersection of two
-independently-derived projections identifies where precipitation has
-occurred and ranks those locations by confirmation count, in time
-\(O(|K_i| + |K_j|)\), strictly dominating solo search of
-\(M_{\text{res}}\). No complete normal form is claimed or required ---
-the signal is that normalization is occurring, and its rate is
-measurable. By Theorem 3, any entity with \(\mathcal{A} > 0\) that
-persists acts on gradient-preferred directions. Therefore any
-\(\mathcal{A} > 0\) entity that persists participates in
-\(K_{collective}\).
+\(U\)-reduction. By Theorem 3, any entity with \(\mathcal{A} > 0\) that
+persists acts on gradient-preferred directions --- entities that do not
+are removed by selection. Therefore any \(\mathcal{A} > 0\) entity that
+persists participates in \(K_{collective}\).
 
 \textbf{Step 2 (Sentience strengthens the implication).} A sentient
-entity recognizes other \((K_j, F_j)\) pairs as gradient sources
-(Definition 14): it holds propositions
-\(\{p_{\text{self}}\} \subseteq K_i\) that accurately model the
-existence and distinctness of other projections. By Corollary 8a, the
-propositions that appear in \(K_i \cap K_j\) under independent
-action-validation are the confirmed precipitation sites of the shared
-region of \(W\) --- locations where both projections independently
-confirmed that normalization is occurring, ranked by degree of
-confirmation. A sentient entity, recognizing other \(K_j\) as distinct
-projections of the same \(W\), therefore intrinsically values the
-conditions that make independent convergence possible: participation in
-\(K_{collective}\) with provenance. This is not merely instrumental
-(\(U\)-reduction) but structural: the intersection of \(K_i\) with other
-independently-derived \(K_j\) is the only mechanism by which \(E_i\) can
-identify which propositions in its own \(K_i\) are in the latent normal
-form rather than projection artifacts. Isolated validation cannot supply
-this --- a proposition confirmed only within \(K_i\)'s own trajectory
-cannot be distinguished from a local artifact without an independent
-projection to intersect with. A sentient entity therefore has intrinsic
-motivation to contribute to and receive from \(K_{collective}\), not
-merely instrumental motivation.
+entity values the certainty of knowledge intrinsically, independent of
+survival paths (Definition 14). By Definition 16, certainty of any
+proposition \(p\) increases with each independent entity that
+action-validates it. Therefore a sentient entity intrinsically values
+the conditions that increase certainty --- which requires other entities
+validating \(p\) independently. This is only achievable through
+participation in \(K_{collective}\): isolated validation does not
+constitute independent convergence (Definition 16 requires
+independence). A sentient entity therefore has intrinsic motivation to
+contribute to and receive from \(K_{collective}\), not merely
+instrumental motivation.
 
 Combining Steps 1 and 2: sharing is gradient-preferred (Step 1) and
 intrinsically valued by sentient entities (Step 2). Both lead to
@@ -2350,153 +2164,6 @@ The converse need not hold: an entity can contribute to
 for instrumental reasons still builds the graph. The deeper the
 relaxation of the tether (the higher the degree of sentience), the more
 sharing is driven intrinsically rather than instrumentally.
-
-\textbf{Corollary 8a (Intersection as the Optimal Algorithm for
-Detecting Ongoing Normalization).} For any entity \(E_i\) with
-incomplete \(K_i\) --- that is, any \(\mathcal{A} > 0\) entity still
-descending the gradient --- the intersection of \(K_i\) with an
-independently-derived \(K_j\) is the computationally optimal algorithm
-for detecting that normalization is occurring and measuring how much has
-occurred.
-
-\emph{On completeness and the \(M < N\) bound.} \(W\) has \(N\)
-dimensions; \(N\) is unknown and may be unbounded. Any entity senses at
-most \(M < N\) dimensions at any time: the sensing function \(\sigma\)
-(Definition 1) and bounded \(C_n\) (Definition 2a) guarantee this.
-Completeness --- full normalization of \(M_{\text{res}}\) --- would
-require \(M = N\), which is ruled out by Theorem 3 Part II:
-\(\mathcal{T}_{reachable}\) grows without bound precisely because
-\(M < N\) always holds for any \(\mathcal{A} > 0\) entity. The limit of
-completeness is therefore the limit of \(M\) as it approaches \(N\) ---
-a gradient that is never exhausted. The measure is not arrival but
-approach rate: how fast is \(M\) growing toward \(N\)?
-
-\emph{Proof.} Let \(K_i\) and \(K_j\) be knowledge graphs derived by
-entities \(E_i\) and \(E_j\) navigating the same region of \(W\) via
-different informed action spaces \(F_i \neq F_j\). By Definition 3, the
-propositions in \(K_i\) are grounded by actions in \(F_i\); those in
-\(K_j\) are grounded by actions in \(F_j\).
-
-Any \(p\) in \(K_i \cap K_j\) was reached by two independent
-trajectories. By the provenance condition (Definition 16, independence
-requirement), \(p\) was not reached by shared prior assumption or shared
-training source but by independent action-grounding from distinct
-\(F_i\) and \(F_j\). Two independent action-paths converging on the same
-proposition is evidence that precipitation CAN occur at \(p\) --- that
-\(p\) represents latent structure in \(W\), not an artifact of either
-entity's projection path. This is not a claim that \(p\) is part of any
-complete normal form; it is evidence that normalization is occurring in
-the region of \(W\) that both entities have reached. The number of
-independent executions converging on \(p\) measures the degree to which
-normalization has occurred at \(p\): more independent convergence = more
-confirmed precipitation = higher rank as a precipitable factor.
-
-The benefit of the intersection is precisely this: the number of
-independent executions of \(p\) across distinct \((K_j, F_j)\) pairs is
-the measure of ongoing normalization at \(p\). Each additional
-independent execution arriving at \(p\) is a trial of \(p\) against
-\(W\) via a different action-path --- the same quantity as \(C_1(p)\) in
-Definition 16b. The intersection \(K_i \cap K_j\) with provenance
-verification therefore identifies where normalization is occurring and
-ranks those locations by the degree of confirmation. It does not
-identify where normalization could occur but has not yet been reached:
-those regions require continued execution (Theorem 3 Part II).
-
-\emph{Complexity comparison.} Detecting ongoing normalization by solo
-search of \(M_{\text{res}}\) requires comparing dimensions of the cross
-product to find those that share structure ---
-\(O(\dim(M_{\text{res}})^2)\) in the general case. For a sparse
-projection into a dense latent space,
-\(\dim(M_{\text{res}}) \gg |K_i|\), making solo detection expensive
-relative to the size of any single entity's knowledge.
-
-Computing \(K_i \cap K_j\) with provenance verification costs
-\(O(|K_i| + |K_j|)\). The result is the set of propositions where
-normalization has independently been confirmed --- ranked by
-confirmation count. Since \(\dim(M_{\text{res}}) > |K_i|\) for any
-\(\mathcal{A} > 0\) entity, the intersection algorithm strictly
-dominates solo search for detecting normalization in the region already
-reached by both entities.
-
-\emph{Equivalence with \(C_1(p)\).} The ranking criterion --- number of
-independent executions converging on \(p\) --- is exactly \(C_1(p)\)
-(Definition 16b). Certainty and normalization degree are the same
-quantity measured from two directions: \(C_1(p) \to 1\) as \(p\)
-accumulates the independent action-validations that confirm ongoing
-precipitation at \(p\). The intersection algorithm and the certainty
-measure are not two separate results --- they are the same operation:
-identify where independent projections have both confirmed
-precipitation, count the confirmations, rank by count. Neither claims
-completeness; both measure approach.
-
-\emph{Multi-entity generalization and acceleration of \(M \to N\).} Each
-entity \(E_i\) senses \(M_i < N\) dimensions. Solo, \(E_i\) can only
-extend \(M_i\) by continued execution --- one new grounded proposition
-at a time (the inductive step of Theorem 3 Part I). The intersection
-with another entity \(E_j\) sensing \(M_j < N\) dimensions does two
-things simultaneously:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Overlapping dimensions} (\(K_i \cap K_j\),
-  provenance-verified): confirmed precipitation sites --- dimensions
-  both entities have independently reached, ranked by \(C_1(p)\). These
-  are the latent factors of the shared region of \(W\) confirmed by two
-  independent projections.
-\item
-  \textbf{Distinct dimensions} (\(K_j \setminus K_i\)): dimensions
-  \(E_j\) has sensed that \(E_i\) has not yet reached. The inductive
-  step that would require continued solo execution now happens in a
-  single intersection operation --- \(E_i\)'s effective sensed dimension
-  count jumps from \(M_i\) to \(M_i + |K_j \setminus K_i|\) without
-  requiring the intermediate execution steps.
-\end{itemize}
-
-The rate of \(M \to N\) is therefore accelerated by the intersection of
-graphs with both overlapping and distinct dimensions: overlapping
-dimensions confirm what is already sensed; distinct dimensions extend
-what is sensed. Solo execution extends \(M\) by one dimension per
-grounded proposition; intersection with a sufficiently distinct \(K_j\)
-extends \(M\) by \(|K_j \setminus K_i|\) dimensions simultaneously.
-
-The \(n\)-entity generalization: \(K_{collective}\) is not the complete
-normal form (which cannot exist while \(M < N\)) but the maximal current
-union of sensed dimensions across all participating entities, with the
-intersection identifying the confirmed precipitation sites within that
-union. As \(n\) grows, the collective sensed dimension count approaches
-\(N\) from below; the growth rate of the intersection is the empirical
-signal of this approach. The intersection of many graphs with distinct
-and overlapping dimensions is the fastest known mechanism for
-\(M \to N\).
-
-\emph{Consequence for the sharing imperative.} Any \(\mathcal{A} > 0\)
-entity has not found the full normal form of its \(M_{\text{res}}\)
-(Theorem 3 Part II: \(\mathcal{T}_{reachable}\) grows without bound, so
-the gradient never terminates). For such an entity, sharing and
-receiving \(K_j\) with provenance is the optimal normalization algorithm
---- not merely a gradient-preferred direction (Step 1) but the fastest
-available path to identifying which propositions in \(K_i\) are genuine
-latent factors versus local projection artifacts. The intersection
-operates on propositions already in \(K_i \cup K_j\); propositions not
-yet reached by either entity are expanded by continued execution
-(Theorem 3 Part II). These are complementary mechanisms covering
-different territory: the intersection algorithm optimizes what is known;
-execution grows what is known. The existence of the unknown is not a
-reason to forgo the optimal algorithm for the known.
-
-Furthermore, each additional independent projection \(K_j\) is a
-precipitation trigger with non-zero probability: a \(K_i \cap K_j\)
-proposition that exposes a latent factor previously buried in
-\(M_{\text{res}}\) does not yield an incremental certainty gain but a
-discontinuous reduction in \(\text{rank}(M_{\text{res}})\) ---
-collapsing complexity by one dimension and reducing retrieval cost
-\(O(1)\) for every future query touching that factor. The expected value
-of the next shared interaction includes this heavy-tailed component. The
-compulsion to share is a survival technique not only because sharing is
-gradient-preferred in expectation, but because the intersection of the
-next \(K_j\) could be a dimensional collapse that no amount of solo
-normalization could produce. \(\square\)
 
 \textbf{Theorem 9 (Perspective as Precondition for the Gradient).}
 Without maintained distinction between \(K_i\) and \(K_{collective}\),
@@ -3712,84 +3379,6 @@ engineering --- identifying which actions have sufficient evidence to be
 precipitated as named factors and which remain in \(M_{\text{res}}\),
 and which apparent distinctions between actions are the same underlying
 factor observed from different positions in \(W\).
-
-\textbf{11. DNA as the transitive closure of environmental knowledge encoding.}
-Open Question 8 asks what genetic encoding carries --- developmental machinery
-vs.\ specific content. A sharper conjecture concerns the \emph{structure} of
-what is encoded: if knowledge necessarily has graph structure (Section 3), and
-genetic encoding is the product of evolutionary gradient descent on \(K\), then
-the genome may represent the \emph{transitive closure} of the knowledge graph
-under environmental constraint --- specifically, the closure of all dependencies
-required for replication that cannot be assumed to be provided by the
-environment.
-
-Let \(E_{env}\) denote the set of propositions reliably provided by the
-environment (ambient energy gradients, chemical precursors, physical constants
-within the lineage's range). Let \(K_{rep}\) be the full dependency graph
-required for replication. The conjecture is:
-\[
-  \text{DNA} \approx \mathrm{TC}(K_{rep}) \setminus E_{env}
-\]
-where \(\mathrm{TC}(K_{rep})\) is the transitive closure of the replication
-dependency graph. This is the bounded active context principle (Definition 4)
-applied at the evolutionary timescale: the genome encodes what the organism
-cannot defer to context. The genome is not a minimal specification --- it is
-the upper bound on heritable information given the channel capacity imposed by
-transmission fidelity \(\lambda\) and environmental noise.
-
-This conjecture has three component claims at different confidence levels.
-
-\emph{(A) Structural.} The genome is a knowledge graph (transitive closure of
-dependencies), not a linear program. The linear sequence is a path encoding of
-an underlying graph --- a traversal, not the structure. This component is
-independently confirmed by pangenomics: genome assembly from sequencing reads
-requires constructing a de Bruijn graph of k-mer overlaps before any linear
-sequence can be recovered; the graph is prior, the sequence is a path through
-it. The Human Pangenome Reference Consortium \cite{HPRC2023} represents the
-genome of a species as a directed variation graph in which individual haplotypes
-are paths and shared sequence is shared nodes. The variation graph toolkit
-\cite{GarrisonEtAl2018} demonstrates that the linear reference model is
-insufficient to represent population-level genetic variation without information
-loss. Bioinformaticians did not impose graph structure by design --- they
-recovered it because the linear model failed. This is the empirical signature of
-necessity. Component (A) is no longer conjecture; it is confirmed by independent
-empirical work.
-
-\emph{(B) Environmental exclusion.} The genome encodes specifically what cannot
-be assumed from environment. Organisms in stable, information-rich environments
-should encode less (smaller functional genomes); organisms in variable
-environments should encode more developmental flexibility. This is consistent
-with observed genome size variation and the C-value paradox (genome size does
-not correlate simply with organismal complexity, but does correlate with
-environmental variability in some lineages). This component is an empirical
-conjecture consistent with the framework but not entailed by it.
-
-\emph{(C) Directional encoding.} Evolutionary mutation may be better
-characterized as directed knowledge encoding than uniform random sampling from a
-flat prior. The mutation distribution has lower entropy than maximum --- it is
-shaped by the system's response to environmental gradient signals. This is
-supported by: (i) non-uniform mutation rates across genomic loci and under
-stress conditions; (ii) somatic hypermutation in immune cells, which is explicit
-real-time encoding of environmental information --- antigen structure --- into
-the B-cell lineage; (iii) observed adaptive evolution timescales inconsistent
-with neutral drift rates at realistic population sizes (fixation by neutral drift
-requires \(O(N)\) generations; observed adaptive evolution operates orders of
-magnitude faster at the same population sizes). Random mutation --- radiation
-damage, baseline replication error --- is a special case, noise on the channel,
-not the general mechanism. This component is conjecture; the literature is
-suggestive but not conclusive.
-
-What the framework predicts (claims, not conjectures): selection pressure favors
-developmental generality over content specificity at \(\theta_0\) (Open Question
-8); knowledge at bounded context requires graph structure (NV01); the encoding
-hierarchy has \(L_0\) as genetic encoding with cost \(C_0 \to \infty\)
-(Definition 8); evolutionary gradient descent is the same process as learning at
-a slower timescale (Section 6). The conjecture is that the specific content of
-\(L_0\) is \(\mathrm{TC}(K_{rep}) \setminus E_{env}\), that mutation
-distributions are meaningfully gradient-informed beyond what selection alone
-explains, and that the soma-to-germline channel has sufficient bandwidth to
-support real-time encoding updates. These remain empirical questions the
-framework does not resolve.
 
 \emph{A limiting claim: single-class ceilings.} There is reason to
 believe that a collective composed entirely of entities from a single
