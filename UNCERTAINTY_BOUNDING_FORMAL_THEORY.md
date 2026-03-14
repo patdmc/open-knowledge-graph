@@ -2,13 +2,15 @@
 
 Patrick McCarthy
 
+Note: AI was used to draft this paper but the ideas are mine, and were originally the best explanation I had for why the graph structure I had chosen for my agentic context optimiation problem worked so well. Running inference across 4000 production github repositories is not something that has been done often, and yielded clear signal about what apporaches were best for maximizing context optimization rate. This argument also explains why my sampling experiments showed that evaliation within equivalence classes of code changes, and then comparing the equivalences was faster than other selection methods, like random sampling, quality ordering, tiered ordering (high, then random) or ordering by the next most different class (sorting by maximum contrast). This started out as a way to prove that my graph structure was optimal, and then became something more. 
+
 ---
 
 ## Abstract
 
-We propose that intelligence is not computational capacity, information storage, or behavioral
-breadth, but the **driven capacity to improve**: agency $\mathcal{A}$ — the intrinsic drive to
-reduce uncertainty — exercised through a higher-order function space $M$ that continuously
+Intelligence is not computational capacity, information storage, or behavioral
+breadth, but the **driven capacity to improve**: agency $\mathcal{A}$, ie. the intrinsic drive to
+reduce uncertainty, as exercised through a higher-order function space $M$ that continuously
 refines both the knowledge graph $K$ and the informed action space $F$. Intelligence is not
 measured by the size of what has been learned but by the efficiency with which $M$ converts
 gradient signals into improved $(F, K)$: $I(E) = \mathcal{A} \cdot \eta_M$.
@@ -16,16 +18,16 @@ gradient signals into improved $(F, K)$: $I(E) = \mathcal{A} \cdot \eta_M$.
 Any entity persisting in world state space $W$ operates under constraints imposed by $W$
 itself. The active context window $L_n$ has a physically bounded capacity $C_n$; growing it
 is costly and eventually impossible. This constraint has a structural consequence that prior
-accounts of intelligence do not address: intelligence cannot grow by filling $L_n$ — it must
-grow by encoding proven knowledge at lower levels, freeing $L_n$ for genuine novelty. We show
+accounts of intelligence do not address: intelligence cannot grow by filling $L_n$; it must
+grow by encoding proven knowledge at lower levels, freeing $L_n$ for genuine novelty. This paper attempts to show
 that graph-structured $K$ is the most efficient architecture for this. Graph traversal delivers
 exactly the knowledge relevant to the current problem at cost proportional to the problem, not
-to total $K$: progressive disclosure. Selection pressure produces graph-structured knowledge
+to total $K$: leveraging the well known Agentic coding technique progressive disclosure. Selection pressure produces graph-structured knowledge
 because it is the most efficient structure under which $I(E)$ grows without $C_n$ becoming a
 bottleneck.
 
-This gives a formal account of why top-down attention allocation — specifically the precision
-allocation model of the Free Energy Principle [Friston2010, Friston2017] — fails under
+This gives a formal account of why top-down attention allocation - specifically the precision
+allocation model of the Free Energy Principle [Friston2010, Friston2017] - fails under
 selection pressure. An orchestrator that directs subproblems to lower levels must hold delegation overhead in $L_n$
 proportional to the number of concurrent processes. As $|F|$ grows, overhead fills $C_n$,
 inference quality $\rho$ (the ratio of relevant to total context) degrades, and the only
