@@ -1,0 +1,1199 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Cancer as Escalation Chain Severance\\Under Bounded Context}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We apply the bounded-context framework of Papers~1--5 to
+multicellular organization, proposing that cancer is a predictable
+failure mode of any multi-level escalation hierarchy. In a
+multicellular organism, individual cells participate in an escalation
+chain --- cell $\to$ tissue $\to$ organ $\to$ organism --- where
+each level extends the effective bounded context
+$C_n^{\mathrm{eff}}$ of the level below via intercellular signaling.
+We argue that severing the chain at level $k$ forces the cell back
+to $C_k$-level optimization, where the action space available under
+cell-level bounded context converges on the recognized hallmarks of
+cancer: aerobic glycolysis, unconstrained proliferation, immune
+evasion, and motility. This convergence is not atavistic reversion
+to ancient programs but \emph{structural necessity} --- the same
+constraint ceiling that governed unicellular life now governs the
+severed cell. The framework offers structural explanations for three
+phenomena that existing theories address incompletely: (1)~the
+velocity of malignant transformation (structural failure, not
+stochastic accumulation), (2)~the convergent phenotype across tissue
+types (same constraint, same necessary structure), and (3)~the
+therapeutic resistance of established tumors (locally rational
+optimization under cell-level $C_n$). Clinical oncology is already
+trending toward the therapeutic strategies this framework predicts
+--- differentiation therapy, immunotherapy, and microenvironment
+normalization --- but largely without a unified theoretical
+justification. We propose that the bounded-context framework
+provides one, and offer testable predictions that distinguish this
+account from the somatic mutation theory, the atavistic theory, and
+the tissue organization field theory.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+Cancer remains the central unsolved problem of multicellular biology.
+Three major theoretical frameworks compete to explain it, each
+capturing part of the phenomenon while missing the rest.
+
+The \emph{somatic mutation theory} (SMT) holds that cancer arises from
+accumulated genetic mutations that progressively disable growth
+controls \cite{Vogelstein2013, Nowell1976}. SMT explains the
+stochastic component of cancer incidence and the role of specific
+oncogenes and tumor suppressors. It does not explain the \emph{velocity}
+of malignant transformation: why cancers from different tissues, with
+different mutational profiles, converge on the same phenotypic
+hallmarks \cite{Hanahan2011} far faster than random mutation would
+predict.
+
+The \emph{atavistic theory} holds that cancer cells reactivate ancient
+genetic programs from the unicellular era, effectively reverting to a
+pre-multicellular phenotype \cite{Davies2011, Trigos2017}. The
+phylostratigraphic evidence is striking: genes upregulated in cancer
+are disproportionately ancient, dating to unicellular ancestors
+\cite{Trigos2017}. But the theory lacks a mechanism: \emph{why} would
+a modern cell access billion-year-old programs, and \emph{how} are
+those programs still coherent after extensive evolutionary modification?
+
+The \emph{tissue organization field theory} (TOFT) holds that cancer
+is not a disease of individual cells but of tissue organization:
+the breakdown of intercellular signaling and tissue architecture
+enables default proliferative behavior \cite{Sonnenschein2000}. TOFT
+correctly identifies the organizational level at which cancer operates
+but lacks a formal account of \emph{why} organizational breakdown
+produces the specific phenotypes it does.
+
+This paper proposes that all three theories describe aspects of a
+single structural phenomenon: \textbf{escalation chain severance}.
+The bounded-context framework of Papers~1--5
+\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d, McCarthy2026e}
+provides a formal lens through which to unify them. We model
+multicellular organization as a multi-level escalation hierarchy
+where each level extends the effective bounded context of the level
+below. Severing the chain is a structural failure that forces
+cell-level optimization. The convergent phenotype, on this account,
+is not inherited from ancestors but \emph{necessary} under cell-level
+bounded context --- the same constraint that shaped unicellular life
+now shapes the severed cell.
+
+\textbf{Scope and epistemology.} This paper is a theoretical
+application of the bounded-context framework to cancer biology.
+Papers~1--5 derive their results from formal proofs; the present
+paper applies that framework to a biological domain where the
+mapping from formalism to biology is conjectural. We do not claim
+to prove anything about cancer. We claim that the framework generates
+a coherent structural account that (a)~unifies three competing
+theories, (b)~aligns with the direction clinical oncology is already
+moving, and (c)~produces testable predictions that distinguish it
+from existing accounts. The value of the paper is the structural
+reasoning and the predictions, not empirical validation --- which
+is the province of cancer biologists and clinicians.
+
+% ------------------------------------------------------------------
+\section{Formal Framework}
+\label{sec:framework}
+% ------------------------------------------------------------------
+
+We extend the entity framework of Papers~1--5 to multi-level
+biological organization.
+
+\begin{definition}[Biological Entity at Level $k$]
+\label{def:bio-entity}
+A biological entity at organizational level $k$ is
+$E_k = (K_k, A_k, \sigma_k, \gamma_k)$ with bounded active context
+$C_n^{(k)}$, where:
+\begin{itemize}
+\item $K_k$ is the knowledge base at level $k$ (the regulatory state
+   accessible for inference --- gene expression profiles, signaling
+   molecule concentrations, tissue-level morphogen gradients).
+\item $A_k$ is the action space at level $k$ (the executable responses
+   --- protein synthesis, cell division, apoptosis, migration,
+   differentiation signals).
+\item $\sigma_k$ is the sensing function at level $k$ (receptors,
+   gap junctions, paracrine signaling).
+\item $\gamma_k$ is the agency at level $k$ (the probability that
+   $E_k$ engages its adaptive mechanism in response to signals).
+\end{itemize}
+The organizational levels in a metazoan are:
+\begin{align*}
+k = 0 &: \text{cell} \\
+k = 1 &: \text{tissue} \\
+k = 2 &: \text{organ} \\
+k = 3 &: \text{organism}
+\end{align*}
+\end{definition}
+
+\begin{definition}[Escalation Chain]
+\label{def:chain}
+An \emph{escalation chain} is a sequence of coupled entities
+$E_0, E_1, \ldots, E_m$ where level $k+1$ receives escalation
+signals from level $k$ when $E_k$ encounters states exceeding its
+local capacity:
+\[
+U_k(w, K_k) > U_{\mathrm{threshold}}^{(k)}
+\;\Rightarrow\;
+\text{escalate to } E_{k+1}
+\]
+This is the biological instantiation of escalation dominance
+\cite{McCarthy2026b}: higher levels engage only when lower levels
+fail, achieving $O(1)$ steady-state context cost.
+\end{definition}
+
+\begin{definition}[Effective Context Extension]
+\label{def:extension}
+When $E_k$ is coupled to $E_{k+1}$ via an intact escalation chain,
+the \emph{effective bounded context} of $E_k$ is:
+\[
+C_n^{\mathrm{eff}}(E_k) = C_n^{(k)} + \sum_{j=k+1}^{m}
+\lambda_j \cdot C_n^{(j)}
+\]
+where $\lambda_j \in (0, 1]$ is the coupling strength between levels
+--- determined by the fidelity and bandwidth of intercellular
+signaling. $\lambda_j = 1$ represents perfect coupling (all of
+$E_j$'s context is available to $E_k$ via signaling);
+$\lambda_j = 0$ represents complete decoupling.
+
+The key property: $C_n^{\mathrm{eff}} > C_n^{(k)}$. The cell
+``borrows'' context from higher organizational levels. A liver cell
+does not need to independently represent the organism's metabolic
+state --- it receives that information via hormonal and neural
+signaling from the organ and organism levels.
+\end{definition}
+
+\begin{definition}[Chain Severance]
+\label{def:severance}
+\emph{Chain severance at level $k$} occurs when the coupling
+$\lambda_{k+1} \to 0$: the entity $E_k$ loses its connection to all
+higher organizational levels. Post-severance:
+\[
+C_n^{\mathrm{eff}}(E_k) = C_n^{(k)}
+\]
+The cell's effective context collapses to its intrinsic cell-level
+bound.
+\end{definition}
+
+\subsection{Biological Instantiation of the Coupling Coefficients}
+\label{sec:coupling-biology}
+
+The abstract coupling coefficients $\lambda_j$ correspond to
+specific, measurable intercellular communication mechanisms at each
+level of the hierarchy.
+
+\textbf{Level $0 \to 1$ (cell $\to$ tissue coupling).}
+This is the primary coupling layer and the level at which most
+cancers sever. The coupling mechanisms are:
+\begin{itemize}
+\item \textbf{Gap junctions} (connexins, especially Cx43): direct
+   cytoplasmic channels between adjacent cells that share ions,
+   metabolites, and second messengers. Gap junctional intercellular
+   communication (GJIC) is the highest-bandwidth cell-tissue coupling
+   channel. Connexin-43 downregulation is among the earliest events
+   in many epithelial cancers \cite{Aasen2016}.
+\item \textbf{E-cadherin} (CDH1): homophilic adhesion molecule that
+   mediates contact inhibition of proliferation. Loss of E-cadherin
+   is the defining event of epithelial-mesenchymal transition (EMT)
+   and directly severs the contact-dependent component of $\lambda_1$
+   \cite{Hanahan2011}.
+\item \textbf{Juxtacrine signaling} (Notch--Delta): direct
+   cell-cell contact signaling that maintains tissue identity and
+   differentiation state. Requires physical adjacency --- destroyed
+   by loss of tissue architecture.
+\item \textbf{Integrin--ECM attachment}: anchorage to the
+   extracellular matrix and basement membrane. Loss of anchorage
+   dependence (anoikis resistance) severs the structural component
+   of tissue coupling.
+\end{itemize}
+
+\textbf{Level $1 \to 2$ (tissue $\to$ organ coupling).}
+\begin{itemize}
+\item \textbf{Paracrine signaling}: local growth factors and
+   morphogen gradients (Wnt, Hedgehog, BMP, TGF-$\beta$) that
+   coordinate tissue-level organization within the organ context.
+\item \textbf{Extracellular matrix architecture}: the structural
+   scaffold that encodes tissue-level spatial organization and
+   transmits mechanical signals.
+\item \textbf{Local vasculature}: nutrient and oxygen delivery
+   that ties tissue metabolism to organ-level regulation. Vascular
+   normalization restores this coupling channel.
+\end{itemize}
+
+\textbf{Level $2 \to 3$ (organ $\to$ organism coupling).}
+\begin{itemize}
+\item \textbf{Endocrine signaling}: systemic hormones (insulin,
+   estrogen, cortisol, thyroid hormone) that couple organ function
+   to organismal state. Hormone-dependent cancers (breast, prostate)
+   retain partial $\lambda_3$ coupling, explaining their relative
+   treatability.
+\item \textbf{Immune surveillance}: T-cells, NK cells, and
+   macrophages that enforce organism-level quality control on
+   aberrant cells. Immune checkpoint molecules (PD-L1, CTLA-4) are
+   the molecular implementation of this coupling channel.
+\item \textbf{Neural innervation}: autonomic nervous system
+   regulation of organ function and tissue homeostasis.
+\item \textbf{Circadian regulation}: organism-level temporal
+   coordination via the SCN-driven hormonal cascade.
+\end{itemize}
+
+Each $\lambda_j$ is thus not a single number but a \emph{vector} of
+coupling channels. Chain severance can be partial: a cell may lose
+gap junctional coupling ($\lambda_1^{\mathrm{GJIC}} \to 0$) while
+retaining cadherin-mediated contact inhibition
+($\lambda_1^{\mathrm{CDH1}} > 0$). This partial severance produces
+the intermediate phenotypes observed in pre-malignant lesions.
+Complete severance across all channels at a given level produces the
+full malignant phenotype.
+
+% ------------------------------------------------------------------
+\section{Main Result}
+\label{sec:main}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Escalation Chain Severance Produces Convergent
+Malignancy]
+\label{thm:cancer}
+Let $E_0$ be a cell in a multicellular organism with intact
+escalation chain $E_0 \to E_1 \to \cdots \to E_m$, modeled as an
+entity under the bounded-context framework. If chain severance
+occurs at level $k = 0$ (cell loses coupling to tissue), then:
+
+\textbf{Part I.} $E_0$ optimizes under $C_n^{(0)}$ alone.
+By graph necessity \cite{McCarthy2026a}, it maintains only the
+propositions serviceable within cell-level bounded context.
+
+\textbf{Part II.} By $K/A$ inseparability \cite{McCarthy2026c}, the
+knowledge base $K_0$ contracts to index only cell-level actions
+$A_0$: those executable without tissue-level coordination.
+
+\textbf{Part III.} By escalation dominance \cite{McCarthy2026b}, with
+no higher level to escalate to, all optimization pressure concentrates
+at $E_0$. The cell becomes the terminal level of its own hierarchy.
+
+\textbf{Part IV.} The action space under cell-level $C_n^{(0)}$
+converges across cell types. $C_n^{(0)}$ is small relative to the
+full repertoire of cell-level actions, so the asymmetric retention
+criterion of \cite{McCarthy2026c} forces displacement toward the
+same survival-essential set: with limited slots and the same
+survival-critical actions competing for them, tissue-specific content
+is progressively displaced by actions with nonzero expected benefit
+under cell-level optimization.
+\end{theorem}
+
+\begin{proof}
+
+\textbf{Part I: Context Collapse.}
+
+Before severance, $E_0$ operates with effective context
+$C_n^{\mathrm{eff}} = C_n^{(0)} + \sum_{j=1}^{m} \lambda_j
+C_n^{(j)}$. The cell maintains propositions that reference
+tissue-level and organism-level states --- differentiation signals,
+growth factor dependencies, contact inhibition cues, apoptotic
+triggers from the tissue microenvironment. These propositions are
+serviceable \emph{because} the escalation chain provides the context
+in which they have grounding.
+
+After severance ($\lambda_j = 0$ for $j \geq 1$), these
+propositions lose their grounding: they reference states that $E_0$
+can no longer observe (tissue integrity, organ function, organismal
+need). By graph necessity \cite{McCarthy2026a}, propositions without
+grounding in observable states cannot be maintained under bounded
+context without displacing grounded propositions. The retention
+criterion of \cite{McCarthy2026c} --- retain when benefit is
+uncertain, prune when benefit is certainly zero --- applies: the
+benefit of tissue-referencing propositions is certainly zero to a
+cell that cannot observe tissue state. They are pruned.
+
+$K_0$ contracts to propositions grounded in cell-level observables:
+local nutrient concentration, immediate mechanical environment,
+intracellular state.
+
+\textbf{Part II: Action Space Contraction.}
+
+By $K/A$ inseparability \cite{McCarthy2026c}, $K_0$ indexes $A_0$
+and vice versa. As $K_0$ contracts to cell-level propositions, $A_0$
+contracts to cell-level actions. Actions that require tissue-level
+coordination --- responding to contact inhibition, executing
+apoptosis on organismal command, maintaining differentiated quiescence
+--- lose their knowledge support. They are not ``disabled'' by
+mutation; they become \emph{inaccessible} because the knowledge
+required to execute them (tissue state, organismal need) is no longer
+in $K_0$.
+
+What remains in $A_0$ are actions executable with cell-level knowledge
+alone:
+\begin{itemize}
+\item \textbf{Proliferation}: cell division requires only local
+   nutrient availability and intracellular state --- no tissue-level
+   coordination needed.
+\item \textbf{Metabolic autonomy}: glycolysis (the Warburg effect
+   \cite{Warburg1956}) is the metabolic mode with the fewest
+   tissue-level \emph{dependencies} --- it does not require reliable
+   tissue-level oxygen delivery infrastructure. This does not imply
+   mitochondrial shutdown (many cancer cells retain functional
+   oxidative phosphorylation), but glycolytic capacity provides
+   metabolic independence from tissue-level coordination.
+\item \textbf{Motility}: movement in response to local nutrient
+   gradients requires only cell-level sensing.
+\item \textbf{Immune evasion}: downregulation of surface markers
+   that signal to organism-level immune surveillance --- these markers
+   are maintained by tissue-level signaling, and without that
+   signaling, their expression decays.
+\end{itemize}
+
+\textbf{Part III: Terminal Optimization.}
+
+In the intact organism, the cell's optimization is bounded by
+escalation: problems exceeding $C_n^{(0)}$ escalate to tissue, organ,
+or organism level. The cell does not need to solve every problem ---
+it only needs to handle its local scope and signal failure upward.
+
+After severance, there is no higher level. By the escalation
+dominance result \cite{McCarthy2026b}, this means all optimization
+pressure concentrates at $E_0$. The cell is no longer a component
+in a hierarchy; it is a complete autonomous entity. Its optimization
+target is its own persistence --- gradient descent on $U$ at cell
+level \cite{McCarthy2026d} --- with no constraint from above.
+
+This is precisely the optimization regime of a unicellular organism:
+an autonomous entity with cell-level $C_n$, optimizing for its own
+survival under bounded context. The cell has not ``reverted'' to a
+unicellular program. It has been \emph{forced into the same
+optimization regime} by the loss of its escalation chain.
+
+\textbf{Part IV: Convergence.}
+
+The convergence argument is not that all severed cells must have
+identical knowledge graphs --- graph necessity \cite{McCarthy2026a}
+requires graph \emph{structure}, not identical graph \emph{content}.
+The convergence is at the level of the action space, and it follows
+from the interaction of bounded context with the asymmetric retention
+criterion.
+
+$C_n^{(0)}$ is small relative to the full repertoire of possible
+cell-level actions. Under the displacement criterion of
+\cite{McCarthy2026c}, when $K_0$ is at capacity, a proposition $p$
+is displaced by $q$ only when $\mathbb{E}[G(a_q, K)] >
+\mathbb{E}[G(a_p, K)]$ --- strictly higher marginal survival value.
+After severance, tissue-specific propositions have zero marginal
+value (they reference unobservable states), while cell-level
+survival actions (proliferation, nutrient acquisition, damage repair)
+have nonzero value regardless of tissue of origin. The retention
+criterion therefore drives displacement in the same direction for
+all severed cells: tissue-specific content is replaced by cell-level
+survival content.
+
+The convergence is not perfect --- residual tissue-specific $K_0$
+content produces tissue-specific variation, especially early in
+progression. But the attractor is the same: the set of actions with
+highest marginal survival value under $C_n^{(0)}$. This set is
+constrained by cell biology, not by tissue of origin, so it
+converges across cancer types.
+
+This offers a structural account for why Hanahan and Weinberg's
+hallmarks \cite{Hanahan2011} are observed across cancer types: they
+are not shared mutations or shared ancient programs, but the
+\emph{convergent action space} that the retention criterion selects
+under cell-level bounded context.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Corollaries}
+\label{sec:corollaries}
+% ------------------------------------------------------------------
+
+\begin{corollary}[Velocity of Malignant Transformation]
+\label{cor:velocity}
+Malignant transformation does not require the accumulation of a
+specific set of mutations. It requires chain severance --- the
+loss of coupling to the tissue-level escalation chain. Chain
+severance can occur through a single event (loss of a key signaling
+receptor, disruption of gap junctions, escape from the tissue
+microenvironment) rather than through the sequential accumulation
+of independent mutations.
+\end{corollary}
+
+\begin{proof}
+The somatic mutation theory requires multiple independent hits
+\cite{Vogelstein2013}: each hallmark capability must be separately
+acquired through mutation. Under our framework, the hallmarks are
+not independently acquired --- they are jointly \emph{released}
+when the escalation chain severs. A single event that decouples the
+cell from tissue-level signaling simultaneously enables all
+hallmark behaviors, because all of them are cell-level actions that
+were \emph{suppressed} by tissue-level coordination, not
+\emph{absent} from the cell's intrinsic repertoire.
+
+This explains why cancer can progress rapidly from a single
+initiating event: the ``multi-hit'' appearance is a consequence of
+progressive chain severance (each hit weakens coupling further)
+rather than independent capability acquisition. The velocity is
+structural, not stochastic.
+
+\textbf{Compatibility with multi-hit observations.} The framework
+does not contradict the observation that multiple mutations are
+typically found in cancers. Rather, it reinterprets their role:
+mutations are mechanisms of chain severance (disrupting signaling
+pathways, disabling apoptotic responses to tissue-level commands),
+not independent capability acquisitions. The ``multi-hit'' pattern
+reflects progressive decoupling --- each mutation weakens a different
+coupling channel $\lambda_j$ --- rather than independent construction
+of each hallmark.
+\end{proof}
+
+\begin{corollary}[Therapeutic Resistance]
+\label{cor:resistance}
+Established tumors exhibit persistent therapeutic resistance because
+the severed cell is \emph{locally rational}: it is optimizing
+correctly under its own bounded context.
+\end{corollary}
+
+\begin{proof}
+Therapies that target specific mutations (targeted therapy) or
+specific proliferative mechanisms (chemotherapy) impose selection
+pressure on an entity that is already performing gradient descent on
+$U$ at cell level \cite{McCarthy2026d}. The cell's $\gamma > 0$
+(Paper~5, \cite{McCarthy2026e}) guarantees continued engagement with
+adaptive mechanisms. Its $\eta_M > 0$ guarantees learning from
+therapeutic pressure. The therapy becomes a new environmental signal
+that the cell incorporates into its optimization.
+
+This explains why resistance is the norm rather than the exception:
+the cell is not a broken machine to be fixed but an autonomous
+entity optimizing under its own constraints. Therapy that does not
+restore the escalation chain merely changes the optimization
+landscape without changing the optimization regime.
+
+Effective therapy, on this account, must either:
+\begin{enumerate}
+\item \textbf{Restore the chain}: re-establish tissue-level coupling
+   so that $C_n^{\mathrm{eff}} > C_n^{(0)}$, returning tissue-level
+   actions to the cell's accessible action space. Differentiation
+   therapy (e.g., all-trans retinoic acid in acute promyelocytic
+   leukemia) operates this way.
+\item \textbf{Exploit the constraint}: target cell-level actions
+   that are \emph{necessary} under $C_n^{(0)}$, not just contingently
+   adopted. If an action is necessary under cell-level bounded
+   context, the cell cannot evolve away from it without leaving the
+   $C_n^{(0)}$ optimization regime.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[The Atavistic Pattern Without Atavistic Causation]
+\label{cor:atavistic}
+The phylostratigraphic signal --- cancer genes being
+disproportionately ancient \cite{Trigos2017} --- is real but does
+not imply atavistic reversion. It reflects convergent necessity.
+\end{corollary}
+
+\begin{proof}
+Genes that are ancient are precisely the genes that were optimized
+for cell-level bounded context during the unicellular era. When a
+modern cell undergoes chain severance and is forced back to
+cell-level optimization, the \emph{same genes} become relevant
+again --- not because an ancient program is ``reactivated'' but
+because the same constraint ($C_n^{(0)}$) selects for the same
+solutions.
+
+The atavistic theory \cite{Davies2011} correctly identifies the
+phenotypic pattern (cancer cells resemble unicellular organisms) and
+the genetic evidence (ancient genes are upregulated). Its error is
+causal: it infers historical reversion where the mechanism is
+structural convergence. The genes are not activated \emph{because}
+they are ancient; they are activated because they encode the actions
+that are necessary under cell-level bounded context, and they happen
+to be ancient because unicellular organisms faced the same constraint.
+
+This distinction is testable: the atavistic theory predicts that the
+ancient gene set forms a coherent ``unicellular program'' that is
+activated as a unit. Our framework predicts that the set of genes
+activated in any given cancer will be determined by the specific
+$C_n^{(0)}$-level optimization landscape, and will include ancient
+genes \emph{to the extent that} they encode cell-level actions ---
+but will also include recent genes that happen to serve cell-level
+optimization (e.g., genes co-opted for immune evasion that evolved
+in the multicellular era).
+\end{proof}
+
+\begin{corollary}[Metastasis as Optimal Foraging Under Cell-Level
+$C_n$]
+\label{cor:metastasis}
+Metastasis is not an acquired ``capability'' but the default
+exploratory behavior of an autonomous entity optimizing under
+bounded context in a spatially heterogeneous environment.
+\end{corollary}
+
+\begin{proof}
+In an intact organism, cell motility is constrained by tissue-level
+signaling: basement membrane attachment, contact inhibition, tissue
+boundary maintenance. These constraints are maintained by the
+escalation chain --- the tissue level enforces spatial organization
+that individual cells could not compute independently.
+
+After chain severance, the cell has no spatial constraint beyond its
+local environment. By the non-termination result of
+\cite{McCarthy2026d} (Theorem~1, Part~II), the reachable trajectory
+space $T_{\mathrm{reachable}}(K_0)$ grows monotonically with $K_0$.
+A cell in a nutrient-poor local environment will, through gradient
+descent on $U$, discover that movement to nutrient-rich regions
+reduces uncertainty about survival. Metastasis is exploration ---
+the expansion of $T_{\mathrm{reachable}}$ into new spatial regions
+--- driven by the same gradient that drives all learning
+\cite{McCarthy2026d}.
+
+The ``invasion-metastasis cascade'' of epithelial-mesenchymal
+transition, intravasation, survival in circulation, and colonization
+at distant sites is not a sequence of independently acquired
+capabilities. It is the progressive unfolding of cell-level
+exploration in a spatially structured environment, where each step
+reveals new states that reduce local uncertainty.
+\end{proof}
+
+\begin{corollary}[Transplant Rejection as Chain Mismatch]
+\label{cor:transplant}
+Organ transplant rejection is not chain severance but \emph{chain
+mismatch}: the transplanted tissue has intact internal coupling
+(levels $0 \to 1$) but mismatched organism-level coupling
+(level $2 \to 3$). The immune system's rejection response is the
+escalation chain functioning correctly --- detecting cells whose
+coupling markers do not match the recipient organism.
+\end{corollary}
+
+\begin{proof}
+A transplanted organ retains its internal tissue organization: the
+cells are coupled to each other and to tissue-level architecture
+via gap junctions, cadherins, and paracrine signaling. The
+$\lambda_1$ coupling channels are intact. What is mismatched is
+$\lambda_3^{\mathrm{immune}}$: the organism-level immune
+surveillance system recognizes the transplanted cells' MHC markers
+as foreign --- not coupled to \emph{this} organism's escalation
+chain.
+
+The organism cannot distinguish between chain severance (cancer)
+and chain mismatch (transplant). In both cases, the level $2 \to 3$
+coupling signal is absent or aberrant, and the immune enforcement
+mechanism responds identically: elimination.
+
+This reframes the immunosuppression tradeoff structurally.
+Immunosuppressive therapy (cyclosporine, tacrolimus) weakens the
+organism-level coupling enforcement
+$\lambda_3^{\mathrm{immune}} \to 0$ globally. This permits the
+mismatched organ but simultaneously disables the surveillance
+mechanism that detects genuine chain severance. The well-documented
+2--5$\times$ elevation in cancer incidence among transplant
+recipients \cite{Engels2011} is the predicted consequence:
+weakened chain enforcement permits both the intended mismatch
+\emph{and} unintended severance events.
+
+\textbf{Tolerance induction} --- protocols that establish mixed
+hematopoietic chimerism or regulatory T-cell-mediated acceptance
+--- operates differently. Rather than weakening enforcement, it
+re-establishes matching coupling: the recipient's immune system
+learns to recognize the transplanted tissue as part of its own
+escalation chain. The coupling
+$\lambda_3^{\mathrm{immune}}$ is restored for the transplant
+specifically, while global enforcement remains intact. The
+framework predicts that tolerance induction should produce better
+long-term outcomes than chronic immunosuppression --- not only
+for graft survival but for overall survival --- because it
+preserves the organism-level chain enforcement that prevents
+cancer. Early clinical evidence from mixed chimerism protocols
+is consistent with this prediction \cite{Kawai2008}.
+
+HLA matching reduces the mismatch at the coupling interface itself,
+minimizing the signal that triggers enforcement without weakening
+enforcement. This is why HLA-matched transplants require less
+immunosuppression and have better outcomes: less mismatch means
+less enforcement to suppress.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Mechanisms of Chain Severance}
+\label{sec:mechanisms}
+% ------------------------------------------------------------------
+
+Chain severance is not a single event but a spectrum of decoupling
+mechanisms, each reducing $\lambda_j$ toward zero:
+
+\textbf{Genetic mechanisms.} Mutations in signaling receptors (e.g.,
+E-cadherin loss), tumor suppressor pathways (e.g., p53, Rb), or
+growth factor dependencies reduce the cell's capacity to receive
+tissue-level signals. These are the mechanisms identified by SMT
+\cite{Vogelstein2013}. In our framework, they are not causes of
+cancer but \emph{mechanisms of chain severance}: each mutation
+weakens a specific coupling channel.
+
+\textbf{Microenvironmental mechanisms.} Chronic inflammation,
+fibrosis, or tissue damage disrupts the signaling infrastructure
+through which higher levels communicate with cells. This is the
+mechanism identified by TOFT \cite{Sonnenschein2000}: the tissue
+architecture that maintains coupling is destroyed, and cells
+decouple even without intrinsic mutations. The coupling
+$\lambda_j \to 0$ occurs not because the cell's receivers are
+broken but because the signal is no longer transmitted.
+
+\textbf{Epigenetic mechanisms.} Methylation changes, chromatin
+remodeling, or transcriptional reprogramming can silence the
+genes encoding tissue-level signaling components without genomic
+mutation. This produces chain severance through altered gene
+expression rather than altered sequence.
+
+\textbf{Spatial mechanisms.} Physical separation from the tissue
+microenvironment --- through basement membrane breach, for
+instance --- removes the cell from the signaling field. The cell's
+coupling hardware is intact; the coupling medium is absent.
+
+All four mechanisms produce the same outcome: $\lambda_j \to 0$,
+effective context collapse to $C_n^{(0)}$, and optimization under
+cell-level bounded context. The convergent phenotype (the hallmarks)
+follows regardless of \emph{which} mechanism severed the chain.
+This explains why cancers arising from different mechanisms
+(hereditary, environmental, sporadic) converge on the same
+phenotypic endpoints.
+
+% ------------------------------------------------------------------
+\section{The Encoding Hierarchy in Cancer}
+\label{sec:encoding}
+% ------------------------------------------------------------------
+
+The encoding hierarchy of \cite{McCarthy2026d} has a specific
+consequence for cancer that connects to the empirical phenomenon of
+tumor heterogeneity.
+
+In the intact organism, actions at each encoding level have been
+validated to the threshold $\theta_i = 1 - \varepsilon / C_i$. The
+genomic level ($L_0$) encodes actions validated across evolutionary
+timescales. The epigenetic level ($L_1$) encodes tissue-specific
+programs validated across developmental timescales. The active
+context level ($L_n$) encodes moment-to-moment responses.
+
+After chain severance, the encoding hierarchy is disrupted at all
+levels above the cell:
+
+\begin{itemize}
+\item \textbf{Organism-level encodings} (hormonal responses,
+   circadian regulation, immune cooperation) lose their validation
+   context. They were validated under $C_n^{\mathrm{eff}}$; they are
+   now evaluated under $C_n^{(0)}$. Many fail the retention criterion.
+
+\item \textbf{Tissue-level encodings} (differentiation state,
+   contact inhibition, growth factor dependence) similarly lose
+   validation context.
+
+\item \textbf{Cell-level encodings} (basic metabolism, division
+   machinery, DNA repair) retain their validation. They were
+   validated under $C_n^{(0)}$ originally and remain valid.
+\end{itemize}
+
+The result is \emph{selective devalidation}: the encoding hierarchy
+does not collapse uniformly but selectively loses its higher-level
+content. What remains is a cell operating on cell-level encodings ---
+the same encodings that a unicellular organism would maintain. This
+is the encoding-level explanation for the atavistic gene expression
+pattern observed by Trigos et al.\ \cite{Trigos2017}: ancient genes
+are preferentially retained not because they are ``reactivated'' but
+because they are the ones whose validation survives context collapse.
+
+\textbf{Tumor heterogeneity.} The progressive nature of context
+collapse explains intratumor heterogeneity. Cells at different
+stages of chain severance retain different amounts of higher-level
+encoding. Early-stage tumor cells may retain partial tissue-level
+coupling (some $\lambda_j > 0$), producing a mixed phenotype. As
+severance progresses, the phenotype converges toward the cell-level
+optimum. This gradient of severance within a single tumor produces
+the phenotypic heterogeneity observed empirically, without requiring
+different clonal origins for different phenotypes.
+
+Clonal evolution \cite{Nowell1976} describes the \emph{dynamics}
+of this process: cells with more complete severance have higher
+fitness in the decoupled regime and are selected. But the direction
+of evolution is not random --- it converges on the cell-level
+optimum, which is structurally determined by $C_n^{(0)}$.
+
+% ------------------------------------------------------------------
+\section{Engagement with Prior Work}
+\label{sec:prior}
+% ------------------------------------------------------------------
+
+\textbf{Hanahan and Weinberg \cite{Hanahan2000, Hanahan2011}:
+Hallmarks of Cancer.}
+The hallmarks --- sustaining proliferative signaling, evading growth
+suppressors, resisting cell death, enabling replicative immortality,
+inducing angiogenesis, activating invasion and metastasis, plus the
+enabling characteristics and emerging hallmarks of the 2011 update
+--- are described as ``capabilities'' that must be ``acquired.'' Our
+framework reinterprets them: they are not acquired but
+\emph{revealed}. They are the necessary action space of any entity
+optimizing under cell-level bounded context. The hallmarks are
+universal across cancer types because $C_n^{(0)}$ is universal
+across cell types. What differs across cancers is the \emph{route}
+of chain severance (which coupling channels fail first), not the
+\emph{destination} (cell-level optimization).
+
+\textbf{Davies and Lineweaver \cite{Davies2011}: Atavistic Theory.}
+See Corollary~\ref{cor:atavistic}. The atavistic theory correctly
+identifies the phenotypic and phylostratigraphic pattern. Our
+framework provides the mechanism it lacks (chain severance) and
+corrects the causal inference (convergent necessity, not historical
+reversion). The two theories make different predictions about which
+genes will be activated in any given cancer: the atavistic theory
+predicts a coherent ancient program; our framework predicts
+gene activation determined by $C_n^{(0)}$-level optimization,
+which overlaps heavily but not completely with the ancient gene set.
+
+\textbf{Sonnenschein and Soto \cite{Sonnenschein2000}: TOFT.}
+TOFT is the closest existing framework to our account. It correctly
+identifies the organizational level (tissue, not cell) at which
+cancer originates, and correctly argues that proliferation is the
+default state of cells, with tissue organization as the restraint.
+Our framework provides TOFT with the formalism it has lacked: the
+escalation chain is the formal structure of tissue organization,
+$C_n^{\mathrm{eff}}$ is the formal measure of organizational
+integration, and chain severance is the formal description of
+organizational breakdown. TOFT's ``default proliferative state'' is
+our ``necessary action space under cell-level $C_n$.''
+
+\textbf{Nowell \cite{Nowell1976}: Clonal Evolution.}
+Clonal evolution describes the dynamics of cancer progression as
+Darwinian selection among cell populations. Our framework does not
+replace this account but provides its \emph{attractor}: clonal
+evolution does not wander randomly through phenotype space but
+converges on the cell-level optimum determined by $C_n^{(0)}$. The
+direction of clonal evolution is structurally determined; the
+stochastic component is in \emph{which cells} reach the attractor
+first, not \emph{where} the attractor is.
+
+\textbf{Aktipis et al.\ \cite{Aktipis2015}: Cancer as Cheating.}
+The evolutionary cooperation framework describes cancer as a
+breakdown of multicellular cooperation --- cells that ``cheat'' by
+proliferating at the expense of the collective. Our framework
+provides the structural basis: cooperation is maintained by the
+escalation chain (higher organizational levels enforce cooperative
+behavior by extending $C_n^{\mathrm{eff}}$). ``Cheating'' is not a
+strategy adopted by the cell but the necessary outcome of chain
+severance: a cell that cannot observe tissue-level state cannot
+cooperate with the tissue, because cooperation requires the
+knowledge base ($K_0$) to contain tissue-referencing propositions
+that are no longer grounded.
+
+\textbf{Merlo et al.\ \cite{Merlo2006}: Cancer as Ecological Process.}
+The ecological framework describes tumor progression as an
+evolutionary process within the ecosystem of the body. Our framework
+adds the structural constraint: the ``ecosystem'' is the escalation
+chain, and cancer progression is the progressive collapse of that
+chain. The ecological metaphor is correct but incomplete --- it
+describes dynamics without explaining why those dynamics converge.
+
+% ------------------------------------------------------------------
+\section{Testable Predictions}
+\label{sec:predictions}
+% ------------------------------------------------------------------
+
+The framework generates predictions that distinguish it from existing
+theories:
+
+\begin{enumerate}
+\item \textbf{Coupling measurement predicts malignancy.} Quantifying
+   $\lambda_j$ (the coupling strength between a cell and its tissue
+   context) should predict malignant potential more accurately than
+   mutational burden alone. Cells with low $\lambda_j$ but few
+   mutations should still progress to malignancy; cells with high
+   mutational burden but intact $\lambda_j$ should not. This can be
+   tested by measuring intercellular communication (gap junction
+   activity, paracrine signaling responsiveness, contact inhibition)
+   alongside mutational profiling.
+
+\item \textbf{Convergent gene expression is constraint-determined,
+   not phylogeny-determined.} Cancer gene expression should converge
+   on a set determined by cell-level optimization, which \emph{mostly
+   but not entirely} overlaps with phylogenetically ancient genes.
+   Specifically, recently evolved genes that serve cell-level
+   autonomous function (e.g., certain immune evasion mechanisms that
+   evolved in the multicellular era) should be upregulated in cancer
+   despite being phylogenetically recent. The atavistic theory
+   predicts they should not be.
+
+\item \textbf{Differentiation therapy should outperform cytotoxic
+   therapy.} Therapies that restore tissue-level coupling
+   (differentiation therapy, microenvironment normalization) should
+   produce more durable responses than therapies that kill cells
+   without restoring coupling, because the former addresses the
+   structural cause (chain severance) while the latter imposes
+   selection pressure on a locally rational optimizer.
+
+\item \textbf{Tumor heterogeneity should correlate with severance
+   gradient.} Within a single tumor, phenotypic heterogeneity should
+   correlate with measured coupling strength: cells with residual
+   tissue coupling ($\lambda_j > 0$) should exhibit more
+   differentiated phenotypes than fully decoupled cells. This is
+   testable by spatial transcriptomics combined with intercellular
+   communication assays.
+
+\item \textbf{Necessary hallmarks vs.\ contingent hallmarks.}
+   The framework predicts that some hallmarks are \emph{necessary}
+   under cell-level $C_n$ (proliferation, metabolic autonomy) while
+   others are \emph{contingent} on the specific optimization
+   landscape (angiogenesis induction, specific immune evasion
+   strategies). Necessary hallmarks should appear in every cancer;
+   contingent hallmarks should vary by context. This is testable by
+   systematic cross-cancer hallmark prevalence analysis.
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\section{Classification of Therapies by Chain Restoration}
+\label{sec:therapy}
+% ------------------------------------------------------------------
+
+The framework yields a natural classification of cancer therapies:
+those that attempt to \emph{restore} the escalation chain (addressing
+the structural cause) versus those that impose \emph{selection
+pressure} on a decoupled optimizer (treating the symptom). This
+classification predicts durability of response.
+
+\subsection{Chain-Restoring Therapies}
+
+These therapies target the coupling coefficients $\lambda_j$,
+attempting to re-establish the cell's connection to higher
+organizational levels.
+
+\textbf{Differentiation therapy (Level $0 \to 1$ restoration).}
+All-trans retinoic acid (ATRA) in acute promyelocytic leukemia (APL)
+is the paradigm case: it restores the cell's tissue-level identity,
+re-engaging the differentiation program that chain severance
+disabled. ATRA does not kill the cancer cells --- it restores their
+coupling to the tissue-level escalation chain, returning tissue-level
+actions (differentiation, growth arrest) to the accessible action
+space $A_0$. The result is a $>90\%$ cure rate, the highest of any
+cancer therapy. On our account, this is not a coincidence but a
+\emph{prediction}: therapies that restore the chain should
+outperform therapies that do not.
+
+\textbf{Immune checkpoint inhibition (Level $2 \to 3$ restoration).}
+PD-1/PD-L1 and CTLA-4 inhibitors restore the organism-level
+surveillance coupling $\lambda_3^{\mathrm{immune}}$. Cancer cells
+that have downregulated immune recognition markers (severing the
+organism-level coupling channel) are re-exposed to immune
+surveillance. The therapy does not kill cancer cells directly --- it
+restores the organizational relationship between the immune system
+and the tumor. The durable responses observed in a subset of patients
+(complete responses lasting years) are consistent with chain
+restoration: once organism-level surveillance is re-established, it
+is self-maintaining.
+
+\textbf{Microenvironment normalization (Level $0 \to 1$ and $1 \to 2$
+restoration).}
+Strategies that restore the tissue microenvironment --- ECM
+remodeling, stromal normalization, basement membrane repair ---
+address the tissue-level coupling infrastructure. Low-dose
+anti-angiogenic therapy (vascular normalization rather than vascular
+destruction) restores the tissue-organ coupling channel
+$\lambda_2^{\mathrm{vascular}}$ by normalizing tumor vasculature,
+improving drug delivery and re-establishing metabolic coupling to
+the organ level.
+
+\textbf{Gap junction restoration (Level $0 \to 1$ restoration).}
+Experimental approaches to restore connexin expression (particularly
+Cx43) directly target the highest-bandwidth cell-tissue coupling
+channel \cite{Aasen2016}. The framework predicts that restoring GJIC
+should suppress malignant behavior even without addressing mutations,
+because the coupling restoration returns tissue-level actions to the
+accessible action space.
+
+\subsection{Non-Chain-Restoring Therapies}
+
+These therapies impose selection pressure on a cell that is already
+optimizing under cell-level bounded context. The cell's $\gamma > 0$
+and $\eta_M > 0$ \cite{McCarthy2026e} guarantee that it will adapt.
+
+\textbf{Cytotoxic chemotherapy.} Kills dividing cells without
+restoring any coupling channel. The surviving subpopulation has
+undergone selection for resistance --- slow-cycling cells, drug
+efflux pumps, DNA repair enhancement --- all of which are within the
+cell-level action space $A_0$. Resistance is not a failure of the
+drug; it is the predictable outcome of imposing selection pressure on
+a locally rational optimizer.
+
+\textbf{Radiation therapy.} Induces DNA damage. DNA repair is a
+cell-level action already in $A_0$ --- it requires no tissue-level
+coupling. The cell's gradient descent on $U$ will optimize repair
+pathways in response to radiation pressure.
+
+\textbf{Most targeted therapies.} Block a specific signaling pathway
+(e.g., EGFR inhibitors, BRAF inhibitors). The cell, performing
+gradient descent on $U$, discovers alternative pathways that restore
+the blocked function --- pathway redundancy is a feature of cell-level
+action spaces that have been optimized over billions of years of
+unicellular evolution. Single-pathway targeting is structurally
+insufficient because the cell-level action space contains multiple
+routes to the same optimization target.
+
+\textbf{Surgery.} Removes the decoupled entity entirely. This is
+effective for localized disease but does not prevent new severance
+events in remaining tissue, and cannot address disseminated disease
+(metastasis).
+
+\subsection{The Hybrid Strategy}
+
+The framework predicts that the optimal therapeutic strategy combines
+chain restoration with exploitation of structural constraints:
+\begin{enumerate}
+\item Restore coupling where possible (differentiation therapy,
+   immunotherapy, microenvironment normalization).
+\item For cells where coupling cannot be restored, target actions
+   that are \emph{necessary} under cell-level $C_n^{(0)}$ --- actions
+   the cell cannot optimize away from because they are structurally
+   required by the bounded-context constraint. The Warburg effect
+   (aerobic glycolysis) is a candidate: if glycolytic metabolism is
+   \emph{necessary} under cell-level bounded context (because
+   oxidative phosphorylation requires tissue-level oxygen delivery
+   infrastructure), then targeting glycolysis imposes a constraint
+   the cell cannot evolve around.
+\item Use non-chain-restoring therapies (chemotherapy, radiation)
+   only as cytoreductive measures to reduce tumor burden before
+   chain-restoring interventions, not as standalone strategies.
+\end{enumerate}
+
+\textbf{Clinical evidence.} The relative success of combination
+immunotherapy (chain restoration at level $2 \to 3$) over
+single-agent chemotherapy (non-restoring) in melanoma, non-small cell
+lung cancer, and renal cell carcinoma is consistent with this
+prediction. The curative success of ATRA in APL (chain restoration at
+level $0 \to 1$) versus the near-universal resistance to
+chemotherapy-only regimens in other acute leukemias provides the
+strongest existing evidence.
+
+% ------------------------------------------------------------------
+\section{Implications}
+\label{sec:implications}
+% ------------------------------------------------------------------
+
+\textbf{Cancer is not a disease of cells.} It is a disease of
+organizational coupling. The cell itself is functioning correctly ---
+it is optimizing under its bounded context, exactly as the theorems
+predict any entity must. The pathology is in the severed escalation
+chain, not in the cell.
+
+\textbf{The ``war on cancer'' metaphor is structurally wrong.} Cancer
+cells are not invaders to be destroyed; they are former cooperators
+who have lost the organizational infrastructure that made cooperation
+possible. Killing them (chemotherapy, radiation) treats the symptom.
+Restoring the organizational infrastructure (differentiation therapy,
+microenvironment normalization, coupling restoration) treats the
+cause. The distinction is between fighting an entity and repairing a
+relationship.
+
+\textbf{Prevention over cure.} If cancer is chain severance, then
+prevention is coupling maintenance. Factors that maintain tissue
+organization (anti-inflammatory interventions, microenvironment
+homeostasis, gap junction maintenance) should reduce cancer risk
+more effectively than factors that reduce mutational burden ---
+though the two are related, since mutations are one mechanism of
+severance.
+
+\textbf{Peto's paradox.} Large, long-lived organisms do not develop
+cancer at rates proportional to their cell count and lifespan
+\cite{Peto1975} --- a puzzle under the somatic mutation theory,
+which predicts that more cell divisions should produce more
+mutations and therefore more cancer. The escalation chain framework
+offers a structural explanation: larger organisms have more
+elaborate tissue organization, stronger intercellular coupling
+mechanisms, and more escalation levels. Their
+$C_n^{\mathrm{eff}}$ is higher, meaning more severance is required
+before cell-level optimization dominates. The additional
+organizational infrastructure acts as redundancy in the coupling
+channels --- multiple mechanisms must fail before the chain severs
+completely. Peto's paradox, on this account, is not paradoxical:
+more cells but also more coupling yields a roughly constant
+severance rate.
+
+\textbf{The seven-year puzzle.} The clinical observation that many
+cancers can persist at low grade for years before rapid progression
+is explained by the severance gradient: partial decoupling
+($0 < \lambda_j < 1$) produces a cell that is partially constrained
+by tissue-level signaling and partially operating under cell-level
+optimization. This intermediate state can be stable while $\lambda_j$
+remains above a threshold. Progression occurs when $\lambda_j$
+crosses the threshold and cascading decoupling begins --- each loss
+of coupling removes a constraint that was maintaining the remaining
+coupling channels.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Cancer is not random. Cancer is not ancient. Cancer is what happens
+when a cell loses its escalation chain.
+
+This paper has applied the bounded-context framework of Papers~1--5
+to cancer biology as a speculative but structurally grounded
+proposal. The framework offers what the three major cancer theories
+have separately lacked: a formal account of \emph{why} organizational
+breakdown would produce the specific, convergent phenotype that it
+does. SMT identifies the mechanisms of chain severance (mutations).
+The atavistic theory identifies the phenotypic pattern (convergence
+on unicellular-like behavior). TOFT identifies the organizational
+level (tissue, not cell). Our framework unifies them: mutations
+sever the escalation chain (SMT), producing a cell that optimizes
+under cell-level bounded context (TOFT), which converges on the same
+action space that shaped unicellular life (atavistic pattern) ---
+not by reversion but by structural necessity.
+
+The therapeutic predictions align with where clinical oncology is
+already heading: differentiation therapy, immunotherapy, and
+microenvironment normalization are gaining ground over purely
+cytotoxic approaches. The framework provides a structural reason
+for this trend --- these therapies restore the escalation chain,
+while cytotoxic therapies impose selection pressure on a locally
+rational optimizer --- and generates testable predictions
+(Section~\ref{sec:predictions}) that distinguish this account from
+existing theories.
+
+The framework's contribution is not empirical but structural: it
+offers a target for therapy that is not the cell but the coupling,
+not the action but the context that determines which actions are
+selected. Whether this structural reasoning maps faithfully onto
+cancer biology is an empirical question. The predictions are offered
+in that spirit.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{Aasen2016}
+T.~Aasen, M.~Mesnil, C.~C. Naus, P.~D. Lampe, and D.~W. Laird.
+\newblock Gap junctions and cancer: Communicating for 50 years.
+\newblock \emph{Nature Reviews Cancer}, 16(12):775--788, 2016.
+
+\bibitem{Aktipis2015}
+C.~A. Aktipis, A.~M. Boddy, G.~Jansen, U.~Hibner, C.~C. Maley, and
+  G.~S. Wilkinson.
+\newblock Cancer across the tree of life: Cooperation and cheating in
+  multicellularity.
+\newblock \emph{Philosophical Transactions of the Royal Society B},
+  370(1673):20140219, 2015.
+
+\bibitem{Engels2011}
+E.~A. Engels, R.~M. Pfeiffer, J.~F. Fraumeni, B.~L. Kasiske,
+  A.~K. Israni, J.~J. Snyder, R.~A. Wolfe, N.~P. Goodrich,
+  A.~I. Bayakly, G.~L. Clarke, and others.
+\newblock Spectrum of cancer risk among {US} solid organ transplant
+  recipients.
+\newblock \emph{JAMA}, 306(17):1891--1901, 2011.
+
+\bibitem{Davies2011}
+P.~C.~W. Davies and C.~H. Lineweaver.
+\newblock Cancer tumors as {Metazoa} 1.0: Tapping genes of ancient ancestors.
+\newblock \emph{Physical Biology}, 8(1):015001, 2011.
+
+\bibitem{Kawai2008}
+T.~Kawai, A.~B. Cosimi, T.~R. Spitzer, N.~Tolkoff-Rubin, M.~Suthanthiran,
+  S.~L. Saidman, J.~Shaffer, F.~I. Preffer, R.~Ber, G.~Pascual, and
+  D.~H. Sachs.
+\newblock {HLA}-mismatched renal transplantation without maintenance
+  immunosuppression.
+\newblock \emph{New England Journal of Medicine}, 358(4):353--361, 2008.
+
+\bibitem{Hanahan2000}
+D.~Hanahan and R.~A. Weinberg.
+\newblock The hallmarks of cancer.
+\newblock \emph{Cell}, 100(1):57--70, 2000.
+
+\bibitem{Hanahan2011}
+D.~Hanahan and R.~A. Weinberg.
+\newblock Hallmarks of cancer: The next generation.
+\newblock \emph{Cell}, 144(5):646--674, 2011.
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under
+  bounded context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Escalation dominates top-down allocation under bounded context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Knowledge and action are inseparable under survival pressure.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Gradient descent on uncertainty and encoding permanence from
+  cost-of-failure.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026e}
+P.~D. McCarthy.
+\newblock Agency and learning efficiency as the structural invariants of
+  intelligence.
+\newblock Manuscript, 2026.
+
+\bibitem{Merlo2006}
+L.~M.~F. Merlo, J.~W. Pepper, B.~J. Reid, and C.~C. Maley.
+\newblock Cancer as an evolutionary and ecological process.
+\newblock \emph{Nature Reviews Cancer}, 6(12):924--935, 2006.
+
+\bibitem{Peto1975}
+R.~Peto, F.~J.~C. Roe, P.~N. Lee, L.~Levy, and J.~Clack.
+\newblock Cancer and ageing in mice and men.
+\newblock \emph{British Journal of Cancer}, 32(4):411--426, 1975.
+
+\bibitem{Nowell1976}
+P.~C. Nowell.
+\newblock The clonal evolution of tumor cell populations.
+\newblock \emph{Science}, 194(4260):23--28, 1976.
+
+\bibitem{Sonnenschein2000}
+C.~Sonnenschein and A.~M. Soto.
+\newblock Somatic mutation theory of carcinogenesis: Why it should be dropped
+  and replaced.
+\newblock \emph{Molecular Carcinogenesis}, 29(4):205--211, 2000.
+
+\bibitem{Trigos2017}
+A.~S. Trigos, R.~B. Pearson, A.~T. Papenfuss, and D.~L. Goode.
+\newblock Altered interactions between unicellular and multicellular genes
+  drive hallmarks of transformation in a diverse range of solid tumors.
+\newblock \emph{Proceedings of the National Academy of Sciences},
+  114(24):6406--6411, 2017.
+
+\bibitem{Vogelstein2013}
+B.~Vogelstein, N.~Papadopoulos, V.~E. Velculescu, S.~Zhou, L.~A. Diaz, and
+  K.~W. Kinzler.
+\newblock Cancer genome landscapes.
+\newblock \emph{Science}, 339(6127):1546--1558, 2013.
+
+\bibitem{Warburg1956}
+O.~Warburg.
+\newblock On the origin of cancer cells.
+\newblock \emph{Science}, 123(3191):309--314, 1956.
+
+\end{thebibliography}
+
+\end{document}

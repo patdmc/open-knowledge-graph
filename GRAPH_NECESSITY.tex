@@ -95,9 +95,23 @@ graph is physically realized.
 
 Graph-structured knowledge representations are widely used in practice:
 knowledge graphs \cite{Hogan2021}, Bayesian networks \cite{Pearl1988},
-and semantic networks have a long history. The question of whether graph
-structure is \emph{necessary} --- as opposed to convenient --- has
-received less formal attention.
+description logics \cite{BaaderCalvaneseEtAl2003}, and the
+RDF/OWL stack \cite{BernersLee2001} all represent knowledge as directed
+labeled graphs. Guarino's formal ontology \cite{Guarino1998} grounds
+this choice in the structure of the domain: entities, relations, and
+constraints map naturally to nodes, edges, and types. These traditions
+have demonstrated that graph structure is \emph{effective} for knowledge
+representation. The question of whether it is \emph{necessary} --- as
+opposed to convenient --- has received less formal attention.
+
+The present paper provides the missing argument: under bounded active
+context, graph structure is not a design preference but a
+mathematical consequence of information preservation
+(Theorem~\ref{thm:graph-info}) and sub-linear maintenance
+(Theorem~\ref{thm:graph-dynamics}). The typed directed edges of
+description logics and OWL are not an engineering convenience but the
+minimal structure any system must maintain. This result retroactively
+grounds decades of practice in a formal necessity argument.
 
 Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose a
 dual-system architecture (observation + action) with meta-control
@@ -148,8 +162,9 @@ surprisal $U(w, K) = -\log P(w \mid K)$ \cite{Shannon1948, Cover2006}.
 
 \begin{definition}[Bounded Active Context]
 \label{def:context}
-Let $C_n$ denote the \emph{active context capacity}: the maximum number
-of propositions simultaneously available for inference. Let
+For an entity $n$, let $C_n$ denote its \emph{active context capacity}:
+the maximum number of propositions simultaneously available for
+inference. Let
 $\mathrm{ctx}(t) \subseteq K$ be the set of propositions loaded into
 active context at time $t$, with $|\mathrm{ctx}(t)| \leq C_n$.
 
@@ -182,6 +197,50 @@ propositions examined to identify $K^{[f]}$.
 \label{sec:info}
 % ------------------------------------------------------------------
 
+\begin{definition}[Factoring]
+\label{def:factoring}
+Let $p_1, \ldots, p_m \in K$ share mutual information: there exists a
+random variable $F^*$ (a function of $W$) such that
+$I(F^*; \ell_{p_i}) > 0$ for all $i$, and the joint likelihood
+decomposes as
+\[
+\ell_{p_i}(w) = g_i\!\bigl(\ell_{p_i}^{\text{res}}(w),\; F^*(w)\bigr)
+\]
+for some residual $\ell_{p_i}^{\text{res}}$ and reconstruction function
+$g_i$. The decomposition need not be unique; any valid decomposition
+suffices. In the general case, $g_i$ may be an arbitrary measurable
+function --- the definition does not require multiplicative,
+additive, or any other restricted functional form.
+\emph{Factoring} is the operation that:
+\begin{enumerate}
+\item[(i)] Extracts $F^*$ into a single named, reusable unit.
+\item[(ii)] Replaces the shared component in each $p_i$ with a
+   reference to $F^*$.
+\item[(iii)] Stores, for each reference, the reconstruction function
+   $g_i$ specifying the role $F^*$ plays in recovering $p_i$.
+\end{enumerate}
+The total information is preserved: $F^*$ plus the residuals and their
+reconstruction functions jointly recover all original $\ell_{p_i}$.
+
+Note: this definition is stated without graph vocabulary. The output of
+factoring is a set of units with references between them and role
+annotations on each reference. We prove in
+Theorem~\ref{thm:graph-info} that this structure necessarily constitutes
+a directed graph with typed edges.
+
+\textbf{Remark.} Factoring is not a novel operation introduced by this
+paper. It is the central operation of description logics
+\cite{BaaderCalvaneseEtAl2003}: the TBox/ABox separation extracts shared
+conceptual structure (the TBox) from individual assertions (the ABox),
+and concept subsumption hierarchies are literally shared components
+referenced by multiple individuals. Upper ontologies such as BFO
+\cite{Arp2015} and DOLCE \cite{Masolo2003} carry this further:
+approximately 35 categories in BFO organize all of biomedical knowledge,
+demonstrating that real-world knowledge bases have abundant shared
+structure amenable to factoring. The definition above formalizes what
+these traditions have practiced for decades.
+\end{definition}
+
 \begin{theorem}[Graph Necessity from Information Preservation]
 \label{thm:graph-info}
 Let $K$ be a knowledge base with bounded active context $C_n$
@@ -193,7 +252,8 @@ maintains a directed graph with typed edges over propositions.
 
 \begin{proof}
 In the curation regime, adding any new proposition $p_{new}$ requires
-making space. There are exactly three ways to make space:
+making space. We enumerate the ways to make space and show that every
+information-preserving option produces graph structure.
 
 \textbf{Option A: Discard an existing proposition.}
 Without explicit relational structure, the entity has no mechanism to
@@ -205,52 +265,141 @@ dependencies. Discarding $p_{old}$ loses the information it encodes, and
 potentially loses the information that $p_{old}$ has any relation to
 other propositions --- a second-order loss. This is information loss.
 
-\textbf{Option B: Factor --- extract shared structure, reducing $|K|$
-without discarding.}
-If $p_1$ and $p_2$ share a latent factor $f^*$, extracting $f^*$ as a
-single named node with typed edges to $p_1$ and $p_2$ reduces $|K|$ by
-replacing redundant structure with a single shared reference. The
-information in $p_1$ and $p_2$ is preserved; the information about their
-shared grounding in $f^*$ is now explicitly stored as an edge. Space is
-created without loss. Factoring also resolves the update problem: when
-new evidence revises $f^*$, the single node is updated once, and the
-revision propagates to all propositions that reference it via edges ---
+\textbf{Option B: Factor --- extract shared structure
+(Definition~\ref{def:factoring}).}
+If propositions share a common informational component $F^*$, factoring
+extracts $F^*$ as a single named node with typed edges, replacing
+redundant copies with shared references. Space is created without loss:
+the original information is reconstructable from $F^*$ plus the
+residuals. Factoring also resolves the update problem: when new evidence
+revises $F^*$, the single node is updated once, and the revision
+propagates to all propositions that reference it via edges ---
 $O(1)$ instead of $O(|K|)$.
 
-Factoring is graph construction. Naming $f^*$, creating a node, and
-storing typed edges from $p_1$ and $p_2$ to it is precisely the
-operation that produces a directed graph.
+By Definition~\ref{def:factoring}, factoring produces nodes and directed
+typed edges. This is graph construction.
 
-\textbf{Option C: Lossy compression --- replace propositions with a
+\textbf{Option C: Reorganization --- rewrite propositions into a more
+compact equivalent encoding.}
+Propositions $p_1, \ldots, p_m$ could be replaced by $q_1, \ldots, q_k$
+($k < m$) that are jointly equivalent: the same posterior over $W$ is
+induced. This is a change of basis in the information-theoretic sense.
+
+If the reorganization preserves all dependency relationships ---
+which propositions ground which --- then the result is an isomorphic
+knowledge base with fewer nodes. But ``preserving dependency
+relationships'' requires storing those relationships, which is storing
+adjacency. If the reorganization does \emph{not} preserve dependency
+relationships, then downstream propositions that depended on the
+original $p_i$ are silently broken: they reference nodes that no longer
+exist, with no forwarding information. The entity cannot determine what
+broke without adjacency.
+
+There is a special case: reorganization that extracts shared structure
+across the $p_i$ into shared nodes referenced by the $q_j$. This is
+factoring (Option~B). Reorganization that does not extract shared
+structure but merely rewrites individual propositions more compactly
+does not create space from shared structure --- it creates space from
+per-proposition compression, which is lossless compression (Option~D).
+
+\textbf{Option D: Lossless compression --- encode propositions more
+compactly without information loss.}
+Lossless compression reduces the physical footprint of a knowledge store
+but does not change the hard capacity bound $C_n$. The bound is a
+constraint on how many propositions can be \emph{simultaneously active
+for inference}, not on how compactly they are encoded on disk.
+A compressed bitstring must be decompressed before any proposition can be
+accessed or any dependency traced; the decompressed form faces the same
+curation pressure as the original. Compression is orthogonal to the
+structural question the theorem addresses.
+
+\textbf{Option E: Lossy compression --- replace propositions with a
 summary that occupies less space.}
-This is a genuine third option, but it reduces to Option A or Option B.
 Compressing $p_1$ and $p_2$ into a summary $p_s$ that discards detail is
 a form of discarding: the lost detail may ground other propositions or
 actions. If $p_1$ has dependents --- propositions that reference it ---
 then replacing $p_1$ with $p_s$ silently invalidates those dependents
 unless the entity knows what depends on the lost detail. But knowing
 what depends on $p_1$ \emph{is} knowing $p_1$'s adjacency --- its
-edges. Without stored adjacency, compression is blind discarding: the
-entity cannot evaluate what breaks. With stored adjacency, the entity
-can scope the damage, notify dependents, and compress safely --- but
-storing adjacency is maintaining a graph. Compression that preserves
-correctness requires the same relational structure as factoring.
-Compression that ignores relational structure is Option A with extra
-steps.
+edges. Without stored adjacency, lossy compression is blind discarding:
+the entity cannot evaluate what breaks. With stored adjacency, the
+entity can scope the damage, notify dependents, and compress safely ---
+but storing adjacency is maintaining a graph. Lossy compression that
+preserves correctness requires the same relational structure as
+factoring. Lossy compression that ignores relational structure is
+Option~A with extra steps.
 
-Any representation that makes space without factoring or correctly
-scoped compression loses information; any representation that factors or
-correctly scopes compression is constructing a graph.
+\textbf{Exhaustiveness.} Options A--E cover the space of
+space-creating operations: remove information (A, E), extract shared
+structure (B), rewrite to equivalent form (C), or encode more compactly
+(D). Of these, A and E lose information. D is orthogonal (it addresses
+storage density, not the active-context bound). C either reduces to B (when shared structure is extracted)
+or requires stored adjacency to preserve dependencies. Only B
+(factoring) creates space, preserves information, and solves the
+structural problem.
 
-\textbf{Consequence for alternative representations.}
-A flat store cannot factor: shared structure has no representation, so
-at $C_n$ it must discard.
-A tree loses cross-branch propositions when one branch is pruned.
-A vector store holds shared factors implicitly in embedding geometry but
-cannot factor without naming --- and naming is graph construction.
-Every representation that preserves information as $|K|$ grows beyond
-$C_n$ must factor. Every factoring operation creates nodes with typed
-edges. The graph is what factoring is.
+\textbf{The output of factoring is a directed graph with typed edges.}
+Definition~\ref{def:factoring} is stated without graph vocabulary: it
+produces named units with references and reconstruction roles. We now
+show this structure has graph properties:
+
+\emph{Nodes.} The named units --- shared components $F^*$ and residual
+propositions $p_i^{\text{res}}$ --- are the nodes. Each is an
+identifiable, individually addressable unit of information.
+
+\emph{Directed edges.} Each reference from $p_i^{\text{res}}$ to $F^*$
+is directed: $p_i$ depends on $F^*$ for reconstruction, but $F^*$ does
+not depend on $p_i$. Revising $F^*$ requires updating the
+reconstruction of every $p_i$ that references it; revising $p_i$ does
+not require updating $F^*$. This asymmetry is inherent in the
+extraction operation: the shared component is referenced by the
+residuals, not vice versa. Any structure encoding asymmetric
+dependencies between named units is a directed graph.
+
+\emph{Typed edges.} The reconstruction role $g_i$ stored on each
+reference distinguishes the \emph{kind} of dependency: whether $F^*$
+\emph{grounds} $p_i$ (the residual's truth value depends on $F^*$),
+\emph{evidences} $p_i$ (the residual's likelihood is informed by
+$F^*$), or \emph{causes} $p_i$ (the residual's state is produced by
+$F^*$). Without role annotation, cascade from an invalidated $F^*$
+cannot distinguish dependents that require re-evaluation (inferentially
+grounded through $F^*$) from units merely associated with $F^*$.
+Untyped references force worst-case cascade over all references; typed
+references scope cascade to dependency-bearing references only. Since
+the reconstruction role $g_i$ is stored by
+Definition~\ref{def:factoring}(iii), the edges are typed.
+
+A collection of named units with directed, typed references between them
+is a directed graph with typed edges, regardless of whether it is
+implemented as adjacency lists, pointers, sparse matrices, or any other
+medium.
+
+\textbf{Remark on shared structure.} The theorem requires that
+propositions share informational components. This is not an additional
+assumption but a consequence of the knowledge base describing a
+structured world. The proposition ``fire is hot'' is relevant to
+cooking, camping, metallurgy, and fire safety --- any knowledge base
+spanning these domains contains this shared component. A knowledge base
+with \emph{zero} shared structure would be a collection of completely
+independent facts about completely unrelated domains: each proposition
+grounded in its own private ontology with no overlap. Such a knowledge
+base faces no curation pressure (nothing is redundant, so nothing can
+be factored) and requires no structural optimization. The theorem
+addresses the non-degenerate case: knowledge bases about structured
+worlds, which is every knowledge base that admits inference across
+domains. The success of upper ontologies confirms that this is the
+typical case: BFO \cite{Arp2015} organizes all of biomedical science
+under approximately 35 shared categories; DOLCE \cite{Masolo2003}
+provides cross-domain foundational categories reused across engineering,
+geography, and law. These are not design choices but reflections of
+shared structure that already exists in the domains they describe.
+
+\textbf{Remark on compression.} Lossless compression changes how
+compactly propositions are stored, not how many can be simultaneously
+active. The bounded-context premise ($|K| > C_n$) is a constraint on
+active inference capacity, not storage density. No encoding scheme
+removes this bound; compression is orthogonal to the structural
+question.
 \end{proof}
 
 % ------------------------------------------------------------------
@@ -321,6 +470,16 @@ of cascade requires an $\Omega(n)$ scan. Total cost: $\Omega(n \cdot L)$
 where $L$ is the cascade depth, versus $O(|D_p|)$ in the graph where
 $|D_p| \ll n$ for typical propositions with bounded connectivity.
 
+\textbf{Remark.} Truth maintenance systems \cite{Doyle1979,DeKleer1986}
+are a direct implementation of operations~(iii) and~(iv). A TMS stores
+directed justifications (which propositions ground which) and propagates
+belief revision through them when any justification is invalidated ---
+precisely the dependency query and cascade operations this theorem
+proves are necessary. The fact that AI research independently invented
+TMS to solve this exact problem is empirical evidence for the theorem's
+claim: without stored directed adjacency, maintenance under evidence
+arrival is intractable.
+
 \textbf{Part 4: Any sub-linear solution encodes adjacency.}
 Suppose $R$ achieves $o(n)$ cost for dependency queries. Then $R$ must
 store, for each proposition, information about which other propositions
@@ -334,6 +493,24 @@ propositions. The edges are directed dependency relations. Any
 representation that stores this information --- regardless of whether it
 is implemented as adjacency lists, edge tables, pointers, or any other
 mechanism --- \emph{is} a directed graph over propositions.
+
+\textbf{Remark on approximate methods.}
+Approximate retrieval mechanisms --- learned embeddings,
+locality-sensitive hashing, approximate nearest-neighbor indices ---
+achieve sub-linear performance on operation~(ii) (contextual retrieval)
+without storing explicit directed adjacency. This does not circumvent
+the theorem, because the theorem requires sub-linear cost on all four
+operations \emph{simultaneously}. Approximate similarity over an
+embedding space can identify propositions \emph{related to} a query, but
+cannot answer ``what is \emph{grounded through} $p$?'' (operation~iii)
+or propagate invalidation transitively through dependency chains
+(operation~iv). These operations require knowing which propositions
+depend on which --- not which are \emph{nearby} in a metric space.
+Proximity and dependency are distinct relations: $p$ and $q$ may be
+embedding-close yet inferentially independent, or embedding-distant yet
+linked by a grounding chain. Any representation that achieves sub-linear
+cost on dependency queries and cascade necessarily stores directed
+dependency relationships, which is directed adjacency.
 
 \textbf{Part 5: Typed edges are necessary for correct cascade.}
 A bare adjacency structure (untyped edges) is insufficient. When $p$ is
@@ -350,6 +527,20 @@ dependency-bearing edges, keeping cost proportional to $|D_p|$ rather
 than $|\mathrm{adj}(p)|$. Since $|\mathrm{adj}(p)|$ can be much larger
 than $|D_p|$, typed edges are necessary for efficient cascade.
 
+\textbf{Remark on empirical convergence.}
+The necessity of typed edges is confirmed by the empirical history of
+knowledge representation. Early semantic networks used untyped
+``is-related-to'' links; Woods \cite{Woods1975} demonstrated that these
+were semantically ambiguous and operationally inadequate --- the system
+could not distinguish inheritance from association, causation from
+correlation. The field converged to typed relations: RDF introduced
+typed predicates \cite{BernersLee2001}, OWL distinguished object
+properties, data properties, and annotation properties with transitive,
+symmetric, and inverse role characteristics
+\cite{BaaderCalvaneseEtAl2003}. This trajectory --- starting untyped,
+failing, converging to typed --- is exactly the progression Part~5
+predicts must occur.
+
 A directed graph with typed edges over propositions is a semantic graph.
 \end{proof}
 
@@ -362,54 +553,68 @@ A natural objection: modern attention mechanisms achieve contextual
 retrieval without explicit graph construction. Does this constitute a
 non-graph alternative?
 
-\begin{theorem}[Attention Mechanisms Implement Graph Structure]
+\begin{theorem}[Contextual Retrieval Requires Adjacency Computation]
 \label{thm:attention}
-Any continuous-weight retrieval mechanism that achieves contextual
-retrieval over $n$ propositions either (a) computes directed adjacency
-dynamically at $O(n^2)$ per query, or (b) stores adjacency explicitly
-at $O(d)$ per query where $d$ is the local degree. In either case, the
-mechanism encodes a directed graph.
+Any mechanism that performs contextual retrieval over $n$ propositions
+--- selecting which propositions are relevant to a given query --- must
+compute pairwise relevance between the query and stored propositions.
+This computation either (a) evaluates all $n$ propositions per query at
+$O(n)$ or $O(n^2)$ cost (dynamic adjacency), or (b) pre-computes and
+stores relevance relationships at $O(d)$ per query where $d$ is the
+local degree (stored adjacency). In case (b), the stored relationships
+constitute a directed graph. Case (a) is the cost of recomputing that
+graph from scratch at every query.
 \end{theorem}
 
 \begin{proof}
-The attention matrix $A_{ij} = \mathrm{softmax}(Q_i K_j^\top /
-\sqrt{d_k})$ is a dense directed adjacency matrix: entry $A_{ij}$ is
-the weight of the edge from proposition $i$ to proposition $j$. Full
-self-attention computes the complete $n \times n$ adjacency at every
-query: $O(n^2)$ per retrieval. This is the cost of \emph{not}
-pre-computing the graph --- the system rediscovers dependency structure
-from scratch at each step.
+Contextual retrieval for problem $f$ requires identifying $K^{[f]}$
+--- the propositions relevant to $f$. This requires determining, for
+each proposition $p \in K$, whether $p$ is relevant to $f$. Without
+stored information about relevance relationships, every proposition must
+be evaluated: cost $\Omega(n)$ per query.
 
-A pre-built graph with explicit adjacency pays $O(d)$ per retrieval,
-amortizing adjacency computation over all future queries.
+Full self-attention is the canonical example:
+$A_{ij} = \mathrm{softmax}(Q_i K_j^\top / \sqrt{d_k})$ evaluates all
+$n^2$ pairwise relevances per query. This is not ``computing a graph''
+in the trivial sense that any matrix can be called a graph --- it is
+performing the specific computation (pairwise relevance determination)
+that a pre-built graph would make unnecessary. The attention matrix is
+dense: all $n^2$ entries are nonzero, encoding no structural
+information. The computational cost is the cost of having no stored
+structure.
+
+Pre-computed adjacency --- stored information about which propositions
+are relevant to which queries --- reduces retrieval to $O(d)$ where $d$
+is the number of stored relevant relationships. This is a directed
+graph: nodes are propositions, edges are relevance relationships, and
+the direction encodes which proposition informs which query context.
 
 Sparse attention mechanisms --- learned sparsity patterns, local
 windows, routing functions --- reduce the $O(n^2)$ cost by learning
-which edges to keep: they are learned graph pruning. The KV cache
-materializes a subgraph for reuse across queries. Flash attention
-optimizes memory access patterns without changing the structure being
-computed. Each optimization is a step toward the pre-built explicit
-graph: reducing the cost of dynamic adjacency by progressively storing
-more structure.
+which pairwise relevances are worth computing: they are learning which
+edges to store. The KV cache materializes computed relevances for reuse
+across queries. Each optimization converts dynamic adjacency computation
+into stored adjacency --- progressively building the graph that
+Theorems~\ref{thm:graph-info} and~\ref{thm:graph-dynamics} prove is
+necessary.
 
-A fixed sparsity pattern over propositions with typed relationships is a
-graph. The structural requirement is substrate-independent: whether
-adjacency is stored as edge lists, learned sparse masks, pointer
-structures, or synaptic weights, the information content is the same ---
-which propositions are connected to which, by what relation.
+The result is not that ``attention is a graph'' (which would be
+trivially true of any matrix) but that contextual retrieval requires
+adjacency information, and the only question is whether that information
+is computed dynamically ($O(n^2)$) or stored explicitly ($O(d)$). Stored
+adjacency over propositions with typed relevance relationships is a
+directed graph.
 \end{proof}
 
-\begin{corollary}[Scaling Context Windows Is Self-Defeating]
-\label{cor:scaling}
-Growing $C_n$ directly --- the prevailing approach to scaling inference
-capacity --- is self-defeating. For any specific problem $f$, $\rho$
-decreases as $C_n$ fills with content not relevant to $f$
-(Definition~\ref{def:context}). More context does not produce better
-inference; it produces higher variance that inference must manage. The
-efficient path is not to grow the context window but to grow the encoded
-knowledge accessible via graph traversal --- filling the graph, not the
-context window. \cite{Liu2024}
-\end{corollary}
+\textbf{Remark (Scaling context windows).}
+Growing $C_n$ directly does not solve the retrieval problem. For any
+specific problem $f$, the relevance density $\rho(f) = |K^{[f]}| /
+|\mathrm{ctx}(t)|$ (Definition~\ref{def:context}) decreases as context
+fills with content not relevant to $f$ --- an effect documented
+empirically as ``lost in the middle'' \cite{Liu2024}. The efficient
+path is not to grow the context window but to grow the encoded knowledge
+accessible via stored adjacency: filling the graph, not the context
+window.
 
 % ------------------------------------------------------------------
 \section{Discussion}
@@ -420,23 +625,126 @@ The two theorems establish graph necessity from independent premises.
 Theorem~\ref{thm:graph-info} requires only the curation regime (bounded
 capacity, new propositions arriving). Theorem~\ref{thm:graph-dynamics}
 requires only continuous knowledge maintenance (evidence arrives,
-dependencies must be traced). Any system subject to both constraints ---
+dependencies must be traced) and does not assume lossless preservation
+--- it applies equally to systems that tolerate information loss,
+because the cost argument concerns maintenance operations, not
+retention policy. Any system subject to both constraints ---
 which includes every physical system that accumulates knowledge --- is
 doubly committed to graph structure.
 
-\textbf{What the result does not claim.}
+\subsection{The continuous-representation objection}
+
+The strongest objection to this paper's results is that they
+assume discrete propositions, while the most capable knowledge systems
+--- large language models, biological neural networks --- store
+knowledge in continuous distributed representations that do not
+decompose into identifiable propositions. If there are no discrete
+propositions, there is nothing to factor
+(Theorem~\ref{thm:graph-info}), nothing to query dependencies over
+(Theorem~\ref{thm:graph-dynamics}), and calling an attention matrix a
+``graph'' (Theorem~\ref{thm:attention}) is a mathematical relabeling,
+not a structural discovery. The objection: the theorems prove graph
+necessity for an idealized system that no successful architecture
+actually implements.
+
+This objection is serious and requires a substantive response. We offer
+three.
+
+\textbf{(1) Continuous representations do encode discrete
+propositions.}
+The continuity of the substrate does not entail that the information
+content is non-propositional. Meng et al.\ \cite{Meng2022} demonstrate
+that specific factual associations in GPT-class models can be localized,
+edited, and ablated at identified parameter subsets: ``The Eiffel Tower
+is in Paris'' has a locatable representation that can be surgically
+revised to ``The Eiffel Tower is in Rome'' without retraining. Geva
+et al.\ \cite{Geva2021} show that feed-forward layers in transformers
+function as key-value memories, with individual neurons activating for
+identifiable semantic patterns. Li et al.\ \cite{Li2024} trace factual
+recall to discrete circuits within continuous networks.
+
+These results establish that continuous weight matrices encode
+propositional content --- not approximately or metaphorically, but in a
+sense precise enough to support surgical editing. The propositions are
+\emph{superposed} (multiple propositions share parameters) and
+\emph{distributed} (each proposition spans multiple parameters), but
+they are identifiable, editable, and individually removable. Superposed
+encoding is precisely the condition that makes factoring valuable: shared
+structure across propositions is the input to factoring, and continuous
+networks contain it abundantly.
+
+\textbf{(2) The claim is about information content, not
+implementation.}
+Theorems~\ref{thm:graph-info} and~\ref{thm:graph-dynamics} prove that
+the \emph{information content} of any adequate representation has graph
+structure. They do not prescribe adjacency lists, edge tables, or
+symbolic labels. A neural network whose weights encode directed
+dependencies between propositions \emph{is} maintaining a graph in the
+sense of Definition~\ref{def:knowledge} --- the graph exists in the
+information, not in the data structure.
+
+The objection that ``if any structured representation counts as a
+graph, the claim is trivially true'' misidentifies the contribution.
+The claim is not that representations have structure (which is trivial)
+but that the structure must be \emph{directed}, \emph{typed}, and
+\emph{adjacency-preserving} --- and that representations lacking these
+specific properties lose information or pay $\Omega(n)$ maintenance
+costs. Not all structure is graph structure. A flat embedding space has
+structure (metric, topology) but not directed adjacency; a hash table
+has structure (key-value mapping) but not typed dependencies. The
+theorems identify \emph{which} structural properties are necessary, not
+merely that some structure is required.
+
+\textbf{(3) Catastrophic forgetting is the theorem's prediction for
+systems without explicit adjacency.}
+This is the strongest empirical evidence for the result.
+Theorem~\ref{thm:graph-dynamics} proves that without stored directed
+adjacency, selective removal with cascade --- updating one proposition
+and propagating correctly to its dependents --- costs $\Omega(n)$ per
+evidence event. The prediction: systems that store propositions in
+continuous weights without explicit adjacency should exhibit
+\emph{uncontrolled interference when knowledge is updated}.
+
+This is precisely catastrophic forgetting
+\cite{McCloskey1989,Kirkpatrick2017}: updating a neural network on new
+information degrades previously learned information unpredictably.
+The network cannot scope the update because it lacks the adjacency
+to determine what depends on the modified parameters. Continual
+learning remains an open problem in deep learning not because of
+insufficient engineering but because the underlying representation
+lacks the structural property the theorem identifies: directed
+adjacency that enables scoped updates.
+
+The response to the continuous-representation objection is therefore
+not defensive but \emph{predictive}: the theorem identifies the specific
+structural deficit (missing explicit adjacency), predicts the specific
+failure mode (unscoped updates causing cascading interference), and the
+most successful continuous-representation systems exhibit exactly that
+failure mode. The objection that the theorems do not apply to neural
+networks is refuted by the fact that neural networks suffer from
+precisely the pathology the theorems predict for representations
+without graph structure.
+
+\textbf{(4) Knowledge graph embeddings are continuous implementations
+of graph structure.}
+A further data point: knowledge graph embedding methods (TransE
+\cite{Bordes2013}, RotatE \cite{Sun2019}) project graph structure into
+continuous vector spaces. The embeddings are continuous, but the
+information content they encode --- which entities are related to which,
+by what relation --- is directed typed adjacency. Inference tasks such
+as link prediction require reconstructing adjacency from the embedding
+space. These methods do not eliminate graph structure; they implement it
+in a continuous substrate, which is exactly the relationship
+Theorems~\ref{thm:graph-info}--\ref{thm:graph-dynamics} predict between
+information content (graph) and implementation (free parameter).
+
+\subsection{Scope and non-claims}
+
 The theorems prove that the \emph{information content} of the
 representation must be a directed graph. They do not prescribe a
 specific graph formalism (property graph, RDF, Bayesian network) or
 implementation (adjacency lists, sparse matrices, attention masks). The
 graph is the abstract structure; the substrate is a free parameter.
-
-The result also does not claim that all knowledge must be stored in an
-\emph{explicit}, human-readable graph database. A neural network whose
-learned weights encode directed dependencies between features is
-maintaining a graph in the sense of Theorem~\ref{thm:graph-dynamics},
-even if no symbolic node labels exist. The claim is structural, not
-implementational.
 
 \textbf{Implications for AI architecture.}
 Theorem~\ref{thm:attention} reframes the relationship between
@@ -456,8 +764,9 @@ systems must encode adjacency to maintain inference quality under bounded
 context.
 
 \textbf{Implications for scaling.}
-Corollary~\ref{cor:scaling} challenges the prevailing approach of
-growing context windows as the primary path to more capable inference.
+The scaling remark following Theorem~\ref{thm:attention} challenges the
+prevailing approach of growing context windows as the primary path to
+more capable inference.
 Under bounded context, larger windows with undifferentiated content
 \emph{reduce} inference quality for any specific problem. The
 alternative --- encoding knowledge into a graph and retrieving the
@@ -495,16 +804,69 @@ connectivity, or any other medium.
 \bibliographystyle{plain}
 \begin{thebibliography}{99}
 
+\bibitem{Arp2015}
+R.~Arp, B.~Smith, and A.~D. Spear.
+\newblock \emph{Building Ontologies with Basic Formal Ontology}.
+\newblock MIT Press, 2015.
+
+\bibitem{BaaderCalvaneseEtAl2003}
+F.~Baader, D.~Calvanese, D.~L. McGuinness, D.~Nardi, and P.~F.
+  Patel-Schneider, editors.
+\newblock \emph{The Description Logic Handbook: Theory, Implementation, and
+  Applications}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{BernersLee2001}
+T.~Berners-Lee, J.~Hendler, and O.~Lassila.
+\newblock The semantic web.
+\newblock \emph{Scientific American}, 284(5):34--43, 2001.
+
+\bibitem{Bordes2013}
+A.~Bordes, N.~Usunier, A.~Garcia-Dur{\'a}n, J.~Weston, and
+  O.~Yakhnenko.
+\newblock Translating embeddings for modeling multi-relational data.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~26, pages 2787--2795, 2013.
+
 \bibitem{Cover2006}
 T.~M. Cover and J.~A. Thomas.
 \newblock \emph{Elements of Information Theory}.
 \newblock Wiley-Interscience, 2nd edition, 2006.
+
+\bibitem{DeKleer1986}
+J.~de~Kleer.
+\newblock An assumption-based {TMS}.
+\newblock \emph{Artificial Intelligence}, 28(2):127--162, 1986.
+
+\bibitem{DeLange2021}
+M.~De~Lange, R.~Aljundi, M.~Masana, S.~Parisot, X.~Jia, A.~Leonardis,
+  G.~Slabaugh, and T.~Tuytelaars.
+\newblock A continual learning survey: Defying forgetting in classification
+  tasks.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  44(7):3366--3385, 2021.
+
+\bibitem{Doyle1979}
+J.~Doyle.
+\newblock A truth maintenance system.
+\newblock \emph{Artificial Intelligence}, 12(3):231--272, 1979.
 
 \bibitem{DupouxLeCunMalik2026}
 E.~Dupoux, Y.~LeCun, and J.~Malik.
 \newblock Why {AI} systems don't learn and what to do about it: Lessons on
   autonomous learning from cognitive science.
 \newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
+\bibitem{Geva2021}
+M.~Geva, R.~Schuster, J.~Berant, and O.~Levy.
+\newblock Transformer feed-forward layers are key-value memories.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing}, pages 5484--5495, 2021.
+
+\bibitem{Guarino1998}
+N.~Guarino.
+\newblock Formal ontology and information systems.
+\newblock In \emph{Proceedings of FOIS'98}, pages 3--15. IOS Press, 1998.
 
 \bibitem{Hogan2021}
 A.~Hogan, E.~Blomqvist, M.~Cochez, C.~d'Amato, G.~de~Melo, C.~Gutierrez,
@@ -514,12 +876,44 @@ A.~Hogan, E.~Blomqvist, M.~Cochez, C.~d'Amato, G.~de~Melo, C.~Gutierrez,
 \newblock Knowledge graphs.
 \newblock \emph{ACM Computing Surveys}, 54(4):1--37, 2021.
 
+\bibitem{Kirkpatrick2017}
+J.~Kirkpatrick, R.~Pascanu, N.~Rabinowitz, J.~Veness, G.~Desjardins,
+  A.~A. Rusu, K.~Milan, J.~Quan, T.~Ramalho, A.~Grabska-Barwinska,
+  D.~Hassabis, C.~Clopath, D.~Kumaran, and R.~Hadsell.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock \emph{Proceedings of the National Academy of Sciences},
+  114(13):3521--3526, 2017.
+
+\bibitem{Li2024}
+K.~Li, O.~Press, and S.~Arora.
+\newblock How does {GPT}-2 compute greater-than?: Interpreting mathematical
+  abilities in a pre-trained language model.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem{Masolo2003}
+C.~Masolo, S.~Borgo, A.~Gangemi, N.~Guarino, and A.~Oltramari.
+\newblock {WonderWeb} deliverable {D18}: Ontology library (final).
+\newblock Technical report, ISTC-CNR, 2003.
+
 \bibitem{Liu2024}
 N.~F. Liu, K.~Lin, J.~Hewitt, A.~Paranjape, M.~Bevilacqua, F.~Petroni, and
   P.~Liang.
 \newblock Lost in the middle: How language models use long contexts.
 \newblock \emph{Transactions of the Association for Computational Linguistics},
   12:157--173, 2024.
+
+\bibitem{McCloskey1989}
+M.~McCloskey and N.~J. Cohen.
+\newblock Catastrophic interference in connectionist networks: The sequential
+  learning problem.
+\newblock In G.~H. Bower, editor, \emph{Psychology of Learning and Motivation},
+  volume~24, pages 109--165. Academic Press, 1989.
+
+\bibitem{Meng2022}
+K.~Meng, D.~Bau, A.~Andonian, and Y.~Belinkov.
+\newblock Locating and editing factual associations in {GPT}.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~35, pages 17359--17372, 2022.
 
 \bibitem{Miller1956}
 G.~A. Miller.
@@ -543,11 +937,25 @@ H.~A. Simon.
 \newblock A behavioral model of rational choice.
 \newblock \emph{The Quarterly Journal of Economics}, 69(1):99--118, 1955.
 
+\bibitem{Sun2019}
+Z.~Sun, Z.-H. Deng, J.-Y. Nie, and J.~Tang.
+\newblock {RotatE}: Knowledge graph embedding by relational rotation in complex
+  space.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations}, 2019.
+
 \bibitem{Tishby2000}
 N.~Tishby, F.~C. Pereira, and W.~Bialek.
 \newblock The information bottleneck method.
 \newblock In \emph{Proceedings of the 37th Annual Allerton Conference on
   Communication, Control, and Computing}, pages 368--377, 2000.
+
+\bibitem{Woods1975}
+W.~A. Woods.
+\newblock What's in a link: Foundations for semantic networks.
+\newblock In D.~G. Bobrow and A.~Collins, editors, \emph{Representation and
+  Understanding: Studies in Cognitive Science}, pages 35--82. Academic Press,
+  1975.
 
 \end{thebibliography}
 
