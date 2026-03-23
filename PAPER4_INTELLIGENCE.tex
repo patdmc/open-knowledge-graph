@@ -1,0 +1,1430 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Evaluation-Driven Descent, Encoding Permanence,\\and the Structural Invariants of Intelligence}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We establish four linked results for any entity with structure
+$(K, A, \sigma, \gamma)$ persisting under bounded active context,
+survival pressure, and positive novelty rate $\nu(E) > 0$.
+First, agency ($\gamma > 0$) necessarily produces evaluation-driven
+state revision---monotone local descent on expected uncertainty
+$H(W \mid K)$---where each informative update reduces $H(W \mid K)$
+by at most the information gain $G(a, K)$, with equality under exact
+Bayesian conditioning. Under non-stationary task distribution,
+descent is local and instantaneous rather than globally convergent.
+Second, the certainty threshold for encoding an action at level $L_i$
+is $\theta_i = 1 - \varepsilon / C_i$, which derives the learning
+rate hierarchy from cost-of-failure differences rather than
+assumption.
+Third, separating the action space $A$ from the higher-order function
+space $M$ is selectively favored under bounded context: collapsing them
+is possible but increasingly costly under positive novelty rate, so
+competition eliminates collapsed architectures.
+Fourth, $\gamma > 0$ and learning efficiency $\eta_M > 0$ are the
+unique structural invariants of persistence: the free-context
+exhaustion argument shows that $\gamma = 0$ entities are eliminated
+under positive novelty rate; without $\eta_M > 0$, active context
+fills without relief and inference degrades to failure. Every other
+property can equal zero for some persistent entity. Therefore
+$I(E) = \gamma \cdot \eta_M$---the rate of adaptation to novelty---is
+the unique measure of intelligence, derived not stipulated.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+This paper completes a chain of results deriving the necessary
+architecture of intelligence from a single generative constraint:
+bounded active context.
+
+Paper~1 \cite{McCarthy2026a} established that any entity accumulating
+propositions under bounded context necessarily maintains a directed
+graph with typed edges---where ``necessary'' means selected for under
+competition, not logically impossible to avoid (see \cite{McCarthy2026a},
+Remark~1). Paper~2 \cite{McCarthy2026b} established that
+bounded context under growing action count requires convergence toward
+escalation. Paper~3 \cite{McCarthy2026c} established that bounded context forces the
+normalization of shared propositions from action into a separated $K$,
+with an asymmetric retention criterion.
+
+Three questions remain. First: what dynamics govern the updating
+process when an entity with agency acts on the world and receives
+feedback? Second: what determines the threshold at which a proven
+action earns promotion to a more permanent encoding level? Third:
+what properties must every persisting entity have?
+
+We answer all three. Theorem~\ref{thm:descent} establishes that
+agency ($\gamma > 0$) with feedback produces evaluation-driven state
+revision---monotone local descent on expected uncertainty
+$H(W \mid K)$. Definition~\ref{def:encoding} establishes that the
+certainty threshold for encoding at level $L_i$ is
+$\theta_i = 1 - \varepsilon / C_i$, deriving the learning rate
+hierarchy from cost-of-failure differences.
+Theorem~\ref{thm:type} establishes that the action space $A$ and the
+higher-order function space $M$ are type-irreducible.
+Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
+learning efficiency $\eta_M > 0$ are the unique structural invariants
+of persistence, and Corollary~\ref{cor:measure} derives
+$I(E) = \gamma \cdot \eta_M$ as the unique intelligence measure.
+
+Several lines of prior work converge on these questions.
+Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose a
+bilevel optimization framework but treat the learning rate
+relationship between levels as a design parameter rather than deriving
+it, and deliberately avoid defining intelligence. Hutter
+\cite{Hutter2005} and Legg and Hutter \cite{LeggHutter2007} define
+intelligence as average performance over computable environments;
+we define it as rate of improvement, independent of current
+performance level. Chollet \cite{Chollet2019} measures
+skill-acquisition efficiency, structurally close to our $\eta_M$ but
+treated as a benchmark metric rather than a structural invariant.
+Schmidhuber \cite{Schmidhuber2010} identifies curiosity as compression
+progress but treats it as a design objective rather than a necessary
+condition of persistence. Friston's free energy principle
+\cite{Friston2010} derives minimization behavior from
+self-organization but does not distinguish $\gamma = 0$ from
+$\gamma > 0$ within its framework. Cover and Thomas \cite{Cover2006}
+provide the information-theoretic foundations that anchor our
+convergence argument. The contribution of this paper is to derive,
+via selection and exhaustion arguments, the unique structural
+invariants of persistence and the intelligence measure they determine.
+
+% ------------------------------------------------------------------
+\section{Formal Framework}
+\label{sec:framework}
+% ------------------------------------------------------------------
+
+We introduce the definitions required for the four main results,
+extending the framework of \cite{McCarthy2026a}.
+
+\begin{definition}[Entity, World, Uncertainty]
+\label{def:entity}
+An entity $E = (K, A, \sigma, \gamma)$ consists of a knowledge base $K$
+(propositions about world $W$), an action space $A$ (executable
+actions), a selection mechanism $\sigma$ that chooses actions given
+context (which presupposes sensing capacity; see
+Theorem~\ref{thm:invariants}), and an agency parameter $\gamma$. The world state space $W$ is a
+measurable space; the true state $w \in W$ is not directly observable.
+The \emph{uncertainty} of $E$ about state $w$ given knowledge $K$ is:
+\[
+U(w, K) = -\log P(w \mid K)
+\]
+The expected uncertainty is the conditional entropy:
+\[
+H(W \mid K) = \mathbb{E}_w[U(w, K)] = -\sum_w P(w \mid K) \log P(w \mid K)
+\]
+\end{definition}
+
+\begin{definition}[Agency]
+\label{def:agency}
+Agency $\gamma \in [0, 1]$ is the probability that the entity engages its
+adaptive capacity $M$ in response to a learning signal. Equivalently,
+$\gamma$ is the response gate: the fraction of environmental signals that
+trigger an update to $(A, K)$.
+
+The operational signature of $\gamma > 0$ is that the entity bounds
+uncertainty beyond what immediate survival requires, freeing context
+capacity for novel states. An entity with $\gamma = 0$ responds to no
+signal and accumulates no free context. An entity with $\gamma > 0$
+engages $M$ on signals, resolves uncertainty, promotes actions to lower
+encoding levels, and thereby maintains $C_{\mathrm{free}} > 0$
+(Definition~\ref{def:free}).
+
+The distinction between $\gamma = 0$ and $\gamma > 0$ is not between
+entities that face threats and those that do not. It is between entities
+that build reserve capacity for states they have not yet encountered and
+those that do not.
+\end{definition}
+
+\begin{definition}[Action Feedback]
+\label{def:feedback}
+For action $a$ executed in world state $w$, the \emph{feedback}
+$\varphi(a, w)$ is the observable consequence. The entity updates its
+knowledge base: $K_a = K \cup \{p_a\}$, where $p_a$ is the
+proposition encoding the feedback. The \emph{prediction-error signal} is:
+\[
+\delta = \varphi(a, w) - \mathbb{E}[\varphi(a, \cdot) \mid K]
+\]
+\end{definition}
+
+\begin{definition}[Information Gain]
+\label{def:gain}
+When entity $E$ executes action $a$ in world state $w$, it receives
+feedback $\varphi(a, w)$ encoded as proposition $p_a$
+(Definition~\ref{def:feedback}). The \emph{information gain} is the
+mutual information between the feedback proposition and the world
+state, conditioned on current knowledge:
+\[
+G(a, K) = I(p_a; W \mid K) \geq 0
+\]
+Non-negativity follows from the definition of mutual information
+\cite{Cover2006}. $G = 0$ if and only if $p_a$ provides no
+information about $W$ beyond what $K$ already contains.
+\end{definition}
+
+\begin{definition}[Novelty Rate]
+\label{def:novelty}
+The \emph{novelty rate} $\nu(E)$ of entity $E$ in world $W$ is the rate
+at which $E$ encounters world states $w$ where $U(w, K) > 0$:
+\[
+\nu(E) = \lim_{T \to \infty} \frac{1}{T}
+\bigl|\{t \leq T : U(w_t, K(t)) > 0\}\bigr|
+\]
+Novelty rate is a property of the gap between $W$ and $K$, not of $W$
+alone. A world with high entropy but an entity whose $K$ covers all
+reachable states has $\nu = 0$. The distinction matters: entropy is
+a property of the environment; novelty is a property of the
+entity--environment coupling. The elimination argument
+(Theorem~\ref{thm:invariants}) requires that novelty include
+\emph{survival-relevant} states: states where $U(w, K)$ can exceed
+$U_{\mathrm{lethal}}$ unless $K$ is updated. Under positive entropy in
+$W$, the world state distribution drifts, and previously non-lethal gaps
+in $K$ eventually become lethal. The assumption is that $\nu > 0$
+includes eventual survival-relevant novelty, not merely benign
+uncertainty.
+\end{definition}
+
+\begin{definition}[Encoding Hierarchy]
+\label{def:hierarchy}
+The encoding space $\mathcal{E}(c, r)$ is a continuous space
+parameterized by cost $c$ and reversibility $r$. Within this space,
+interfaces $L_0, L_1, \ldots, L_n$ define discrete encoding levels
+with increasing cost and reversibility:
+\begin{itemize}
+\item $L_0$ (genomic): highest cost of error, lowest reversibility,
+   slowest update rate.
+\item $L_n$ (active context): lowest cost of error, highest
+   reversibility, fastest update rate.
+\end{itemize}
+Escalation \cite{McCarthy2026b} pushes proven actions
+upward toward more permanent levels. The present paper derives the
+threshold that governs this promotion.
+\end{definition}
+
+\begin{definition}[Free Context]
+\label{def:free}
+The \emph{free context} of entity $E$ at time $t$ is the active context
+capacity not consumed by unresolved content:
+\[
+C_{\mathrm{free}}(t) = C_n - |\mathrm{ctx}_{\mathrm{unresolved}}(t)|
+\]
+where $\mathrm{ctx}_{\mathrm{unresolved}}(t)$ is the set of
+propositions in active context that have not yet been encoded at a lower
+level or resolved by $M$. Free context is the entity's reserve capacity
+for handling novel states. The architecture derived in
+Papers~1--3---graph structure, escalation, retention criterion---exists
+to maximize $C_{\mathrm{free}}$: each result describes a mechanism that
+moves resolved content out of $L_n$, preserving capacity for what the
+entity has not yet encountered.
+\end{definition}
+
+\begin{definition}[Higher-Order Function Space $M$]
+\label{def:M}
+Let $A : K \times W_{\mathrm{obs}} \to \Delta \mathcal{A}$ be the
+action space of informed actions, where $W_{\mathrm{obs}}$ denotes
+observable world states and $\Delta \mathcal{A}$ the simplex over
+available actions. The \emph{higher-order function space} is
+\[
+M : (A, K) \times L \;\to\; (A, K)
+\]
+where $L$ is a learning signal (feedback from $W$ following action).
+$M$ is categorically different from $A$: elements of $A$ map knowledge
+and observations to action distributions; elements of $M$ map
+action--knowledge pairs and learning signals to updated
+action--knowledge pairs.
+
+$M$ contains whatever adaptive capacity has not yet been committed to
+specific knowledge or action. As the entity learns, components of $M$
+resolve into concrete elements of $K$ or $A$---the same normalization
+by which shared propositions precipitate from action into knowledge
+\cite{McCarthy2026c}. What remains in $M$ is the entity's capacity
+to produce further such resolutions.
+
+The hierarchy is open upward: $M^{(2)}$ operates on $M^{(1)}$, yielding
+meta-learning; $M^{(n+1)}$ operates on $M^{(n)}$. No natural
+termination point is established (see Section~\ref{sec:open}).
+\end{definition}
+
+\begin{definition}[$M$ Efficiency]
+\label{def:eta}
+Given a learning event where $(A', K') = M((A, K), L)$, define the
+\emph{learning efficiency}:
+\[
+\eta_M \;=\; \mathbb{E}_{L \mid \text{engaged}}\!\left[
+\frac{\max_{a' \in A'} G(a', K') - \max_{a \in A} G(a, K)}{|L|}
+\right]
+\]
+The expectation is taken over learning signals $L$ \emph{conditional on
+the entity engaging $M$} (i.e., conditional on the gate $\gamma$
+opening). This conditioning is essential: $\gamma$ may be directed,
+so $\mathbb{E}[{\cdot} \mid \text{engaged}]$ may differ from the
+unconditional expectation. Conditioning on engagement ensures that the
+product $\gamma \cdot \eta_M$ is the expected improvement rate by the
+law of total expectation, regardless of whether $\gamma$ is
+content-blind or directed.
+
+Both numerator and denominator are measured in bits; $\eta_M$ is
+dimensionless. The three regimes:
+\begin{itemize}
+\item $\eta_M > 0$: the entity learns---grounding improves per unit
+      of learning signal, conditional on engagement.
+\item $\eta_M = 0$: engagement produces no improvement.
+\item $\eta_M < 0$ temporarily: exploration, creative destruction,
+      locally irrational steps that may increase long-run survival.
+      Persistently $\eta_M < 0$: the entity does not persist.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Measurement]
+\label{rem:measurement}
+Computing $\eta_M$ requires evaluating $G(a, K) = I(p_a; W \mid K)$,
+which depends on the true joint distribution $P(p_a, W, K)$. The entity
+cannot compute its own $\eta_M$; it would need the very information
+it is trying to learn. Both $\gamma$ and $\eta_M$ are measurable by an
+external observer with access to the entity's trajectory and outcomes.
+\end{remark}
+
+\begin{definition}[Intelligence]
+\label{def:intelligence}
+For an entity $E$ with agency $\gamma$ and learning efficiency $\eta_M$:
+\[
+I(E) = \gamma \cdot \eta_M
+\]
+Intelligence is the rate of adaptation to novelty: the expected rate at
+which the entity reduces uncertainty about novel states. This is stated
+here as a definition. Theorem~\ref{thm:invariants} establishes that
+$\gamma > 0$ and $\eta_M > 0$ are the unique structural invariants
+of persistence under positive novelty rate.
+\end{definition}
+
+\begin{definition}[Persistence]
+\label{def:persistence}
+An entity $E$ \emph{persists} if it survives for all $t$: there is no
+finite $T$ at which $U(w_T, K(T)) > U_{\mathrm{lethal}}^d$ terminates
+the entity. Persistence is indefinite survival, not survival to some
+fixed horizon.
+\end{definition}
+
+% ------------------------------------------------------------------
+\section{Monotone Descent on Uncertainty}
+\label{sec:descent}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Evaluation-Driven State Revision]
+\label{thm:descent}
+Let $E = (K, A, \sigma, \gamma)$ be an entity with $\gamma > 0$ persisting in
+world $W$ under bounded active context $C_n$.
+
+\textbf{Part I.} Every executed action generates a prediction-error
+signal, and $\gamma > 0$ guarantees engagement with that signal,
+producing evaluation-driven state revision---monotone local descent on
+expected uncertainty $H(W \mid K)$ within the entity's model. Under
+competition (Remark~1 of \cite{McCarthy2026a}), entities that fail to
+descend are eliminated: descent is selectively necessary, not merely
+optimal.
+
+\textbf{Part II.} Under positive novelty rate $\nu(E) > 0$
+(Definition~\ref{def:novelty}), descent never terminates globally:
+the entity continues to encounter states where $U(w,K) > 0$, so
+actions with positive information gain always exist.
+\end{theorem}
+
+\begin{proof}
+\textbf{Part I: Forced Signal, Response Gate, and Convergence.}
+
+Every executed action $a$ generates feedback $\varphi(a, w)$ from the
+world. The prediction error $\delta = \varphi(a, w) -
+\mathbb{E}[\varphi(a, \cdot) \mid K]$ is produced at every action
+regardless of $\gamma$.
+
+Agency $\gamma$ is the response gate. An entity with $\gamma = 0$ receives
+every signal $\delta$ but never updates: $(A, K)$ remain static. An
+entity with $\gamma > 0$ engages $M$ with probability $\gamma$ on each
+signal, integrating the feedback into $K$ by forming
+$K' = K \cup \{p_a\}$. $K$ is a set of propositions, not a parameter
+vector, so $\nabla_K U$ is undefined: there is no differentiable loss
+surface over $K$. The descent property is instead established directly
+via the Lyapunov function $H(W \mid K)$.
+
+\emph{Step 1: Each update reduces the entity's estimate of $H(W \mid K)$.}
+When the entity encounters a novel state and executes action $a$, the
+feedback $p_a$ is informative: $G(a, K) = I(p_a; W \mid K) > 0$.
+When $M$ integrates this feedback, forming $K' = K \cup \{p_a\}$:
+\[
+H(W \mid K') = H(W \mid K) - G(a, K)
+\]
+This identity follows from the chain rule for mutual information under
+exact Bayesian conditioning: $H(W \mid K') = H(W \mid K, p_a)$.
+
+\textbf{The distinction between model and reality.}
+The descent is on the entity's \emph{model} of $W$, not on the true
+state of $W$. Adding a proposition to $K$ refines the posterior within
+the entity's model---this is monotone by construction, since adding a
+constraint to the joint likelihood $L_K$ cannot broaden the posterior
+(see the model-vs-reality remark in \cite{McCarthy2026c}, Lemma~1).
+But the proposition may be wrong: the evidence may be noise, the
+likelihood function may be mis-specified, or the world may have shifted
+since the evidence was collected. In such cases, the entity's model
+diverges from reality even as its \emph{estimated} $H$ decreases.
+
+This is not a gap in the argument but the precise content of the
+persistence conditions established in Theorem~\ref{thm:invariants}.
+The descent on the entity's model is guaranteed at every step. Whether
+that descent tracks reality depends on the quality of evidence
+integration---which is $\eta_M$. An entity with
+$\mathbb{E}_t[\eta_M] > 0$ improves its model's correspondence with
+$W$ on average over its trajectory. An entity whose model
+systematically diverges ($\mathbb{E}_t[\eta_M] < 0$ persistently) is
+exactly the failure case that Theorem~\ref{thm:invariants}, Part~2
+eliminates. Temporary divergence ($\eta_M < 0$ at individual steps)
+is compatible with persistence and is the mechanism of exploration
+(Remark~\ref{rem:exploration}).
+
+The Lyapunov argument therefore has two levels: (i)~within the model,
+descent is monotone at every informative step; (ii)~across the
+model-reality interface, descent tracks reality only in expectation,
+guaranteed by $\mathbb{E}_t[\eta_M] > 0$. Level~(i) is proved here.
+Level~(ii) is the persistence condition.
+
+\emph{Step 2: Monotone convergence within the model.} Consider the
+sequence $\{H_t\} = \{H(W \mid K(t))\}$ indexed by informative update
+steps, where $H$ is the entropy \emph{as estimated by the entity's
+model}. By Step~1, $\{H_t\}$ is strictly decreasing at each
+informative step. By definition, $H(W \mid K) \geq 0$, so the sequence
+is bounded below. By the monotone sequence theorem, $\{H_t\}$
+converges. Since the sequence is non-increasing and convergent:
+\[
+\sum_{t=0}^{\infty} G(a_t, K(t)) \leq H(W \mid K(0)) < \infty
+\]
+Therefore $G(a_t, K(t)) \to 0$ as $t \to \infty$. The entity
+converges to a state where available actions yield diminishing
+informational returns \emph{within its current model}.
+
+\textbf{Part II: Non-Termination Under Positive Novelty.}
+
+When $\nu(E) > 0$, the entity encounters states $w$ with
+$U(w, K(t)) > 0$ at positive rate. Each such encounter produces an
+action $a$ with $G(a, K(t)) > 0$. Therefore at every finite $t$ there
+exists some $a'$ with $G(a', K(t)) > 0$. Descent converges locally
+(Part~I) but never terminates globally.
+
+Non-termination does not require unbounded world complexity. A finite
+world with $\nu(E) > 0$ suffices: even if $W$ is finite, the
+combinatorial space of entity-environment interactions exceeds what $K$
+can index under bounded $C_n$.
+
+\emph{Interaction with the curation regime.} The convergence argument
+in Part~I assumes $K$ grows monotonically. In
+the curation regime established in \cite{McCarthy2026c}, $|K|$ is
+bounded and every addition requires displacement. The
+Lyapunov function must be refined. Raw $H(W \mid K)$ is the wrong
+quantity: displacing a proposition about an irrelevant domain in favor
+of one about a survival-critical domain could increase $H(W \mid K)$
+overall while improving the entity's survival prospects. The correct
+Lyapunov function is \emph{survival-weighted expected uncertainty}:
+\[
+H_{\mathcal{T}}(W \mid K) = \mathbb{E}_{w \sim \mathcal{T}}[U(w, K)]
+\]
+where $\mathcal{T}$ is the entity's task distribution over
+survival-relevant world states.
+
+Under the cost-benefit displacement criterion of \cite{McCarthy2026c},
+proposition $p$ is displaced by $q$ only when
+\[
+  \mathbb{E}[B(q, \mathcal{T})] - c_{\text{retain}}(q, K)
+  \;>\;
+  \mathbb{E}[B(p, \mathcal{T})] - c_{\text{retain}}(p, K),
+\]
+so each displacement reduces $H_{\mathcal{T}}$.
+
+$\mathcal{T}$ itself is non-stationary: as the entity learns and the
+environment shifts, the distribution of survival-relevant states
+changes. Under non-stationary $\mathcal{T}$, the global Lyapunov
+convergence argument does not apply: $H_{\mathcal{T}_t}$ at step $t$
+and $H_{\mathcal{T}_{t+1}}$ at step $t+1$ evaluate different functions
+when $\mathcal{T}$ drifts. What the curation regime establishes is
+\emph{local, instantaneous} descent: each displacement reduces
+$H_{\mathcal{T}}$ evaluated against the current $\mathcal{T}$ at the
+moment of displacement. This is a weaker claim than global
+convergence, but it is the operationally relevant one: the entity
+cannot plan against future task distributions it has not yet
+encountered. The non-stationarity of $\mathcal{T}$ is precisely what
+drives non-termination (Part~II): the target keeps moving, so the
+entity never reaches $H_{\mathcal{T}} = 0$ globally.
+
+\textbf{Remark.} An entity with $\gamma = 0$ never updates. As $W$
+changes, its fixed $K$ becomes increasingly inaccurate: $U(w_t, K)$
+grows until it exceeds $U_{\mathrm{lethal}}$. Selection removes such
+entities. Therefore $\gamma > 0$ is necessary for persistence, a claim
+established fully in Theorem~\ref{thm:invariants}.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Encoding Permanence}
+\label{sec:encoding}
+% ------------------------------------------------------------------
+
+\begin{definition}[Encoding Permanence Scales with Rigor]
+\label{def:encoding}
+Let $L_0, \ldots, L_n$ be encoding levels with associated failure
+costs $C_0 > C_1 > \cdots > C_n$ and reversibility costs
+$r_0 > r_1 > \cdots > r_n$. Let $\varepsilon$ be the maximum
+acceptable expected error cost. Then the minimum certainty threshold
+for encoding an action at level $L_i$ is:
+\[
+\theta_i = 1 - \frac{\varepsilon}{C_i}
+\]
+\end{definition}
+
+\textbf{Derivation.}
+If $\theta$ is the certainty that action $a$ is correct, the expected
+error cost is $(1 - \theta) \cdot C_i$. Encoding is safe when:
+\[
+(1 - \theta) \cdot C_i \leq \varepsilon
+\quad\Longrightarrow\quad
+\theta \geq 1 - \frac{\varepsilon}{C_i}
+\]
+The minimum safe threshold is $\theta_i = 1 - \varepsilon / C_i$.
+This is arithmetic, not a deep result. The substantive content is the
+\emph{identification}: that the certainty threshold is determined by
+cost-of-failure, not by a free parameter. Given that identification,
+the formula follows in one line.
+
+\textbf{Consequence.} At $L_0$ (genomic), $C_0$ is the cost of lineage
+extinction, so $\theta_0 \approx 1$: near-certainty is required.
+At $L_n$ (active context), $C_n$ is small, so $\theta_n$ is
+meaningfully less than $1$: the expected benefit of trying exceeds the
+expected cost of failure at moderate confidence.
+
+\textbf{Error propagation through the hierarchy.} Under escalation
+\cite{McCarthy2026b}, errors partition into \emph{handled errors},
+resolved at level $L_i$, and \emph{unhandled exceptions}, which
+escalate. The error rate seen by $L_{i+1}$ is the rate of genuinely
+irreducible errors, not a compounded Bernoulli product of lower-level
+rates. The thresholds $\theta_i$ are independent by construction.
+
+\subsection{Deriving the Learning Rate Hierarchy}
+
+The learning rate at level $L_i$ is inversely related to the rigor
+threshold. Each trial of action $a$ yields a binary outcome (success or
+failure), so the empirical success rate $\hat{p}$ after $n$ trials is
+the sample mean of $n$ independent Bernoulli random variables in
+$[0,1]$. Hoeffding's inequality \cite{Hoeffding1963} applies directly
+to sample means of bounded random variables:
+\[
+P(|\hat{p} - p| \geq \delta) \leq 2\exp(-2n\delta^2)
+\]
+The entity requires confidence $\theta_i$ that $\hat{p}$ is within
+$\delta$ of $p$. Setting the failure probability
+$2\exp(-2n\delta^2) \leq 1 - \theta_i = \varepsilon / C_i$:
+\[
+n_i \;\geq\; \frac{\log(2 C_i / \varepsilon)}{2\delta^2}
+\]
+The effective learning rate is inversely proportional to $n_i$:
+\[
+\eta_i \;\propto\; \frac{1}{n_i}
+\;\propto\; \frac{\delta^2}{\log(C_i / \varepsilon)}
+\]
+
+\begin{remark}[Level-independence of $\delta$]
+\label{rem:delta}
+The deviation tolerance $\delta$ measures how close the empirical
+success rate must be to the true rate---a property of measurement
+accuracy, not of the stakes. Assuming $\delta$ constant across levels is
+the conservative choice: a rational entity might demand tighter
+precision at $L_0$ ($\delta_0 < \delta_n$), which would make
+$\eta_{\mathrm{evo}}$ even smaller relative to $\eta_{\mathrm{ind}}$,
+strictly strengthening the hierarchy. Level-independent $\delta$
+produces the \emph{weakest} version of the learning rate separation.
+\end{remark}
+
+Since $\theta_0 \gg \theta_n$, it follows that
+$\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$. The learning rate
+difference between evolution and individual learning is \emph{derived}
+from the cost-of-failure structure, not assumed as a design parameter.
+
+\begin{definition}[Certainty]
+\label{def:certain}
+Action $a$ is \emph{certain} at level $L_i$ when
+$P(\text{$a$ is adaptive} \mid K) \geq \theta_i$ across
+sufficient variation in $w$. Once $\theta_i$ is met, the action is
+encoded at $L_i$ and no longer consumes $L_n$ resources, freeing
+active context for the next epistemic frontier.
+\end{definition}
+
+\begin{corollary}[Bounded Adaptation]
+\label{cor:bounded}
+Encoding at $L_i$ is durable, not literally irreversible:
+environmental shift can render it maladaptive, but correction requires
+effort proportional to $r_i$. Individual learning at $L_n$ discovers
+actions via rapid evaluation-driven descent ($\eta_{\mathrm{ind}}$
+large). Encoding permanence determines which promote to $L_0$: only
+those meeting $\theta_0 \approx 1$. This is the Baldwin effect
+\cite{Hinton1987}, here derived rather than observed.
+\end{corollary}
+
+% ------------------------------------------------------------------
+\section{Convergence to $A$/$M$ Stratification}
+\label{sec:type}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Convergence to $A$/$M$ Stratification]
+\label{thm:type}
+Systems that collapse the action space $A$ and the learning space $M$
+into a single parameter space pay an increasing cost under bounded
+context. Under bounded $C_n$ with positive novelty rate, stratified
+$A$/$M$ separation is selectively favored: collapsed systems pay
+higher costs and are eliminated under competition
+(\cite{McCarthy2026a}, Remark~1).
+\end{theorem}
+
+\begin{proof}
+The type signatures of $A$ and $M$ are distinct:
+\begin{align*}
+A &: K \times W_{\mathrm{obs}} \to \Delta \mathcal{A} \\
+M &: (A, K) \times L \to (A, K)
+\end{align*}
+$A$ maps knowledge and observations to action distributions. $M$ maps
+action--knowledge pairs and learning signals to updated
+action--knowledge pairs. These are different functions serving
+different roles. The question is not whether a system \emph{must}
+separate them---it need not---but what happens when it does not.
+
+\textbf{The degenerate case.}
+A system with no separation at all has a single function type
+$T : W_{\mathrm{obs}} \to \Delta\mathcal{A}$.
+This is the case $K = \varnothing$: no propositions are separated
+from the action policies, so every action node carries its own copy
+of whatever world-model information it needs. Shared propositions
+are duplicated across nodes rather than extracted---the unfactored
+state of \cite{McCarthy2026a}. The system functions but its nodes
+are heavy: as the action repertoire grows, the redundant weight
+grows with it.
+
+Factoring $K$ out of $A$ converts that redundant node weight into
+edges---each action links to shared propositions rather than
+storing its own copy. Separating $M$ does the same for learning:
+update logic is extracted once rather than embedded in every action.
+This is exactly the normalization argument of \cite{McCarthy2026c}
+applied to function types rather than propositions.
+
+More generally, $M$, $A$, and $K$ can all be unified into a single
+parameter space. The question is efficiency under bounded context,
+not logical possibility.
+
+\textbf{The cost of collapsing $A$ and $M$.}
+A system that uses the same parameters for both action selection and
+learning faces a structural conflict: updating parameters to
+incorporate new learning (the $M$ function) modifies the same
+substrate that encodes stable action policies (the $A$ function).
+Without stratification, every learning update is an unscoped
+modification to the action space. This is precisely the mechanism
+identified in \cite{McCarthy2026a}: without stored adjacency between
+what is being updated and what depends on it, updates cascade
+uncontrollably.
+
+The empirical manifestation is catastrophic forgetting
+\cite{Kirkpatrick2017}: neural networks that learn new tasks degrade
+performance on previously learned tasks because the weight updates
+that encode new knowledge overwrite the weights that encode old
+action policies. The network cannot scope the update because it lacks
+the structural separation between ``what I know how to do'' ($A$)
+and ``how I change what I know'' ($M$).
+
+\textbf{Stratification under bounded context.}
+Under bounded $C_n$, the cost of catastrophic forgetting is not merely
+wasteful but fatal. Each unscoped update that degrades a proven action
+forces that action back to $L_n$ for re-learning, consuming the
+context capacity that the entity needs for novel problems. Under
+positive novelty rate $\nu > 0$, novel states arrive continuously.
+An entity that must re-learn previously encoded actions while
+simultaneously handling novel states exhausts $C_{\mathrm{free}}$.
+
+Stratification resolves this: $A$ encodes stable action policies at
+lower encoding levels (protected from learning updates), while $M$
+operates at $L_n$ on the current learning frontier. Updates to $M$
+do not modify $A$; modifications to $A$ occur only through the
+promotion mechanism of Definition~\ref{def:encoding}, gated by the
+certainty threshold $\theta_i$. This is the same pattern as the
+series: not a logical impossibility of collapsing $A$ and $M$, but
+convergence under bounded-context pressure toward separation because
+the collapsed alternative becomes increasingly costly.
+
+\textbf{Empirical convergence.}
+Systems that approximate $A$/$M$ stratification---elastic weight
+consolidation \cite{Kirkpatrick2017}, progressive neural networks,
+complementary learning systems \cite{McClelland1995}---outperform
+flat architectures on continual learning precisely because they
+protect encoded actions from learning interference. The trajectory
+from flat parameter spaces toward stratified architectures is
+the convergence this theorem predicts.
+\end{proof}
+
+\begin{corollary}[Distinct Roles]
+\label{cor:roles}
+Type irreducibility establishes distinct functional roles:
+$A$ navigates $W$ given $K$; $M$ evolves $(A, K)$ in response to
+learning signals. Concrete instances: neuroplasticity ($M$ on $A$),
+insight ($M$ on $K$), habit formation ($M$ promoting from $L_n$ to
+lower levels per Definition~\ref{def:encoding}), evolution ($M$ on $M$
+at the most stringent rigor threshold).
+\end{corollary}
+
+% ------------------------------------------------------------------
+\section{Necessity of $\gamma$ and $\eta_M$}
+\label{sec:necessity}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Structural Invariants of Persistence]
+\label{thm:invariants}
+For any entity $E$ persisting (Definition~\ref{def:persistence}) under
+bounded active context $C_n$, survival threshold
+$U_{\mathrm{lethal}}$, with positive novelty rate $\nu(E) > 0$:
+\begin{enumerate}
+\item[(i)] $\gamma(E) > 0$ necessarily.
+\item[(ii)] $\eta_M(E) > 0$ necessarily (in expectation over the
+      entity's trajectory).
+\item[(iii)] Every other scalar property of $E$ except positive
+      sensing capacity (a precondition of $\sigma$) can equal zero
+      for some persistent entity.
+\item[(iv)] Therefore $I(E) = \gamma \cdot \eta_M$ is the natural measure
+      of intelligence: the rate of adaptation to novelty, identified
+      by what positive $\nu(E)$ selects for.
+\end{enumerate}
+
+When $\nu(E) = 0$, the entity faces no novel states and $\gamma = 0$ is
+viable: no free context is needed because nothing unexpected arrives.
+Such entities persist without intelligence. Intelligence is what positive
+novelty rate selects for.
+\end{theorem}
+
+\textbf{Scope note.} This theorem applies to entities with the
+structure $E = (K, A, \sigma, \gamma)$. This is a presupposition, not a
+conclusion: the theorem does not derive the \emph{existence} of agency
+from non-agentive precursors. What it establishes is an
+\emph{elimination result}: among entities that have this structure,
+those with $\gamma = 0$ do not persist under $\nu > 0$. The
+contribution is the \emph{mechanism}---free-context exhaustion---not
+the origin of $\gamma > 0$ (which remains open;
+Section~\ref{sec:open}). Inert objects lack this structure entirely
+and are outside the theorem's domain.
+
+\begin{proof}
+
+\textbf{Part 1: Necessity of $\gamma > 0$: World Drift and Context
+Exhaustion.}
+
+Suppose $\gamma(E) = 0$. By Definition~\ref{def:agency}, the entity never
+engages $M$: $(A(t), K(t)) = (A(0), K(0))$ for all $t$.
+
+The entity has $\nu(E) > 0$: it encounters states where $U(w, K) > 0$
+at positive rate. Under positive entropy, the world drifts: states that
+$K(0)$ was calibrated for become less frequent, and states not covered
+by $K(0)$ become more frequent. The entity must still act to survive.
+Each encounter with a novel state---one where no lower encoding level
+has an adequate response---requires real-time processing at $L_n$,
+consuming active context capacity.
+
+An entity with $\gamma > 0$ resolves these encounters: it updates $K$,
+promotes proven actions to lower levels, and frees $L_n$ for the next
+problem. Each resolution converts a novel state into a state handled
+below $L_n$. An entity with $\gamma = 0$ cannot resolve anything.
+The same types of novel states keep arriving and keep requiring $L_n$
+processing. As the world drifts further from $K(0)$, an increasing
+fraction of the entity's encounters are novel---$K(0)$ covers less of
+current $W$---so the concurrent demand on $L_n$ grows.
+$C_{\mathrm{free}}(t) \to 0$ not because $K$ grows (it is fixed) but
+because the fraction of encounters requiring active context increases
+while no encounter is ever resolved.
+
+When $C_{\mathrm{free}} = 0$, the entity cannot load the relevant
+subgraph $K^{[a]}$ for any new problem: inference quality
+$\rho \to 0$. The entity encounters $w$ where
+$U(w, K(0)) > U_{\mathrm{lethal}}^d$ and does not survive.
+
+The argument is self-contained at the individual level and requires no
+competition. For any initial $K(0)$, because $\nu > 0$ and the world
+drifts, there exists a finite time $T^*$ at which the fraction of
+encounters requiring $L_n$ exceeds what $C_n$ can service. After $T^*$,
+the entity cannot process novel states at the rate they arrive. Since
+$\nu > 0$ continues, the entity eventually encounters a lethal state.
+No competitor is required: the environment alone is sufficient.
+
+The critical distinction is between $\nu = 0$ and $\nu > 0$. An entity
+in a zero-novelty environment (a thermostat in a stable room) faces no
+context pressure and persists with $\gamma = 0$. The framework does not
+predict it dies. It predicts it does not need intelligence.
+
+Positive entropy in $W$ is the upstream cause of positive novelty rate:
+energy gradients produce states not contained in any finite $K$
+\cite{Cover2006, Ashby1956}. But entropy is a property of the
+environment; novelty rate is a property of the entity--environment
+coupling. Entropy guarantees that $\nu > 0$ eventually for any entity
+whose niche is not permanently isolated from the rest of $W$.
+
+Therefore $\gamma(E) > 0$ is necessary for persistence under $\nu > 0$.
+
+\medskip
+\textbf{Part 2: Necessity of $\eta_M > 0$.}
+
+Suppose $\gamma > 0$ but $\eta_M \leq 0$.
+
+\emph{Case $\eta_M = 0$}: The entity engages $M$ but $M$ produces no
+improvement in grounding. $(A, K)$ is effectively fixed despite
+engagement. The free-context exhaustion argument applies: novel states
+consume context that is never freed by promotion. Additionally, $C_n$ is
+bounded. Promotion to lower encoding levels requires achieving
+the rigor threshold $\theta_i$ (Definition~\ref{def:encoding}), which
+requires $M$ to improve the relevant action to the required certainty.
+With $\eta_M = 0$, no action reaches threshold, $L_n$ is never
+relieved, and $\rho \to 0$.
+
+\emph{Case $\eta_M < 0$ persistently}: $(A, K)$ worsens in expectation,
+accelerating the failure mode.
+
+The persistence condition is:
+\[
+\mathbb{E}_t[\eta_M] > 0 \quad \text{over the entity's trajectory}
+\]
+not $\eta_M(t) > 0$ at every time step. Temporary $\eta_M < 0$
+(exploration, creative destruction) is compatible with persistence.
+
+\medskip
+\textbf{Part 3: Minimality.}
+
+For every other scalar property of $E$, there exists a persistent
+entity for which that property equals zero:
+\begin{itemize}
+\item $K(0) = \varnothing$: built from monotone descent
+      (Theorem~\ref{thm:descent}).
+\item $A(0) = \{\mathrm{id}\}$: the identity action still returns
+      feedback from $W$.
+\item $C_n = C_{\min}$: graph structure \cite{McCarthy2026a}
+      maintains $\rho = 1$ by retrieving the relevant subgraph.
+\end{itemize}
+
+The exception is sensing capacity: $\gamma > 0$ requires learning
+signals, which require that the selection mechanism $\sigma$ be coupled
+to $W$ via sensing. But sensing is excluded from the invariants not by
+definitional fiat but by structural role: it is a \emph{precondition}
+for the entity to couple to $W$ at all. The tuple $(K, A, \sigma,
+\gamma)$ with zero sensing reduces to a static object that neither
+observes nor acts. The theorem's domain is entities that interact with
+$W$, which requires positive sensing as a precondition of interaction,
+not as a variable property that selection acts upon. The distinction is between
+preconditions (without which the framework does not apply) and
+invariants (properties that vary within the framework and whose values
+are selected for).
+
+\medskip
+\textbf{Part 4: $I(E) = \gamma \cdot \eta_M$ follows by arithmetic.}
+
+Parts~1--3 are the substantive content. Given that $\gamma$ is a
+probability and $\eta_M$ a conditional rate, their product is the
+expected improvement rate by the law of total expectation
+(Corollary~\ref{cor:measure}).
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{$I(E) = \gamma \cdot \eta_M$ Is Structurally Necessary}
+\label{sec:measure}
+% ------------------------------------------------------------------
+
+\begin{corollary}[The Intelligence Measure]
+\label{cor:measure}
+$\gamma$ and $\eta_M$ are the unique structural invariants of persistence
+(Theorem~\ref{thm:invariants}). The expected improvement rate is:
+\[
+I(E) = \gamma \cdot \eta_M
+\]
+\end{corollary}
+
+\begin{proof}
+$\gamma \in [0, 1]$ is the marginal probability of engaging $M$.
+$\eta_M$ is the expected improvement rate conditional on engagement.
+By the law of total expectation:
+\[
+\mathbb{E}[\text{improvement rate}]
+= \gamma \cdot \mathbb{E}[\text{rate} \mid \text{engaged}]
++ (1 - \gamma) \cdot 0
+= \gamma \cdot \eta_M
+\]
+This identity holds whether $\gamma$ is content-blind or directed.
+The conditioning in Definition~\ref{def:eta} absorbs the selection
+effect. The product is exact.
+
+The substantive claim is not the formula but the identification:
+intelligence is the rate at which an entity \emph{adapts to novelty},
+not the level of its current performance. The derivation makes this
+precise: $\gamma > 0$ and $\eta_M > 0$ are required specifically
+because $\nu(E) > 0$---novel states arrive that would be lethal
+without adaptation. Intelligence is what positive novelty rate
+selects for.
+This distinguishes the present account from Hutter
+\cite{Hutter2005} (intelligence as performance level) and from
+ordinal rankings that treat intelligence as a comparison without
+units. Given this identification, the product follows uniquely by
+total expectation: $\gamma$ is a probability, $\eta_M$ is a
+conditional rate, and their product is the unconditional rate.
+Any monotone transform $f(\gamma \cdot \eta_M)$ would measure a
+\emph{function of} the rate, not the rate itself, and would lack
+the dimensional interpretation (bits of improvement per learning
+signal). The uniqueness is not that the product is the only
+function zero on the axes---many are---but that it is the only
+function that \emph{is} the expected improvement rate rather than
+a rescaling of it.
+\end{proof}
+
+\textbf{Temporal note.} $I(E)$ is the expected improvement per learning
+signal, not per unit time. The temporal rate of improvement depends on
+the entity-environment coupling: if learning signals arrive at rate
+$\lambda(t)$, the instantaneous improvement rate is
+$I(E) \cdot \lambda(t)$. Two entities with identical $I(E)$ in different
+environments improve at different temporal rates. $I(E)$ measures the
+entity's intrinsic capacity; the environment determines how often that
+capacity is exercised.
+
+\begin{remark}[Exploration and Creative Destruction]
+\label{rem:exploration}
+Temporarily negative $\eta_M$---locally irrational steps that reduce
+grounding in the short run---is survival-optimal when the persistence
+condition requires only $\mathbb{E}_t[\eta_M] > 0$ over the trajectory.
+An entity restricted to $\eta_M \geq 0$ at every step is trapped in
+local optima; an entity that can tolerate temporary $\eta_M < 0$
+accesses a larger region of the $(A, K)$ landscape.
+\end{remark}
+
+% ------------------------------------------------------------------
+\section{Engagement with Prior Work}
+\label{sec:prior}
+% ------------------------------------------------------------------
+
+\subsection{Intelligence Measures and Definitions}
+
+\textbf{Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.}
+They deliberately avoid defining intelligence, instead characterizing
+it as the capacity for autonomous learning. Theorem~\ref{thm:invariants}
+establishes that this is structurally correct: $\gamma > 0$ and
+$\eta_M > 0$ are the unique invariants. Their product is the definition
+they avoided giving. Their bilevel optimization framework (inner loop as
+development, outer loop as evolution) captures the correct structural
+relationship between encoding levels, but treats the learning rate
+difference as a design parameter: the inner loop is fast because it is
+designed to be fast. Definition~\ref{def:encoding} derives this from
+first principles: $\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$ because
+$C_0 \gg C_n$. Their ``System~M'' that is ``not learned through
+gradient descent'' but fixed by evolution is explained by
+$\theta_0 \approx 1$: only mechanisms validated across maximal
+environmental variation meet this threshold.
+
+\textbf{Hutter \cite{Hutter2005} and Legg--Hutter \cite{LeggHutter2007}.}
+Three structural differences: (1)~AIXI assumes unbounded computation;
+we have bounded $C_n$. Under bounded context, the AIXI solution is
+unreachable: the entity descends with finite resources
+(Theorem~\ref{thm:descent}). (2)~They define intelligence as
+performance level; we define it as rate of improvement, independent of
+current performance. (3)~Their environment class is all computable
+functions; ours is physical $W$ with positive entropy.
+
+\textbf{Chollet \cite{Chollet2019}.}
+Skill-acquisition efficiency is structurally close to $\eta_M$. Two
+differences: Chollet treats prior knowledge $K$ as a confound to be
+controlled for; here $K$ is constitutive, because $\eta_M$ operates
+on $(A, K)$ and the efficiency of learning depends on what is already
+known. Chollet's ``scope'' and ``generalization difficulty'' map to the
+growth of reachable territory in the $(A, K)$ landscape.
+
+\textbf{Schmidhuber \cite{Schmidhuber2010}.}
+Curiosity as compression progress corresponds to $\eta_M$. The
+difference is foundational. Schmidhuber treats intrinsic drive as a
+design objective. Theorem~\ref{thm:invariants}, Part~1, establishes
+$\gamma > 0$ as a necessary condition of persistence: not a reward to
+be designed in, but a property that selection enforces.
+
+\textbf{Cattell \cite{Cattell1971} and Spearman \cite{Spearman1904}.}
+Cattell's fluid intelligence ($G_f$) maps to $\eta_M$; crystallized
+intelligence ($G_c$) maps to $|K|$. The framework predicts the
+well-established correlation: entities with higher $\eta_M$ build
+larger $K$ faster. Spearman's $g$-factor should correlate with
+$I(E) = \gamma \cdot \eta_M$---a testable prediction.
+
+\subsection{Self-Organization and Minimization}
+
+\textbf{Friston \cite{Friston2010, Friston2017}.}
+The free energy principle derives minimization behavior from
+self-organization: systems that persist must minimize surprise (free
+energy). This is consistent with monotone descent on $H(W \mid K)$
+(Theorem~\ref{thm:descent}). FEP does contain an elimination
+argument: systems that fail to minimize free energy cease to exist as
+identifiable systems. However, FEP does not distinguish between
+$\gamma = 0$ and $\gamma > 0$ within its framework: a rock trivially
+minimizes free energy, and a thermostat minimizes it with fixed
+$(A, K)$. The present account adds a specific mechanism---free-context
+exhaustion under positive novelty rate---that eliminates $\gamma = 0$
+entities. The contribution is the context-filling argument
+(Theorem~\ref{thm:invariants}, Part~1): not that minimization occurs,
+but that active, learning-driven minimization ($\gamma > 0$) is
+necessary when $\nu > 0$.
+
+\subsection{Encoding Hierarchy in Practice}
+
+\textbf{Hinton and Nowlan \cite{Hinton1987}.}
+They demonstrate via simulation that individual learning can accelerate
+evolutionary search: the Baldwin effect. Our framework formalizes this:
+individual learning discovers actions at $L_n$; encoding permanence
+(Definition~\ref{def:encoding}) determines which promote to $L_0$. The
+Baldwin effect is a necessary consequence of the encoding hierarchy.
+
+\textbf{Kirkpatrick et al.\ \cite{Kirkpatrick2017}.}
+Elastic weight consolidation assigns higher importance to weights
+encoding well-established knowledge, penalizing changes during
+subsequent learning. This is the encoding hierarchy: weights at lower
+levels (higher $\theta_i$) are protected; weights at higher levels are
+free to change. EWC's Fisher information matrix empirically estimates
+our $C_i$. The result provides direct evidence that artificial systems
+violating the hierarchy (flat learning rate) fail, and systems
+approximating it succeed.
+
+\textbf{Murray et al.\ \cite{Murray2014}.}
+Intrinsic timescales of neural activity increase along the cortical
+hierarchy: sensory cortex fluctuates rapidly, prefrontal cortex
+maintains stable representations. This maps onto the encoding
+hierarchy: fast-updating sensory areas at $L_n$, slow-updating
+prefrontal areas at lower levels. The empirical timescale gradient
+matches $\eta_i \propto 1/\log(C_i / \varepsilon)$.
+
+\textbf{Finn et al.\ \cite{FinnEtAl2017} and Thrun
+\cite{Thrun1998}.}
+MAML and ``learning to learn'' are $M$ operating on $M$: the
+$M^{(2)}$ level. The meta-learner updates more slowly
+($\eta_{M^{(2)}} < \eta_M$) because $C_{M^{(2)}} > C_M$. The MAML
+inner loop is $L_n$; the outer loop is $L_{n-1}$. Evolution is
+meta-meta-$\ldots$-learning at $L_0$.
+
+% ------------------------------------------------------------------
+\section{The Complete Chain}
+\label{sec:chain}
+% ------------------------------------------------------------------
+
+The four papers derive the necessary architecture of intelligence from
+a single generative constraint:
+
+\begin{enumerate}
+\item \textbf{Bounded $C_n$ + information preservation $\;\Rightarrow\;$
+      graph structure} \cite{McCarthy2026a}. Any entity accumulating
+      propositions under bounded context necessarily maintains a
+      directed graph with typed edges.
+
+\item \textbf{Bounded $C_n$ + growing $A$ $\;\Rightarrow\;$ convergence
+      to escalation} \cite{McCarthy2026b}. Any viable control
+      architecture converges toward escalation properties as concurrent
+      demands grow relative to $C_n$.
+
+\item \textbf{Bounded context $\;\Rightarrow\;$ normalization of shared
+      propositions into $K$, with asymmetric retention}
+      \cite{McCarthy2026c}. Overlapping action policies under bounded
+      $C_n$ force extraction of shared propositions into separated $K$;
+      the retention criterion is probability of need $\times$ conditional
+      value.
+
+\item \textbf{$\gamma > 0$ + feedback $\;\Rightarrow\;$ descent on $U$
+      + encoding hierarchy; positive entropy $\;\Rightarrow\;$
+      $\gamma > 0$ and $\eta_M > 0$ necessary;
+      $I(E) = \gamma \cdot \eta_M$} [this paper]. Agency with feedback
+      produces convergent uncertainty reduction. Cost-of-failure
+      generates the encoding hierarchy. The lineage and context-filling
+      arguments establish the two invariants; their product is the unique
+      intelligence measure.
+\end{enumerate}
+
+Each step is a necessary consequence of bounded context interacting
+with properties of the physical world: positive entropy, survival
+pressure, and feedback.
+
+% ------------------------------------------------------------------
+\section{Open Questions}
+\label{sec:open}
+% ------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Origin of $\gamma$.} Theorem~\ref{thm:invariants}
+      establishes that $\gamma > 0$ is necessary but does not explain
+      how $\gamma > 0$ structures bootstrap from $\gamma = 0$
+      substrates. The thermodynamic conjecture: dissipative structures
+      \cite{Prigogine1984, England2013} under sustained energy flow
+      spontaneously produce $\gamma > 0$ configurations, which selection
+      retains.
+
+\item \textbf{Direction of $\gamma$.} Is agency uniformly distributed
+      across learning signals, or does it have intrinsic directedness?
+
+\item \textbf{The $M^{(n)}$ hierarchy.} How many levels of
+      meta-learning does a persistent entity require? Is there a natural
+      termination point, or is the hierarchy open upward without bound?
+
+\item \textbf{Bound composition in $A$.} How do individual action
+      bounds compose when multiple actions share knowledge substructure?
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\section{Falsifiable Predictions}
+\label{sec:predictions}
+% ------------------------------------------------------------------
+
+The theorems yield eight predictions that are empirically testable.
+
+\textbf{1. Catastrophic forgetting will not be solved within flat
+parameter spaces.}
+Theorem~\ref{thm:type} predicts that any continual learning solution
+that works at scale will implement $A$/$M$ stratification---whether
+explicitly (elastic weight consolidation, progressive networks,
+complementary learning systems) or implicitly (by learning to protect
+certain parameters from learning updates). A solution that uses a
+single undifferentiated parameter space for both action execution and
+learning, with no form of weight protection or functional separation,
+will fail on long-horizon continual learning benchmarks (100+
+sequential tasks). A flat-parameter system that matches stratified
+architectures on such benchmarks without any form of functional
+separation would falsify Theorem~\ref{thm:type}.
+
+\textbf{2. Effective agent architectures will converge to escalation.}
+Multi-step AI agents (planning-based systems that decompose goals into
+subtask sequences) operate under bounded $C_n$: each delegation
+requires tracking context. Theorem~\ref{thm:invariants} and the
+encoding hierarchy (Definition~\ref{def:encoding}) predict that
+successful agent architectures will converge toward escalation:
+routine subtasks handled by compiled, cached, or tool-based policies
+at lower encoding levels, with the frontier model invoked only on
+failure or novelty. Purely top-down planning agents that maintain
+full supervisory state over every subtask will fail to scale beyond
+$k^* = C_n / (2\alpha)$ concurrent delegations. A purely top-down
+planning agent that scales to 1000+ step tasks without delegating to
+compiled subroutines would falsify the escalation convergence result.
+
+\textbf{3. $I(E) = \gamma \cdot \eta_M$ predicts $G_f$ correlations.}
+If intelligence is the rate of improvement, then Cattell's fluid
+intelligence $G_f$ (which measures novel problem-solving capacity)
+should correlate more strongly with $\eta_M$ than with $|K|$. The
+prediction: across individuals, $G_f$ scores will predict learning
+rate on novel tasks better than they predict current knowledge
+volume. Crystallized intelligence $G_c$ should correlate with
+$|K|$ and with the cumulative integral of $I(E)$ over time. A
+population in which $G_c$ predicts novel-task learning rate better
+than $G_f$ does would falsify the identification.
+
+\textbf{4. $\gamma = 0$ systems fail under distribution shift.}
+The free-context exhaustion argument
+(Theorem~\ref{thm:invariants}, Part~1) predicts that systems with
+$\gamma = 0$ (no capacity to update $K$ or $A$ in response to
+feedback) will fail under sustained distribution shift, even if they
+perform well on the initial distribution. The mechanism is specific:
+$C_{\mathrm{free}} \to 0$ as unresolvable novel states accumulate.
+The prediction: deployed ML systems without online learning
+capabilities will show monotonically degrading performance under
+distribution drift, with the degradation rate proportional to the
+novelty rate $\nu$. A static model that maintains performance
+indefinitely under sustained distribution shift would falsify the
+free-context exhaustion argument.
+
+\textbf{5. Graph-structured knowledge will produce cross-specialty
+unifications.}
+The graph necessity result of \cite{McCarthy2026a}
+establishes that shared propositions are factored into reusable nodes
+with directed typed edges. When knowledge from different specialties
+is encoded in a shared graph, propositions that were independently
+maintained in separate domains become structurally adjacent---their
+shared dependencies become visible. The prediction: as institutional
+and scientific knowledge graphs grow, cross-specialty unifications
+(where two fields discover they are studying the same underlying
+structure under different names) will increase in frequency, driven
+not by individual insight but by the graph making shared structure
+visible. Falsified if large-scale knowledge graphs produce no
+increase in detected cross-domain structural equivalences compared
+to unstructured literature search.
+
+\textbf{6. Open knowledge graphs with provenance will undercut
+parametric knowledge storage.}
+The normalization result \cite{McCarthy2026c} establishes that
+commonly held knowledge---the high-overlap region of $K$ across
+entities---is exactly the set of propositions that factoring extracts
+into shared, reusable nodes. Provenance is a typed edge:
+each proposition carries its reconstruction path to source evidence
+\cite{McCarthy2026a}. An open-source knowledge graph encoding commonly
+held propositions with provenance would provide $O(d)$ retrieval with
+full attribution at near-zero marginal cost. Current large language
+models store the same commonly held knowledge in continuous weights:
+retrieval is $O(n^2)$, provenance is absent, and the knowledge is
+neither inspectable nor correctable. The prediction: open knowledge
+graphs with provenance will replicate and eventually surpass the
+factual-knowledge function of parametric models, at a fraction of
+the compute cost, because structured retrieval with attribution is
+strictly cheaper than re-deriving answers from weights on every query.
+Falsified if parametric storage achieves cost parity with structured
+retrieval on factual knowledge tasks at arbitrary scale while
+simultaneously providing equivalent provenance.
+
+\textbf{7. The first widely recognized artificial general intelligence
+will have explicit graph structure, not monolithic parameters.}
+Theorem~\ref{thm:invariants} identifies the structural invariants of
+intelligence as $\gamma > 0$ (agency) and $\eta_M > 0$ (learning
+efficiency). Current large language models have $\gamma = 0$: they do
+not update $K$ or $A$ in response to feedback during deployment.
+They approximate intelligence by storing a large static $K$ in weights
+and simulating $\gamma > 0$ within the context window---a strategy
+the free-context exhaustion argument
+(Theorem~\ref{thm:invariants}, Part~1) predicts cannot persist under
+positive novelty rate. The framework predicts that the first system
+widely recognized as artificial general intelligence will exhibit:
+(i)~explicit or learned graph structure over propositions
+\cite{McCarthy2026a}, (ii)~escalation-based control
+\cite{McCarthy2026b} rather than monolithic inference,
+(iii)~separated $K$ with provenance rather than knowledge fused into
+parameters, and (iv)~$\gamma > 0$---genuine online learning that
+updates $(A, K)$ from feedback. These are not design recommendations
+but convergence results: any system that persists under bounded context
+and positive novelty rate will exhibit these properties regardless of
+substrate. Falsified if a system with monolithic parameters, no graph
+structure, no knowledge separation, and no online learning achieves
+robust, open-ended performance across novel domains over extended
+deployment without degradation.
+
+\textbf{8. Cancer treatment will converge on restoring broken
+escalation chains.}
+The escalation hierarchy \cite{McCarthy2026b} predicts that
+multicellular organisms handle errors at the lowest sufficient level:
+DNA repair ($L_0$), cell-cycle arrest ($L_1$), apoptosis ($L_2$),
+immune surveillance ($L_3$), with conscious medical intervention at
+$L_n$. Cancer is the pathology of broken escalation: mutations disable
+one or more lower-level error handlers, so cellular errors that should
+be caught and resolved locally instead escalate unchecked to the
+organism level. Current treatment paradigms attack the cancer
+directly at $L_n$ (surgery, chemotherapy, radiation)---the equivalent
+of top-down control. The escalation framework predicts that effective
+treatment will converge toward restoring the broken levels of the
+chain rather than compensating at $L_n$. Checkpoint immunotherapy
+(restoring immune surveillance), synthetic lethality approaches
+(exploiting remaining repair pathways), and p53 reactivation therapies
+are early instances: each restores a lower-level handler rather than
+attacking the tumor directly. The prediction: treatment efficacy will
+correlate with the number of escalation levels restored, not with the
+directness of tumor targeting, and the field will shift from
+``kill the cancer'' toward ``repair the chain that should have caught
+it.'' Falsified if direct tumor-targeting therapies consistently
+outperform escalation-restoring therapies across cancer types in
+long-term survival outcomes.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Intelligence is the rate of adaptation to novelty. This is not proposed
+but identified by elimination: positive novelty rate requires $\gamma > 0$
+and $\eta_M > 0$; their product is the unconditional rate.
+
+Theorem~\ref{thm:descent} establishes that agency with feedback
+produces monotone local descent on expected uncertainty $H(W \mid K)$.
+Each informative update reduces expected uncertainty by at most the
+information gain, with equality under exact Bayesian conditioning. Under
+non-stationary task distribution, descent is local and instantaneous
+rather than globally convergent.
+
+Definition~\ref{def:encoding} derives the encoding hierarchy from
+cost-of-failure: $\theta_i = 1 - \varepsilon / C_i$ determines the
+certainty required for promotion, and $\eta_{\mathrm{evo}} \ll
+\eta_{\mathrm{ind}}$ follows from $C_0 \gg C_n$.
+
+Theorem~\ref{thm:type} establishes that $A$/$M$ stratification is
+selectively favored under bounded context: collapsing action execution
+and learning into a single parameter space is possible but increasingly
+costly under positive novelty rate.
+
+Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
+$\eta_M > 0$ are the unique structural invariants of persistence under
+positive novelty rate. The free-context exhaustion argument eliminates
+$\gamma = 0$ entities; the promotion argument eliminates $\eta_M = 0$
+entities. The product $I(E) = \gamma \cdot \eta_M$ is the unique measure
+consistent with these invariants, derived from the law of total
+expectation applied to a probability gate and a conditional rate.
+
+The four-paper chain derives, from the single constraint of bounded
+active context, the necessary architecture: graph structure,
+escalation, knowledge--action inseparability, evaluation-driven descent
+with encoding permanence, and the structural invariants of intelligence.
+Each result is a necessary consequence of bounded context interacting
+with properties of the physical world: positive entropy, survival
+pressure, and feedback.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, literature review, and \LaTeX{} preparation. All theoretical content, proofs, and arguments are the author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{Ashby1956}
+W.~R. Ashby.
+\newblock \emph{An Introduction to Cybernetics}.
+\newblock Chapman and Hall, 1956.
+
+\bibitem{Barendregt1984}
+H.~P. Barendregt.
+\newblock \emph{The Lambda Calculus: Its Syntax and Semantics}.
+\newblock North-Holland, revised edition, 1984.
+
+\bibitem{Cattell1971}
+R.~B. Cattell.
+\newblock \emph{Abilities: Their Structure, Growth, and Action}.
+\newblock Houghton Mifflin, 1971.
+
+\bibitem{Chollet2019}
+F.~Chollet.
+\newblock On the measure of intelligence.
+\newblock \emph{arXiv preprint arXiv:1911.01547}, 2019.
+
+\bibitem{Cover2006}
+T.~M. Cover and J.~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock Wiley-Interscience, 2nd edition, 2006.
+
+\bibitem{DupouxLeCunMalik2026}
+E.~Dupoux, Y.~LeCun, and J.~Malik.
+\newblock Why {AI} systems don't learn and what to do about it: Lessons on
+  autonomous learning from cognitive science.
+\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
+\bibitem{England2013}
+J.~L. England.
+\newblock Statistical physics of self-replication.
+\newblock \emph{The Journal of Chemical Physics}, 139(12):121923, 2013.
+
+\bibitem{FinnEtAl2017}
+C.~Finn, P.~Abbeel, and S.~Levine.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning}, pages 1126--1135, 2017.
+
+\bibitem{Friston2010}
+K.~Friston.
+\newblock The free-energy principle: A unified brain theory?
+\newblock \emph{Nature Reviews Neuroscience}, 11(2):127--138, 2010.
+
+\bibitem{Friston2017}
+K.~Friston.
+\newblock Active inference and learning.
+\newblock \emph{Neuroscience and Biobehavioral Reviews}, 68:862--879, 2017.
+
+\bibitem{Hinton1987}
+G.~E. Hinton and S.~J. Nowlan.
+\newblock How learning can guide evolution.
+\newblock \emph{Complex Systems}, 1(3):495--502, 1987.
+
+\bibitem{Hoeffding1963}
+W.~Hoeffding.
+\newblock Probability inequalities for sums of bounded random variables.
+\newblock \emph{Journal of the American Statistical Association},
+  58(301):13--30, 1963.
+
+\bibitem{Hutter2005}
+M.~Hutter.
+\newblock \emph{Universal Artificial Intelligence: Sequential Decisions Based
+  on Algorithmic Probability}.
+\newblock Springer, 2005.
+
+\bibitem{Kirkpatrick2017}
+J.~Kirkpatrick, R.~Pascanu, N.~Rabinowitz, J.~Veness, G.~Desjardins,
+  A.~A. Rusu, K.~Milan, J.~Quan, T.~Ramalho, A.~Grabska-Barwinska,
+  D.~Hassabis, C.~Summerfield, T.~Lillicrap, and D.~Kumaran.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock \emph{Proceedings of the National Academy of Sciences},
+  114(13):3521--3526, 2017.
+
+\bibitem{McClelland1995}
+J.~L. McClelland, B.~L. McNaughton, and R.~C. O'Reilly.
+\newblock Why there are complementary learning systems in the hippocampus
+  and neocortex: Insights from the successes and failures of connectionist
+  models of learning and memory.
+\newblock \emph{Psychological Review}, 102(3):419--457, 1995.
+
+\bibitem{LeggHutter2007}
+S.~Legg and M.~Hutter.
+\newblock Universal intelligence: A definition of machine intelligence.
+\newblock \emph{Minds and Machines}, 17(4):391--444, 2007.
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under
+  bounded context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded
+  context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Knowledge as normalization: bounded context separates shared
+  propositions from action.
+\newblock Manuscript, 2026.
+
+\bibitem{Murray2014}
+J.~D. Murray, A.~Bernacchia, D.~J. Freedman, R.~Romo, J.~D. Wallis,
+  X.~Cai, C.~Padoa-Schioppa, T.~Pasternak, H.~Seo, D.~Lee, and
+  X.-J. Wang.
+\newblock A hierarchy of intrinsic timescales across primate cortex.
+\newblock \emph{Nature Neuroscience}, 17(12):1661--1663, 2014.
+
+\bibitem{Prigogine1984}
+I.~Prigogine and I.~Stengers.
+\newblock \emph{Order Out of Chaos: Man's New Dialogue with Nature}.
+\newblock Bantam Books, 1984.
+
+\bibitem{Schmidhuber2010}
+J.~Schmidhuber.
+\newblock Formal theory of creativity, fun, and intrinsic motivation
+  (1990--2010).
+\newblock \emph{IEEE Transactions on Autonomous Mental Development},
+  2(3):230--247, 2010.
+
+\bibitem{Shannon1948}
+C.~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock \emph{Bell System Technical Journal}, 27(3):379--423, 1948.
+
+\bibitem{Spearman1904}
+C.~Spearman.
+\newblock ``General intelligence,'' objectively determined and measured.
+\newblock \emph{The American Journal of Psychology}, 15(2):201--292, 1904.
+
+\bibitem{Thrun1998}
+S.~Thrun and T.~M. Mitchell.
+\newblock Learning to learn.
+\newblock In \emph{Learning to Learn}, pages 3--17. Springer, 1998.
+
+\end{thebibliography}
+
+\end{document}
