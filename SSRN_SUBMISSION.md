@@ -2,23 +2,16 @@
 
 **Author:** Patrick D. McCarthy
 **Original submission date:** 2026-03-21
-**Revision date:** 2026-03-22
+**Revision date:** 2026-03-23
 **Series title:** The Architecture of Intelligence from Bounded Active Context
 
 ---
 
-## Revision Plan
+## Revision History
 
-Papers 1–3 submitted in presubmission on 2026-03-21. Old Papers 4 and 5 have been merged into a single paper. Old Paper 6 (Cancer) is unchanged.
-
-| SSRN slot | Action | New source |
-|---|---|---|
-| Paper 1 | Update | GRAPH_NECESSITY.pdf |
-| Paper 2 | Update | PAPER3_ESCALATION.pdf |
-| Paper 3 | Update | PAPER2_KF_INSEPARABILITY.pdf |
-| Paper 4 (old Gradient/Encoding) | Delete | merged into new Paper 4 |
-| Paper 5 (old Intelligence) | Update → becomes Paper 4 | PAPER4_INTELLIGENCE.pdf |
-| Paper 6 (old Cancer) | Update → becomes Paper 5 | PAPER6_CANCER.pdf |
+- 2026-03-21: Papers 1–3 submitted in presubmission.
+- 2026-03-22: Old Papers 4 and 5 merged into single Paper 4. Old Paper 6 (Cancer) becomes Paper 5. All filenames standardized.
+- 2026-03-23: Paper 5 (Cancer) substantially expanded — three-category therapy taxonomy, carcinogen interaction table, comorbidity table, three new predictions (superadditivity, sequential monotherapy trajectories, age-incidence coupling). All source files renamed to consistent McCarthy2026_N_Title convention.
 
 ---
 
@@ -40,7 +33,7 @@ Any system that (i) accumulates propositions about a world it cannot fully obser
 
 **Keywords:** knowledge representation, bounded rationality, graph theory, information preservation, bounded context, knowledge graphs, transformer architectures
 
-**File:** GRAPH_NECESSITY.pdf
+**File:** McCarthy2026_1_GraphNecessity.pdf
 
 ---
 
@@ -56,7 +49,7 @@ Top-down allocation — where a supervisory process directs subproblems to lower
 
 **Keywords:** bounded rationality, cognitive architecture, escalation, top-down allocation, free energy principle, hierarchical control, scaling limits, automatic processing
 
-**File:** PAPER3_ESCALATION.pdf
+**File:** McCarthy2026_2_Escalation.pdf
 
 ---
 
@@ -72,7 +65,7 @@ When multiple action policies share propositions and active context is bounded, 
 
 **Keywords:** knowledge-action coupling, bounded rationality, survival pressure, knowledge representation, normalization, retention criteria, AI architecture
 
-**File:** PAPER2_KF_INSEPARABILITY.pdf
+**File:** McCarthy2026_3_Normalization.pdf
 
 ---
 
@@ -88,7 +81,7 @@ We establish four linked results for any entity with structure (K, A, σ, γ) pe
 
 **Keywords:** intelligence, agency, learning efficiency, structural invariants, bounded rationality, encoding hierarchy, psychometrics, fluid intelligence, g-factor, catastrophic forgetting
 
-**File:** PAPER4_INTELLIGENCE.pdf
+**File:** McCarthy2026_4_Intelligence.pdf
 
 ---
 
@@ -104,7 +97,7 @@ We apply the bounded-context framework of Papers 1–4 to multicellular organiza
 
 **Keywords:** cancer, escalation chain, bounded context, hallmarks of cancer, atavistic theory, tissue organization, differentiation therapy, immunotherapy, Warburg effect, therapeutic resistance
 
-**File:** PAPER6_CANCER.pdf
+**File:** McCarthy2026_5_Cancer.pdf
 
 ---
 
@@ -117,17 +110,17 @@ This five-paper series derives the architecture of intelligence from a single ge
 
 ---
 
-## File Mapping (source → PDF)
+## File Mapping
 
-Note: the LaTeX filenames do not match the logical paper numbering. Here is the mapping:
-
-| Logical Order | Title | LaTeX Source | PDF for Upload |
+| Paper | Title | Source | PDF for Upload |
 |---|---|---|---|
-| Paper 1 | Graph Structure Is Necessary... | GRAPH_NECESSITY.tex | GRAPH_NECESSITY.pdf |
-| Paper 2 | Convergence to Escalation... | PAPER3_ESCALATION.tex | PAPER3_ESCALATION.pdf |
-| Paper 3 | Knowledge as Normalization... | PAPER2_KF_INSEPARABILITY.tex | PAPER2_KF_INSEPARABILITY.pdf |
-| Paper 4 | Evaluation-Driven Descent... | PAPER4_INTELLIGENCE.tex | PAPER4_INTELLIGENCE.pdf |
-| Paper 5 | Cancer as Escalation Chain Severance... | PAPER6_CANCER.tex | PAPER6_CANCER.pdf |
+| 1 | Graph Structure Is Necessary... | McCarthy2026_1_GraphNecessity.tex | McCarthy2026_BoundedContext_1_GraphNecessity.pdf |
+| 2 | Convergence to Escalation... | McCarthy2026_2_Escalation.tex | McCarthy2026_BoundedContext_2_Escalation.pdf |
+| 3 | Knowledge as Normalization... | McCarthy2026_3_Normalization.tex | McCarthy2026_BoundedContext_3_Normalization.pdf |
+| 4 | Evaluation-Driven Descent... | McCarthy2026_4_Intelligence.tex | McCarthy2026_BoundedContext_4_Intelligence.pdf |
+| 5 | Cancer as Escalation Chain Severance... | McCarthy2026_5_Cancer.tex | McCarthy2026_BoundedContext_5_Cancer.pdf |
+
+Upload-ready PDFs are in `ssrn_upload/`.
 
 ---
 
@@ -141,7 +134,7 @@ Note: the LaTeX filenames do not match the logical paper numbering. Here is the 
 
 ## Pre-Upload Checklist
 
-- [x] All 5 PDFs compile cleanly (verified 2026-03-22)
+- [x] All 5 PDFs compile cleanly (verified 2026-03-23)
 - [x] Cross-references between papers are consistent (forward chain only)
 - [x] Author name consistent: "Patrick D. McCarthy"
 - [x] Selective necessity framing consistent across all 5 papers
@@ -149,16 +142,13 @@ Note: the LaTeX filenames do not match the logical paper numbering. Here is the 
 - [x] A typed over P not K (Paper 3); K emerges from theorem
 - [x] Intelligence = rate of adaptation to novelty (Paper 4)
 - [x] Benign tumors / non-progression addressed (Paper 5)
+- [x] Three-category therapy taxonomy (Paper 5)
+- [x] Carcinogen interaction table with epidemiological data (Paper 5)
+- [x] Comorbidity table (Paper 5)
+- [x] Source files renamed to consistent convention
+- [x] Upload-ready PDFs in ssrn_upload/
 - [ ] Delete old Paper 4 (Gradient/Encoding) from SSRN
-- [ ] Update old Paper 5 slot with merged Paper 4 (PAPER4_INTELLIGENCE.pdf)
-- [ ] Copy PDFs from .temp/ with clean filenames
+- [ ] Update old Paper 5 slot with merged Paper 4
 - [ ] Upload to SSRN
 - [ ] Optional: upload to Zenodo for DOI assignment
-
-## Suggested PDF Filenames for Upload
-
-1. `McCarthy2026_BoundedContext_1_GraphNecessity.pdf`
-2. `McCarthy2026_BoundedContext_2_Escalation.pdf`
-3. `McCarthy2026_BoundedContext_3_Normalization.pdf`
-4. `McCarthy2026_BoundedContext_4_Intelligence.pdf`
-5. `McCarthy2026_BoundedContext_5_Cancer.pdf`
+- [ ] Optional: submit Paper 5 standalone to biology/oncology journal
