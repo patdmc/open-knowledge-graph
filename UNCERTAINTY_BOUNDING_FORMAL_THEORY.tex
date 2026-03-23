@@ -444,6 +444,7 @@ The minimization imperative (Theorem 1) operates on this expected
 quantity; \(U(w, K)\) is the pointwise uncertainty the entity faces when
 it encounters specific world state \(w\).
 
+<<<<<<< HEAD
 \textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is a
 continuous scalar measuring the intrinsic drive of an entity to reduce
 its own uncertainty: the desire to know {[}Schmidhuber2010{]}. It is not
@@ -454,9 +455,31 @@ an active informed action space rather than a static structure. At
 internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(F\) is
 maximally oriented toward the unbounded frontier. Intermediate values
 are meaningful: the drive can be stronger or weaker, shaped by
+=======
+\textbf{Definition 5a (Survival Threshold).} For entity \(E\) in domain
+\(d \subseteq W\), there exists a threshold \(U_{lethal}^d\) such that:
+
+\[U(w, K) > U_{lethal}^d \Rightarrow E \text{ does not survive in } d\]
+
+Above this threshold, uncertainty is so high that the entity cannot act
+effectively enough to persist. \(U_{lethal}^d\) is not a choice or a
+preference; it is imposed by \(W\).
+
+\textbf{Definition 6 (Agency).} Agency \(\mathcal{A} \in [0, 1]\) is the
+probability that entity \(E\) engages its learning mechanism \(M\) in
+response to a gradient signal from \(W\): the response gate. It is not
+an external objective imposed on \(E\), nor a property derived from
+\(A\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(A\)
+an active informed action space rather than a static structure. At
+\(\mathcal{A} = 0\), \(A\) is a set of possible functions with no
+internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(E\) engages
+on every gradient signal it encounters. Intermediate values are
+meaningful: the response probability can be higher or lower, shaped by
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 architecture, encoding history, and the density of unresolved
 uncertainty in the entity's reachable \(W\).
 
+<<<<<<< HEAD
 Agency is the reason gradient descent has a runner. The landscape of
 uncertainty exists independently of any entity; \(\mathcal{A}\) is what
 determines how strongly an entity moves through it.
@@ -465,6 +488,9 @@ determines how strongly an entity moves through it.
 uncertainty reduction as survival pressure approaches zero --- that is,
 as \(U_{lethal}^d \to \infty\) (the threshold above which death occurs
 goes to infinity, meaning no level of uncertainty is lethal):
+=======
+\(\mathcal{A}\) has an empirical operationalization:
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \[\mathcal{A}(E) \propto \lim_{U_{lethal}^d \to \infty} \frac{dU}{dt}(E)\]
 
@@ -518,6 +544,27 @@ Intelligence is not the size of \(K\) or \(A\). \(K\) and \(A\) are what
 intelligence has built. Intelligence is the efficiency with which \(M\)
 continues building.
 
+<<<<<<< HEAD
+=======
+\emph{Note on named components.} The components \(K\), \(A\), \(M\), and
+\(\mathcal{A}\) named here are dimensions that have precipitated from
+the entity's full cross-product state --- call it \(K^n\) --- at the
+individual learning level. The theory's general result is that
+dimensional precipitation must occur under the joint constraints: as
+\(K^n\) grows, shared structure must be extracted and named or retrieval
+cost grows without bound. What dimensions precipitate is a function of
+the entity's \(W\) and its history; the theory constrains the process,
+not the outcome. \(K\), \(A\), \(M\), and \(\mathcal{A}\) are the
+dimensions that fall out in entities with active individual learning
+mechanisms --- the class this paper studies. Other projections
+precipitate differently: biological \(L_0\) encoding (DNA) does not
+separate into \(K\), \(A\), \(M\), \(\mathcal{A}\); it is a dense
+cross-product that carries all survival-relevant structure without
+naming any of it as a distinct component. The named components are an
+epistemological convenience grounded in the studied entity class, not a
+universal constraint of the theory.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{4. The Inseparability of Knowledge and
@@ -990,6 +1037,7 @@ three simultaneous constraints on any knowledge representation:
   without bound.
 \end{itemize}
 
+<<<<<<< HEAD
 We claim any representation satisfying all three is a graph:
 
 \emph{Proof by elimination.} A flat store violates constraint 1:
@@ -1012,6 +1060,74 @@ of relevant propositions costs \(O(|K^{[f]}|)\), not \(O(|K|)\); and
 satisfying both (i) and (ii) is, by definition, a directed graph with
 typed edges. The graph is not the unique name for this structure, but it
 is the unique structure satisfying the constraints. \(\square\)
+=======
+We claim graph structure is necessary: any representation that is not a
+graph must lose information as new propositions are added.
+
+\emph{Proof by information preservation.} \(C_n\) is bounded (Definition
+8a). As new propositions arrive, \(|K|\) grows. When \(|K|\) reaches
+\(C_n\), the representation is in the curation regime: adding any new
+proposition \(p_{new}\) requires making space. There are exactly two
+ways to make space:
+
+\textbf{Option A: Discard an existing proposition.} Without factoring
+--- without explicit relational structure --- the entity has no
+mechanism to determine which existing propositions are redundant. Two
+propositions \(p_1, p_2\) that share a latent factor appear as
+independent entries; there is no stored evidence that they share
+structure. The choice of which to discard is therefore made without
+information about relational dependencies. Discarding \(p_{old}\) loses
+the information it encodes, and potentially also loses the information
+that \(p_{old}\) has any relation to other propositions --- a
+second-order loss. This is information loss.
+
+\textbf{Option B: Factor --- extract shared structure, reducing \(|K|\)
+without discarding.} If \(p_1\) and \(p_2\) share a latent factor
+\(f^*\), extracting \(f^*\) as a single named node with typed edges to
+\(p_1\) and \(p_2\) reduces \(|K|\) by replacing redundant structure
+with a single shared reference. The information in \(p_1\) and \(p_2\)
+is preserved; the information about their shared grounding in \(f^*\) is
+now explicitly stored as an edge. Space is created without loss.
+Factoring also resolves the update problem: when new evidence revises
+\(f^*\), the single node is updated once, and the revision propagates to
+all propositions that reference it via edges --- \(O(1)\) instead of
+\(O(|A|)\).
+
+Factoring is graph construction. Naming \(f^*\), creating a node, and
+storing typed edges from \(p_1\) and \(p_2\) to it is precisely the
+operation that produces a directed graph.
+
+\textbf{Option C: Lossy compression --- replace propositions with a
+summary that occupies less space.} This is a genuine third option, but
+it reduces to Option A or Option B. Compressing \(p_1\) and \(p_2\)
+into a summary \(p_s\) that discards detail is a form of discarding:
+the lost detail may ground other propositions or informed actions. If
+\(p_1\) has dependents --- propositions or actions that reference it ---
+then replacing \(p_1\) with \(p_s\) silently invalidates those
+dependents unless the entity knows what depends on the lost detail. But
+knowing what depends on \(p_1\) \emph{is} knowing \(p_1\)'s adjacency
+--- its edges. Without stored adjacency, compression is blind
+discarding: the entity cannot evaluate what breaks. With stored
+adjacency, the entity can scope the damage, notify dependents, and
+compress safely --- but storing adjacency is maintaining a graph.
+Compression that preserves correctness requires the same relational
+structure as factoring. Compression that ignores relational structure is
+Option A with extra steps.
+
+Any representation that makes space without factoring or correctly
+scoped compression loses information; any representation that factors or
+correctly scopes compression is constructing a graph.
+
+\emph{Consequence for alternative representations.} A flat store cannot
+factor: shared structure has no representation, so at \(C_n\) it must
+discard. A tree loses cross-branch propositions when one branch is
+pruned. A vector store holds shared factors implicitly in embedding
+geometry but cannot factor without naming --- and naming is graph
+construction. Every representation that preserves information as
+\(|K|\) grows beyond \(C_n\) must factor. Every factoring operation
+creates nodes with typed edges. The graph is what factoring is.
+\(\square\)
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Part 4 (\(C_n\) stays bounded).} By Corollary 6, proven informed
 actions promote to lower encoding levels and leave \(L_n\). Each
@@ -1059,6 +1175,7 @@ retrieval, context, and memory under bounded \(C_n\). This theorem
 establishes an independent necessity: graph structure is the only
 representation that supports sub-linear evaluation of the retention
 criterion (Theorem 1) under continuous operation.
+<<<<<<< HEAD
 
 \emph{Statement.} Let \(K\) be a knowledge representation supporting the
 retention criterion of Theorem 1. The retention criterion requires four
@@ -1202,10 +1319,14 @@ at high-dependency nodes whose removal would trigger the largest
 cascades.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+=======
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
-\subsection{6. Gradient Descent on
-Uncertainty}\label{gradient-descent-on-uncertainty}
+\emph{Statement.} Let \(K\) be a knowledge representation supporting the
+retention criterion of Theorem 1. The retention criterion requires four
+operations:
 
+<<<<<<< HEAD
 \textbf{Theorem 3 (Agency Necessarily Produces Gradient Descent).}
 
 \emph{On the space of descent.} The gradient descent in this theorem
@@ -1252,6 +1373,192 @@ function in \(F\), and each \(\delta\) is a legitimate descent direction
 in that space. The burn tells you that this \(f_i\) was insufficient at
 \(w\). The entity does not choose whether to receive this signal. \(W\)
 imposes it.
+=======
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\tightlist
+\item
+  \textbf{Addition with provenance}: insert a proposition \(p\) together
+  with its evidential grounds --- which existing propositions \(p\)
+  depends on, and by what relation (inferential, causal, evidential)
+\item
+  \textbf{Contextual retrieval}: given an action context \(f\), retrieve
+  the propositions relevant to \(f\)
+\item
+  \textbf{Dependency query}: given a proposition \(p\), determine which
+  other propositions are grounded through \(p\) --- i.e., which
+  propositions would require re-evaluation if \(p\) were removed or
+  revised
+\item
+  \textbf{Selective removal with cascade}: when \(p\) fails the
+  retention criterion (or is displaced in the curation regime), remove
+  \(p\) and re-evaluate every proposition whose grounding depends on
+  \(p\), transitively, until the knowledge base stabilizes
+\end{enumerate}
+
+For any knowledge representation that achieves sub-linear cost on all
+four operations simultaneously, the representation necessarily encodes
+directed adjacency between propositions --- and any structure encoding
+directed adjacency over propositions with typed relations \emph{is} a
+semantic graph, regardless of implementation.
+
+\emph{Proof.}
+
+\textbf{Part 1 (Dependency queries are necessary and continuous).} The
+retention criterion of Theorem 1 operates continuously: every new piece
+of evidence potentially shifts the cost-benefit of existing
+propositions. When evidence revises or invalidates a proposition \(p\),
+the entity must evaluate every proposition whose grounding passes
+through \(p\). This is not a batch operation that can be deferred ---
+acting on a proposition whose ground has been invalidated risks
+\(U > U_{lethal}^d\) (Definition 5a). The dependency query ``what is
+grounded through \(p\)?'' is therefore a survival-critical operation
+invoked at the frequency of evidence arrival.
+
+\textbf{Part 2 (Lower bound on non-adjacency dependency queries).}
+Consider a representation \(R\) that stores \(n\) propositions without
+explicit directed relationships between them (a flat store, hash table,
+embedding space, or any structure that does not record which propositions
+depend on which). To answer the dependency query for proposition \(p\),
+\(R\) must examine each of the other \(n - 1\) propositions to determine
+whether its grounding involves \(p\). Without stored adjacency, there is
+no mechanism to restrict this examination: any proposition might depend
+on \(p\), and the only way to determine this is to check.
+
+The cost of a single dependency query is therefore \(\Omega(n)\) for any
+representation without stored adjacency. Since dependency queries are
+invoked at evidence-arrival frequency (Part 1), the amortized cost of
+maintaining retention is \(\Omega(n)\) per evidence event --- growing
+linearly with the size of \(K\).
+
+\textbf{Part 3 (Cascade amplifies the cost).} Selective removal under
+the retention criterion is not a single deletion. When \(p\) is removed,
+each proposition \(q\) that was grounded through \(p\) must be
+re-evaluated: does \(q\) have alternative grounds, or does it now fail
+the retention criterion? If \(q\) also fails, its dependents must be
+re-evaluated in turn. This is a transitive closure operation on the
+dependency relation.
+
+In a representation with explicit adjacency (a graph), cascade follows
+edges: the cost is \(O(|D_p|)\) where \(|D_p|\) is the number of
+propositions in the transitive dependency set of \(p\). In a
+representation without adjacency, each level of the cascade requires an
+\(\Omega(n)\) scan to identify dependents, and the cascade may propagate
+through multiple levels. The total cost of a single removal with cascade
+is \(\Omega(n \cdot L)\) where \(L\) is the cascade depth --- versus
+\(O(|D_p|)\) in the graph, where \(|D_p| \ll n\) for typical
+propositions with bounded connectivity.
+
+\textbf{Part 4 (Any sub-linear solution encodes adjacency).} Suppose a
+representation \(R\) achieves \(o(n)\) cost for dependency queries. Then
+\(R\) must store, for each proposition, information about which other
+propositions depend on it --- otherwise the \(\Omega(n)\) lower bound of
+Part 2 applies. This stored information is a set of directed
+relationships: for each proposition \(p\), a record of the propositions
+that reference \(p\) as part of their grounding.
+
+This is precisely a directed adjacency structure. The nodes are
+propositions. The edges are directed dependency relations (inferential,
+causal, evidential). The structure supports traversal from any node to
+its dependents. Any representation that stores this information ---
+regardless of whether it is implemented as adjacency lists, edge tables,
+pointers, or any other mechanism --- \emph{is} a directed graph over
+propositions.
+
+\textbf{Part 5 (Semantic typing is necessary for correct cascade).} A
+bare adjacency structure (propositions linked by untyped edges) is
+insufficient for correct cascade evaluation. When \(p\) is invalidated,
+the cascade must distinguish between propositions that are
+\emph{inferentially} grounded through \(p\) (which require
+re-evaluation) and propositions that are merely \emph{associated} with
+\(p\) (which do not). An untyped edge conflates these: every neighbor of
+\(p\) must be treated as potentially dependent, degrading the cascade to
+the full neighborhood rather than the true dependency set.
+
+Typed edges --- edges carrying the relation type (``grounds,''
+``evidences,'' ``causes,'' ``supports'') --- enable the cascade to
+follow only the dependency-bearing edges, keeping cascade cost
+proportional to the true dependency set \(|D_p|\) rather than the full
+neighborhood \(|\text{adj}(p)|\). Since \(|\text{adj}(p)|\) can be much
+larger than \(|D_p|\) (a proposition may be associated with many others
+without grounding them), typed edges are necessary for efficient cascade.
+
+A directed graph with typed edges over propositions is a semantic graph.
+\(\square\)
+
+\emph{Consequence.} Theorem 2c establishes the complete set of
+structural requirements for any knowledge representation supporting the
+retention criterion of Theorem 1: (i) sub-linear contextual retrieval,
+(ii) sub-linear dependency query, (iii) sub-linear selective removal
+with cascade, and (iv) correct cascade scoping via typed relations.
+These requirements are independent of Theorem 2b's static constraints
+(retrieval, context, memory under bounded \(C_n\)) and provide a second,
+orthogonal proof of graph necessity from the dynamics of continuous
+knowledge maintenance.
+
+\emph{Corollary 4c (Edge Growth Dominates Node Growth).} In a semantic
+graph under the retention criterion, the ratio of edges to nodes
+increases as \(K\) matures. Each new proposition added with provenance
+creates at least one edge (to its evidential ground); propositions that
+ground multiple other propositions accumulate incoming edges over time
+without themselves growing in size. Edges are the cheapest structure in
+the graph --- they are pointers, not content. The graph's information
+density therefore improves as it matures: the relational structure
+(edges) that enables sub-linear cascade grows faster than the content
+(nodes) that the structure organizes. This is the operational advantage
+of the graph: the structure needed for maintenance is the cheapest
+element to store, and it grows precisely where it is most needed ---
+at high-dependency nodes whose removal would trigger the largest
+cascades.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{6. Gradient Descent on
+Uncertainty}\label{gradient-descent-on-uncertainty}
+
+\textbf{Theorem 3 (Agency Necessarily Produces Evaluation-Driven State
+Revision).}
+
+\emph{On the space of descent and dimensionality.} The gradient descent
+in this theorem operates in \(A\) --- the space of informed actions ---
+not in \(W\). \(W\) may be arbitrarily rough, discontinuous, or of
+unknown dimensionality; no assumption on \(W\)'s structure is required.
+The entity does not descend over \(W\); it updates \(a \in A\) in
+response to signals received from \(W\).
+
+The dimensionality of \(W\) or of \(M_{\text{res}}\) is not assumed. We
+do not know whether the latent space is finite or infinite-dimensional.
+The convergence proof does not require this knowledge. It operates on
+the scalar \(U(w, K) = H(w \mid K)\), which is bounded below by zero
+regardless of the dimensionality of \(W\) or \(A\). The proof shows
+\(\mathbb{E}[U]\) decreases monotonically under \(M\)-updates and
+converges by the monotone convergence theorem, without decomposing \(U\)
+into independent dimensions.
+
+\emph{Part I: Forced Signal, Response Gate.} Every executed action
+\(a_i\) in world state \(w\) generates a feedback signal
+\(\delta = \phi(a_i, w) - \mathbb{E}[\phi(a_i, \cdot) \mid K]\)
+(Definition 3a): the signed deviation of observed outcome from
+expectation. This signal arrives from \(W\) but is applied in \(A\): it
+is a subgradient of \(U\) as a functional on \(A\) at the current
+\(a_i\), evaluated at the encountered \(w\). The signal is generated by
+execution, not by \(\mathcal{A}\). It arrives whether or not the entity
+has \(\mathcal{A}\). The entity does not choose whether to receive this
+signal. \(W\) imposes it.
+
+\(\mathcal{A}\) is the response gate: the probability that \(M\) engages
+on \(\delta\) when \(\delta\) arrives. An entity with
+\(\mathcal{A} = 0\) receives every signal but \(M\) does not engage;
+\((A, K)\) remains unchanged. An entity with \(\mathcal{A} > 0\) engages
+\(M\) on the signal, updating \((A, K)\) in response. The encountered
+world states are on-policy --- determined by the entity's trajectory,
+not sampled i.i.d. from \(P(w \mid K)\) --- but this does not impede
+convergence. The subgradient \(\delta\) is valid at every encountered
+\(w\) regardless of how \(w\) was reached; the entity is updating a
+function in \(A\), and each \(\delta\) is a legitimate descent direction
+in that space. The burn tells you that this \(a_i\) was insufficient at
+\(w\).
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 An entity with \(\mathcal{A}\) that does not update in response to
 \(\delta\) does not reduce \(U\). If \(U\) does not decrease, it
@@ -1259,6 +1566,7 @@ eventually exceeds \(U_{lethal}^d\) in some critical domain. The entity
 does not survive. Selection removes it. Therefore any entity with
 \(\mathcal{A}\) that persists must follow \(\delta\):
 
+<<<<<<< HEAD
 \[\Delta f_i = -\eta \cdot \delta\]
 
 This is stochastic subgradient descent in \(F\): each step follows a
@@ -1271,6 +1579,56 @@ each \(\delta\) as a descent direction. Under the Lipschitz condition on
 minimum of \(U\) in \(F\). This is not chosen. Any entity with
 \(\mathcal{A} > 0\) that persists must have followed \(\delta\): the
 gradient is not a strategy but what survival-filtered updating is.
+=======
+\[\Delta a_i = -\eta \cdot \delta\]
+
+\emph{Convergence of U.} The convergence argument does not decompose
+by dimension. \(U(w, K) = H(w \mid K) \geq 0\) (Definition 5) is a
+scalar quantity bounded below by zero. We show it decreases in
+expectation under \(M\)-updates and use this to establish convergence
+directly.
+
+\textbf{Step 1 (Each update reduces U in expectation).} By Definition
+3b, every informed action \(a \in A\) applied at world state \(w\) yields
+information gain \(G(a, K) = I(a\,;\,w \mid K) \geq 0\), with equality
+only when \(a\) provides no new information about \(w\) given \(K\).
+When \(M\) engages on the feedback signal \(\delta\) and updates
+\((A, K) \to (A', K')\), the updated knowledge \(K'\) satisfies
+\(H(w \mid K') \leq H(w \mid K)\) --- conditioning on additional
+evidence cannot increase entropy (data processing inequality,
+{[}Cover2006{]}). Therefore:
+
+\[\mathbb{E}[U(w, K') \mid K] \leq U(w, K) - G(f, K)\]
+
+Each \(M\)-update that engages on a signal with \(G > 0\) strictly
+reduces expected uncertainty. Updates with \(G = 0\) leave \(U\)
+unchanged.
+
+\textbf{Step 2 (Convergence).} The sequence
+\(\{\mathbb{E}[U(w, K(t))]\}_{t \geq 0}\) is non-increasing (by Step 1)
+and bounded below by zero. By the monotone convergence theorem,
+\(\mathbb{E}[U]\) converges. Since
+\(\sum_t G(a_t, K(t)) \leq U(w, K(0)) < \infty\), the information gains
+\(G(a_t, K(t)) \to 0\): the marginal improvement per update vanishes
+asymptotically. This is convergence to a local minimum of \(U\) given
+the entity's current \(A\) and \(\sigma\).
+
+\textbf{Step 3 (Dimensionality is irrelevant to convergence).} The
+argument above operates on the scalar \(U\), not on individual
+dimensions of \(W\) or components of \(A\). The entity's
+parameterization of \(A\) may grow as
+\(\mathcal{T}_{reachable}\) expands and new propositions are grounded
+(Part II). This growth does not invalidate convergence: each new
+proposition \(p_{new}\) added to \(K\) can only reduce \(U\) (by the
+data processing inequality), and the cross-grounding of \(p_{new}\) with
+existing propositions can reduce \(U\) further by improving the
+resolution of knowledge already in \(K\). Adding structure to \(K\) is
+analogous to adding a column to a matrix and re-normalizing: the
+existing entries can become better resolved, not worse. The coupling
+between new and existing knowledge \emph{accelerates} convergence; it
+cannot prevent it, because the Lyapunov bound \(U \geq 0\) holds
+regardless of dimensionality.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \emph{Part II: Non-termination.} Let \(\mathcal{T}_{reachable}(K)\) be
 the set of trajectories reachable from the entity's current state given
@@ -1287,18 +1645,28 @@ By Definition 3a, executing any \(a \in A\) produces feedback
 \(\phi(a, w)\) that grounds a new proposition \(p_a\) not previously in
 \(K\), yielding \(K_a = K \cup \{p_a\}\). This richer \(K_a\) grounds
 new informed actions not available from \(K\) alone (Definitions 3 and
+<<<<<<< HEAD
 3b): actions that require \(p_f\) to select or apply, reaching world
 states not reachable without \(p_f\). Therefore
 \(\mathcal{T}_{reachable}(K_f) \supseteq
 \mathcal{T}_{reachable}(K)\), strictly whenever \(p_f\) grounds at least
 one new \(f' \in F\). Since Part I establishes that gradient descent
 produces feedback at every step, \(\mathcal{T}_{reachable}\) grows
+=======
+3b): actions that require \(p_a\) to select or apply, reaching world
+states not reachable without \(p_a\). Therefore
+\(\mathcal{T}_{reachable}(K_a) \supseteq
+\mathcal{T}_{reachable}(K)\), strictly whenever \(p_a\) grounds at least
+one new \(a' \in A\). Since Part I establishes that every executed
+action generates a feedback signal, \(\mathcal{T}_{reachable}\) grows
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 monotonically with \(K\). At any finite time \(t\), \(K(t)\) has not
 covered \(\mathcal{T}_{reachable}(K(t))\): the frontier always contains
 states \(w\) where \(H(w \mid K) > 0\). Therefore \(\nabla_A U\) is
 never globally zero over \(\mathcal{T}_{reachable}\), and descent never
 terminates within the entity's reachable epistemic domain.
 
+<<<<<<< HEAD
 \emph{Proof.} Part I: follows from \(U_{lethal}^d\) and selection;
 entities that do not update are removed. Part II: follows from the
 monotonic growth of \(\mathcal{T}_{reachable}\) with \(K\) --- each
@@ -1355,6 +1723,96 @@ vs.~a population distribution over \(F\)-variants --- but the
 directional relationship to \(U\) is formally analogous. The notation
 \(\Delta F_{\text{species}}\) should be read as the population-level
 analog of \(\Delta F\), not as the same operation on the same object.
+=======
+\emph{Proof.} Part I: \(U \geq 0\) is a Lyapunov function; each
+\(M\)-update with \(G > 0\) strictly reduces \(\mathbb{E}[U]\) (data
+processing inequality); \(\mathbb{E}[U]\) converges by monotone
+convergence. Entities with \(\mathcal{A} = 0\) do not engage \(M\) and
+are removed by selection. Part II: follows from the monotonic growth of
+\(\mathcal{T}_{reachable}\) with \(K\) --- each executed action extends
+the reachable frontier, ensuring new unexplored states are always
+accessible within the domain of the entity's possible experience.
+\(\square\)
+
+\textbf{Corollary 5 (Evaluation-Driven State Revision is Survival, Not
+Metaphor).} For individual learning, gradient descent on \(U\) is not a
+description of how learning happens to work. It is what survival-driven
+updating \emph{is}: the entity that burns and does not become more
+careful does not survive. The entity that survives is, by definition,
+the one whose \(M\) engaged on the signal. At the evolutionary
+timescale, the mechanism differs in kind: random mutation perturbs the
+\(L_0\) encoding, generating new \((A, K, M, \mathcal{A})\)
+configurations; \(W\) evaluates each through the survival criterion;
+configurations that persist reproduce. No individual organism follows a
+gradient --- the gradient is revealed by differential survival of
+randomly generated candidates. This is structurally the same as a
+locally irrational action (temporarily negative \(\eta_M\)) at the
+individual level: a perturbation that generates a new starting point for
+the \(M \times \mathcal{A} \times K\) cross-product to be evaluated by
+\(W\). The two mechanisms occupy a spectrum: at one end, random mutation
+with binary survival feedback (evolution); at the other, directed update
+via continuous \(\delta\) carrying full gradient information (individual
+learning). Gradient descent is the efficient limit of this spectrum
+under two conditions: (i) \(\delta\) carries directional information in
+\(A\) --- not merely pass/fail, but a signed deviation identifying which
+aspect of \(a_i\) was insufficient at \(w\); and (ii) \(M\) can use that
+directional information to bias the update toward lower \(U\) rather
+than generating a random candidate. When both conditions hold, each
+evaluation step directly reduces \(U\). When neither holds, the
+mechanism is random search with \(W\)-evaluation. Real learning systems
+occupy positions between these limits; signal informativeness determines
+how closely the process approximates directed gradient descent.
+
+\textbf{Remark (Multi-timescale Structure of Evaluation-Driven
+Revision).} Individual learning and evolutionary selection share a
+common structure: execute, receive signal, retain or revise. The
+mechanisms and mathematical objects differ in kind.
+
+For individual learning, the mechanism is directed: the gradient signal
+\(\delta\) arrives from a specific failure, \(M\) updates \((A, K)\) in
+the direction that reduces \(U\):
+
+\[\Delta A_{\text{individual}} = -\eta_{\text{ind}} \nabla_A \, U(w, K)\]
+
+For evolutionary selection, the mechanism is undirected: random mutation
+perturbs the \(L_0\) encoding of \((A, K, M, \mathcal{A})\), generating
+candidate configurations. \(W\) evaluates each through survival. The
+aggregate population-level distribution shifts toward configurations
+with lower \(\mathbb{E}[U]\), but no individual organism descends a
+gradient --- the gradient is revealed by differential survival of
+randomly generated candidates. The notation
+\(\Delta A_{\text{species}}\) denotes the shift in the population
+distribution over \(A\)-variants, not a gradient step by any individual:
+
+\[\Delta A_{\text{species}} = \operatorname{select}(\operatorname{mutate}(A_{\text{population}}))\]
+
+Both processes are instances of the same structure: generate a candidate
+state, submit to \(W\)'s evaluation, retain if valid. Gradient descent
+(\(\Delta A_{\text{individual}}\)) is the efficient limit when signals
+are informative enough to direct updates. Mutation followed by selection
+(\(\Delta A_{\text{species}}\)) is the same mechanism without the
+directed signal. This structural equivalence is not an identity ---
+mechanisms, timescales, and mathematical objects are all distinct ---
+but it grounds the common observation that both processes move toward
+lower \(U\) at their respective timescales, and grounds a provable
+consequence in Part II.
+
+\emph{Derivation.}
+
+\textbf{Part I (Common structure, different mechanisms).} Individual
+learning updates \(A\) for a single entity based on \(U(w, K)\) at
+specific world states \(w\) encountered by that entity. Evolutionary
+change operates on a different object: it updates the population-level
+distribution over \(A\)-variants through differential reproduction of
+randomly generated candidates. These are not the same mathematical
+operation --- individual learning changes a function within one agent
+via directed update; evolutionary change changes a probability
+distribution over many agents via undirected mutation and selection. The
+common structure is: generate a new internal state, submit it to \(W\)'s
+evaluation, retain if valid. Gradient descent is the efficient limit of
+this structure; random mutation followed by selection is the general
+case.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Part II (\(\eta_{\text{evo}} \ll \eta_{\text{ind}}\) follows
 from Theorem 4).} The learning rate \(\eta_i\) at encoding level \(L_i\)
@@ -1665,6 +2123,7 @@ anything persists in the first place.
 
 \textbf{Part 1 (Necessity of \(\mathcal{A} > 0\)).} Suppose
 \(\mathcal{A}(E) = 0\). By Definition 6, \(E\) does not respond to
+<<<<<<< HEAD
 gradient signals from \(W\): \((F(t), K(t)) = (F(0), K(0))\) for all
 \(t\). By Theorem 3 Part II, the frontier of \(\mathcal{T}_{reachable}\)
 grows strictly beyond what any finite \(K(0)\) covers: at every time
@@ -1679,6 +2138,44 @@ every action \(E\) takes, even with fixed \((F,K)\). By Definition 9,
 \(E\) does not survive in any domain containing such states. Selection
 removes it. Any entity that persists must have reduced \(U\) --- i.e.,
 must have \(\mathcal{A} > 0\). \(\square\)
+=======
+gradient signals from \(W\): \((A(t), K(t)) = (A(0), K(0))\) for all
+\(t\). \(W\) is a physical state space with positive entropy: it
+generates novel configurations that no finite \(K(0)\) anticipates. This
+is not a modeling assumption but a thermodynamic fact --- any \(W\) with
+energy gradients produces states not represented in a fixed, finite
+knowledge graph. Since \(K(0)\) is fixed and was not constructed with
+these novel states in mind, \(U(w, K(0))\) is unconstrained there.
+
+The selection argument does not require that any single entity
+encounters lethal novelty within its lifetime. It operates on lineages.
+An entity with \(\mathcal{A} = 0\) reproduces copies of itself ---
+copies that inherit the same fixed \((A(0), K(0))\). Those copies
+disperse across \(W\). In a world with positive entropy, the lineage's
+collective coverage of \(W\) grows with each generation, even though
+each individual's \((A, K)\) is static. The lineage therefore encounters
+the novel configurations that \(W\) generates: states where
+\(U(w, K(0)) > U_{lethal}^d\) (Definition 5a). No copy can adapt
+(\(\mathcal{A} = 0\)); copies in those regions are removed. Copies in
+stable niches persist temporarily, but the niches themselves are not
+permanent --- \(W\) has positive entropy, so no region stays static
+indefinitely. The \(\mathcal{A} = 0\) lineage contracts as its
+environment shifts until it is eliminated. Selection removes the lineage.
+Any lineage that persists must contain entities that update \((A, K)\)
+--- i.e., entities with \(\mathcal{A} > 0\).
+
+The mechanism by which \(\mathcal{A} > 0\) is enforced is
+timescale-specific. At the individual learning timescale: entities with
+\(\mathcal{A} = 0\) do not engage \(M\) on gradient signals and are
+directly removed. At the evolutionary timescale: lineages that fail to
+produce offspring with \(\mathcal{A} > 0\) are eliminated through
+differential reproduction --- no individual requires \(\mathcal{A}\)
+explicitly; the population-level filter enforces the property on
+lineages. At the cultural timescale: groups that do not maintain the
+institutional equivalent of \(\mathcal{A}\) (the drive to reduce shared
+uncertainty) are outcompeted. The necessity is universal; the
+enforcement mechanism is timescale-specific. \(\square\)
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Part 2 (Necessity of \(\eta_M > 0\)).} Suppose
 \(\mathcal{A}(E) > 0\) but \(\eta_M(E) \leq 0\).
@@ -1816,6 +2313,7 @@ successive trajectories: an entity with high \(I(E)\) builds better
 for an entity with low \(I(E)\) starting from identical initial
 conditions.
 
+<<<<<<< HEAD
 Agency does not merely incline an entity toward uncertainty reduction in
 the abstract. \textbf{Agency manifests as a trajectory}: a sequence of
 informed actions the entity selects and executes over time. Each action
@@ -2064,6 +2562,21 @@ produces \((F, K)\).
 Participation in the collective graph is the substrate for
 superintelligence; guided normalization is the activity on that
 substrate. Two operations remain required:
+=======
+Agency manifests as a trajectory \(\tau\): a sequence of informed
+actions selected and executed over time. Each action reduces \(U\),
+returns a learning signal to \(M\), and \(M\) uses that signal to
+improve \((A, K)\) for the next action. Intelligence is not visible in
+any single step; it is the rate at which the steps improve.
+
+\subsubsection{Conclusion}\label{conclusion}
+
+The formal results establish a minimal structural account of
+intelligence under bounded context. The account rests on four
+primitives: a world state space \(W\) generating uncertainty, a bounded
+active context \(C_n\), a survival threshold \(U_{lethal}^d\), and a
+growing reachable space \(\mathcal{T}_{reachable}\). From these:
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \begin{itemize}
 \tightlist
@@ -2072,6 +2585,7 @@ substrate. Two operations remain required:
   by \(A\), with an asymmetric retention criterion derived from survival
   pressure (Theorem 1).
 \item
+<<<<<<< HEAD
   \textbf{Intersection}: independent convergence with provenance: the
   cross-dimensional factors visible only from multiple projections are
   confirmed by agreement, not asserted by one
@@ -2293,6 +2807,11 @@ lethality, not their cause:
 
 \begin{itemize}
 \tightlist
+=======
+  Graph-structured \(K\) is necessary: bounded context requires
+  progressive disclosure, which requires sub-linear retrieval, which
+  requires stored adjacency --- a graph (Theorems 2b, 2c).
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \item
   Escalation is necessary for top-down allocation to remain viable:
   bottom-up failure signaling keeps \(k\) bounded, preserving the

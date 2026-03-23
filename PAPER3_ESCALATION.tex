@@ -14,7 +14,11 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
+<<<<<<< HEAD
 \title{Escalation Dominates Top-Down Allocation\\Under Bounded Context}
+=======
+\title{Convergence of Control Architectures\\to Escalation Under Bounded Context}
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -22,6 +26,7 @@
 \maketitle
 
 \begin{abstract}
+<<<<<<< HEAD
 Top-down allocation --- where a supervisory process directs
 subproblems to lower levels --- is viable when the action repertoire
 $|A|$ fits within bounded active context $C_n$. We prove that once
@@ -39,6 +44,32 @@ intelligent system operates beyond the crossover. Escalation dominance
 is not a universal claim but a scaling result: top-down wins early,
 escalation wins at every scale that matters. This is a formal critique
 of precision allocation models including the Free Energy Principle
+=======
+Top-down allocation---where a supervisory process directs subproblems
+to lower levels---is viable when the concurrent delegation count $k$
+fits within bounded active context $C_n$. We prove that as the action repertoire $|A|$ grows under bounded
+$C_n$, concurrent supervisory demands $k$ grow because total domain
+knowledge $|K|$ grows with $|A|$, exposing more dependency chains to
+evidence revision. Any control architecture that remains viable must
+progressively shed supervisory tracking of routine actions, offloading
+them to autonomous lower levels that signal upward only on failure. This shedding \emph{is} escalation.
+This monotone increase in the escalation fraction is not a design
+choice but a scaling consequence:
+maintaining top-down tracking incurs $O(k \cdot \alpha)$ context
+overhead, which fills $C_n$ as capability grows, degrading inference
+quality for novel problems. The crossover occurs when $k \cdot \alpha
+\geq C_n / 2$---for biological working memory, at 2--3 concurrent
+delegations. Beyond the crossover, the only recovery is to stop
+tracking routine actions, which is to adopt escalation for those
+actions. Hierarchical decomposition delays the crossover (each level
+sees only $O(b)$ subordinates) but does not eliminate it: the number
+of management levels grows with $|A|$, consuming encoding capacity.
+As hierarchical top-down becomes more autonomous at lower levels, it
+converges toward escalation. The pressure is one-directional:
+escalation never converges toward top-down, because it never
+introduces anticipatory delegation context. This result refines
+precision allocation models including the Free Energy Principle
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \cite{Friston2010,Friston2017} and the System~M routing architecture
 of Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.
 \end{abstract}
@@ -52,12 +83,22 @@ Every system that acts under uncertainty must solve a control problem:
 which problems receive active reasoning, and which are handled by
 automatic, pre-encoded responses? This question is distinct from the
 content of reasoning; it concerns the \emph{architecture of
+<<<<<<< HEAD
 attention}. Under bounded active context $C_n$ --- a hard limit on the
 number of propositions simultaneously available for inference --- the
 control architecture is not a free parameter but a survival-critical
 design choice.
 
 Two competing architectures present themselves:
+=======
+attention}. Under bounded active context $C_n$---a hard limit on the
+number of propositions simultaneously available for inference, the
+formal analogue of Simon's bounded rationality
+\cite{Simon1955,Simon1962}---the control architecture is not a free
+parameter but a survival-critical design choice.
+
+Two complementary mechanisms address this problem:
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \begin{enumerate}
 \item \textbf{Top-down allocation.} A supervisory process at the
@@ -74,13 +115,18 @@ Two competing architectures present themselves:
    System~1.
 
 \item \textbf{Escalation.} Lower levels handle problems autonomously.
+<<<<<<< HEAD
    Higher levels engage only when lower levels fail --- that is, when
+=======
+   Higher levels engage only when lower levels fail, that is, when
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
    uncertainty cannot be bounded at the current level. This
    architecture is implicit in Global Workspace Theory
    \cite{Baars1988,Dehaene2011}, where local processors broadcast to
    the global workspace only when local resolution fails.
 \end{enumerate}
 
+<<<<<<< HEAD
 At small scale --- when $|A| \leq C_n$, so the entire action repertoire
 fits in active context --- top-down allocation is viable and may even be
 preferable: the supervisor can hold complete state with room to spare,
@@ -101,11 +147,43 @@ quality as capability grows, with recovery requiring $C_n$ to grow
 linearly with capability --- a condition no bounded system can satisfy.
 Section~5 compares the two architectures directly. Section~6 engages
 with prior work.
+=======
+At small scale, when the entire action repertoire fits in active
+context, top-down allocation is viable and may be preferable: the
+supervisor can hold complete state with room to spare, and the benefit
+of optimal routing outweighs the modest overhead. Intelligence,
+however, requires $|A| \gg C_n$: an entity must know far more than it
+can hold in mind at once. This paper proves that as $|A|$ grows under
+bounded $C_n$, any viable control architecture converges toward
+escalation properties. The convergence is not a design preference but
+a scaling consequence: maintaining top-down tracking incurs context
+overhead that grows with capability, eventually filling $C_n$ and
+degrading the very inference the supervisor is meant to optimize.
+As in \cite{McCarthy2026a}, ``necessary'' here means necessary for
+persistence under competition---selective necessity, not logical
+impossibility of alternatives. The
+only recovery is to stop tracking routine actions---which is to adopt
+escalation for those actions.
+
+The proof proceeds as follows. Section~2 introduces the encoding
+hierarchy $E(c,r)$ and the formal definitions required for the result.
+Section~3 defines the escalation policy: informed
+actions are handled at the lowest sufficient level. Section~4 proves
+the central result (Theorem~2): top-down allocation incurs $O(k
+\cdot \alpha)$ context cost, and any mechanism that keeps top-down
+viable at scale necessarily converges toward escalation. Section~5
+compares the two architectures directly. Section~6 engages with prior
+work.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 This paper is the second in a series. Paper~1 \cite{McCarthy2026a}
 established that any system accumulating knowledge under bounded
 context necessarily maintains graph structure. The present paper
+<<<<<<< HEAD
 addresses how that structure is \emph{controlled} --- how problems are
+=======
+addresses how that structure is \emph{controlled}: how problems are
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 routed through the encoding hierarchy.
 
 % ------------------------------------------------------------------
@@ -114,7 +192,11 @@ routed through the encoding hierarchy.
 % ------------------------------------------------------------------
 
 We introduce the minimal definitions required for the main results.
+<<<<<<< HEAD
 We inherit the world state space $W$, proposition, knowledge base $K$,
+=======
+We inherit the world state space $W$, the notion of proposition, knowledge base $K$,
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 uncertainty $U(w,K) = -\log P(w \mid K)$ \cite{Cover2006}, and bounded
 active context $C_n$ from \cite{McCarthy2026a}. An \emph{informed
 action} $a \in A$ is an action grounded in propositions from $K$; we
@@ -174,7 +256,11 @@ The \emph{active context capacity} $C_n$ is bounded: $|\mathrm{ctx}(L_n,
 t)| \leq C_n$. For an informed action $a$, the \emph{relevance
 density} at $L_n$ is:
 \[
+<<<<<<< HEAD
 \rho(L_n, f) = \frac{|K^{[a]}|}{|\mathrm{ctx}(L_n, t)|}
+=======
+\rho(L_n, a) = \frac{|K^{[a]}|}{|\mathrm{ctx}(L_n, t)|}
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \]
 where $K^{[a]} \subseteq K$ is the knowledge relevant to $a$.
 $\rho = 1$ is maximum signal: active context holds exactly what $a$
@@ -204,6 +290,7 @@ least one proposition specifying what was delegated.
 \label{sec:escalation}
 % ------------------------------------------------------------------
 
+<<<<<<< HEAD
 \begin{theorem}[Escalation]
 \label{thm:escalation}
 Under the encoding hierarchy (Definition~\ref{def:hierarchy}), the
@@ -258,20 +345,80 @@ strictly positive cost premium: they are not cost-optimal under bounded
 context. The claim is normative (escalation is optimal) rather than
 descriptive (all systems escalate).
 \end{proof}
+=======
+\begin{definition}[Escalation Policy]
+\label{def:escalation}
+Under the encoding hierarchy (Definition~\ref{def:hierarchy}), the
+\emph{escalation policy} handles each action $a$ at the lowest level
+$L_i$ such that the knowledge encoded at $L_i$ is sufficient to bound
+uncertainty for $a$. Escalation to $L_{i+1}$ occurs if and only if
+$L_i$ fails to bound uncertainty.
+\end{definition}
+
+\textbf{Observation.} The escalation policy is cost-minimizing under
+monotone cost. Since $c(L_{i+1}) > c(L_i)$ by
+Definition~\ref{def:hierarchy}, handling $a$ at any level higher than
+the lowest sufficient level pays strictly more for the same uncertainty
+reduction. If $j = n$, handling $a$ at $L_n$ also consumes bounded
+active context, reducing $\rho$ for the next novel problem. The
+escalation policy is strictly dominant on both cost and context
+conservation. This is immediate from the monotone cost structure and
+requires no proof.
+
+The substantive question is not whether escalation is cost-minimizing
+---it is, by construction---but whether bounded systems \emph{converge
+toward} escalation as they scale. That is the content of
+Theorem~\ref{thm:topdown}.
+
+\textbf{Remark.} The escalation policy does not claim that all systems
+\emph{implement} escalation. Path dependence, architectural
+constraints, and design choices can produce systems that use higher
+levels than necessary. Such systems pay a strictly positive cost
+premium. The claim is normative (escalation is cost-optimal) rather
+than descriptive (all systems escalate).
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \begin{corollary}[Context Window as Frontier]
 \label{cor:frontier}
 $L_n$ is the frontier of unbounded uncertainty, not the seat of
 intelligence. A problem reaching $L_n$ is evidence of failure at every
 lower level. An entity that routes most problems through $L_n$ is not
+<<<<<<< HEAD
 ``thinking more'' --- it is failing to encode.
 \end{corollary}
 
+=======
+``thinking more''; it is failing to encode.
+\end{corollary}
+
+\textbf{Remark (Free context).}
+The quantity that escalation preserves is \emph{free context}:
+$C_{\mathrm{free}}(t) = C_n -
+|\mathrm{ctx}_{\mathrm{unresolved}}(t)|$, the active context capacity
+available for novel problems after existing commitments. Under
+top-down allocation, delegation overhead reduces
+$C_{\mathrm{free}}$ by $k \cdot \alpha$
+(Theorem~\ref{thm:topdown}). Under escalation, routine actions
+consume zero $L_n$ capacity, so $C_{\mathrm{free}}$ is bounded below
+only by the current novel problem. Escalation is the control
+architecture that maximizes $C_{\mathrm{free}}$; this is the
+mechanism by which capability growth \emph{relieves} rather than
+burdens the highest encoding level. Escalation protects
+$C_{\mathrm{free}}$: graph structure creates it by compressing
+shared propositions, knowledge curation maintains it by displacing
+low-value propositions, and escalation shields it from supervisory
+overhead.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \begin{corollary}[Simultaneous Multi-Level Activity]
 \label{cor:simultaneous}
 All levels of the hierarchy operate concurrently. $L_0$ handles
 heritable responses, $L_1$ handles developmental encodings, and
+<<<<<<< HEAD
 intermediate levels handle their respective domains ---
+=======
+intermediate levels handle their respective domains,
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 simultaneously. $L_n$ handles only the residual: problems that no
 lower level can resolve. The escalation architecture does not
 serialize processing through a hierarchy; it parallelizes across levels,
@@ -279,16 +426,25 @@ with upward propagation occurring only on failure.
 \end{corollary}
 
 % ------------------------------------------------------------------
+<<<<<<< HEAD
 \section{Top-Down Allocation Degrades Inference Quality}
 \label{sec:topdown}
 % ------------------------------------------------------------------
 
 \begin{theorem}[Top-Down Allocation Degrades Inference Quality]
+=======
+\section{Convergence to Escalation Under Bounded Context}
+\label{sec:topdown}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Convergence to Escalation at Scale]
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \label{thm:topdown}
 Under top-down allocation, the supervisory level $L_n$ must maintain
 delegation state for managed subprocesses
 (Definition~\ref{def:delegation}). Let $k(t)$ be the number of
 concurrent delegations at time $t$. The relevance density for a novel
+<<<<<<< HEAD
 problem $f_{\mathrm{novel}}$ is:
 \[
 \rho(L_n, f_{\mathrm{novel}}) =
@@ -298,17 +454,57 @@ problem $f_{\mathrm{novel}}$ is:
 If $k(t)$ grows with $|A|$, then $\rho \to 0$ as $|A| \to \infty$.
 Recovery requires growing $C_n$ with $k(t)$ --- a condition no bounded
 system can satisfy.
+=======
+problem $a_{\mathrm{novel}}$ is:
+\[
+\rho(L_n, a_{\mathrm{novel}}) =
+\frac{|K^{[a_{\mathrm{novel}}]}|}{|K^{[a_{\mathrm{novel}}]}| + k(t)
+\cdot \alpha}
+\]
+\textbf{Assumption} (concurrent demand growth): $k(t) \to \infty$ as
+$|A| \to \infty$. Section~\ref{sec:crossover} justifies this from the
+dependency structure of $K$. Given this assumption, as $|A|$ grows
+under bounded $C_n$:
+\begin{enumerate}
+\item[(i)] $\rho \to 0$: inference quality degrades monotonically.
+\item[(ii)] Recovery requires either growing $C_n$ (impossible under
+   boundedness) or reducing $k$---that is, shedding supervisory
+   tracking of actions that lower levels can handle autonomously.
+\item[(iii)] The shed actions are, by definition, operating under
+   escalation: handled at the lowest sufficient level, with upward
+   signaling only on failure.
+\end{enumerate}
+Let $\phi(t) = |\{a \in A(t) : a \text{ operates under escalation}\}|
+/ |A(t)|$ be the fraction of the action repertoire under escalation.
+Since at most $k^* = C_n / (2\alpha)$ actions can be under active
+top-down supervision simultaneously (Section~\ref{sec:crossover}),
+\[
+\phi(t) \;\geq\; \frac{|A(t)| - k^*}{|A(t)|} \;=\; 1 - \frac{k^*}{|A(t)|}
+\]
+As $|A| \to \infty$ under bounded $C_n$, $\phi \to 1$. The bound
+$k^*$ is fixed by substrate ($C_n$ and $\alpha$ are constants), so
+the escalation fraction approaches unity not because every action is
+shed but because the number of actions that \emph{can} remain under
+top-down supervision is bounded while the total repertoire grows
+without bound.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \end{theorem}
 
 \begin{proof}
 Under top-down allocation, $L_n$ serves two simultaneous functions:
+<<<<<<< HEAD
 (a) reasoning about the novel problem $f_{\mathrm{novel}}$, requiring
 $|K^{[f_{\mathrm{novel}}]}|$ context slots, and (b) maintaining
+=======
+(a) reasoning about the novel problem $a_{\mathrm{novel}}$, requiring
+$|K^{[a_{\mathrm{novel}}]}|$ context slots, and (b) maintaining
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 delegation state for $k(t)$ concurrently managed subprocesses, each
 consuming $\alpha$ context slots (Definition~\ref{def:delegation}).
 
 The total context consumed is:
 \[
+<<<<<<< HEAD
 |\mathrm{ctx}(L_n, t)| = |K^{[f_{\mathrm{novel}}]}| + k(t) \cdot \alpha
 \]
 
@@ -401,6 +597,166 @@ is not intelligent but reactive. Every physical system that we
 recognize as intelligent --- from insects routing foraging with stigmergic
 signals to humans operating with $\sim$7 active context slots across
 thousands of learned skills --- operates well beyond the crossover.
+=======
+|\mathrm{ctx}(L_n, t)| = |K^{[a_{\mathrm{novel}}]}| + k(t) \cdot \alpha
+\]
+
+Since $\alpha > 0$, any growth in $k(t)$ increases the denominator
+while the numerator $|K^{[a_{\mathrm{novel}}]}|$ is bounded per
+problem. This establishes Part~(i): $\rho$ decreases monotonically
+with $k(t)$.
+
+\textbf{Part (ii): the dilemma at scale.} By premise, $k(t)$ grows
+with $|A|$. Under flat top-down, the supervisor tracks all active
+processes directly. Under hierarchical top-down with branching factor
+$b$, each supervisory level tracks $b$ subordinates across
+$\lceil \log_b |A| \rceil$ levels. In both architectures, the
+supervisory load at $L_n$ grows with the repertoire.
+
+The critical threshold occurs when $k(t) \cdot \alpha \geq C_n -
+|K^{[a_{\mathrm{novel}}]}|$: delegation overhead has consumed all
+context capacity not occupied by the current problem's knowledge. To
+maintain $\rho$ at a fixed level, $C_n$ must grow at least linearly
+with $k(t)$. But $C_n$ is bounded by substrate. The only alternative
+is to reduce $k$---to stop tracking actions that lower levels can
+handle without supervision.
+
+\textbf{Part (iii): shedding tracking is escalation.} A supervisor
+that delegates but does not track (fire-and-forget) holds no
+return-integration context and cannot evaluate, redirect, or integrate
+results; it is not supervising those actions. Those actions are
+self-managing: handled at the lowest sufficient level, with upward
+signaling only on failure. This is precisely the escalation policy
+(Definition~\ref{def:escalation}).
+
+The convergence follows: as $|A|$ grows, a viable system must shed
+top-down tracking of an increasing fraction of its repertoire. The
+shed fraction operates under escalation. The supervisor retains
+top-down control only for the residual that no lower level can
+handle---genuinely novel problems. The system has not abandoned
+top-down allocation; it has converged to a hybrid where escalation
+handles the routine and top-down handles the novel. This hybrid is
+the only architecture that remains viable under bounded $C_n$ as
+$|A| \to \infty$.
+\end{proof}
+
+\subsection{The crossover: when top-down yields to escalation}
+\label{sec:crossover}
+
+Top-down allocation is viable when delegation overhead fits comfortably
+within $C_n$. The crossover is defined in terms of \emph{concurrent
+delegations} $k$, not total repertoire $|A|$. An entity with
+10{,}000 learned actions does not supervise all 10{,}000
+simultaneously; $k$ is the number of subprocesses the supervisor is
+actively tracking at time $t$. The crossover occurs when:
+\[
+k^* \cdot \alpha = \frac{C_n}{2}
+\quad\Longrightarrow\quad
+k^* = \frac{C_n}{2\alpha}
+\]
+
+Below $k^*$, the supervisor retains at least $C_n/2$ slots for
+reasoning about novel problems. Above $k^*$, delegation overhead
+consumes the majority of $C_n$. The specific fraction $C_n/2$ is a
+convention, not a derived quantity; the qualitative result---a finite
+crossover exists---holds for any positive fraction. The quantitative
+estimate ($k^* = 2$--$3$ for humans) is sensitive to this choice.
+
+\textbf{Estimating the crossover.} The minimum delegation cost $\alpha$
+is at least 1: specifying ``what was delegated'' requires at least one
+proposition in context. Under Cowan's \cite{Cowan2001} revised estimate
+of working memory capacity ($C_n \approx 4$), the crossover is
+$k^* = 4/2 = 2$ concurrent delegations. Under Miller's more generous
+bound ($C_n \approx 7$), $k^* = 3.5$. A human supervisor can
+actively track 2--3 concurrent delegations before reasoning quality
+degrades. This aligns with the empirical observation that human
+``multitasking'' degrades performance sharply beyond two concurrent
+tasks: the delegation overhead of tracking a third task consumes the
+context needed to reason about any of them.
+
+\textbf{Justification of the concurrent demand growth assumption.}
+Theorem~\ref{thm:topdown} assumes $k(t) \to \infty$ as
+$|A| \to \infty$. We justify this with a simple model of evidence
+cascades.
+
+Let $|K|$ denote the number of propositions and $\bar{d}$ the average
+out-degree (number of dependents per proposition). Under positive
+novelty rate $\nu > 0$, evidence events arrive at rate $\nu$, each
+hitting one proposition and cascading to its dependents. Each cascade
+produces $\bar{d}$ propositions requiring re-evaluation. If the mean
+resolution time per proposition is $\tau$, the expected number of
+concurrently unresolved items is:
+\[
+\mathbb{E}[k] \;=\; \nu \cdot \bar{d} \cdot \tau
+\]
+A supervisor could batch multiple unresolved items into a single
+delegation (``handle all re-evaluations in domain $X$''). Batching
+reduces the number of tracked delegations but does not eliminate the
+overhead: specifying each batch still costs at least $\alpha$ per
+batch, and verifying that a batch was handled correctly requires
+loading its scope into context. Batching changes the constant in
+$k \cdot \alpha$ but not the scaling behavior as $|A| \to \infty$.
+
+The key: $\bar{d}$ grows with $|K|$. As $|A|$ grows, overlapping
+action policies share more propositions, and those shared propositions
+are extracted into $K$ (the normalization that any bounded system
+converges toward, since maintaining redundant copies exceeds $C_n$ as
+the repertoire scales). Paper~1 \cite{McCarthy2026a} establishes that
+edge density increases as $K$ matures (Corollary~1): $\bar{d}$ is
+monotonically non-decreasing in $|K|$. Since $|K|$ grows with $|A|$
+and $\bar{d}$ grows with $|K|$, we have:
+\[
+\mathbb{E}[k] \;=\; \nu \cdot \bar{d}(|K|) \cdot \tau
+\;\xrightarrow{|A| \to \infty}\; \infty
+\]
+provided $\nu > 0$ and $\tau > 0$ (resolution is not instantaneous).
+The growth is driven by edge densification: a richer knowledge base has
+a larger surface area for evidence to hit, producing more concurrent
+unresolved items per unit time.
+
+Under pure top-down, all concurrent unresolved items would require
+supervisory tracking, producing $k \gg k^*$. The only way to keep
+$k \leq k^*$ is to ensure that most concurrent demands are handled
+autonomously at lower levels---that is, under escalation. The larger
+$|A|$ grows, the larger the fraction that must operate under
+escalation to keep $k$ bounded. This is the convergence of
+Theorem~\ref{thm:topdown}(iii): escalation is not adopted as a
+design choice but forced by the scaling arithmetic.
+
+The crossover clarifies the scope of convergence. Top-down allocation
+is not wrong; it is viable at small scale, when concurrent demands fit
+within $C_n$. But intelligence requires $|A| \gg C_n$: an entity that
+can only act on what it can simultaneously hold in mind is not
+intelligent but reactive. Every physical system that we recognize as
+intelligent---from insects routing foraging with stigmergic signals to
+humans operating with ${\sim}7$ active context slots across thousands of
+learned skills---appears to have converged, consistent with the
+cost-minimization pressure of the escalation policy
+(Definition~\ref{def:escalation}):
+the vast majority of its repertoire operates under escalation, with
+top-down engagement reserved for novel coordination.
+
+\textbf{Time-multiplexing converges to escalation.}
+An objection: the supervisor need not hold all $k$ delegations
+simultaneously. It could round-robin, checking one subordinate at a
+time, clearing context between checks. This eliminates the simultaneous
+$k \cdot \alpha$ load. But consider what the supervisor must maintain
+across checks: a \emph{delegation list}---which subordinates were
+assigned which tasks---so it knows whom to check next. This list is the
+delegation context; storing it costs $k \cdot \alpha$ whether held in
+active context or reloaded from long-term storage (with context-switch
+cost $\gamma$ per reload). As $k$ grows, the total cycle time $k \cdot
+(\alpha + \gamma)$ grows, and the supervisor falls behind evidence
+arrival (rate $\nu$). The crossover still exists.
+
+The only way to eliminate the delegation list entirely is to stop
+tracking what was delegated: the supervisor holds zero delegation state
+and processes signals \emph{as they arrive from below}. But a
+supervisor with no delegation list that processes upward signals on
+arrival is not time-multiplexing top-down control---it is escalation
+(Section~\ref{sec:comparison}). Time-multiplexing does not
+avoid the convergence; it is a way station on the path toward it.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Cell division as illustration.} A single-celled organism can
 ``manage'' its repertoire top-down: the entire state fits in one
@@ -411,7 +767,11 @@ Biology's actual solution is a \emph{hybrid}: local autonomy (cells
 monitor nutrient gradients, contact inhibition, and growth factor
 concentrations) combined with systemic signaling (hormonal regulation,
 tumor suppressors, immune surveillance). The systemic signals are
+<<<<<<< HEAD
 genuine top-down control --- but they are \emph{broadcast} signals
+=======
+genuine top-down control, but they are \emph{broadcast} signals
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 (growth hormone affects all cells of the right type), not individual
 delegations (no central process tracks each cell's state). Broadcasting
 is $O(1)$ in delegation context: the signal is sent once regardless of
@@ -422,13 +782,22 @@ The hybrid architecture is precisely the crossover result: top-down
 broadcast control for system-wide coordination (below the crossover for
 broadcast), combined with local escalation for individual cell
 decisions (above the crossover for per-cell management). When the
+<<<<<<< HEAD
 systemic signaling fails --- when a cell ignores growth suppression
 signals --- the immune system engages: escalation on failure.
+=======
+systemic signaling fails, when a cell ignores growth suppression
+signals, the immune system engages: escalation on failure.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \subsection{The hierarchical top-down objection}
 
 The strongest objection to Theorem~\ref{thm:topdown} is that it attacks
+<<<<<<< HEAD
 flat top-down allocation --- a strawman. Real supervisory systems are
+=======
+flat top-down allocation, a strawman. Real supervisory systems are
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \emph{hierarchical}: a top level manages $b$ intermediaries, each
 managing $b$ sub-intermediaries, so that overhead at any single level is
 $O(b)$, not $O(|A|)$. Does hierarchical decomposition rescue top-down
@@ -438,16 +807,28 @@ No. The hierarchical decomposition is more subtle than the flat case,
 but it does not rescue top-down allocation. We address the strongest
 version of the objection directly.
 
+<<<<<<< HEAD
 \textbf{(1) $L_n$ sees only $O(b)$ overhead --- but the hierarchy has
 a different cost.}
 The strongest version of the hierarchical objection notes that $L_n$
 manages only $b$ direct subordinates, so overhead at $L_n$ is
 $b \cdot \alpha$ --- constant in $|A|$. The $\log_b |A|$ levels of
+=======
+\textbf{(1) $L_n$ sees only $O(b)$ overhead, but the hierarchy has
+a different cost.}
+The strongest version of the hierarchical objection notes that $L_n$
+manages only $b$ direct subordinates, so overhead at $L_n$ is
+$b \cdot \alpha$, constant in $|A|$. The $\log_b |A|$ levels of
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 overhead are distributed across intermediate levels, each with its own
 bounded context. No single level overflows. This is correct and is a
 genuine advantage of hierarchical decomposition over flat top-down.
 
+<<<<<<< HEAD
 However, the cost is not eliminated --- it is \emph{redistributed}.
+=======
+However, the cost is not eliminated; it is \emph{redistributed}.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 The hierarchy requires $\lceil \log_b |A| \rceil$ supervisory levels,
 each of which devotes $b \cdot \alpha$ of its context to delegation
 state. The number of management-dedicated levels grows with $|A|$.
@@ -498,12 +879,20 @@ not the cost asymptotic but the \emph{causal direction of engagement}:
 
 \item In escalation, the upper level \emph{did not initiate} anything.
    It holds zero context for problems handled below. It loads context
+<<<<<<< HEAD
    only when a failure signal arrives from below --- and in steady
+=======
+   only when a failure signal arrives from below, and in steady
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
    state, failures are rare because lower levels handle most problems.
    There is nothing to ``wait for'' because nothing was requested.
 \end{itemize}
 
+<<<<<<< HEAD
 This is not a quantitative difference in overhead --- it is a structural
+=======
+This is not a quantitative difference in overhead; it is a structural
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 difference in what context is held and why. Hierarchical top-down holds
 \emph{anticipatory context} (waiting for results that may or may not
 arrive). Escalation holds \emph{reactive context} (responding to
@@ -515,6 +904,7 @@ hierarchical top-down, the number of delegations \emph{increases with
 capability}: more capability means more subprocesses, each requiring a
 delegation slot.
 
+<<<<<<< HEAD
 \textbf{Remark on convergence.} Hierarchical top-down that is
 sufficiently deep, with intermediaries that handle most problems without
 escalating, begins to \emph{resemble} escalation. The intermediary that
@@ -524,6 +914,20 @@ The convergence is one-directional: as hierarchical top-down becomes
 more autonomous at lower levels, it converges toward escalation.
 Escalation never converges toward top-down, because it never introduces
 anticipatory delegation context.
+=======
+\textbf{Convergence of hierarchical top-down.} This is the central
+point. Hierarchical top-down that is sufficiently deep, with
+intermediaries that handle most problems without escalating, begins to
+\emph{resemble} escalation. The intermediary that resolves a problem
+without reporting upward is functioning as an escalation level: it
+holds no delegation context at the level above. The convergence is
+one-directional: as hierarchical top-down becomes more autonomous at
+lower levels, it converges toward escalation. Escalation never
+converges toward top-down, because it never introduces anticipatory
+delegation context. Hierarchical decomposition is not an alternative
+to escalation; it is the \emph{intermediate regime} through which
+top-down converges toward escalation as $|A|$ grows.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \subsection{Event-driven ``top-down'' and causal direction}
 
@@ -532,7 +936,11 @@ callbacks, holds zero delegation state, and is invoked by subsystems on
 completion or failure. This achieves escalation's $O(1)$ steady-state
 cost while retaining ``top-down authority.''
 
+<<<<<<< HEAD
 The issue is not one of labeling --- it is not that we absorb every
+=======
+The issue is not one of labeling; it is not that we absorb every
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 efficient architecture under the name ``escalation'' to make the thesis
 unfalsifiable. The issue is the \emph{causal direction of the signal}.
 The structural distinction between top-down and escalation is:
@@ -547,18 +955,32 @@ The structural distinction between top-down and escalation is:
 \end{itemize}
 
 In the event-driven architecture, who initiates the callback? The
+<<<<<<< HEAD
 \emph{subsystem}. The subsystem detected the condition --- whether
 completion or failure --- and sent the signal \emph{upward}. The upper
+=======
+\emph{subsystem}. The subsystem detected the condition, whether
+completion or failure, and sent the signal \emph{upward}. The upper
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 level did not poll, did not check, did not anticipate. It was invoked
 from below. This is bottom-up signaling regardless of what the
 architecture is called.
 
+<<<<<<< HEAD
 The claimed top-down authority --- the ability to initiate, cancel, or
 redirect --- is unavailable to a supervisor holding zero state. A
 supervisor with no delegation context does not know what is happening
 below and cannot redirect what it is not tracking. When the callback
 arrives, the supervisor must \emph{reload context} to interpret the
 result --- exactly what an escalation level does when a failure signal
+=======
+The claimed top-down authority, the ability to initiate, cancel, or
+redirect, is unavailable to a supervisor holding zero state. A
+supervisor with no delegation context does not know what is happening
+below and cannot redirect what it is not tracking. When the callback
+arrives, the supervisor must \emph{reload context} to interpret the
+result, exactly what an escalation level does when a failure signal
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 arrives.
 
 The point is not definitional but empirical: if you trace the causal
@@ -571,8 +993,13 @@ initial assignment; the ongoing control structure is escalation.
 \subsection{Hidden costs of escalation during learning}
 
 A second objection: escalation achieves $O(1)$ steady-state cost, but
+<<<<<<< HEAD
 this assumes lower levels are competent. During learning --- when lower
 levels frequently fail --- escalation produces frequent failure signals
+=======
+this assumes lower levels are competent. During learning, when lower
+levels frequently fail, escalation produces frequent failure signals
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 at $L_n$, burdening it with escalation context.
 
 This is correct but not fatal to the argument. During learning, both
@@ -582,13 +1009,19 @@ novel problems (the failures that escalate). The difference: under
 top-down, the overhead is \emph{additive} to the learning load
 (delegation context plus problem context). Under escalation, the
 overhead \emph{is} the learning load (failure context only). Escalation
+<<<<<<< HEAD
 during learning is not $O(1)$ --- it is $O(\text{failure rate} \cdot
 |K^{[a]}|)$ --- but it never exceeds the intrinsic difficulty of the
+=======
+during learning is not $O(1)$; it is $O(\text{failure rate} \cdot
+|K^{[a]}|)$, but it never exceeds the intrinsic difficulty of the
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 problems themselves. Top-down adds coordination overhead on top of
 intrinsic difficulty.
 
 As learning proceeds and lower levels encode proven actions, escalation
 load decreases monotonically. Top-down delegation overhead does not
+<<<<<<< HEAD
 decrease with learning --- it grows with the number of managed processes,
 which increases as the system becomes more capable.
 
@@ -596,15 +1029,29 @@ which increases as the system becomes more capable.
 
 A third objection: transformers with full self-attention --- the purest
 top-down architecture, where every token attends to every other --- have
+=======
+decrease with learning; it grows with the number of managed processes,
+which increases as the system becomes more capable.
+
+\subsection{Empirical success of dense attention}
+
+A third objection: transformers with full self-attention, the purest
+top-down architecture, where every token attends to every other, have
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 dominated alternative architectures for a decade. If top-down truly
 degraded, why does dense attention win?
 
 The answer is in the trajectory, not the snapshot. Dense attention
+<<<<<<< HEAD
 dominates \emph{today} at \emph{current scales}. But the trend is
+=======
+succeeds \emph{today} at \emph{current scales}. But the trend is
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 toward escalation-like structure:
 
 \begin{itemize}
 \item \textbf{Sparse attention} (learned sparsity patterns, local
+<<<<<<< HEAD
    windows, routing) reduces $O(n^2)$ by learning which edges to keep
    --- learned graph pruning \cite{McCarthy2026a}.
 \item \textbf{Mixture-of-experts} routes tokens to specialized
@@ -622,11 +1069,34 @@ toward escalation-like structure:
 The industry is converging toward escalation. Dense attention is the
 starting point, not the destination. The cost pressures the theorem
 identifies are driving the convergence.
+=======
+   windows, routing) reduces $O(n^2)$ by learning which edges to
+   keep---learned graph pruning \cite{McCarthy2026a}.
+\item \textbf{Mixture-of-experts} routes tokens to specialized
+   sub-networks rather than evaluating all parameters for all tokens:
+   escalation at the parameter level.
+\item \textbf{Retrieval-augmented generation} retrieves relevant context
+   from an external store rather than holding everything in the context
+   window: graph traversal from a query node.
+\item \textbf{``Lost in the middle''} \cite{Liu2024}: empirical evidence
+   that inference quality degrades as context fills with irrelevant
+   content: precisely the $\rho$ degradation of
+   Theorem~\ref{thm:topdown}.
+\end{itemize}
+
+The industry is converging toward hybrid architectures that incorporate
+escalation. Dense attention is the starting point, not the destination.
+The cost pressures the theorem identifies are driving the convergence.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Remark: the LLM theory of the case.}
 Theorem~\ref{thm:topdown} does not claim that large language models
 \emph{cannot work}. Dense attention over a large context window is a
+<<<<<<< HEAD
 viable strategy as long as the context can cover the problem space ---
+=======
+viable strategy as long as the context can cover the problem space,
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 that is, as long as the system operates below the crossover
 (Section~\ref{sec:crossover}). Current LLMs succeed precisely because
 their context windows are large enough, relative to the problems they
@@ -638,13 +1108,22 @@ pairwise adjacency structure from scratch at every query: $O(n^2)$ per
 inference step. A system with stored adjacency pays $O(d)$ per
 retrieval, where $d$ is the local degree. The cost ratio grows
 quadratically with context size. For a 128k-token context window, the
+<<<<<<< HEAD
 system computes $\sim$$10^{10}$ pairwise attention weights per layer per
+=======
+system computes ${\sim}10^{10}$ pairwise attention weights per layer per
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 query, the vast majority of which are near-zero (irrelevant pairs). This
 is the computational cost of not having a graph.
 
 The theorem also predicts a ceiling. As the problems LLMs are asked to
+<<<<<<< HEAD
 solve grow in complexity --- requiring more knowledge, more reasoning
 steps, more integration across domains --- the context required grows
+=======
+solve grow in complexity, requiring more knowledge, more reasoning
+steps, more integration across domains, the context required grows
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 with the problem, and $\rho$ degrades: ``lost in the middle''
 \cite{Liu2024} is the empirical manifestation. Growing the context
 window defers the crossover but does not eliminate it, because the
@@ -652,7 +1131,11 @@ overhead of attending to irrelevant content grows quadratically while
 the benefit of additional context grows sub-linearly (most added context
 is irrelevant to any specific problem).
 
+<<<<<<< HEAD
 The LLM architecture is not invalidated by this result --- it is
+=======
+The LLM architecture is not invalidated by this result; it is
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \emph{located} by it. LLMs operate in the pre-crossover regime where
 dense top-down attention is functional but costly. The industry
 trajectory toward sparse attention, mixture-of-experts, and
@@ -660,6 +1143,7 @@ retrieval-augmented generation is movement toward the post-crossover
 architecture the theorem identifies as necessary: stored adjacency,
 selective retrieval, escalation on failure.
 
+<<<<<<< HEAD
 \textbf{Remark on scope.} Theorem~\ref{thm:topdown} is not a claim
 that top-down control is wrong in all cases. Occasional top-down
 intervention --- where $L_n$ deliberately overrides a lower-level
@@ -669,13 +1153,32 @@ architecture degrades under bounded $C_n$. The distinction is between
 top-down as occasional intervention (compatible with escalation) and
 top-down as the default routing mechanism (incompatible with bounded
 context).
+=======
+\textbf{Remark on scope.} Theorem~\ref{thm:topdown} does not claim
+that top-down control is unnecessary. Top-down allocation handles
+genuinely novel problems that no lower level can resolve, and
+occasional top-down intervention, where $L_n$ deliberately overrides a
+lower-level response, is a valid and sometimes necessary operation. The
+theorem establishes that top-down allocation as the \emph{sole} control
+architecture is unsustainable under bounded $C_n$. Escalation is what
+preserves the context capacity that top-down allocation needs. The
+distinction is between top-down as the exclusive routing mechanism
+(unsustainable under bounded context) and top-down as the
+highest-level component in a complementary architecture where
+escalation handles the routine.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \textbf{Biological measurement.} The empirical signature of escalation
 is the transition from active to automatic processing across skill
 acquisition. When an informed action $a$ is first learned, it consumes
 $L_n$ capacity: the learner must actively reason through each step. As
+<<<<<<< HEAD
 encoding proceeds --- as $K^{[a]}$ migrates from $L_n$ to lower levels
 --- $a$ ceases to consume $L_n$ capacity. This is precisely the
+=======
+encoding proceeds, as $K^{[a]}$ migrates from $L_n$ to lower levels,
+$a$ ceases to consume $L_n$ capacity. This is precisely the
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 escalation architecture: $a$ has been encoded at a level where it no
 longer requires active context. The ubiquity of this transition across
 motor learning, language acquisition, and expert skill development
@@ -699,7 +1202,11 @@ uncertainty for a given problem.
 \item \textbf{Steady-state context per problem:} $O(|K^{[a]}|)$.
    Only the knowledge relevant to the currently escalated problem
    occupies $L_n$. No delegation overhead is incurred because lower
+<<<<<<< HEAD
    levels are not ``managed'' --- they operate autonomously.
+=======
+   levels are not ``managed''; they operate autonomously.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \item \textbf{Effect of knowledge growth:} As $K$ grows and more
    actions are encoded at lower levels, \emph{fewer} problems reach
@@ -754,10 +1261,17 @@ Novel problems get $C_n - k\alpha$ \\
 
 Under escalation, a system that has encoded 10{,}000 actions at lower
 levels has \emph{more} active context available for novel problems than
+<<<<<<< HEAD
 when it had encoded 100 --- because 9{,}900 additional problems are
 now handled without $L_n$ engagement. Under top-down allocation, a
 system managing 10{,}000 subprocesses has \emph{less} active context
 available than when it managed 100 --- because 9{,}900 additional
+=======
+when it had encoded 100, because 9{,}900 additional problems are
+now handled without $L_n$ engagement. Under top-down allocation, a
+system managing 10{,}000 subprocesses has \emph{less} active context
+available than when it managed 100, because 9{,}900 additional
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 delegation slots consume context.
 
 This is not a quantitative difference but a qualitative inversion of
@@ -776,6 +1290,7 @@ problems.
 The Free Energy Principle \cite{Friston2010,Friston2017} posits that
 biological systems minimize variational free energy, with attention
 implemented as precision weighting: higher cortical levels set the gain
+<<<<<<< HEAD
 on prediction errors at lower levels. This is a top-down architecture
 in the sense of Theorem~\ref{thm:topdown}: the supervisory level must
 maintain a representation of expected precision for each lower-level
@@ -800,6 +1315,38 @@ monitored processes. Under bounded context, the overhead of maintaining
 precision weights for all channels eventually exceeds the benefit of
 optimal allocation, and escalation (where channels signal only on
 failure) achieves better inference quality at $L_n$.
+=======
+on prediction errors at lower levels. Precision weighting is not
+top-down delegation in the sense of Definition~\ref{def:delegation}---it
+does not track individual subproblems with return-integration context.
+It is a gain modulation mechanism: a higher level sets a parameter on a
+lower-level channel. The cost per channel is lighter than full
+delegation overhead.
+
+The convergence result still applies, because precision weighting has
+a nonzero cost per channel. Each precision parameter the higher level
+maintains is a representation it must hold, update, and evaluate against
+incoming prediction errors. At small scale, when the number of
+channels $k$ is modest, this cost fits comfortably within $C_n$ and
+precision weighting is viable---potentially optimal. As the system
+scales and $k$ grows, maintaining precision parameters for all channels
+consumes an increasing fraction of $C_n$. The system must shed active
+precision tracking for routine channels: channels whose prediction
+errors are consistently small no longer need higher-level gain
+modulation and can operate at locally set precision. This shedding is
+the same convergence Theorem~\ref{thm:topdown} identifies: at scale,
+the system retains active precision weighting only for channels with
+unresolved uncertainty and lets routine channels self-regulate.
+
+FEP's precision weighting is therefore an instance of the convergence,
+not an exception to it. At small scale, centralized precision
+allocation is viable. At scale, it converges toward a hybrid where
+most channels operate at locally determined precision (escalation) and
+higher-level precision allocation is reserved for channels where
+prediction errors signal genuine novelty. The two mechanisms are
+complementary: escalation handles routine precision; active allocation
+directs the bounded capacity that remains.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \subsection{System M: Dupoux, LeCun, and Malik}
 
@@ -814,6 +1361,7 @@ This is explicitly top-down: M sits above A and B, monitoring their
 states and directing their activity. Theorem~\ref{thm:topdown}
 establishes that M's monitoring itself consumes $C_n$ proportionally
 to the number of subsystems and channels it oversees. As the
+<<<<<<< HEAD
 architecture scales --- more world models, more action policies, more
 channels --- M's overhead grows, eventually crowding out the capacity
 for the reasoning that M is supposed to coordinate.
@@ -825,6 +1373,21 @@ all subsystems for state. Under escalation, M engages only when a
 subsystem cannot resolve its own uncertainty --- and the overhead at
 M's level is proportional to the \emph{failure rate}, not the
 \emph{system size}.
+=======
+architecture scales, more world models, more action policies, more
+channels, M's overhead grows, eventually crowding out the capacity
+for the reasoning that M is supposed to coordinate.
+
+Their architecture would benefit from complementing top-down routing
+with escalation: subsystems A and B signal M only on failure (when
+local uncertainty exceeds a threshold), rather than M continuously
+polling all subsystems for state. Under this hybrid, M retains
+authority for genuinely novel coordination but engages only when a
+subsystem cannot resolve its own uncertainty, so the overhead at
+M's level is proportional to the \emph{failure rate}, not the
+\emph{system size}. Escalation is what keeps M viable as the
+architecture scales.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \subsection{Global Workspace Theory}
 
@@ -838,12 +1401,23 @@ workspace is the cognitive analogue of escalation to $L_n$.
 Theorem~\ref{thm:topdown} provides the formal grounding that GWT
 assumes architecturally. GWT \emph{asserts} that local processors
 handle routine work and the global workspace handles exceptions;
+<<<<<<< HEAD
 Theorem~\ref{thm:escalation} \emph{derives} the escalation criterion
 from uncertainty-reduction cost, and Theorem~\ref{thm:topdown}
 \emph{proves} why the alternative (top-down allocation from the global
 workspace) fails. The $O(k \cdot \alpha)$ overhead is the formal
 reason why global workspace engagement must be the exception rather
 than the rule.
+=======
+the escalation policy (Definition~\ref{def:escalation}) identifies the
+cost-minimizing criterion from the monotone cost structure, and
+Theorem~\ref{thm:topdown}
+\emph{proves} why the global workspace requires escalation to remain
+viable. The $O(k \cdot \alpha)$ overhead is the formal
+reason why global workspace engagement must be the exception rather
+than the rule: escalation keeps $k$ bounded so the workspace retains
+capacity for genuine integration.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \subsection{System 1 and System 2}
 
@@ -862,17 +1436,139 @@ costs and different revisability. The binary collapses this structure
 into a distinction that, while useful for popular exposition, obscures
 the continuous nature of encoding and the multiplicity of interfaces.
 
+<<<<<<< HEAD
 Theorem~\ref{thm:escalation} also corrects the implicit control
+=======
+The escalation policy also corrects the implicit control
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 assumption: System~2 does not ``decide'' when to override System~1.
 Rather, System~1 (lower levels) handles problems autonomously, and
 System~2 ($L_n$) engages when System~1 fails. The direction of
 control is bottom-up, not top-down.
 
+<<<<<<< HEAD
+=======
+\subsection{Automatic and Controlled Processing}
+
+Shiffrin and Schneider \cite{ShiffrinSchneider1977} established the
+foundational distinction between automatic processing (fast, parallel,
+low-effort, not limited by capacity) and controlled processing (slow,
+serial, effortful, capacity-limited). Automatic processing corresponds
+to actions encoded at lower levels of $E(c,r)$; controlled processing
+corresponds to $L_n$. Their key empirical finding---that practice
+converts controlled processing into automatic processing---is exactly
+the promotion mechanism of the encoding hierarchy: repeated successful
+execution at $L_n$ promotes an action to lower encoding levels, freeing
+$C_n$ for novel problems.
+
+Anderson's ACT-R \cite{Anderson1993} formalizes this as
+proceduralization: declarative knowledge (propositions in $K$ loaded
+into active context for deliberate use) compiles into procedural
+knowledge (condition-action rules that fire without loading $K$). In
+the present framework, proceduralization is movement along $E(c,r)$
+from high-cost, high-reversibility regions toward low-cost,
+low-reversibility regions. ACT-R's activation-based retrieval---where
+propositions compete for limited working memory based on
+recency, frequency, and contextual relevance---is a specific
+implementation of contextual retrieval under bounded $C_n$.
+
+Both frameworks describe the empirical trajectory that escalation
+predicts: as entities scale their action repertoire, an increasing
+fraction of actions must operate automatically (at lower encoding
+levels) because controlled processing at $L_n$ cannot supervise
+them all. The convergence result (Theorem~\ref{thm:topdown}) provides
+the formal reason: the $O(k \cdot \alpha)$ overhead forces this
+transition regardless of substrate.
+
+\subsection{Control Theory: Requisite Variety and the Good Regulator}
+
+Three results from control theory provide formal antecedents for the
+convergence result.
+
+\textbf{Ashby's Law of Requisite Variety} \cite{Ashby1956} establishes
+that a controller must have at least as many distinct responses as the
+disturbances it faces. Under bounded $C_n$, the regulator at $L_n$ has
+variety bounded by $C_n$. When the system's variety---the number of
+distinct situations requiring distinct responses---exceeds $C_n$, no
+single regulator at $L_n$ can achieve requisite variety. The only
+solution is to distribute the regulatory function across encoding
+levels, each regulating its local domain, with $L_n$ regulating only
+the residual that lower levels cannot handle. This distribution is
+escalation. Escalation is how a bounded regulator achieves requisite
+variety over an unbounded system: not by expanding the regulator's
+capacity (bounded by substrate) but by distributing regulation to
+levels where local variety is manageable.
+
+\textbf{The Conant-Ashby Good Regulator Theorem} \cite{ConantAshby1970}
+proves that every good regulator of a system must contain a model of
+that system. Under top-down allocation, the delegation state
+(Definition~\ref{def:delegation}---specification, expected return,
+integration context) \emph{is} this model: it is $L_n$'s
+representation of each subprocess it regulates. The good regulator
+theorem establishes that this overhead is not a design inefficiency but
+a \emph{theorem-mandated cost}: effective regulation requires the model,
+and the model requires context. The $O(k \cdot \alpha)$ overhead of
+Theorem~\ref{thm:topdown} is therefore irreducible for the supervised
+fraction of $A$. This strengthens the convergence argument: the
+overhead cannot be optimized away because it is the minimum model
+that the good regulator theorem demands.
+
+\textbf{Witsenhausen's counterexample} \cite{Witsenhausen1968}
+demonstrates that optimal decentralized control, where multiple
+controllers operate with different information, can be fundamentally
+harder than centralized control. Escalation is a decentralized
+architecture: each level controls with local information. In
+Witsenhausen's framework, this sacrifices the optimality that a
+centralized controller with full information could achieve. But
+bounded $C_n$ rules out the centralized option at scale: the good
+regulator theorem requires a model that exceeds $C_n$. The relevant
+comparison is not between escalation and an ideal centralized
+controller but between escalation and a centralized controller that
+has overflowed its context and can no longer regulate effectively.
+Survival does not require Witsenhausen-optimal control. It requires
+a viable architecture, and escalation is the viable architecture when
+the centralized alternative has been eliminated by bounded context.
+
+\subsection{Subsumption Architecture}
+
+Brooks's subsumption architecture \cite{Brooks1986} is the engineering
+instantiation of the convergence result. In subsumption, lower-level
+behavioral layers (obstacle avoidance, wandering) run autonomously and
+continuously. Higher layers (exploration, goal-seeking) can subsume
+lower-layer outputs when they have something to contribute, but do not
+monitor or schedule lower layers during routine operation. The control
+direction is bottom-up: lower layers act by default, higher layers
+intervene on exception.
+
+This is escalation. Each behavioral layer handles its local domain
+without supervisory overhead from above; higher layers engage only when
+lower layers produce outcomes that require coordination or override.
+Brooks arrived at this architecture empirically, by observing that
+centralized planners could not scale to real-time robotic control.
+Theorem~\ref{thm:topdown} derives the same conclusion formally: the
+$O(k \cdot \alpha)$ overhead of centralized supervision exceeds $C_n$
+at scale, forcing the system toward distributed local control with
+higher-level exception handling.
+
+The subsumption architecture also illustrates the one-directionality
+of the convergence. Brooks did not begin with escalation and converge
+toward centralized planning. He began with centralized planning
+(the STRIPS tradition), found it unscalable, and replaced it with
+subsumption. The reverse trajectory---starting from subsumption and
+converging toward centralized planning---has not occurred in the
+robotics literature, consistent with the irreversibility of escalation
+(Theorem~\ref{thm:topdown}).
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \subsection{Resource Rationality}
 
 Griffiths, Lieder, and Goodman \cite{GriffithsEtAl2015} establish
 that the optimal algorithm for a cognitive task depends on the
+<<<<<<< HEAD
 computational resources available --- resource rationality. The
+=======
+computational resources available: resource rationality. The
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 optimal unconstrained algorithm may be suboptimal under resource
 limitations.
 
@@ -881,21 +1577,34 @@ Top-down allocation may be the optimal control architecture when $C_n$
 is unbounded: with infinite active context, the overhead of maintaining
 delegation state for all subprocesses is negligible, and the benefit
 of optimal routing is maximal. Under bounded $C_n$, the overhead is
+<<<<<<< HEAD
 no longer negligible, and escalation --- a ``simpler'' architecture
 that does not attempt global optimization of routing --- dominates
 because it conserves the scarce resource (active context) for genuine
 inference rather than spending it on coordination.
+=======
+no longer negligible, and escalation becomes necessary to conserve the
+scarce resource (active context) for genuine inference rather than
+spending it on coordination.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 Resource rationality provides the general principle;
 Theorem~\ref{thm:topdown} provides the specific result for the
 control architecture domain: the resource-rational control
+<<<<<<< HEAD
 architecture under bounded context is escalation.
+=======
+architecture under bounded context is a hybrid where escalation
+handles routine problems and top-down allocation addresses the
+residual that only $L_n$ can resolve.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 % ------------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
 % ------------------------------------------------------------------
 
+<<<<<<< HEAD
 We have shown that escalation dominance is a \emph{scaling result}.
 Top-down allocation is viable --- and may be optimal --- when the action
 repertoire $|A|$ fits within bounded context $C_n$. But intelligence
@@ -929,11 +1638,54 @@ $L_n$ is the level of last resort, not the seat of control.
 Capability growth, under escalation, \emph{relieves} the highest level
 rather than burdening it. Under top-down allocation, capability growth
 \emph{burdens} the highest level until it saturates.
+=======
+We have shown that any control architecture converges toward
+escalation as the action repertoire $|A|$ grows under bounded context
+$C_n$. Top-down allocation is viable at small scale, when concurrent
+demands fit within $C_n$. But intelligence requires $|A| \gg C_n$,
+and the convergence is forced by three steps:
+
+\begin{enumerate}
+\item The escalation policy (Definition~\ref{def:escalation}) is
+   cost-minimizing under monotone encoding cost: handle each action at
+   the lowest sufficient level, escalate on failure. This is immediate
+   from the cost structure.
+
+\item Theorem~\ref{thm:topdown} establishes that top-down tracking
+   incurs $O(k \cdot \alpha)$ context overhead, and that reducing $k$
+   by shedding supervisory tracking of routine actions is the only
+   recovery under bounded $C_n$. The shed fraction operates under
+   escalation.
+
+\item The crossover analysis (Section~\ref{sec:crossover}) locates the
+   threshold at $k^* = C_n / 2\alpha$---2--3 concurrent delegations
+   for biological working memory. Beyond it, any additional concurrent
+   demand must be handled by escalation or inference quality degrades.
+\end{enumerate}
+
+The convergence is one-directional. As top-down becomes more
+autonomous at lower levels, it converges toward escalation.
+Escalation never converges toward top-down, because it never
+introduces anticipatory delegation context. The endpoint is a hybrid:
+escalation handles the routine; top-down handles the novel. Capability
+growth, under this hybrid, \emph{relieves} the highest level rather
+than burdening it.
+
+The falsifiable content of this result is the \emph{cost prediction},
+not the label. The claim is not that every efficient architecture is
+``really escalation''---which would be unfalsifiable by definitional
+absorption. The claim is that top-down tracking costs $O(k \cdot
+\alpha)$ per delegation cycle, and that $k$ grows with $|A|$ under
+positive novelty rate (Section~\ref{sec:crossover}). A system that
+maintains top-down tracking of all actions at scale without paying
+$O(k \cdot \alpha)$ overhead would falsify the theorem.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 This result has implications for both cognitive science and AI
 architecture. In cognitive science, it provides the formal grounding
 for Global Workspace Theory's architectural assumptions and corrects
 the implicit top-down control assumption in System~1/System~2 accounts.
+<<<<<<< HEAD
 In AI architecture, it identifies a structural ceiling on centralized
 routing: systems scaling beyond $|A|^*$ should implement escalation ---
 subsystems that operate autonomously and signal on failure --- rather
@@ -949,20 +1701,59 @@ bounded context (this paper). Together, these results constrain the
 architecture of any system that accumulates knowledge, acts under
 uncertainty, and operates within bounded active context --- which is
 every physical system that persists.
+=======
+In AI architecture, it explains the trajectory from dense attention
+toward sparse attention, mixture-of-experts, and retrieval-augmented
+generation: this trajectory is not a design trend but the scaling
+convergence the theorem predicts. Systems scaling beyond $k^*$
+\emph{must} adopt escalation-like structure or degrade.
+
+The series to this point has established two results: knowledge under
+bounded context necessarily forms a graph \cite{McCarthy2026a}; and
+the control architecture over that graph converges toward escalation
+as capability grows under bounded context (this paper). Together,
+these results constrain the architecture of any system that
+accumulates knowledge, acts under uncertainty, and operates within
+bounded active context---which is every physical system that persists.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, literature review, and \LaTeX{} preparation. All theoretical content, proofs, and arguments are the author's own.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \bibliographystyle{plain}
 \begin{thebibliography}{99}
 
+<<<<<<< HEAD
+=======
+\bibitem{Anderson1993}
+J.~R. Anderson.
+\newblock \emph{Rules of the Mind}.
+\newblock Lawrence Erlbaum Associates, 1993.
+
+\bibitem{Ashby1956}
+W.~R. Ashby.
+\newblock \emph{An Introduction to Cybernetics}.
+\newblock Chapman \& Hall, 1956.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \bibitem{Baars1988}
 B.~J. Baars.
 \newblock \emph{A Cognitive Theory of Consciousness}.
 \newblock Cambridge University Press, 1988.
 
+<<<<<<< HEAD
 \bibitem{Clark2015}
 A.~Clark.
 \newblock \emph{Surfing Uncertainty: Prediction, Action, and the Embodied
   Mind}.
 \newblock Oxford University Press, 2015.
+=======
+\bibitem{Brooks1986}
+R.~A. Brooks.
+\newblock A robust layered control system for a mobile robot.
+\newblock \emph{IEEE Journal on Robotics and Automation}, 2(1):14--23, 1986.
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 
 \bibitem{Cowan2001}
 N.~Cowan.
@@ -970,6 +1761,14 @@ N.~Cowan.
   mental storage capacity.
 \newblock \emph{Behavioral and Brain Sciences}, 24(1):87--114, 2001.
 
+<<<<<<< HEAD
+=======
+\bibitem{ConantAshby1970}
+R.~C. Conant and W.~R. Ashby.
+\newblock Every good regulator of a system must be a model of that system.
+\newblock \emph{International Journal of Systems Science}, 1(2):89--97, 1970.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \bibitem{Cover2006}
 T.~M. Cover and J.~A. Thomas.
 \newblock \emph{Elements of Information Theory}.
@@ -1032,11 +1831,28 @@ H.~A. Simon.
 \newblock \emph{Proceedings of the American Philosophical Society},
   106(6):467--482, 1962.
 
+<<<<<<< HEAD
+=======
+\bibitem{ShiffrinSchneider1977}
+R.~M. Shiffrin and W.~Schneider.
+\newblock Controlled and automatic human information processing: {II}.
+  Perceptual learning, automatic attending and a general theory.
+\newblock \emph{Psychological Review}, 84(2):127--190, 1977.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \bibitem{Williamson1967}
 O.~E. Williamson.
 \newblock Hierarchical control and optimum firm size.
 \newblock \emph{Journal of Political Economy}, 75(2):123--138, 1967.
 
+<<<<<<< HEAD
+=======
+\bibitem{Witsenhausen1968}
+H.~S. Witsenhausen.
+\newblock A counterexample in stochastic optimum control.
+\newblock \emph{SIAM Journal on Control}, 6(1):131--147, 1968.
+
+>>>>>>> 319f447daa46f8c1e949fb7929535d1aa6396025
 \end{thebibliography}
 
 \end{document}
