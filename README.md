@@ -1,48 +1,49 @@
-# Uncertainty Bounding as the Basis of Intelligence
+# The Architecture of Intelligence from Bounded Active Context
 
-Patrick McCarthy
-
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18923066-blue)](https://doi.org/10.5281/zenodo.18923066)                              
-
-## Papers
-
-### Uncertainty Bounding as the Basis of Intelligence: A Formal Theory
-A formal theory of intelligence grounded in selection pressure, bounded active context,
-and the inseparability of knowledge and action. Derives the minimization imperative,
-the graph structure of knowledge, the escalation architecture, and collective intelligence
-from first principles. Includes empirical grounding from agentic software systems and
-a new result on observational bootstrapping of informed actions from equivalence classes.
-
-- [`UNCERTAINTY_BOUNDING_FORMAL_THEORY.md`](UNCERTAINTY_BOUNDING_FORMAL_THEORY.md)
-- [`UNCERTAINTY_BOUNDING_FORMAL_THEORY.pdf`](UNCERTAINTY_BOUNDING_FORMAL_THEORY.pdf)
-
-### Uncertainty Bounding as the Basis of Intelligence: An Extension of the Free Energy Principle
-A companion paper targeting the FEP/active inference community. Extends the Free Energy
-Principle in four directions: derivation of the minimization imperative, structural
-constraint on the generative model, escalation vs. precision allocation (with a formal
-Big-O complexity argument), and collective intelligence.
-
-- [`UNCERTAINTY_BOUNDING_FEP_EXTENSION.md`](UNCERTAINTY_BOUNDING_FEP_EXTENSION.md)
-- [`UNCERTAINTY_BOUNDING_FEP_EXTENSION.pdf`](UNCERTAINTY_BOUNDING_FEP_EXTENSION.pdf)
+Patrick D. McCarthy
 
 ---
 
-## Provenance
+## Paper Series
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.18923066.svg)](https://doi.org/10.5281/zenodo.18923066)
+A five-paper series deriving the architecture of intelligence from a single generative constraint: bounded active context — a hard limit on the number of propositions simultaneously available for inference.
 
-This work is archived and timestamped on Zenodo:
-**https://doi.org/10.5281/zenodo.18923066**
+| Paper | Title | Source | Pages |
+|---|---|---|---|
+| 1 | Graph Structure Is Necessary for Information Preservation Under Bounded Context | [McCarthy2026_1_GraphNecessity.tex](McCarthy2026_1_GraphNecessity.tex) | 18 |
+| 2 | Convergence of Control Architectures to Escalation Under Bounded Context | [McCarthy2026_2_Escalation.tex](McCarthy2026_2_Escalation.tex) | 18 |
+| 3 | Knowledge as Normalization: Bounded Context Separates Shared Propositions from Action | [McCarthy2026_3_Normalization.tex](McCarthy2026_3_Normalization.tex) | 12 |
+| 4 | Evaluation-Driven Descent, Encoding Permanence, and the Structural Invariants of Intelligence | [McCarthy2026_4_Intelligence.tex](McCarthy2026_4_Intelligence.tex) | 18 |
+| 5 | Cancer as Escalation Chain Severance Under Bounded Context | [McCarthy2026_5_Cancer.tex](McCarthy2026_5_Cancer.tex) | 25 |
+
+Papers 1–4 form the formal chain. Paper 5 is the first application paper, applying the framework to cancer biology. Paper 5 is designed to be self-contained for standalone submission.
+
+### Upcoming
+
+| Paper | Title | Source | Status |
+|---|---|---|---|
+| 6 | Substrate Transition | [McCarthy2026_6_SubstrateTransition.tex](McCarthy2026_6_SubstrateTransition.tex) | Draft — empirical grounding from agentic software systems |
+
+---
+
+## Submission
+
+Upload-ready PDFs are in [`ssrn_upload/`](ssrn_upload/). Submission metadata and checklist are in [`SSRN_SUBMISSION.md`](SSRN_SUBMISSION.md).
+
+---
+
+## Knowledge Graph
+
+The [`knowledge-graph/`](knowledge-graph/) directory contains a structured representation of the theory's nodes — definitions, theorems, equivalency claims, novel results, emergent predictions, and references — in YAML format.
 
 ---
 
 ## References
 
-[`REFERENCES.md`](REFERENCES.md) — annotated bibliography with citation placement map.
-[`references.bib`](references.bib) — BibTeX file for LaTeX compilation.
+[`references.bib`](references.bib) — BibTeX file shared across all papers.
 
 ---
 
 ## License
 
-© Patrick McCarthy. All rights reserved.
+© Patrick D. McCarthy. All rights reserved.

@@ -1,6 +1,6 @@
 # Knowledge Graph
 
-This directory contains the knowledge graph derived from the formal theory in `UNCERTAINTY_BOUNDING_FORMAL_THEORY.md`. Every node and every edge has a provenance triple: (attribution, evidence, derivation).
+This directory contains the knowledge graph derived from the bounded-context paper series (see root `README.md`). Every node and every edge has a provenance triple: (attribution, evidence, derivation).
 
 ## Structure
 
