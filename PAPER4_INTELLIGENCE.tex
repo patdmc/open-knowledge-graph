@@ -82,8 +82,9 @@ $H(W \mid K)$. Definition~\ref{def:encoding} establishes that the
 certainty threshold for encoding at level $L_i$ is
 $\theta_i = 1 - \varepsilon / C_i$, deriving the learning rate
 hierarchy from cost-of-failure differences.
-Theorem~\ref{thm:type} establishes that the action space $A$ and the
-higher-order function space $M$ are type-irreducible.
+Theorem~\ref{thm:type} establishes that separating the action space
+$A$ from the higher-order function space $M$ is selectively favored:
+collapsing them is increasingly costly under positive novelty rate.
 Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
 learning efficiency $\eta_M > 0$ are the unique structural invariants
 of persistence, and Corollary~\ref{cor:measure} derives
@@ -684,7 +685,7 @@ the convergence this theorem predicts.
 
 \begin{corollary}[Distinct Roles]
 \label{cor:roles}
-Type irreducibility establishes distinct functional roles:
+The selectively favored separation establishes distinct functional roles:
 $A$ navigates $W$ given $K$; $M$ evolves $(A, K)$ in response to
 learning signals. Concrete instances: neuroplasticity ($M$ on $A$),
 insight ($M$ on $K$), habit formation ($M$ promoting from $L_n$ to

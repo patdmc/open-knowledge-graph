@@ -108,11 +108,16 @@ true state $w_t \in W$ is not directly observable by any entity.
 \label{def:knowledge}
 A \emph{proposition} $p$ about $W$ is a likelihood function
 $\ell_p : W \to [0,1]$. A set of propositions $\mathcal{P}$ induces a
-posterior:
+posterior via the joint likelihood $L_{\mathcal{P}}(w)$:
 \[
-P(w \mid \mathcal{P}) \;\propto\; P_0(w) \cdot \prod_{p \in \mathcal{P}} \ell_p(w)
+P(w \mid \mathcal{P}) \;\propto\; P_0(w) \cdot L_{\mathcal{P}}(w)
 \]
-where $P_0$ is a prior. The uncertainty about $w$ is the surprisal
+where $P_0$ is a prior and $L_{\mathcal{P}}$ encodes the joint
+evidential contribution of all propositions in $\mathcal{P}$, with
+arbitrary dependencies between them (Paper~1, \cite{McCarthy2026a}).
+When propositions are conditionally independent given $w$,
+$L_{\mathcal{P}}(w) = \prod_{p \in \mathcal{P}} \ell_p(w)$; the
+normalization theorem does not require this special case. The uncertainty about $w$ is the surprisal
 $U(w, \mathcal{P}) = -\log P(w \mid \mathcal{P})$ \cite{Shannon1948, Cover2006}.
 We use $K$ to denote the separated set of shared propositions that
 Theorem~\ref{thm:normalization} derives from the overlap structure of

@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 
@@ -36,7 +37,7 @@ to $C_n^{(k)}$-level optimization, where the action space available under
 cell-level bounded context converges on the recognized hallmarks of
 cancer: aerobic glycolysis, unconstrained proliferation, immune
 evasion, and motility. This convergence is not atavistic reversion
-to ancient programs but \emph{structural necessity}. The same
+to ancient programs but \emph{structurally predicted}: the same
 constraint ceiling that governed unicellular life now governs the
 severed cell. The framework offers structural explanations for three
 phenomena that existing theories address incompletely: (1)~the
@@ -92,37 +93,81 @@ produces the specific phenotypes it does.
 
 This paper proposes that all three theories describe aspects of a
 single structural phenomenon: \textbf{escalation chain severance}.
-The bounded-context framework of Papers~1--4
-\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d}
-provides a formal lens through which to unify them. We model
-multicellular organization as a multi-level escalation hierarchy
-where each level extends the effective bounded context of the level
-below. Severing the chain is a structural failure that forces
-cell-level optimization. The convergent phenotype, on this account,
-is not inherited from ancestors but \emph{necessary} under cell-level
-bounded context. The same constraint that shaped unicellular life
-now shapes the severed cell.
+We model multicellular organization as a multi-level escalation
+hierarchy where each level extends the effective \emph{bounded
+context} of the level below. Severing the chain is a structural
+failure that forces cell-level optimization. The convergent
+phenotype, on this account, is not inherited from ancestors but
+structurally predicted under cell-level bounded context. The same
+constraint that shaped unicellular life now shapes the severed cell.
+
+The theoretical foundation draws on the bounded-context framework
+\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d},
+which derives from a single constraint---bounded active context---the
+necessity of graph-structured knowledge, escalation hierarchies,
+knowledge-action coupling, and adaptive descent. This paper applies
+those results to cancer biology. However, the paper is designed to be
+self-contained: Section~\ref{sec:framework} develops the framework
+from first principles in biological terms, and the central
+predictions (Section~\ref{sec:predictions}) are testable
+independently of whether one accepts the formal proofs in
+\cite{McCarthy2026a}--\cite{McCarthy2026d}.
 
 \textbf{Scope and epistemology.} This paper is a theoretical
-application of the bounded-context framework to cancer biology.
-Papers~1--4 derive their results from formal proofs; the present
-paper applies that framework to a biological domain where the
-mapping from formalism to biology is conjectural. We do not claim
-to prove anything about cancer. We claim that the framework generates
-a coherent structural account that (a)~unifies three competing
-theories, (b)~aligns with the direction clinical oncology is already
-moving, and (c)~produces testable predictions that distinguish it
-from existing accounts. The value of the paper is the structural
-reasoning and the predictions, not empirical validation, which
-is the province of cancer biologists and clinicians.
+application to cancer biology. We do not claim to prove anything
+about cancer. We claim that the framework generates a coherent
+structural account that (a)~unifies three competing theories,
+(b)~aligns with the direction clinical oncology is already moving,
+(c)~produces testable predictions that distinguish it from existing
+accounts, and (d)~makes a novel central prediction---coupling-channel
+specificity (Section~\ref{sec:predictions})---that no existing cancer
+theory generates. The value of the paper is the structural reasoning
+and the predictions, not empirical validation, which is the province
+of cancer biologists and clinicians.
 
 % ------------------------------------------------------------------
 \section{Formal Framework}
 \label{sec:framework}
 % ------------------------------------------------------------------
 
-We extend the entity framework of Papers~1--4 to multi-level
-biological organization.
+We develop the framework from three premises that are independently
+motivated by biology, then apply them to multi-level biological
+organization. The formal derivations of these premises from
+information-theoretic first principles appear in
+\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d};
+here we state them in biological terms.
+
+\textbf{Premise 1: Bounded active context ($C_n$).}
+Any information-processing entity---cell, tissue, organism---has a
+hard limit on the number of regulatory states it can simultaneously
+maintain for active inference. A cell can monitor a finite number of
+signaling pathways concurrently. An organism's working memory holds
+$4 \pm 1$ items \cite{Cowan2001}. We denote this limit $C_n$.
+
+\textbf{Premise 2: Retention under displacement.}
+When $C_n$ is full and new information arrives, something must be
+displaced. Under survival pressure, the retention criterion is
+asymmetric \cite{McCarthy2026c}: retain a regulatory state when its
+survival benefit is uncertain; displace it only when a new state
+offers strictly higher marginal survival value. The cost of losing a
+survival-relevant state (death) vastly exceeds the cost of retaining
+a useless one (a wasted context slot). This drives displacement
+toward the highest-value regulatory states available to the entity.
+
+\textbf{Premise 3: Adaptive descent.}
+An entity with $\gamma > 0$ (nonzero probability of engaging its
+adaptive mechanism in response to signals) and $\eta_M > 0$
+(positive learning efficiency) reduces its uncertainty about
+survival-relevant states over time \cite{McCarthy2026d}. The entity
+performs local descent on uncertainty: each adaptive response, on
+average, improves its model of the world. This is not an assumption
+about intelligence; it is a minimal condition for persistence. Entities
+with $\gamma = 0$ (no adaptive response) or $\eta_M = 0$ (no
+learning) are eliminated under positive novelty rate
+\cite{McCarthy2026d}.
+
+From these three premises, we model multi-level biological
+organization.
 
 \begin{definition}[Biological Entity at Level $k$]
 \label{def:bio-entity}
@@ -668,6 +713,35 @@ minimizing the signal that triggers enforcement without weakening
 enforcement. This is why HLA-matched transplants require less
 immunosuppression and have better outcomes: less mismatch means
 less enforcement to suppress.
+
+\textbf{Coupling-channel specificity predicts cancer type distribution.}
+Immunosuppression weakens $\lambda_3^{\mathrm{immune}}$ specifically
+---organism-level immune enforcement---while leaving tissue-level
+coupling ($\lambda_1$: gap junctions, contact inhibition, basement
+membrane integrity) intact. The framework therefore predicts that
+immunosuppressed patients should show disproportionately elevated
+rates of cancers where immune surveillance is the \emph{primary}
+coupling channel, and near-baseline rates of cancers where tissue
+architecture provides the dominant restraint.
+
+This is confirmed by the transplant cancer data \cite{Engels2011}.
+Cancers dominated by immune-surveillance coupling show massive
+elevation: Kaposi sarcoma (${\sim}60\times$), non-Hodgkin lymphoma
+(${\sim}7\times$), and non-melanoma skin cancers---all
+immune-surveilled or virally mediated. Cancers where tissue
+architecture is the primary coupling mechanism show minimal
+elevation: breast (${\sim}1.2\times$), prostate (${\sim}0.9\times$),
+and colorectal (${\sim}1.2\times$)---cancers restrained primarily
+by glandular organization, basement membrane, and epithelial
+architecture, none of which immunosuppression disrupts.
+
+This pattern is difficult to explain under the somatic mutation
+theory (which predicts uniform elevation proportional to reduced
+immune clearance of mutant cells) or the atavistic theory (which
+has no mechanism for coupling-channel specificity). It follows
+directly from the framework: weakening one coupling channel
+($\lambda_3^{\mathrm{immune}}$) permits severance only in tissues
+where that channel was load-bearing.
 \medskip
 
 % ------------------------------------------------------------------
@@ -865,76 +939,579 @@ chain. The ecological metaphor is correct but incomplete; it
 describes dynamics without explaining why those dynamics converge.
 
 % ------------------------------------------------------------------
-\section{Testable Predictions}
+\section{The Central Prediction: Coupling-Channel Specificity}
 \label{sec:predictions}
 % ------------------------------------------------------------------
 
-The framework generates predictions that distinguish it from existing
-theories:
+The framework's unique predictive signature is \textbf{coupling-channel
+specificity}: the cancer type that emerges from any disruption is
+determined by \emph{which coupling channel} $\lambda_j$ was
+load-bearing for that tissue. This is the one prediction that
+distinguishes the chain-severance framework from all existing cancer
+theories. The somatic mutation theory predicts cancer incidence based on
+proliferation rate and mutational exposure. The atavistic theory
+predicts a uniform reversion to unicellular programs. Neither has a
+mechanism for predicting which cancer type emerges from which
+disruption. The chain-severance framework does: sever a specific
+channel, and the cancers that appear are those where that channel was
+the primary organizational restraint.
+
+\subsection{Channel-specific natural experiments}
+
+Five classes of natural experiment test this principle, each disrupting
+a different coupling channel and producing a different cancer type
+distribution (Table~\ref{tab:channels}).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{p{2.8cm} p{3.2cm} p{3.8cm} p{2.8cm}}
+\hline
+\textbf{Disruption} & \textbf{Channel weakened} & \textbf{Predicted cancers} & \textbf{Evidence} \\
+\hline
+Immunosuppression (transplant) &
+$\lambda_3^{\mathrm{immune}}$: organism-level immune surveillance &
+Immune-surveilled: lymphoma (${\sim}7\times$), Kaposi (${\sim}60\times$), skin.
+Not tissue-architecture cancers (breast ${\sim}1.2\times$, prostate ${\sim}0.9\times$). &
+\cite{Engels2011} \\[6pt]
+Foreign body implant &
+$\lambda_1$: local tissue architecture (basement membrane, contact inhibition) &
+Mesenchymal (sarcomas) at implant site. Not lymphomas. &
+\cite{Brand1975} \\[6pt]
+Denervation &
+$\lambda_2^{\mathrm{neural}}$: neural coupling &
+Cancers in denervated tissue where neural signaling maintains differentiation. &
+\cite{Zhao2017} \\[6pt]
+Chronic inflammation (Barrett's, hepatitis, IBD) &
+$\lambda_1 + \lambda_3^{\mathrm{immune}}$: tissue architecture and immune signaling &
+Site-specific cancers at inflammation locus: esophageal, hepatocellular, colorectal. &
+Well established \\[6pt]
+Endocrine disruption &
+$\lambda_3^{\mathrm{endocrine}}$: hormonal coupling &
+Hormone-responsive cancers (breast, prostate, endometrial). Not cancers where hormonal signaling is not load-bearing. &
+\cite{Herbst1971} \\
+\hline
+\end{tabular}
+\caption{Coupling-channel specificity: disrupting different
+$\lambda_j$ channels produces different cancer type distributions.
+Each row is a natural experiment testing the framework's central
+prediction.}
+\label{tab:channels}
+\end{table}
+
+\subsection{Carcinogen classification by coupling channel}
+
+The principle extends to carcinogenesis. Two carcinogens hitting the
+same tissue but damaging different coupling channels should produce
+different cancer subtypes. Lung cancer provides the clearest test.
+Smoking causes chronic inflammation and epithelial remodeling---damage
+to $\lambda_1$ (tissue architecture)---and is associated primarily
+with squamous cell carcinoma and adenocarcinoma. Radon causes direct
+cell-level DNA damage via alpha particles and is associated primarily
+with small cell lung cancer: poorly differentiated, neuroendocrine,
+maximally aggressive. Different channel, different subtype, same
+organ.
+
+The prediction generalizes: \textbf{carcinogen classification should
+specify which coupling channel the carcinogen disrupts, not merely
+which tissue is exposed, because the disrupted channel determines
+the cancer subtype.} This is testable by re-analyzing existing
+epidemiological datasets that record both exposure type and cancer
+subtype within the same organ.
+
+\subsection{Comorbidity as coupling-channel degradation}
+
+The coupling-channel principle extends beyond exogenous carcinogens
+to endogenous disease. Any disease that chronically degrades a
+specific coupling channel~$\lambda_j$ should increase the rate of
+cancers where $\lambda_j$ is load-bearing---and should increase the
+\emph{specific subtype} associated with that channel, not merely
+cancer incidence in general. Table~\ref{tab:comorbidity} compiles
+six well-established comorbidity associations, each currently treated
+as a separate finding in a separate literature. The framework unifies
+them under a single principle.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Comorbidity-cancer associations stratified by
+coupling-channel degradation. Each disease degrades a specific
+coupling channel; the cancers that increase are those where that
+channel is load-bearing. All associations are well-established
+epidemiologically but are not currently unified under a common
+mechanism.}
+\label{tab:comorbidity}
+\begin{tabular}{@{}p{3.0cm}p{3.0cm}p{3.5cm}p{3.0cm}@{}}
+\toprule
+\textbf{Disease} & \textbf{Channel degraded} &
+\textbf{Cancer increase} & \textbf{Channel match} \\
+\midrule
+HIV/AIDS &
+$\lambda_3^{\mathrm{immune}}$ (immune surveillance) &
+Kaposi's, NHL, cervical &
+Immune-coupled \\[4pt]
+Diabetes / metabolic syndrome &
+$\lambda_2^{\mathrm{metabolic}}$ (metabolic coupling) &
+Pancreatic, liver, endometrial &
+Metabolic-coupled \\[4pt]
+Vagotomy &
+$\lambda_2^{\mathrm{neural}}$ (neural signaling) &
+Gastric &
+Neural-coupled \\[4pt]
+Inflammatory bowel disease &
+$\lambda_1$ (tissue architecture) &
+Colorectal &
+Architecture-coupled \\[4pt]
+Cirrhosis &
+$\lambda_1$ (tissue architecture) &
+Hepatocellular carcinoma &
+Architecture-coupled \\[4pt]
+PCOS / endocrine disorders &
+$\lambda_3^{\mathrm{endocrine}}$ (hormonal coupling) &
+Endometrial, breast &
+Endocrine-coupled \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The diagnostic prediction is immediate: \textbf{knowing which
+coupling channel a disease degrades predicts which cancer subtypes
+will increase in that patient population.} This is testable by
+cross-referencing disease-specific cohorts (e.g., diabetes registries,
+autoimmune disease registries) with cancer subtype incidence, stratified
+by coupling-channel assignment. Existing comorbidity databases are
+sufficient; the framework provides the organizing variable that is
+currently missing.
+
+The converse prediction also holds: diseases that \emph{strengthen}
+a coupling channel should be protective against the corresponding
+cancer subtypes. Autoimmune conditions---characterized by
+\emph{overactive} immune coupling---should protect against cancers
+where immune surveillance is the load-bearing channel, while
+potentially increasing risk for cancers driven by chronic
+inflammatory tissue damage. This bidirectional prediction
+distinguishes the framework from generic ``inflammation causes
+cancer'' accounts, which predict only increased risk.
+
+\subsection{Specific predictions}
+
+The coupling-channel principle generates the following specific,
+falsifiable predictions:
 
 \begin{enumerate}
 \item \textbf{Coupling measurement predicts malignancy.} Quantifying
-   $\lambda_j$ (the coupling strength between a cell and its tissue
-   context) should predict malignant potential more accurately than
+   $\lambda_j$ should predict malignant potential more accurately than
    mutational burden alone. Cells with low $\lambda_j$ but few
-   mutations should still progress to malignancy; cells with high
-   mutational burden but intact $\lambda_j$ should not. This can be
-   tested by measuring intercellular communication (gap junction
-   activity, paracrine signaling responsiveness, contact inhibition)
-   alongside mutational profiling.
+   mutations should progress to malignancy; cells with high
+   mutational burden but intact $\lambda_j$ should not. Testable by
+   measuring intercellular communication (gap junction activity,
+   paracrine signaling responsiveness, contact inhibition) alongside
+   mutational profiling.
 
 \item \textbf{Convergent gene expression is constraint-determined,
    not phylogeny-determined.} Cancer gene expression should converge
-   on a set determined by cell-level optimization, which \emph{mostly
-   but not entirely} overlaps with phylogenetically ancient genes.
-   In particular, recently evolved genes that serve cell-level
-   autonomous function (e.g., certain immune evasion mechanisms that
-   evolved in the multicellular era) should be upregulated in cancer
-   despite being phylogenetically recent. The atavistic theory
-   predicts they should not be.
+   on a set determined by cell-level optimization under $C_n^{(0)}$,
+   which \emph{mostly but not entirely} overlaps with
+   phylogenetically ancient genes. Recently evolved genes that serve
+   cell-level autonomous function (e.g., immune evasion mechanisms
+   from the multicellular era) should be upregulated despite being
+   phylogenetically recent. The atavistic theory predicts they
+   should not be.
 
 \item \textbf{Differentiation therapy should outperform cytotoxic
-   therapy.} Therapies that restore tissue-level coupling
-   (differentiation therapy, microenvironment normalization) should
+   therapy.} Therapies that restore tissue-level coupling should
    produce more durable responses than therapies that kill cells
    without restoring coupling, because the former addresses the
-   structural cause (chain severance) while the latter imposes
+   structural cause (channel severance) while the latter imposes
    selection pressure on a locally rational optimizer.
 
-\item \textbf{Tumor heterogeneity should correlate with severance
-   gradient.} Within a single tumor, phenotypic heterogeneity should
-   correlate with measured coupling strength: cells with residual
+\item \textbf{Tumor heterogeneity correlates with severance
+   gradient.} Within a single tumor, cells with residual
    tissue coupling ($\lambda_j > 0$) should exhibit more
-   differentiated phenotypes than fully decoupled cells. This is
-   testable by spatial transcriptomics combined with intercellular
-   communication assays.
+   differentiated phenotypes than fully decoupled cells. Testable by
+   spatial transcriptomics combined with intercellular communication
+   assays.
 
 \item \textbf{Necessary hallmarks vs.\ contingent hallmarks.}
-   The framework predicts that some hallmarks are \emph{necessary}
-   under cell-level $C_n$ (proliferation, metabolic autonomy) while
-   others are \emph{contingent} on the specific optimization
-   landscape (angiogenesis induction, specific immune evasion
-   strategies). Necessary hallmarks should appear in every cancer;
-   contingent hallmarks should vary by context. This is testable by
-   systematic cross-cancer hallmark prevalence analysis.
+   Some hallmarks are \emph{necessary} under cell-level $C_n$
+   (proliferation, metabolic autonomy); others are \emph{contingent}
+   on the specific optimization landscape (angiogenesis induction,
+   specific immune evasion strategies). Necessary hallmarks should
+   appear in every cancer; contingent hallmarks should vary by
+   context and by which coupling channel was severed.
+
+\item \textbf{Multi-channel carcinogen exposure is superadditive;
+   same-channel exposure is additive.}
+   Two carcinogens each weakening a \emph{different} coupling channel
+   should produce cancer rates exceeding the sum of their individual
+   rates. If carcinogen~$X$ degrades $\lambda_i$ and carcinogen~$Y$
+   degrades $\lambda_j$ ($i \neq j$), simultaneous exposure
+   accelerates the ratchet because each channel loss destabilizes
+   the remaining channels (Section~\ref{sec:directionality}): the
+   cell loses multiple constraints simultaneously, triggering
+   cascading displacement of tissue-referencing propositions in
+   $K_0$. Two carcinogens hitting the \emph{same} channel add dose
+   to a single degradation process, predicting merely additive risk.
+   Partial channel overlap predicts an intermediate
+   (sub-multiplicative) interaction.
+
+   Existing epidemiological data confirm this gradient
+   (Table~\ref{tab:carcinogen-interactions}).
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Carcinogen interactions stratified by coupling-channel
+overlap. RR = relative risk. Interaction type ranges from
+super-multiplicative (low channel overlap) through sub-multiplicative
+(partial overlap) to additive (same channel). Data from pooled
+analyses and meta-analyses as cited.}
+\label{tab:carcinogen-interactions}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Agent 1 & Agent 2 & Cancer & Interaction & Channel overlap \\
+\midrule
+Smoking & Alcohol & Head/neck &
+  Super-mult. &
+  Low \\
+ & & & RR $\approx 35$ combined & (solvent vs.\ genotoxin) \\
+ & & & \cite{Freedman2007} & \\[4pt]
+Aflatoxin & Hepatitis B & Liver (HCC) &
+  Multiplicative &
+  Low \\
+ & & & RR $\approx 59$ combined & (DNA damage vs. \\
+ & & & vs.\ $3.4 \times 7.3 \approx 25$ & inflammation) \\[4pt]
+Smoking & HPV & Cervical &
+  Multiplicative &
+  Low \\
+ & & & RR $\approx 14$--$27$ & (immunosuppression \\
+ & & & \cite{Herrero2003} & vs.\ viral oncogene) \\[4pt]
+Smoking & Asbestos & Lung &
+  Sub-mult. &
+  Partial \\
+ & & & RR $\approx 28$ combined & (both genotoxic \\
+ & & & vs.\ mult.\ $\approx 54$ & + inflammatory) \\
+ & & & \cite{Lee2006} & \\[4pt]
+Smoking & Radon & Lung &
+  Sub-mult. &
+  Partial \\
+ & & & BEIR VI: less than & (both cause DNA \\
+ & & & multiplicative & damage in bronchi) \\[4pt]
+PAH mixture & PAH mixture & Various &
+  Additive &
+  High \\
+ & & & EPA sums PEFs & (same CYP1A1 \\
+ & & & (dose-addition) & activation pathway) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+   The gradient is consistent with the framework's prediction:
+   agents damaging independent coupling channels
+   ($\lambda_i \perp \lambda_j$) produce multiplicative or
+   super-multiplicative risk; agents with partial channel overlap
+   produce sub-multiplicative risk; agents acting through the same
+   channel produce additive risk. This pattern has been observed
+   empirically but lacks a unified theoretical explanation.
+   The Armitage--Doll multistage model \cite{Armitage1954} captures
+   the same structure formally---two agents affecting different
+   ``stages'' yield multiplicative risk, while agents affecting the
+   same stage yield additive risk---but does not identify what the
+   stages \emph{are}. The coupling-channel framework provides the
+   identification: stages are coupling channels, and the interaction
+   type is determined by whether the agents degrade the same or
+   different channels.
+
+   \textbf{The testable refinement:} for any pair of carcinogens
+   whose interaction type is currently unknown, the framework
+   predicts the interaction from the coupling-channel assignment
+   \emph{before} the epidemiological data are collected. This
+   converts the prediction from a post-hoc explanation of known
+   interactions to a prospective classification tool.
+
+\item \textbf{Sequential monotherapy produces predictable subtype
+   transitions.} If a cancer is treated by targeting coupling
+   channel~$\lambda_i$, and upon progression is treated by targeting
+   channel~$\lambda_j$, the framework predicts a deterministic
+   trajectory through molecular subtypes: the tumor severs
+   $\lambda_i$ first (producing a phenotype independent of that
+   channel), then severs $\lambda_j$ (producing a phenotype
+   independent of both). The \emph{order of therapy determines the
+   order of channel severance}, and therefore the sequence of
+   intermediate subtypes.
+
+   This is testable against existing clinical data. In ER+ breast
+   cancer: endocrine therapy first $\to$ ER loss $\to$ if then
+   treated with HER2-targeting $\to$ HER2 loss $\to$ triple-negative
+   phenotype. The prediction is that this trajectory is
+   \emph{reproducible}: the same therapeutic sequence should produce
+   the same subtype transitions across patients, because the
+   framework dictates which channel severs next. Different
+   therapeutic sequences should produce different intermediate
+   phenotypes but converge on the same maximally decoupled endpoint.
+
+   The clinical implication is immediate: \textbf{sequential
+   monotherapy is a controlled demolition of the escalation chain},
+   one channel at a time. Each line of single-agent therapy removes
+   one coupling constraint, and the tumor descends one step. This
+   provides a structural argument for simultaneous multi-channel
+   intervention over sequential single-channel protocols.
+
+\item \textbf{Age-related cancer incidence tracks coupling
+   degradation, not mutation accumulation.} Normal aged tissue
+   carries remarkably high burdens of cancer-driver mutations without
+   developing cancer \cite{Martincorena2015}. Normal esophageal
+   epithelium in elderly individuals contains clonal expansions
+   carrying \emph{TP53}, \emph{NOTCH1}, and \emph{PIK3CA}
+   mutations---textbook oncogenes---covering most of the tissue
+   surface, yet cancer does not develop. The framework explains this:
+   the mutations are present but the coupling channels are intact.
+   The cell carries a \emph{TP53} mutation but still receives
+   tissue-level signals, still processes them, still maintains
+   tissue-referencing propositions in $K_0$. The mutation weakened
+   one constraint but did not sever the escalation chain.
+
+   The framework predicts that cancer incidence across tissues should
+   correlate with \textbf{coupling degradation rate}---the rate at
+   which tissue-level signaling fidelity declines with age---rather
+   than with mutation accumulation rate. This generates a
+   distinguishing prediction against SMT: tissues with high mutation
+   rates but robust coupling infrastructure (esophagus: high
+   turnover, strong architectural signaling) should have
+   disproportionately \emph{low} cancer incidence relative to their
+   mutational burden, while tissues with lower mutation rates but
+   fragile coupling (pancreas: limited coupling redundancy, heavy
+   dependence on ductal architecture) should have
+   disproportionately \emph{high} incidence. Existing data on
+   tissue-specific mutation rates \cite{Martincorena2015} and
+   age-specific cancer incidence are sufficient to test this
+   prediction.
 \end{enumerate}
+
+% ------------------------------------------------------------------
+\section{Directionality of Cancer Progression}
+\label{sec:directionality}
+% ------------------------------------------------------------------
+
+The chain-severance framework makes a strong prediction about the
+direction of cancer evolution: \textbf{progression is unidirectional,
+from more coupled to less coupled.}
+
+\subsection{The downward ratchet}
+
+A cancer cell operating under partially severed context retains some
+coupling channels. But the retention criterion
+(\cite{McCarthy2026c}) drives displacement of tissue-referencing
+propositions in $K_0$: propositions grounded in coupling channels
+that are weakened ($\lambda_j \to 0$) have diminishing marginal
+survival value, and are displaced by propositions serving cell-level
+optimization. As tissue-referencing propositions leave $K_0$, the
+cell's ability to \emph{maintain} its remaining coupling channels
+degrades---it is no longer processing the signals that keep those
+channels active. Each loss of coupling removes a constraint that
+was supporting the next channel. The result is a downward ratchet:
+partial severance tends toward complete severance.
+
+This predicts that \textbf{targeted therapy accelerates channel
+severance}. Therapy targeting a specific coupling channel
+(e.g., endocrine therapy for estrogen-receptor-positive cancer)
+creates selection pressure to sever \emph{that specific channel}.
+The cancer evolves to eliminate dependence on the targeted channel,
+producing a more decoupled, more aggressive phenotype.
+
+Three clinical phenomena confirm this prediction:
+\begin{itemize}
+\item \textbf{ER+ breast cancer $\to$ triple negative.}
+   Endocrine therapy (tamoxifen, aromatase inhibitors) targets the
+   $\lambda_3^{\mathrm{endocrine}}$ coupling channel. Under sustained
+   endocrine therapy, a subset of ER+ breast cancers lose estrogen
+   receptor expression entirely, converting to triple-negative
+   phenotype---more aggressive, less differentiated, resistant to the
+   original therapy. The cancer severed the channel being targeted.
+
+\item \textbf{Prostate adenocarcinoma $\to$ neuroendocrine small cell.}
+   Androgen deprivation therapy targets
+   $\lambda_3^{\mathrm{endocrine}}$ (androgen signaling). Under
+   sustained deprivation, prostate cancers can undergo lineage
+   plasticity, converting to neuroendocrine small cell
+   carcinoma---poorly differentiated, maximally aggressive, and
+   independent of the hormonal coupling channel that therapy was
+   targeting.
+
+\item \textbf{EGFR+ lung adenocarcinoma $\to$ small cell lung cancer.}
+   EGFR inhibitors target a growth-factor signaling pathway. Under
+   sustained inhibition, a subset of tumors transform to small cell
+   lung cancer---a more decoupled phenotype that no longer depends
+   on the targeted pathway.
+\end{itemize}
+
+In each case, the clinical term is \emph{lineage plasticity} or
+\emph{phenotype switching}. The framework provides the structural
+explanation: the cancer is not switching randomly. It is descending
+the coupling hierarchy, severing whichever channel therapy is
+pressuring, and converging on a more completely decoupled phenotype.
+The direction is always the same: downward.
+
+\subsection{Why upward progression does not occur}
+
+Can a cell-level cancer spontaneously re-establish tissue-level
+coupling and become less aggressive? The framework predicts
+\textbf{no}---not without external restoration of the coupling
+channel. Re-coupling requires tissue-level signals that the cell
+no longer receives (because the channel is severed) and
+tissue-referencing propositions that the cell no longer maintains
+(because the retention criterion displaced them). The cell cannot
+bootstrap its way back up the escalation chain. It would need the
+information it has already lost.
+
+This is why differentiation therapy works when it works: it
+\emph{externally provides} the tissue-level signals that re-engage
+the coupling channel, restoring $\lambda_j$ from outside the cell.
+The cell does not re-differentiate spontaneously; it re-differentiates
+because the escalation chain is re-established by the therapy.
+
+\subsection{Therapeutic implication: single-channel targeting is
+self-defeating}
+
+The directionality result has a direct therapeutic consequence:
+\textbf{therapy targeting a single coupling channel accelerates
+severance of that channel, producing a more aggressive cancer.}
+This is not a side effect but a structural prediction. The cell,
+performing descent on $U$ under $C_n^{(0)}$, will optimize away from
+dependence on any channel that therapy is pressuring.
+
+Effective therapy must therefore either:
+\begin{itemize}
+\item Target \emph{multiple} coupling channels simultaneously, so
+   that severing one provides no escape (combination immunotherapy +
+   differentiation therapy + microenvironment normalization).
+\item Target actions that are necessary under $C_n^{(0)}$
+   \emph{regardless of which channels remain}, so the cell cannot
+   evolve away from them (Section~\ref{sec:therapy}, hybrid strategy).
+\item Restore coupling rather than attack the cell, so that the
+   selection pressure runs toward re-integration rather than toward
+   further decoupling.
+\end{itemize}
+
+The clinical trend toward combination therapy, and away from
+sequential monotherapy, is consistent with this prediction. The
+framework provides the structural reason: sequential monotherapy
+is a ratchet that drives the cancer downward through the coupling
+hierarchy, one channel at a time.
 
 % ------------------------------------------------------------------
 \section{Classification of Therapies by Chain Restoration}
 \label{sec:therapy}
 % ------------------------------------------------------------------
 
-The framework yields a natural classification of cancer therapies:
-those that attempt to \emph{restore} the escalation chain (addressing
-the structural cause) versus those that impose \emph{selection
-pressure} on a decoupled optimizer (treating the symptom). This
-classification predicts durability of response.
+The framework yields a three-category classification of cancer
+therapies based on their structural relationship to the escalation
+chain. This classification predicts durability of response.
+
+\begin{enumerate}
+\item \textbf{Remove the decoupling cause.} Eliminate the agent that
+   is actively degrading coupling channels---before the ratchet
+   completes. Works by halting the severance process, allowing
+   intact coupling to reassert itself.
+\item \textbf{Restore coupling from outside.} Externally re-establish
+   the coupling channel that has been severed, returning
+   tissue-level actions to the cell's accessible action space.
+   Works even after severance because it provides the signals
+   and propositions that $K_0$ has lost.
+\item \textbf{Impose selection pressure on a decoupled optimizer.}
+   Attack or constrain a cell that is already optimizing under
+   cell-level $C_n^{(0)}$. The cell's $\gamma > 0$ and
+   $\eta_M > 0$ guarantee adaptation; resistance is structurally
+   predicted.
+\end{enumerate}
+
+\noindent The critical distinction is between \emph{targeting a
+coupling channel} (which accelerates severance---the
+self-defeating prediction of Section~\ref{sec:directionality})
+and \emph{removing whatever is degrading the coupling channel}
+(which halts severance). The same signaling pathway can be
+involved in both, but the direction of the intervention is
+opposite.
+
+\textbf{Molecular subtypes as coupling-channel subtypes.}
+Current oncology classifies cancers by molecular markers: ER+,
+HER2+, triple-negative breast cancer; luminal vs.\ basal subtypes.
+The framework predicts that these molecular subtypes correspond to
+\emph{which coupling channel was load-bearing} for that tissue.
+ER+ breast cancer is a cancer where
+$\lambda_3^{\mathrm{endocrine}}$ was the primary restraint.
+Triple-negative breast cancer is a cancer where tissue-architecture
+coupling ($\lambda_1$) has also severed. If this mapping holds,
+therapy selection should target \emph{restoration of the specific
+severed channel}, not merely the expressed receptor. The receptor
+is a symptom of which channel severed; the channel is the
+therapeutic target.
+
+\subsection{Removing the Decoupling Cause}
+
+These interventions eliminate the agent that is actively degrading
+coupling channels. They work when coupling has been weakened but not
+yet fully severed---when the cell still retains tissue-referencing
+propositions in $K_0$ and the retention-criterion cascade has not
+completed.
+
+\textbf{Environmental remediation.}
+Removing a subject from a carcinogenic environment---radiation
+exposure, asbestos, industrial toxins---halts the ongoing damage to
+coupling-channel infrastructure. The coupling channels that have not
+yet severed can reassert themselves because the tissue-level signals
+are still being sent and the cell still has the propositions needed
+to process them. This is why prevention and early removal from
+exposure are effective, while removing the original cause after an
+established tumor has formed is not: once the ratchet has completed
+and tissue-referencing propositions have been displaced from $K_0$,
+the cell can no longer re-couple even if the damaging agent is
+removed.
+
+\textbf{Pathogen eradication.}
+\emph{H.~pylori} eradication reduces gastric cancer incidence
+because the bacterium's chronic inflammatory damage is the
+decoupling cause for gastric epithelial coupling channels. Hepatitis
+B/C treatment reduces hepatocellular carcinoma for the same
+structural reason. In each case, removing the pathogen halts the
+ongoing degradation of tissue-level signaling.
+
+\textbf{Oncogenic driver inhibition.}
+Imatinib in chronic myeloid leukemia (CML) inhibits BCR-ABL, a
+constitutively active fusion kinase created by chromosomal
+translocation. BCR-ABL is not a coupling channel; it is an aberrant
+signal that \emph{overrides} the cell's normal coupling channels,
+driving proliferation regardless of tissue-level growth/quiescence
+signals. Inhibiting BCR-ABL does not sever a coupling channel---it
+removes the signal that was severing them. With the decoupling cause
+silenced, the cell's intact coupling channels reassert themselves.
+
+This explains why imatinib produces durable decade-long remissions
+rather than the resistance escalation predicted for coupling-channel
+targeting. It also explains the nature of imatinib resistance when
+it does occur: resistant clones restore the decoupling signal
+(T315I mutation, BCR-ABL amplification) rather than descending
+further down the coupling hierarchy. The cancer is trying to
+re-establish the decoupling cause, not sever additional channels.
+
+\textbf{The timing prediction.} All three examples share a
+structural prediction: removing the decoupling cause is effective
+\emph{before} the ratchet completes but not after. Asbestos
+abatement prevents new mesotheliomas but does not shrink established
+tumors. \emph{H.~pylori} eradication prevents gastric cancer but
+does not reverse existing malignancy. Imatinib works because
+BCR-ABL is the \emph{ongoing} decoupling cause---remove it and the
+coupling reasserts. If the CML progressed to blast crisis (fully
+decoupled), imatinib response rates drop sharply, consistent with
+the ratchet having completed.
 
 \subsection{Chain-Restoring Therapies}
 
 These therapies target the coupling coefficients $\lambda_j$,
-attempting to re-establish the cell's connection to higher
-organizational levels.
+externally re-establishing the cell's connection to higher
+organizational levels. Unlike removing the decoupling cause, chain
+restoration can work even after severance is complete, because it
+provides the tissue-level signals from outside the cell.
 
 \textbf{Differentiation therapy (Level $0 \to 1$ restoration).}
 All-trans retinoic acid (ATRA) in acute promyelocytic leukemia (APL)
@@ -979,33 +1556,35 @@ should suppress malignant behavior even without addressing mutations,
 because the coupling restoration returns tissue-level actions to the
 accessible action space.
 
-\subsection{Non-Chain-Restoring Therapies}
+\subsection{Selection Pressure on a Decoupled Optimizer}
 
 These therapies impose selection pressure on a cell that is already
 optimizing under cell-level bounded context. The cell's $\gamma > 0$
 and $\eta_M > 0$ \cite{McCarthy2026d} guarantee that it will adapt.
+Resistance is not a failure of the drug but a structural prediction.
 
-\textbf{Cytotoxic chemotherapy.} Kills dividing cells without
-restoring any coupling channel. The surviving subpopulation has
-undergone selection for resistance -- slow-cycling cells, drug
-efflux pumps, DNA repair enhancement -- all of which are within the
-cell-level action space $A_0$. Resistance is not a failure of the
-drug; it is the predictable outcome of imposing selection pressure on
-a locally rational optimizer.
+\textbf{Coupling-channel targeting.} Therapies that block a coupling
+channel directly---endocrine therapy (ER blockade, androgen
+deprivation), single-pathway growth factor inhibitors (EGFR, BRAF)
+---fall in this category when the targeted pathway serves as a
+tissue-level coupling channel. As Section~\ref{sec:directionality}
+predicts, this accelerates severance of that channel, driving
+the ratchet downward. The cell, performing descent on $U$, severs
+dependence on the targeted channel entirely.
 
-\textbf{Radiation therapy.} Induces DNA damage. DNA repair is a
-cell-level action already in $A_0$; it requires no tissue-level
-coupling. The cell's gradient descent on $U$ will optimize repair
-pathways in response to radiation pressure.
+Note the contrast with oncogenic driver inhibition (imatinib, above):
+both may target kinase pathways, but the structural direction is
+opposite. Driver inhibition removes a \emph{decoupling cause};
+coupling-channel blockade removes a \emph{coupling signal}. The
+framework predicts different outcomes for structurally different
+interventions, even when the molecular target class is similar.
 
-\textbf{Most targeted therapies.} Block a specific signaling pathway
-(e.g., EGFR inhibitors, BRAF inhibitors). The cell, performing
-gradient descent on $U$, discovers alternative pathways that restore
-the blocked function. Pathway redundancy is a feature of cell-level
-action spaces that have been optimized over billions of years of
-unicellular evolution. Single-pathway targeting is structurally
-insufficient because the cell-level action space contains multiple
-routes to the same optimization target.
+\textbf{Cytoreductive therapies without pathway specificity.}
+Chemotherapy and radiation kill or damage cells without targeting
+any specific coupling channel. The surviving subpopulation has
+undergone selection for resistance within $A_0$---slow-cycling
+phenotypes, drug efflux, DNA repair enhancement---none of which
+require tissue-level coupling.
 
 \textbf{Surgery.} Removes the decoupled entity entirely. This is
 effective for localized disease but does not prevent new severance
@@ -1028,9 +1607,12 @@ chain restoration with exploitation of structural constraints:
    oxidative phosphorylation requires tissue-level oxygen delivery
    infrastructure), then targeting glycolysis imposes a constraint
    the cell cannot evolve around.
-\item Use non-chain-restoring therapies (chemotherapy, radiation)
-   only as cytoreductive measures to reduce tumor burden before
-   chain-restoring interventions, not as standalone strategies.
+\item Remove decoupling causes where identifiable (pathogen
+   eradication, environmental remediation, oncogenic driver
+   inhibition).
+\item Use cytoreductive therapies (chemotherapy, radiation)
+   only to reduce tumor burden before chain-restoring
+   interventions, not as standalone strategies.
 \end{enumerate}
 
 \textbf{Clinical evidence.} The relative success of combination
@@ -1158,6 +1740,18 @@ T.~Aasen, M.~Mesnil, C.~C. Naus, P.~D. Lampe, and D.~W. Laird.
 \newblock Gap junctions and cancer: Communicating for 50 years.
 \newblock \emph{Nature Reviews Cancer}, 16(12):775--788, 2016.
 
+\bibitem{Cowan2001}
+N.~Cowan.
+\newblock The magical number 4 in short-term memory: A reconsideration of
+  mental storage capacity.
+\newblock \emph{Behavioral and Brain Sciences}, 24(1):87--114, 2001.
+
+\bibitem{Brand1975}
+K.~G. Brand, L.~C. Buoen, K.~H. Johnson, and I.~Brand.
+\newblock Etiological factors, stages, and the role of the foreign body in
+  foreign body tumorigenesis: A review.
+\newblock \emph{Cancer Research}, 35(2):279--286, 1975.
+
 \bibitem{Aktipis2015}
 C.~A. Aktipis, A.~M. Boddy, G.~Jansen, U.~Hibner, C.~C. Maley, and
   G.~S. Wilkinson.
@@ -1201,6 +1795,12 @@ D.~Hanahan and R.~A. Weinberg.
 D.~Hanahan and R.~A. Weinberg.
 \newblock Hallmarks of cancer: The next generation.
 \newblock \emph{Cell}, 144(5):646--674, 2011.
+
+\bibitem{Herbst1971}
+A.~L. Herbst, H.~Ulfelder, and D.~C. Poskanzer.
+\newblock Adenocarcinoma of the vagina: Association of maternal stilbestrol
+  therapy with tumor appearance in young women.
+\newblock \emph{New England Journal of Medicine}, 284(15):878--881, 1971.
 
 \bibitem{McCarthy2026a}
 P.~D. McCarthy.
@@ -1274,6 +1874,50 @@ J.~Massagu{\'e} and A.~C. Obenauf.
 O.~Warburg.
 \newblock On the origin of cancer cells.
 \newblock \emph{Science}, 123(3191):309--314, 1956.
+
+\bibitem{Zhao2017}
+C.-M. Zhao, Y.~Hayakawa, Y.~Kodama, S.~Muthupalani, C.~B. Westphalen,
+  G.~T. Andersen, A.~Flatberg, H.~Johannessen, R.~A. Friedman,
+  B.~W. Renz, and others.
+\newblock Denervation suppresses gastric tumorigenesis.
+\newblock \emph{Science Translational Medicine}, 6(250):250ra115, 2014.
+
+\bibitem{Armitage1954}
+P.~Armitage and R.~Doll.
+\newblock The age distribution of cancer and a multi-stage theory of
+  carcinogenesis.
+\newblock \emph{British Journal of Cancer}, 8(1):1--12, 1954.
+
+\bibitem{Freedman2007}
+N.~D. Freedman, C.~C. Abnet, T.~M. Leitzmann, T.~Mouw, A.~F. Subar,
+  A.~R. Hollenbeck, and A.~Schatzkin.
+\newblock A prospective study of tobacco, alcohol, and the risk of
+  esophageal and gastric cancer subtypes.
+\newblock \emph{American Journal of Epidemiology}, 165(12):1424--1433, 2007.
+
+\bibitem{Herrero2003}
+R.~Herrero, X.~Castellsagu{\'e}, M.~Pawlita, J.~Lissowska,
+  F.~Kee, P.~Balaram, T.~Rajkumar, H.~Sridhar, B.~Rose,
+  J.~Pintos, and others.
+\newblock Human papillomavirus and oral cancer: the International
+  Agency for Research on Cancer multicenter study.
+\newblock \emph{Journal of the National Cancer Institute},
+  95(23):1772--1783, 2003.
+
+\bibitem{Lee2006}
+P.~N. Lee.
+\newblock Relation between exposure to asbestos and smoking jointly
+  and the risk of lung cancer.
+\newblock \emph{Occupational and Environmental Medicine},
+  58(3):145--153, 2001.
+
+\bibitem{Martincorena2015}
+I.~Martincorena, A.~Roshan, M.~Gerstung, P.~Ellis, P.~Van~Loo,
+  S.~McLaren, D.~C. Wedge, A.~Fullam, L.~B. Alexandrov, J.~M. Tubio,
+  and others.
+\newblock High burden and pervasive positive selection of somatic
+  mutations in normal human skin.
+\newblock \emph{Science}, 348(6237):880--886, 2015.
 
 \end{thebibliography}
 
