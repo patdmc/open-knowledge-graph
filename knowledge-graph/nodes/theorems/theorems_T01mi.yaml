@@ -1,0 +1,69 @@
+- id: T01-minimization-imperative
+  type: theorem
+  number: 1
+  name: Minimization Imperative
+  statement: 'Any entity E with agency A > 0 persisting in W necessarily minimizes U(w, K)
+
+    subject to the asymmetric retention criterion: retain proposition p if its
+
+    benefit is uncertain (may be needed and benefit is unknown), discard p only
+
+    if its benefit is certain to be zero. This is the selection-pressure derivation
+
+    of the minimization imperative — not an additional axiom.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: 'Proof: entities that fail to minimize U face U > U_lethal^d and do not persist
+
+        (Definition 9). Selection removes them. Entities that minimize U persist.
+
+        The asymmetric retention criterion follows from the cost asymmetry: C_absent >> c_retain
+
+        (Lemma 1 — cost of absent knowledge when needed dominates cost of retention).
+
+        '
+      references:
+      - D06-agency
+      - D09-survival-threshold
+      - L01-retention-cost-asymmetry
+    derivation:
+      from:
+      - D06-agency
+      - D09-survival-threshold
+      - L01-retention-cost-asymmetry
+      method: 'Selection pressure argument: non-minimizers do not persist; survivors minimize'
+  edges:
+  - to: T02-encoding-hierarchy
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 2 (encoding hierarchy efficiency) requires the minimization imperative as its driving force —
+          entities encode efficiently because they must minimize U
+      derivation:
+        method: Theorem 2 proof invokes Theorem 1 for the selection argument
+  - to: T03-agency-produces-gradient-descent
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 3 derives gradient descent from A > 0 and U minimization — requires Theorem 1 to establish that
+          minimization is necessary
+      derivation:
+        method: Theorem 3 proof builds on Theorem 1

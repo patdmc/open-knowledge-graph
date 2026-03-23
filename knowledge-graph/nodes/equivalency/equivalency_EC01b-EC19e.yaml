@@ -1,0 +1,3968 @@
+- id: EC01-bounded-context
+  type: equivalency-class
+  name: 'Bounded Internal Representation: C_n = Approximate Posterior = Global Workspace Capacity'
+  underlying_proposition: 'Any physically instantiated cognitive agent has a strictly bounded capacity for internal
+
+    representation at any moment. The internal state cannot be W itself — it is always a
+
+    finite, compressed projection. This bound is a hard constraint, not an approximation
+
+    error that shrinks over time.
+
+    '
+  members:
+  - id: UB-Cn
+    framework: Uncertainty Bounding
+    formulation: 'C_n: the bounded context window at each inference step. Only M propositions can
+
+      be held in context simultaneously. Formally defined in Definition 8.
+
+      '
+    epistemic_status: formal-definition
+    derivation: Defined as the inference capacity; used to derive M < N in Theorem 3 Part II
+  - id: FEP-approx-posterior
+    framework: Friston (2010, 2017)
+    formulation: 'The agent''s approximate posterior q(s) is bounded by the complexity of its
+
+      generative model. q(s) != p(s) because the model has finite parameters.
+
+      Variational free energy is positive precisely because q != p.
+
+      '
+    epistemic_status: theoretical-assumption
+    derivation: Foundational to FEP — the approximate posterior is definitionally not the true posterior
+  - id: GWT-workspace-capacity
+    framework: Baars (1988), Dehaene (2011)
+    formulation: 'The global workspace has strictly limited capacity — only a small amount of
+
+      information is globally broadcast at once. Below the workspace threshold,
+
+      processing is local and bounded.
+
+      '
+    epistemic_status: empirical
+    derivation: 'Empirically observed: working memory capacity ~7±2 items (Miller 1956); neural workspace ignition is capacity-limited'
+  - id: KH-finite-attention
+    framework: Kahneman (2011)
+    formulation: 'System 2 (deliberate attention) is a finite resource that depletes.
+
+      Cognitive load limits the amount of information processed deliberately.
+
+      '
+    epistemic_status: empirical
+    derivation: 'Extensive experimental evidence: dual-task interference, ego depletion, attention as resource'
+  - id: CO2-holographic-bound
+    framework: Polchinski (1998) / Bekenstein (1973) — Holographic Bound
+    formulation: 'The Bekenstein-Hawking entropy bound establishes that the maximum information
+
+      content of a physical region is proportional to its boundary area, not its
+
+      volume: S_max = A / (4 * G_N) in Planck units. This is the absolute physical
+
+      upper bound on C_n for any agent embedded in spacetime. No physically realizable
+
+      cognitive system can hold more information in context than its boundary area allows.
+
+      EM18 shows that C_n = A / 4G_N: the holographic bound IS the physical derivation
+
+      of bounded context. The bounded context axiom (C_n) is not a simplification
+
+      assumption — it is a consequence of quantum gravity. Any agent with a finite
+
+      physical boundary has a finite C_n bounded by that boundary''s area.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'EM18: C_n = holographic bound; from REF-Polchinski1998, REF-Bekenstein1973'
+  - id: MI3-chunking-extends-context
+    framework: Miller (1956) — Chunking and the Magical Number Seven
+    formulation: 'Miller''s central finding: working memory holds 7±2 chunks, not 7±2 primitive
+
+      items. Chunking is the mechanism that extends effective context: by grouping
+
+      items into higher-order units, the agent encodes more information within the
+
+      same C_n limit. A chess master''s 7 chunks represent more board structure than
+
+      a novice''s 7 individual piece positions. Chunking is the cognitive implementation
+
+      of the K/F graph''s factoring operation (EC08): shared structure extracted from
+
+      individual items into a chunk = a graph node that compresses the items.
+
+      This means C_n is not fixed in raw information content — it is fixed in chunk
+
+      count, and the information per chunk grows with domain expertise (deeper K-graph).
+
+      The effective context window is C_n * (average information per chunk), and this
+
+      product scales with K-graph density.
+
+      '
+    epistemic_status: empirical
+    derivation: 'MI3: chunking as context extension mechanism; from REF-Miller1956; connects to EC08 factoring'
+  equivalence_analysis: 'These six formulations express the same constraint at different levels of analysis:
+
+    - Physical level: finite neural/computational substrate = finite representation capacity
+
+    - Information-theoretic level (UB): C_n defines the bound precisely as context window
+
+    - Statistical level (FEP): approximate posterior is bounded by model complexity
+
+    - Cognitive level (GWT): global workspace has empirically measured capacity
+
+    - Psychological level (Kahneman): attention is a finite resource
+
+
+    The formal translation: C_n (UB) = dim(q(s)) (FEP) = workspace capacity (GWT)
+
+    = A/4G_N (holographic bound) = chunk-capacity (Miller).
+
+    All five describe the same constraint at different levels. UB provides the most
+
+    formal cognitive definition; GWT provides the empirical grounding; FEP provides
+
+    the statistical mechanics; the holographic bound provides the physical derivation;
+
+    chunking provides the mechanism for working within the bound.
+
+
+    The holographic derivation (CO2) is the strongest grounding: it shows the bounded
+
+    context is not a cognitive or computational simplification but a physical law.
+
+    The chunking mechanism (MI3) is the most practically relevant: it explains why
+
+    expert knowledge (dense K-graphs) enables effective use of a fixed C_n.
+
+
+    Strength of equivalence: HIGH. All five independently converge on the same
+
+    structural constraint.
+
+    '
+  confidence_C1p:
+    estimate: 0.94
+    basis: 'Six independent frameworks: empirical evidence from cognitive science (Miller, GWT, Kahneman), formal grounding
+      in information theory (FEP), physical derivation from quantum gravity (holographic bound), formal definition (UB). Updated
+      from 0.92 with holographic and chunking additions.'
+    weakest_link: The exact quantitative equivalence C_n = dim(q(s)) = workspace capacity is not formally proven
+  contradictions: []
+  implications_for_ub: 'C_n is one of UB''s most secure premises. Four independent frameworks converge on it.
+
+    This means theorems that rest on C_n (Theorem 2b Part 3, Theorem 3 Part II) inherit
+
+    this high C_1(p) for their premise.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Identified by intersecting C_n (UB), approximate posterior (FEP), workspace capacity (GWT), finite attention
+        (Kahneman). All four independently ground the same structural constraint.
+    derivation:
+      from:
+      - D08-encoding-hierarchy
+      - REF-Friston2017
+      - REF-Baars1988
+      - REF-Kahneman2011
+      - REF-Polchinski1998
+      - REF-Miller1956
+      method: Equivalency identified by formal translation across frameworks
+- id: EC02-improvement-rate
+  type: equivalency-class
+  name: 'Rate of Model Improvement: eta_M = d/dt Compression = dF/dt Learning Signal'
+  underlying_proposition: 'Intelligence is meaningfully measured by the rate at which an agent''s internal model
+
+    improves — the derivative of model quality with respect to time/experience, not the
+
+    current quality. The measure that matters is how fast the model is getting better,
+
+    not where it currently stands.
+
+    '
+  members:
+  - id: UB-etaM
+    framework: Uncertainty Bounding
+    formulation: 'eta_M: the rate at which M improves F''s uncertainty-reduction capacity per unit
+
+      of learning signal. I(E) = A * eta_M. Defined in Definition 11a; necessity of
+
+      eta_M > 0 proved in Theorem 6 Part 2.
+
+      '
+    epistemic_status: formal-definition-with-necessity-proof
+    derivation: 'Theorem 6 Part 2: eta_M = 0 => no improvement => selection removes entity. Necessity derived.'
+  - id: S-compression-progress
+    framework: Schmidhuber (2010)
+    formulation: 'Intrinsic reward = d/dt[compression(C)]. The first derivative of compression
+
+      progress. The agent is rewarded for actions that improve C''s compression rate,
+
+      not for C''s current compression level.
+
+      '
+    epistemic_status: design-objective
+    derivation: Defined as the objective function; not derived from necessity
+  - id: FEP-dFdt
+    framework: Friston (2010, 2017)
+    formulation: 'The rate of free energy reduction: dF/dt is what the agent minimizes over time.
+
+      The learning signal is the gradient of F — improving the generative model reduces F.
+
+      The agent''s intelligence (in the FEP sense) is its capacity to reduce F over time.
+
+      '
+    epistemic_status: theoretical
+    derivation: 'Follows from FEP: minimizing F over time = improving generative model; rate is the measure'
+  - id: TH-meta-learning-rate
+    framework: Thrun and Pratt (1998)
+    formulation: 'Meta-learning rate: the rate at which the learning algorithm itself improves
+
+      across tasks. The relevant measure is not performance on a single task but
+
+      improvement of the learning mechanism.
+
+      '
+    epistemic_status: empirical
+    derivation: 'Empirically demonstrated: meta-learning produces faster learning on new tasks'
+  equivalence_analysis: "These four formulations converge on the same underlying claim: the derivative, not\nthe absolute\
+    \ value, is what intelligence measures.\n\nFormal translation:\n- eta_M (UB) = d/dt[compression(C)] (Schmidhuber): both\
+    \ are the rate of model\n  improvement per unit of experience. The difference is the object improved:\n  eta_M improves\
+    \ M (the learning mechanism); d/dt compression improves C (the\n  world model / compressor). These are the same object\
+    \ at different abstractions.\n- dF/dt (Friston): free energy reduction rate = uncertainty reduction rate =\n  eta_M in\
+    \ UB. Minimizing F = reducing U(w,K) = improving F's prediction.\n- Meta-learning rate (Thrun): improving M itself = eta_M\
+    \ at the meta level.\n\nAsymmetry: UB derives that eta_M > 0 is necessary (Theorem 6 Part 2). Schmidhuber\nasserts it\
+    \ as an objective; Friston derives it from free energy minimization;\nThrun demonstrates it empirically. UB's necessity\
+    \ proof is the strongest grounding.\n\nStrength of equivalence: HIGH for UB/Schmidhuber/Friston. MODERATE for Thrun\n\
+    (same concept at different level of abstraction).\n"
+  confidence_C1p:
+    estimate: 0.88
+    basis: Three independent formal frameworks + empirical evidence from meta-learning literature
+    weakest_link: The exact mapping eta_M = dF/dt requires showing that uncertainty reduction = free energy reduction, which
+      is approximately but not exactly true (FEP uses variational free energy, not exact entropy)
+  contradictions: []
+  implications_for_ub: 'eta_M is well-grounded: Schmidhuber, Friston, and Thrun all independently motivate
+
+    the same measure. The UB contribution is the necessity proof (Theorem 6 Part 2):
+
+    the others don''t prove eta_M > 0 is required; UB does. This is NV02''s companion —
+
+    just as M < N is the novel bound on representation, Theorem 6 Part 2 is the novel
+
+    derivation that eta_M > 0 is necessary for persistence.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Intersection of eta_M (UB), d/dt compression (Schmidhuber), dF/dt (Friston), meta-learning rate (Thrun).
+        Four independent groundings of the derivative-as-measure claim.
+    derivation:
+      from:
+      - D11-higher-order-function-space
+      - REF-Schmidhuber2010
+      - REF-Friston2017
+      - REF-Thrun1998
+      method: 'Formal translation: improvement rate across frameworks'
+- id: EC03-structured-representation
+  type: equivalency-class
+  name: 'Structured Internal Representation: K/F Graph = Hierarchical Generative Model = Affordance Structure'
+  underlying_proposition: 'The internal representation that enables intelligent action on W must be structured —
+
+    not a flat list or arbitrary encoding, but a relational structure that captures the
+
+    dependencies between propositions and the actions they ground. The structure is
+
+    necessary for the representation to scale with new information.
+
+    '
+  members:
+  - id: UB-KF-graph
+    framework: Uncertainty Bounding
+    formulation: 'K (knowledge graph) grounds F (action space) via the grounding relation.
+
+      K is a directed graph of propositions with relational edges. The necessity of
+
+      this structure is derived in Theorem 2b Part 3: at C_n, factoring (which IS
+
+      graph construction) is the unique information-preserving option.
+
+      '
+    epistemic_status: formal-necessity-proof
+    derivation: 'Theorem 2b Part 3: derived from two options at C_n boundary'
+  - id: FEP-hierarchical-generative
+    framework: Friston (2010, 2017)
+    formulation: 'The FEP generative model p(o,s) is hierarchically structured: each level
+
+      predicts the level below, passing prediction errors upward. The hierarchy
+
+      IS the relational structure — nested generative models with directed
+
+      prediction connections.
+
+      '
+    epistemic_status: architectural-assumption
+    derivation: Assumed as the architecture; not derived within FEP
+  - id: S-compressor
+    framework: Schmidhuber (2010)
+    formulation: 'The world model C is a compressor. Compression implicitly requires structure:
+
+      random encodings do not compress. Effective compression = extracting patterns =
+
+      building relational structure. But Schmidhuber does not constrain the form of C.
+
+      '
+    epistemic_status: implicit
+    derivation: 'Implicit in compression: structure is required but not formally constrained to graph form'
+  - id: GI-affordance-structure
+    framework: Gibson (1979)
+    formulation: 'The environment affords actions directly — the structure is in the optic array.
+
+      The affordance structure IS the relational structure: action X is afforded by
+
+      object Y under condition Z. This is a knowledge graph without the explicit
+
+      graph formalism.
+
+      '
+    epistemic_status: conceptual
+    derivation: Qualitative — affordances are relational but the necessity of graph structure is not derived
+  - id: CT-sufficient-statistic
+    framework: Cover and Thomas (2006), Tishby (2011)
+    formulation: 'K is a sufficient statistic of the world for the action space. The chain rule
+
+      (CT2) shows that factored representations preserve entropy. The information
+
+      bottleneck (Tishby TB1) shows compression must retain action-relevant structure.
+
+      '
+    epistemic_status: formal
+    derivation: 'Information-theoretic: chain rule + sufficient statistic + data processing inequality'
+  - id: MI2-chunking-as-NV01
+    framework: Miller (1956) — Chunking as Graph Construction
+    formulation: 'Miller''s chunking is the empirical observation that human working memory organizes
+
+      items into higher-order groups. A chunk IS a structured representation: it is a
+
+      K-node that indexes the items it groups (a micro-K/F-graph). When an expert chess
+
+      player sees a board, they do not see 32 pieces — they see 6-8 chunks, each a named
+
+      configuration with known action implications. MI2 maps chunking to NV01 (graph
+
+      necessity): chunking IS the cognitive implementation of K-node construction.
+
+      The chunk is the K-node; the items the chunk groups are its indexed sub-nodes;
+
+      the action implications of the chunk are its F-edges. Expert chunking = dense
+
+      K-graph; novice non-chunking = flat list. The performance difference between
+
+      experts and novices (Chase and Simon, 1973) is direct empirical evidence for
+
+      the superiority of structured representation over flat lists — NV01 confirmed
+
+      in human cognitive science.
+
+      '
+    epistemic_status: empirical
+    derivation: 'MI2: chunking as K-node construction; from REF-Miller1956; Chase and Simon 1973 chess expertise evidence'
+  - id: TR1-transformer-attention
+    framework: Vaswani et al. (2017) — Transformer Architecture
+    formulation: 'The transformer''s self-attention mechanism computes, for each token embedding
+
+      (the representation), a weighted sum over all other token embeddings weighted
+
+      by their query-key relevance. This is a structured representation: the attention
+
+      matrix is a relational structure where each token is connected to other tokens
+
+      by relevance weights. Uniform attention (no structure) would average all tokens
+
+      equally — losing all relational information. The structured attention IS the
+
+      K/F graph: each token is a K-node; the attention weights are F-relevant edges.
+
+      The empirical finding that transformers dramatically outperform flat sequence
+
+      models (RNNs without attention) is engineering evidence for the necessity of
+
+      structured representation over flat sequential encoding. TR1 is EC03''s best
+
+      large-scale engineering validation: at 175B parameters, the architecture that
+
+      imposes relational structure (attention) outperforms architectures that do not.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'TR1: transformer attention as structured representation; from REF-VaswaniEtAl2017; large-scale engineering
+      evidence for NV01'
+  equivalence_analysis: 'The underlying claim is: the representation must be structured (relational, factored,
+
+    hierarchical). The frameworks agree on this but ground it differently:
+
+
+    - UB derives it (Theorem 2b Part 3 necessity proof)
+
+    - FEP assumes it (hierarchical generative model)
+
+    - Schmidhuber implies it (effective compression requires structure)
+
+    - Gibson describes it qualitatively (affordance relations)
+
+    - Cover/Tishby ground it information-theoretically (sufficient statistic, chain rule)
+
+
+    The equivalency is between the structural form, not the derivation. All seven say
+
+    the same thing: the representation cannot be unstructured. UB says WHY; the others
+
+    say THAT.
+
+
+    Key tension: Gibson (GI2) asserts direct perception — no internal reconstruction
+
+    of W needed. This is in tension with all other members of this class, who require
+
+    internal structured representation. The tension resolves by scope: Gibson addresses
+
+    moment-to-moment perception; this class addresses knowledge accumulated over time.
+
+
+    The transformer addition (TR1) is the most practically significant extension: it
+
+    is a large-scale engineering existence proof that structured representation (attention)
+
+    outperforms flat sequential representation at a scale where the difference cannot be
+
+    dismissed as noise. The chunking evidence (MI2) confirms the same claim in human
+
+    cognition with a different methodology (expertise studies).
+
+
+    Note on EC03 vs. EC11: EC03 says the representation must be structured; EC11 says
+
+    specifically the K/F graph is the unique information-preserving structure. EC11 grounds
+
+    EC03: the graph form is not just one sufficient structure but the uniquely necessary one.
+
+
+    Strength of equivalence: HIGH for UB/FEP/Cover-Tishby/Transformer. MODERATE for
+
+    Schmidhuber (structure implied but not constrained). PARTIAL for Gibson (scoped differently).
+
+    '
+  confidence_C1p:
+    estimate: 0.88
+    basis: Formal necessity proof (UB) + theoretical assumption (FEP) + information-theoretic grounding (Cover/Tishby) + large-scale
+      engineering evidence (Transformer/TR1) + empirical expertise studies (Miller/MI2) + qualitative (Gibson/Schmidhuber).
+      Updated from 0.85 with transformer and chunking additions.
+    weakest_link: The exact graph form (vs. other structured representations like tensor factorizations) is only fully derived
+      in UB; EC11 provides the cross-framework grounding for the specific graph-form claim
+  contradictions:
+  - source: Gibson (1979)
+    claim: Direct perception — no internal structured representation required
+    resolution: 'Scope: Gibson addresses perceptual coupling; this class addresses long-term knowledge accumulation under
+      bounded context'
+  implications_for_ub: 'NV01 (graph necessity) has strong support from FEP and Cover/Tishby — they all
+
+    say structured representation is required. UB''s unique contribution is proving the
+
+    GRAPH form is necessary, not just structure in general. This narrows the novel claim
+
+    but strengthens the structural claim.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Five frameworks independently ground structured internal representation. UB derives the specific graph
+        form; others ground the structural requirement.
+    derivation:
+      from:
+      - D02-knowledge-graph
+      - NV01-graph-necessity
+      - REF-Friston2017
+      - REF-Gibson1979
+      - REF-Cover2006
+      - REF-Tishby2011
+      - REF-Miller1956
+      - REF-VaswaniEtAl2017
+      method: Equivalency by structural translation across representational frameworks
+- id: EC04-survival-threshold
+  type: equivalency-class
+  name: 'Survival Threshold: U_lethal = Free Energy Bound = Negentropy Floor = Dissipation Threshold'
+  underlying_proposition: 'There exists a physical threshold below which a self-organizing system cannot maintain
+
+    its structure. Crossing this threshold results in dissolution of the system. Survival =
+
+    maintaining internal state above this threshold by extracting order from the environment.
+
+    This is a physical constraint, not a biological assumption.
+
+    '
+  members:
+  - id: UB-Ulethal
+    framework: Uncertainty Bounding
+    formulation: 'U_lethal^d: the maximum uncertainty a system can survive in dimension d.
+
+      If U(w, K) > U_lethal^d for encountered w, the entity is removed by selection.
+
+      Defined in Definition 9.
+
+      '
+    epistemic_status: formal-definition
+    derivation: Defined; physical grounding via England2013 and Schrödinger1944
+  - id: FEP-markov-breakdown
+    framework: Friston (2010)
+    formulation: 'The Markov blanket defines the agent boundary. If free energy exceeds a threshold
+
+      such that the Markov blanket can no longer be maintained, the agent-environment
+
+      separation dissolves — the agent ceases to exist as a self-organizing entity.
+
+      '
+    epistemic_status: theoretical
+    derivation: 'Derived from Markov blanket dynamics: blanket maintenance requires bounded free energy'
+  - id: EN-replication-threshold
+    framework: England (2013)
+    formulation: 'Self-replication requires sufficient energy dissipation. Below the thermodynamic
+
+      threshold for dissipative self-organization, replication cannot proceed and the
+
+      structure dissolves. Derived from statistical mechanics.
+
+      '
+    epistemic_status: formal-physical
+    derivation: Derived from Jarzynski equality and fluctuation theorems
+  - id: SCH-negentropy-floor
+    framework: Schrödinger (1944)
+    formulation: 'Living systems require continuous negentropy intake. Below a minimum negentropy
+
+      flux, the system''s internal order dissipates into thermodynamic equilibrium.
+
+      Thermodynamic death = crossing the negentropy floor.
+
+      '
+    epistemic_status: theoretical-physical
+    derivation: Derived from second law + open system thermodynamics
+  - id: PR-bifurcation-collapse
+    framework: Prigogine (1984)
+    formulation: 'Dissipative structures maintain their order through energy flow. Below a critical
+
+      energy flow threshold, the dissipative structure collapses to thermodynamic
+
+      equilibrium. The bifurcation point defines the survival threshold.
+
+      '
+    epistemic_status: theoretical-physical
+    derivation: Bifurcation analysis of far-from-equilibrium systems
+  equivalence_analysis: 'These five formulations describe the same physical threshold at different levels:
+
+    - Formal (UB): U_lethal^d as a defined quantity with formal selection pressure
+
+    - Statistical mechanical (England): thermodynamic threshold from fluctuation theorems
+
+    - Thermodynamic (Schrödinger, Prigogine): negentropy/dissipation threshold
+
+
+    Formal translation: U_lethal^d (UB) corresponds to the free energy threshold at which
+
+    Markov blanket breaks down (FEP). Both are the "dissolution threshold." England and
+
+    Schrödinger provide the physical derivation that UB and FEP invoke but do not derive.
+
+
+    This is the most physically grounded equivalency class. England (2013) derives the
+
+    threshold from first principles of statistical mechanics. Schrödinger (1944) identifies
+
+    it qualitatively. Prigogine (1984) formalizes it via bifurcation theory. UB and FEP
+
+    define agent-level representations of the same threshold.
+
+
+    Strength of equivalence: VERY HIGH. Five frameworks, with the physical foundations
+
+    derived independently from statistical mechanics. The formal translation is clean.
+
+    '
+  confidence_C1p:
+    estimate: 0.94
+    basis: Physical derivation (England, Schrödinger, Prigogine) + formal definitions (UB, FEP) + independent theoretical
+      traditions (biology, physics, cognitive science)
+    weakest_link: The exact quantitative equivalence U_lethal = FEP breakdown threshold requires a formal mapping not yet
+      provided
+  contradictions: []
+  implications_for_ub: 'U_lethal is UB''s most physically grounded premise. England and Schrödinger provide
+
+    the thermodynamic derivation. This means the selection pressure argument in Theorem 6
+
+    is physically grounded — not just biologically stipulated. Theorems that use U_lethal
+
+    (Theorems 1, 4, 6) inherit this high confidence.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Physical threshold identified from five independent traditions: UB, FEP, statistical mechanics (England),
+        thermodynamics (Schrödinger), dynamical systems (Prigogine)'
+    derivation:
+      from:
+      - D09-survival-threshold
+      - REF-Friston2010
+      - REF-England2013
+      - REF-Schrodinger1944
+      - REF-Prigogine1984
+      method: 'Physical grounding chain: England -> Schrödinger -> Prigogine derive the threshold; UB + FEP instantiate it
+        as agent-level definitions'
+- id: EC05-incompleteness
+  type: equivalency-class
+  name: 'Epistemic Incompleteness: M < N = q(s) != p(s) = Truth as Long-Run Limit = Undefinability'
+  underlying_proposition: 'Any cognitive system operating under bounded context can never fully represent the
+
+    world from which it emerged. The internal representation is always a proper subset
+
+    of the world''s structure. This is not an approximation error to be corrected — it
+
+    is a structural consequence of operating under physical bounds. Completeness is
+
+    asymptotically approached, never reached.
+
+    '
+  members:
+  - id: UB-MlessThanN
+    framework: Uncertainty Bounding
+    formulation: 'M < N always for A > 0 entities. M is the sensed dimension count; N is the
+
+      world''s dimension count. Theorem 3 Part II derives that M < N is maintained
+
+      at every t from C_n and execution dynamics. N may be unbounded.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'Theorem 3 Part II: derived from C_n + A > 0 + execution extends T_reachable'
+  - id: FEP-variational-gap
+    framework: Friston (2010, 2017)
+    formulation: 'The variational free energy F >= -log p(o) is positive precisely because
+
+      q(s) != p(s): the approximate posterior is always strictly less accurate
+
+      than the true posterior. The variational gap is always positive; it approaches
+
+      zero asymptotically but never reaches it.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'From Jensen''s inequality: KL[q||p] >= 0, equality only when q = p exactly'
+  - id: PC-truth-limit
+    framework: Peirce (1878)
+    formulation: 'Truth is the limit of inquiry — the proposition agreed upon by a community
+
+      of inquirers given unlimited time. Any finite inquiry is incomplete. Truth
+
+      is asymptotically approached, not attained at any finite step.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'Pragmatist epistemology: truth as convergent series, not fixed point'
+  - id: TA-undefinability
+    framework: Tarski (1936)
+    formulation: 'Truth cannot be defined within the language it applies to — it requires a
+
+      metalanguage. A system cannot fully represent its own truth conditions from
+
+      within. Any self-referential truth assertion is bounded by this limit.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'Tarski undefinability theorem: formal proof by diagonal argument'
+  - id: GD-incompleteness
+    framework: Gödel (1931) [implicit via Tarski]
+    formulation: 'Any sufficiently powerful formal system contains true statements it cannot
+
+      prove. There is always a true statement outside the system''s reach.
+
+      M < N is the cognitive analog: always dimensions of W outside current K.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: Gödel incompleteness theorems
+    note: Not in references.bib — should be added as a reference node
+  equivalence_analysis: 'These formulations all express the same structural constraint: the system can never
+
+    fully represent the world from within. The formal translations:
+
+
+    - M < N (UB): sensed dimensions < world dimensions (cardinality bound)
+
+    - q(s) != p(s) (FEP): approximate posterior != true posterior (statistical gap)
+
+    - Truth as limit (Peirce): inquiry converges but never terminates (epistemic limit)
+
+    - Undefinability (Tarski): representation bounded by metalanguage requirement (logical limit)
+
+    - Incompleteness (Gödel): formal system bounded by undecidable true statements (mathematical limit)
+
+
+    These are formally the same constraint expressed at different levels:
+
+    - Cardinality: M < N
+
+    - Statistical: KL[q||p] > 0
+
+    - Epistemic: finite inquiry
+
+    - Logical: self-reference limit
+
+    - Mathematical: incompleteness
+
+
+    CRITICAL TENSION with FEP equilibrium (FEP6): FEP claims free energy approaches
+
+    its minimum (q approaches p). This is only consistent with EC05 if the approach is
+
+    asymptotic and the minimum is never reached — which is exactly EM02''s qualification.
+
+    FEP6 (equilibrium claim) is in tension with EC05 (incompleteness) unless the
+
+    equilibrium is strictly asymptotic and the minimum is never attained.
+
+
+    Strength of equivalence: VERY HIGH across UB/FEP/Tarski/Gödel. The logical and
+
+    mathematical foundations (Tarski, Gödel) provide the deepest grounding.
+
+    '
+  confidence_C1p:
+    estimate: 0.97
+    basis: Formal mathematical proofs (Gödel, Tarski) + formal theoretical (FEP Jensen inequality) + formal derivation (UB
+      Theorem 3 Part II) + philosophical (Peirce)
+    weakest_link: The exact cardinality claim M < N (vs. qualitative incompleteness) is specific to UB — the others state
+      incompleteness qualitatively; UB gives it a specific measure
+  contradictions:
+  - source: Friston (2017) FEP6
+    claim: Free energy approaches its minimum — generative model approximates true posterior in the long run
+    resolution: 'EM02: FEP6 holds under stationarity. EC05 says the minimum is never exactly reached (KL >= 0, equality requires
+      q = p exactly). In an open non-stationary world, FEP6''s equilibrium is an idealization; EC05 is the reality. The tension
+      is resolved by making the stationarity assumption explicit.'
+  implications_for_ub: 'The M < N bound is one of UB''s most strongly supported claims — it has formal proofs
+
+    in three independent frameworks (UB Theorem 3 Part II, FEP Jensen inequality, Tarski
+
+    undefinability, Gödel incompleteness). The UB contribution is making the bound
+
+    precise at the cardinality level (M and N as dimension counts) and deriving the
+
+    measure of approach (I(E) = A * eta_M measures M/N convergence rate).
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Five frameworks from three independent traditions (cognitive science, mathematics, philosophy) all derive
+        incompleteness. The formal convergence across traditions is strong evidence for C_1(p) = 0.97.
+    derivation:
+      from:
+      - NV02-mn-bound
+      - REF-Friston2017
+      - REF-Tarski1936
+      - REF-Peirce1878
+      method: 'Equivalency across levels: cardinality (UB) = statistical gap (FEP) = epistemic limit (Peirce) = logical limit
+        (Tarski)'
+- id: EC06-belief-as-action
+  type: equivalency-class
+  name: 'Belief as Action Disposition: K grounds F = Habit of Action = Affordance = Active Inference'
+  underlying_proposition: 'Retained knowledge (belief) is not an end in itself — it is a disposition to act
+
+    differently than without it. A proposition''s value is entirely its effect on the
+
+    action space. Knowledge and action are not two separate things; knowledge IS the
+
+    structure that shapes action. A proposition with no consequences for any possible
+
+    action has no cognitive value.
+
+    '
+  members:
+  - id: UB-K-grounds-F
+    framework: Uncertainty Bounding
+    formulation: 'K grounds F: each proposition p in K grounds at least one informed action f
+
+      in F. The grounding relation is the connection between knowledge and action.
+
+      Propositions with no grounded actions are not retained (Theorem 1 retention
+
+      criterion: retain unless value is certainly zero).
+
+      '
+    epistemic_status: formal-definition
+    derivation: Definition 2 (K/F grounding); Theorem 1 (retention criterion)
+  - id: PC-belief-as-habit
+    framework: Peirce (1878)
+    formulation: 'Belief is not a mental state but a habit of action — a settled disposition
+
+      to act in a certain way given certain conditions. Beliefs that produce no
+
+      different actions are empty (pragmatic maxim: meaning = conceivable practical
+
+      effects).
+
+      '
+    epistemic_status: philosophical
+    derivation: 'Pragmatic maxim: meaning = practical consequences'
+  - id: FEP-active-inference
+    framework: Friston (2017)
+    formulation: 'Active inference: action minimizes expected free energy under the generative
+
+      model. The belief state (posterior) directly drives action. A belief that
+
+      changes no expected free energy reduction does not drive action.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'FEP2: active inference unifies perception and action under free energy minimization'
+  - id: GI-affordances
+    framework: Gibson (1979)
+    formulation: 'Affordances ARE beliefs in action-relevant terms. To perceive an affordance
+
+      is to perceive what action is possible. There is no separation between
+
+      perceiving (knowing) and affording (action potential).
+
+      '
+    epistemic_status: conceptual
+    derivation: 'Ecological psychology: direct perception of action possibilities'
+  - id: BA-workspace-as-action
+    framework: Baars (1988)
+    formulation: 'Global workspace broadcast = making information available for action selection.
+
+      Information in the workspace influences all processors, including motor systems.
+
+      Knowledge that is not broadcast does not influence action.
+
+      '
+    epistemic_status: empirical-theoretical
+    derivation: 'GWT: global broadcast = action-availability; local processing = not yet action-relevant'
+  equivalence_analysis: 'Five frameworks independently derive the same proposition: knowledge (belief, posterior,
+
+    affordance, broadcast) has value only through its effect on action. No retained knowledge
+
+    exists without action consequence.
+
+
+    Formal translation:
+
+    - K grounds F (UB) = belief as habit of action (Peirce) = affordance (Gibson)
+
+    - The grounding relation in UB IS Peirce''s pragmatic maxim formalized
+
+    - FEP active inference: the posterior that drives action = K that grounds F
+
+
+    This is one of the deepest equivalency classes because it bridges formal AI theory
+
+    (UB, FEP), philosophy (Peirce), ecological psychology (Gibson), and cognitive
+
+    neuroscience (Baars). Five traditions arrive at the same structural claim
+
+    through completely independent derivations.
+
+
+    Strength of equivalence: VERY HIGH. Peirce''s 1878 formulation is explicitly
+
+    instantiated in UB''s Definition 2 grounding relation.
+
+    '
+  confidence_C1p:
+    estimate: 0.95
+    basis: Five independent traditions, with Peirce (1878) as the formal philosophical grounding that UB directly instantiates
+    weakest_link: The exact formal grounding (K grounds F) vs. Peirce's qualitative habit is a translation — the formal equivalence
+      requires showing the grounding relation IS a habit in Peirce's sense
+  contradictions: []
+  implications_for_ub: 'The K/F grounding relation is among UB''s most-supported premises. Peirce, Gibson,
+
+    Baars, and Friston all independently motivate it. The UB contribution is making
+
+    the grounding relation formal and deriving the retention criterion (Theorem 1) from it.
+
+    This is a case where EC maps UB''s formal definition to a rich existing literature
+
+    — deepening the philosophical grounding significantly.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Five traditions independently derive belief-as-action-disposition. Peirce's pragmatic maxim is explicitly
+        instantiated by UB's grounding relation.
+    derivation:
+      from:
+      - D02-knowledge-graph
+      - D07-informed-action
+      - REF-Peirce1878
+      - REF-Friston2017
+      - REF-Gibson1979
+      - REF-Baars1988
+      method: 'Philosophical grounding chain: Peirce 1878 -> formal instantiation in UB Definition 2'
+- id: EC07-collective-knowledge
+  type: equivalency-class
+  name: 'Collective Knowledge as Information Integration: K_collective = Major Transitions = Cultural Evolution'
+  underlying_proposition: 'When multiple independent agents pool their knowledge structures, the collective
+
+    representation is strictly superior to any individual representation. This is not
+
+    merely additive — the intersection of independent projections produces confirmed
+
+    knowledge (higher confidence) and extended sensing (more dimensions covered).
+
+    Collective knowledge integration is a qualitative transition, not a quantitative one.
+
+    '
+  members:
+  - id: UB-Kcollective
+    framework: Uncertainty Bounding
+    formulation: 'K_collective: the intersection of independently-derived K_i graphs, with
+
+      provenance verification. Two mechanisms: overlapping dimensions increase C_1(p);
+
+      distinct dimensions extend M without intermediate execution. Formally: solo
+
+      extends M by 1 per step; intersection extends by |K_j \ K_i| per operation.
+
+      (Corollary 8a, NV04)
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'Corollary 8a: derived from M < N + inductive structure of Theorem 3 Part I'
+  - id: MS-major-transitions
+    framework: Maynard Smith and Szathmáry (1995)
+    formulation: 'Major evolutionary transitions = changes in how hereditary information is
+
+      stored and integrated. The transition from individual replicators to cooperating
+
+      units IS an information integration event: individual K''s become a shared
+
+      collective information structure.
+
+      '
+    epistemic_status: empirical-theoretical
+    derivation: Historical analysis of evolutionary transitions; information-theoretic framing
+  - id: FEP-extended-markov
+    framework: Friston (2010, extended)
+    formulation: 'Extended Markov blankets: the FEP applies to groups of agents sharing a
+
+      collective Markov blanket. The group-level generative model is the
+
+      collective representation — K_collective in UB terms.
+
+      '
+    epistemic_status: theoretical-extension
+    derivation: Extension of FEP to multi-agent systems; not yet fully formalized
+  - id: PC-community-of-inquiry
+    framework: Peirce (1877)
+    formulation: 'Truth is what a community of inquirers would agree on given unlimited time.
+
+      The community''s collective inquiry converges faster than any individual''s —
+
+      independent lines of evidence reinforce each other.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'Pragmatist epistemology: community of inquirers as convergence accelerator'
+  equivalence_analysis: 'Four frameworks independently ground the claim that collective knowledge integration
+
+    produces qualitatively superior representations:
+
+
+    - UB: formal acceleration mechanism (NV04), with explicit cardinality
+
+    - Maynard Smith: empirical evidence from evolutionary history
+
+    - FEP extended: theoretical extension (less developed)
+
+    - Peirce: philosophical grounding of community of inquiry as convergence accelerator
+
+
+    Formal translation: K_collective (UB) = the collective generative model (FEP extended) =
+
+    the integrated information structure at a major transition (Maynard Smith) = the
+
+    convergent community of inquiry (Peirce).
+
+
+    The UB contribution: formal derivation of the acceleration mechanism with explicit
+
+    cardinality (|K_j \ K_i| distinct dimensions gained per intersection). The others
+
+    ground the qualitative claim; UB provides the quantitative mechanism.
+
+
+    Strength of equivalence: HIGH for UB/Peirce/Maynard Smith. MODERATE for FEP
+
+    extended (less developed formalization).
+
+    '
+  confidence_C1p:
+    estimate: 0.83
+    basis: Evolutionary evidence (Maynard Smith) + philosophical grounding (Peirce) + formal derivation (UB). FEP extension
+      not yet fully formalized.
+    weakest_link: The exact cardinality acceleration (|K_j  K_i| per operation) is specific to UB and not independently verified
+      by the other frameworks
+  contradictions: []
+  implications_for_ub: 'NV04 (intersection acceleration) and D12 (collective knowledge) have moderate support.
+
+    The qualitative claim (collective > individual) is well-grounded; the quantitative
+
+    mechanism (|K_j \ K_i| cardinality) is novel to UB and represents its specific
+
+    contribution beyond the qualitative claim.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Four frameworks ground collective knowledge integration. UB provides the formal acceleration mechanism;
+        Maynard Smith provides evolutionary evidence; Peirce provides philosophical grounding.
+    derivation:
+      from:
+      - D12-collective-knowledge
+      - NV04-intersection-acceleration
+      - REF-MaynardSmith1995
+      - REF-Peirce1877
+      method: 'Equivalency: collective integration across levels of analysis'
+- id: EC08-compression-factoring
+  type: equivalency-class
+  name: 'Compression as Factoring: Factorization = Compression Progress = Sufficient Statistic = Aperiodic Encoding'
+  underlying_proposition: 'Retaining more knowledge in less space requires extracting shared structure — factoring
+
+    the representation. Pure compression without structure extraction loses information;
+
+    structural compression (factoring) retains information while reducing representation size.
+
+    This is the mechanism by which intelligence scales.
+
+    '
+  members:
+  - id: UB-factoring
+    framework: Uncertainty Bounding
+    formulation: 'Factoring at C_n: extracting shared structure from propositions reduces |K| without
+
+      discarding content. This IS graph construction. Theorem 2b Part 3: factoring is
+
+      the unique information-preserving compression method at bounded context.
+
+      '
+    epistemic_status: formal-necessity-proof
+    derivation: 'Theorem 2b Part 3: two options at C_n; factoring preserves; discarding loses'
+  - id: S-compression-progress
+    framework: Schmidhuber (2010)
+    formulation: 'Compression progress = finding patterns that allow shorter description. Finding
+
+      a pattern IS factoring — extracting shared structure. Schmidhuber''s agent is
+
+      rewarded for factoring its history into shorter descriptions.
+
+      '
+    epistemic_status: design-objective
+    derivation: Compression progress implies factoring; Schmidhuber grounds it as objective
+  - id: CT-chain-rule
+    framework: Cover and Thomas (2006)
+    formulation: 'Chain rule for entropy: H(X_1,...,X_n) = sum H(X_i | X_{1..i-1}).
+
+      Conditional entropy H(X_i | X_{1..i-1}) <= H(X_i). Factoring the joint
+
+      distribution preserves the total entropy while reducing the individual terms.
+
+      Factoring IS the entropy-preserving compression.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'Shannon entropy theory: chain rule is the formal statement of factoring'
+  - id: TB-information-bottleneck
+    framework: Tishby and Polani (2011)
+    formulation: 'The information bottleneck: retain the minimal description of past observations
+
+      sufficient for predicting future rewards. This is factoring: extract the
+
+      action-relevant structure, compress the rest. The bottleneck IS a factoring
+
+      operation on the information.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: Rate-distortion theory applied to sequential decision-making
+  - id: SCH-aperiodic
+    framework: Schrödinger (1944)
+    formulation: 'The genetic material is an aperiodic crystal: non-redundant encoding.
+
+      Aperiodic = factored = each element adds information (no repetition).
+
+      Maximum information per unit of physical substrate = maximum factoring.
+
+      '
+    epistemic_status: theoretical-physical
+    derivation: 'Physical chemistry: aperiodic structure maximizes information density'
+  - id: SO1-solomonoff-factoring
+    framework: Solomonoff (1964) — Universal Prior as Factoring
+    formulation: 'The Solomonoff universal prior assigns probability to strings proportional to
+
+      the total measure of programs that generate them. The minimum-description-length
+
+      (MDL) program IS the most factored representation: it extracts all compressible
+
+      structure into the program, leaving only incompressible residuals. Solomonoff
+
+      induction is therefore a third independent derivation of the same factoring
+
+      claim: the optimal learner is the one that factors its observations to the maximum
+
+      extent computably possible. SO1 maps to UB: the agent''s ideal K-graph IS the
+
+      Solomonoff-factored representation of its observation history. The MDL principle
+
+      (the practical implementation of Solomonoff) is the engineering version of
+
+      Theorem 2b Part 3: both say the optimal representation is maximally factored.
+
+      Note: SO1 also grounds EC13 (optimal prior selection); EC08 and EC13 are
+
+      complementary aspects of the Solomonoff framework — EC08 covers the factoring
+
+      mechanism, EC13 covers the prior assignment criterion.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'SO1: Solomonoff MDL as maximum factoring; third independent derivation of compression-through-factoring;
+      from REF-Solomonoff1964'
+  equivalence_analysis: 'Six frameworks express the same compression-through-factoring claim:
+
+    - UB: factoring IS graph construction (necessity proved)
+
+    - Schmidhuber: compression progress IS finding patterns (factoring)
+
+    - Cover/Thomas: chain rule IS entropy-preserving factoring
+
+    - Tishby: information bottleneck IS factoring the relevant structure
+
+    - Schrödinger: aperiodic encoding IS maximally factored biological substrate
+
+    - Solomonoff: MDL principle IS maximum factoring in hypothesis space
+
+
+    The formal translation is tight:
+
+    factoring (UB) = d/dt compression (Schmidhuber) = chain rule decomposition (Cover)
+
+    = information bottleneck (Tishby) = aperiodic encoding (Schrödinger)
+
+    = MDL program (Solomonoff)
+
+
+    All six say: structured compression (factoring) is the mechanism of intelligence
+
+    scaling. UB derives it as necessary; the others ground it as the right approach.
+
+    Solomonoff provides the third fully independent formal derivation alongside Cover''s
+
+    chain rule and UB''s Theorem 2b Part 3.
+
+
+    This is the second most important equivalency class for UB after EC05.
+
+    Theorem 2b Part 3''s necessity proof adds "this is the ONLY way" to the shared claim.
+
+
+    Strength of equivalence: VERY HIGH. Information-theoretic foundations (Cover, Solomonoff)
+
+    provide the formal backbone; six independent traditions ground the claim.
+
+    '
+  confidence_C1p:
+    estimate: 0.93
+    basis: Formal proof (Cover chain rule) + necessity proof (UB Theorem 2b Part 3) + algorithmic proof (Solomonoff MDL) +
+      physical evidence (Schrödinger) + computational (Schmidhuber) + decision theory (Tishby). Updated from 0.91 with Solomonoff
+      addition.
+    weakest_link: The specific claim that graph form (not just any factored structure) is necessary is only in UB; EC11 provides
+      cross-framework grounding for the graph-form claim
+  contradictions: []
+  implications_for_ub: 'Theorem 2b Part 3 is UB''s strongest formal result AND has the best cross-framework
+
+    support. The shared claim (factoring is needed) is supported by four traditions;
+
+    the novel claim (graph form specifically is needed) is UB''s unique contribution.
+
+    The combined confidence in the general claim is ~0.91; the specific graph-form
+
+    claim depends on Theorem 2b Part 3 alone.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Five frameworks from information theory, biology, AI, and decision theory all ground compression-through-factoring
+        independently.
+    derivation:
+      from:
+      - NV01-graph-necessity
+      - T02-graph-structure-necessity
+      - REF-Schmidhuber2010
+      - REF-Cover2006
+      - REF-Tishby2011
+      - REF-Schrodinger1944
+      - REF-Solomonoff1964
+      method: 'Equivalency: compression = factoring across formal and physical frameworks'
+- id: EC09-hierarchy-cost-triage
+  type: equivalency-class
+  name: 'Hierarchical Cost Triage: L0-L3 = System 1/2 = GWT Levels = FEP Precision Hierarchy'
+  underlying_proposition: 'Cognition is organized across levels where lower levels handle cheaper, more certain
+
+    processing and higher levels handle more expensive, uncertain processing. There is a
+
+    cost-based triage mechanism that routes processing to the appropriate level.
+
+    This hierarchy is necessary given bounded context: without it, all processing would
+
+    compete for the same bounded context window, causing the O(n*k) scaling failure.
+
+    '
+  members:
+  - id: UB-L0-L3
+    framework: Uncertainty Bounding
+    formulation: 'L0 (certain actions, no inference cost), L1 (routine exceptions), L2 (novel
+
+      problems), L3 (architectural changes). Each level has a cost threshold theta_i.
+
+      Escalation occurs when L_i cannot handle within its epsilon_acceptable.
+
+      Definition 8; Theorem 4 (Escalation Principle).
+
+      '
+    epistemic_status: formal-definition-with-theorem
+    derivation: 'Definition 8 + Theorem 4: hierarchy derived from cost structure of C_n'
+  - id: KH-system1-2
+    framework: Kahneman (2011)
+    formulation: 'System 1 (fast, automatic, low-cost) handles routine pattern-matching.
+
+      System 2 (slow, deliberate, high-cost) handles novel, uncertain reasoning.
+
+      The routing between systems is based on cognitive ease — when System 1
+
+      has low uncertainty, no System 2 activation.
+
+      '
+    epistemic_status: empirical
+    derivation: 'Extensive experimental evidence: dual-task interference, cognitive ease manipulation'
+  - id: BA-GWT-levels
+    framework: Baars (1988), Dehaene (2011)
+    formulation: 'Below-threshold processing (local, unconscious = L0 equivalent) vs.
+
+      above-threshold global broadcast (conscious, high-cost = L2-L3 equivalent).
+
+      The threshold is cost-based: global broadcast uses more resources.
+
+      '
+    epistemic_status: empirical-theoretical
+    derivation: 'Neuroimaging evidence: below-threshold stimuli activate local circuits; above-threshold activate global networks'
+  - id: FEP-precision-hierarchy
+    framework: Friston (2017)
+    formulation: 'Precision weighting in the FEP: higher-precision (more certain) prediction
+
+      errors at lower levels are resolved locally. Lower-precision (more uncertain)
+
+      errors propagate upward in the hierarchy. Precision = inverse variance =
+
+      certainty measure. High certainty = handled locally (L0 equivalent).
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'Active inference: precision-weighted prediction errors drive hierarchical processing'
+  - id: DE3-teleodynamics-levels
+    framework: 'Deacon (2012) — Incomplete Nature: Teleodynamics'
+    formulation: 'Deacon identifies three hierarchical levels of emergent dynamics: thermodynamics
+
+      (physical processes, no constraints), morphodynamics (self-organizing processes,
+
+      partial constraints), and teleodynamics (purposive processes, full constraints
+
+      toward an end-state). The hierarchy is cost-ordered: thermodynamic processes
+
+      require no reference to higher levels; morphodynamic processes require reference
+
+      to current pattern; teleodynamic processes require reference to absent end-states
+
+      (absential causation). DE3 maps to UB''s L0-L3: L0 corresponds to thermodynamic
+
+      processing (no inference, direct physical response), L1-L2 to morphodynamic
+
+      processing (pattern matching against current K), L3 to teleodynamic processing
+
+      (architectural change toward a distant goal). Deacon''s key contribution: the
+
+      highest level (L3 equivalent) is characterized by absence — it is motivated by
+
+      what is not yet present. This is the formal content of L3 (architectural change):
+
+      the agent is acting toward a K-structure it does not yet have.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'DE3: teleodynamics hierarchy as cost-ordered processing levels; from REF-Deacon2012'
+  - id: HO2-hofstadter-isomorphism
+    framework: Hofstadter (1979) — Isomorphism as the Source of Meaning
+    formulation: 'Hofstadter''s central thesis in Gödel, Escher, Bach: meaning arises from
+
+      isomorphism between a formal system and a referent. The hierarchy of levels
+
+      in a formal system (symbols, rules about symbols, rules about rules) maps to
+
+      the hierarchy of levels in the referent. The cost of accessing a higher level
+
+      increases: direct symbol-level access is cheap; meta-level access (rules about
+
+      rules) requires explicit encoding of the meta-level. HO2 maps to EC09''s hierarchy:
+
+      L0 is direct symbol access; L1-L2 is rule access; L3 is meta-rule access (the
+
+      architectural level where the system modifies its own rule-structure). Hofstadter''s
+
+      strange loop (EC12 connection) is the pathological case where level hierarchy
+
+      collapses — the system confuses its own level. The L0-L3 hierarchy prevents
+
+      strange loops by maintaining level distinctions explicitly. The cost structure
+
+      is Hofstadter''s encoding cost: each level up adds a layer of indirection.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'HO2: level hierarchy as meaning-structure; from REF-Hofstadter1979'
+  equivalence_analysis: 'Six frameworks independently ground the same hierarchical cost-triage structure:
+
+
+    Formal translation:
+
+    - L0 (UB) = System 1 (Kahneman) = below-threshold (Baars) = high-precision local (FEP) = thermodynamic (Deacon) = symbol-level
+    (Hofstadter)
+
+    - L2/L3 (UB) = System 2 (Kahneman) = above-threshold global (Baars) = low-precision global (FEP) = teleodynamic (Deacon)
+    = meta-rule level (Hofstadter)
+
+    - Cost threshold theta_i (UB) = cognitive ease (Kahneman) = ignition threshold (Dehaene) = precision (FEP) = constraint
+    density (Deacon) = encoding indirection (Hofstadter)
+
+
+    The routing mechanism: when local processing can handle the uncertainty (certainty >
+
+    threshold), it does not escalate. When it cannot, it escalates. All six frameworks
+
+    independently derive this routing rule from their respective formalisms.
+
+
+    The formal equivalence is very clean: precision (FEP) = 1/uncertainty = certainty =
+
+    the inverse of U(w,K). High precision = low U(w,K) = L0 territory.
+
+
+    Deacon adds the characterization of L3: it is absence-driven (teleodynamic). The
+
+    L3 architectural change is motivated by what is not yet present in the K-graph.
+
+    Hofstadter adds the level-confusion pathology: EC12''s strange loop is the failure
+
+    mode when L0-L3 separation breaks down; the hierarchy prevents level confusion
+
+    by making each level''s cost explicit.
+
+
+    Strength of equivalence: VERY HIGH. Six traditions including two formal frameworks
+
+    (UB, FEP) and four empirical/philosophical traditions (Kahneman, Baars/Dehaene,
+
+    Deacon, Hofstadter).
+
+    '
+  confidence_C1p:
+    estimate: 0.91
+    basis: Two formal frameworks (UB, FEP) + extensive empirical evidence (Kahneman, Dehaene) + theoretical grounding (Baars)
+      + philosophical (Deacon teleodynamics, Hofstadter level hierarchy). Updated from 0.90 with two new independent groundings.
+    weakest_link: The exact cost structure (theta_i thresholds) is specific to UB; the others ground the qualitative hierarchy
+      but not the specific quantitative thresholds
+  contradictions: []
+  implications_for_ub: 'The L0-L3 hierarchy and Theorem 4 (Escalation Principle) are well-grounded. Six
+
+    frameworks converge on the same structure. UB''s contribution: the formal derivation
+
+    of the hierarchy from C_n (not just as a design choice) and the Escalation Principle
+
+    theorem. The empirical evidence from Kahneman and Dehaene provides strong support
+
+    for the practical validity of the hierarchy. Deacon''s teleodynamics characterizes
+
+    L3 as absence-driven (goal-directed toward non-existent end-state); Hofstadter
+
+    connects the hierarchy to the metalanguage requirement (EC12).
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph (extended 2026-03-10)
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Six frameworks from formal AI theory, cognitive psychology, neuroscience, philosophy of emergence, and
+        cognitive science independently ground hierarchical cost-based triage.
+    derivation:
+      from:
+      - D08-encoding-hierarchy
+      - REF-Kahneman2011
+      - REF-Baars1988
+      - REF-Dehaene2011
+      - REF-Friston2017
+      - REF-Deacon2012
+      - REF-Hofstadter1979
+      method: 'Equivalency: hierarchy levels translated across formal and empirical frameworks'
+- id: EC10-inquiry-driver
+  type: equivalency-class
+  name: 'Uncertainty as Inquiry Driver: U(w,K) > 0 = Free Energy > 0 = Doubt = Surprise'
+  underlying_proposition: 'The gradient signal that drives intelligent behavior is the gap between the agent''s
+
+    current representation and the world''s actual structure — uncertainty, free energy,
+
+    doubt, surprise. When this gap is zero, the drive terminates. As long as M < N,
+
+    this gap is always positive (EC05). Therefore the drive is always present for A > 0
+
+    entities. The gap IS the fuel.
+
+    '
+  members:
+  - id: UB-uncertainty-gradient
+    framework: Uncertainty Bounding
+    formulation: 'U(w, K) > 0 is the gradient signal. The entity''s drive (A) responds to this
+
+      gradient. Gradient descent on U produces learning: each update delta_f = -eta * delta
+
+      reduces U in expectation. U > 0 always (M < N) so the drive never terminates.
+
+      '
+    epistemic_status: formal-definition
+    derivation: Definitions 3-5, Theorem 3 Part I (gradient descent from A > 0)
+  - id: FEP-surprise
+    framework: Friston (2010)
+    formulation: 'Variational free energy F = E[log q(s)] - E[log p(o,s)] is always positive
+
+      (Jensen''s inequality). F is an upper bound on surprise -log p(o). Minimizing
+
+      F = reducing surprise. The drive is active as long as F > 0 (which is always
+
+      true under EC05).
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'Jensen''s inequality: KL[q||p] >= 0 -> F >= -log p(o) >= 0'
+  - id: PC-doubt
+    framework: Peirce (1877)
+    formulation: 'Doubt is the unsettled state that drives inquiry. Inquiry is activated by doubt
+
+      and terminates at fixation of belief. As long as doubt remains (M < N in UB terms),
+
+      inquiry continues. The drive is the doubt; fixation is the local minimum.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'Pragmatist epistemology: doubt-belief cycle as the engine of inquiry'
+  - id: S-compression-gap
+    framework: Schmidhuber (2010)
+    formulation: 'Compression progress is possible as long as there is compressible structure not
+
+      yet compressed. The compression gap (current description length - optimal description
+
+      length) is the driver. The agent is motivated by this gap, not by absolute
+
+      description length.
+
+      '
+    epistemic_status: formal
+    derivation: Compression progress is positive iff the current description is suboptimal
+  - id: KH-cognitive-dissonance
+    framework: Kahneman (2011) / Festinger (1957) [implied]
+    formulation: 'Cognitive dissonance: the tension between current belief and new evidence drives
+
+      belief updating. System 2 is activated by the failure of System 1 to process
+
+      smoothly — the disfluency IS the gradient signal.
+
+      '
+    epistemic_status: empirical
+    derivation: Cognitive dissonance research; cognitive ease/disfluency as System 2 activator
+  - id: DE1-absence-causation
+    framework: 'Deacon (2012) — Incomplete Nature: Absential Causation'
+    formulation: 'Deacon''s central thesis: absence is causally efficacious. Teleodynamic systems
+
+      (those with ends/purposes) are not caused by what is present but by what is
+
+      absent — the end-state that does not yet exist. A thermostat is caused to act
+
+      by the difference between current temperature and the set point that is not yet
+
+      achieved. DE1 maps to EC10''s uncertainty driver: U(w,K) is an absential cause.
+
+      The agent is driven by the gap between current K and the K it does not yet have —
+
+      the absent knowledge. This is Deacon''s absential causation applied to UB: the
+
+      inquiry driver is absence, not presence. The agent is pulled toward a non-existent
+
+      K-state, not pushed by the existing one. This framing resolves a philosophical
+
+      difficulty: how can non-existent states cause behavior? Deacon''s answer: the
+
+      end-state is represented as an absence in the current system structure, and the
+
+      dynamics of the system are organized around that absence. U(w,K) is the
+
+      operational measure of the absence; A > 0 is the mechanism that allows absence
+
+      to drive action. EC10''s uncertainty gradient is Deacon''s absential cause at the
+
+      K-graph level.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'DE1: absential causation as inquiry driver; from REF-Deacon2012'
+  equivalence_analysis: "Six frameworks express the same driver: the gap between current representation and\nworld structure.\
+    \ The formal translations:\n\n- U(w,K) (UB) = F (FEP) = doubt (Peirce) = compression gap (Schmidhuber) = cognitive dissonance\
+    \ (Kahneman) = absential cause (Deacon)\n- All are the same quantity: the residual incompleteness of the agent's representation\n\
+    \  relative to the world it must navigate — the gap, the absence, the doubt.\n\nThe formal translation: U(w,K) = F = -log\
+    \ p(o) approximately = compression gap = doubt.\nThese are not just similar — they describe the same information-theoretic\
+    \ quantity\nat different levels of formalism.\n\nDeacon's absential causation adds a philosophical resolution to the question\
+    \ \"how\ncan a gap cause action?\" The absence is causally efficacious because it is represented\nin the system's current\
+    \ structure as a constraint on the possible — the system's\ndynamics are organized around the end-state that is not yet\
+    \ achieved. This is why\nU(w,K) > 0 is the driver: the absence (incomplete K) organizes the agent's action.\n\nCRITICAL\
+    \ STRUCTURAL CONSEQUENCE: if EC05 (incompleteness) holds — and it does, with\nC_1(p) = 0.97 — then EC10 (driver always\
+    \ positive) follows immediately. Because M < N\nalways, U(w,K) > 0 always. Because U > 0 always, the drive never terminates.\
+    \ This is\nthe derivation chain: EC05 -> EC10 -> non-termination.\n\nStrength of equivalence: VERY HIGH. Six independent\
+    \ traditions converge. The chain\nEC05 -> EC10 means the drive's non-termination is as secure as EC05 (C_1(p) = 0.97).\n"
+  confidence_C1p:
+    estimate: 0.93
+    basis: 'Information-theoretic foundation (Shannon entropy, Jensen''s inequality) + formal (UB, FEP) + philosophical (Peirce,
+      Deacon) + empirical (Kahneman). Chain from EC05 adds further support. Confidence unchanged: Deacon addition provides
+      philosophical grounding but does not change the formal evidence base.'
+    weakest_link: The exact identity U(w,K) = F requires showing that conditional entropy and variational free energy are
+      the same measure under the same assumptions — approximately true but not formally proved here
+  contradictions: []
+  implications_for_ub: 'The uncertainty gradient (Definition 3, Theorem 3) is strongly grounded. The chain
+
+    EC05 -> EC10 provides a tight derivation: incompleteness (EC05, C_1(p) = 0.97) entails
+
+    the driver always positive (EC10). UB''s contribution: formal treatment of U(w,K) as
+
+    a defined conditional entropy, and the gradient descent theorem (Theorem 3 Part I)
+
+    that shows A > 0 + U > 0 => convergence in each sensed dimension.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: Five frameworks from information theory, cognitive science, philosophy, and AI independently ground uncertainty/surprise/doubt
+        as the driver. Chain from EC05 makes the non-termination argument very strong.
+    derivation:
+      from:
+      - D03-uncertainty
+      - REF-Friston2010
+      - REF-Peirce1877
+      - REF-Schmidhuber2010
+      - REF-Kahneman2011
+      - REF-Deacon2012
+      method: 'Equivalency: uncertainty/surprise/doubt as the same information-theoretic quantity across traditions'
+- id: EC11-graph-necessity
+  type: equivalency-class
+  name: 'Graph Necessity: K Must Be Indexed by F — Six Independent Derivations'
+  underlying_proposition: 'The knowledge structure K must be indexed by the action structure F: knowledge
+
+    without an action reference is unrepresentable at bounded context C_n. This is
+
+    not a design choice but a formal necessity. Six independent bodies of literature
+
+    arrive at the same structural conclusion from six different starting points: the
+
+    K/F graph (where K-nodes carry their action implications) is the unique structure
+
+    that preserves all information at C_n without translation loss.
+
+    '
+  members:
+  - id: UB-T2b-Part3
+    framework: Uncertainty Bounding (Theorem 2b Part 3)
+    formulation: 'At bounded context C_n with M < N, the only information-preserving
+
+      representation is one where K-nodes are indexed by F: their action implications
+
+      must be stored alongside the proposition. Without F-indexing, the agent cannot
+
+      distinguish equally probable world-states with different action implications —
+
+      they compress identically but require different responses. The two-option proof:
+
+      either K is F-indexed (graph) or it is not (flat), and the flat representation
+
+      loses F-information that cannot be recovered at context C_n.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'Theorem 2b Part 3: two-option proof from C_n + M < N + bounded action space'
+  - id: Tarski-semantic-model
+    framework: Tarski (1936)
+    formulation: 'A semantic model maps every sentence to the states of affairs that satisfy it.
+
+      The satisfaction relation IS the action-indexing: a proposition is true in
+
+      a model exactly when the model (action context) satisfies it. EM11 shows that
+
+      Tarski''s satisfaction relation = UB''s K/F grounding relation. The model-theoretic
+
+      necessity is the same as the K/F graph necessity: truth without a model
+
+      (proposition without action context) is undefined.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'EM11: Tarski satisfaction relation maps to UB K/F grounding; from REF-Tarski1936'
+  - id: Kac-Dynkin
+    framework: Kac (1990) — Kac-Moody algebras
+    formulation: 'The Dynkin diagram classifies all simple Lie algebras. Each node represents
+
+      a simple root; edges represent the action of roots on each other (Cartan matrix
+
+      entries). The algebra''s K-structure (root system) is inseparable from its
+
+      F-structure (root action operators). EM16 shows that this algebraic necessity
+
+      is a formal instantiation of NV01: the abstract roots require action operators
+
+      to be defined; a root without its associated operator is not a well-formed
+
+      algebraic object.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'EM16: Dynkin diagram as K/F graph; root = K-node, action operator = F-edge; from REF-Kac1990'
+  - id: Polchinski-holography
+    framework: Polchinski (1998) — String Theory / Holographic Principle
+    formulation: 'The holographic principle states that the physical degrees of freedom of a
+
+      volume are fully encoded on its boundary with area A/4G_N in Planck units.
+
+      The boundary IS the K/F graph at cosmological scale: the 2D boundary encodes
+
+      the 3D bulk (K) and the boundary theory encodes all interactions (F).
+
+      EM18 shows C_n = A/4G_N: context bound = holographic bound = Bekenstein-Hawking
+
+      entropy. The information is on the boundary (K/F graph), not in the bulk (flat K).
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'EM18: holographic principle instantiates NV01 at spacetime scale; from REF-Polchinski1998'
+  - id: Lin-flow-sensitive
+    framework: Lin (compiler theory)
+    formulation: 'Flow-sensitive pointer analysis is strictly more precise than flow-insensitive
+
+      analysis. In pointer analysis, K (the set of possible aliasing relationships)
+
+      must be indexed by F (the program control-flow path) to avoid conflating
+
+      aliasing relationships that are true on some paths but not others.
+
+      The precision loss of flow-insensitive analysis is exactly the information
+
+      lost when K is not indexed by F — an engineering proof that K/F indexing
+
+      preserves information that flat K loses.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'EM27: flow-sensitive analysis is provably more precise; from REF-Lin-CS'
+  - id: FLM-vertex-locality
+    framework: Frenkel, Lepowsky, Meurman (1988)
+    formulation: 'Vertex operator algebras require the locality axiom: V(a,z)V(b,w) and
+
+      V(b,w)V(a,z) must agree on the same domain (the annular region). The
+
+      locality axiom IS the K/F indexing: vertex operators (F-operations on states)
+
+      must be well-defined relative to each other''s domains. EM17 shows locality
+
+      = provenance independence: the result of applying operators is path-independent
+
+      (same structure as D13 provenance). A vertex algebra without locality is
+
+      ill-defined — which is the algebraic statement of K/F graph necessity.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'EM17: VOA locality axiom as K/F necessity; from REF-FrenkelLepowskyMeurman1988'
+  - id: Transformer-attention
+    framework: Vaswani et al. (2017) — Transformer Architecture
+    formulation: 'The transformer''s self-attention mechanism computes for each token (K-node)
+
+      a weighted sum over all other tokens weighted by their relevance to the query
+
+      (F-relevance). The attention matrix IS the K/F graph at inference time:
+
+      each row is a K-node; each entry is the strength of the F-indexed relationship
+
+      to another K-node. Attention without query-key structure (F-indexing)
+
+      degenerates to uniform averaging — information-losing flat K.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'TR1: transformer attention = K/F graph implementation; from REF-VaswaniEtAl2017'
+  equivalence_analysis: 'Seven bodies of literature independently derive that K must be indexed by F.
+
+    The formal translations:
+
+
+    - UB Theorem 2b Part 3: two-option proof from information theory + C_n bound
+
+    - Tarski: truth requires a model (satisfaction relation = K/F indexing)
+
+    - Kac-Moody: roots require action operators (Dynkin diagram = K/F graph)
+
+    - Holography: bulk encoded on boundary (boundary = K/F graph at cosmological scale)
+
+    - Compiler theory: flow-sensitive > flow-insensitive (F-indexing preserves precision)
+
+    - Vertex algebras: locality axiom (operator = F-action on K-state)
+
+    - Transformer attention: query-key structure (attention = K/F graph at inference)
+
+
+    The structural equivalence: in every framework, the entity that plays the role of K
+
+    (propositions, roots, bulk states, program aliases, vertex states, token embeddings)
+
+    must be indexed by the entity that plays the role of F (models, operators, boundary,
+
+    control flow, vertex operators, queries) or information is lost.
+
+
+    This EC node elevates NV01 from a UB-specific claim to a cross-framework formal
+
+    necessity. C_1(NV01) is substantially strengthened by this convergence.
+
+
+    Note on EC03 relationship: EC03 covers "structured internal representation" (K/F
+
+    graph exists and is structured). EC11 covers the stronger claim: the K/F structure
+
+    is uniquely necessary (no alternative representation preserves full information at C_n).
+
+    EC11 grounds EC03.
+
+    '
+  confidence_C1p:
+    estimate: 0.91
+    basis: Formal proofs in four independent frameworks (Tarski, Kac-Moody, FLM, UB T2b) + empirical formal in two engineering
+      domains (compiler theory, transformer architecture) + formal-theoretical in physics (holography)
+    weakest_link: The exact equivalence between holographic bound and C_n requires accepting EM18's identification C_n = A/4G_N,
+      which is a strong cross-domain claim not yet independently verified
+  contradictions:
+  - source: Gibson (1979) direct perception
+    claim: Perception is direct, not mediated by internal representations indexed to action
+    resolution: 'Scope mismatch (same resolution as EC03): Gibson''s claim applies to perceptual coupling; K/F graph necessity
+      applies to long-term knowledge structure. The two operate at different timescales and are not in conflict.'
+  implications_for_ub: 'EC11 is the most important new EC node in the corpus. It elevates NV01 (graph
+
+    necessity) from a claim that requires UB''s specific derivation to a proposition
+
+    with seven independent derivations across mathematics, physics, computer science,
+
+    and cognitive architecture. The weakest novel claim in the theory (T2b Part 3,
+
+    C_1 = 0.82) is substantially strengthened by this convergence: the probability
+
+    that the K/F graph necessity is wrong is now bounded by the probability that
+
+    ALL seven independent derivations are wrong simultaneously.
+
+
+    EC11 also motivates extending D02 (knowledge graph definition) to explicitly state
+
+    that the graph form is not a representational choice but a necessity — the only
+
+    structure that preserves full information under C_n.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Seven independent derivations from information theory, model theory, abstract algebra, string theory, compiler
+        theory, machine learning, and vertex algebras all converge on K/F graph necessity.
+    derivation:
+      from:
+      - NV01-graph-necessity
+      - REF-Tarski1936
+      - REF-Kac1990
+      - REF-Polchinski1998
+      - REF-Lin-CS
+      - REF-FrenkelLepowskyMeurman1988
+      - REF-VaswaniEtAl2017
+      method: Cross-framework identification of K-role and F-role entities; verification that F-indexing loss produces information
+        loss in each framework
+- id: EC12-metalanguage-necessity
+  type: equivalency-class
+  name: 'Metalanguage Necessity: Self-Referential Systems Require a Metalanguage — Provenance Triple as the Implementation'
+  underlying_proposition: 'Any system that makes truth-claims about itself requires a metalanguage that stands
+
+    above the object language in which those claims are made. This is not a design
+
+    preference but a formal necessity: a system that conflates its object language with
+
+    its metalanguage produces paradox (Tarski), undecidability (Gödel), self-defeating
+
+    sentences (Hofstadter), or clinical pathology (Bateson double bind). The UB
+
+    provenance triple (D13) is a formal implementation of the metalanguage requirement:
+
+    it supplies the attribution, evidence, and derivation fields that constitute the
+
+    metalanguage layer over any K-node.
+
+    '
+  members:
+  - id: Tarski-metalanguage
+    framework: Tarski (1936)
+    formulation: 'Truth cannot be defined within the language it applies to. A language L
+
+      cannot contain a truth predicate for L without generating the Liar paradox.
+
+      A metalanguage ML must define what it means for sentences of L to be true.
+
+      The hierarchy of languages and metalanguages is necessary, not conventional.
+
+      Any system attempting to define its own truth conditions from within collapses.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'Tarski undefinability theorem: diagonal argument shows self-referential truth predicate generates paradox'
+  - id: Godel-provability-metalanguage
+    framework: Gödel (1931)
+    formulation: 'The formal provability predicate Bew(x) — which says ''x is provable in system S''
+
+      — must be defined from outside S to avoid the Gödel sentence G: ''G is not
+
+      provable in S.'' If Bew were defined within S, S could prove its own consistency,
+
+      violating the second incompleteness theorem. The metalanguage (in which Bew is
+
+      defined) is necessary for the system''s statements about its own proof-status to
+
+      be meaningful.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'Gödel second incompleteness theorem: self-referential provability requires metalanguage'
+  - id: Bateson-double-bind
+    framework: Bateson (1972)
+    formulation: 'A double bind is a communication pathology in which contradictory messages are
+
+      given at two levels (object level and meta-level) and the recipient is prohibited
+
+      from accessing the meta-level to resolve the contradiction. The pathology arises
+
+      exactly because the metalanguage is unavailable — the recipient cannot identify
+
+      which level they are operating on. Recovery requires metalanguage access: the
+
+      ability to say ''I see that you are sending contradictory messages at two levels.''
+
+      Bateson''s clinical derivation: metalanguage unavailability causes schizophrenic
+
+      communication breakdown. Metalanguage access is a therapeutic requirement.
+
+      '
+    epistemic_status: empirical-clinical
+    derivation: Bateson (1972) Steps to an Ecology of Mind; double-bind theory; clinical observation
+  - id: Hofstadter-strange-loop
+    framework: Hofstadter (1979)
+    formulation: 'A strange loop arises when a system''s self-reference crosses a hierarchy level:
+
+      the system reaches the highest level of its hierarchy and then finds itself at
+
+      the lowest. Gödel numbering is the prototypical strange loop: formal statements
+
+      about provability are themselves formal statements (the metalanguage folds back
+
+      into the object language). Hofstadter''s contribution: strange loops are not
+
+      merely paradoxes to be avoided but the structural origin of meaning in self-
+
+      referential systems. The metalanguage distinction is what prevents strange loops
+
+      from becoming vicious — it maintains the level hierarchy.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'Hofstadter (1979) Gödel, Escher, Bach: strange loop theory; cross-level reference analysis'
+  - id: UB-D13-provenance
+    framework: Uncertainty Bounding (D13)
+    formulation: 'The provenance triple prov(p) = (attribution, evidence, derivation) is the
+
+      operational implementation of the metalanguage requirement for knowledge-graph
+
+      nodes. Attribution says who made the claim (ML-level: who is the speaker).
+
+      Evidence says what grounds it (ML-level: what makes it credible). Derivation
+
+      says where it came from (ML-level: what prior claims support it). Without
+
+      provenance, K-nodes are object-language claims with no metalanguage layer:
+
+      they cannot be evaluated for credibility, cannot be revised on evidence, and
+
+      cannot be traced to their origins. D13''s requirement that lambda > lambda_min
+
+      (provenance confidence must exceed a floor) is the operational threshold
+
+      distinguishing meaningful claims (with metalanguage layer) from bare assertions.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'D13: provenance triple derived from M < N (EC05) + K grounds F (EC06) + NV05 higher-order requirement'
+  - id: UB-NV05-higher-order
+    framework: Uncertainty Bounding (NV05)
+    formulation: 'NV05 derives that a system can reason about its own knowledge-graph K only if
+
+      there exists a higher-order function M that operates on (F,K) — the metalanguage
+
+      level. M is formally the metalanguage over F and K: it makes statements about
+
+      F and K rather than about the world W directly. NV05 is the UB derivation
+
+      of metalanguage necessity from first principles: if M < N and A > 0, a system
+
+      that cannot represent its own knowledge-state cannot adaptively manage its
+
+      knowledge-acquisition, and selection removes it.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'NV05: higher-order function M derived as metalanguage necessity from selection pressure + M < N'
+  equivalence_analysis: 'Five frameworks from four independent traditions (formal mathematics, developmental
+
+    psychology/anthropology, philosophy/cognitive science, formal theory) all arrive
+
+    at the same structural conclusion: a metalanguage layer is necessary for any
+
+    self-referential system.
+
+
+    Formal translations:
+
+    - Tarski: truth predicate requires metalanguage (semantic necessity)
+
+    - Gödel: provability predicate requires metalanguage (proof-theoretic necessity)
+
+    - Bateson: double bind = metalanguage unavailability = clinical pathology (empirical necessity)
+
+    - Hofstadter: strange loop management requires metalanguage to prevent vicious self-reference
+
+    - UB D13: provenance triple IS the metalanguage; NV05 derives it from first principles
+
+
+    The provenance triple is not merely a documentation convention. It is the minimum
+
+    metalanguage implementation: attribution (who made the claim) + evidence (what
+
+    grounds it) + derivation (what precedes it) constitute exactly the three dimensions
+
+    required for a metalanguage layer over K-nodes.
+
+
+    Note on EC12 vs. EC05: EC05 says M < N (the object-language claim is always
+
+    incomplete). EC12 says the metalanguage layer is necessary FOR THAT VERY REASON:
+
+    because claims are incomplete, they require provenance that says how incomplete
+
+    they are and how they were derived. EC12 provides the architectural necessity
+
+    that EC05 motivates.
+
+    '
+  confidence_C1p:
+    estimate: 0.93
+    basis: Formal mathematical proofs (Tarski, Gödel) + empirical clinical (Bateson) + philosophical (Hofstadter) + formal
+      derivation (UB NV05)
+    weakest_link: The claim that D13's provenance triple is the MINIMUM metalanguage implementation (rather than one sufficient
+      implementation) is asserted but not formally proved
+  contradictions:
+  - source: Deflationary theories of truth
+    claim: Truth is not a property requiring a metalanguage; 'P is true' just means P
+    resolution: Deflationary theories work at the level of utterance but not at the level of formal system self-reference.
+      Within a formal system (as in Gödel's context), the deflationary move generates the Liar paradox. EC12 is scoped to
+      formal systems and K-graphs operating under M < N; it does not claim to settle the philosophy of truth generally.
+  implications_for_ub: 'EC12 grounds D13 not as a design decision but as a formal necessity. The theory
+
+    currently states D13 as a definition (provenance triple is required) without a
+
+    derivation explaining WHY the triple structure is necessary rather than some other
+
+    metalanguage implementation.
+
+
+    EC12 supplies that derivation: the triple (attribution, evidence, derivation) maps
+
+    to (who: Tarski semantic level, what: Gödel proof level, whence: Bateson logical-
+
+    type level). The provenance triple covers all three dimensions of metalanguage
+
+    necessity identified across the five frameworks.
+
+
+    This has a practical implication: K-nodes that lack any one of the three provenance
+
+    fields are not merely undocumented — they are operating without a full metalanguage
+
+    layer. Selective provenance gaps (missing attribution, missing evidence, or missing
+
+    derivation) are formally distinct failure modes corresponding to different
+
+    metalanguage gaps.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Five frameworks from formal mathematics, clinical psychology, philosophy, and formal theory all derive
+        metalanguage necessity. The clinical derivation (Bateson) is independent of the formal ones, providing empirical grounding.
+    derivation:
+      from:
+      - D13-provenance
+      - NV05-higher-order
+      - REF-Tarski1936
+      - REF-Godel1931
+      - REF-Bateson1972
+      - REF-Hofstadter1979
+      method: Cross-framework identification of metalanguage requirement; verification that metalanguage absence produces
+        specific failure mode in each framework
+- id: EC13-optimal-prior
+  type: equivalency-class
+  name: 'Optimal Prior Selection: MaxEnt = Solomonoff = SRM = FEP Variational — The Minimum-Commitment Prior Is Uniquely Determined'
+  underlying_proposition: 'When an agent must assign a prior probability distribution over unknown states
+
+    before evidence is gathered, there is a unique epistemically correct choice: the
+
+    distribution that makes the fewest additional commitments beyond what the evidence
+
+    constrains. This minimum-commitment prior appears under four independent names in
+
+    four independent bodies of literature — maximum entropy (Jaynes), Solomonoff
+
+    induction (Solomonoff), structural risk minimization (Vapnik), and the free energy
+
+    principle''s variational prior (Friston) — and all four derive the same selection
+
+    criterion from different starting points. The convergence establishes that optimal
+
+    prior selection is not a subjective choice but a formal necessity under bounded
+
+    context.
+
+    '
+  members:
+  - id: Jaynes-MaxEnt
+    framework: Jaynes (1957, 1978) — Maximum Entropy
+    formulation: 'When assigning a prior subject to known constraints, select the distribution
+
+      that maximizes Shannon entropy H(P) = -sum P(x) log P(x). Any other distribution
+
+      encodes information not present in the constraints — it asserts knowledge the
+
+      agent does not have. The maximum entropy distribution is the unique prior that
+
+      is honest about what is known and commits to nothing beyond the constraints.
+
+      Jaynes proves this by showing that any prior with H < H_max is logically
+
+      equivalent to asserting additional constraints that were not given. MaxEnt is
+
+      therefore not an approximation strategy but the unique epistemically coherent
+
+      prior. JA1 maps this to UB: the agent operating under M < N cannot fill the
+
+      M < N gap by inventing constraints. MaxEnt is the mandatory prior when the
+
+      agent''s K does not specify the distribution.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'JA1: MaxEnt prior derived from Shore-Johnson axioms; from REF-Jaynes1957'
+  - id: Solomonoff-induction
+    framework: Solomonoff (1964) — Algorithmic Probability
+    formulation: 'The Solomonoff prior assigns probability to a string x proportional to the sum
+
+      of 2^{-|p|} over all programs p that output x, where |p| is the length of p.
+
+      Short programs (which embody simple hypotheses) get exponentially more prior
+
+      weight. The Solomonoff prior is the universal prior: it dominates all computable
+
+      priors, meaning any other computable prior is within a multiplicative constant
+
+      of the Solomonoff prior. SO1 shows this is the algorithmic implementation of
+
+      MaxEnt: the minimum-description-length program is the maximum-entropy object
+
+      in the space of computable descriptions. Solomonoff induction is MaxEnt applied
+
+      to the hypothesis space of computable functions. Both select the prior that
+
+      adds the least structure beyond what the data requires.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'SO1: Solomonoff prior as universal prior; dominance theorem; from REF-Solomonoff1964'
+  - id: Vapnik-SRM
+    framework: Vapnik (1995) — Structural Risk Minimization
+    formulation: 'SRM selects the hypothesis class with minimum VC dimension that is consistent
+
+      with the training data. A hypothesis class with VC dimension d commits to d
+
+      degrees of freedom in the hypothesis space — it asserts the ability to shatter
+
+      d points. SRM minimizes this commitment: choose the smallest VC dimension
+
+      consistent with data. This is minimum-commitment in the learning theory sense:
+
+      commit to the least-capable class that fits the evidence. VC1 maps SRM to MaxEnt:
+
+      VC dimension is an information-theoretic measure of hypothesis class complexity
+
+      (roughly: log of the number of shaterable configurations). Minimizing VC
+
+      dimension = minimizing the prior commitment to hypothesis structure = MaxEnt
+
+      in the space of learning hypotheses. SRM is the practical engineering implementation
+
+      of the minimum-commitment prior in supervised learning.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'VC1: SRM via VC dimension bound; from REF-Vapnik1995'
+  - id: Friston-variational-prior
+    framework: Friston (2010, 2017) — Free Energy Principle
+    formulation: 'The FEP''s generative model specifies a prior P(s) over hidden states before
+
+      evidence o is observed. Under active inference, the prior is updated to a
+
+      posterior Q(s|o) by minimizing variational free energy F = KL[Q||P] - log P(o).
+
+      The variational prior (the initial P(s)) must be set before evidence arrives.
+
+      FEP does not specify how to set the initial prior — but the consistency
+
+      requirement follows MaxEnt: any informative prior that is not grounded in
+
+      evidence inflates the variational free energy unnecessarily (adds KL divergence
+
+      that cannot be reduced by evidence). FEP2 maps this to MaxEnt: the correct
+
+      initial prior is the one that minimizes unnecessary KL divergence, which is
+
+      the maximum entropy prior under the agent''s current knowledge. MaxEnt is the
+
+      variational prior that makes the free energy minimization honest.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'FEP2: variational prior consistency with MaxEnt; from REF-Friston2010'
+  equivalence_analysis: 'Four frameworks from information theory, computability theory, learning theory,
+
+    and neuroscience all derive the same prior-selection criterion.
+
+
+    Formal translations:
+
+    - MaxEnt (Jaynes): maximize H(P) subject to constraints (information-theoretic)
+
+    - Solomonoff (induction): minimize |program| (algorithmic complexity)
+
+    - SRM (Vapnik): minimize VC dimension (learning-theoretic)
+
+    - FEP variational (Friston): minimize unnecessary KL divergence (variational)
+
+
+    The structural equivalence: all four say "commit to the minimum structure the
+
+    evidence requires." The formalisms differ because they operate on different spaces:
+
+    - MaxEnt operates on probability distributions over states
+
+    - Solomonoff operates on programs in a universal Turing machine
+
+    - SRM operates on hypothesis classes in supervised learning
+
+    - FEP operates on generative models in predictive processing
+
+
+    The criterion is the same in all four: add no information beyond what the constraints
+
+    provide. The four frameworks are therefore four projections of the same criterion
+
+    onto four different representation spaces.
+
+
+    Note on relationship to EC05 (incompleteness): The minimum-commitment prior is
+
+    the correct response to M < N. Because M < N, the agent cannot know the true prior.
+
+    The minimum-commitment prior is the epistemically honest response: it does not pretend
+
+    to know more than is in K. EC13 is the constructive counterpart to EC05: EC05 says
+
+    the agent cannot know everything; EC13 says given that constraint, here is the unique
+
+    correct prior assignment procedure.
+
+
+    Note on historical priority: Jaynes (1957) established the foundational result.
+
+    Solomonoff (1964) and Vapnik (1995) independently derived equivalent criteria in
+
+    their domains. Friston''s FEP (2010) converges on the same criterion from neuroscience.
+
+    The four-way convergence is spread across 53 years of independent work — making it
+
+    one of the strongest equivalences in the corpus.
+
+    '
+  confidence_C1p:
+    estimate: 0.9
+    basis: Formal mathematical proofs in three independent frameworks (Jaynes Shore-Johnson axioms, Solomonoff dominance theorem,
+      Vapnik VC bound) + formal-theoretical in one (FEP variational). The three formal proofs are in domains that rarely cross-reference.
+    weakest_link: The identification of FEP's variational prior with MaxEnt requires that the initial generative model P(s)
+      is set before any evidence — which is correct for a naïve agent but not for a mature agent whose P(s) encodes learned
+      structure. The equivalence holds at initialization; at mature K-states, the prior is already informative.
+  contradictions:
+  - source: Subjective Bayesianism (de Finetti, 1974)
+    claim: Any coherent prior is acceptable; there is no objective criterion for prior selection. MaxEnt is just one choice,
+      not the uniquely correct one.
+    resolution: 'De Finetti''s coherence requirement is necessary but not sufficient. Coherence rules out Dutch books but
+      permits any consistent probability assignment. EC13''s claim is stronger: among all coherent priors, the minimum-commitment
+      prior is the unique one that is epistemically honest given the agent''s actual knowledge state. The distinction is between
+      logical consistency (de Finetti) and epistemic accuracy (Jaynes). An agent who assigns an informative prior without
+      evidence is coherent but is asserting knowledge they do not have. EC13 is scoped to the epistemic requirement, not just
+      the logical one.'
+  implications_for_ub: 'UB does not currently have an explicit prior-selection rule for agents. D07 and D08
+
+    define the belief state and update rules but leave the initial prior unspecified.
+
+    EC13 supplies that specification: the initial prior for any novel domain must be
+
+    the maximum entropy distribution subject to the constraints in K.
+
+
+    This has a practical implication for skill design: when a skill encounters a service
+
+    configuration it has not seen before, it should not assume anything about the
+
+    configuration beyond what the skill''s evidence base establishes. The minimum-commitment
+
+    prior is the operationalization of "code-first analysis" (pattern 1 in SKILL_BEST_PRACTICES.md)
+
+    at the probabilistic level: observe first, assume nothing.
+
+
+    EC13 also strengthens EC05: the minimum-commitment prior is not just instrumentally
+
+    useful but formally derivable from M < N. If the agent''s prior commits beyond what
+
+    K establishes, it is pretending M = N on the dimensions it commits to. MaxEnt is
+
+    the prior that is consistent with M < N.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Four independent frameworks across 53 years of independent development (Jaynes 1957, Solomonoff 1964, Vapnik
+        1995, Friston 2010) all derive the minimum-commitment prior criterion from different starting points. The historical
+        independence is unusually strong evidence for structural equivalence.
+    derivation:
+      from:
+      - JA1-maxent
+      - SO1-solomonoff
+      - VC1-srm
+      - FEP2-variational-prior
+      method: Cross-framework identification of prior-selection criterion; verification that all four frameworks select the
+        same distribution (or equivalent representation) when the constraints are equivalent
+- id: EC14-survival-trajectory
+  type: equivalency-class
+  name: 'Survival as Trajectory Bound: Homeorhesis = Viable System = Autopoiesis — Persistence Requires a Bounded Developmental
+    Trajectory'
+  underlying_proposition: 'A living or adaptive system does not merely maintain a point equilibrium — it
+
+    maintains a developmental trajectory: a bounded path through state space that
+
+    allows change, growth, and adaptation while remaining within the bounds of
+
+    continued existence. This trajectory-bounding is the formal content of persistence
+
+    under selection. Three independent frameworks — Waddington''s homeorhesis
+
+    (developmental biology), Beer''s Viable System Model (cybernetics), and Varela and
+
+    Maturana''s autopoiesis (theoretical biology) — all derive the same structural
+
+    requirement from different starting points, and all are captured by UB''s selection
+
+    equation. The bound is not on position but on trajectory: the system must remain
+
+    on a viable developmental path, not merely at a viable state.
+
+    '
+  members:
+  - id: Waddington-homeorhesis
+    framework: Waddington (1957) — Homeorhesis and Epigenetic Landscape
+    formulation: 'Homeostasis maintains a fixed equilibrium point; homeorhesis maintains a
+
+      developmental trajectory (chreod). Waddington''s epigenetic landscape: embryonic
+
+      development follows valleys (chreods) in a landscape; perturbations displace
+
+      the developing system but it returns to the trajectory, not to any fixed point.
+
+      The system''s persistence criterion is trajectory-following, not point-maintenance.
+
+      WA3 maps this to UB: the system''s K-graph and F-graph must evolve along a viable
+
+      developmental path. Catastrophic knowledge disruption (the system is displaced
+
+      off its chreod) is more dangerous than momentary state perturbation (the system
+
+      is displaced within its chreod). The chreod IS the bounded developmental
+
+      trajectory of K: the knowledge structure grows along a constrained path shaped
+
+      by the system''s previous K-graph and environmental pressures.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'WA3: homeorhesis as trajectory bound; from REF-Waddington1957'
+  - id: Beer-viable-system
+    framework: Beer (1972) — Viable System Model
+    formulation: 'Beer''s Viable System Model (VSM) specifies the minimum organizational structure
+
+      for a system to remain viable (capable of independent existence) in a changing
+
+      environment. A viable system has five recursive subsystems (S1-S5) implementing
+
+      operations, coordination, control, intelligence, and policy. PR3 maps the VSM
+
+      to UB: S4 (intelligence) is the K-graph, S3 (control) is the F-graph, S5
+
+      (policy) is the selection criteria. A system that loses any subsystem is no
+
+      longer viable — it cannot maintain the trajectory of continued existence.
+
+      VSM is the organizational-systems derivation of homeorhesis: it specifies what
+
+      must be maintained for a system to remain on a viable trajectory. Beer''s key
+
+      insight: viability is a structural property (requires all five subsystems), not
+
+      a performance property (requires acceptable metrics). A system can perform well
+
+      on all metrics and still become non-viable if it loses structural components.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'PR3: VSM as trajectory viability structure; from REF-Beer1972'
+  - id: Varela-autopoiesis
+    framework: Maturana and Varela (1980) — Autopoiesis
+    formulation: 'An autopoietic system is a system that produces and maintains the components
+
+      that constitute it. It is a network of processes that produces the boundary
+
+      (the distinction between the system and its environment) and the components
+
+      (the processes within that boundary). EN2 maps autopoiesis to UB: the K-graph
+
+      and F-graph together constitute the autopoietic boundary — the self-production
+
+      process. A system loses autopoiesis when it can no longer produce the processes
+
+      that maintain its K-F structure. Autopoiesis is the most radical version of
+
+      homeorhesis: the trajectory is not just maintained but self-produced. The
+
+      persistence criterion is not "remain within the viable envelope" but "continuously
+
+      reproduce the process that defines the envelope." NV01''s K/F graph necessity
+
+      is the minimum structure for autopoiesis: without the K-graph (knowledge of what
+
+      to produce) indexed by the F-graph (the production operations), self-production
+
+      is impossible.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'EN2: autopoiesis as K/F self-production; from REF-VarelaMaturana1980'
+  - id: UB-selection-trajectory
+    framework: Uncertainty Bounding (selection equation)
+    formulation: 'UB''s selection equation E[fitness | K_t, F_t] = f(I(E), coverage, coherence)
+
+      specifies the fitness of a knowledge-action system at each timestep. The
+
+      trajectory is the path of K_t, F_t through time under repeated selection.
+
+      A system on a viable trajectory has fitness above the selection floor at each
+
+      step; a system below the floor at any step is removed. The trajectory-bounding
+
+      requirement follows: the system must maintain K_t and F_t such that expected
+
+      fitness stays above the floor, not just that it happens to be above the floor
+
+      at t=0. This is the formal derivation of homeorhesis from UB: the selection
+
+      equation imposes a trajectory constraint, not a point constraint. Homeorhesis
+
+      (trajectory maintenance), VSM (structural viability), and autopoiesis
+
+      (self-production of boundary) are all implementations of this trajectory
+
+      constraint at different system scales.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'UB selection equation: trajectory constraint derived from repeated selection; links to WA3, PR3, EN2'
+  equivalence_analysis: 'Three frameworks from developmental biology, organizational cybernetics, and
+
+    theoretical biology converge on trajectory-bounding as the persistence criterion,
+
+    grounded by UB''s selection equation.
+
+
+    Formal translations:
+
+    - Homeorhesis (Waddington): chreod = viable developmental trajectory in K-space
+
+    - VSM (Beer): five-subsystem structure = minimum viable organizational K/F architecture
+
+    - Autopoiesis (Varela/Maturana): self-production of K/F boundary = trajectory through self-reference
+
+    - UB selection equation: fitness above selection floor at each t = formal trajectory constraint
+
+
+    The structural equivalence: all four say the same thing at different scales —
+
+    - Cell: autopoiesis (the membrane produces itself)
+
+    - Organism: homeorhesis (development follows the chreod)
+
+    - Organization: viable system (all five subsystems intact)
+
+    - Formal system: selection trajectory (fitness > floor at each t)
+
+
+    The common content: survival is not a state but a path. Being alive (or viable, or
+
+    autopoietic, or on-trajectory) at t is not sufficient; the system must remain alive
+
+    at t+1, t+2, ... The selection criterion is applied repeatedly, and the system must
+
+    maintain viability under repeated application.
+
+
+    Note on relationship to EC05 (incompleteness): The trajectory constraint emerges
+
+    from M < N. A system with M = N (complete knowledge) would know its exact future
+
+    and could guarantee trajectory-following. Under M < N, the system cannot guarantee
+
+    the trajectory — it can only maintain the structural conditions (K/F graph, provenance,
+
+    coherence) that make trajectory-following probable. The trajectory is not determined
+
+    but bounded by structural conditions.
+
+    '
+  confidence_C1p:
+    estimate: 0.86
+    basis: Empirical-formal in developmental biology (homeorhesis, well-validated experimentally) + empirical-formal in organizational
+      theory (VSM, applied in real organizations) + philosophical in theoretical biology (autopoiesis, highly influential
+      but contested in some aspects) + formal-derived (UB selection equation)
+    weakest_link: Autopoiesis as a framework has been criticized for circularity — a system that produces itself is defined
+      by the production process, which is itself what needs to be explained. The structural parallel to UB's K/F graph is
+      strong, but the philosophical foundations of autopoiesis are less settled than the other three frameworks.
+  contradictions:
+  - source: Punctuated equilibrium (Gould and Eldredge, 1977)
+    claim: Evolutionary trajectories are not smooth chreods — they are periods of stasis punctuated by rapid change. The trajectory-bounding
+      metaphor misrepresents the actual dynamics of evolutionary change.
+    resolution: Punctuated equilibrium is consistent with EC14. The stasis periods ARE the chreod (trajectory-following within
+      a stable basin); the punctuation events ARE trajectory jumps to a new chreod. Homeorhesis does not claim the trajectory
+      is smooth — it claims the system is always on some viable trajectory. Rapid transitions between trajectories (punctuations)
+      are consistent with trajectory-bounding as long as the system lands on a new viable trajectory after the jump. Catastrophic
+      selection failure (extinction) is the case where no viable trajectory is available — consistent with UB's selection
+      floor.
+  implications_for_ub: 'EC14 grounds UB''s persistence criterion more precisely than the current theory
+
+    provides. The selection equation specifies fitness at each t but does not make
+
+    explicit that the criterion is applied repeatedly and that a single fitness failure
+
+    removes the system. EC14 supplies this: the selection criterion is a trajectory
+
+    constraint, not a point constraint.
+
+
+    This has a design implication for skill-builder: a service that passes a migration
+
+    at t=0 but becomes non-viable at t+1 (because the migration introduced structural
+
+    fragility) has failed the trajectory constraint. The validation checklist for
+
+    migrations should include trajectory criteria, not just point criteria: not just
+
+    "does it pass now" but "will it remain viable under the next change." This is the
+
+    formal grounding for the "test-first-baseline" pattern (pattern 20 in SKILL_BEST_PRACTICES.md).
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Three independent frameworks from developmental biology, organizational cybernetics, and theoretical biology
+        all derive trajectory-bounding as the persistence criterion. The frameworks rarely cross-reference each other; the
+        convergence is independent.
+    derivation:
+      from:
+      - WA3-homeorhesis
+      - PR3-vsm
+      - EN2-autopoiesis
+      - UB-selection-equation
+      method: Cross-framework identification of persistence criterion; verification that all three frameworks identify trajectory-maintenance
+        (not point-maintenance) as the survival requirement
+- id: EC15-collective-coherence
+  type: equivalency-class
+  name: 'K_collective Coherence: Integrated Information = Small-World Topology = Dunbar Scaling — Collective Knowledge Has
+    a Structural Optimum'
+  underlying_proposition: 'A collective knowledge system K_collective — whether a brain, a social group, or
+
+    a distributed software fleet — has a structural optimum: the configuration that
+
+    maximizes coherence (integrated information), minimizes coordination cost (small-world
+
+    topology), and fits within cognitive coupling limits (Dunbar bound). These three
+
+    measures are not independent: they are three different projections of the same
+
+    underlying structural optimum. A K_collective that satisfies all three is at maximum
+
+    informational efficiency; one that violates any is paying a coherence tax that
+
+    reduces collective knowledge quality. The optimum is not a design target — it is
+
+    a formal attractor that any adaptive collective system approaches under selection.
+
+    '
+  members:
+  - id: Tononi-integrated-information
+    framework: Tononi (2004, 2008) — Integrated Information Theory
+    formulation: 'Phi (Φ) measures the integrated information of a system: how much information
+
+      the system generates as a whole beyond the information generated by its parts.
+
+      High Phi = the system''s components are strongly coupled in ways that create
+
+      irreducible whole-system information. Low Phi = the system is decomposable into
+
+      parts that generate most information independently; the integration adds little.
+
+      TO1 maps this to UB K_collective: Phi measures how much K_collective exceeds
+
+      the sum of individual K_i. High Phi in a team means the team''s combined knowledge
+
+      is qualitatively more powerful than individual knowledge stacked — each person''s
+
+      K-graph has edges to other members'' K-graphs that create emergent K_collective
+
+      structure. Low Phi teams are just co-located individuals. Phi is the operational
+
+      measure of collective coherence: not how many nodes K_collective has, but how
+
+      integrated those nodes are across the collective.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'TO1: Phi as K_collective coherence; from REF-Tononi2004'
+  - id: WattsStrogatz-small-world
+    framework: Watts and Strogatz (1998) — Small-World Networks
+    formulation: 'A small-world network has two properties simultaneously: high local clustering
+
+      (neighbors of neighbors are likely neighbors) and short average path length
+
+      (any node can reach any other in few hops). Regular lattices have high clustering
+
+      but long paths; random networks have short paths but low clustering. Small-world
+
+      networks achieve both via a small fraction of long-range connections. WS2 maps
+
+      this to K_collective topology: the optimal knowledge graph for a collective has
+
+      small-world structure — knowledge is locally clustered (specialists know each
+
+      other''s work in detail) and globally short-pathed (any piece of knowledge can
+
+      reach any other piece quickly). Small-world topology is the structural implementation
+
+      of optimal K_collective coherence: it maximizes Phi while minimizing the
+
+      coordination cost (path length) of knowledge transfer. The Watts-Strogatz model
+
+      shows that a small number of random long-range connections suffices to achieve
+
+      this optimum — the insight that cross-domain collaborations disproportionately
+
+      improve collective knowledge quality.
+
+      '
+    epistemic_status: formal-empirical
+    derivation: 'WS2: small-world topology as K_collective optimum; from REF-WattsStrogatz1998'
+  - id: Dunbar-cognitive-limit
+    framework: Dunbar (1992, 1998) — Social Brain Hypothesis
+    formulation: 'Dunbar''s number (approximately 150) is the cognitive limit on stable social
+
+      relationships. Above ~150 individuals, the neocortex cannot maintain the
+
+      relational models needed for stable group coordination — the cost of updating
+
+      every relationship model exceeds the social benefit. Dunbar''s layers: 5
+
+      (intimate), 15 (support), 50 (sympathy), 150 (stable social), 500 (acquaintance).
+
+      DU1 maps this to K_collective scaling: each Dunbar layer corresponds to a
+
+      K_collective coupling strength. Within the intimate group (5), K-graphs are
+
+      nearly fully coupled — each member knows the others'' K-states in detail.
+
+      At the stable social layer (150), K-graphs share structural features but not
+
+      content. Beyond 150, direct K_collective coupling breaks down and must be
+
+      mediated by institutional structure (roles, documents, procedures). This is
+
+      the scaling law for K_collective: the social brain hypothesis is the empirical
+
+      derivation of the same bound that Phi and small-world topology derive formally.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'DU1: Dunbar number as K_collective coupling limit; from REF-Dunbar1992'
+  - id: UB-EM10-collective
+    framework: Uncertainty Bounding (EM10)
+    formulation: 'EM10 derives that K_collective for a group of agents is the union of their
+
+      individual K-graphs under a consistency protocol. The consistency protocol —
+
+      the rules for merging K-graphs from multiple agents — must maintain the
+
+      properties that make K useful: coherence (no internal contradictions), coverage
+
+      (all relevant world-dimensions represented), and currency (outdated K-nodes
+
+      marked with appropriate provenance). EM10 shows that the optimal K_collective
+
+      has exactly the small-world structure that WS2 identifies: local clustering
+
+      allows high-fidelity K-sharing within specialist groups; long-range connections
+
+      allow cross-domain K-propagation. The Dunbar bound emerges from EM10 when
+
+      the consistency cost is made explicit: each agent must track the provenance
+
+      of K-nodes from every other agent they are coupled with; this scales quadratically
+
+      with group size and hits a capacity limit at approximately Dunbar''s number.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'EM10: K_collective structure derived from individual K-graphs + consistency protocol; from UB theory'
+  equivalence_analysis: 'Four frameworks from consciousness theory, network science, evolutionary anthropology,
+
+    and formal theory all converge on the same structural optimum for collective knowledge.
+
+
+    Formal translations:
+
+    - Phi (Tononi): measures irreducible integration in the system (whole > sum of parts)
+
+    - Small-world (Watts-Strogatz): topology that maximizes local clustering + minimizes path length
+
+    - Dunbar bound (Dunbar): empirical cognitive limit on direct K_collective coupling
+
+    - EM10 (UB): formal derivation of small-world structure from consistency cost analysis
+
+
+    The structural equivalence:
+
+    - Phi HIGH = small-world topology achieved = within Dunbar''s active coupling layer
+
+    - Phi LOW = decomposable (no coherence) or oversaturated (too dense) = either too sparse or beyond Dunbar scale
+
+    - The optimum is a topological configuration: small-world with scale limited by Dunbar''s bound
+
+
+    This EC node captures the previously identified `potential_em` gap for EM10 (Phi)
+
+    in the reference schema. EM10 existed as a formal derivation; EC15 grounds it with
+
+    three independent external derivations.
+
+
+    Critical observation: Dunbar''s bound is not a limitation to overcome — it is a
+
+    structural optimum. Beyond ~150 individuals, direct K_collective coupling degrades.
+
+    The correct response is not to force coupling beyond the bound but to introduce
+
+    mediating structure (institutions, knowledge graphs, shared schemas) that implement
+
+    K_collective coherence without requiring direct agent-to-agent coupling. This is
+
+    the architectural argument for knowledge graph infrastructure in organizations above
+
+    Dunbar scale.
+
+    '
+  confidence_C1p:
+    estimate: 0.87
+    basis: Formal-theoretical (IIT/Phi, well-developed mathematical framework) + formal-empirical (small-world, rigorously
+      proven properties) + empirical-formal (Dunbar, evolutionary anthropology with neurological grounding) + formal-derived
+      (EM10)
+    weakest_link: Phi as a practical measure remains computationally intractable for large systems — it cannot be directly
+      computed for groups of any size. The Phi-small-world-Dunbar equivalence is structural but not yet operationally unified
+      into a single computable metric.
+  contradictions:
+  - source: 'Network theory: random networks may have shorter paths than small-world networks'
+    claim: For very large networks, random graphs achieve small diameters more efficiently than small-world topologies. The
+      clustering benefit of small-world is worth the path-length cost only at intermediate scales.
+    resolution: 'EC15''s claim is about K_collective coherence, not just path length. Random graphs achieve short paths but
+      sacrifice local clustering — which is where Phi lives. A random K_collective graph has short paths but low integrated
+      information (neighbors of neighbors share no knowledge). The Dunbar bound constrains the scale at which small-world
+      is applicable: at Dunbar scale (~150 nodes), small-world is provably optimal. Beyond that scale, institutional structure
+      replaces direct coupling, and the topology argument applies at the institutional level.'
+  implications_for_ub: 'EC15 grounds the social dimension of UB that is currently underdeveloped. The theory
+
+    addresses individual agents (with their K-graphs and F-graphs) and briefly mentions
+
+    K_collective via EM10, but does not specify what the optimal K_collective structure
+
+    looks like.
+
+
+    EC15 supplies that specification: K_collective should have small-world topology,
+
+    Phi above the decomposability threshold, and direct coupling limited to Dunbar scale.
+
+    Beyond Dunbar scale, knowledge graph infrastructure IS the coherence mechanism —
+
+    it implements the long-range connections that give the collective small-world topology
+
+    without requiring each agent to directly model all others.
+
+
+    This is the theoretical grounding for the practical claim that knowledge graphs
+
+    become valuable at organizational scale: below Dunbar scale, direct K-coupling is
+
+    sufficient; above it, a knowledge graph is not merely useful but structurally necessary
+
+    for K_collective coherence.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Four frameworks from consciousness science, network mathematics, evolutionary anthropology, and formal
+        theory converge on the same K_collective structural optimum. The Dunbar bound is one of the most replicated findings
+        in social neuroscience; the small-world topology is formally proven; the Phi measure provides the information-theoretic
+        unification.
+    derivation:
+      from:
+      - TO1-phi
+      - WS2-small-world
+      - DU1-dunbar
+      - EM10-collective-knowledge
+      method: Cross-framework identification of K_collective coherence measure; verification that all three measures identify
+        the same structural configuration as optimal
+- id: EC16-consistency-protocol
+  type: equivalency-class
+  name: 'K_collective Consistency Protocol: Cache Coherence = Provenance = Locality — Distributed Knowledge Requires a Consistency
+    Protocol'
+  underlying_proposition: 'A distributed knowledge system — whether a multiprocessor cache hierarchy, a
+
+    version-controlled codebase, a scientific literature, or a multi-agent UB system —
+
+    requires a consistency protocol: a set of rules that guarantees that updates to
+
+    any K-node propagate correctly to all agents that hold copies of that node.
+
+    Without a consistency protocol, the collective knowledge system K_collective
+
+    fragments into incoherent local copies, and agents acting on stale K-nodes produce
+
+    incorrect actions. Four frameworks — distributed systems theory (cache coherence),
+
+    UB formal theory (provenance + NV04), scientific methodology (replication/citation),
+
+    and distributed database theory (CAP theorem) — all derive the same structural
+
+    requirement from different starting points.
+
+    '
+  members:
+  - id: Lamport-cache-coherence
+    framework: Lamport (1979) / Adve-Gharachorloo (1996) — Cache Coherence
+    formulation: 'In a multiprocessor system, each processor has a local cache holding copies of
+
+      memory locations. Cache coherence is the property that all caches agree on the
+
+      current value of every memory location. Without coherence, processors act on
+
+      stale data: one processor''s write is invisible to another''s read. The coherence
+
+      protocol (MESI, MOESI, etc.) enforces three invariants: (1) Single-Writer:
+
+      at most one processor can write a location at a time; (2) Data-Value: a read
+
+      returns the most recently written value; (3) Propagation: writes eventually
+
+      become visible to all processors. CL2 maps this to K_collective: each agent
+
+      holds a local K-graph that is a cache of K_collective. The coherence protocol
+
+      for K_collective is exactly the UB provenance triple (D13): attribution says
+
+      who wrote the node (Single-Writer), evidence says what value it holds
+
+      (Data-Value), derivation says what it supersedes (Propagation). Cache coherence
+
+      protocols are the engineering derivation of D13''s provenance triple.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'CL2: cache coherence protocol as K_collective consistency; from REF-LamportClock1979'
+  - id: UB-D13-NV04-provenance
+    framework: Uncertainty Bounding (D13 + NV04)
+    formulation: 'D13 specifies the provenance triple prov(p) = (attribution, evidence, derivation)
+
+      as the required metalanguage layer over K-nodes. NV04 derives that K_collective
+
+      requires a consistency protocol that uses provenance: when two agents hold
+
+      conflicting K-nodes, the protocol must be able to determine which node is more
+
+      recent, which has stronger evidence, and which was derived from the other.
+
+      Without provenance, no conflict resolution is possible — the protocol cannot
+
+      determine which copy is authoritative. D13''s provenance triple is the formal
+
+      specification of the consistency protocol that NV04 requires. AX3 shows that
+
+      the provenance triple maps exactly to the cache coherence invariants: attribution
+
+      (who holds write authority), evidence (current authoritative value), derivation
+
+      (what the node supersedes). This is the UB formal derivation of cache coherence
+
+      from first principles.
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'AX3: D13 provenance = cache coherence protocol; NV04 consistency requirement; from UB theory'
+  - id: Merton-citation-norms
+    framework: Merton (1973) — Sociology of Science / Citation Practice
+    formulation: 'Scientific citation is the knowledge consistency protocol of the scientific
+
+      literature. A citation is a provenance record: it specifies the source of a
+
+      claim (attribution), what the source established (evidence), and how the current
+
+      claim builds on or supersedes it (derivation). Merton''s norms of science —
+
+      communalism (knowledge is public), universalism (claims evaluated on merit),
+
+      disinterestedness (no private agendas), organized skepticism (all claims subject
+
+      to scrutiny) — are the behavioral implementation of the consistency protocol.
+
+      BO1 maps this to K_collective: the scientific literature IS a K_collective
+
+      with citation as its coherence protocol. The failure modes of bad science
+
+      (plagiarism, fabrication, retraction) are exactly the failure modes of a
+
+      broken consistency protocol: attribution failure (plagiarism), data-value
+
+      corruption (fabrication), propagation failure (retracted claims not marked
+
+      stale). The citation protocol is cache coherence for human knowledge.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'BO1: citation as K_collective consistency protocol; from REF-Merton1973'
+  - id: Brewer-CAP-theorem
+    framework: Brewer (2000) — CAP Theorem
+    formulation: 'The CAP theorem states that a distributed system can guarantee at most two of:
+
+      Consistency (all nodes see the same data), Availability (every request gets a
+
+      response), Partition Tolerance (the system continues operating despite network
+
+      partitions). No system can provide all three simultaneously. In K_collective
+
+      terms: Consistency = all agents have the same K-nodes; Availability = all agents
+
+      can read/write K at any time; Partition Tolerance = K_collective survives
+
+      communication failures between agents. CAP says the K_collective designer must
+
+      choose: CP (consistent when available, but may be unavailable during partition),
+
+      AP (always available but may return stale K-nodes), or CA (consistent and
+
+      available but fails under partition — impractical for real distributed systems).
+
+      This is the formal impossibility result for K_collective consistency: perfect
+
+      consistency is unachievable in a distributed system under realistic network
+
+      conditions. D13''s provenance triple addresses this by making staleness explicit
+
+      rather than preventing it: an agent can hold a stale K-node as long as the
+
+      provenance records its timestamp and evidence source, allowing the agent to
+
+      reason about the staleness rather than pretending it doesn''t exist.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'CAP: distributed system consistency impossibility; applied to K_collective via EM15 mapping'
+  equivalence_analysis: 'Four frameworks from computer architecture, formal theory, sociology, and distributed
+
+    systems all derive the same structural requirement: K_collective needs a consistency
+
+    protocol, and that protocol must specify attribution, evidence currency, and propagation.
+
+
+    Formal translations:
+
+    - Cache coherence (Lamport/Adve): MESI protocol enforces who-writes + current-value + propagation
+
+    - D13 + NV04 (UB): provenance triple = attribution + evidence + derivation
+
+    - Merton norms (sociology): citation = attribution + evidence + supersession record
+
+    - CAP theorem (Brewer): consistency-availability-partition tradeoff is fundamental
+
+
+    The structural equivalence: the three fields of the provenance triple (D13) are exactly
+
+    the three invariants that every consistency protocol must enforce, regardless of domain:
+
+    - Attribution = Single-Writer invariant (who has write authority)
+
+    - Evidence = Data-Value invariant (what the authoritative value is)
+
+    - Derivation = Propagation invariant (what the node supersedes and when)
+
+
+    CAP adds the impossibility result: no K_collective can have all three simultaneously
+
+    in a partitioned network. D13''s response to CAP is the correct engineering answer:
+
+    make staleness explicit via provenance rather than trying to prevent it.
+
+
+    Note on relationship to EC12 (metalanguage): The consistency protocol is the
+
+    metalanguage for K_collective. EC12 says any system making truth-claims about itself
+
+    requires a metalanguage. The consistency protocol is exactly the metalanguage for
+
+    K_collective: it says which K-nodes are currently authoritative, how confident they
+
+    are, and where they came from. Without the consistency protocol (metalanguage), the
+
+    K_collective cannot evaluate its own nodes.
+
+    '
+  confidence_C1p:
+    estimate: 0.92
+    basis: Formal mathematical proofs in two independent frameworks (cache coherence protocols, CAP theorem) + formal derivation
+      in one (UB D13+NV04) + empirical-formal in one (Merton citation norms, well-documented in sociology of science)
+    weakest_link: The mapping of Merton's sociological norms to formal consistency invariants is structural but not a formal
+      proof. The citation system can be violated (and frequently is) without triggering automatic correction mechanisms the
+      way MESI protocol violations trigger hardware recovery. The structural parallel is strong; the enforcement mechanisms
+      differ.
+  contradictions:
+  - source: Eventual consistency models (Vogels, 2009)
+    claim: Strong consistency is not required. Eventual consistency — where all nodes converge to the same value eventually
+      but may diverge temporarily — is sufficient for most distributed systems and avoids the availability cost of strong
+      consistency.
+    resolution: 'EC16''s claim is about the structural requirement for A consistency protocol, not about the strength of consistency.
+      Eventual consistency is itself a consistency protocol with weaker guarantees. D13''s provenance triple is compatible
+      with eventual consistency: the derivation field records the timestamp, allowing agents to reason about which copy is
+      more recent and whether to wait for convergence or act on the current value. EC16 says K_collective requires provenance
+      (the protocol); it does not require strong consistency (the protocol''s strictness). CAP is the argument that strong
+      consistency has costs; D13 is the protocol that makes those costs manageable.'
+  implications_for_ub: 'EC16 grounds D13 not only as a metalanguage requirement (EC12) but also as a
+
+    consistency protocol requirement. The two derivations are complementary: EC12 says
+
+    D13 is needed for the K-node to be evaluable (metalanguage); EC16 says D13 is needed
+
+    for K_collective to be coherent (distributed system).
+
+
+    This has a design implication: the provenance triple is not just documentation — it
+
+    is an operational protocol component. When two agents hold conflicting K-nodes, the
+
+    protocol resolution algorithm uses attribution (who has authority), evidence (which
+
+    is stronger), and derivation (which is newer) to select the authoritative version.
+
+    Without all three fields, the protocol cannot resolve conflicts deterministically.
+
+
+    EC16 also motivates the CAP-aware interpretation of D13: provenance is the mechanism
+
+    for operating correctly under eventual consistency. An agent that reads a K-node
+
+    must also read its provenance to determine whether to trust the current value or
+
+    wait for a more recent version. This is exactly how distributed databases handle
+
+    stale reads — by returning a version vector alongside the value. D13 is the
+
+    version vector for K-nodes.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Four frameworks from computer architecture, formal theory, sociology, and distributed systems converge
+        on the same consistency protocol structure. Cache coherence and CAP theorem are formally proven; Merton norms are
+        empirically well-documented; UB D13+NV04 provides the formal synthesis.
+    derivation:
+      from:
+      - CL2-cache-coherence
+      - D13-provenance
+      - NV04-collective-consistency
+      - BO1-merton-norms
+      - CAP-theorem
+      method: Cross-framework identification of consistency protocol invariants; verification that all three invariants (attribution,
+        evidence, derivation) are required by each framework
+- id: EC17-compression-duality
+  type: equivalency-class
+  name: 'Compression Duality: Weyl Symmetry = T-Duality = Data Processing Inequality — Representation-Level Descent Is a Universal
+    Structure-Preserving Operation'
+  underlying_proposition: 'When a system compresses a representation, it does not merely discard information —
+
+    it descends to a lower-dimensional description that is dual to the original under
+
+    a symmetry transformation. This duality is the formal content of compression: the
+
+    compressed representation and the original are related by a transformation that
+
+    preserves certain invariants while discarding others. Three bodies of literature —
+
+    Weyl''s conformal symmetry (differential geometry/physics), string theory T-duality,
+
+    and Shannon''s data processing inequality — all arrive at the same structure: useful
+
+    compression is a symmetry-preserving descent, not an arbitrary projection. The
+
+    invariant preserved by compression is the action-relevant structure; the discarded
+
+    information is the action-irrelevant detail.
+
+    '
+  members:
+  - id: Weyl-conformal-symmetry
+    framework: Weyl (1929) — Conformal/Scale Symmetry
+    formulation: 'Weyl''s conformal symmetry is the invariance of a physical theory under local
+
+      rescaling of the metric: distances change but angles (and hence the causal
+
+      structure of the theory) are preserved. A conformal transformation is a
+
+      compression that preserves angles while changing scales. KM3 maps this to
+
+      K-node compression: the conformal symmetry is the formal statement that a
+
+      compressed K-node preserves the angular relationships (structural connections
+
+      to other nodes) while discarding scale information (absolute magnitudes).
+
+      Weyl''s insight: the physically meaningful content of a theory is its conformal
+
+      invariants — the properties that survive any local rescaling. Compression of
+
+      K-nodes should similarly preserve conformal invariants: the structural
+
+      relationships that determine action implications. The information discarded
+
+      in conformal compression (scale) is exactly the information that is action-
+
+      irrelevant when the action requires only relational structure.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'KM3: conformal symmetry as structure-preserving compression; from REF-Weyl1929'
+  - id: String-T-duality
+    framework: Polchinski (1998) — T-Duality in String Theory
+    formulation: 'T-duality relates two string theories compactified on a circle of radius R and
+
+      radius alpha''/R respectively: large R and small R theories are dual descriptions
+
+      of the same physics. A string winding around a large circle is equivalent to
+
+      a string with high momentum on a small circle. ST3 maps this to K-node duality:
+
+      a fine-grained K-representation (large R, many details) and a coarse-grained
+
+      K-representation (small R, fewer details) are dual when they agree on all
+
+      action-relevant predictions. T-duality is the physics derivation of the
+
+      compression claim: the detailed and compressed representations are not
+
+      approximations of each other — they are exactly equivalent descriptions at
+
+      different resolutions, related by a precise duality transformation. The
+
+      implication for K-nodes: compression to a coarse-grained representation is
+
+      lossless (in the T-duality sense) when the action-relevant degrees of freedom
+
+      are identical in both representations.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'ST3: T-duality as K-representation duality; from REF-Polchinski1998'
+  - id: Shannon-data-processing
+    framework: Shannon (1948) — Data Processing Inequality
+    formulation: 'The data processing inequality (DPI) states that for a Markov chain X → Y → Z,
+
+      I(X; Z) ≤ I(X; Y): processing Y to produce Z cannot increase the mutual
+
+      information between Z and X. Any deterministic transformation of a representation
+
+      can only preserve or reduce the information it contains about the original signal.
+
+      GB2 maps DPI to K-node compression: compression of a K-node Y to produce Z
+
+      can only reduce the mutual information between Z and the world state X. Lossless
+
+      compression (Z contains the same I(X; Z) as Y) is possible only when Z is a
+
+      sufficient statistic for X — when Z captures all the information Y has about X
+
+      that matters for the downstream task. DPI is the information-theoretic proof
+
+      that compression cannot invent information; it can only preserve or destroy it.
+
+      The goal of good compression is to find the sufficient statistic: the minimal
+
+      representation that preserves all action-relevant information.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'GB2: data processing inequality as K-compression bound; from REF-Shannon1948'
+  - id: Kolmogorov-sufficient-statistic
+    framework: Kolmogorov (1968) — Algorithmic Sufficient Statistic
+    formulation: 'A sufficient statistic for a parameter θ captures all the information about θ
+
+      that the data contains: once you know the sufficient statistic, the raw data
+
+      adds nothing about θ. The Kolmogorov sufficient statistic extends this to
+
+      algorithmic information: the minimal description that captures all meaningful
+
+      structure in the data (the structure that would remain in typical samples from
+
+      the same source). CT1 maps this to K-node compression: the ideal compressed
+
+      K-node is the sufficient statistic for the action-relevant properties of the
+
+      world. A K-node that contains more information than the sufficient statistic
+
+      is carrying noise (action-irrelevant detail); a K-node that contains less is
+
+      missing signal (action-relevant structure lost). The sufficient statistic is
+
+      the precise formal target for K-node compression: compress to the minimum
+
+      representation that preserves action-relevant mutual information.
+
+      '
+    epistemic_status: formal-mathematical
+    derivation: 'CT1: Kolmogorov sufficient statistic as K-compression target; from REF-Kolmogorov1968'
+  equivalence_analysis: 'Four frameworks from differential geometry, string theory, information theory, and
+
+    algorithmic complexity converge on the same compression criterion.
+
+
+    Formal translations:
+
+    - Weyl conformal symmetry: preserve angles (relational structure), discard scale
+
+    - T-duality: coarse-grained = fine-grained for action-relevant predictions
+
+    - DPI: compression cannot increase mutual information with the world
+
+    - Kolmogorov sufficient statistic: minimal representation that preserves all I(X; Y)
+
+
+    The structural equivalence: all four identify the same compression target — the
+
+    representation that preserves all action-relevant information while discarding
+
+    everything else. The formalisms differ (angles vs. winding numbers vs. mutual
+
+    information vs. Kolmogorov complexity) because they operate on different spaces,
+
+    but the target is the same: sufficient statistic for action.
+
+
+    The duality structure is what makes this an EC rather than simply a convergence:
+
+    each framework identifies not just that there is a target but that the compressed
+
+    and uncompressed representations are DUAL — related by a precise transformation
+
+    that is invertible within the action-relevant subspace. This is stronger than
+
+    saying "compression should preserve structure" — it says there is a symmetry
+
+    group relating the two representations.
+
+
+    Note on relationship to EC11 (graph necessity): EC11 says K must be indexed by F
+
+    to preserve information. EC17 says when K IS compressed, the compression should
+
+    be the sufficient statistic for F-relevant predictions. EC11 specifies what structure
+
+    must be preserved; EC17 specifies how to compress while preserving it.
+
+
+    Note on relationship to EC05 (incompleteness): DPI formalizes the M < N claim: any
+
+    processing of a representation can only preserve or reduce mutual information with
+
+    the world. M < N means the agent''s representation already has less information than
+
+    the world; compression makes it less still. The sufficient statistic is the target
+
+    that minimizes the loss while reducing M.
+
+    '
+  confidence_C1p:
+    estimate: 0.84
+    basis: Formal mathematical proofs in two frameworks (DPI from Shannon information theory, Kolmogorov sufficient statistic)
+      + formal-theoretical in string theory (T-duality, well-established in physics) + formal-mathematical in differential
+      geometry (Weyl symmetry). The physics derivations (T-duality, conformal symmetry) carry the usual caveat about physical
+      theories as formal models.
+    weakest_link: 'The T-duality mapping to K-representation duality is a structural analogy. In string theory, T-duality
+      is an exact equivalence between specific physical theories with precise mathematical content. The claim that coarse-grained
+      and fine-grained K-representations are ''T-dual'' is metaphorical: they share the same structure but the duality transformation
+      is not explicitly specified. The DPI and Kolmogorov sufficient statistic provide formal grounding; the T-duality framing
+      is suggestive rather than proven.'
+  contradictions:
+  - source: Lossy compression literature (JPEG, MP3, etc.)
+    claim: Useful compression is often not lossless with respect to the sufficient statistic — it discards information that
+      turns out to be perceptually relevant. The sufficient statistic criterion is too strict for practical compression.
+    resolution: 'EC17''s sufficient statistic criterion is relative to the action task. JPEG compression discards high-frequency
+      components that are below perceptual threshold for the action task (viewing an image). If the action task changes (forensic
+      analysis, medical imaging), JPEG may discard action-relevant information. The resolution: the sufficient statistic is
+      always relative to a specific downstream task (F-graph). EC17''s claim is that the correct compression target for K-nodes
+      is the sufficient statistic for the agent''s specific F-graph, not a universal sufficient statistic. Task-relative compression
+      is the correct operationalization.'
+  implications_for_ub: 'EC17 provides the compression theory that UB currently lacks. The theory specifies
+
+    that agents compress their K-graphs under C_n, but does not specify how compression
+
+    should proceed. EC17 supplies that specification: compress to the sufficient statistic
+
+    for the F-relevant predictions.
+
+
+    This has a direct practical implication: when a skill-builder agent compresses its
+
+    context (due to context window limits), it should prioritize retaining the K-nodes
+
+    that are most informative about the current F-action. This is the information-theoretic
+
+    grounding for the layered reference model in SKILL_REFERENCE_STRATEGY.md: the
+
+    metadata layer (50 tokens) is the sufficient statistic for skill selection; the
+
+    detailed reference files are the full representation that provides additional
+
+    information when the action requires it.
+
+
+    EC17 also motivates the "session-management" pattern (pattern 9 in SKILL_BEST_PRACTICES.md):
+
+    multi-day workflows must compress context at session boundaries by retaining sufficient
+
+    statistics for the next day''s F-actions. The compression is not arbitrary — it should
+
+    target what the next action requires.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Four frameworks from differential geometry, string theory, information theory, and algorithmic complexity
+        converge on the same compression target: sufficient statistic for action-relevant predictions. The DPI and Kolmogorov
+        sufficient statistic provide formal proofs; the physics frameworks (Weyl, T-duality) provide structural corroboration.'
+    derivation:
+      from:
+      - KM3-weyl-symmetry
+      - ST3-t-duality
+      - GB2-data-processing
+      - CT1-sufficient-statistic
+      method: Cross-framework identification of compression target; verification that all four frameworks select the sufficient
+        statistic as the target for structure-preserving compression
+- id: EC18-agency-gate
+  type: equivalency-class
+  name: 'Agency as Probability Gate: The Agent Is the Entity That Assigns Non-Uniform Distributions Over Future States'
+  underlying_proposition: 'An agent is not defined by having goals or intentions but by a structural capacity:
+
+    the ability to assign non-uniform probability distributions over future states and
+
+    act to gate which of those distributions is realized. This is NV03''s formal definition
+
+    of agency. Four independent frameworks — formal theory (UB NV03), neuroscience (global
+
+    workspace ignition), semiotics (Peirce''s methods), and computer architecture (neural
+
+    branch prediction) — all arrive at the same structure: agency is the function that
+
+    takes a distribution over possible futures and selects which branch gets executed.
+
+    The gate is the agent; the agent is the gate.
+
+    '
+  members:
+  - id: UB-NV03-agency
+    framework: Uncertainty Bounding (NV03)
+    formulation: 'NV03 derives that an agent A with A > 0 (active context) is formally the entity
+
+      that assigns a non-uniform probability distribution P(F_t+1 | K_t, F_t) over
+
+      future action sequences. Without A > 0, the distribution collapses to uniform:
+
+      no preference over futures, no agency. With A > 0, the agent gates which region
+
+      of F-space is explored: the prior is non-uniform (shaped by K), and action
+
+      selects which branch of the distribution is actualized. Agency is therefore a
+
+      probability gate: it transforms a uniform distribution over possible futures into
+
+      a directed search. NV03''s derivation: agency requires M < N (the gap that makes
+
+      selection meaningful) and A > 0 (the budget that makes selection possible).
+
+      '
+    epistemic_status: formal-derived
+    derivation: 'NV03: agency as non-uniform prior over F-space; derived from M < N + A > 0 + selection equation'
+  - id: Dehaene-global-ignition
+    framework: Dehaene and Changeux (2011) — Global Workspace Theory
+    formulation: 'Global workspace ignition is the neural event by which a representation crosses
+
+      a threshold and is broadcast globally to all cortical areas. Below threshold: the
+
+      representation competes locally, no global access. Above threshold: ignition
+
+      occurs, the representation enters the global workspace, and action becomes possible.
+
+      The ignition threshold IS the probability gate: the agent (the global workspace
+
+      architecture) assigns non-uniform probability to representations competing for
+
+      global access; the representation with highest priority ignites. NGW3 shows this
+
+      is the biological implementation of NV03''s agency: the brain''s agency mechanism
+
+      is literally a probability gate that selects which representation reaches the
+
+      action-capable global workspace. Consciousness, on this account, is what the
+
+      gate produces when it fires.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'NGW3: global workspace ignition = probability gate; from REF-DehaeneChangeux2011'
+  - id: Peirce-four-methods
+    framework: Peirce (1877) — Four Methods of Fixing Belief
+    formulation: 'Peirce identifies four methods for fixing belief (resolving uncertainty): tenacity
+
+      (commit to one belief and ignore evidence), authority (defer to an external source),
+
+      a priori (select the belief that seems agreeable to reason), and scientific (use
+
+      evidence to converge on a belief that survives inquiry). Each method is a different
+
+      protocol for assigning a probability distribution over propositions: tenacity
+
+      assigns 1.0 to one proposition and 0.0 to others (maximum non-uniformity, no
+
+      updating); authority delegates the gate to an external agent; a priori assigns
+
+      probability by coherence with existing beliefs; scientific assigns probability by
+
+      evidence and updates by Bayes'' rule. PC3 maps this to NV03: the scientific method
+
+      is the only method where the gate (the probability assignment function) converges
+
+      to the true distribution. The other methods are probability gates that do not
+
+      converge. Peirce''s argument for the scientific method is that it is the only one
+
+      that functions correctly as an agency mechanism over the long run.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'PC3: four methods as probability gate protocols; from REF-Peirce1877'
+  - id: Lin-neural-branch-prediction
+    framework: Lin (1992) — Neural Branch Prediction
+    formulation: 'A branch predictor in a processor assigns a probability to each branch instruction:
+
+      will this branch be taken? The predictor gates which instruction stream is prefetched
+
+      and executed speculatively. A perfect predictor (probability = 1.0 on the correct
+
+      branch) wastes no cycles. A uniform predictor (probability = 0.5 on all branches)
+
+      is as good as no prediction. The branch predictor IS an agency mechanism at the
+
+      hardware level: it assigns non-uniform probability distributions over future
+
+      execution paths and gates which path is speculatively executed. CL5 shows this
+
+      is NV03 at the processor scale: the predictor implements the A > 0 mechanism
+
+      by using a budget (pipeline slots, branch history table entries) to bias execution
+
+      toward the most probable futures. The hardware analogy is exact: more context
+
+      (longer branch history) → better predictor → closer to the true distribution.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'CL5: branch predictor as probability gate; derived from REF-Lin1992'
+  equivalence_analysis: 'Four frameworks from neuroscience, semiotics, philosophy, and computer architecture
+
+    all derive the same structural claim: agency is a probability gate.
+
+
+    Formal translations:
+
+    - UB NV03: P(F_t+1 | K_t, F_t) is non-uniform when A > 0 (formal necessity)
+
+    - Global workspace: ignition threshold selects representation for global broadcast
+
+    - Peirce''s methods: each method is a protocol for assigning probability to propositions
+
+    - Branch prediction: predictor assigns P(branch taken) and gates speculative execution
+
+
+    The structural equivalence:
+
+    - The AGENT is the entity that holds the gate function
+
+    - The GATE is the probability assignment over futures (F-space in UB)
+
+    - ACTUATION is the selection of which probability mass gets realized
+
+    - AGENCY is the combination: hold a distribution + actualize one branch
+
+
+    This EC node elevates NV03 from a UB-specific definition to a cross-framework
+
+    structural claim. The question "what is an agent?" has the same answer in all four
+
+    frameworks: the entity that assigns non-uniform probability to futures and gates
+
+    which branch executes.
+
+
+    Note on relationship to EC05 (incompleteness): Agency requires M < N. If M = N
+
+    (complete representation), there is no selection gap — all futures are known and
+
+    no gating is needed. Agency is therefore not incidental to incompleteness; it is
+
+    derived from it. EC18 provides the positive side of EC05: incompleteness creates
+
+    the selection problem, and agency is the mechanism that resolves it (partially).
+
+
+    Note on relationship to EC12 (metalanguage): The global workspace ignition mechanism
+
+    operates at the metalanguage level — it selects which object-level representations
+
+    get globally broadcast. The gate is the metalanguage function over object-level
+
+    representations. This is consistent with EC12''s claim that a metalanguage layer
+
+    is structurally necessary for self-referential systems.
+
+    '
+  confidence_C1p:
+    estimate: 0.88
+    basis: Formal derivation (UB NV03) + neuroscience empirical (global workspace ignition, well-validated) + philosophical
+      (Peirce, historically foundational) + computer architecture (branch prediction, engineering proof)
+    weakest_link: The identification of branch prediction as an 'agency mechanism' is analogy, not formal equivalence. Branch
+      predictors have no goal representation — they optimize prediction accuracy without representing the meaning of the predictions.
+      The structural parallelism holds; the semantic equivalence does not.
+  contradictions:
+  - source: Intentionalist theories of agency (Bratman, 1987)
+    claim: Agency requires intentions — structured, hierarchical plans — not just probability distributions. A probability
+      gate without intention-representation is not an agent.
+    resolution: 'Intentionalist theories describe the content of agency in humans. NV03 describes the formal structure of
+      agency in any entity with A > 0 and M < N. These are complementary: intentions are how sufficiently complex agents (with
+      rich K-graphs) implement the gate function. The gate function is necessary; the intention representation is sufficient
+      for certain agent types but not necessary for all. A thermostat has a probability gate (binary: on/off) but no intentions;
+      an agent may have graduated probability gates but no linguistic intention representation. EC18 is about necessary structure,
+      not sufficient conditions for human-like agency.'
+  - source: Epiphenomenalism
+    claim: Mental states (including agency-as-gate) are causally inert — they do not actually gate anything; they supervene
+      on physical processes that do the gating.
+    resolution: 'EC18 is neutral on the metaphysics of causation. The claim is structural: whatever entity implements the
+      probability-assignment function plays the agency role. If that function is implemented in neural hardware, the neural
+      hardware is the gate. The epiphenomenalism debate concerns whether the functional description adds anything to the physical
+      description — EC18 only requires that the functional description is coherent and useful, not that it names a causally
+      distinct entity.'
+  implications_for_ub: 'EC18 provides cross-framework grounding for NV03, which is currently one of the
+
+    more asserted rather than derived claims in UB. The theory states that agency
+
+    requires A > 0 and M < N, but the derivation of WHY A > 0 is the agency mechanism
+
+    (rather than some other mechanism) is implicit.
+
+
+    EC18 supplies that derivation: agency is the probability gate because in all four
+
+    frameworks, the gate-function is what transforms a passive representation into an
+
+    active selector. Without the gate, there is representation but no action. The gate
+
+    is what converts K-state into F-selection.
+
+
+    Practical implication for D-nodes: D09 (action selection) should reference EC18
+
+    to ground the formal connection between representation and action. The current D09
+
+    definition focuses on the mechanics of action selection; EC18 supplies the functional
+
+    characterization that explains why action selection is the core agency operation.
+
+
+    EC18 also motivates a clarification of the A > 0 axiom: A > 0 is not just a
+
+    budget constraint — it is the precondition for the probability gate to function.
+
+    An entity with A = 0 has no mechanism to actualize any branch; it has representations
+
+    but cannot gate which branch executes. This makes A > 0 structurally necessary for
+
+    agency, not merely instrumentally useful.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Four frameworks from formal theory, neuroscience, semiotics, and computer architecture all converge on
+        agency-as-probability-gate. The neuroscience derivation (global workspace ignition) is independently well-validated;
+        the philosophical derivation (Peirce) is historically foundational; the engineering derivation (branch prediction)
+        provides a mechanistic existence proof.
+    derivation:
+      from:
+      - NV03-agency
+      - NGW3-global-workspace
+      - PC3-peirce-methods
+      - CL5-branch-prediction
+      method: Cross-framework identification of gate function; verification that each framework's agency mechanism implements
+        non-uniform probability assignment over future states
+- id: EC19-encoding-descent
+  type: equivalency-class
+  name: 'Encoding-Level Descent: Canalization = Dissipative Adaptation = Backprop = Habit Formation — Selection Embeds Recurrent
+    Solutions Into Structure'
+  underlying_proposition: 'When a system repeatedly encounters a problem and solves it, the solution pathway
+
+    is embedded into the system''s structure — making future traversal of the same
+
+    pathway cheaper, faster, and more reliable. This embedding is a descent to a lower
+
+    encoding level: what was once an active computation becomes a structural feature,
+
+    what was once a choice becomes a default, what was once learned becomes innate.
+
+    Four independent frameworks — Waddington''s canalization (developmental biology),
+
+    England''s dissipative adaptation (statistical mechanics), backpropagation
+
+    (machine learning), and Peirce''s habit formation (philosophy of mind) — all
+
+    derive the same structural result. UB''s K-graph is the formal accumulator of this
+
+    descent: each skill that becomes a default K-edge is an instance of encoding-level
+
+    descent.
+
+    '
+  members:
+  - id: Waddington-canalization
+    framework: Waddington (1942, 1957) — Genetic Canalization
+    formulation: 'Canalization is the developmental process by which a trait becomes buffered
+
+      against genetic and environmental perturbation: the more frequently a
+
+      developmental pathway is used, the deeper the channel (canalization) becomes
+
+      in the epigenetic landscape, and the harder it becomes to push the developing
+
+      organism off that path. WA1 maps this to K-graph construction: repeated
+
+      successful F-execution deepens the K-edge connecting the context to the
+
+      action — the pathway becomes canalized. Canalization has two effects: (1) the
+
+      canalized pathway becomes more reliable (buffered against perturbation), and
+
+      (2) the canalized pathway becomes harder to change (the channel walls are
+
+      high). This is the development of skill: from variable to reliable, from
+
+      effortful to automatic. The cost: canalization reduces variability, which
+
+      reduces the ability to adapt to novel environments. Waddington''s canalization
+
+      is the biological derivation of the same phenomenon that Peirce calls habit
+
+      formation and backpropagation implements mechanistically.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'WA1: canalization as K-edge deepening; from REF-Waddington1942'
+  - id: England-dissipative-adaptation
+    framework: England (2013, 2015) — Dissipative Adaptation
+    formulation: 'England''s dissipative adaptation principle derives from statistical mechanics:
+
+      a system driven by external forcing will, over time, evolve to dissipate
+
+      the forcing more efficiently. The system adapts its structure to the pattern
+
+      of forcing — becoming, in effect, tuned to the environment''s statistical
+
+      signature. EN1 maps this to K-graph construction: the environment''s recurrent
+
+      patterns (repeated F-contexts) drive the K-graph to encode those patterns
+
+      more efficiently over time. The K-graph adapts to the statistical structure
+
+      of the environment by lowering the cost of processing the most frequent
+
+      patterns — exactly canalization at the physical level. England''s contribution:
+
+      this adaptation is thermodynamically mandatory for dissipative systems under
+
+      sustained forcing. Encoding-level descent is not just useful — it is the
+
+      thermodynamically expected outcome for any adaptive system.
+
+      '
+    epistemic_status: formal-theoretical
+    derivation: 'EN1: dissipative adaptation as K-graph statistical tuning; from REF-England2013'
+  - id: Rumelhart-backpropagation
+    framework: Rumelhart, Hinton, Williams (1986) — Backpropagation
+    formulation: 'Backpropagation adjusts the weights of a neural network by propagating the
+
+      error signal from the output back to the input, adjusting each weight in
+
+      proportion to its contribution to the error. Over many iterations, the weights
+
+      encode the statistical structure of the training distribution: frequently
+
+      co-occurring patterns produce strongly weighted connections. BP3 maps this to
+
+      K-graph construction: the weight update rule IS encoding-level descent. Each
+
+      gradient step embeds the current training pattern more deeply into the network''s
+
+      weights. The network transitions from active computation (propagating signals
+
+      through many layers with high variability) to near-deterministic retrieval
+
+      (activating well-worn pathways that reliably produce trained outputs). This
+
+      is the machine learning instantiation of canalization: the backpropagation
+
+      algorithm implements, by gradient descent, the same structural embedding that
+
+      developmental canalization implements by selection over generations.
+
+      '
+    epistemic_status: empirical-formal
+    derivation: 'BP3: backpropagation as K-edge weight encoding; from REF-RumelhartHintonWilliams1986'
+  - id: Peirce-habit-formation
+    framework: Peirce (1878, 1903) — Habit and the Law of Mind
+    formulation: 'Peirce''s law of mind: ideas (K-nodes, in UB terms) tend to spread and reinforce
+
+      each other; associations that have fired together tend to fire more easily in
+
+      the future. Habit is the cognitive solidification of a recurrent response
+
+      pattern: what was once a deliberate choice becomes automatic. RB1 maps Peirce''s
+
+      habit formation to K-graph construction: a habit IS a high-confidence K-edge
+
+      with low activation cost. The deliberate-to-automatic transition is encoding-
+
+      level descent: from active, resource-intensive F-selection (deliberate choice)
+
+      to low-cost, near-deterministic K-retrieval (habit). Peirce''s additional claim:
+
+      the scientific method (PC3) is the habit that self-corrects. Unlike pathological
+
+      habits (fixed patterns that resist evidence), scientific habit remains revisable
+
+      because the provenance structure (D13) is maintained. Habit without provenance
+
+      is canalization without exit; habit with provenance is canalization with the
+
+      ability to resurface the pathway choice.
+
+      '
+    epistemic_status: philosophical
+    derivation: 'RB1: Peirce habit as K-edge formation; from REF-Peirce1878'
+  equivalence_analysis: 'Four frameworks from developmental biology, statistical mechanics, machine learning,
+
+    and philosophy of mind all derive the same structural result: recurrent solutions
+
+    are embedded into lower encoding levels.
+
+
+    Formal translations:
+
+    - Canalization (Waddington): epigenetic landscape deepens toward used pathways
+
+    - Dissipative adaptation (England): thermodynamic tuning to environmental forcing pattern
+
+    - Backpropagation (Rumelhart et al.): weight update encodes statistical structure
+
+    - Habit (Peirce): idea-association solidifies into automatic response
+
+
+    The structural equivalence: in all four frameworks, the mechanism is:
+
+    1. A pathway is used (a problem is solved by a particular route)
+
+    2. Using the pathway decreases its future cost (canalization, weight update, habit)
+
+    3. The pathway becomes a structural default (the chreod, the trained weight, the habit)
+
+    4. Active computation (choice) is replaced by structural retrieval (default)
+
+
+    This EC is the learning mechanism that explains why the skill graph grows: each
+
+    successful execution deepens the K-edge, reducing future execution cost. The edge-
+
+    node ratio (Corollary 7) grows because executions produce edges, and edges grow
+
+    because encoding-level descent is a thermodynamic necessity.
+
+
+    Note on relationship to EC14 (survival trajectory): Encoding-level descent is how
+
+    the system stays on its viable trajectory (EC14). The chreod (Waddington) is both
+
+    a trajectory bound (EC14) and a canalized pathway (EC19). The two are the same
+
+    structure seen from different perspectives: EC14 is the persistence criterion,
+
+    EC19 is the mechanism that implements it.
+
+
+    Note on the pathology: canalization without provenance (Peirce''s warning) produces
+
+    pathological habits — patterns embedded so deeply that revision is impossible.
+
+    EC19''s relationship to EC12 (metalanguage) and EC16 (consistency protocol): the
+
+    provenance structure is what prevents encoding-level descent from becoming
+
+    irreversible. The skill graph embeds patterns but also records their provenance,
+
+    allowing revision when evidence changes.
+
+    '
+  confidence_C1p:
+    estimate: 0.89
+    basis: Empirical-formal in two frameworks (canalization, well-validated in developmental genetics; backpropagation, extensively
+      validated in ML) + formal-theoretical in one (dissipative adaptation, novel but thermodynamically grounded) + philosophical
+      in one (Peirce habit, historically foundational)
+    weakest_link: Dissipative adaptation (England, 2013) is a newer and less thoroughly validated framework compared to the
+      others. The thermodynamic argument is compelling but the empirical evidence is limited to relatively simple chemical
+      and physical systems. Its application to cognitive K-graph construction is a structural extrapolation.
+  contradictions:
+  - source: Exploration-exploitation literature (Sutton and Barto, 1998)
+    claim: 'Encoding-level descent (exploitation of learned pathways) comes at the cost of exploration: a fully canalized
+      system cannot explore new solutions. The optimal agent must balance encoding (exploitation) with variability (exploration).'
+    resolution: 'EC19 does not claim that encoding-level descent is always optimal — it claims it is the thermodynamic default
+      under repeated solving of the same problem. The exploration-exploitation tradeoff is exactly the tension between EC19
+      (descent is the natural attractor) and the requirement for novelty (M < N means the environment has uncovered structure).
+      The resolution in UB: provenance-maintained K-edges can be revised when evidence changes (EC16). The skill graph implements
+      this: high-confidence edges are exploited; low-confidence edges signal areas for exploration. Encoding-level descent
+      is the mechanism; provenance is the brake.'
+  implications_for_ub: 'EC19 provides the mechanism that UB''s learning framework currently lacks. The theory
+
+    specifies that K-graphs grow (I(E) measures the rate) but does not specify what
+
+    structural form the growth takes. EC19 says: growth takes the form of encoding-level
+
+    descent — active computations become structural defaults.
+
+
+    This has a direct implication for skill design: a skill that has been run many times
+
+    on the same framework type should have its most frequently used pathways encoded as
+
+    high-confidence K-edges. The first 10 executions of a skill are exploratory
+
+    (high variance, many active decisions); the next 100 are canalization (the successful
+
+    pathway becomes the default); by 1,000 executions, the skill''s core pathway is a
+
+    structural feature of the K-graph, not an active decision.
+
+
+    EC19 also motivates the evidence_base tracking in SKILL_CREATION_CHECKLIST.md:
+
+    tracking repos_analyzed and success_rate is the operational measurement of where a
+
+    skill is in the encoding-level descent. Low repos_analyzed = early exploration phase,
+
+    high variance. High repos_analyzed with high success_rate = canalized, reliable.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Full corpus equivalency analysis — open-knowledge-graph
+      date: '2026-03-10'
+    evidence:
+      type: cross-framework-intersection
+      description: Four frameworks from developmental biology, statistical mechanics, machine learning, and philosophy converge
+        on the same encoding-level descent mechanism. Canalization and backpropagation are extensively empirically validated;
+        dissipative adaptation provides thermodynamic grounding; Peirce supplies the philosophical framework that connects
+        the mechanism to provenance.
+    derivation:
+      from:
+      - WA1-canalization
+      - EN1-dissipative-adaptation
+      - BP3-backpropagation
+      - RB1-peirce-habit
+      method: Cross-framework identification of encoding-level descent mechanism; verification that all four frameworks identify
+        the same pathway from active-computation to structural-default

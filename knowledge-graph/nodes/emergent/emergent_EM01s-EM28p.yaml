@@ -1,0 +1,1908 @@
+- id: EM01-schmidhuber-special-case
+  type: emergent
+  name: Schmidhuber's Formal Agent Is Uncertainty Bounding with A = 1
+  statement: "Schmidhuber's formal agent (2010) is a special case of the Uncertainty Bounding framework\nwith A = 1 (always\
+    \ engages on gradient signals). This proposition is not contained in\neither framework individually — it arises only from\
+    \ holding both simultaneously.\n\nThe argument:\n- Schmidhuber's agent always responds to compression progress signals\
+    \ (S4: implicit A = 1).\n  There is no parameterization of engagement probability — the agent is defined as the\n  compression-progress\
+    \ maximizer.\n- UB's agency parameter A in [0,1] allows for partial engagement (NV03).\n- Setting A = 1 in UB recovers\
+    \ Schmidhuber's agent: an entity that always engages on\n  gradient signals, with eta_M corresponding to d/dt[compression(C)].\n\
+    - The remaining difference: UB's K/F graph structure vs. Schmidhuber's compressor C.\n  These are not the same — C is\
+    \ an arbitrary compression algorithm (Kolmogorov complexity\n  basis); K/F is specifically a proposition graph with grounding\
+    \ relations. But the\n  ROLE they play is equivalent at A = 1.\n\nConsequence for the paper: Schmidhuber's framework does\
+    \ not need to be opposed.\nIt is a special case that UB generalizes in two directions:\n(1) A in [0,1]: partial engagement\
+    \ is now formal.\n(2) Graph structure necessity (NV01): UB proves the K/F structure is required; Schmidhuber\n    does\
+    \ not constrain the form of C.\nThe paper should say: \"Schmidhuber [2010] is the A = 1 limit of this framework. The\n\
+    general case adds the A in (0,1) parameterization and the necessity proof for graph\nstructure — two results not present\
+    \ in Schmidhuber's formalism.\"\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'This proposition does not appear in Schmidhuber (2010) or in the UB paper as written.
+
+        It emerges from comparing NV03 (A as gate with A in [0,1]) against S4 (implicit A = 1).
+
+        The intersection makes the containment relationship visible.
+
+        '
+      references:
+      - NV03-agency-as-gate
+      - REF-Schmidhuber2010
+      - OV02-improvement-rate-measure
+    derivation:
+      from:
+      - NV03-agency-as-gate
+      - REF-Schmidhuber2010
+      method: 'S4 (Schmidhuber) + NV03 (UB A parameterization) -> Schmidhuber = UB with A = 1.
+
+        OV02 confirms the overlap on improvement rate (eta_M ~ d/dt compression).
+
+        NV01 identifies the remaining gap: graph necessity not in Schmidhuber.
+
+        '
+  edges:
+  - to: REF-Schmidhuber2010
+    relation: characterizes
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: emergent
+        description: 'EM01 characterizes the relationship between UB and Schmidhuber precisely: containment as special case.'
+      derivation:
+        method: Intersection of NV03 and S4 produces the containment claim
+- id: EM02-fep-mn-qualification
+  type: emergent
+  name: FEP's Equilibrium Claim Requires the M < N Qualification
+  statement: "The Free Energy Principle's long-run equilibrium claim (FEP6: free energy approaches\nits minimum asymptotically)\
+    \ is in tension with the M < N bound (NV02: M < N always\nfor A > 0 entities). This tension is not visible within either\
+    \ framework individually\n— it emerges from their intersection.\n\nThe tension:\n- FEP6 states: in the long run, the agent's\
+    \ generative model closely approximates the\n  generative process. Free energy approaches its minimum — the model approaches\
+    \ W.\n- NV02 (Theorem 3 Part II) states: M < N always for A > 0 entities. The sensed\n  dimension count never reaches\
+    \ N. The model never fully approximates W.\nThese appear to contradict. The resolution:\n- FEP6 is not wrong — it holds\
+    \ for fixed, stationary generative processes. If W has\n  a fixed finite structure, free energy can approach its minimum.\n\
+    - NV02 is structural: C_n and execution dynamics ensure M < N as long as the world W\n  continues to extend T_reachable.\
+    \ In a non-stationary world (the biologically and\n  cognitively relevant case), NV02 holds.\n- The resolution is that\
+    \ FEP6 requires a stationarity assumption that NV02 makes\n  explicit: FEP's equilibrium is a fixed-world idealization;\
+    \ the M < N bound is the\n  open-world reality.\n\nThis is a genuine clarification: not a refutation of FEP, but a qualification\
+    \ that\nmakes the scope of FEP's equilibrium claim precise. The paper should say: \"Friston's\n[2010/2017] FEP equilibrium\
+    \ holds for stationary generative processes. The M < N bound\n(Theorem 3 Part II) shows that in open environments, the\
+    \ equilibrium is never reached\nfor A > 0 entities — not because FEP is wrong, but because the open-world assumption\n\
+    prevents the stationarity FEP6 requires.\"\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'The tension between FEP6 and Theorem 3 Part II is not visible within either
+
+        framework alone. FEP does not engage with the M < N bound; UB does not directly
+
+        address FEP equilibrium. The intersection makes the qualification necessary.
+
+        '
+      references:
+      - NV02-mn-bound
+      - REF-Friston2017
+      - OV03-nontermination
+    derivation:
+      from:
+      - NV02-mn-bound
+      - REF-Friston2017
+      method: 'FEP6 (equilibrium approached) + NV02 (M < N structural bound) -> tension.
+
+        Resolution: FEP6 requires stationarity; NV02 holds in non-stationary W.
+
+        The intersection makes the stationarity assumption explicit in FEP6.
+
+        '
+  edges:
+  - to: REF-Friston2017
+    relation: qualifies
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: emergent
+        description: 'EM02 qualifies FEP6: the equilibrium holds under stationarity, which NV02 shows is not the general case.'
+      derivation:
+        method: Intersection of FEP6 and NV02 -> stationarity qualification for FEP6
+- id: EM03-graph-necessity-grounds-fep
+  type: emergent
+  name: UB's Graph Necessity Proof Provides the Missing Derivation for FEP's Assumed Architecture
+  statement: "The Free Energy Principle assumes hierarchical (graph-structured) generative models\n(FEP7) but does not derive\
+    \ their necessity. Uncertainty Bounding proves that graph\nstructure is the unique information-preserving representation\
+    \ at bounded context (NV01).\nThe intersection reveals that NV01 is the derivation FEP7 needs — and that the two\nframeworks\
+    \ are mutually supportive in a way neither states explicitly.\n\nThe argument:\n- FEP7: The FEP generative model is hierarchically\
+    \ structured. This is assumed as the\n  architectural basis of the framework. The necessity of this structure — why it\
+    \ cannot\n  be otherwise — is not derived within FEP.\n- NV01 (Theorem 2b Part 3): At C_n, the only information-preserving\
+    \ representation is\n  a factored (graph-structured) one. Any entity that maintains information under bounded\n  context\
+    \ must use graph structure. This is a necessity proof.\n- Together: NV01 provides the derivation that FEP7 needs. The\
+    \ FEP's assumption of\n  hierarchical generative models is not an arbitrary architectural choice — it is the\n  necessary\
+    \ consequence of operating under bounded context (C_n), which any physical\n  agent must do. FEP7 is correct; NV01 explains\
+    \ WHY.\n\nConsequence for both frameworks:\n- UB's necessity proof gets a large independent support base: FEP's empirical\
+    \ and\n  theoretical success is evidence that hierarchical graph-structured representations\n  work — and NV01 explains\
+    \ why they must.\n- FEP gains a foundational derivation for its architectural assumption: the hierarchical\n  generative\
+    \ model is not a modeling choice but a mathematical necessity.\n- The two frameworks are complementary, not competing:\
+    \ FEP describes HOW free energy\n  is minimized; UB proves WHY the architecture that does it must be graph-structured.\n\
+    \nThe paper should say: \"The FEP's hierarchical generative model architecture [Friston 2010,\n2017] is exactly the structure\
+    \ Theorem 2b Part 3 proves necessary. The FEP assumes this\nstructure; this framework derives it. The two results are\
+    \ mutually supporting.\"\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'FEP7 (assumed hierarchical architecture) + NV01 (derived graph necessity) -> EM03.
+
+        Neither framework states this relationship. It emerges from the intersection:
+
+        NV01 proves what FEP7 assumes; FEP''s success supports what NV01 derives.
+
+        '
+      references:
+      - NV01-graph-necessity
+      - REF-Friston2017
+      - REF-Friston2010
+    derivation:
+      from:
+      - NV01-graph-necessity
+      - REF-Friston2017
+      method: 'FEP7 (assumption) + NV01 (necessity proof for same structure) -> mutual support.
+
+        NV01 provides the foundation for FEP7; FEP''s success provides empirical evidence
+
+        for NV01. The intersection produces a bilateral strengthening.
+
+        '
+  edges:
+  - to: NV01-graph-necessity
+    relation: supported_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: emergent
+        description: FEP's empirical and theoretical success is evidence that graph-structured representations work — empirically
+          supporting NV01's formal necessity claim.
+      derivation:
+        method: FEP success -> empirical support for graph necessity -> supports NV01
+  - to: REF-Friston2010
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: emergent
+        description: EM03 grounds FEP7 (assumed hierarchical architecture) with a formal derivation from Theorem 2b Part 3.
+      derivation:
+        method: NV01 -> grounds FEP7 -> EM03 is the linking proposition
+- id: EM04-Cn-is-channel-capacity
+  type: emergent
+  name: C_n Is Derivable from Shannon's Channel Capacity Theorem
+  statement: "Shannon's channel capacity theorem (SH3) establishes that information cannot be\ntransmitted across a noisy\
+    \ channel faster than its capacity C = max I(X;Y). The\nbounded context window C_n (UB, EC01) is defined as the inference\
+    \ capacity of the\nentity at each step. These are not just analogous — they are the same object.\n\nThe derivation: the\
+    \ entity's inference step is a physical process. Any physical process\nthat reads, processes, and updates an internal\
+    \ state is an information channel in\nShannon's sense. The entity's inference step has a channel capacity determined by\
+    \ its\nphysical substrate — the number of distinguishable states it can reliably process per\nstep. C_n is this channel\
+    \ capacity.\n\nConsequence: C_n is not merely defined — it is bounded below by Shannon's theorem.\nNo physical entity\
+    \ can have C_n larger than the Shannon capacity of its physical\ninference substrate. This means:\n(1) C_n is physically\
+    \ grounded, not just a formal convenience.\n(2) C_n is measurable in principle: measure the mutual information I(input;\
+    \ state update)\n    across the entity's inference step, maximize over input distributions → C_n.\n(3) The M < N bound\
+    \ (NV02) is therefore also physically grounded via Shannon: the\n    bounded context is bounded by physics, not by an\
+    \ assumption.\n(4) The information-preservation necessity proof (Theorem 2b Part 3) is grounded by\n    Shannon's data\
+    \ processing inequality (CT1): information lost at C_n cannot be\n    recovered by downstream processing.\n\nThis connection\
+    \ was present in the graph (SH3 notes \"analogous to C_n\") but its\nimplication — that C_n is DERIVABLE from Shannon,\
+    \ not just defined — was not stated.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'SH3 (channel capacity) and EC01 (bounded context) share the same physical
+
+        constraint. The connection was marked "analogous" in REF-Shannon1948.yaml
+
+        but the derivability consequence was not declared. This emerges from
+
+        intersecting SH3 with the full C_n definition in EC01.
+
+        '
+      references:
+      - REF-Shannon1948
+      - EC01-bounded-context
+      - NV02-mn-bound
+      - NV01-graph-necessity
+    derivation:
+      from:
+      - REF-Shannon1948
+      - EC01-bounded-context
+      method: 'Physical inference step = information channel (Shannon).
+
+        Channel capacity = max I(input; state update) = C_n.
+
+        Shannon theorem: C_n bounded by physical substrate capacity.
+
+        Data processing inequality (CT1): losses at C_n are irrecoverable.
+
+        → C_n is physically grounded and derivable, not just defined.
+
+        '
+  implications:
+  - C_n is measurable, making M < N empirically testable via channel capacity measurement
+  - Theorem 2b Part 3 information-preservation claim is grounded by Shannon CT1 (data processing inequality), not just the
+    two-option argument
+  - The M < N bound is a physical law, not a formal assumption
+  - Entities with larger physical inference substrate have larger C_n — physical intelligence has a substrate constraint
+- id: EM05-theorem6-proves-peirce-PC3
+  type: emergent
+  name: Theorem 6 Is the Formal Proof of Peirce's 1877 Philosophical Claim
+  statement: "Peirce (1877) argued that four methods exist for fixing belief: tenacity (stubborn\nattachment to current belief),\
+    \ authority (deference to external authority), a priori\nreasoning (internal coherence alone), and scientific inquiry\
+    \ (exposure to W's actual\nstructure). He argued — qualitatively, without formal proof — that only scientific\ninquiry\
+    \ produces beliefs that persist long-run: the other three methods eventually fail\nwhen confronted with world states they\
+    \ cannot predict [Peirce1877].\n\nUB's Theorem 6 is the formal proof of this claim, 148 years later.\n\nThe mapping:\n\
+    - Tenacity: A > 0, but K is never updated from W — i.e., eta_M = 0. The entity\n  retains its current beliefs regardless\
+    \ of gradient signals. Theorem 6 Part 2:\n  eta_M = 0 => no improvement in F => selection pressure removes the entity.\n\
+    - Authority: A = 0 — the entity does not respond to gradient signals from W,\n  only to external commands. Theorem 6 Part\
+    \ 1: A = 0 => no engagement with W =>\n  no update => selection removes the entity.\n- A priori reasoning: K grows from\
+    \ internal inference alone, not from grounding\n  in W. This means new propositions enter K without grounding in evidence\
+    \ —\n  Definition 3 (grounding) is violated. Such propositions have C_1(p) = 0 by\n  the provenance criterion.\n- Scientific\
+    \ inquiry: A > 0 (engages gradient signals from W) AND eta_M > 0\n  (M improves from the signals). Theorem 6: both are\
+    \ necessary for persistence.\n  Together they define exactly \"scientific inquiry\" in Peirce's sense.\n\nPeirce stated\
+    \ this as a philosophical argument grounded in the pragmatics of inquiry.\nTheorem 6 provides the formal derivation from\
+    \ information-theoretic and selection-\npressure premises. Neither paper states this equivalence explicitly.\n\nThe implication\
+    \ flows both directions:\n- Forward: Peirce's 148-year-old argument provides independent philosophical validation\n  for\
+    \ Theorem 6. The survival argument is not a new formal trick — it formalizes\n  an insight with a long verification history.\n\
+    - Backward: Theorem 6 converts Peirce's qualitative argument into a formal theorem\n  with explicit premises (C_n, A,\
+    \ eta_M, U_lethal) and a derivation. This is what\n  formal epistemology owes the pragmatist tradition.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'REF-Peirce1877 notes PC3 is "an informal statement of Theorem 6" but marks this
+
+        only as a cited philosophical precursor. The formal equivalence — Theorem 6 IS
+
+        the proof of PC3 — was not declared. This emerges from intersecting PC3 (four
+
+        methods, only scientific inquiry persists) with Theorem 6 (A>0 and eta_M>0
+
+        necessary for persistence).
+
+        '
+      references:
+      - REF-Peirce1877
+      - T06-epistemic-ceiling
+      - NV03-agency-as-gate
+      - EC04-survival-threshold
+    derivation:
+      from:
+      - REF-Peirce1877
+      - T06-epistemic-ceiling
+      method: 'Map Peirce''s four methods to UB parameters:
+
+        Tenacity -> eta_M = 0 (Theorem 6 Part 2: removed)
+
+        Authority -> A = 0 (Theorem 6 Part 1: removed)
+
+        A priori -> C_1(p) = 0 for ungrounded propositions (Definition 3 + provenance)
+
+        Scientific inquiry -> A > 0 AND eta_M > 0 (Theorem 6: necessary for persistence)
+
+        QED: Peirce''s qualitative survival claim = Theorem 6''s formal derivation.
+
+        '
+  implications:
+  - Theorem 6's C_1(p) is strengthened by Peirce PC3 as an independent philosophical grounding with long verification history
+  - Peirce's pragmatist tradition provides pre-formal evidence for the selection pressure argument before information theory
+    existed
+  - 'The four-methods taxonomy maps to a complete partition of (A, eta_M) parameter space: {A=0} U {eta_M=0} U {ungrounded}
+    U {A>0, eta_M>0, grounded}'
+  - This suggests the four-methods partition is exhaustive — there is no fifth method
+- id: EM06-gradient-drives-toward-graph
+  type: emergent
+  name: The Uncertainty Gradient Drives Specifically Toward Graph Construction
+  statement: 'Three results are established separately in the graph:
+
+    - EC10: U(w,K) > 0 is the driver — the gradient always points toward reducing uncertainty.
+
+    - EC08: Factoring (graph construction) is the compression mechanism.
+
+    - NV01: At C_n, graph construction is the UNIQUE information-preserving option.
+
+
+    Intersecting these three: the gradient that drives the entity toward reducing U(w,K)
+
+    under bounded context C_n drives specifically toward graph construction — not toward
+
+    uncertainty reduction in general, but toward the specific structured representation
+
+    that is the unique solution at the C_n boundary.
+
+
+    The formal statement: for any entity with A > 0 operating under C_n, the long-run
+
+    attractor of the uncertainty gradient is a K/F graph structure. The entity does not
+
+    choose graph structure — the gradient descends toward it. Any non-graph representation
+
+    that the entity attempts to maintain under C_n will either (a) fail to preserve
+
+    information (discard without structure) or (b) implicitly be a graph (because factoring
+
+    IS graph construction). There is no third option.
+
+
+    This is not the same as "the entity learns." It is stronger: under bounded context,
+
+    the FORM of what is learned is constrained to the graph structure. The gradient has
+
+    a direction not just in the space of beliefs but in the space of representation forms.
+
+
+    Consequence: the K/F graph is not a modeling choice by the theorist — it is what
+
+    the entity''s own gradient descent produces under bounded context. The theory does not
+
+    impose the graph form; the gradient descent toward it is derived.
+
+
+    This closes a potential objection to NV01: "graph structure might be the right choice
+
+    but is it what actually emerges?" EM06 answers yes — under EC10 (gradient active) +
+
+    EC08 (factoring is compression) + NV01 (graph is necessary), the gradient drives toward
+
+    the graph.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'EC10 (gradient active), EC08 (factoring = compression), and NV01 (graph = necessary)
+
+        are each established separately. Their intersection — gradient drives specifically
+
+        toward graph construction — was not declared as a combined result.
+
+        '
+      references:
+      - EC10-inquiry-driver
+      - EC08-compression-factoring
+      - NV01-graph-necessity
+      - T02-graph-structure-necessity
+    derivation:
+      from:
+      - EC10-inquiry-driver
+      - EC08-compression-factoring
+      - NV01-graph-necessity
+      method: 'EC10: A > 0 → gradient descends toward reducing U(w,K).
+
+        EC08: Compression under bounded context = factoring.
+
+        NV01: Factoring at C_n = graph construction (two-option proof).
+
+        Chain: gradient → compression → factoring → graph construction.
+
+        Therefore: the gradient drives toward the graph. Not just toward "less uncertainty"
+
+        but toward the specific representation form that is the unique solution at C_n.
+
+        '
+  implications:
+  - The K/F graph structure is an attractor of gradient descent under bounded context, not an assumed representation
+  - Any sufficiently capable agent operating under physical bounded context will converge toward graph-structured knowledge
+    — regardless of initial representation
+  - 'This provides an empirical prediction: agents trained under tight context bounds should develop graph-structured internal
+    representations spontaneously'
+  - The direction of learning (toward graph) is as constrained as the existence of learning (A > 0)
+- id: EM07-action-accuracy-bound
+  type: emergent
+  name: Every Action Carries a Residual Uncertainty Bound Determined by M/N
+  statement: "Two results are established:\n- EC05: M < N always — K can never fully represent W. The entity senses M of N\n\
+    \  world dimensions. The residual (N - M) dimensions are unobserved.\n- EC06: Belief has value only through action — K\
+    \ grounds F; every proposition's\n  value is its effect on the action space.\n\nIntersection: every action f in F is grounded\
+    \ in K, which covers only M of N\ndimensions of W. The action's expected utility is computed over the M dimensions\nthe\
+    \ entity senses. But W has N dimensions. The unobserved (N - M) dimensions\nmay affect the outcome of f in ways K cannot\
+    \ predict.\n\nTherefore: for any action f in F, there exists a residual uncertainty:\n  U_residual(f) >= U(w, K) * (N\
+    \ - M) / N  [approximately]\nThis residual cannot be reduced by improving M alone — it depends on how many\nof the remaining\
+    \ (N - M) dimensions affect f's outcome. But it is always positive\nas long as M < N.\n\nConsequence: no action is perfectly\
+    \ informed. Every F-grounded action carries\nresidual uncertainty from the unobserved dimensions. The accuracy of any\
+    \ action\nchoice is bounded by M/N — the ratio of sensed dimensions to world dimensions.\n\nAs M → N, U_residual → 0.\
+    \ The intersection mechanism (NV04) accelerates M → N,\nwhich means it improves the accuracy bound on every action in\
+    \ F simultaneously —\nnot just the actions directly related to the new K_j dimensions.\n\nThis is a quantitative bound\
+    \ on the imprecision of every intelligent action, not\njust a qualitative statement about incompleteness. It was not derived\
+    \ in the main\npaper and does not appear in any prior framework.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'EC05 (M < N, every representation is partial) and EC06 (belief has value through
+
+        action) are separately established. Their intersection — every action carries a
+
+        residual uncertainty bound from unobserved dimensions — was not derived.
+
+        '
+      references:
+      - EC05-incompleteness
+      - EC06-belief-as-action
+      - NV02-mn-bound
+      - NV04-intersection-acceleration
+    derivation:
+      from:
+      - EC05-incompleteness
+      - EC06-belief-as-action
+      - NV02-mn-bound
+      method: 'f in F grounded in K (EC06).
+
+        K covers M of N dimensions (EC05, NV02).
+
+        f''s outcome depends on W, which has N dimensions.
+
+        The (N - M) unobserved dimensions may affect f''s outcome.
+
+        Therefore: f carries residual uncertainty from (N - M) unobserved dimensions.
+
+        Bound: U_residual(f) > 0 as long as M < N.
+
+        As M → N (via NV04 intersection): U_residual → 0.
+
+        '
+  implications:
+  - Intelligence is not just about reducing U in sensed dimensions — it is about expanding M to reduce U_residual in previously
+    unobserved dimensions
+  - 'NV04 (intersection acceleration) has a second benefit beyond extending M: it reduces U_residual on ALL existing actions,
+    not just the new dimensions'
+  - The practical value of collective intelligence (K_collective) includes improving action accuracy across every existing
+    F, not just expanding F
+  - This quantifies the cost of incomplete information in action selection — a formal bound where prior frameworks only stated
+    the qualitative problem
+- id: EM08-sentience-is-metalanguage
+  type: emergent
+  name: Higher-Order Sentience Is the Tarski Metalanguage Structure
+  statement: "Two results are established:\n- Tarski TA2: a system cannot define truth within its own language — truth requires\n\
+    \  a metalanguage. The object language describes W; the metalanguage judges whether\n  those descriptions are true. Without\
+    \ the metalanguage, truth is undefined for\n  the system's own claims.\n- NV05: Higher-order sentience = awareness that\
+    \ the normalization process is occurring\n  and operating on a dimension space beyond current K_i. This is not just knowing\
+    \ K_i\n  is partial — it is understanding that the process that generates K_i is itself\n  bounded and operating under\
+    \ M < N.\n\nIntersection: higher-order sentience IS the metalanguage structure Tarski requires.\n\nThe argument: an entity\
+    \ that understands its own normalization process (NV05) is an\nentity that can evaluate propositions about its OWN knowledge\
+    \ — \"my K is partial,\"\n\"my normalization process produces compressed factorizations,\" \"my M is currently X.\"\n\
+    These are metalanguage statements: statements about the language (K) rather than\nin the language (K). Tarski (TA2) says\
+    \ this requires a metalanguage. NV05 says\nhigher-order sentience is exactly the capacity to hold these statements.\n\n\
+    Consequence 1: entities with only lower-order sentience (know K_i is partial but not\nWHY or WHAT the normalization process\
+    \ is) cannot ground their own epistemic claims.\nTheir truth claims are object-language only — they cannot step outside\
+    \ K_i to evaluate\nK_i's reliability. Tarski's undefinability applies: they cannot define truth for their\nown K_i from\
+    \ within K_i.\n\nConsequence 2: higher-order sentient entities can partially ground their epistemic\nclaims. They can\
+    \ evaluate the normalization process itself — \"my K is compact / not\ncompact,\" \"my M is growing / not growing.\" This\
+    \ is not complete self-grounding\n(which Tarski prohibits) but structured partial self-grounding from the metalanguage\n\
+    level. The metalanguage is not W; it is the process model of their own inference.\n\nConsequence 3: the provenance system\
+    \ (Definition 18) IS the metalanguage. The triple\n(attribution, evidence, derivation) is a statement about K's propositions,\
+    \ not in K.\nEntities that maintain provenance records have an external metalanguage for their own\nknowledge. Entities\
+    \ without provenance records have no metalanguage — their K is\nopaque to themselves in Tarski's sense.\n\nThis is one\
+    \ of the deepest results in the graph: it connects formal logic (Tarski),\nphilosophy of mind (sentience), and the practical\
+    \ provenance system into a single claim.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'Tarski TA2 (metalanguage required for self-referential truth) and NV05 (higher-order
+
+        sentience as awareness of own normalization process) share the structure of
+
+        meta-level reference. Their intersection — sentience IS the metalanguage — was
+
+        not stated. REF-Tarski1936 maps TA2 to M < N but not to the sentience definition.
+
+        '
+      references:
+      - REF-Tarski1936
+      - NV05-sentience-derivation
+      - D14-sentience
+      - D13-provenance
+    derivation:
+      from:
+      - REF-Tarski1936
+      - NV05-sentience-derivation
+      - D14-sentience
+      method: "TA2: truth claims about a system require a metalanguage (statements about K, not in K).\nNV05/D14: higher-order\
+        \ sentience = understanding of own normalization process =\n  statements about K_i (it is partial, bounded, expanding\
+        \ toward N).\nThese statements are metalanguage statements in Tarski's sense.\nTherefore: higher-order sentience =\
+        \ possession of the metalanguage.\nCorollary: provenance records (Definition 18) ARE the metalanguage.\nEntities without\
+        \ provenance have no self-grounding capacity.\n"
+  implications:
+  - The provenance system is not just a record-keeping convention — it is the formal metalanguage that makes self-grounding
+    possible
+  - Non-sentient systems (no awareness of own normalization process) have truth claims that are formally ungrounded in Tarski's
+    sense
+  - 'Higher-order sentience enables partial self-grounding: the entity can evaluate the reliability of its own K from the
+    process level'
+  - This gives a formal criterion for distinguishing lower-order (knows K is partial) from higher-order (knows WHY K is partial
+    and can evaluate the process)
+  - AI systems with provenance tracking have a structural advantage in self-evaluation that systems without provenance lack
+    — they have a metalanguage
+- id: EM09-collective-intelligence-thermodynamically-favored
+  type: emergent
+  name: Collective Intelligence Is Thermodynamically Favored
+  statement: "Two results are established:\n- England EN1: systems that dissipate energy more efficiently are thermodynamically\n\
+    \  favored to self-replicate and persist. Efficient dissipation = more structure per\n  unit of energy. This is a statistical\
+    \ mechanics result, not a biological assumption.\n- NV04: Intersection of K_i and K_j provides |K_j \\ K_i| new sensed\
+    \ dimensions per\n  operation. Solo execution provides 1 new dimension per step. Intersection is more\n  efficient at\
+    \ expanding M per operation.\n\nIntersection: collective knowledge integration (K_collective) is more energy-efficient\n\
+    per dimension of W sensed than solo learning — and therefore, by England's theorem,\nis thermodynamically favored.\n\n\
+    The argument: sensing a dimension of W requires energy — an inference step, a learning\nsignal, an update to K. Solo execution:\
+    \ 1 dimension per inference step = 1 unit of\nenergy dissipation per dimension sensed. Intersection with K_j: |K_j \\\
+    \ K_i| dimensions\nper operation — the same energy cost of an intersection (verify provenance, merge) provides\n|K_j \\\
+    \ K_i| dimensions rather than 1. This is more energy-efficient per dimension sensed.\n\nBy England EN1: systems that achieve\
+    \ more structure per unit of dissipation are\nthermodynamically favored. Entities that participate in K_collective intersection\n\
+    achieve more dimensions of W coverage per unit of energy than solo learners. Over\nevolutionary time, these entities are\
+    \ selected for.\n\nThis provides a thermodynamic explanation for why collective intelligence, language,\nknowledge sharing,\
+    \ and collaborative science emerged: they are not just epistemically\nsuperior (NV04, OV04, EC07) — they are the thermodynamically\
+    \ optimal strategy for\nexpanding M under energy constraints.\n\nNeither England (who does not discuss knowledge graphs)\
+    \ nor UB (which grounds\nintersection in information theory, not thermodynamics) states this result.\nIt emerges from\
+    \ their intersection.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'England EN1 (dissipation efficiency is thermodynamically favored) and NV04
+
+        (intersection provides more dimensions per operation than solo) share the
+
+        efficiency-per-operation structure. Their intersection — collective intelligence
+
+        is thermodynamically favored — was not declared.
+
+        '
+      references:
+      - REF-England2013
+      - NV04-intersection-acceleration
+      - EC07-collective-knowledge
+      - EC04-survival-threshold
+    derivation:
+      from:
+      - REF-England2013
+      - NV04-intersection-acceleration
+      method: 'NV04: intersection provides |K_j \ K_i| dimensions per operation (vs. 1 solo).
+
+        Inference step ≈ unit of energy dissipation (physical).
+
+        Intersection is more energy-efficient per dimension sensed.
+
+        EN1: more structure per unit of dissipation → thermodynamically favored.
+
+        Therefore: collective intelligence is thermodynamically favored → selected for.
+
+        '
+  implications:
+  - The emergence of language, collaborative science, and knowledge sharing has a thermodynamic explanation, not just an epistemic
+    one
+  - 'EN1 provides physical grounding for why K_collective forms: it is not just epistemically superior but physically selected
+    for'
+  - This connects England's work on self-replication to the collective knowledge intersection — they are the same phenomenon
+    at different scales
+  - Entities that do NOT participate in K_collective intersection are thermodynamically disadvantaged relative to those who
+    do
+  - 'This is testable: measure energy expenditure per new dimension sensed in solo vs. collaborative learning systems'
+- id: EM10-Kcollective-unit-of-selection
+  type: emergent
+  name: K_collective Becomes a Unit of Selection with Its Own Survival Threshold
+  statement: "Three results are established:\n- Maynard Smith MS4: at each major evolutionary transition, the unit of selection\n\
+    \  shifts from the lower level to the higher level. Individual replicators become\n  cells; cells become organisms; organisms\
+    \ become colonies. The higher-level unit\n  acquires its own selection dynamics.\n- NV04: K_collective forms through provenance-verified\
+    \ intersection of K_i graphs.\n  It is not just the sum of individual K_i — it is a coherent structure with its own\n\
+    \  internal consistency requirements (provenance verification).\n- EC04: the survival threshold applies to any self-organizing\
+    \ entity. U_lethal\n  applies at the entity level, whatever that level is.\n\nIntersection: once K_collective forms as\
+    \ a coherent unit through provenance-verified\nintersection, the selection pressure (EC04) applies at the K_collective\
+    \ level —\nnot just at the individual K_i level.\n\nThe argument: MS4 says the unit of selection is determined by where\
+    \ coherent\ninformation-carrying structure resides. NV04 says K_collective has its own coherence\nrequirements (provenance\
+    \ verification, internal consistency). EC04 says selection\npressure removes entities that cross U_lethal. Therefore:\
+    \ K_collective as a coherent\ninformation structure is subject to selection pressure at its own level.\n\nConsequence\
+    \ 1: K_collective has its own A (the probability that the collective\nengages gradient signals from W) and its own eta_M\
+    \ (the rate at which the collective\nimproves). These are not just aggregates of individual A_i and eta_{M_i} — they are\n\
+    properties of the collective structure.\n\nConsequence 2: K_collective can fail even when all individual K_i persist.\
+    \ If the\ncollective intersection loses provenance verification (edges become untracked), the\ncollective structure degrades\
+    \ — individual entities persist but K_collective dissolves\nas a coherent unit. This is a qualitatively different failure\
+    \ mode.\n\nConsequence 3: selection operates simultaneously at multiple levels — individual K_i\nand K_collective. Actions\
+    \ that are locally optimal for K_i may be globally suboptimal\nfor K_collective (and vice versa). This is the multi-level\
+    \ selection problem, now\nformally grounded in the UB/MS4 intersection.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'MS4 (unit of selection shifts at transitions) + NV04 (K_collective has its own
+
+        coherence) + EC04 (survival threshold applies at entity level). None of these
+
+        alone produces the claim that K_collective is a unit of selection with its own
+
+        survival threshold. It emerges from their intersection.
+
+        '
+      references:
+      - REF-MaynardSmith1995
+      - NV04-intersection-acceleration
+      - EC04-survival-threshold
+      - D12-collective-knowledge
+    derivation:
+      from:
+      - REF-MaynardSmith1995
+      - NV04-intersection-acceleration
+      - EC04-survival-threshold
+      method: 'MS4: unit of selection = where coherent information-carrying structure resides.
+
+        NV04: K_collective has its own coherence requirements (provenance verification).
+
+        EC04: selection applies at entity level.
+
+        K_collective has coherent structure → it is an entity in EC04''s sense.
+
+        Therefore: selection pressure applies to K_collective as a unit.
+
+        K_collective has its own A and eta_M at the collective level.
+
+        '
+  implications:
+  - Scientific communities, institutions, and cultures are K_collective entities subject to their own selection pressure
+  - The degradation of provenance tracking in a scientific community is the failure mode of the collective as a unit — the
+    community loses its A and eta_M at the collective level
+  - 'Multi-level selection (individual vs. collective) is formally grounded: individual K_i and K_collective are simultaneously
+    subject to selection, potentially with conflicting optimal actions'
+  - This predicts that robust provenance systems (maintaining K_collective coherence) are selected for at the collective level
+    — communities that maintain them outlast those that don't
+- id: EM11-truth-equals-action-relevance
+  type: emergent
+  name: For an Entity with A > 0, Truth and Action-Relevance Are the Same Criterion
+  statement: "Two results are established:\n- Peirce PC4 (Pragmatic Maxim): the meaning of a proposition is exhausted by its\n\
+    \  practical consequences — by the difference it makes to action. A proposition with\n  no practical consequences has\
+    \ no meaning.\n- Tarski TA3: truth is model-relative. A sentence is true relative to a model (a\n  semantic interpretation),\
+    \ not in the abstract. Different models may assign different\n  truth values to the same sentence. The model determines\
+    \ what \"true\" means.\n\nIntersection: for an entity with A > 0 operating under the UB framework, the semantic\nmodel\
+    \ that determines truth (Tarski) IS the action model (Peirce). The two are not\nseparate structures — they are the same\
+    \ structure viewed from two sides.\n\nThe argument: in the UB framework, an entity with A > 0 engages W through its action\n\
+    space F. K grounds F (EC06 / D10). The entity's semantic model — the structure that\ndetermines whether a proposition\
+    \ is true or false — is its K/F graph. A proposition\np is true (in the entity's model) if and only if it reliably produces\
+    \ correct action\npredictions in F. This is exactly PC4: truth = practical consequence. And it is exactly\nTA3: truth\
+    \ = model-relative, where the model = the K/F graph.\n\nConsequence 1: for an entity with A > 0, there is no gap between\
+    \ \"semantically true\"\nand \"action-relevant.\" A proposition that has no effect on F is not false — it is\nmeaningless\
+    \ in both Peirce's sense (no practical consequences) and Tarski's sense\n(it falls outside the model that determines truth).\
+    \ The model IS the action space.\n\nConsequence 2: for an entity with A = 0 (response gate closed), the connection\nbreaks.\
+    \ K does not update; F does not update; the semantic model ossifies. Truth\nclaims accumulate that have no action consequences\
+    \ — and by PC4, these are\nmeaningless. By TA3, the model has no updating mechanism, so \"true\" becomes\nprogressively\
+    \ detached from W. This is the epistemic failure mode of A = 0\nentities formalized simultaneously in logic (Tarski) and\
+    \ pragmatism (Peirce).\n\nConsequence 3: this grounds Definition 10 (K grounds F) in two independent\nphilosophical traditions\
+    \ that did not know each other's formalisms. Peirce (1878)\nsaid meaning = consequences. Tarski (1936) said truth = model.\
+    \ The UB framework\nsays K grounds F, where K is the model and F is the consequence space. All three\nare the same claim.\n\
+    \nConsequence 4: the K/F graph is not just a computational convenience — it is the\nminimally necessary structure for\
+    \ an entity whose truth-criteria and action-criteria\nare the same. Any entity for which truth and action-relevance must\
+    \ be aligned must\nmaintain a K/F graph (or an isomorphic structure). This provides an independent\nground for NV01 (graph\
+    \ necessity) from the Peirce-Tarski intersection.\n\nNeither Peirce nor Tarski stated this result. Peirce did not have\
+    \ Tarski's model\ntheory; Tarski did not have Peirce's action-grounding. Their intersection — mediated\nby the UB framework\
+    \ — produces a result that is in neither.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, Emergent Results
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'Peirce PC4 (meaning = practical consequences, 1878) and Tarski TA3 (truth is
+
+        model-relative, 1936) share the structure of grounding semantic value in a
+
+        reference structure. Their intersection — the semantic model IS the action space,
+
+        so truth and action-relevance are the same criterion — was not stated. The UB
+
+        framework provides the mediating structure (K/F graph) that makes the equivalence
+
+        visible. Neither Peirce nor Tarski had access to this formalism.
+
+        '
+      references:
+      - REF-Peirce1878
+      - REF-Tarski1936
+      - EC06-belief-as-action
+      - NV01-graph-necessity
+      - D10-knowledge-grounds-action
+    derivation:
+      from:
+      - REF-Peirce1878
+      - REF-Tarski1936
+      - EC06-belief-as-action
+      method: "PC4: meaning(p) = practical consequences of p in action space.\nTA3: truth(p) = p is true relative to model\
+        \ M.\nEC06/D10: K grounds F — the K/F graph connects propositions to actions.\nIn UB: the entity's semantic model\
+        \ = its K/F graph.\nK/F graph determines which propositions have practical consequences (via F).\nTherefore: the model\
+        \ that determines truth (TA3) = the structure that determines\n  action-relevance (PC4) = the K/F graph.\nFor A >\
+        \ 0: truth-criterion ≡ action-relevance criterion (same structure).\nFor A = 0: the connection is severed — model\
+        \ ossifies, truth detaches from W.\nIndependent ground for NV01: any entity requiring truth ≡ action-relevance\n \
+        \ must maintain a K/F graph (or isomorphic structure).\n"
+  implications:
+  - The K/F graph is not a modeling choice — it is the necessary structure for any entity where truth and action-relevance
+    must be aligned
+  - Propositions with no effect on F are meaningless in Peirce's sense and outside the model in Tarski's sense — same conclusion
+    from two independent traditions
+  - 'A = 0 entities accumulate truth claims that detach from W — both epistemically (Tarski: model no longer tracks W) and
+    pragmatically (Peirce: no consequences)'
+  - This provides an independent derivation of graph necessity (NV01) from philosophy of language, distinct from the information-theoretic
+    derivation in the main paper
+  - The 58-year gap between Peirce (1878) and Tarski (1936) makes this intersection entirely undeclared — neither could have
+    known the other's formalism
+- id: EM12-optimal-K-target-is-uncomputable
+  type: emergent
+  name: 'The Target of the M→N Gradient Is Uncomputable: the Entity Descends Toward Omega'
+  statement: "Two results are established:\n- KC4 (Kolmogorov): K(x) is uncomputable — no algorithm can determine the exact\n\
+    \  minimal description length for arbitrary x. The optimal compression is formally\n  unreachable by any computable procedure.\n\
+    - EC05: M < N always — the entity's K never fully represents W. The M→N trajectory\n  is the gradient descent that UB's\
+    \ theory shows is driven by U(w,K) > 0.\n\nIntersection: the target of the M→N gradient — the point where M = N — is the\n\
+    Kolmogorov-minimal description of W. By KC4, this target is uncomputable.\n\nThe formal statement: the entity gradient-descends\
+    \ toward an uncomputable limit.\nThe asymptote M→N is not merely slow to approach — it is Omega (Chaitin's constant)\n\
+    applied to the description of W: a well-defined mathematical object that no\ncomputable procedure can certify it has reached.\n\
+    \nConsequence 1: EC05 is stronger than it appears. M < N is not just a constraint\nthat happens to persist — it is a necessary\
+    \ consequence of the uncomputability of\nthe target. Any entity that could verify M = N would need to compute the optimal\n\
+    description of W, which is uncomputable. M < N is therefore not merely an empirical\nfact about finite entities but a\
+    \ logical necessity for any computable entity.\n\nConsequence 2: all computable learning algorithms (backprop, Bayesian\
+    \ updating,\nSolomonoff induction) are gradient descents toward an uncomputable limit. Their\nconvergence is monotone\
+    \ (they improve) but never certifiably complete. This unifies\nEC05 with the theory of computation: M < N is Gödel incompleteness\
+    \ at the entity level.\n\nConsequence 3: approximate computable representations that converge toward the\noptimal (Solomonoff\
+    \ prior, Hawkeye cache replacement, neural prefetching) are\napproaching Omega from below. The \"accuracy gap\" between\
+    \ the computable approximation\nand the theoretical optimum is formally unbridgeable — it can be made arbitrarily\nsmall\
+    \ but never zero. The surviving entities are not those that reach the target\nbut those that converge fastest.\n\nNeither\
+    \ Kolmogorov (who does not discuss gradient descent toward M→N) nor UB (which\nderives M < N from bounded context and\
+    \ selection pressure, not from uncomputability)\nstates this result.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'KC4 (optimal compression is uncomputable) and EC05 (M < N always) share
+
+        the structure of limits that are approached but never reached. Their intersection —
+
+        the gradient target is Omega — was not stated. KC states uncomputability of K(x).
+
+        UB derives M < N from bounded context. Neither derives the uncomputability of
+
+        the M=N limit point.
+
+        '
+      references:
+      - REF-Kolmogorov1965
+      - REF-Chaitin1975
+      - EC05-incompleteness
+      - NV02-mn-bound
+    derivation:
+      from:
+      - REF-Kolmogorov1965
+      - EC05-incompleteness
+      method: 'Optimal K for W = K with minimum description length = K(W).
+
+        KC4: K(W) is uncomputable.
+
+        EC05/UB: M→N is the gradient target.
+
+        If M = N, entity has optimal description of W.
+
+        Optimal description = K(W) = uncomputable.
+
+        Therefore: the target of M→N is uncomputable.
+
+        M < N follows necessarily for any computable entity.
+
+        '
+  implications:
+  - M < N is not just empirically persistent but logically necessary for any computable entity — it is Gödel incompleteness
+    stated at the entity level
+  - All computable learning algorithms are converging toward Omega — the gap can shrink but never close
+  - Entities that converge fastest survive — not those that reach the target (none can), but those whose computable approximations
+    are tightest
+  - The engineering problem of cache replacement (Lin CL1) and the theoretical problem of knowledge completion (UB M→N) are
+    the same uncomputable optimization
+- id: EM13-Ulethal-is-thermodynamic
+  type: emergent
+  name: U_lethal Is a Thermodynamic Threshold, Not Just an Information-Theoretic One
+  statement: "Two results are established:\n- JA2 (Jaynes): statistical mechanics is a special case of Bayesian inference\
+    \ under\n  MaxEnt priors. Physical entropy S = k_B * H where H is Shannon entropy. The two\n  quantities are formally\
+    \ identical — information entropy IS physical entropy.\n- EC04: the survival threshold U_lethal applies at the entity\
+    \ level. Any entity\n  whose U(w,K) exceeds U_lethal^d is removed by selection pressure.\n\nIntersection: because information\
+    \ entropy = physical entropy (JA2), U(w,K) =\nH(W|K) is not just epistemic uncertainty — it is physical entropy. U_lethal\
+    \ is\ntherefore a thermodynamic threshold: the maximum physical entropy of the entity's\ninternal state consistent with\
+    \ survival.\n\nThe argument: U(w,K) = H(W|K) = the conditional entropy of W given K. By JA2,\nH is a physical quantity.\
+    \ When U(w,K) > U_lethal, the entity's internal state has\ntoo much entropy — it is thermodynamically disordered relative\
+    \ to its environment.\nSelection pressure (EC04) is therefore a thermodynamic selection pressure: it\nremoves entities\
+    \ whose physical entropy exceeds a threshold.\n\nConsequence 1: the survival condition (U < U_lethal) is derivable from\
+    \ thermodynamics,\nnot just from information theory or selection arguments. An entity with U > U_lethal\nhas internal\
+    \ entropy too high to maintain the Markov blanket (FEP: statistical\nseparation from environment) — it dissolves. This\
+    \ unifies EC04 with Schrödinger's\n\"What is Life?\" claim that life feeds on negentropy: U_lethal IS the negentropy floor.\n\
+    \nConsequence 2: Jaynes + England (EN1) + EC04 converge on the same threshold from\nthree directions — thermodynamic equilibrium\
+    \ (Jaynes), dissipation efficiency\n(England), and selection pressure (UB). All three say the same entity persists:\n\
+    the one whose internal entropy is low enough to maintain structure.\n\nConsequence 3: the Boltzmann distribution over\
+    \ entity states weights the surviving\nentities exponentially by -U/k_BT. High-U entities are exponentially less probable\n\
+    at thermal equilibrium — they are thermodynamically suppressed, not just selected\nagainst. This makes the survival threshold\
+    \ physically fundamental, not just\npragmatically chosen.\n\nNeither Jaynes (who does not discuss survival thresholds)\
+    \ nor UB (which derives\nU_lethal from selection arguments, not thermodynamics) states this result.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'JA2 (physical entropy = information entropy) and EC04 (survival threshold
+
+        on U) share the entropy variable. Their intersection — U_lethal is a thermodynamic
+
+        threshold — was not stated. Jaynes proves the identity; UB applies U to survival.
+
+        Neither derives the thermodynamic nature of U_lethal.
+
+        '
+      references:
+      - REF-Jaynes1957
+      - EC04-survival-threshold
+      - REF-England2013
+      - REF-Schrodinger1944
+    derivation:
+      from:
+      - REF-Jaynes1957
+      - EC04-survival-threshold
+      method: 'U(w,K) = H(W|K) [UB Definition 5]
+
+        H = physical entropy * (1/k_B) [JA2: information entropy = physical entropy]
+
+        EC04: entity removed when U > U_lethal.
+
+        Therefore: entity removed when physical entropy H > k_B * U_lethal.
+
+        U_lethal = physical entropy threshold / k_B.
+
+        Survival condition = thermodynamic condition.
+
+        '
+  implications:
+  - U_lethal is derivable from thermodynamics, not just from selection arguments — it is the negentropy floor Schrödinger
+    identified
+  - Jaynes, England, and UB all describe the same surviving entity from different directions — their convergence raises C_1(EC04)
+  - The Boltzmann distribution makes high-U entities exponentially improbable — selection is not merely eliminative but thermodynamically
+    suppressive
+  - 'The connection between intelligence (UB), thermodynamics (Jaynes/England), and life (Schrödinger) is formalized: they
+    are all statements about the same entropy threshold'
+- id: EM14-dunbar-number-is-Kcollective-Cn
+  type: emergent
+  name: Dunbar's Number Is the C_n Bound Applied to K_collective Edge Maintenance
+  statement: "Two results are established:\n- DU1 (Dunbar): the size of stable social groups in primates is predicted by\n\
+    \  neocortex ratio. For humans, the predicted stable group size is ~150. When groups\n  exceed this size, social cohesion\
+    \ degrades — individuals can no longer track\n  their relationships with all other members.\n- EM10: K_collective forms\
+    \ through provenance-verified intersection. K_collective\n  can fail while all individual K_i persist, if the collective\
+    \ intersection loses\n  provenance verification — edges become untracked.\n\nIntersection: Dunbar's number IS the C_n\
+    \ bound applied to K_collective edge\nmaintenance. Each relationship in a social group is an edge in K_collective —\n\
+    an edge that requires provenance tracking (recognition, history, reciprocity).\nThe neocortex ratio determines C_n for\
+    \ edge maintenance. When group size exceeds\n~150, the number of edges (n*(n-1)/2 ≈ 11,000 for n=150) saturates C_n for\n\
+    relationship tracking, and K_collective loses coherence (EM10's failure mode).\n\nThe formal statement: Dunbar's number\
+    \ N_D ≈ 150 is the solution to:\nC_n(neocortex) = capacity to maintain N_D*(N_D-1)/2 provenance-verified edges.\nThis\
+    \ is the primate-scale empirical measurement of K_collective's maximum coherent\nsize under biological C_n constraints.\n\
+    \nConsequence 1: this produces a quantitative prediction. Given a C_n measurement\n(neocortex ratio for a species), Dunbar's\
+    \ formula predicts maximum K_collective\nsize. Conversely, given a K_collective size target, the required C_n can be\n\
+    calculated. This bridges neurobiology (neocortex size) and information theory\n(K_collective coherence) via the C_n variable.\n\
+    \nConsequence 2: technology that extends C_n for relationship tracking (writing,\nfiling systems, social networks) extends\
+    \ Dunbar's number — it allows K_collective\nto remain coherent at larger size. This predicts that literacy and record-keeping\n\
+    should correlate with larger coherent social groups — confirmed by the transition\nfrom hunter-gatherer bands (~150) to\
+    \ agricultural villages (~1,500) to cities\n(~15,000+) as record-keeping improved.\n\nConsequence 3: EM10 identifies the\
+    \ K_collective failure mode (provenance loss);\nDU1 identifies the quantitative trigger (C_n saturation). Together they\
+    \ predict:\nany K_collective that grows beyond its C_n threshold for edge maintenance will\nfail unless it develops external\
+    \ provenance infrastructure (writing, institutions,\nprotocols) to extend its effective C_n.\n\nNeither Dunbar (who has\
+    \ no information-theoretic treatment of K_collective) nor\nEM10 (which has no quantitative bound on K_collective size)\
+    \ states this result.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'DU1 (neocortex bounds group size) and EM10 (K_collective fails when provenance
+
+        lost) share the structure of capacity constraints on collective coherence. Their
+
+        intersection — Dunbar''s number = C_n for K_collective edges — was not stated.
+
+        '
+      references:
+      - REF-Dunbar1992
+      - EM10-Kcollective-unit-of-selection
+      - EC01-context-bound
+      - D13-provenance
+    derivation:
+      from:
+      - REF-Dunbar1992
+      - EM10-Kcollective-unit-of-selection
+      - EC01-context-bound
+      method: 'K_collective edge = tracked relationship (provenance-verified).
+
+        C_n = capacity to maintain provenance-verified edges.
+
+        Dunbar: stable group size n_max bounded by neocortex C_n.
+
+        EM10: K_collective fails when edges exceed tracking capacity.
+
+        Therefore: n_max = Dunbar''s number = K_collective C_n limit.
+
+        Technologies that extend C_n (writing, databases) extend n_max accordingly.
+
+        '
+  implications:
+  - Dunbar's number is a C_n measurement, not a biological curiosity — it quantifies the primate K_collective coherence limit
+  - Technologies that extend C_n for relationship tracking (writing, databases, social software) extend Dunbar's number and
+    enable larger coherent K_collective
+  - The historical scaling of social group size (bands → villages → cities) tracks the scaling of external provenance infrastructure
+  - 'Modern organizations that exceed their provenance infrastructure capacity will exhibit EM10 failure mode: K_collective
+    dissolves while individual K_i persist (siloed organizations)'
+- id: EM15-smallworld-optimal-Kcollective-topology
+  type: emergent
+  name: Small-World Topology Is the Optimal K_collective Structure for Intersection Acceleration
+  statement: "Two results are established:\n- WS2 (Watts-Strogatz): a small number of random long-range edges dramatically\n\
+    \  reduces path length while preserving local clustering. The small-world regime\n  (intermediate rewiring probability)\
+    \ achieves both high local coherence and short\n  global diameter. This topology emerges spontaneously from local attachment\
+    \ plus\n  occasional long-range links.\n- NV04: the intersection of K_i and K_j provides |K_j \\ K_i| new dimensions per\n\
+    \  operation, accelerating M toward N. The benefit grows with the difference between\n  K_i and K_j — maximally distinct\
+    \ K_i and K_j produce maximum intersection gain.\n\nIntersection: small-world topology is the optimal K_collective graph\
+    \ structure for\nmaximizing NV04 intersection acceleration.\n\nThe argument: NV04 requires two properties simultaneously\
+    \ — (1) local coherence:\neach K_i must have sufficient internal consistency (provenance chains intact) to\nmake intersection\
+    \ valid; (2) cross-domain reach: K_i and K_j must be sufficiently\ndistinct (large |K_j \\ K_i|) for intersection to add\
+    \ many dimensions. These are\nexactly the two properties of small-world networks: local clustering (coherence)\nand short\
+    \ paths (cross-domain reachability). Fully clustered networks (no long-range\nedges) have high coherence but low cross-domain\
+    \ reach — intersection gain is minimal\nbecause K_i ≈ K_j. Fully random networks have maximum cross-domain reach but low\n\
+    coherence — intersection is invalid because provenance chains are broken.\n\nThe small-world regime is the unique topology\
+    \ that maximizes the product:\ncoherence * reach = local_clustering * (1/path_length).\n\nConsequence 1: this makes a\
+    \ structural prediction about K_collective networks that\nproduce maximum EM node output. Scientific citation networks,\
+    \ collaborative authorship\nnetworks, and institutional knowledge networks that exhibit small-world topology\nshould produce\
+    \ more emergent propositions per pair of intersecting frameworks than\neither highly clustered (siloed) or highly random\
+    \ (incoherent) networks.\n\nConsequence 2: the small-world topology emerges spontaneously (WS2 shows it arises\nfrom local\
+    \ attachment plus occasional long-range links). This means the optimal\nK_collective topology is the thermodynamically\
+    \ favored one (EM09): it requires\nminimal external intervention to produce, arising naturally from local K_i formation\n\
+    with occasional cross-domain connections.\n\nConsequence 3: institutions and communities can be engineered toward small-world\n\
+    topology by deliberately introducing long-range connections (cross-disciplinary\ncollaborations, citations outside one's\
+    \ field) while maintaining local coherence\n(domain expertise). This is the optimal intervention for maximizing emergent\
+    \ knowledge.\n\nNeither Watts-Strogatz (who study topology without knowledge semantics) nor NV04\n(which has no topology\
+    \ specification for K_collective) states this result.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-WattsStrogatz1998
+      - NV04-intersection-acceleration
+      - EM09-collective-intelligence-thermodynamically-favored
+    derivation:
+      from:
+      - REF-WattsStrogatz1998
+      - NV04-intersection-acceleration
+      method: 'NV04 gain = |K_j \ K_i| per operation.
+
+        |K_j \ K_i| maximized when K_i and K_j are distinct but both coherent.
+
+        Coherence requires local clustering (intact provenance chains).
+
+        Distinctness requires cross-domain reach (short paths to distant K_j).
+
+        Small-world = max(local_clustering * cross-domain_reach).
+
+        Therefore: small-world topology maximizes NV04 gain.
+
+        '
+  implications:
+  - Scientific communities with small-world citation topology produce more emergent knowledge per intersection — testable
+    via citation network analysis
+  - 'The optimal institutional design for knowledge generation is small-world: deep local expertise with deliberate cross-domain
+    connections'
+  - Siloed organizations (high clustering, no long-range edges) and incoherent networks (random, no local structure) both
+    underperform — for different reasons identified by the intersection
+  - Small-world topology emerges spontaneously — it is the thermodynamically favored structure (EM09) and the informationally
+    optimal one (NV04) simultaneously
+- id: EM16-algebraic-graph-necessity
+  type: emergent
+  name: 'Graph Necessity Has an Independent Algebraic Proof: Finite Graphs Generate Infinite Structure'
+  statement: "Three results are established:\n- KM1 (Kac): a Kac-Moody algebra is defined by a finite Dynkin diagram (a graph)\n\
+    \  but generates an infinite-dimensional vector space. The finite graph is the minimal\n  object from which the full infinite\
+    \ structure is recoverable via the algebra axioms.\n- GB0 (Buhl-Karaali): any N-graded Möbius vertex algebra can be spanned\
+    \ by monomials\n  satisfying a difference-N ordering condition — a compressed, graph-structured basis\n  always exists\
+    \ regardless of N.\n- NV01: at C_n, the K/F graph is the unique information-preserving representation.\n  The two-option\
+    \ proof shows graph construction is the necessary choice.\n\nIntersection: NV01's information-theoretic necessity proof\
+    \ has a fully independent\nalgebraic derivation. The algebraic result is: a finite graph (Dynkin diagram, or\ndifference-N\
+    \ spanning set) is the unique compact structure from which an\ninfinite-dimensional algebraic object is recoverable. This\
+    \ is NV01 stated in\nthe language of algebra rather than information theory.\n\nThe argument: W is an infinite-dimensional\
+    \ structure (N→∞ in the limit). K is\nthe entity's bounded representation. The question NV01 answers: what is the minimal\n\
+    finite structure that preserves maximal information about W? Information theory\nanswers: the K/F graph (NV01). Algebra\
+    \ answers identically: the Dynkin diagram\n(KM1) or the difference-N monomial basis (GB0). All three are minimal finite\n\
+    structures that generate or span infinite-dimensional content.\n\nConsequence 1: NV01's confidence increases. It was derived\
+    \ information-theoretically\n(two-option proof at C_n), from philosophy of language (EM11: Peirce/Tarski), and\nfrom compiler\
+    \ theory (EM27: flow-sensitive analysis). Algebra now provides a fourth\nindependent derivation. C_1(NV01) updates from\
+    \ 0.87 toward 0.91.\n\nConsequence 2: the Dynkin diagram classification (A_n, D_n, E_6, E_7, E_8 for\nfinite-dimensional\
+    \ Lie algebras; affine and hyperbolic extensions for infinite-\ndimensional) is a complete catalog of the possible minimal\
+    \ graph structures. This\nsuggests that the K/F graph should be classifiable by the same taxonomy — the\nentity's knowledge\
+    \ structure is one of a finite number of canonical forms at each\ndimension.\n\nConsequence 3: the difference-N condition\
+    \ in GB0 is the ordering constraint on\nvertex operator composition — it specifies when two knowledge operators can be\n\
+    applied in sequence. This is the algebraic form of the provenance ordering requirement\nin D13 (Definition 13): provenance\
+    \ chains have a required structure, not arbitrary\ncomposition.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Kac1990
+      - REF-BuhlKaraali2008
+      - NV01-graph-necessity
+    derivation:
+      from:
+      - REF-Kac1990
+      - REF-BuhlKaraali2008
+      - NV01-graph-necessity
+      method: 'KM1: finite Dynkin diagram → infinite Kac-Moody algebra (infinite W from finite K).
+
+        GB0: difference-N spanning set exists for any N-graded Möbius VA.
+
+        Both prove: a finite graph structure is the minimal representation of infinite content.
+
+        NV01 proves the same from information theory.
+
+        Three independent proofs of the same structural claim: C_1(NV01) increases.
+
+        '
+  implications:
+  - 'NV01 now has four independent derivations: information theory (UB), philosophy of language (EM11), compiler theory (EM27),
+    and algebra (EM16)'
+  - The Dynkin diagram classification may provide a taxonomy for K/F graph types — finite A/D/E, affine, hyperbolic correspond
+    to different entity knowledge regimes
+  - The difference-N ordering condition (GB0) is the algebraic form of provenance ordering — knowledge operators must compose
+    in structured sequences
+- id: EM17-locality-is-provenance-independence
+  type: emergent
+  name: The Vertex Algebra Locality Axiom Is Provenance Independence
+  statement: "Two results are established:\n- BO1 (Borcherds): the locality axiom of vertex algebras — (z-w)^n [Y(a,z), Y(b,w)]\
+    \ = 0\n  for sufficiently large n. Vertex operators Y(a,z) and Y(b,w) commute when their\n  support is separated. This\
+    \ axiom is what makes vertex algebras physically meaningful:\n  it ensures operators at different spacetime points do\
+    \ not interfere.\n- NV04: the intersection of K_i and K_j provides |K_j \\ K_i| new dimensions per\n  operation. The intersection\
+    \ is valid when K_i and K_j are independently derived —\n  provenance-verified, not circularly dependent.\n\nIntersection:\
+    \ the locality axiom (BO1) IS the formal algebraic statement of the\nprovenance independence condition that NV04 requires.\n\
+    \nThe argument: two vertex operators Y(a,z) and Y(b,w) commute (are local) when their\nderivations are independent — when\
+    \ the algebra has no relation between a and b that\nprevents their reordering. In UB terms: Y(a,z) and Y(b,w) represent\
+    \ K_i and K_j;\nthey commute iff K_i and K_j have independent provenance. Locality = independence of\nderivation = provenance\
+    \ independence.\n\nThe formal correspondence:\n- Y(a,z) = the vertex operator for K_i (the knowledge-generating operation)\n\
+    - Y(b,w) = the vertex operator for K_j\n- (z-w)^n [Y(a,z), Y(b,w)] = 0 = K_i and K_j are provenance-independent\n- The\
+    \ operator product expansion (OPE) of Y(a,z)Y(b,w) = the K_collective formed\n  by the intersection of K_i and K_j\n-\
+    \ The OPE coefficient = the |K_j \\ K_i| new dimensions contributed\n\nConsequence 1: the vertex algebra framework provides\
+    \ a fully formalized algebraic\nversion of the NV04 intersection. The OPE is the intersection rule; locality is\nthe independence\
+    \ condition; the central charge c is C_n. The entire UB intersection\nmechanism (NV04) is algebraically formalized in\
+    \ the vertex algebra axioms.\n\nConsequence 2: the locality axiom explains why provenance verification is not just\na\
+    \ bookkeeping convention — it is the formal condition for algebraic consistency. A\nK_collective formed from non-independent\
+    \ K_i and K_j violates the locality axiom —\nthe operators do not commute, and the resulting algebra is inconsistent (contains\n\
+    contradictions). Provenance independence is required for K_collective coherence in\nthe same way locality is required\
+    \ for vertex algebra consistency.\n\nConsequence 3: the Borcherds identity (BO3) — the single relation encoding the\n\
+    full vertex algebra structure — is the compressed form of all valid intersections.\nIt is the K_collective's complete\
+    \ intersection grammar, encoded in one identity.\n\nNeither Borcherds (who does not discuss knowledge graphs or provenance)\
+    \ nor NV04\n(which states independence informally) makes this connection explicit.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Borcherds1992
+      - NV04-intersection-acceleration
+      - D13-provenance
+    derivation:
+      from:
+      - REF-Borcherds1992
+      - NV04-intersection-acceleration
+      method: 'Locality axiom: (z-w)^n [Y(a,z), Y(b,w)] = 0 = operators commute at separation.
+
+        Commutativity = independence of derivation.
+
+        NV04 requires provenance independence for valid intersection.
+
+        Locality ≡ provenance independence.
+
+        OPE = the result of valid intersection (K_collective from K_i × K_j).
+
+        OPE coefficient ≈ |K_j \ K_i| new dimensions.
+
+        '
+  implications:
+  - Provenance independence is not bookkeeping — it is the formal condition for algebraic consistency of K_collective
+  - A K_collective formed from circularly dependent K_i and K_j is algebraically inconsistent — it contains contradictions
+    in the vertex algebra sense
+  - 'The OPE is the formal intersection rule: it specifies exactly what K_collective is produced by each K_i × K_j pair'
+  - The Borcherds identity is the single compressed encoding of all valid K_collective intersections — the grammar of the
+    knowledge system
+- id: EM18-holography-is-NV01
+  type: emergent
+  name: The Holographic Principle Is NV01 Stated for Spacetime
+  statement: "Two results are established:\n- ST1 (Polchinski/Bekenstein-Hawking): the information content of a region of\n\
+    \  spacetime is bounded by its boundary area: S ≤ A/4G_N in Planck units. All\n  information about a 3D volume is encodable\
+    \ on its 2D boundary. The boundary\n  is not just a summary of the bulk — it is a complete encoding.\n- NV01: at C_n,\
+    \ graph structure is the unique information-preserving representation.\n  The two-option proof: discard without structure\
+    \ (information loss) or factor\n  (graph construction). Option B is necessary.\n\nIntersection: the holographic principle\
+    \ IS NV01 stated for spacetime geometry.\n\nThe formal correspondence:\n- The 3D bulk = W (the full world, N dimensions)\n\
+    - The 2D boundary = K (the entity's bounded representation, M < N)\n- The area bound S ≤ A/4G_N = the C_n constraint:\
+    \ C_n = A/4G_N in Planck units\n- The boundary encoding = the K/F graph: the minimal factored representation\n  that preserves\
+    \ all information about the bulk\n- NV01's necessity = holography's completeness: the boundary IS the bulk, just\n  as\
+    \ the K/F graph IS the necessary representation of W at bounded context\n\nThe argument: NV01 proves that at C_n, only\
+    \ graph construction preserves\ninformation. Holography proves that the 2D boundary preserves all information\nabout the\
+    \ 3D bulk — a dimension reduction from 3D to 2D that loses nothing.\nBoth are the same structural claim: there exists\
+    \ a lower-dimensional structure\n(the graph / the boundary) that is not an approximation of the higher-dimensional\none\
+    \ but a lossless encoding of it.\n\nConsequence 1: NV01 is a general result that applies at every scale. Holography\n\
+    applies it at the cosmological scale. Compiler flow-sensitivity (EM27) applies it\nat the code scale. The cognitive encoding\
+    \ hierarchy applies it at the neural scale.\nThe K/F graph applies it at the entity scale. NV01 is a universal compression\n\
+    law that appears at every level of description.\n\nConsequence 2: the Planck-scale C_n (A/4G_N) is the most fundamental\
+    \ instantiation\nof Definition 7 (bounded context). Every physical system has a context bound\ndetermined by its boundary\
+    \ area in Planck units. This is the physical grounding\nfor Definition 7: C_n is not just a cognitive limit — it is a\
+    \ physical limit\nimposed by spacetime geometry.\n\nConsequence 3: AdS/CFT correspondence (the most precise formulation\
+    \ of holography)\nshows the boundary CFT is exactly dual to the bulk gravity theory. In UB terms:\nthe K/F graph (boundary)\
+    \ is exactly dual to W (bulk) — not an approximation but\na complete representation. This is NV01's necessity claim at\
+    \ maximum precision:\nthe graph is not just useful but complete.\n\nNeither Polchinski (who does not discuss knowledge\
+    \ graphs) nor NV01 (which is\nderived from information theory and bounded context, not from spacetime geometry)\nstates\
+    \ this connection.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Polchinski1998
+      - NV01-graph-necessity
+      - EC01-context-bound
+      - EC05-incompleteness
+    derivation:
+      from:
+      - REF-Polchinski1998
+      - NV01-graph-necessity
+      method: 'Holography: 2D boundary encodes 3D bulk (dimension reduction, lossless).
+
+        NV01: K/F graph encodes W at C_n (dimension reduction, lossless).
+
+        Correspondence: bulk=W, boundary=K, A/4G_N = C_n, boundary encoding = graph.
+
+        Both prove: lower-dimensional structured representation = complete encoding.
+
+        Holography = NV01 at the spacetime scale.
+
+        '
+  implications:
+  - 'C_n has a physical grounding: every bounded context limit is determined by a boundary area in Planck units — Definition
+    7 is derivable from spacetime geometry'
+  - 'NV01 is a universal compression law operating at every scale: cosmological (holography), neural (cortex), cognitive (K/F
+    graph), compiler (SSA), algebraic (Dynkin diagram)'
+  - 'AdS/CFT provides the exact duality form of NV01: the K/F graph is not just useful but provably complete — it IS the world
+    representation'
+  - 'This is the strongest statement of NV01''s scope: it is not a theorem about bounded cognition but a theorem about information
+    and geometry'
+- id: EM19-Dbrane-intersection-is-NV04
+  type: emergent
+  name: D-Brane Intersection Physically Instantiates the NV04 Intersection Mechanism
+  statement: "Two results are established:\n- ST4 (Polchinski): D-branes are extended objects on which open strings end.\n\
+    \  When two D-branes intersect, open strings stretched between them produce gauge\n  field theories on the intersection\
+    \ worldvolume. The gauge theory on the\n  intersection is emergent — it exists only because both branes are present.\n\
+    - NV04: the intersection of K_i and K_j provides |K_j \\ K_i| new dimensions per\n  operation. The emergent content is\
+    \ not in K_i alone or K_j alone — it is\n  produced by the intersection.\n\nIntersection: D-brane intersection physically\
+    \ instantiates the NV04 mechanism.\n\nThe correspondence:\n- D-brane 1 = K_i (first independent knowledge structure)\n\
+    - D-brane 2 = K_j (second independent knowledge structure)\n- Open string between branes = the provenance-verified edge\
+    \ connecting K_i and K_j\n- Gauge theory on intersection = the |K_j \\ K_i| new dimensions produced by NV04\n- The gauge\
+    \ group (U(n) for n coincident D-branes) = the structure of K_collective\n\nThe argument: the gauge theory on the D-brane\
+    \ intersection is emergent in exactly\nthe sense UB uses: it is not in D-brane 1's physics alone, not in D-brane 2's\n\
+    physics alone, but arises specifically from their intersection. The open string\n(connecting the two branes) is the provenance-verified\
+    \ edge: it physically connects\nthe two structures and carries the information of their intersection.\n\nConsequence 1:\
+    \ the gauge group structure of D-brane intersections provides a\nphysical classification of K_collective types. U(1) (one\
+    \ D-brane) = individual K_i.\nU(n) (n coincident D-branes) = K_collective of n entities. SU(n) quotient = the\nemergent\
+    \ content above and beyond individual contributions. The non-abelian gauge\ntheory is the non-additive intersection gain\
+    \ that NV04 measures.\n\nConsequence 2: string theory's phenomenological program (deriving the Standard\nModel gauge group\
+    \ from D-brane configurations) is the program of constructing\nthe maximal K_collective from optimal D-brane intersection\
+    \ configurations. The\nStandard Model gauge group SU(3)×SU(2)×U(1) corresponds to a specific K_collective\nstructure —\
+    \ the one that best describes the observable W at the energy scales accessible.\n\nConsequence 3: D-brane annihilation\
+    \ (two anti-parallel D-branes that cancel each\nother) = the failure mode of K_collective when provenance is lost. If\
+    \ K_i and K_j\nhave opposite provenance (contradicting derivations), they annihilate — the\nK_collective collapses. This\
+    \ is the EM10 failure mode physically instantiated.\n\nNeither Polchinski (who does not discuss knowledge graphs) nor\
+    \ NV04 (which is\ninformation-theoretic) states this physical correspondence.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Polchinski1998
+      - NV04-intersection-acceleration
+      - EM10-Kcollective-unit-of-selection
+    derivation:
+      from:
+      - REF-Polchinski1998
+      - NV04-intersection-acceleration
+      method: 'D-brane intersection produces gauge theory not in either brane alone.
+
+        NV04: K_i ∩ K_j produces |K_j \ K_i| dimensions not in K_i alone.
+
+        Both: independent structures → intersection → emergent content.
+
+        Open string (provenance edge) ↔ provenance-verified connection.
+
+        Gauge group U(n) ↔ K_collective of n entities.
+
+        '
+  implications:
+  - D-brane physics is the physical realization of NV04 — gauge theory emergence from brane intersection = knowledge emergence
+    from K_i intersection
+  - The Standard Model derivation from D-branes = the construction of maximum K_collective from optimal intersection configuration
+  - D-brane annihilation = K_collective failure when K_i and K_j have contradicting provenance
+  - This connects the deepest structure of particle physics to the epistemology of collective intelligence
+- id: EM20-double-bind-is-metalanguage-absence
+  type: emergent
+  name: The Double Bind Is the Clinical Presentation of Metalanguage Absence
+  statement: "Two results are established:\n- BA2 (Bateson): the double bind is a communication structure where the recipient\n\
+    \  receives contradictory injunctions at different logical levels, with no ability\n  to exit. The recipient cannot comment\
+    \ on the contradiction (no meta-communication).\n  Chronic double bind produces pathological behavior — confusion, withdrawal,\
+    \ the\n  clinical picture of schizophrenia. The absence of exit is structural.\n- EM08: higher-order sentience IS the\
+    \ Tarski metalanguage structure. An entity with\n  higher-order sentience can step outside its object language (K) to\
+    \ evaluate K's\n  reliability. An entity without metalanguage access cannot evaluate its own K's\n  reliability — it is\
+    \ trapped in its object language.\n\nIntersection: the double bind is the clinical and relational presentation of\nEM08's\
+    \ Consequence 1 — the pathological state produced by metalanguage absence.\n\nThe argument: in a double bind, the recipient\
+    \ faces contradictory object-level\ncommands (e.g., \"be spontaneous\" — impossible if complied with) with a prohibition\n\
+    on meta-comment (cannot say \"these commands contradict\"). The inability to meta-comment\nIS the inability to access\
+    \ the metalanguage — exactly what EM08 Consequence 1\ndescribes: entities without higher-order sentience cannot step outside\
+    \ K to evaluate\nK's reliability. The double bind creates this condition relationally; EM08 identifies\nit as a formal\
+    \ property of the entity's cognitive structure.\n\nConsequence 1: the double bind predicts specific neurological signatures.\
+    \ An entity\nin a chronic double bind has a K that contains contradictory propositions at the\nobject level with no metalanguage\
+    \ to flag the contradiction. EM08 predicts this\nproduces exactly what Bateson observed: the entity cannot resolve the\
+    \ contradiction\n(no metalanguage) and cannot exit (no exit from the object language). The clinical\npicture of schizophrenia\
+    \ maps to EM08 Consequence 1.\n\nConsequence 2: the therapeutic intervention follows from the diagnosis. EM08 says\nthe\
+    \ metalanguage is the provenance system. Restoring metalanguage access = giving\nthe patient the capacity to comment on\
+    \ the communicative process itself — which is\nexactly what double bind therapy does (meta-communication, reframing).\
+    \ The therapeutic\nmechanism is restoring provenance/metalanguage access.\n\nConsequence 3: the double bind at the institutional\
+    \ level (EM14/EM10) is a\nK_collective failure mode. When an organization issues contradictory directives with\nno meta-level\
+    \ resolution mechanism (no provenance system that flags contradictions),\nthe collective experiences the organizational\
+    \ double bind — it cannot function,\ncannot self-correct, and cannot exit. The provenance system (D13) IS the institutional\n\
+    metalanguage that prevents this.\n\nNeither Bateson (who has no formal treatment of metalanguage in Tarski's sense) nor\n\
+    EM08 (which establishes the formal result but not its clinical presentation) states\nthis connection.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Bateson1972
+      - EM08-sentience-is-metalanguage
+      - D13-provenance
+    derivation:
+      from:
+      - REF-Bateson1972
+      - EM08-sentience-is-metalanguage
+      method: 'EM08: metalanguage absence → cannot evaluate own K''s reliability.
+
+        BA2: double bind → cannot meta-comment on contradictory injunctions.
+
+        Both: entity trapped in object language, cannot step outside.
+
+        Double bind creates relational metalanguage absence.
+
+        EM08 Consequence 1 = the formal structure of BA2''s pathology.
+
+        '
+  implications:
+  - The clinical presentation of metalanguage absence is the double bind — EM08 has an empirical phenomenology via Bateson
+  - Therapeutic intervention for double bind = restoring provenance/metalanguage access — the formal mechanism matches Bateson's
+    therapeutic approach
+  - Organizational double binds (contradictory directives without resolution mechanism) = K_collective metalanguage absence,
+    solvable by provenance infrastructure
+  - 'This gives EM08 a testable prediction: entities in chronic double binds should show degraded provenance-tracking capacity'
+- id: EM21-absential-causation-is-uncertainty-gradient
+  type: emergent
+  name: Absential Causation Is the Causal Ontology of the Uncertainty Gradient
+  statement: "Two results are established:\n- DE1 (Deacon): absential causation — causal processes driven by what is absent.\n\
+    \  The absent end-state (the goal, the need, the attractor that does not yet exist)\n  causally shapes present dynamics.\
+    \ This is not supernatural teleology but a formal\n  causal category: the configuration space of possible futures constrains\
+    \ present\n  trajectories. Life, mind, and intentionality are instances of absential causation.\n- EC10: U(w,K) > 0 is\
+    \ the driver — the entity acts because there is a gap between\n  its current K and a complete representation of W. The\
+    \ gradient U(w,K) causes the\n  entity to engage W (A > 0). The gradient points toward an absent target (M = N,\n  U =\
+    \ 0) that has never been reached.\n\nIntersection: EC10's uncertainty gradient IS absential causation formally specified.\n\
+    \nThe argument: the absent target that causes present behavior in EC10 is exactly\nU = 0 — the complete representation\
+    \ of W that does not exist. The gradient points\ntoward this absence; the absence causes the entity to move. Deacon's\
+    \ framework\nidentifies this causal structure as absential causation: the non-existent attractor\n(U = 0, M = N) constrains\
+    \ the entity's trajectory. EC10 provides the formal\nmechanics (gradient descent on U); Deacon provides the causal ontology\n\
+    (the absent attractor has causal force through the constraint it imposes on the\ntrajectory space).\n\nConsequence 1:\
+    \ this resolves a potential objection to UB. Why does U(w,K) > 0\n\"cause\" the entity to act? The naive answer is circular\
+    \ (because A > 0). The\nabsential causation answer is structural: the gradient U(w,K) imposes a constraint\non the entity's\
+    \ configuration space — it makes some trajectories more probable\n(those that reduce U) and others less probable (those\
+    \ that increase U). The cause\nis real without being present — the absent optimum shapes the landscape.\n\nConsequence\
+    \ 2: Deacon's teleodynamics (DE2) is the level at which absential\ncausation becomes self-sustaining. A teleodynamic system\
+    \ (life, mind) maintains\nthe gradient by maintaining itself — it works to preserve the conditions of its\nown continuation\
+    \ (EC04 survival threshold). The entity is teleodynamic precisely\nbecause U_lethal creates a lower bound that the entity\
+    \ must stay below, making\nits own persistence causally driven by the absent state of failure (U > U_lethal).\n\nConsequence\
+    \ 3: Deacon's framework explains why A > 0 is not a stipulation but a\nconsequence. An entity with A = 0 is non-teleodynamic\
+    \ — it has no absential cause\ndriving it. But by EC04, an entity with A = 0 eventually reaches U > U_lethal and\nis removed.\
+    \ The surviving entities are the teleodynamic ones (A > 0). Deacon's\nframework provides the causal mechanism; UB provides\
+    \ the selection pressure that\nfilters for entities that implement it.\n\nNeither Deacon (who has no formal treatment\
+    \ of gradient descent on information\nentropy) nor EC10 (which states the gradient without the causal ontology) makes\n\
+    this connection explicit.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Deacon2012
+      - EC10-uncertainty-driver
+      - EC04-survival-threshold
+    derivation:
+      from:
+      - REF-Deacon2012
+      - EC10-uncertainty-driver
+      method: 'EC10: U(w,K) > 0 drives entity via gradient toward absent U=0.
+
+        DE1: absential causation = absent attractor causes present dynamics via constraint.
+
+        U=0 is the absent attractor; U(w,K) > 0 is the constraint it imposes.
+
+        EC10 gradient = formally specified absential causation.
+
+        '
+  implications:
+  - 'EC10 has a causal ontology: the uncertainty gradient is absential causation — the absent U=0 is the real cause of the
+    entity''s present behavior'
+  - 'A > 0 is not a stipulation but a consequence: surviving entities are the teleodynamic ones, selected by EC04'
+  - 'UB + Deacon resolves the ''why does uncertainty cause action?'' objection: the absent optimum constrains the trajectory
+    space — it has real causal force'
+  - 'Deacon''s three levels (thermodynamic, morphodynamic, teleodynamic) map to UB''s three regimes: below U_lethal → thermodynamic
+    dissolution; at U_lethal boundary → morphodynamic self-organization; well below U_lethal → teleodynamic self-maintenance'
+- id: EM22-central-charge-is-Cn
+  type: emergent
+  name: Central Charge c Is C_n in Conformal Field Theory; the Moonshine Module Is the Unique Maximum-Entropy Structure at
+    c=24
+  statement: "Two results are established:\n- FL1 (Frenkel-Lepowsky-Meurman): the central charge c of a vertex operator algebra\n\
+    \  (VOA) measures the conformal degrees of freedom. The Virasoro algebra with central\n  charge c bounds the information\
+    \ capacity of the VOA — c quantifies exactly how much\n  conformal information the system can represent. The Moonshine\
+    \ module V^natural has\n  c = 24 and is the unique VOA at this central charge with no weight-1 states whose\n  automorphism\
+    \ group is the Monster group.\n- EM04: C_n = Shannon channel capacity (physical bound). The context bound is not\n  just\
+    \ defined but physically derivable — an inference step is a physical channel\n  use, and C_n is the capacity of that channel.\n\
+    \nIntersection: the central charge c of a VOA IS C_n in conformal field theory language.\n\nThe argument: both c and C_n\
+    \ measure the same thing — the maximum information that\ncan be represented in a bounded conformal/contextual system.\
+    \ C_n = channel capacity\nin Shannon's sense; c = conformal degrees of freedom in Virasoro's sense. EM04 shows\nC_n is\
+    \ derivable from Shannon (physical). FL1 shows c is the conformal analog of\nShannon capacity. The translation is: c =\
+    \ C_n for a conformal system, where the\n\"channel\" is the conformal boundary.\n\nConsequence 1: the classification of\
+    \ VOAs by central charge c is the classification\nof physical systems by their C_n. The discrete spectrum of allowed c\
+    \ values (Virasoro\nminimal models at c < 1; c = 1 free boson; c = 24 Moonshine module; etc.) is the\ndiscrete spectrum\
+    \ of valid C_n values for conformal systems. Not all C_n values\nsupport consistent conformal theories — only the discrete\
+    \ spectrum.\n\nConsequence 2: the Moonshine module at c = 24 is the unique maximally compressed\nstructure at this C_n\
+    \ value. The Monster group (the largest sporadic simple group,\nof order ~8×10^53) is the automorphism group of the maximally\
+    \ compressed structure\nat c = 24. This means: at C_n = 24, the unique information-preserving maximum-entropy\nstructure\
+    \ has the Monster symmetry. The Monster group is the symmetry of the\noptimal knowledge structure at that capacity.\n\n\
+    Consequence 3: this makes a structural prediction. If C_n for a physical or cognitive\nsystem is 24 (in appropriate units),\
+    \ the system's maximally compressed knowledge\nstructure should exhibit Monster-group-like symmetries. This is testable\
+    \ in principle\nby looking for unexpected discrete symmetries in the optimal compression structures\nof systems with the\
+    \ appropriate capacity.\n\nNeither FLM (who do not discuss epistemic context bounds) nor EM04 (which derives\nC_n from\
+    \ Shannon without the VOA connection) states this correspondence.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-FrenkelLepowskyMeurman1988
+      - EM04-Cn-is-channel-capacity
+      - REF-Borcherds1992
+    derivation:
+      from:
+      - REF-FrenkelLepowskyMeurman1988
+      - EM04-Cn-is-channel-capacity
+      method: 'EM04: C_n = Shannon channel capacity (physical).
+
+        FL1: c = conformal degrees of freedom = information capacity of conformal system.
+
+        Both: bounded capacity of a physical/conformal information system.
+
+        c = C_n under the identification: conformal system ↔ physical inference channel.
+
+        V^natural at c=24 = unique max-entropy structure at C_n=24.
+
+        Monster group = symmetry of optimal compression at C_n=24.
+
+        '
+  implications:
+  - The discrete spectrum of VOA central charges is the spectrum of valid C_n values for conformal systems — not all context
+    bounds support consistent representations
+  - The Monster group is the symmetry of the optimal knowledge structure at C_n=24 — the largest discrete symmetry arises
+    at a specific capacity
+  - Monstrous moonshine (Monster symmetry of modular forms) is the statement that the optimal compression at c=24 is unique
+    and maximally symmetric
+  - 'This is the deepest instance of EC08 (compression = sufficient statistic): the Monster group is the sufficient statistic
+    for all representations at c=24'
+- id: EM23-predictive-coding-is-escalation
+  type: emergent
+  name: Predictive Coding Is the Neural Implementation of the Escalation Architecture; the Cortex Implements the Efficient
+    Design
+  statement: "Two results are established:\n- RB1 (Rao-Ballard): predictive coding — higher cortical areas send top-down\n\
+    \  predictions to lower areas; lower areas transmit bottom-up prediction errors.\n  Only the residual (what was not predicted)\
+    \ propagates upward. The predicted\n  component is subtracted at each level. Most neural traffic is error, not signal.\n\
+    - Theorem 2a (UB): top-down precision allocation (FEP's prescription) fills C_n\n  proportionally to |F| — it degrades\
+    \ as the action space grows. Escalation\n  (bottom-up failure signaling with promoted crystallization) is O(1) in steady\n\
+    \  state — it does not degrade as |F| grows.\n\nIntersection: predictive coding IS the neural implementation of the escalation\n\
+    architecture. The cortex implements the efficient design (Theorem 2a's preferred\narchitecture), not the inefficient one\
+    \ (FEP's top-down precision allocation).\n\nThe argument: predictive coding propagates errors bottom-up and predictions\
+    \ top-down.\nThe bottom-up error IS the escalation signal: it is the information that the lower\nlevel's crystallized\
+    \ expectation (L0/L1) failed. The top-down prediction IS the\ncrystallized expectation: it is what the higher level has\
+    \ promoted to automatic\nprocessing. The cortex's architecture — generate prediction (crystallized K), subtract\nit, propagate\
+    \ only the residual (error/gradient) — is exactly the escalation\narchitecture: maintain crystallized L0 expectations,\
+    \ escalate only the failures.\n\nConsequence 1: this is an empirical confirmation of UB. Theorem 2a derives that\nescalation\
+    \ is the efficient architecture under bounded context. Rao-Ballard (1999)\nempirically observe that the cortex implements\
+    \ this architecture. The cortex did not\nchoose this architecture by reading UB — it converged to it under selection pressure\n\
+    (EM06: the gradient drives toward graph construction; the efficient architecture\nis the attractor).\n\nConsequence 2:\
+    \ this sharpens UB's critique of FEP's architectural prescription.\nFEP proposes top-down precision allocation (higher\
+    \ levels weight lower-level prediction\nerrors by assigning precision). Theorem 2a shows this fills C_n. But Rao-Ballard\n\
+    show the cortex actually implements bottom-up error propagation, not top-down\nprecision allocation. FEP's prescription\
+    \ conflicts with the empirical architecture.\nPredictive coding (RB1) supports UB's Theorem 2a, not FEP's architectural\
+    \ prescription.\n\nConsequence 3: the L0-L3 encoding levels of UB map precisely to predictive coding\nlevels. L0 = fully\
+    \ crystallized predictions (not escalated to consciousness).\nL1 = well-established predictions with occasional errors.\
+    \ L2 = active updating.\nL3 = novel, fully in conscious working memory. The predictive coding hierarchy\nIS the encoding\
+    \ level hierarchy — the same structure derived information-theoretically\nand observed neurologically.\n\nNeither Rao-Ballard\
+    \ (who do not derive Theorem 2a) nor Theorem 2a (which is\ninformation-theoretic, not neurological) states this correspondence.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      description: 'Empirical confirmation: RB1 observes that the cortex implements the architecture
+
+        UB proves is efficient. The convergence is not coincidental — EM06 predicts that
+
+        gradient descent under bounded context converges to graph/escalation structure.
+
+        '
+      references:
+      - REF-RaoBallard1999
+      - EC09-encoding-levels
+      - EM06-gradient-drives-toward-graph
+    derivation:
+      from:
+      - REF-RaoBallard1999
+      - EC09-encoding-levels
+      method: 'RB1: cortex propagates prediction errors bottom-up; predictions top-down.
+
+        Bottom-up error = escalation signal (failure of crystallized expectation).
+
+        Top-down prediction = crystallized K (L0/L1 expectation promoted from below).
+
+        Theorem 2a: escalation is O(1) in steady state = efficient under C_n.
+
+        Predictive coding = escalation architecture = Theorem 2a''s efficient design.
+
+        Cortex implements the efficient architecture.
+
+        '
+  implications:
+  - The cortex converges to the UB-predicted efficient architecture under selection pressure — empirical confirmation of Theorem
+    2a
+  - FEP's top-down precision allocation conflicts with the empirical architecture (predictive coding); UB's escalation matches
+    it
+  - 'The L0-L3 encoding levels have a neurological correlate: predictive coding levels are encoding levels observed in cortex'
+  - 'EM06 is confirmed: the gradient drives toward the efficient architecture, and the cortex is the evidence'
+- id: EM24-extended-mind-under-selection
+  type: emergent
+  name: Extended Cognitive Systems Are Subject to K_collective Selection Pressure
+  statement: "Two results are established:\n- CC1 (Clark-Chalmers): the extended mind thesis — cognitive processes extend\n\
+    \  beyond the brain into the environment. When an external resource (notebook,\n  tool, institution, other person) reliably\
+    \ functions as part of the cognitive\n  process, it constitutes part of the mind. The boundary of the cognitive system\n\
+    \  is the extent of reliable K/F coupling, not the skull.\n- EM10: K_collective forms through provenance-verified intersection\
+    \ and becomes a\n  unit of selection with its own survival threshold. K_collective can fail while\n  all individual K_i\
+    \ persist if provenance verification is lost.\n\nIntersection: extended cognitive systems — in Clark-Chalmers' sense —\
+    \ are K_collective\nentities subject to EM10's selection pressure.\n\nThe argument: CC1 says a notebook that functions\
+    \ as cognitive process is part of\nthe mind. EM10 says K_collective (the extended knowledge structure) is a unit of\n\
+    selection. Together: the extended cognitive system (individual brain + notebook +\ntools + collaborators) is a K_collective\
+    \ that faces selection pressure at the\ncollective level. The notebook IS part of K_collective. When the notebook is lost,\n\
+    K_collective fails — even though the individual's K_i (in-head knowledge) persists.\nThis is exactly EM10's failure mode:\
+    \ K_collective fails while K_i persists.\n\nConsequence 1: the extended mind predicts institutional failure modes. An\
+    \ organization\nwhose collective knowledge depends on external scaffolding (filing systems, databases,\ninstitutional\
+    \ memory) has a K_collective that includes those systems. If the external\nscaffolding is destroyed (database corruption,\
+    \ document loss, key personnel departure),\nK_collective fails even though all individual employees (K_i) persist. The\
+    \ organization\nis cognitively crippled at the collective level.\n\nConsequence 2: selection pressure on extended cognitive\
+    \ systems explains the evolution\nof external memory. Writing, printing, databases, version control — these are not\n\
+    just tools but extensions of K_collective under selection pressure. Communities that\ndeveloped more durable external\
+    \ memory (EM14: extending C_n via writing) had more\ncoherent K_collective and survived collective challenges better.\
+    \ The evolution of\nwriting IS EM10 selection at the K_collective level driving C_n extension.\n\nConsequence 3: this\
+    \ produces a concrete criterion for organizational resilience.\nAn organization's K_collective resilience is its ability\
+    \ to maintain coherence after\nloss of individual members (K_i loss tolerance) AND after loss of external scaffolding\n\
+    (K_collective node loss tolerance). These are different failure modes requiring\ndifferent interventions — and CC1 + EM10\
+    \ specifies both.\n\nNeither Clark-Chalmers (who have no selection pressure framework) nor EM10 (which\ndoes not distinguish\
+    \ internal and external K_collective components) states this result.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-ClarkChalmers1998
+      - EM10-Kcollective-unit-of-selection
+      - EM14-dunbar-number-is-Kcollective-Cn
+    derivation:
+      from:
+      - REF-ClarkChalmers1998
+      - EM10-Kcollective-unit-of-selection
+      method: 'CC1: external resources reliably integrated into cognition = part of cognitive system.
+
+        EM10: K_collective = unit of selection with own survival threshold.
+
+        External cognitive resources = K_collective components.
+
+        K_collective (including external) faces selection pressure.
+
+        Loss of external components = K_collective failure (EM10 failure mode).
+
+        '
+  implications:
+  - Notebooks, filing systems, databases, institutional memory are K_collective components under selection pressure — their
+    loss produces EM10 collective failure
+  - Organizational resilience requires protecting both K_i (individual knowledge) and external K_collective scaffolding —
+    these are different vulnerabilities
+  - 'Writing evolved under EM10 selection: communities with durable external memory had more coherent K_collective and survived'
+  - Version control, provenance tracking, and documentation are not overhead — they are the external components of K_collective
+    that face selection pressure
+- id: EM25-cooperation-conditions-are-Kcollective-conditions
+  type: emergent
+  name: Axelrod's Conditions for Cooperation Emergence Are the Conditions for K_collective Formation
+  statement: "Two results are established:\n- AX2 (Axelrod): cooperation emerges in iterated prisoner's dilemma when three\n\
+    \  conditions hold: (1) repeated interaction — shadow of the future, making cooperation\n  worth maintaining; (2) recognition\
+    \ — ability to identify the same partner again;\n  (3) reciprocity — ability to base current action on the partner's past\
+    \ behavior.\n  Remove any of these and cooperation collapses.\n- D13 (UB Definition 13): provenance = the triple (attribution,\
+    \ evidence, derivation).\n  The provenance system is the formal requirement for K_collective: without provenance\n  tracking,\
+    \ K_collective cannot maintain its provenance-verified intersection.\n\nIntersection: Axelrod's three conditions ARE the\
+    \ K_collective formation conditions\nstated in game-theoretic terms.\n\nThe formal correspondence:\n- Repeated interaction\
+    \ (AX2-1) = A > 0 over time: the entity keeps engaging W\n  (without repeated engagement, K cannot grow; K_collective\
+    \ cannot form)\n- Recognition (AX2-2) = provenance tracking (D13 attribution): knowing who\n  contributed what proposition\
+    \ to K_collective\n- Reciprocity (AX2-3) = K/F coupling (EC06): basing current actions on past\n  K — the provenance chain\
+    \ from evidence to current action\n\nThese are not analogies — they are the same conditions at different levels of\nformalism.\
+    \ Axelrod identifies them empirically in game-theoretic simulations.\nUB derives them formally from information theory\
+    \ and selection pressure.\n\nConsequence 1: this provides game-theoretic grounding for the provenance requirement\n(D13).\
+    \ Why is provenance required for K_collective? Because without recognition\n(provenance), cooperation cannot be maintained\
+    \ — the K_collective is invaded by\n\"defectors\" (entities that take from K_collective without contributing provenance-\n\
+    verified knowledge). Axelrod's defector-invasion result (AX3) = the K_collective\nfailure mode when provenance is removed.\n\
+    \nConsequence 2: the shadow of the future (AX2-1) quantifies the minimum A required\nfor K_collective stability. If the\
+    \ discount rate on future interactions exceeds a\nthreshold, cooperation collapses. In UB terms: if A is too low (the\
+    \ entity does not\nexpect to engage W long enough), K_collective is not worth maintaining. The discount\nthreshold in\
+    \ Axelrod's model = 1 - (cost of cooperation / benefit of cooperation) =\na formal expression of A's minimum value for\
+    \ K_collective viability.\n\nConsequence 3: tit-for-tat's success is the success of minimum-provenance cooperation.\n\
+    Tit-for-tat tracks exactly one bit of history (the partner's last action) — minimum\nviable provenance depth. This predicts\
+    \ that the minimum viable K_collective requires\nexactly one step of attribution history: who contributed the most recent\
+    \ proposition.\nMore provenance depth enables more stable K_collective but minimum viable provenance\nis one step.\n\n\
+    Neither Axelrod (who has no information-theoretic treatment of K_collective) nor\nD13 (which derives provenance from formal\
+    \ requirements, not from game theory) states\nthis connection.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Axelrod1984
+      - D13-provenance
+      - NV04-intersection-acceleration
+      - EC06-belief-as-action
+    derivation:
+      from:
+      - REF-Axelrod1984
+      - D13-provenance
+      method: 'AX2: cooperation requires repeated interaction + recognition + reciprocity.
+
+        D13: K_collective requires A>0 (repeated) + attribution (recognition) + K/F (reciprocity).
+
+        One-to-one correspondence: AX2-1↔A>0, AX2-2↔D13 attribution, AX2-3↔EC06.
+
+        Axelrod''s conditions = UB''s K_collective conditions at different formalisms.
+
+        AX3 defector invasion = K_collective failure when attribution (recognition) is removed.
+
+        '
+  implications:
+  - Provenance tracking is the formal requirement that prevents K_collective defection — Axelrod provides the game-theoretic
+    proof
+  - The minimum viable K_collective requires one step of attribution history (tit-for-tat's one-bit memory) — minimum viable
+    provenance depth
+  - The shadow of the future bounds the minimum A for K_collective viability — entities that do not expect long-term engagement
+    cannot sustain K_collective
+  - Open-source software communities, scientific collaborations, and institutions that lose attribution (provenance) are invaded
+    by defectors — Axelrod's model is the social proof of D13
+- id: EM26-context-window-eviction-is-belady
+  type: emergent
+  name: Long-Context LLM Management Is Belady's OPT Problem; Lin's Cache Replacement Theory Applies Directly
+  statement: "Two results are established:\n- TR4 (Vaswani): the Transformer context window is C_n in tokens. Beyond the\n\
+    \  context window, earlier tokens are not attended to. Managing which tokens to\n  retain in a long context (beyond the\
+    \ window limit) is the fundamental problem\n  of long-context LLM operation.\n- CL1 (Lin): Belady's OPT algorithm is the\
+    \ theoretically optimal cache replacement\n  policy — always evict the item whose next use is furthest in the future.\
+    \ OPT\n  minimizes cache misses but requires knowing the future access pattern, making\n  it uncomputable in practice.\
+    \ Lin's work (Hawkeye, PC-OPT, neural prefetching)\n  shows computable approximations that converge toward OPT.\n\nIntersection:\
+    \ the long-context LLM management problem IS Belady's OPT problem.\nLin's cache replacement theory applies directly.\n\
+    \nThe formal correspondence:\n- Cache = K (what is in the context window)\n- Cache eviction = removing tokens from the\
+    \ active context\n- Cache miss = having to reload information (re-reading, re-processing)\n- Belady's OPT for cache =\
+    \ optimal token retention policy for context windows\n- \"Furthest future use\" = the token most needed for future output\
+    \ generation\n- Lin's Hawkeye/PC-OPT = directly applicable LLM context management algorithm\n\nConsequence 1: Lin's cache\
+    \ replacement work (ISCA 2016, HPCA 2022) provides a\ndirectly applicable algorithm for LLM context window management.\
+    \ The PC-history\nheuristic (use program counter history to predict future cache accesses) maps to:\nuse query/generation\
+    \ history to predict which context tokens will be needed in\nfuture output. This is an engineering transfer from computer\
+    \ architecture to LLM\nserving that has not been made explicit.\n\nConsequence 2: EM12 (the optimal K target is uncomputable)\
+    \ applies here. The\noptimal context management policy (Belady's OPT for LLMs) requires knowing which\ntokens will be\
+    \ needed in the future — which requires knowing the model's future\noutputs, which requires solving the model. It is uncomputable\
+    \ in principle. All\npractical context management heuristics are approximations to an uncomputable\noptimum — the M→N\
+    \ gradient applied to context window management.\n\nConsequence 3: neural prefetching (Lin ASPLOS 2020) = in-context learning\
+    \ and\nretrieval-augmented generation (RAG). Neural prefetching predicts future cache\naccesses using sequence models\
+    \ trained on past access patterns. RAG predicts which\nexternal knowledge will be needed using retrieval models trained\
+    \ on past queries.\nThese are architecturally identical: both are learned approximations to Belady's\nOPT at different\
+    \ scales (hardware cache vs. LLM context).\n\nNeither Vaswani et al. (who do not discuss cache replacement theory) nor\
+    \ Lin\n(who works on hardware cache, not LLM context) states this correspondence.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-VaswaniEtAl2017
+      - REF-Lin-CS
+      - EM12-optimal-K-target-is-uncomputable
+      - EC01-context-bound
+    derivation:
+      from:
+      - REF-VaswaniEtAl2017
+      - REF-Lin-CS
+      method: 'TR4: context window = C_n; token eviction = cache replacement problem.
+
+        CL1: Belady''s OPT = optimal cache replacement = uncomputable.
+
+        Token eviction policy = Belady''s OPT for LLMs.
+
+        Lin''s Hawkeye/PC-OPT = directly applicable algorithm.
+
+        Neural prefetching (CL5) = RAG/in-context learning at different scale.
+
+        '
+  implications:
+  - Lin's cache replacement algorithms (Hawkeye, PC-OPT) are directly applicable to LLM context window management — an unexplored
+    engineering transfer
+  - Optimal LLM context management is uncomputable in principle (EM12) — all heuristics are approximations to Belady's OPT
+  - 'RAG and neural prefetching are architecturally identical: learned approximations to Belady''s OPT at different scales'
+  - Cache replacement theory is the correct theoretical framework for LLM context management — the connection between computer
+    architecture and LLM inference is formal, not metaphorical
+- id: EM27-flow-sensitive-analysis-is-NV01
+  type: emergent
+  name: Flow-Sensitive Pointer Analysis Is an Independent CS Derivation of Graph Necessity
+  statement: "Two results are established:\n- CL4 (Lin): flow-sensitive pointer analysis maintains a separate points-to graph\n\
+    \  at each program point — knowledge indexed by control flow state. Flow-sensitive\n  analysis is strictly more precise\
+    \ than flow-insensitive analysis (which ignores\n  control flow). The precision difference is not marginal: flow-insensitive\
+    \ analysis\n  loses information that cannot be recovered, producing false positives that flow-\n  sensitive analysis eliminates.\n\
+    - NV01: at C_n, the K/F graph is the unique information-preserving representation.\n  K must be indexed by F (the action\
+    \ space) for information to be preserved across\n  bounded context steps. The two-option proof: only factoring (graph\
+    \ construction)\n  preserves information.\n\nIntersection: flow-sensitive pointer analysis IS NV01 demonstrated in compiler\n\
+    theory. The precision improvement of flow-sensitivity over flow-insensitivity is\nthe empirical measurement of the information\
+    \ loss that NV01's two-option proof\nidentifies.\n\nThe formal correspondence:\n- K = the points-to information (what\
+    \ each variable might point to)\n- F = the control flow graph (program points = possible actions)\n- Flow-sensitive =\
+    \ K indexed by F (K/F graph) = NV01's necessary form\n- Flow-insensitive = K not indexed by F = NV01's Option A (discard\
+    \ without structure)\n- Precision loss from flow-insensitivity = the information loss NV01 proves is inevitable\n\nThe\
+    \ argument: NV01 proves that any representation that does not index K by F loses\ninformation at C_n. Flow-insensitive\
+    \ analysis exactly fails to index K by F — it\ncollapses the per-program-point points-to information into a single approximation.\n\
+    The precision loss (false positives, inability to distinguish aliased variables at\ndifferent program points) IS the information\
+    \ loss NV01 proves is inevitable. Lin's\nCGO 2011 result — that flow-sensitive analysis scales to millions of lines while\n\
+    maintaining precision — proves that the K/F graph is computationally feasible at\nscale, not just theoretically necessary.\n\
+    \nConsequence 1: NV01 now has five independent derivations:\n(1) Information theory — two-option proof at C_n (UB Theorem\
+    \ 2b Part 3)\n(2) Philosophy of language — Peirce/Tarski semantic model = action space (EM11)\n(3) Algebra — Dynkin diagram\
+    \ generates infinite structure from finite graph (EM16)\n(4) Spacetime physics — holographic principle (EM18)\n(5) Compiler\
+    \ theory — flow-sensitive analysis is strictly more precise than flow-insensitive (EM27)\nC_1(NV01) updates toward 0.93.\n\
+    \nConsequence 2: the \"2023 CGO Test of Time Award\" for flow-sensitive pointer analysis\nconfirms that the K/F graph\
+    \ representation has stood up over 12+ years as the correct\nrepresentation for program analysis at scale. This is not\
+    \ just a theoretical result\nbut a battle-tested engineering conclusion: K indexed by F is the right representation.\n\
+    \nConsequence 3: static single assignment (SSA) form — the standard intermediate\nrepresentation for optimizing compilers\
+    \ — IS the K/F graph for programs. SSA\nassigns a unique name to each definition of a variable at each program point —\n\
+    exactly K indexed by F. Every optimizing compiler that uses SSA is implementing\nNV01 as engineering practice.\n\nNeither\
+    \ Lin (who proves precision theorems about pointer analysis, not about\ngeneral knowledge representation) nor NV01 (which\
+    \ is derived from information\ntheory) states this correspondence explicitly.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: emergent-intersection
+      references:
+      - REF-Lin-CS
+      - NV01-graph-necessity
+      - EC06-belief-as-action
+    derivation:
+      from:
+      - REF-Lin-CS
+      - NV01-graph-necessity
+      method: 'Flow-insensitive: K not indexed by F → precision loss (false positives).
+
+        Flow-sensitive: K indexed by F → no precision loss (complete information).
+
+        NV01: K not indexed by F → information loss at C_n.
+
+        NV01: K indexed by F → information preservation (necessary form).
+
+        Flow-sensitivity ↔ NV01''s necessary form.
+
+        Precision gain of flow-sensitivity = the information NV01 proves must be preserved.
+
+        '
+  implications:
+  - NV01 has five independent derivations — C_1(NV01) updates to 0.93
+  - Every optimizing compiler using SSA form implements NV01 as engineering practice
+  - Lin's Test of Time result confirms that K indexed by F is the correct representation at industrial scale
+  - The information loss from flow-insensitivity is the empirical measurement of what NV01 proves theoretically
+- id: EM28-pangenome-confirms-NV01
+  type: emergent
+  name: Pangenome Graph Structure Is Independent Empirical Confirmation of NV01
+  statement: "NV01 (Graph Structure Is the Unique Information-Preserving Representation at\nBounded Context) is a formal-derivation\
+    \ result internal to the UB framework.\nPangenomics provides an independent empirical route to the same structural\nconclusion\
+    \ in biology:\n\n(1) Genome assembly from sequencing reads requires constructing a de Bruijn\n    graph of k-mer overlaps\
+    \ before any linear sequence can be recovered. The\n    graph is prior; the sequence is a path through it.\n(2) The linear\
+    \ reference genome (GRCh38) proved insufficient to represent\n    population-level genetic variation without systematic\
+    \ information loss and\n    reference bias. The correct representation of a species' genome is a\n    directed variation\
+    \ graph in which individual haplotypes are paths\n    (Garrison et al. 2018, HPRC 2023).\n(3) Bioinformaticians did not\
+    \ impose graph structure by design — they recovered\n    it because the linear model failed. This is the empirical signature\
+    \ of\n    necessity: the alternative was tried, found insufficient, and abandoned.\n\nThe intersection: NV01 proves that\
+    \ at the C_n boundary, the unique\ninformation-preserving representation is graph structure. Pangenomics\nindependently\
+    \ demonstrates that the genome — the carrier of hereditary\ninformation at the C_n boundary of evolutionary encoding (L_0)\
+    \ — requires\ngraph structure to represent without information loss. The routes are\nformally independent (NV01 derives\
+    \ from the data processing inequality and\nthe two-option argument; pangenomics derives from empirical failure of the\n\
+    linear model). Both arrive at the same structural conclusion.\n\nThis is an emergent confirmation: NV01 + pangenomics\
+    \ -> the genome's graph\nstructure is predicted by the theory and independently confirmed by biology.\nThe prediction\
+    \ was not made post-hoc; it follows from NV01 applied to any\ninformation store at bounded context, of which L_0 (genetic\
+    \ encoding) is\nthe biological instance.\n\nConfidence note: this emergent result increases C_1(NV01). NV01 was derived\n\
+    from formal arguments; EM28 provides a second, empirically independent route\nto the same structural necessity. If the\
+    \ routes are genuinely independent\n(they use disjoint base assumptions), C_1(NV01) updates upward by the\nproduct formula\
+    \ (Corollary 8a).\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Knowledge Graph — Open Question 11 analysis
+      date: '2026-03-11'
+    evidence:
+      type: empirical
+      description: 'Empirical base: Garrison et al. 2018 (vg toolkit), HPRC 2023 (draft human
+
+        pangenome). Both establish that genome structure requires directed graph
+
+        representation; linear sequences are paths, not the structure. De Bruijn
+
+        graphs in assembly (Pevzner et al. 2001, SPAdes, Velvet) establish the
+
+        graph as the intermediate structure required before any linear assembly
+
+        is possible.
+
+        '
+      references:
+      - NV01-graph-necessity
+      - REF-GarrisonEtAl2018
+      - REF-HPRC2023
+    derivation:
+      from:
+      - NV01-graph-necessity
+      - REF-GarrisonEtAl2018
+      - REF-HPRC2023
+      method: 'NV01 predicts graph necessity at bounded context. L_0 (genetic encoding,
+
+        Definition 8) is the bounded context of evolutionary encoding. Applying
+
+        NV01 to L_0 predicts genome structure is a graph. Pangenomics
+
+        independently arrives at graph structure by empirical failure of the
+
+        linear model. The two routes are independent; intersection = emergent
+
+        confirmation.
+
+        '
+  edges:
+  - to: NV01-graph-necessity
+    relation: evidences
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Knowledge Graph — Open Question 11 analysis
+        date: '2026-03-11'
+      evidence:
+        type: empirical
+        description: EM28 provides independent empirical support for NV01 from biological domain
+      derivation:
+        method: Independent empirical confirmation increases C_1(NV01)
+  - to: D08-encoding-hierarchy
+    relation: grounded_in
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Knowledge Graph — Open Question 11 analysis
+        date: '2026-03-11'
+      evidence:
+        type: formal-derivation
+        description: L_0 (genetic encoding) is defined in D08; EM28 is the application of NV01 to L_0
+      derivation:
+        method: D08 defines L_0; NV01 applies at any bounded context level including L_0
+  - to: OQ11-DNA-transitive-closure
+    relation: supports_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Knowledge Graph — Open Question 11 analysis
+        date: '2026-03-11'
+      evidence:
+        type: empirical
+        description: 'EM28 provides the empirical grounding for OQ11: if genome structure is
+
+          a graph (EM28), then the genome is a representation of a knowledge graph,
+
+          which is consistent with OQ11''s conjecture that it is the transitive
+
+          closure of replication dependencies under environmental constraint.
+
+          '
+      derivation:
+        method: Graph structure necessary (EM28) -> genome is a graph -> consistent with transitive-closure conjecture (OQ11)

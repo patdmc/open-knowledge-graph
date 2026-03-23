@@ -1,0 +1,306 @@
+- id: OV01-bounded-world-model
+  type: overlap
+  name: Bounded Internal World Representation
+  statement: "Any persisting cognitive agent operates under a bounded internal representation of W.\nThe representation cannot\
+    \ be W itself — it is always a compressed, partial projection.\nThis is independently grounded in three frameworks:\n\n\
+    - Uncertainty Bounding (this framework): C_n is the bounded context window at each\n  inference step. The entity can only\
+    \ process M < N dimensions of W at any moment.\n  Grounded formally: Definition 8 (C_n), Theorem 3 Part II (M < N).\n\
+    - Free Energy Principle (Friston 2010/2017): The agent operates under an approximate\n  posterior q(s) that is strictly\
+    \ bounded by its generative model's complexity.\n  Minimizing variational free energy = improving but never completing\
+    \ the approximation.\n  Grounded: FEP1 (approximate posterior), FEP5 (Markov blanket defines the bound).\n- Global Workspace\
+    \ Theory (Baars 1988, Dehaene 2011): The global workspace has\n  strictly limited capacity. Only a small amount of information\
+    \ is globally broadcast\n  at once. Grounded: GWT2 (limited workspace capacity), NGW2 (threshold ignition).\n\nThis is\
+    \ a confirmed precipitation site: three independent frameworks ground the same\nproposition. The C_1(p) for this claim\
+    \ across the combined literature is high.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Identified by intersecting the proposition sets of UB, FEP, and GWT. All three
+
+        independently arrive at bounded internal representation without citing each other
+
+        for this specific claim. The UB grounding is the most formal (C_n is a defined
+
+        quantity with a derived bound); FEP and GWT ground it empirically and theoretically.
+
+        '
+      references:
+      - D08-encoding-hierarchy
+      - REF-Friston2010
+      - REF-Baars1988
+      - REF-Dehaene2011
+    derivation:
+      from:
+      - D08-encoding-hierarchy
+      - REF-Friston2010
+      - REF-Friston2017
+      - REF-Baars1988
+      - REF-Dehaene2011
+      method: Intersection of independently-derived propositions from three frameworks
+  edges:
+  - to: D08-encoding-hierarchy
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: C_n (Definition 8) is the UB instantiation of OV01. The encoding hierarchy is the consequence of operating
+          under bounded C_n.
+      derivation:
+        method: OV01 -> C_n -> encoding hierarchy
+  - to: NV02-mn-bound
+    relation: precedes
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: OV01 (bounded representation exists) is a necessary precondition for NV02 (M < N formally derived). The
+          novel contribution is the derivation, not the observation.
+      derivation:
+        method: OV01 is the shared premise; NV02 is what UB adds that others do not
+- id: OV02-improvement-rate-measure
+  type: overlap
+  name: Rate of Model Improvement as the Measure of Intelligence
+  statement: "Intelligence is meaningfully measured by the rate at which an agent's internal model\nimproves — not by the\
+    \ current accuracy of the model, but by how fast it is getting better.\nThis proposition is independently grounded in\
+    \ two frameworks:\n\n- Uncertainty Bounding (this framework): eta_M is the rate at which M improves F's\n  uncertainty-reduction\
+    \ capacity per unit of learning signal. Intelligence = A * eta_M\n  (Definition 7). Grounded: Definition 11a (eta_M),\
+    \ Definition 7, derived in Theorem 6.\n- Schmidhuber (2010): Intrinsic reward = d/dt[compression(C)] — the first derivative\
+    \ of\n  the world model's compression progress. Intelligence is the ability to improve the\n  compressor, not the compressor's\
+    \ current quality. Grounded: S1 (compression-progress\n  drive), S3 (world model improvement across environments).\n\n\
+    The key structural claim — the derivative of model quality, not model quality itself —\nis independently grounded by both\
+    \ frameworks.\n\nDifference: Schmidhuber grounds this as a design objective (maximize d/dt compression);\nUB derives it\
+    \ as a necessary invariant of persistence under selection pressure (Theorem 6).\nSchmidhuber asserts it; UB proves it\
+    \ must be this way.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Identified by intersecting eta_M (UB) with d/dt[compression] (Schmidhuber). Both
+
+        frameworks arrive at the rate-of-improvement as the relevant measure independently.
+
+        The UB grounding is stronger: it derives this as a necessary result rather than
+
+        a design choice.
+
+        '
+      references:
+      - D11-higher-order-function-space
+      - REF-Schmidhuber2010
+    derivation:
+      from:
+      - D11-higher-order-function-space
+      - REF-Schmidhuber2010
+      method: Intersection of eta_M (UB Definition 11a) and d/dt compression (Schmidhuber S1)
+  edges:
+  - to: D11-higher-order-function-space
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: eta_M (Definition 11a) is the UB instantiation of OV02.
+      derivation:
+        method: eta_M = rate of improvement of M; OV02 is the overlap claim
+  - to: NV03-agency-as-gate
+    relation: contrasts_with
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: cross-framework-analysis
+        description: 'OV02 shows overlap on eta_M; NV03 shows where UB diverges from Schmidhuber
+
+          on A. The combination of OV02 and NV03 characterizes the relationship precisely:
+
+          same on improvement rate, different on engagement probability.
+
+          '
+      derivation:
+        method: Overlap (OV02) + novel (NV03) together characterize the Schmidhuber relationship
+- id: OV03-nontermination
+  type: overlap
+  name: Non-Termination of Learning for Persistent Entities
+  statement: "For any entity with genuine engagement in an open environment, learning does not\nterminate — there is always\
+    \ more to learn. This proposition is independently grounded\nin two frameworks at different levels of formality:\n\n-\
+    \ Uncertainty Bounding (this framework): M < N always for A > 0 entities\n  (Theorem 3 Part II). The world W has N dimensions;\
+    \ any entity senses M < N.\n  Because N is unbounded and execution always extends T_reachable, the frontier\n  of unsensed\
+    \ dimensions never closes. Grounded formally: Theorem 3 Part II.\n- Free Energy Principle (Friston 2017): FEP's equilibrium\
+    \ (FEP6) approaches but\n  never reaches zero surprise in an open, non-stationary environment. The generative\n  model\
+    \ can always be improved. Grounded: FEP6 (long-run equilibrium is asymptotic\n  in non-stationary conditions).\n\nDifference:\
+    \ FEP grounds non-termination informally (non-stationary environment is\nan assumption, not a derivation). UB grounds\
+    \ it formally: M < N is derived from\nC_n and the execution dynamics, independent of any assumption about stationarity.\n\
+    M < N holds even in a stationary environment — the bound is structural, not empirical.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Both frameworks independently arrive at non-termination of learning. UB''s derivation
+
+        is stronger: M < N is formal (Theorem 3 Part II) rather than contingent on
+
+        environment stationarity. FEP6 is empirically motivated; Theorem 3 Part II is
+
+        mathematically derived from the bounded context structure.
+
+        '
+      references:
+      - T03-agency-produces-gradient-descent
+      - REF-Friston2017
+    derivation:
+      from:
+      - T03-agency-produces-gradient-descent
+      - REF-Friston2017
+      method: Intersection of Theorem 3 Part II (UB) and FEP6 (Friston 2017)
+  edges:
+  - to: NV02-mn-bound
+    relation: precedes
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: OV03 (non-termination observed by both frameworks) is grounded by NV02 (M < N formally derived). The
+          novel contribution is the formal derivation.
+      derivation:
+        method: OV03 is the shared observation; NV02 is what UB adds that FEP does not
+  - to: EM02-fep-mn-qualification
+    relation: enables
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: emergent
+        description: 'Holding OV03 and NV02 simultaneously reveals EM02: FEP''s equilibrium claim (FEP6)
+
+          is in tension with M < N. The tension is only visible by intersection.
+
+          '
+      derivation:
+        method: OV03 + NV02 -> EM02 (intersection produces emergent proposition)
+- id: OV04-meta-cognitive-awareness
+  type: overlap
+  name: Meta-Cognitive Awareness of Own Inference Process
+  statement: "A higher-order cognitive capacity consists of an entity modeling its own inference\nprocess — not just producing\
+    \ outputs but representing that inference is occurring and\noperating on a bounded projection of W. This is independently\
+    \ grounded in two frameworks:\n\n- Uncertainty Bounding (this framework): Definition 14 (higher-order sentience) — an\n\
+    \  entity is sentient at the higher order iff it represents that other projections of W\n  exist beyond K_i, and understands\
+    \ that the normalization process it is running will\n  expand M toward N. Derived from Theorem 2b Part 3 + Theorem 3 Part\
+    \ II + Theorem 1.\n- Friston et al. (2021) Sophisticated Inference: SI1-SI4 — sophisticated agents model\n  their own\
+    \ future inference states. The agent considers what it will believe after\n  taking an action, evaluating policies by\
+    \ their effect on its own belief states.\n  SI4 is explicitly labeled as analogous to meta-cognitive awareness.\n\nKey\
+    \ difference: UB derives higher-order sentience from the induction argument — it\nfollows necessarily from factorization\
+    \ + M < N + retention criterion. Sophisticated\ninference defines it as a richer inference architecture. UB's derivation\
+    \ explains WHY\nmeta-cognitive awareness is adaptive; sophisticated inference describes HOW it works.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph
+      date: '2025'
+    evidence:
+      type: cross-framework-intersection
+      description: 'Both frameworks independently arrive at meta-cognitive awareness as a significant
+
+        cognitive capacity. UB grounds it as a derivation from information-theoretic
+
+        structure; sophisticated inference grounds it as a richer inference architecture.
+
+        The independent convergence strengthens both claims.
+
+        '
+      references:
+      - D14-sentience
+      - REF-Friston2021
+    derivation:
+      from:
+      - D14-sentience
+      - REF-Friston2021
+      method: Intersection of Definition 14 (UB) and SI4 (Friston 2021)
+  edges:
+  - to: D14-sentience
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: Novelty Analysis — Knowledge Graph
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Definition 14 (higher-order sentience) is the UB instantiation of OV04.
+      derivation:
+        method: OV04 overlap identified by matching Definition 14 to SI4
+- id: OV05-vc-bound-equals-EM07
+  type: overlap
+  name: VC Generalization Bound and EM07 Action Accuracy Bound Are the Same Structural Result
+  statement: "Two results are established independently:\n- VC2 (Vapnik): generalization error is bounded by sqrt(h(ln(2l/h)+1)/l)\
+    \ where\n  h = VC dimension (capacity of the hypothesis class) and l = sample size. Error\n  decreases as the ratio h/l\
+    \ decreases — as coverage (sample) increases relative\n  to capacity.\n- EM07: every action in F carries a residual uncertainty\
+    \ U_residual(f) >= U(w,K) *\n  (N-M)/N, bounded by the fraction of unobserved dimensions. Error decreases as\n  M/N increases\
+    \ — as coverage (sensed dimensions) increases relative to total.\n\nBoth results say: prediction/action error is bounded\
+    \ by (unsensed capacity / total\ncapacity). The structural form is identical under the translation:\n- VC dimension h\
+    \ ↔ M (what has been learned)\n- Sample size l ↔ observations (gradient steps)\n- Generalization error ↔ U_residual(f)\
+    \ (residual uncertainty on actions)\n- h/l ratio ↔ M/N ratio\n\nThe VC bound is derived from PAC learning theory (statistical\
+    \ learning of concept\nclasses from i.i.d. samples). EM07 is derived from UB (gradient descent under\ndimensional incompleteness).\
+    \ They are independently derived instances of the same\nstructural bound: coverage-ratio bounds prediction error.\n\n\
+    Both frameworks state this bound explicitly. The overlap (this node) is the claim\nthat the two bounds are structurally\
+    \ identical — which neither framework states.\nThe equivalence under translation raises C_1(EM07) by providing an independent\n\
+    derivation from statistical learning theory.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: Novelty Analysis — Knowledge Graph, EC Evaluation Pass
+      date: '2025'
+    evidence:
+      type: overlap-identification
+      grade: structural
+      description: 'Both VC2 and EM07 independently derive a coverage-ratio bound on prediction/action
+
+        error. Neither derives the other''s result. The structural equivalence under
+
+        translation is the overlap claim.
+
+        '
+      references:
+      - REF-Vapnik1995
+      - EM07-action-accuracy-bound
+    derivation:
+      from:
+      - REF-Vapnik1995
+      - EM07-action-accuracy-bound
+      method: 'VC2: generalization error ≤ O(sqrt(h/l)) as h→0 or l→∞.
+
+        EM07: U_residual(f) ≥ U(w,K)*(N-M)/N → 0 as M→N.
+
+        Under translation h↔M, l↔observations, both give: error ∝ (1 - coverage/total).
+
+        Structural equivalence: same bound, different formal languages.
+
+        '
+  confidence_update: 'C_1(EM07) increases: now has two independent derivations (UB information theory + VC statistical learning
+    theory)'

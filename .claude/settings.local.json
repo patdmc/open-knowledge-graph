@@ -192,7 +192,9 @@
       "Bash(pdflatex -output-directory=.temp -interaction=nonstopmode PAPER6_CANCER.tex 2>&1 | tail -5)",
       "Bash(ls -1 *.tex *.pdf 2>/dev/null | sort)",
       "Bash(git rm:*)",
-      "Bash(echo \"=== Source files ===\" && ls -1 McCarthy2026_*.tex && echo \"\" && echo \"=== Source PDFs ===\" && ls -1 McCarthy2026_*.pdf && echo \"\" && echo \"=== Upload PDFs ===\" && ls -1 ssrn_upload/ && echo \"\" && echo \"=== Any old paper files remaining? ===\" && ls -1 PAPER*.tex GRAPH_NECESSITY.tex UNCERTAINTY*.tex CONFIDENCE*.tex REFERENCES.tex 2>&1)"
+      "Bash(echo \"=== Source files ===\" && ls -1 McCarthy2026_*.tex && echo \"\" && echo \"=== Source PDFs ===\" && ls -1 McCarthy2026_*.pdf && echo \"\" && echo \"=== Upload PDFs ===\" && ls -1 ssrn_upload/ && echo \"\" && echo \"=== Any old paper files remaining? ===\" && ls -1 PAPER*.tex GRAPH_NECESSITY.tex UNCERTAINTY*.tex CONFIDENCE*.tex REFERENCES.tex 2>&1)",
+      "Bash(git checkout:*)",
+      "Bash(ls -la McCarthy2026_6_SubstrateTransition.*)"
     ]
   }
 }

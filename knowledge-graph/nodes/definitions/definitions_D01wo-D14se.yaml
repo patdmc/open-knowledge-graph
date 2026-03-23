@@ -1,0 +1,1113 @@
+- id: D01-world-state-space
+  type: definition
+  number: 1
+  name: World State Space
+  statement: 'The world W is the complete set of states an entity might face. W is assumed:
+
+    (1) non-empty and infinite; (2) not fully observable by any single entity;
+
+    (3) inexhaustible — no entity can reduce uncertainty to zero across all of W.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: axiomatic
+      description: Foundational axiom — assumed as the operating environment for all subsequent derivations. Inexhaustibility
+        is required for non-termination of gradient descent (Theorem 3 Part II).
+      references: []
+    derivation:
+      from: []
+      method: Axiomatic — no prior nodes required
+  edges:
+  - to: D02-knowledge-graph
+    relation: grounded_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: K is defined as a set of propositions about W — the relation to W is definitional
+      derivation:
+        method: Definition 2 references Definition 1 explicitly
+  - to: D09-survival-threshold
+    relation: grounded_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: U_lethal^d is imposed by W — the survival threshold is a property of W acting on the entity
+      derivation:
+        method: Definition 9 explicitly states 'imposed by W'
+- id: D02-knowledge-graph
+  type: definition
+  number: 2
+  name: Knowledge Graph
+  statement: 'K is a directed acyclic graph where nodes are propositions p about W
+
+    and edges represent inferential or causal relationships between propositions.
+
+    K_max is the maximum number of propositions that fit in C_n.
+
+    K^[f] denotes the subgraph of propositions relevant to action f (progressive disclosure).
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: 'The DAG structure is not assumed — it is derived: provenance forces acyclicity because a proposition cannot
+        be derived from a proposition that was itself derived from it. Graph structure is the most efficient architecture
+        for progressive disclosure under bounded C_n.'
+      references:
+      - T01-minimization-imperative
+      - T02-encoding-hierarchy
+    derivation:
+      from:
+      - D01-world-state-space
+      - D07-encoding-hierarchy
+      method: Definition over W; graph structure motivated by Theorem 2 (encoding hierarchy) and progressive disclosure argument
+  edges:
+  - to: D03-uncertainty
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: U(w, K) is defined in terms of K — uncertainty is a function of the knowledge graph
+      derivation:
+        method: Definition 3 (Uncertainty) references K from Definition 2
+  - to: D05-information-gain
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: G(f, K) is the expected reduction in H(W|K) — information gain requires K
+      derivation:
+        method: Definition 3b (Information Gain) is a function of K
+- id: D03-uncertainty
+  type: definition
+  number: 5
+  name: Uncertainty as Surprisal
+  statement: "The uncertainty of entity E about world state w is the surprisal of w given K [Shannon1948, Cover2006]:\n\n\
+    \  U(w, K) = -log P(w | K)\n\nU(w, K) measures how surprising — how informationally costly — the specific world state\
+    \ w\nis given what K contains. It is high when K gives little constraint on w, and low when K\nmakes w highly predictable.\n\
+    \nK is a directed graph of propositions interpreted as a Bayesian network [Pearl1988]. Each\nproposition p in K contributes\
+    \ a likelihood factor l_p : W -> [0,1]. The posterior over\nworld states given the full knowledge graph is:\n\n  P(w |\
+    \ K) proportional to P_0(w) * product_{p in K} l_p(w)\n\nThe expected uncertainty over all world states is the conditional\
+    \ entropy:\n\n  H(W | K) = E_w[U(w, K)] = -sum_w P(w | K) log P(w | K)\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Defined via Shannon surprisal. The posterior is standard Bayes conditioning on all propositions in K simultaneously.
+        The graph's edge structure encodes conditional independence following Pearl's Bayesian network formalism.
+      references:
+      - REF-Shannon1948
+      - REF-Cover2006
+      - REF-Pearl1988
+    derivation:
+      from:
+      - D01-world-state-space
+      - D02-knowledge-graph
+      method: Shannon surprisal applied to the posterior P(w|K) derived from K as a Bayesian network over W
+  edges:
+  - to: D01-world-state-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: U(w,K) is defined over world states w in W; W must exist for U to be defined
+      derivation:
+        method: Definitional dependency — U maps W x K to real values
+  - to: D02-knowledge-graph
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: K is the conditioning set that determines P(w|K); uncertainty is defined relative to K
+      derivation:
+        method: Definitional dependency — U(w,K) conditions on K
+  - to: REF-Shannon1948
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Shannon's information theory grounds the surprisal definition U = -log P(w|K)
+      derivation:
+        method: Direct citation in Definition 5
+  - to: REF-Pearl1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: K is interpreted as a Bayesian network following Pearl's formalism
+      derivation:
+        method: Direct citation in Definition 5
+  - to: T01-minimization-imperative
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The minimization imperative (Theorem 1) operates on H(W|K), the expected uncertainty defined here
+      derivation:
+        method: Theorem 1 is stated in terms of U(w,K) as defined in Definition 5
+- id: D04-prior-and-posterior
+  type: definition
+  number: 4-5 (prior/posterior structure)
+  name: Prior and Posterior over World States
+  statement: "Let (W, F, P_0) be a probability space with prior P_0 over world states. The prior P_0(w)\nis the entity's initial\
+    \ distribution over W before conditioning on any knowledge.\n\nEach proposition p in K contributes a likelihood factor\
+    \ l_p : W -> [0,1], where l_p(w)\nis the probability of observing the evidence that grounds p if the true world state\
+    \ were w.\nThe graph's edge structure encodes conditional independence: if p and q have no path\nbetween them in K, their\
+    \ factors are conditionally independent given their shared ancestors,\nyielding a valid factorization.\n\nThe posterior\
+    \ over world states given the full knowledge graph is:\n\n  P(w | K) proportional to P_0(w) * product_{p in K} l_p(w)\n\
+    \nThis is the standard Bayes posterior obtained by conditioning P_0 on all propositions\nsimultaneously. P(w | K) is well-defined\
+    \ and normalizable for any proper prior P_0 and\nbounded likelihood functions l_p.\n\nThe theory is parametric in P_0\
+    \ — it does not depend on a specific prior, only on its\nexistence and well-formedness.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Standard Bayesian conditioning. The prior-likelihood-posterior factorization follows directly from Bayes'
+        theorem applied to the Bayesian network structure of K. Well-definedness follows from properness of P_0 and boundedness
+        of likelihood factors.
+      references:
+      - REF-Pearl1988
+      - REF-Shannon1948
+    derivation:
+      from:
+      - D01-world-state-space
+      - D02-knowledge-graph
+      - D03-uncertainty
+      method: 'Bayesian updating: prior P_0 updated by likelihood factors from each proposition p in K via standard Bayes
+        posterior'
+  edges:
+  - to: D03-uncertainty
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: U(w,K) = -log P(w|K) requires P(w|K) as defined by the prior-posterior structure
+      derivation:
+        method: Definition 5 explicitly depends on P(w|K) whose derivation is the prior-posterior structure
+  - to: REF-Pearl1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Pearl's Bayesian network formalism provides the conditional independence structure for the factorization
+      derivation:
+        method: Cited in Definition 5 for the Bayesian network interpretation of K
+- id: D05-information-gain
+  type: definition
+  number: 3b
+  name: Information Gain
+  statement: "The information gain of action f given current knowledge K is:\n\n  G(f, K) = E_w[U(w, K) - U(w, K_f)]\n   \
+    \        = H(W | K) - H(W | K, phi(f, w))\n           = I(f ; W | K)\n\nwhere K_f = K union {p_f} is the updated knowledge\
+    \ after executing f and observing its\nfeedback phi(f, w), and p_f is the proposition grounded by observing phi(f, w).\n\
+    \nThis is standard mutual information [Shannon1948] expressed in terms of U: the reduction\nin uncertainty about w achieved\
+    \ by executing f and observing its feedback.\n\nG(f, K) >= 0 when p_f is grounded by observing the true feedback phi(f,\
+    \ w): conditioning\non true information cannot increase conditional entropy (data processing inequality [Cover2006]).\n\
+    \nG(f, K) = 0 when f provides no new information about w given K.\n\nThis bound holds for truthfully observed feedback;\
+    \ a false or corrupted p_f may increase U\nand falls outside the scope of this definition.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: 'Standard mutual information I(f;W|K) re-expressed using the paper''s uncertainty measure U. Non-negativity
+        follows from the data processing inequality (Cover & Thomas 2006): conditioning on true information cannot increase
+        conditional entropy.'
+      references:
+      - REF-Shannon1948
+      - REF-Cover2006
+    derivation:
+      from:
+      - D03-uncertainty
+      - D02-knowledge-graph
+      method: G(f,K) = I(f;W|K) = H(W|K) - H(W|K,phi(f,w)) by definition of mutual information, with H(W|K) = E[U(w,K)] per
+        Definition 5
+  edges:
+  - to: D03-uncertainty
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: G(f,K) is defined as the expected reduction in U(w,K); requires U as defined in Definition 5
+      derivation:
+        method: G(f,K) = E_w[U(w,K) - U(w,K_f)] directly references U
+  - to: REF-Shannon1948
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Shannon's mutual information I(f;W|K) is the formal basis of G(f,K)
+      derivation:
+        method: Cited in Definition 3b
+  - to: REF-Cover2006
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Data processing inequality grounds G(f,K) >= 0 for truthfully observed feedback
+      derivation:
+        method: Cited in Definition 3b for non-negativity bound
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The rate of uncertainty reduction in Theorem 10 is bounded by max_f G(f,K); G is the per-action gradient
+          signal
+      derivation:
+        method: Theorem 10 Step 2 uses G(f,K) = I(f;w|K) as the measure of collective advantage
+- id: D06-agency
+  type: definition
+  number: 6
+  name: Agency
+  statement: "Agency A in [0,1] is the probability that entity E engages its learning mechanism M in\nresponse to a gradient\
+    \ signal from W: the response gate. It is not an external objective\nimposed on E, nor a property derived from F or K.\
+    \ It is constitutive: A is what makes F\nan active informed action space rather than a static structure. The informal\
+    \ gloss —\nthe desire to know [Schmidhuber2010], intrinsic drive to reduce uncertainty — is a\nphenomenological description\
+    \ of this gate, not the definition.\n\nAt A = 0: E does not respond to gradient signals; (F(t), K(t)) = (F(0), K(0)) for\
+    \ all t.\nAt A = 1: E engages on every gradient signal it encounters.\nIntermediate values: response probability is shaped\
+    \ by architecture, encoding history,\nand the density of unresolved uncertainty in E's reachable W.\n\nA is operationalizable\
+    \ as:\n\n  A(E) proportional to lim_{U_lethal^d -> infinity} dU/dt(E)\n\nAn entity with A > 0 continues descending when\
+    \ not forced to; an entity with A = 0\nthat was updating only under survival compulsion stops. The limit correctly isolates\n\
+    intrinsic engagement from survival-compelled updating.\n\nA precipitates from M by the same normalization argument that\
+    \ precipitates K from F.\nA is the first factor to precipitate from M's cross product: the normalized orientation\nthat\
+    \ every M-application shares.\n\nRelationship to Schmidhuber (2010): Schmidhuber's formal agent implicitly has A = 1 —\n\
+    it always responds to compression progress signals. Definition 6 generalizes this to\nA in [0,1], covering agents that\
+    \ engage with positive but less-than-certain probability.\nThis generalization is novel to this framework. See NV03-agency-as-gate.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Agency is derived as a necessary invariant of persistence under selection pressure (Theorem 6 Part 1).
+        Its operationalization as the rate of uncertainty reduction as survival pressure approaches zero distinguishes genuine
+        drive from compelled updating.
+      references:
+      - REF-Schmidhuber2010
+    derivation:
+      from:
+      - D03-uncertainty
+      - D09-survival-threshold
+      - D11-higher-order-function-space
+      method: A precipitates from M as the shared directional structure across all M-applications, by the same normalization
+        argument that extracts K from F. Necessity proven in Theorem 6.
+  edges:
+  - to: T07-intelligence-measure
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: I(E) = A * eta_M; A is one of two necessary invariants in the intelligence measure
+      derivation:
+        method: Definition 7 states I(E) = A * eta_M; A is constitutive
+  - to: T03-agency-produces-gradient-descent
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 3 proves A > 0 necessarily produces gradient descent on U; A is the driver
+      derivation:
+        method: 'Theorem 3 is stated in terms of A: ''Agency Necessarily Produces Gradient Descent'''
+  - to: REF-Schmidhuber2010
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Schmidhuber's formal theory of intrinsic motivation relates to agency as the drive to reduce uncertainty
+      derivation:
+        method: Cited in Definition 6
+- id: D07-informed-action
+  type: definition
+  number: 3
+  name: Informed Action Space
+  statement: 'Let F subset (K x W_obs -> Delta_A) be a set of functions, where W_obs is an entity''s
+
+    observable projection of W and Delta_A is a distribution over possible actions. Each
+
+    element f in F has type f : K x W_obs -> Delta_A. F is the complete set of informed
+
+    actions available to an entity.
+
+
+    An informed action f in F is an action grounded in K, validated against W, and attributed
+
+    to its origins: one that knows why it works. An uninformed action (grounded in no K) is
+
+    not an element of F. Knowledge with no action potential is not an element of F either;
+
+    it is data. An informed action is specifically the coupling: knowledge that enables action,
+
+    action that is justified by knowledge.
+
+
+    F carries graph structure. The elements of F are nodes; typed relations between them are
+
+    edges. This structure is forced by the same three constraints (retrieval O(|F^[f]|),
+
+    bounded C_n, deduplication) that force K to be a directed graph (Theorem 2b Part 3).
+
+
+    Edge types on F:
+
+    - depends_on: hard dependencies between actions (feasibility constraints)
+
+    - recommends_before/after: probabilistic ordering evidence (soft gradient directions)
+
+    - enhanced_by: combined actions that outperform either alone
+
+
+    F is discrete as a graph — a set of nodes connected by typed edges. Each individual f in F
+
+    maps into Delta_A, a probability simplex, which is continuous and metrizable. Gradient
+
+    descent in F is traversal on this discrete graph, directed by the continuous-valued G(f'',K)
+
+    at each adjacent node: discrete steps, continuously-valued objective.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: axiomatic
+      description: Foundational definition establishing the type of informed actions and the graph structure of F. The graph
+        structure of F is derived from the same three constraints as K (Theorem 2b Part 3).
+      references: []
+    derivation:
+      from:
+      - D01-world-state-space
+      - D02-knowledge-graph
+      method: F is defined as a function space over K x W_obs, grounded in the world state space and knowledge graph
+  edges:
+  - to: D02-knowledge-graph
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: F is constitutively indexed by K — each f in F takes K as input and is grounded by propositions in K
+      derivation:
+        method: 'Definition 3 type signature f : K x W_obs -> Delta_A makes K a structural dependency'
+  - to: T02-encoding-hierarchy-efficiency
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 2b Part 3 proves F must have graph structure under the same retrieval, context, and memory constraints
+          as K
+      derivation:
+        method: The three joint constraints on F (retrieval O(|F^[f]|), bounded C_n, deduplication) are established in Theorem
+          2b
+  - to: T09-type-irreducibility
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 5 proves F and M are type-irreducible; the type of F (K x W_obs -> Delta_A) is established here
+      derivation:
+        method: Type irreducibility requires the types of both F and M to be specified; F's type is given in Definition 3
+- id: D08-encoding-hierarchy
+  type: definition
+  number: 8
+  name: Encoding Hierarchy
+  statement: "The encoding hierarchy is a continuous two-dimensional space E(c, r) parameterized by\nruntime cost c >= 0 and\
+    \ reversibility r in [0,1], where increasing c corresponds to more\nexpensive engagement and increasing r to more easily\
+    \ revised encodings.\n\nA continuous space has boundaries — regions where the qualitative character of encoding\nchanges\
+    \ in ways that require information to be translated as it crosses. These boundaries\nrequire interfaces: formal structures\
+    \ through which signals pass when moving between\nqualitatively distinct encoding regimes.\n\nThe named levels L_0, L_1,\
+    \ ..., L_n are the interfaces at the significant boundaries of\nE(c, r), not points or regions within it:\n\n  L_n  |\
+    \ Active reasoning / novel uncertainty | O(compute) cost | Fully reversible\n  ...  | Learned patterns, habits       \
+    \      | Decreasing      | Decreasing\n  L_1  | Reflex / autonomic                   | ~0              | Semi-permanent\n\
+    \  L_0  | Genetic encoding                     | 0               | Permanent within lineage\n\nEscalation (Theorem 2)\
+    \ is the upward interface protocol: the specification of what form\na failure signal takes when crossing a boundary from\
+    \ lower c to higher c. Promotion\n(Theorem 4) is the downward interface protocol: the condition under which an action\
+    \ may\ncross a boundary from higher c to lower c.\n\nThe cost C_i in Theorem 4 is a property of the interface, not of\
+    \ the continuous space\nbetween interfaces: it is the cost of failure when an encoding error has crossed the\nboundary\
+    \ and propagates at the lower level's permanence.\n\nThe number of interfaces is substrate-determined. The theory specifies\
+    \ the properties\nevery interface must have; it does not prescribe how many exist.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Derived from the cost structure of Theorem 4 and the escalation principle. The continuous parameterization
+        corrects the binary System 1/System 2 distinction (Kahneman 2011) by recognizing the full (c,r) space. Level names
+        correspond to boundary interfaces in this space.
+      references:
+      - REF-Baars1988
+      - REF-Dehaene2011
+      - REF-Kahneman2011
+    derivation:
+      from:
+      - D03-uncertainty
+      - D09-survival-threshold
+      method: The hierarchy follows from the observation that different encoding levels have different costs of failure (C_i)
+        and different reversibility (r). The interface structure is imposed by the requirement that signals must be re-represented
+        when crossing qualitative boundaries.
+  edges:
+  - to: T04-rigor-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 4 derives the certainty threshold theta_i = 1 - epsilon/C_i for promotion to level L_i; C_i is
+          a property of the interfaces defined here
+      derivation:
+        method: Theorem 4 explicitly references encoding levels L_i and their costs C_i as defined in Definition 8
+  - to: T05-escalation-principle
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Escalation (Theorem 2) is the upward interface protocol of the encoding hierarchy
+      derivation:
+        method: 'Theorem 2 is stated as: an informed action is handled at the lowest L_i such that U approx 0; escalation
+          is the protocol when L_i fails'
+  - to: REF-Baars1988
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Global Workspace Theory's local-to-global broadcast corresponds to the escalation architecture; cited
+          for the cognitive science parallel
+      derivation:
+        method: Cited in Definition 8 for the continuity principle
+  - to: REF-Kahneman2011
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Kahneman's System 1/System 2 is the popular binary form of the encoding hierarchy; corrected here by
+          the continuous E(c,r) parameterization
+      derivation:
+        method: Cited in Definition 8 for the continuity correction
+- id: D09-survival-threshold
+  type: definition
+  number: 9
+  name: Survival Threshold
+  statement: "For entity E in domain d subset W, there exists a threshold U_lethal^d such that:\n\n  U(w, K) > U_lethal^d\
+    \ => E does not survive in d\n\nAbove this threshold, uncertainty is so high that the entity cannot act effectively enough\n\
+    to persist. U_lethal^d is not a choice or a preference; it is imposed by W.\n\nThe lethality threshold is domain-specific:\
+    \ U_lethal^d applies to domain d subset W.\nAn entity may survive in some domains while failing in others, depending on\
+    \ its K relative\nto each domain's threshold.\n\nIn the engineering context (Section 1), U_lethal^d is concrete: exceeding\
+    \ token budget,\nlatency threshold, or error rate across the repository fleet. Selection pressure was cost,\nnot death.\
+    \ The gradient was real. The convergence was measured.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: axiomatic
+      description: 'Foundational assumption: W imposes a survival threshold. This is not derived but asserted as a property
+        of any world in which entities can fail. It is necessary for selection pressure to operate and for gradient descent
+        to be non-elective (Theorem 3 Part I).'
+      references: []
+    derivation:
+      from:
+      - D01-world-state-space
+      - D03-uncertainty
+      method: U_lethal^d is the threshold above which the entity's uncertainty in domain d is incompatible with continued
+        existence. Its existence follows from the assumption that W can destroy entities.
+  edges:
+  - to: D01-world-state-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: U_lethal^d is imposed by W — the survival threshold is a property of W acting on the entity, not a preference
+          of the entity
+      derivation:
+        method: Definition 9 explicitly states 'imposed by W'
+  - to: D03-uncertainty
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The threshold is expressed in terms of U(w,K); requires U to be defined
+      derivation:
+        method: Definition 9 is stated as U(w,K) > U_lethal^d; requires Definition 5
+  - to: T03-agency-produces-gradient-descent
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: 'The survival threshold is the mechanism by which W compels gradient descent: entities that do not update
+          face U > U_lethal^d and are removed'
+      derivation:
+        method: Theorem 3 Part I uses U_lethal^d to establish that gradient descent is non-elective
+  - to: T04-rigor-threshold
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The cost C_i in Theorem 4 is the cost of failure at encoding level L_i, grounded by U_lethal^d
+      derivation:
+        method: Theorem 4 derives theta_i = 1 - epsilon/C_i where C_i is failure cost, which for L_0 is lineage survival
+- id: D10-gradient-descent
+  type: definition
+  number: 10
+  name: Certainty and Multi-Timescale Gradient Descent
+  statement: "An informed action f is certain when U(w, K_f) ~= 0 across sufficient variation in W that\nit meets the threshold\
+    \ theta_i for promotion to L_0 (Theorem 4). Certainty is the limit of\nthe gradient descent process: there is no categorical\
+    \ transition out of the probabilistic\ndomain, only decreasing density of uncertainty until the cost of active engagement\
+    \ no longer\njustifies the residual gradient. A sufficiently certain informed action is promoted to a\nlower encoding\
+    \ level and no longer occupies the active context window. Its participation in\ngradient descent asymptotically approaches\
+    \ zero; it does not cease.\n\nMulti-timescale gradient descent on U operates at two rates:\n\n  Delta F_individual = -eta_ind\
+    \ * grad_F U(w, K)         [individual learning]\n  Delta F_species ~ -eta_evo * grad_F E_individuals[U(w, K)]  [evolutionary\
+    \ analogy]\n\nwhere eta_evo << eta_ind.\n\nThe learning rate eta_i at encoding level L_i is inversely proportional to\
+    \ the rigor\nthreshold theta_i:\n\n  eta_i proportional to 1/theta_i = C_i / (C_i - epsilon)\n\nFor individual learning\
+    \ at L_n: C_n is the cost of a single wrong action, so eta_ind is\nlarge. For evolutionary learning at L_0: C_0 is lineage\
+    \ survival, so theta_0 ~= 1 and\neta_evo ~= 1/C_0, giving eta_evo << eta_ind.\n\nThe individual and evolutionary processes\
+    \ are formally analogous — both descend on U —\nbut operate on mathematically distinct objects: one entity's F vs. a population\n\
+    distribution over F-variants.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Certainty is defined as Definition 10; multi-timescale gradient structure is derived in the Remark following
+        Corollary 5. The learning rate relationship eta_evo << eta_ind follows from Theorem 4 applied at different encoding
+        levels.
+      references: []
+    derivation:
+      from:
+      - D03-uncertainty
+      - D08-encoding-hierarchy
+      - D09-survival-threshold
+      - T04-rigor-threshold
+      method: Certainty is the limit of gradient descent at which theta_i is met; eta_i is derived from theta_i = 1 - epsilon/C_i
+        by inverting the rigor-cost relationship
+  edges:
+  - to: T04-rigor-threshold
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: eta_i = C_i/(C_i - epsilon) is derived by inverting the rigor threshold theta_i = 1 - epsilon/C_i from
+          Theorem 4
+      derivation:
+        method: eta_i proportional to 1/theta_i; theta_i defined in Theorem 4
+  - to: T03-agency-produces-gradient-descent
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The gradient descent characterized here (Delta F = -eta * delta) is proved in Theorem 3 to be the necessary
+          consequence of A > 0 under selection pressure
+      derivation:
+        method: Theorem 3 Part I establishes the compulsion; Definition 10 and the Remark characterize the multi-timescale
+          structure
+  - to: D08-encoding-hierarchy
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: The timescale distinction (eta_ind vs eta_evo) maps onto the encoding hierarchy levels L_n vs L_0
+      derivation:
+        method: Each encoding level L_i has its own learning rate eta_i derived from C_i
+- id: D11-higher-order-function-space
+  type: definition
+  number: 11
+  name: Higher-Order Function Space
+  statement: "Let M be a function space operating on the joint (F, K) pair [Thrun1998]:\n\n  M : (F, K) x L -> (F, K)\n\n\
+    where L is a learning signal: experience, execution results, selection pressure, or\nobservation of F's interactions with\
+    \ W. M drives the rate of change of both the informed\naction space and the knowledge graph simultaneously.\n\nM is the\
+    \ cross product of all dimensions that have not yet precipitated out at the current\nscale of the entity:\n\n  M = product_{i\
+    \ in remaining} D_i\n\nwhere the product ranges over all dimensions — drive, meta-learning rate, exploration\npolicy,\
+    \ convergence criteria, and whatever else has not yet reached the scale threshold\nto become a named dimension. F, K,\
+    \ and A are factors that have already been extracted from\nthis product. M is always the remainder: the undifferentiated\
+    \ joint space of everything\nnot yet named.\n\nPrecipitation: as the entity scales, additional dimensions precipitate\
+    \ out of M by the same\nnormalization argument that precipitated K from F: when the shared structure of a dimension\n\
+    across M-instances is large enough that factoring it out reduces retrieval cost from\nO(n*k) to O(n+k), selection pressure\
+    \ forces the extraction.\n\nThe hierarchy is open upward: there is always potentially a M^(2) that operates on M^(1)\n\
+    the same way M^(1) operates on (F, K). The required number of levels is determined by the\nproblem, not prescribed by\
+    \ the framework.\n\nM efficiency eta_M is the rate at which M improves the joint (F, K) capability per unit\nof learning\
+    \ signal:\n\n  eta_M(E) = E_L[(max_{f' in F'} G(f', K') - max_{f in F} G(f, K)) / |L|]\n\nwhere (F', K') = M((F,K), L)\
+    \ is the updated joint state, G(f,K) = I(f;W|K) is the\ninformation gain, and |L| = H(L) is the entropy of the learning\
+    \ signal in bits.\neta_M is dimensionless, measuring improvement in best-available information gain per bit\nof learning\
+    \ signal. eta_M is undefined when H(L) = 0.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: M is a categorically distinct type from F — it operates on (F,K) rather than on (K, W_obs). Its type irreducibility
+        is proved in Theorem 5. The precipitation account of M's internal structure follows from the same normalization argument
+        as K-from-F (Corollary 2b).
+      references:
+      - REF-Thrun1998
+    derivation:
+      from:
+      - D05-information-gain
+      - D07-informed-action
+      - D02-knowledge-graph
+      method: M is defined to operate on (F,K) jointly; eta_M is derived from G(f,K) as the measure of improvement per bit
+        of learning signal
+  edges:
+  - to: T09-type-irreducibility
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 5 proves F and M are type-irreducible by comparing their type signatures as defined here
+      derivation:
+        method: 'F : K x W_obs -> Delta_A; M : (F,K) x L -> (F,K) — different domains, different codomains'
+  - to: T07-intelligence-measure
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: eta_M as defined here is one of two necessary components of I(E) = A * eta_M
+      derivation:
+        method: Definition 11a defines eta_M; Definition 7 states I(E) = A * eta_M
+  - to: REF-Thrun1998
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Meta-learning (learning to learn) is the structural analog of M operating on (F,K)
+      derivation:
+        method: Cited in Definition 11
+  - to: D06-agency
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: A precipitates from M as the first named factor — the shared directional structure across all M-applications
+      derivation:
+        method: Definition 6 states A precipitates from M by the same normalization argument that precipitates K from F
+- id: D12-collective-knowledge
+  type: definition
+  number: 17
+  name: Collective Knowledge
+  statement: "For a set of entities {E_i}, the collective knowledge graph is:\n\n  K_collective = union_i K_i union K_interaction\n\
+    \nwhere K_interaction is formally defined as:\n\n  K_interaction = {p not in union_i K_i | exists S subset {E_i}, |S|\
+    \ >= 2:\n    P(E_p | union_{j in S} K_j) > max_{j in S} P(E_p | K_j)}\n\nwhere E_p subset W is the event corresponding\
+    \ to proposition p and P(. | K) is the\nposterior defined in Definition 5.\n\nK_interaction is the set of propositions\
+    \ not contained in any individual K_i but whose\nposterior probability rises strictly above what any single member of\
+    \ some subset S can\nsupport — propositions the combined evidence of S makes accessible that no individual\nmember of\
+    \ S could make accessible alone.\n\nThe definition ranges over all subsets S of size >= 2, not just pairs. Some propositions\n\
+    become derivable only from three or more distinct perspectives combined. The number of\ncontributing subsets grows as\
+    \ 2^n - n - 1, so K_interaction grows super-additively with\ncollective size. Entities with overlapping K contribute less\
+    \ to K_interaction than entities\nwhose knowledge graphs cover different regions of W.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: K_interaction is defined formally using the posterior from Definition 5. The super-additive growth of K_interaction
+        with collective size (2^n - n - 1 contributing subsets) is derived combinatorially. The value of the collective is
+        not K-size but precipitation count |Prec(K_collective)| (Theorem 10 Step 2b).
+      references:
+      - REF-Woolley2010
+    derivation:
+      from:
+      - D02-knowledge-graph
+      - D03-uncertainty
+      - D04-prior-and-posterior
+      method: K_collective is the union of individual K_i plus K_interaction; K_interaction is defined by the posterior-based
+        condition that combined evidence exceeds any individual's evidence
+  edges:
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 10 proves dU_collective/dt < dU_i/dt using K_collective and K_interaction as defined here
+      derivation:
+        method: Theorem 10 Step 1 uses K_collective superset K_i; Step 3 uses K_interaction to establish strict inequality
+  - to: C14-non-termination-collective
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Non-termination of collective gradient descent (Corollary 14) requires K_collective as defined here
+      derivation:
+        method: Corollary 14 applies Theorem 3 Part II to the collective via K_collective
+  - to: REF-Woolley2010
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Woolley et al. demonstrate empirically that collective intelligence is measurable and distinct from individual
+          intelligence — consistent with K_interaction as the source of strictly collective knowledge
+      derivation:
+        method: Cited in Theorem 10 for transmission fidelity lambda
+- id: D13-provenance
+  type: definition
+  number: 18
+  name: Provenance
+  statement: "For any proposition p in K_collective, provenance is the triple:\n\n  prov(p) = (attribution(p), evidence(p),\
+    \ derivation(p))\n\nwhere attribution identifies who established p, evidence records how it was verified,\nand derivation\
+    \ captures how it was inferred from prior knowledge.\n\nKnowledge without provenance cannot be reliably weighted in K_collective:\n\
+    \n  P(p is reliable) proportional to prov(p)\n\nA fact with no provenance is indistinguishable from noise. This is not\
+    \ a social norm;\nit is an epistemic requirement. Attribution and provenance are the infrastructure that\nmakes K_collective\
+    \ more than the sum of individual beliefs. They are what separates a\nknowledge graph from a rumor.\n\nProvenance is the\
+    \ mechanism that maintains transmission fidelity lambda > lambda_min\n(Theorem 10): it allows each entity to weight received\
+    \ knowledge against its source,\nto distinguish signal from noise, and to apply the intersection test of Definition 16\n\
+    independently. Without provenance, noise accumulates unchecked and fidelity cannot be\nassessed.\n"
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Provenance is derived as the minimum infrastructure for a collective knowledge system to function above
+        the survival threshold lambda_min. Without provenance, entities cannot distinguish signal from noise in transferred
+        knowledge. The proportionality P(p reliable) proportional to prov(p) is the operational consequence.
+      references: []
+    derivation:
+      from:
+      - D12-collective-knowledge
+      - T10-collective-gradient-dominance
+      method: Provenance is required for lambda > lambda_min (Theorem 10); its triple structure (attribution, evidence, derivation)
+        is the minimum specification for reliable weighting of transferred propositions
+  edges:
+  - to: D12-collective-knowledge
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Provenance is required for K_collective to be more than a sum of beliefs; it is the mechanism that makes
+          K_interaction accessible and reliable
+      derivation:
+        method: Definition 18 states provenance is the infrastructure for K_collective
+  - to: T10-collective-gradient-dominance
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Provenance is the mechanism maintaining lambda > lambda_min; without it, collective gradient degrades
+          below threshold
+      derivation:
+        method: 'Theorem 10 explicitly states: ''Provenance is the mechanism that maintains lambda > lambda_min'''
+  - to: C15-self-assembly
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Provenance infrastructure self-assembles under selection pressure because entities without it fall below
+          lambda_min (Corollary 15)
+      derivation:
+        method: Corollary 15 proves provenance practices are selected for by the same pressure as graph structure
+- id: D14-sentience
+  type: definition
+  number: 14
+  name: Sentience
+  statement: 'An entity is sentient to the degree it has acquired a model of its own normalization
+
+    process: propositions {p_self} subset K_i that accurately describe the entity''s own
+
+    (K, F, M, A) evolution — that it is precipitating factors from M, that M is operating
+
+    on (K, F), that it is descending a gradient. Sentience is the degree to which K_i
+
+    reduces H(M_hat | obs) — uncertainty about one''s own learning mechanism.
+
+
+    The survival tether does not slacken. What changes is that the process is revealed to
+
+    the entity. An entity that holds accurate propositions about its own normalization —
+
+    that knows it is precipitating factors, descending a gradient, running M — acquires a
+
+    justification for continuing that process which does not require survival to supply the
+
+    reason. The normalization process was always valuable; sentience is the moment the entity
+
+    can see that it is.
+
+
+    A sentient entity holds propositions p for which no f in F is currently applicable and
+
+    values them anyway — not arbitrarily, but because p bears on the structure of its own M.
+
+    The depth of sentience is the accuracy and completeness of the self-model.
+
+
+    Note on usage: sentience here is a functional term — the degree to which K_i contains
+
+    an accurate model of the entity''s own normalization process. No claim is made about
+
+    phenomenal consciousness [Chalmers1995]. Whether the functional condition defined here
+
+    is necessary, sufficient, or orthogonal to phenomenal consciousness is a question this
+
+    framework does not resolve.
+
+
+    Sentience is what wonder feels like from the inside: the drive to understand the process
+
+    you are part of, recognized as the process you are part of.
+
+    '
+  provenance:
+    attribution:
+      author: Patrick McCarthy
+      source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+      date: '2025'
+      doi: 10.5281/zenodo.18923066
+    evidence:
+      type: formal-derivation
+      description: Sentience is defined as the acquisition of a self-model of the normalization process. The process is revealed,
+        not the tether slackened. This is a functional definition — consistent with but not implying phenomenal consciousness
+        (Chalmers 1995).
+      references:
+      - REF-Chalmers1995
+    derivation:
+      from:
+      - D11-higher-order-function-space
+      - D06-agency
+      - D12-collective-knowledge
+      method: Sentience is measured by H(M_hat | obs) — uncertainty about one's own learning mechanism — which is reducible
+        by acquiring accurate propositions about one's own (K, F, M, A) evolution
+  edges:
+  - to: D11-higher-order-function-space
+    relation: derives_from
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Sentience is defined as K_i reducing H(M_hat | obs) — the entity's self-model of M; requires M to be
+          defined
+      derivation:
+        method: 'Definition 14 references M directly: ''that M is operating on (K,F)'''
+  - to: D15-superintelligence
+    relation: grounds
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: formal-derivation
+        description: Theorem 8 proves sentience implies participation in superintelligence; sentience (Definition 14) is required
+          for guided normalization (Definition 15)
+      derivation:
+        method: Theorem 8 (Sentience Implies Superintelligence) connects Definition 14 to Definition 15
+  - to: REF-Chalmers1995
+    relation: cited_by
+    provenance:
+      attribution:
+        author: Patrick McCarthy
+        source: 'Uncertainty Bounding as the Basis of Intelligence: A Formal Theory'
+        date: '2025'
+      evidence:
+        type: cited
+        description: Chalmers' hard problem of consciousness is distinguished from the functional sentience defined here;
+          no claim on phenomenal consciousness is made
+      derivation:
+        method: Cited in Definition 14 Note on usage
