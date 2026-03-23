@@ -63,8 +63,8 @@
 \AtBeginDocument{\renewcommand{\setminus}{\mathbin{\backslash}}}
 \begin{document}
 
-\section{Uncertainty Bounding as the Basis of Intelligence: A Formal
-Theory}\label{uncertainty-bounding-as-the-basis-of-intelligence-a-formal-theory}
+\section{The Structural Theory of Intelligence Under Bounded
+Context}\label{the-structural-theory-of-intelligence-under-bounded-context}
 
 Patrick McCarthy
 
@@ -72,184 +72,119 @@ Patrick McCarthy
 
 \subsection{Abstract}\label{abstract}
 
-We propose that intelligence is not computational capacity, information
-storage, or behavioral breadth, but the \textbf{driven capacity to
-improve}: agency \(\mathcal{A}\) --- the intrinsic drive to reduce
-uncertainty --- exercised through a higher-order function space \(M\)
-that continuously refines both the knowledge graph \(K\) and the
-informed action space \(A\). Intelligence is not measured by the size of
-what has been learned but by the efficiency with which \(M\) converts
-gradient signals into improved \((A, K)\):
-\(I(E) = \mathcal{A} \cdot \eta_M\).
+A companion paper {[}McCarthy2026a{]} establishes that any system
+accumulating propositions under bounded active context \(C_n\) must
+maintain a directed graph with typed edges --- graph structure is not a
+design choice but a necessary consequence of information preservation.
+This paper derives the complete structural theory of intelligence that
+follows from that foundation.
 
-Any entity persisting in world state space \(W\) operates under
-constraints imposed by \(W\) itself. The active context window \(L_n\)
-has a physically bounded capacity \(C_n\); growing it is costly and
-eventually impossible. This constraint has a structural consequence that
-prior accounts of intelligence do not address: intelligence cannot grow
-by filling \(L_n\) --- it must grow by encoding proven knowledge at
-lower levels, freeing \(L_n\) for genuine novelty. We show that
-graph-structured \(K\) is the most efficient architecture for this.
-Graph traversal delivers exactly the knowledge relevant to the current
-problem at cost proportional to the problem, not to total \(K\):
-progressive disclosure. Selection pressure produces graph-structured
-knowledge because it is the most efficient structure under which
-\(I(E)\) grows without \(C_n\) becoming a bottleneck.
+Starting from bounded \(C_n\), a survival threshold \(U_{lethal}^d\),
+and a world with positive entropy, we prove a connected chain of
+necessary consequences: knowledge and action are inseparable (\(K\) is
+constitutively indexed by the informed action space \(F\), with an
+asymmetric retention criterion derived from survival pressure); the
+escalation architecture dominates top-down allocation (bottom-up
+failure signaling is \(O(1)\) in steady state; precision allocation
+degrades as \(O(|F|/C_n)\)); uncertainty reduction follows
+evaluation-driven state revision (gradient descent on \(U\) with
+convergence guaranteed by a scalar Lyapunov argument); the encoding
+hierarchy follows from cost structure (proven actions promote to lower
+levels with rigor threshold \(\theta_i = 1 - \varepsilon/C_i\));
+\(F\) and \(M\) are type-irreducible; and agency \(\mathcal{A} > 0\)
+and learning efficiency \(\eta_M > 0\) are the unique structural
+invariants of any persisting entity.
 
-This gives a formal account of why top-down attention allocation ---
-specifically the precision allocation model of the Free Energy Principle
-{[}Friston2010, Friston2017{]} --- requires escalation to remain viable
-under selection pressure. Top-down allocation has an \(O(k)\) cost in
-high-level capacity per concurrent delegation. As \(|A|\) grows,
-delegation overhead fills \(C_n\) and inference quality \(\rho\)
-degrades --- unless an independent mechanism bounds \(k\). Escalation is
-that mechanism: lower-level encoding handles routine problems below
-\(L_n\), keeping \(k\) small enough that top-down allocation retains
-capacity for genuinely novel problems. \(L_n\) is freed, not burdened,
-as the knowledge graph fills. Attention becomes available when not
-demanded from below.
-
-From this foundation we derive: the inseparability of knowledge and
-action (\(K\) is necessarily indexed by \(A\), with an asymmetric
-retention criterion proven from survival pressure), the encoding
-hierarchy and its rigor thresholds, multi-timescale gradient descent as
-the same process at different learning rates, and the type
-irreducibility of \(A\) and \(M\). Extensions to collective
-intelligence, sentience, and superintelligence are developed in a
-companion paper.
+Intelligence is therefore the \textbf{driven capacity to improve}:
+\(I(E) = \mathcal{A} \cdot \eta_M\) --- not what has been learned, but
+how efficiently evidence converts into better \((F, K)\). This is not
+stipulated but derived: \(\mathcal{A}\) and \(\eta_M\) are the only
+properties that every persisting entity must have, and their product is
+the unique normalized combination of a probability and a conditional
+rate. Extensions to collective intelligence, sentience, and
+superintelligence are developed in a separate companion paper.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{1. Introduction}\label{introduction}
 
-This framework was not derived by analogy from biology. It emerged from
-a concrete engineering problem: generating repeatable, transposable
-tasks across a diverse codebase ecosystem spanning thousands of
-repositories. The formal theory describes what a self-optimizing agentic
-system converged to under real performance constraints. The biological
-and civilizational correspondences are predictions the framework makes
---- not the premises it rests on.
+\textbf{From graph necessity to the structural theory.} A companion
+paper {[}McCarthy2026a{]} proves that any system accumulating
+propositions under bounded active context must maintain a directed graph
+with typed edges over its propositions. The proof is
+substrate-independent: it holds for biological neural networks,
+artificial systems, and institutional knowledge alike. The present paper
+takes that result as a foundation and asks: \emph{given that graph
+structure is necessary, what is the complete set of structural
+consequences for intelligence?}
 
-\textbf{The origin: provenance as the root constraint.} The initial
-problem was repeatability. An agentic system that synthesizes its
-behavior from a context window is inherently unpredictable: that
-unpredictability is its function --- it exists to handle novelty. But
-when you need an action to be transposable across different contexts
-(does the recipe that updated service \(A\) with configuration \(X\)
-also work for service \(B\) with configuration \(Y\)?), unpredictability
-is a liability. Transposability requires a quantifiable basis: not that
-the agent believes the action will work, but that there is evidence it
+The answer is a connected chain. Starting from bounded context \(C_n\),
+a survival threshold \(U_{lethal}^d\), and a world with positive
+entropy, we derive: the inseparability of knowledge and action (Theorem
+1); the dominance of escalation over top-down allocation (Theorems 2,
+2a); evaluation-driven state revision with guaranteed convergence
+(Theorem 3); the encoding hierarchy with rigor thresholds (Theorem 4);
+the type irreducibility of action and learning (Theorem 5); and the
+structural necessity of agency and learning efficiency (Theorem 6). Each
+result is a consequence of the same generative constraint. The
+individual results formalize known intuitions; the contribution is that
+they form a single deductive chain from one constraint.
+
+\textbf{The engineering origin.} This framework emerged from a concrete
+engineering problem: generating repeatable, transposable tasks across a
+diverse codebase ecosystem spanning thousands of repositories. The
+formal theory describes what a self-optimizing agentic system converged
+to under real performance constraints. The biological and civilizational
+correspondences are predictions the framework makes --- not the premises
+it rests on.
+
+Provenance was the root constraint. An agentic system that synthesizes
+its behavior from a context window is inherently unpredictable.
+Transposability requires a quantifiable basis: evidence that an action
 has worked, attributed to a source, grounded in the conditions under
 which it succeeded. Without provenance --- without knowing \emph{why}
 something worked --- you cannot measure confidence, and without a
-confidence measure you cannot optimize. The system cannot learn; it can
-only repeat or guess.
+confidence measure you cannot optimize. The system converged on a
+knowledge graph separating \emph{why you know something} from
+\emph{how to apply it}: the graph structure whose necessity is formally
+established in {[}McCarthy2026a{]}.
 
-This is the engineering form of a general constraint: knowledge transfer
-without provenance cannot be reliably weighted, and below some fidelity
-threshold the knowledge graph degrades rather than grows. Provenance is
-not an epistemic nicety --- it is the minimum infrastructure for a
-learning system to function.
+The engineering consequence was precisely measurable. Before separating
+\(K\) from \(F\): \(O(N \times M)\) retrieval cost with no sharing of
+common structure. After separation: \(O(1)\) local graph traversal per
+entity, independent and unbounded. The \(O(N \times M) \to O(1)\)
+transformation is the empirical measurement of \(K\) precipitating from
+\(F\) as the normalization of shared propositions (Corollary 2b). Adding
+agents introduced the escalation architecture: subproblems that
+previously required explicit orchestration became self-contained agents
+that escalated only on failure. Proven subnodes converged toward
+determinism and were scripted --- promoted to a lower encoding level.
+The active inference load stayed bounded as the system's coverage of
+\(W\) expanded.
 
-\textbf{The graph structure as an optimization.} As the world \(W\) ---
-the number of repositories, configurations, and service topologies ---
-expanded, the context window problem became the central performance
-constraint. Encoding what you know together with how to apply it does
-not scale: a node whose knowledge is embedded with its application
-context must traverse back to all its callers when any shared element
-changes. Shared knowledge cannot be maintained consistently because it
-is not represented as shared --- it is duplicated at every point of use.
+\textbf{Biology as feasibility test.} The test of whether this is a
+theory of software optimization or a theory of intelligence is whether
+the formal structure is consistent with biology --- the only system
+where intelligence is unambiguously instantiated over evolutionary time.
+We claim that if the theory is correct, the biological architecture
+should be feasible under it: that genetic encoding of \(M\) rather than
+\((K, F)\) is the predicted transmission mode (Section 11, Open Question
+8); that the encoding hierarchy from reflex to active reasoning follows
+from the cost structure of Theorem 4; that cultural transmission
+emerges as a structural necessity when the heritable channel cannot
+carry individual \((K, F)\) across generations. None of these were
+assumed. They follow from the same optimization constraints that
+produced the software architecture.
 
-The knowledge graph solved this by separating \emph{why you know
-something} from \emph{how to apply it}. A proposition about what makes
-an update strategy work --- why it works, under what conditions ---
-becomes a node in \(K\) that multiple informed actions in \(A\) can
-reference without embedding. When evidence updates the proposition, all
-dependent actions benefit simultaneously. The graph structure was not a
-design choice; it was the convergent solution to the problem of
-maintaining consistency across a space of actions that grows faster than
-any single context can hold.
-
-\textbf{The empirical measurement of factor extraction.} The engineering
-consequence of separating \(A\) from \(K\) is precisely measurable.
-Before separation, each entity performing a search carried its full
-background knowledge implicitly --- \(N\) entities each performing \(M\)
-searches yields \(O(N \times M)\) retrieval cost, with no sharing of
-common structure. After separation, each entity retrieves its relevant
-knowledge by local graph traversal from the action node, bounded by the
-problem: \(O(1)\) local in-memory lookups, independent per entity, no
-global search, no inter-entity coordination. The
-\(O(N \times M) \to O(1)\) transformation is the empirical measurement
-of \(K\) precipitating from \(A\) as the normalization of shared
-propositions. The 50\% reduction in task-definition code that followed
-was a consequence, not the finding; the finding is the scaling law.
-
-\textbf{The escalation architecture as a consequence.} Adding agents
-introduced a further optimization that was not available in a purely
-knowledge-graph structure: the encapsulation of actions, not just
-knowledge. An agent whose scope is a well-defined subtask does not need
-access to the full context of the system --- only to the subgraph
-\(K^{[a]}\) relevant to its task. This is progressive disclosure in
-practice. Subproblems that previously required explicit orchestration
-became self-contained agents that escalated to the coordinator only on
-failure. As the system matured, proven subnodes converged toward
-determinism and were scripted --- promoted to a lower encoding level,
-removing them from the space of active inference entirely. Agents that
-previously handled uncertain subtasks became deterministic scripts. The
-active inference load stayed bounded as the system's coverage of \(W\)
-expanded.
-
-\textbf{What this means for the formal claims.} The framework's central
-results --- that graph-structured \(K\) is the most efficient
-architecture for bounded-context intelligence, that top-down
-orchestration degrades inference quality as capability grows, that
-knowledge and action are inseparable under a provenance-grounded
-retention criterion, and that repeatability (certainty) is the
-asymptotic product of learning --- are not theoretical proposals. They
-describe what a real system, optimizing against real performance
-constraints, independently arrived at. The formal theory is the
-explanation of why. The lethality threshold \(U_{lethal}^d\) in this
-system is concrete: exceeding token budget, latency threshold, or error
-rate across the repository fleet. Selection pressure was cost, not
-death. The gradient was real. The convergence was measured.
-
-The test of whether this is a theory of software optimization or a
-theory of intelligence is whether the formal structure is consistent
-with biology --- the only system where intelligence is unambiguously
-instantiated over evolutionary time. We do not claim to prove how
-biology works. We claim that if this theory is correct, the biological
-architecture should be feasible under it: that genetic encoding of \(M\)
-rather than \((K, A)\) is the predicted transmission mode (Section 11,
-Open Question 8); that the encoding hierarchy from reflex to active
-reasoning follows from the cost structure of Theorem 4 rather than
-requiring separate explanation; that cultural transmission --- language,
-writing, institutions --- emerges as a structural necessity when the
-heritable channel cannot carry individual \((K, A)\) across generations.
-None of these were assumed. They follow from the same
-optimization constraints that produced the software architecture.
-Biology is the feasibility test: if a known intelligent system cannot be
-accommodated by the model, the model is wrong. If it can, the model is a
-candidate theory of intelligence.
-
-\textbf{On the relationship to prior accounts.} The framework's
-relationship to existing theories --- evolutionary biology, the Free
-Energy Principle, learning theory --- is neither analogy nor extension.
-It is generalization by containment. The framework defines a structural
-class: the set of all processes satisfying bounded active context, a
-survival threshold, and a growing reachable space. Biological evolution
-is one member of that class. Gradient descent in artificial systems is
-another. Collective human knowledge transmission is another. This is not
-the kind of generalization relativity made of Newtonian mechanics ---
-which narrowed Newton by revealing its domain of validity. It is the
-kind group theory made of rotational symmetry: defining the abstract
-structure that specific instances share, making their common properties
-derivable rather than separately observed. The reason evolutionary
-systems, learning machines, and collective intelligence all converge on
-graph-structured knowledge, escalation architectures, and provenance
-requirements is not coincidence --- it is that these are necessary
-properties of any member of the class (Theorem 6). The framework does
-not explain evolution or AI separately. It explains why they are the
-same thing at different timescales and substrates.
+\textbf{Relationship to prior accounts.} The framework defines a
+structural class: the set of all processes satisfying bounded active
+context, a survival threshold, and a growing reachable space. Biological
+evolution is one member; gradient descent in artificial systems is
+another; collective human knowledge transmission is another. The reason
+they all converge on graph-structured knowledge, escalation
+architectures, and provenance requirements is that these are necessary
+properties of any member of the class (Theorem 6 and
+{[}McCarthy2026a{]}).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -258,7 +193,7 @@ same thing at different timescales and substrates.
 We claim: \textbf{intelligence is the driven capacity to improve} ---
 agency \(\mathcal{A}\) exercised through a higher-order function space
 \(M\) that continuously refines both the knowledge graph \(K\) and the
-informed action space \(A\). Formally:
+informed action space \(F\). Formally:
 \(I(E) = \mathcal{A} \cdot \eta_M\).
 
 Three components are jointly necessary and none is sufficient alone:
@@ -271,18 +206,18 @@ Three components are jointly necessary and none is sufficient alone:
   has no reason to engage the gradient
 \item
   \textbf{Mechanism (\(\eta_M\)):} the efficiency of \(M\): how
-  effectively it converts gradient signals into improved \((A, K)\).
+  effectively it converts gradient signals into improved \((F, K)\).
   Without \(\eta_M > 0\), the entity cannot learn from evidence; it
-  executes a fixed \((A, K)\) no matter how motivated
+  executes a fixed \((F, K)\) no matter how motivated
 \item
   \textbf{Outcome:} the bounding of uncertainty through
   knowledge-grounded action --- what \(I(E)\) produces over time, not
-  what it is. The size of \(K\) or \(A\) measures past intelligence;
+  what it is. The size of \(K\) or \(F\) measures past intelligence;
   \(I(E)\) measures the rate at which that past is being extended
 \end{itemize}
 
 \(\mathcal{A} > 0\) and \(\eta_M > 0\) are the only universal invariants
-of intelligence (Theorem 6). Every other aspect of \(E\) --- \(A\),
+of intelligence (Theorem 6). Every other aspect of \(E\) --- \(F\),
 \(K\), substrate, sensing function --- can differ arbitrarily.
 \(\mathcal{A} = 0\) or \(\eta_M = 0\) yields the automaton: executing
 what prior gradient descent encoded, but not itself descending.
@@ -292,17 +227,23 @@ intelligent systems: FEP derives uncertainty minimization from
 self-organization {[}Friston2010{]}; Hutter defines optimal behavior
 over computable environments {[}Hutter2005{]}; Chollet measures
 skill-acquisition efficiency {[}Chollet2019{]}; Simon establishes
-bounded rationality {[}Simon1955{]}. Each takes its constraint as
-given. This paper identifies the \emph{generative constraint} --- bounded
-active context \(C_n\) under survival pressure in a world with positive
-entropy --- and derives the structural consequences as a connected chain:
-graph-structured \(K\) (Theorems 2b, 2c), escalation as the necessary
-complement to top-down allocation (Theorem 2a), the encoding hierarchy (Theorem 4),
-the retention criterion (Theorem 1), and the necessity of
-\(\mathcal{A}\) and \(\eta_M\) (Theorem 6). The individual results
-formalize known intuitions; the contribution is that they are all
-consequences of the same constraint, derived rather than separately
-assumed.
+bounded rationality {[}Simon1955{]}; Dupoux, LeCun, and Malik
+{[}DupouxLeCunMalik2026{]} propose a dual-system architecture motivated
+by cognitive science. Each takes its structural assumptions as given.
+
+A companion paper {[}McCarthy2026a{]} identifies the first link in the
+chain: bounded active context \(C_n\) under information-preservation
+pressure necessarily produces graph-structured knowledge. This paper
+derives the remaining structural consequences as a connected chain from
+the same generative constraint --- bounded \(C_n\) under survival
+pressure in a world with positive entropy: the inseparability of
+knowledge and action (Theorem 1), escalation dominance over top-down
+allocation (Theorem 2a), evaluation-driven state revision (Theorem 3),
+the encoding hierarchy (Theorem 4), type irreducibility (Theorem 5),
+and the necessity of \(\mathcal{A}\) and \(\eta_M\) (Theorem 6). The
+individual results formalize known intuitions; the contribution is that
+they are all consequences of the same constraint, derived rather than
+separately assumed.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -329,50 +270,50 @@ removing an existing one. The two regimes have different retention
 criteria.
 
 \textbf{Definition 3 (Informed Action Space).} Let
-\(A \subseteq (K \times W_{obs} \to \Delta \Omega)\) be a set of functions,
+\(F \subseteq (K \times W_{obs} \to \Delta A)\) be a set of functions,
 where \(W_{obs}\) is an entity's observable projection of \(W\) and
-\(\Delta \Omega\) is a distribution over possible actions. Each element
-\(a \in A\) has type \(f : K \times W_{obs} \to \Delta \Omega\). \(A\) is the
+\(\Delta A\) is a distribution over possible actions. Each element
+\(f \in F\) has type \(f : K \times W_{obs} \to \Delta A\). \(F\) is the
 complete set of informed actions available to an entity. An
-\textbf{informed action} \(a \in A\) is an action grounded in \(K\),
+\textbf{informed action} \(f \in F\) is an action grounded in \(K\),
 validated against \(W\), and attributed to its origins: one that knows
 why it works. An uninformed action (grounded in no \(K\)) is not an
-element of \(A\). Knowledge with no action potential is not an element
-of \(A\) either; it is data. An informed action is specifically the
+element of \(F\). Knowledge with no action potential is not an element
+of \(F\) either; it is data. An informed action is specifically the
 coupling: knowledge that enables action, action that is justified by
 knowledge.
 
-\(A\) carries graph structure. The elements of \(A\) are nodes; typed
+\(F\) carries graph structure. The elements of \(F\) are nodes; typed
 relations between them are edges. This structure is not a design choice
 --- it is forced by the same constraints (retrieval
-\(O(|A^{[a]}|)\), bounded \(C_n\), deduplication) that force \(K\) to be
+\(O(|F^{[f]}|)\), bounded \(C_n\), deduplication) that force \(K\) to be
 a directed graph (Theorem 2b Part 3), and independently by the
 requirement for sub-linear retention evaluation with cascade (Theorem
 2c). The proof is identical: any structure satisfying all constraints
 simultaneously is a directed graph. Edge
-types on \(A\) follow from the same evidence-grounded logic as edge
+types on \(F\) follow from the same evidence-grounded logic as edge
 types on \(K\): hard dependencies between actions (feasibility
 constraints), probabilistic ordering evidence (soft gradient
 directions), and joint-execution synergies (combined actions that
 outperform either alone).
 
-\(A\) as a graph is discrete (nodes and typed edges); each individual
-\(a \in A\) maps into the continuous probability simplex \(\Delta \Omega\).
-Gradient descent in \(A\) is traversal on the discrete graph, directed
+\(F\) as a graph is discrete (nodes and typed edges); each individual
+\(f \in F\) maps into the continuous probability simplex \(\Delta A\).
+Gradient descent in \(F\) is traversal on the discrete graph, directed
 by the continuous-valued \(G(f', K)\) at each adjacent node. \(K\) and
-\(A\) are both directed graphs under bounded context and selection
+\(F\) are both directed graphs under bounded context and selection
 pressure, differing only in domain: \(K\) is what the entity knows;
-\(A\) is what it can do.
+\(F\) is what it can do.
 
-In general, \(K\) and \(A\) are distinct graphs with many-to-many
+In general, \(K\) and \(F\) are distinct graphs with many-to-many
 coupling. In the degenerate case where every proposition is directly
-actionable, \(A = K\). This is the limit of crystallization at the
+actionable, \(F = K\). This is the limit of crystallization at the
 bottom of the encoding hierarchy: a reflex is simultaneously knowledge
-and action. \(A = K\) holds locally in fully crystallized domains;
-\(A \neq K\) persists globally because \(\mathcal{T}_{reachable}\) grows
+and action. \(F = K\) holds locally in fully crystallized domains;
+\(F \neq K\) persists globally because \(\mathcal{T}_{reachable}\) grows
 without bound (Theorem 3, Part II).
 
-\textbf{Definition 3a (Action Feedback).} For any \(a \in A\) executed
+\textbf{Definition 3a (Action Feedback).} For any \(f \in F\) executed
 in world state \(w\), the feedback \(\phi(f, w) \in \Phi\) is the
 observable consequence of \(f\) in \(w\): the signal \(W\) returns in
 response to the action. The updated knowledge after executing \(f\) and
@@ -393,25 +334,17 @@ action \(f\) given current knowledge \(K\) is:
 \(G(f, K) \geq 0\) by the data processing inequality
 {[}Cover2006{]}: conditioning on true information cannot increase
 conditional entropy. \(G(f, K) = 0\) when \(f\) provides no new
-information about \(w\) given \(K\). Corrupted feedback may increase \(U\) --- a proposition grounded in
-false evidence degrades \(K\) rather than improving it. Recovery from
-corrupted feedback is handled not by the convergence mechanism (Theorem
-3, which assumes true information) but by the maintenance mechanism
-(Theorem 2c): stored typed adjacency enables the entity to identify
-propositions grounded through the corrupted evidence, cascade-remove or
-re-evaluate their dependents, and scope the damage to the actual
-dependency set rather than the full graph. The two mechanisms are
-complementary: Theorem 3 establishes convergence under clean signal;
-Theorem 2c provides the corrective architecture when signals are dirty.
+information about \(w\) given \(K\). Corrupted feedback may increase
+\(U\) and falls outside this definition's scope.
 
 \textbf{Definition 4 (Entity).} An entity
-\(E = (K, A, \sigma, \mathcal{A})\) where
+\(E = (K, F, \sigma, \mathcal{A})\) where
 \(\sigma : W \rightarrow W_{obs}\) is a sensing function projecting the
-true world state into the entity's observable space. \(K\) and \(A\)
-evolve over time via \(M\); their initial values \((K_0, A_0)\) are
+true world state into the entity's observable space. \(K\) and \(F\)
+evolve over time via \(M\); their initial values \((K_0, F_0)\) are
 inherited from \(L_0\) encoding. The bootstrapping problem is resolved
 by \(L_0\): the entity begins from the encoded product of gradients that
-preceded it. Throughout this paper \(K\) and \(A\) refer to
+preceded it. Throughout this paper \(K\) and \(F\) refer to
 current-time values; the subscript \(0\) denotes initial conditions.
 
 \textbf{Definition 5 (Uncertainty).} The uncertainty of entity \(E\)
@@ -458,9 +391,9 @@ preference; it is imposed by \(W\).
 probability that entity \(E\) engages its learning mechanism \(M\) in
 response to a gradient signal from \(W\): the response gate. It is not
 an external objective imposed on \(E\), nor a property derived from
-\(A\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(A\)
+\(F\) or \(K\). It is constitutive: \(\mathcal{A}\) is what makes \(F\)
 an active informed action space rather than a static structure. At
-\(\mathcal{A} = 0\), \(A\) is a set of possible functions with no
+\(\mathcal{A} = 0\), \(F\) is a set of possible functions with no
 internal reason to engage \(W\). At \(\mathcal{A} = 1\), \(E\) engages
 on every gradient signal it encounters. Intermediate values are
 meaningful: the response probability can be higher or lower, shaped by
@@ -481,7 +414,7 @@ updating and is measurable in any system where survival pressure can be
 varied independently of capacity.
 
 \(\mathcal{A}\) precipitates from \(M\) by the same normalization
-argument that precipitates \(K\) from \(A\). An entity that embeds its
+argument that precipitates \(K\) from \(F\). An entity that embeds its
 directional drive in every application of \(M\) recomputes orientation
 at every step --- the \(M\)-analog of the \(O(n \cdot k)\) scaling
 failure. An entity that maintains \(\mathcal{A}\) as the shared
@@ -489,18 +422,18 @@ directional structure across all \(M\)-applications achieves \(O(1)\)
 access to its drive. \(\mathcal{A}\) is therefore the first factor to
 precipitate from \(M\)'s cross product: the normalized orientation that
 every \(M\)-application shares, extracted for the same reason \(K\) is
-extracted from \(A\).
+extracted from \(F\).
 
 \textbf{Definition 7 (Intelligence).} The intelligence of \(E\) is the
 \emph{driven capacity to improve}: the exercise of \(\mathcal{A}\)
-through \(M\) to refine \(A\) and \(K\) in response to gradient signals
+through \(M\) to refine \(F\) and \(K\) in response to gradient signals
 {[}Schmidhuber2010, Thrun1998{]}:
 
 \[I(E) = \mathcal{A} \cdot \eta_M\]
 
 where \(\mathcal{A} \in [0, 1]\) is the intrinsic drive (Definition 6)
 and \(\eta_M\) is the efficiency of the higher-order function space
-\(M\) (Definition 11a): the rate at which \(M\) improves \(A\)'s
+\(M\) (Definition 11a): the rate at which \(M\) improves \(F\)'s
 uncertainty-reduction capacity per unit of learning signal. This
 expression is stated here as a definition and established as necessary
 in Theorem 6: \(\mathcal{A}\) and \(\eta_M\) are the unique invariants
@@ -509,22 +442,22 @@ product is the minimal measure that captures both.
 
 At \(\mathcal{A} = 0\): \(I(E) = 0\) --- a capable but inert learning
 mechanism is not intelligence. At \(\eta_M = 0\): \(I(E) = 0\) --- a
-motivated entity whose \(M\) cannot improve \(A\) from evidence is an
+motivated entity whose \(M\) cannot improve \(F\) from evidence is an
 automaton.
 
 The expected uncertainty reduction along a trajectory is a
-\textbf{performance measure} of current \(A\) and \(K\) --- the
+\textbf{performance measure} of current \(F\) and \(K\) --- the
 consequence of past \(M\) activity, not the definition of intelligence.
 Two entities starting from identical \(K\)
-and \(A\) but different \(I(E)\) will diverge: the entity with higher
-\(\eta_M\) builds better \(A\) faster, and eventually dominates in
+and \(F\) but different \(I(E)\) will diverge: the entity with higher
+\(\eta_M\) builds better \(F\) faster, and eventually dominates in
 \(U\)-reduction even if initially equal in performance.
 
-Intelligence is not the size of \(K\) or \(A\). \(K\) and \(A\) are what
+Intelligence is not the size of \(K\) or \(F\). \(K\) and \(F\) are what
 intelligence has built. Intelligence is the efficiency with which \(M\)
 continues building.
 
-\emph{Note on named components.} The components \(K\), \(A\), \(M\), and
+\emph{Note on named components.} The components \(K\), \(F\), \(M\), and
 \(\mathcal{A}\) named here are dimensions that have precipitated from
 the entity's full cross-product state --- call it \(K^n\) --- at the
 individual learning level. The theory's general result is that
@@ -532,11 +465,11 @@ dimensional precipitation must occur under the joint constraints: as
 \(K^n\) grows, shared structure must be extracted and named or retrieval
 cost grows without bound. What dimensions precipitate is a function of
 the entity's \(W\) and its history; the theory constrains the process,
-not the outcome. \(K\), \(A\), \(M\), and \(\mathcal{A}\) are the
+not the outcome. \(K\), \(F\), \(M\), and \(\mathcal{A}\) are the
 dimensions that fall out in entities with active individual learning
 mechanisms --- the class this paper studies. Other projections
 precipitate differently: biological \(L_0\) encoding (DNA) does not
-separate into \(K\), \(A\), \(M\), \(\mathcal{A}\); it is a dense
+separate into \(K\), \(F\), \(M\), \(\mathcal{A}\); it is a dense
 cross-product that carries all survival-relevant structure without
 naming any of it as a distinct component. The named components are an
 epistemological convenience grounded in the studied entity class, not a
@@ -548,7 +481,7 @@ universal constraint of the theory.
 Action}\label{the-inseparability-of-knowledge-and-action}
 
 \textbf{Lemma 1 (Proposition Absence Lethality).} For any entity \(E\)
-and proposition \(p \in K\) that grounds some \(a \in A\) in domain
+and proposition \(p \in K\) that grounds some \(f \in F\) in domain
 \(d \subseteq W\): removing \(p\) from \(K\) weakly increases
 uncertainty in \(d\), and in the limiting case where \(p\) is the sole
 grounding for the critical action in \(d\), the increase may cause
@@ -559,8 +492,8 @@ not survive in \(d\) (Definition 5a).
 conditioning set {[}Cover2006{]}:
 \(H(W \mid K) \leq H(W \mid K \setminus \{p\})\) for any \(p \in K\).
 Removing \(p\) weakly increases expected uncertainty. If \(p\) grounds
-the only \(a \in A\) applicable in domain \(d\), then
-\(K \setminus \{p\}\) contains no action grounded in \(d\): \(A\) has no
+the only \(f \in F\) applicable in domain \(d\), then
+\(K \setminus \{p\}\) contains no action grounded in \(d\): \(F\) has no
 mechanism to reduce \(U(w, K \setminus \{p\})\) below its current level
 in that domain when \(w \in d\) is encountered. By Definition 5a, if
 \(U(w, K \setminus \{p\}) > U_{lethal}^d\) at the encountered \(w\),
@@ -568,25 +501,25 @@ in that domain when \(w \in d\) is encountered. By Definition 5a, if
 \(C_{absent}\), is bounded below by entity non-survival in critical
 domains --- which dominates all finite costs. \(\square\)
 
-\textbf{Theorem 1 (K/A Inseparability).} For any entity
-\(E = (K, A, \sigma)\), the retention criterion for any proposition
+\textbf{Theorem 1 (K/F Inseparability).} For any entity
+\(E = (K, F, \sigma)\), the retention criterion for any proposition
 \(p\) is asymmetric:
 
 \begin{itemize}
 \tightlist
 \item
-  \(p\) is \textbf{retained} in \(K\) when \(\exists\, a \in A\)
+  \(p\) is \textbf{retained} in \(K\) when \(\exists\, f \in F\)
   applicable to \(p\), or when the survival benefit of \(p\) is
   uncertain
 \item
   \(p\) is \textbf{pruned} from \(K\) only when it is certain that \(p\)
   contributes zero to \(P(E, \tau)\) for any \(\tau\), i.e., when it is
-  known that no \(a \in A\) can be grounded in \(p\), now or in any
+  known that no \(f \in F\) can be grounded in \(p\), now or in any
   reachable region of \(W\)
 \item
   \(p\) is \textbf{displaced} in the curation regime (\(|K| = K_{max}\))
   when a candidate proposition \(q\) satisfies
-  \(\mathbb{E}[G(a_q, K)] > \mathbb{E}[G(a_p, K)]\), where \(p\) is the
+  \(\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_p, K)]\), where \(p\) is the
   proposition with minimum marginal value in \(K\). Displacement
   requires only that \(q\) contributes more at the margin than \(p\) ---
   not that \(p\) is useless. The asymmetric retention criterion governs
@@ -614,34 +547,12 @@ the entity's current state. Define the option value of retaining \(p\):
 
 \[OV(p) = P\!\left(\exists\,\tau^* \in \mathcal{T}_{reachable} : B(p, \tau^*) > 0\right) \cdot \mathbb{E}\!\left[B(p,\tau^*) \mid B(p, \tau^*) > 0\right]\]
 
-Let \(c_{retain}(p, K) > 0\) denote the total maintenance cost of
-holding \(p\) in \(K\). This cost is not merely storage. It includes
-three components that grow with the structure of \(K\):
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Retrieval interference}: every proposition in \(K\) that is
-  not relevant to the current problem contributes noise to the retrieval
-  environment. Under graph-structured \(K\), interference is bounded by
-  the local degree of \(p\) (only adjacent propositions interact during
-  traversal); without graph structure, interference grows with \(|K|\)
-  (Theorem 2a).
-\item
-  \textbf{Maintenance overhead}: every proposition in \(K\) must be
-  re-evaluated when evidence changes (Theorem 2c). Holding \(p\) commits
-  the entity to evaluating \(p\) during every cascade triggered by
-  revisions to propositions in \(p\)'s dependency neighborhood.
-\item
-  \textbf{Edge maintenance}: retaining \(p\) requires maintaining all of
-  \(p\)'s typed edges. Stale or spurious edges degrade cascade precision,
-  causing over-retrieval (\(\rho < 1\)) or missed dependencies during
-  removal.
-\end{itemize}
-
-Let \(c_{prune} \geq 0\) denote the cost of pruning \(p\) (processing,
-reorganization). The expected net value of retention is
-\(NV_{retain}(p) = OV(p) - c_{retain}(p, K)\).
+Let \(c_{retain} > 0\) denote the finite maintenance cost of holding
+\(p\) in \(K\) (memory, retrieval overhead), and \(c_{prune} \geq 0\)
+the cost of pruning \(p\) (processing, reorganization). Both are finite
+by assumption: any physical knowledge store incurs bounded costs per
+proposition. The expected net value of retention is
+\(NV_{retain}(p) = OV(p) - c_{retain}\).
 
 The expected net value of pruning is:
 
@@ -649,38 +560,29 @@ The expected net value of pruning is:
 
 where \(C_{absent}\) is the cost incurred when \(p\) is needed but
 absent. By Lemma 1, \(C_{absent}\) is bounded below by entity
-non-survival in critical domains.
+non-survival in critical domains, which dominates all finite costs:
+\(C_{absent} \gg c_{retain}\).
 
-Retention is selected for when \(NV_{retain}(p) > NV_{prune}(p)\). For
-propositions that ground critical actions in reachable domains,
-\(C_{absent}\) dominates \(c_{retain}\) regardless of maintenance cost,
-and retention holds whenever
+Retention is selected for when \(NV_{retain}(p) > NV_{prune}(p)\). Since
+\(C_{absent} \gg
+c_{retain}\), this reduces to: retention holds whenever
 
 \[P\!\left(\exists\,\tau^* \in \mathcal{T}_{reachable} : B(p,\tau^*) > 0\right) > 0\]
 
-i.e., whenever survival benefit is uncertain. For non-critical
-propositions, however, \(c_{retain}(p, K)\) is not negligible relative
-to the expected benefit. As \(|K|\) grows, the maintenance, interference,
-and edge costs of marginal propositions increase, and the retention
-threshold rises: propositions with low option value are pruned not
-because their benefit is certainly zero, but because their maintenance
-cost exceeds their marginal expected value. This predicts aggressive
-forgetting as correct behavior under bounded capacity --- the entity
-prunes low-value propositions to reduce retrieval interference and
-maintenance load on the remaining graph, improving \(\rho\) for the
-propositions it keeps.
+i.e., whenever survival benefit is uncertain. Even a small probability
+of needing \(p\), multiplied by the cost of its absence, outweighs
+finite maintenance.
 
-The asymmetry remains for critical propositions: uncertain benefit of a
-survival-relevant proposition is sufficient for retention, because
-\(C_{absent}\) dominates any finite \(c_{retain}\). But the asymmetry
-weakens as propositions move further from the survival boundary, and
-vanishes entirely when \(c_{retain}(p, K) > OV(p)\). Forgetting is the
-retention criterion working correctly at the margin.
+Pruning holds only when \(P(\exists\,\tau^* : B(p,\tau^*) > 0) = 0\) ---
+i.e., when it is certain that \(p\) contributes zero benefit across all
+reachable trajectories. Any positive probability keeps the retention
+condition active. The asymmetry is strict: uncertain benefit is
+sufficient for retention; certain zero benefit is necessary for pruning.
 
 In the curation regime (\(|K| = K_{max}\)), adding \(q\) requires
-displacing \(p^* = \arg\min_{p \in K} \mathbb{E}[G(a_p, K)]\).
+displacing \(p^* = \arg\min_{p \in K} \mathbb{E}[G(f_p, K)]\).
 Displacement occurs when
-\(\mathbb{E}[G(a_q, K)] > \mathbb{E}[G(a_{p^*}, K)]\): the asymmetric
+\(\mathbb{E}[G(f_q, K)] > \mathbb{E}[G(f_{p^*}, K)]\): the asymmetric
 criterion applied to a choice between two propositions rather than
 between one and nothing. By Theorem 3 Part II,
 \(\mathcal{T}_{reachable}\) grows monotonically, keeping future needs
@@ -696,11 +598,11 @@ an entity retains \(p\) beyond the certainty horizon because the
 benefit is uncertain, not known to be zero.
 
 \textbf{Corollary 1 (Indexed Knowledge).} \(K\) is constitutively
-indexed by \(A\). Two entities with identical \(\sigma\) but different
-\(A\) maintain different \(K\) even when perceiving identical world
+indexed by \(F\). Two entities with identical \(\sigma\) but different
+\(F\) maintain different \(K\) even when perceiving identical world
 states.
 
-\textbf{Corollary 2 (Compactness).} \(K\) is bounded in size by \(A\):
+\textbf{Corollary 2 (Compactness).} \(K\) is bounded in size by \(F\):
 only propositions applicable to available informed actions are retained.
 
 \textbf{Corollary 2a (Curation and Forgetting).} Under bounded \(K\),
@@ -708,16 +610,16 @@ forgetting is correct behavior: the curation regime displaces
 lower-value propositions as \(\mathcal{T}_{reachable}\) evolves,
 ensuring \(K\) tracks the current frontier.
 
-\textbf{Corollary 2b (K as the Normalization of A --- the Scaling
+\textbf{Corollary 2b (K as the Normalization of F --- the Scaling
 Argument).} An entity can maintain informed actions without a separately
 structured \(K\), embedding all propositional knowledge implicitly in
-the parameters of each \(a \in A\). This is a valid but scaling-limited
-architecture. Let \(n = |A|\) and \(k\) = average number of shared
-propositions per action. Without \(K\): context per action is \(O(k)\)
-(each \(a\) carries its full background); update cost when one
-proposition changes is \(O(n)\) (every \(a\) encoding it must be
+the parameters of each \(f \in F\). This is a valid but scaling-limited
+architecture. Let \(n = |F|\) and \(k\) = average number of shared
+propositions per function. Without \(K\): context per action is \(O(k)\)
+(each \(f\) carries its full background); update cost when one
+proposition changes is \(O(n)\) (every \(f\) encoding it must be
 individually revised); total cost scales as \(O(n \cdot k)\). With \(K\)
-normalized out: context per action is \(O(|K^{[a]}|)\) --- the relevant
+normalized out: context per action is \(O(|K^{[f]}|)\) --- the relevant
 subgraph retrieved by traversal (Theorem 2b); update cost per
 proposition is \(O(1)\) --- one update to \(K\) propagates to all \(f\)
 that reference it; total cost scales as \(O(n + k)\).
@@ -725,13 +627,13 @@ that reference it; total cost scales as \(O(n + k)\).
 The difference \(O(n \cdot k)\) versus \(O(n + k)\) is not a constant
 factor --- it is the difference between a system whose context cost
 grows multiplicatively with shared knowledge complexity and one whose
-context cost stays bounded under growth of \(A\). Under bounded \(C_n\),
+context cost stays bounded under growth of \(F\). Under bounded \(C_n\),
 the implicit-\(K\) architecture does not scale: every increase in
-\(|A|\) increases required context per action proportionally to the
-shared background knowledge it carries. \(K\) precipitates from \(A\) as
+\(|F|\) increases required context per action proportionally to the
+shared background knowledge it carries. \(K\) precipitates from \(F\) as
 the normalization of shared propositions --- the factoring-out of common
 structure across functions --- because this is the only architecture
-that keeps \(C_n\) bounded as \(A\) grows. An entity without \(K\) is
+that keeps \(C_n\) bounded as \(F\) grows. An entity without \(K\) is
 not wrong; it is limited to the regime where \(n \cdot k\) fits in
 \(C_n\). Selection pressure at scale removes such entities in favor of
 those whose \(K\) has crystallized --- literally, the precipitation of
@@ -739,7 +641,7 @@ shared knowledge out of the action space into its own normalized graph.
 This is the formal explanation of the \(O(N \times M) \to O(1)\)
 empirical measurement described in Section 1: each entity's local graph
 traversal is \(O(1)\) precisely because shared propositions have been
-factored out of \(A\) into \(K\).
+factored out of \(F\) into \(K\).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -809,10 +711,10 @@ illustrations, not definitional. The continuous space between interfaces
 admits arbitrary encodings; the interfaces themselves are discrete
 because a boundary is a specific location, not a region.
 
-\textbf{Theorem 2 (Escalation).} An informed action \(a \in A\) is
+\textbf{Theorem 2 (Escalation).} An informed action \(f \in F\) is
 handled at the lowest encoding level \(L_i\) such that
-\(U(w, K^{[a]}) \approx 0\) for the domain of \(w\) relevant to \(f\),
-where \(K^{[a]} \subseteq K\) is the knowledge subset applicable to
+\(U(w, K^{[f]}) \approx 0\) for the domain of \(w\) relevant to \(f\),
+where \(K^{[f]} \subseteq K\) is the knowledge subset applicable to
 \(f\). Escalation to \(L_{i+1}\) occurs if and only if \(L_i\) fails to
 bound uncertainty.
 
@@ -824,7 +726,7 @@ lowest level sufficient to bound uncertainty: engaging \(L_{i+1}\) when
 \(L_i\) suffices incurs unnecessary cost without reducing \(U\) further.
 An entity that routinely over-escalates incurs higher encoding costs
 without survival benefit and is selected against. Conversely, if \(L_i\)
-fails to bound \(U(w, K^{[a]})\) --- that is, \(U(w, K^{[a]}) > 0\)
+fails to bound \(U(w, K^{[f]})\) --- that is, \(U(w, K^{[f]}) > 0\)
 beyond acceptable residual --- then \(f\) is not handled at \(L_i\): the
 failure propagates upward until some \(L_j\) (\(j > i\)) contains the
 uncertainty or the entity is harmed (Definition 5a). The active context
@@ -862,15 +764,15 @@ Let \(\text{ctx}(L_n, t)\) be the set of propositions loaded into
 The \textbf{inference quality} of \(L_n\) for problem \(f\) is the
 relevance density of its content:
 
-\[\rho(L_n, f) = \frac{|K^{[a]}|}{|\text{ctx}(L_n, t)|}\]
+\[\rho(L_n, f) = \frac{|K^{[f]}|}{|\text{ctx}(L_n, t)|}\]
 
 \(\rho = 1\): \(L_n\) holds exactly what \(f\) requires --- maximum
 signal, zero noise. \(\rho \to 0\): \(L_n\) is dominated by content
 irrelevant to \(f\) --- inference degrades. Every proposition in
-\(\text{ctx}(L_n)\) that is not in \(K^{[a]}\) is noise: it contributes
+\(\text{ctx}(L_n)\) that is not in \(K^{[f]}\) is noise: it contributes
 variance to \(L_n\)'s inference without contributing signal. Minimizing
 that noise is equivalent to minimizing
-\(|\text{ctx}(L_n)| - |K^{[a]}|\).
+\(|\text{ctx}(L_n)| - |K^{[f]}|\).
 
 \textbf{Definition 8b (Delegation Overhead).} Under a top-down
 allocation architecture, \(L_n\) directs which subproblems are handled
@@ -881,29 +783,25 @@ denote the minimum context cost per active delegation --- the overhead
 top-down allocation imposes on \(L_n\) per managed subproblem,
 regardless of whether that subproblem is routine or novel.
 
-\textbf{Theorem 2a (Top-Down Allocation Cost Under Bounded Context).}
+\textbf{Theorem 2a (Top-Down Allocation Degrades Inference Quality).}
 Under a top-down allocation architecture with \(k(t)\) concurrently
 delegated subproblems, the inference quality available to \(L_n\) for
 genuinely novel problems satisfies:
 
-\[\rho(L_n, a_{\text{novel}}) = \frac{|K^{[a_{\text{novel}}]}|}{|K^{[a_{\text{novel}}]}| + k(t)\cdot\alpha}\]
+\[\rho(L_n, f_{\text{novel}}) = \frac{|K^{[f_{\text{novel}}]}|}{|K^{[f_{\text{novel}}]}| + k(t)\cdot\alpha}\]
 
-Top-down allocation is viable when \(k(t)\) is small relative to
-\(C_n\). As the entity's informed action space \(A\) grows, \(k(t)\)
-grows proportionally and \(\rho \to 0\) unless \(k(t)\) is bounded by
-an independent mechanism. Escalation (Theorem 2) provides that
-mechanism: by handling routine problems below \(L_n\), escalation keeps
-\(k(t)\) bounded to genuinely novel concurrent subproblems, preserving
-\(C_n\) capacity for the top-down allocation that those subproblems
-require.
+As the entity's informed action space \(F\) grows (more capability, more
+concurrent processes), \(k(t)\) grows proportionally and \(\rho \to 0\).
+The only recovery is to grow \(C_n\): the context window must scale
+linearly with capability to maintain fixed \(\rho\).
 
-\emph{Proof.} \(L_n\) holds \(K^{[a_{\text{novel}}]}\) for the current
+\emph{Proof.} \(L_n\) holds \(K^{[f_{\text{novel}}]}\) for the current
 problem plus \(k(t)\cdot\alpha\) for delegation overhead. Since
-\(\alpha > 0\) and \(k(t)\) grows with \(|A|\), the denominator is
-unbounded while \(|K^{[a_{\text{novel}}]}|\) remains bounded (any
+\(\alpha > 0\) and \(k(t)\) grows with \(|F|\), the denominator is
+unbounded while \(|K^{[f_{\text{novel}}]}|\) remains bounded (any
 specific problem requires only its relevant subgraph). Therefore
-\(\rho \to 0\) as \(|A| \to \infty\). When
-\(k(t)\cdot\alpha \geq C_n - |K^{[a_{\text{novel}}]}|\), \(L_n\) lacks
+\(\rho \to 0\) as \(|F| \to \infty\). When
+\(k(t)\cdot\alpha \geq C_n - |K^{[f_{\text{novel}}]}|\), \(L_n\) lacks
 capacity for genuine inference entirely. To maintain \(\rho\) at a fixed
 level, \(C_n\) must grow as \(k(t)\) grows. \(\square\)
 
@@ -911,363 +809,84 @@ level, \(C_n\) must grow as \(k(t)\) grows. \(\square\)
 applies to any mechanism that evaluates all \(n\) stored propositions to
 determine relevance, including full self-attention (\(O(n^2)\) per
 query). Sparse and learned attention mechanisms reduce this cost by
-learning fixed relevance patterns. See the remark on continuous-weight
-mechanisms in Section 10 for a discussion of how these optimizations
-relate to stored adjacency.
+learning fixed relevance patterns --- which is learned graph
+construction. See Theorem 2c Part 6 for the full argument that
+continuous-weight retrieval mechanisms are implementations of graph
+structure, not alternatives to it.
 
-\emph{Note.} This result is consistent with the Free Energy Principle's
-own minimization imperative {[}Friston2010, Friston2017{]}. FEP holds
-that intelligent systems minimize the variance they must manage. Growing
-\(C_n\) to accommodate unbounded delegation overhead adds variance: more
-propositions in \(L_n\) means more uncertain relevance to any specific
-problem. Escalation is the mechanism that keeps delegation overhead
-bounded, preserving the conditions under which precision allocation
-operates effectively. Without escalation, precision allocation is
-self-undermining: allocating attention from \(L_n\) increases the
+\emph{Note.} This is self-undermining on the Free Energy Principle's own
+terms {[}Friston2010, Friston2017{]}. FEP holds that intelligent systems
+minimize free energy --- equivalently, minimize the variance they must
+manage. But growing \(C_n\) to accommodate delegation overhead adds
+variance: more propositions in \(L_n\) means more uncertain relevance to
+any specific problem, not less. The orchestrator architecture prescribed
+by FEP's precision allocation is inconsistent with FEP's own
+minimization imperative: allocating attention from \(L_n\) increases the
 variance that \(L_n\) must hold in order to allocate.
 
-\emph{Biological note.} The cortical hierarchy is bidirectional:
-top-down signals exist at every level, and prefrontal cortex
-demonstrably performs top-down allocation across cortical networks ---
-biasing sensory processing, gating working memory, selecting task sets
-{[}Friston2010{]}. This is not a counterexample to the theorem; it is
-the theorem's prediction. Prefrontal top-down allocation operates at the
-granularity of task-sets and functional networks, not individual
-circuits. Its capacity is bounded at approximately four concurrent
-allocations {[}Cowan2001{]} --- precisely the \(O(k)\) constraint the
-theorem derives. Within each allocated network, processing is local and
-automatic: escalation architecture at the circuit level. What triggers
-prefrontal engagement is bottom-up conflict or novelty --- a lower
-level's inability to bound uncertainty --- not a top-down scan of all
-ongoing processes. Escalation determines engagement; top-down allocation
-operates within the freed capacity. The transition from active to
+\emph{Biological note.} We do not claim that biological precision
+allocation operates like a token context window, nor that the cortical
+hierarchy is unidirectional. Top-down signals exist at every level:
+higher levels necessarily convey signals to lower levels, and the
+bidirectionality of the cortical hierarchy is well established. The
+architectural claim is narrower: it concerns \emph{engagement
+initiation}, not signal direction. In an escalation architecture, what
+triggers higher-level involvement is bottom-up failure --- a lower
+level's inability to bound uncertainty --- not a top-down assignment of
+work. Top-down signals flow as a consequence of engagement; they do not
+determine when engagement occurs. The cost of \emph{top-down assignment
+as the primary control architecture} is \(O(k)\) in high-level capacity,
+as the attentional and dual-task literature demonstrates --- each
+concurrently supervised subprocess consumes a share of the supervisory
+resource. Escalation avoids this cost by making higher-level engagement
+demand-driven rather than supply-driven. The transition from active to
 automatic processing across skill acquisition is the biological
-measurement: as \(f\) becomes automatic, it stops consuming prefrontal
-capacity, keeping \(k(t)\) small enough that top-down allocation
-remains viable for genuinely novel problems.
+measurement of this convergence: as \(f\) becomes automatic (assigned to
+\(L_0\)), it stops consuming high-level capacity, freeing \(L_n\) for
+novel problems. The formal argument is substrate-neutral; biology is the
+validation test.
 
 \textbf{Theorem 2b (Graph-Structured Knowledge Bounds Active Context).}
 Under the escalation architecture (Theorem 2) with \(K\) structured as a
-directed graph (Definition 2), as \(K\) grows:
+directed graph (Definition 2), as \(K\) grows: (1) no delegation
+overhead at \(L_n\); (2) inference quality \(\rho = 1\) (conditional on
+edge fidelity); (3) \(C_n\) need not grow as \(|F|\) or \(|K|\) grows.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(|\text{ctx}(L_n, t)| = |K^{[a]}|\) for each problem reaching
-  \(L_n\): no delegation overhead
-\item
-  \(\rho(L_n, f) = 1\) for all problems at \(L_n\): inference quality is
-  maximum
-\item
-  \(C_n\) need not grow as \(|A|\) or \(|K|\) grows
-\end{enumerate}
-
-\emph{Proof.}
-
-\textbf{Part 1 (No delegation overhead).} By Theorem 2, \(L_n\) is
-engaged only when all \(L_{i < n}\) fail. Problems handled below \(L_n\)
-never appear in \(L_n\): they generate no delegation context there.
-\(L_n\) receives a problem only when the escalation signal propagates up
-from below --- not because \(L_n\) delegated and is monitoring, but
-because the lower level failed and the failure is passed upward. The
-distinction is causal: escalation is a push from failure, not a pull
-from delegation. Therefore \(L_n\) holds no monitoring context for
-subproblems in progress at lower levels.
-
-\textbf{Part 2 (\(\rho = 1\) conditional on edge fidelity).} The graph's
-edge structure encodes inferential and causal relevance between
-propositions. Graph traversal from the escalated problem node follows
-edges to exactly \(K^{[a]}\) --- the propositions inferentially
-connected to \(f\) --- without loading any others.
-\(|\text{ctx}(L_n, t)| = |K^{[a]}|\), so \(\rho = 1\) by Definition 8a.
-\emph{This result is conditional on edge fidelity: \(\rho = 1\) holds
-when the graph's edges correctly encode all and only the inferential
-relevance of each proposition. Missing edges cause under-retrieval
-(\(\rho\) remains 1 by count but \(K^{[a]}\) is incomplete); spurious
-edges cause over-retrieval (\(\rho < 1\)). Graph structure in principle
-supports \(\rho = 1\); achieving it requires well-specified edges.}
-
-\textbf{Part 3 (Graph is the necessary structure under joint
-constraints).} The escalation architecture and bounded context impose
-three simultaneous constraints on any knowledge representation:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Retrieval}: the cost of accessing the knowledge relevant to
-  problem \(f\) must be \(O(|K^{[a]}|)\) --- proportional to the
-  subgraph needed, not to \(|K|\). As \(|K|\) grows, retrieval cost
-  cannot grow with it, or \(L_n\) is burdened proportionally to past
-  learning.
-\item
-  \textbf{Context}: \(|\text{ctx}(L_n, t)| = |K^{[a]}|\) exactly ---
-  \(\rho = 1\). No extraneous propositions may enter \(L_n\); each one
-  admitted that is not in \(K^{[a]}\) is noise that degrades inference
-  (Theorem 2a).
-\item
-  \textbf{Memory}: shared propositions must be stored once. A
-  proposition that grounds multiple informed actions across different
-  \(f\) must exist as a single node, not duplicated at each point of
-  use. Duplication means that when evidence updates a proposition, every
-  copy must be updated --- an \(O(|A|)\) maintenance cost that grows
-  without bound.
-\end{itemize}
-
-We claim graph structure is necessary: any representation that is not a
-graph must lose information as new propositions are added.
-
-\emph{Proof by information preservation.} \(C_n\) is bounded (Definition
-8a). As new propositions arrive, \(|K|\) grows. When \(|K|\) reaches
-\(C_n\), the representation is in the curation regime: adding any new
-proposition \(p_{new}\) requires making space. There are exactly two
-ways to make space:
-
-\textbf{Option A: Discard an existing proposition.} Without factoring
---- without explicit relational structure --- the entity has no
-mechanism to determine which existing propositions are redundant. Two
-propositions \(p_1, p_2\) that share a latent factor appear as
-independent entries; there is no stored evidence that they share
-structure. The choice of which to discard is therefore made without
-information about relational dependencies. Discarding \(p_{old}\) loses
-the information it encodes, and potentially also loses the information
-that \(p_{old}\) has any relation to other propositions --- a
-second-order loss. This is information loss.
-
-\textbf{Option B: Factor --- extract shared structure, reducing \(|K|\)
-without discarding.} If \(p_1\) and \(p_2\) share a latent factor
-\(f^*\), extracting \(f^*\) as a single named node with typed edges to
-\(p_1\) and \(p_2\) reduces \(|K|\) by replacing redundant structure
-with a single shared reference. The information in \(p_1\) and \(p_2\)
-is preserved; the information about their shared grounding in \(f^*\) is
-now explicitly stored as an edge. Space is created without loss.
-Factoring also resolves the update problem: when new evidence revises
-\(f^*\), the single node is updated once, and the revision propagates to
-all propositions that reference it via edges --- \(O(1)\) instead of
-\(O(|A|)\).
-
-Factoring is graph construction. Naming \(f^*\), creating a node, and
-storing typed edges from \(p_1\) and \(p_2\) to it is precisely the
-operation that produces a directed graph.
-
-\textbf{Option C: Lossy compression --- replace propositions with a
-summary that occupies less space.} This is a genuine third option, but
-it reduces to Option A or Option B. Compressing \(p_1\) and \(p_2\)
-into a summary \(p_s\) that discards detail is a form of discarding:
-the lost detail may ground other propositions or informed actions. If
-\(p_1\) has dependents --- propositions or actions that reference it ---
-then replacing \(p_1\) with \(p_s\) silently invalidates those
-dependents unless the entity knows what depends on the lost detail. But
-knowing what depends on \(p_1\) \emph{is} knowing \(p_1\)'s adjacency
---- its edges. Without stored adjacency, compression is blind
-discarding: the entity cannot evaluate what breaks. With stored
-adjacency, the entity can scope the damage, notify dependents, and
-compress safely --- but storing adjacency is maintaining a graph.
-Compression that preserves correctness requires the same relational
-structure as factoring. Compression that ignores relational structure is
-Option A with extra steps.
-
-Any representation that makes space without factoring or correctly
-scoped compression loses information; any representation that factors or
-correctly scopes compression is constructing a graph.
-
-\emph{Consequence for alternative representations.} A flat store cannot
-factor: shared structure has no representation, so at \(C_n\) it must
-discard. A tree loses cross-branch propositions when one branch is
-pruned. A vector store holds shared factors implicitly in embedding
-geometry but cannot factor without naming --- and naming is graph
-construction. Every representation that preserves information as
-\(|K|\) grows beyond \(C_n\) must factor. Every factoring operation
-creates nodes with typed edges. The graph is what factoring is.
-\(\square\)
-
-\textbf{Part 4 (\(C_n\) stays bounded).} By Corollary 6, proven informed
-actions promote to lower encoding levels and leave \(L_n\). Each
-promotion reduces future \(L_n\) load. As \(K\) grows, more problems are
-handled below \(L_n\), not above. \(L_n\) stays occupied by genuinely
-novel uncertainty --- the frontier moves outward, but the frontier's
-size at any moment is bounded. \(C_n\) need not grow; \(K\) grows
-without filling \(L_n\). \(\square\)
+\emph{Proof summary.} Parts 1--2 follow from escalation: \(L_n\) holds
+only the escalated problem's relevant subgraph \(K^{[f]}\), not
+delegation context. Part 3 is graph necessity: the escalation
+architecture and bounded context jointly impose retrieval
+(\(O(|K^{[f]}|)\)), context (\(\rho = 1\)), and deduplication
+constraints on \(K\), and graph structure is the only representation
+satisfying all three without information loss. The complete proof ---
+including the information-preservation argument (factoring vs.\
+discarding vs.\ lossy compression), the retention-dynamics argument
+(sub-linear dependency queries require stored adjacency), and the
+demonstration that attention mechanisms implement graph structure rather
+than constituting alternatives to it --- is given in
+{[}McCarthy2026a{]}. Part 4: by Corollary 6, proven informed actions
+promote to lower encoding levels, keeping \(L_n\) occupied only by
+genuinely novel uncertainty. \(\square\)
 
 \textbf{Corollary 4a (Selection Pressure Produces Graph-Structured
-Knowledge).} Two entities with equal \(|A|\) and \(|K|\): one with
-top-down allocation (growing \(C_n\)), one with graph + escalation
-(bounded \(C_n\)). The second has strictly higher \(\rho\) at lower
-substrate cost. Intelligence per unit of active context --- the ratio
-\(I(E)/C_n\) --- is higher for the graph-structured entity. By Theorem
-2b Part 3, graph structure is not merely more efficient than
+Knowledge).} Graph structure is not merely more efficient than
 alternatives --- it is the necessary consequence of satisfying the
-retrieval, context, and memory constraints jointly. Entities that grow
-\(C_n\) to manage delegation overhead are selected against because they
-violate the context constraint as \(|K|\) grows; entities using
-approximate retrieval are selected against because they violate the
-\(\rho = 1\) requirement; entities duplicating shared propositions are
-selected against because maintenance cost grows with \(|A|\). Selection
-pressure converges on the graph because the graph is the only structure
-that does not eventually fail one of the three constraints.
+retrieval, context, and memory constraints jointly
+{[}McCarthy2026a{]}. Entities that grow \(C_n\) to manage delegation
+overhead are selected against because they violate the context constraint
+as \(|K|\) grows; entities using approximate retrieval are selected
+against because they violate \(\rho = 1\); entities duplicating shared
+propositions are selected against because maintenance cost grows with
+\(|F|\).
 
 \textbf{Corollary 4b (The Scaling Argument Against Context Window
-Growth).} The prevailing approach to scaling intelligence --- growing
-\(C_n\) directly --- is self-defeating on two grounds {[}Liu2024{]}.
-First, by Theorem 2a, more context means more noise: for any specific
-problem, \(\rho\) decreases as \(C_n\) fills with content not relevant
-to that problem. More context does not produce better inference; it
-produces higher variance that the same inference must manage. Second, by
-Definition 7 (\(I(E) = \mathcal{A} \cdot
-\eta_M\)), intelligence is the rate at which \(M\) improves \((A, K)\)
---- not the capacity of \(L_n\). A larger \(L_n\) does not increase
-\(\eta_M\); it increases the noise environment in which \(M\) must
-operate. The efficient path to growing intelligence is not to grow
-\(C_n\) but to grow the encoded knowledge at lower levels --- filling
-the graph, not the context window.
-
-\textbf{Theorem 2c (Graph Necessity from Retention Dynamics).} Theorem
-2b Part 3 establishes graph necessity from the joint constraints of
-retrieval, context, and memory under bounded \(C_n\). This theorem
-establishes an independent necessity: graph structure is the only
-representation that supports sub-linear evaluation of the retention
-criterion (Theorem 1) under continuous operation.
-
-\emph{Statement.} Let \(K\) be a knowledge representation supporting the
-retention criterion of Theorem 1. The retention criterion requires four
-operations:
-
-\begin{enumerate}
-\def\labelenumi{(\roman{enumi})}
-\tightlist
-\item
-  \textbf{Addition with provenance}: insert a proposition \(p\) together
-  with its evidential grounds --- which existing propositions \(p\)
-  depends on, and by what relation (inferential, causal, evidential)
-\item
-  \textbf{Contextual retrieval}: given an action context \(f\), retrieve
-  the propositions relevant to \(f\)
-\item
-  \textbf{Dependency query}: given a proposition \(p\), determine which
-  other propositions are grounded through \(p\) --- i.e., which
-  propositions would require re-evaluation if \(p\) were removed or
-  revised
-\item
-  \textbf{Selective removal with cascade}: when \(p\) fails the
-  retention criterion (or is displaced in the curation regime), remove
-  \(p\) and re-evaluate every proposition whose grounding depends on
-  \(p\), transitively, until the knowledge base stabilizes
-\end{enumerate}
-
-For any knowledge representation that achieves sub-linear cost on all
-four operations simultaneously, the representation necessarily encodes
-directed adjacency between propositions --- and any structure encoding
-directed adjacency over propositions with typed relations \emph{is} a
-semantic graph, regardless of implementation.
-
-\emph{Proof.}
-
-\textbf{Part 1 (Dependency queries are necessary and continuous).} The
-retention criterion of Theorem 1 operates continuously: every new piece
-of evidence potentially shifts the cost-benefit of existing
-propositions. When evidence revises or invalidates a proposition \(p\),
-the entity must evaluate every proposition whose grounding passes
-through \(p\). This is not a batch operation that can be deferred ---
-acting on a proposition whose ground has been invalidated risks
-\(U > U_{lethal}^d\) (Definition 5a). The dependency query ``what is
-grounded through \(p\)?'' is therefore a survival-critical operation
-invoked at the frequency of evidence arrival.
-
-\textbf{Part 2 (Lower bound on non-adjacency dependency queries).}
-Consider a representation \(R\) that stores \(n\) propositions without
-explicit directed relationships between them (a flat store, hash table,
-embedding space, or any structure that does not record which propositions
-depend on which). To answer the dependency query for proposition \(p\),
-\(R\) must examine each of the other \(n - 1\) propositions to determine
-whether its grounding involves \(p\). Without stored adjacency, there is
-no mechanism to restrict this examination: any proposition might depend
-on \(p\), and the only way to determine this is to check.
-
-The cost of a single dependency query is therefore \(\Omega(n)\) for any
-representation without stored adjacency. Since dependency queries are
-invoked at evidence-arrival frequency (Part 1), the amortized cost of
-maintaining retention is \(\Omega(n)\) per evidence event --- growing
-linearly with the size of \(K\).
-
-\textbf{Part 3 (Cascade amplifies the cost).} Selective removal under
-the retention criterion is not a single deletion. When \(p\) is removed,
-each proposition \(q\) that was grounded through \(p\) must be
-re-evaluated: does \(q\) have alternative grounds, or does it now fail
-the retention criterion? If \(q\) also fails, its dependents must be
-re-evaluated in turn. This is a transitive closure operation on the
-dependency relation.
-
-In a representation with explicit adjacency (a graph), cascade follows
-edges: the cost is \(O(|D_p|)\) where \(|D_p|\) is the number of
-propositions in the transitive dependency set of \(p\). In a
-representation without adjacency, each level of the cascade requires an
-\(\Omega(n)\) scan to identify dependents, and the cascade may propagate
-through multiple levels. The total cost of a single removal with cascade
-is \(\Omega(n \cdot L)\) where \(L\) is the cascade depth --- versus
-\(O(|D_p|)\) in the graph, where \(|D_p| \ll n\) for typical
-propositions with bounded connectivity.
-
-\textbf{Part 4 (Any sub-linear solution encodes adjacency).} Suppose a
-representation \(R\) achieves \(o(n)\) cost for dependency queries. Then
-\(R\) must store, for each proposition, information about which other
-propositions depend on it --- otherwise the \(\Omega(n)\) lower bound of
-Part 2 applies. This stored information is a set of directed
-relationships: for each proposition \(p\), a record of the propositions
-that reference \(p\) as part of their grounding.
-
-This is precisely a directed adjacency structure. The nodes are
-propositions. The edges are directed dependency relations (inferential,
-causal, evidential). The structure supports traversal from any node to
-its dependents. Any representation that stores this information ---
-regardless of whether it is implemented as adjacency lists, edge tables,
-pointers, or any other mechanism --- \emph{is} a directed graph over
-propositions.
-
-\textbf{Part 5 (Semantic typing is necessary for correct cascade).} A
-bare adjacency structure (propositions linked by untyped edges) is
-insufficient for correct cascade evaluation. When \(p\) is invalidated,
-the cascade must distinguish between propositions that are
-\emph{inferentially} grounded through \(p\) (which require
-re-evaluation) and propositions that are merely \emph{associated} with
-\(p\) (which do not). An untyped edge conflates these: every neighbor of
-\(p\) must be treated as potentially dependent, degrading the cascade to
-the full neighborhood rather than the true dependency set.
-
-Typed edges --- edges carrying the relation type (``grounds,''
-``evidences,'' ``causes,'' ``supports'') --- enable the cascade to
-follow only the dependency-bearing edges, keeping cascade cost
-proportional to the true dependency set \(|D_p|\) rather than the full
-neighborhood \(|\text{adj}(p)|\). Since \(|\text{adj}(p)|\) can be much
-larger than \(|D_p|\) (a proposition may be associated with many others
-without grounding them), typed edges are necessary for efficient cascade.
-
-A directed graph with typed edges over propositions is a semantic graph.
-\(\square\)
-
-\emph{Consequence.} Theorem 2c establishes the complete set of
-structural requirements for any knowledge representation supporting the
-retention criterion of Theorem 1: (i) sub-linear contextual retrieval,
-(ii) sub-linear dependency query, (iii) sub-linear selective removal
-with cascade, and (iv) correct cascade scoping via typed relations.
-These requirements are independent of Theorem 2b's static constraints
-(retrieval, context, memory under bounded \(C_n\)) and provide a second,
-orthogonal proof of graph necessity from the dynamics of continuous
-knowledge maintenance.
-
-\emph{Corollary 4c (Edge Growth Dominates Node Growth).} In a semantic
-graph under the retention criterion, the ratio of edges to nodes
-increases as \(K\) matures. Each new proposition added with provenance
-creates at least one edge (to its evidential ground); propositions that
-ground multiple other propositions accumulate incoming edges over time
-without themselves growing in size. Edges are the cheapest structure in
-the graph --- they are pointers, not content. The graph's information
-density therefore improves as it matures: the relational structure
-(edges) that enables sub-linear cascade grows faster than the content
-(nodes) that the structure organizes. This is the operational advantage
-of the graph: the structure needed for maintenance is the cheapest
-element to store, and it grows precisely where it is most needed ---
-at high-dependency nodes whose removal would trigger the largest
-cascades.
+Growth).} Growing \(C_n\) directly is self-defeating {[}Liu2024{]}.
+By Theorem 2a, more context means more noise: \(\rho\) decreases as
+\(C_n\) fills with content not relevant to the current problem.
+By Definition 7, intelligence is the rate at which \(M\) improves
+\((F, K)\), not the capacity of \(L_n\). The efficient path is not to
+grow \(C_n\) but to grow the encoded knowledge at lower levels ---
+filling the graph, not the context window.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1278,28 +897,28 @@ Uncertainty}\label{gradient-descent-on-uncertainty}
 Revision).}
 
 \emph{On the space of descent and dimensionality.} The gradient descent
-in this theorem operates in \(A\) --- the space of informed actions ---
+in this theorem operates in \(F\) --- the space of informed actions ---
 not in \(W\). \(W\) may be arbitrarily rough, discontinuous, or of
 unknown dimensionality; no assumption on \(W\)'s structure is required.
-The entity does not descend over \(W\); it updates \(a \in A\) in
+The entity does not descend over \(W\); it updates \(f \in F\) in
 response to signals received from \(W\).
 
 The dimensionality of \(W\) or of \(M_{\text{res}}\) is not assumed. We
 do not know whether the latent space is finite or infinite-dimensional.
 The convergence proof does not require this knowledge. It operates on
 the scalar \(U(w, K) = H(w \mid K)\), which is bounded below by zero
-regardless of the dimensionality of \(W\) or \(A\). The proof shows
+regardless of the dimensionality of \(W\) or \(F\). The proof shows
 \(\mathbb{E}[U]\) decreases monotonically under \(M\)-updates and
 converges by the monotone convergence theorem, without decomposing \(U\)
 into independent dimensions.
 
 \emph{Part I: Forced Signal, Response Gate.} Every executed action
-\(a_i\) in world state \(w\) generates a feedback signal
-\(\delta = \phi(a_i, w) - \mathbb{E}[\phi(a_i, \cdot) \mid K]\)
+\(f_i\) in world state \(w\) generates a feedback signal
+\(\delta = \phi(f_i, w) - \mathbb{E}[\phi(f_i, \cdot) \mid K]\)
 (Definition 3a): the signed deviation of observed outcome from
-expectation. This signal arrives from \(W\) but is applied in \(A\): it
-is a subgradient of \(U\) as a functional on \(A\) at the current
-\(a_i\), evaluated at the encountered \(w\). The signal is generated by
+expectation. This signal arrives from \(W\) but is applied in \(F\): it
+is a subgradient of \(U\) as a functional on \(F\) at the current
+\(f_i\), evaluated at the encountered \(w\). The signal is generated by
 execution, not by \(\mathcal{A}\). It arrives whether or not the entity
 has \(\mathcal{A}\). The entity does not choose whether to receive this
 signal. \(W\) imposes it.
@@ -1307,14 +926,14 @@ signal. \(W\) imposes it.
 \(\mathcal{A}\) is the response gate: the probability that \(M\) engages
 on \(\delta\) when \(\delta\) arrives. An entity with
 \(\mathcal{A} = 0\) receives every signal but \(M\) does not engage;
-\((A, K)\) remains unchanged. An entity with \(\mathcal{A} > 0\) engages
-\(M\) on the signal, updating \((A, K)\) in response. The encountered
+\((F, K)\) remains unchanged. An entity with \(\mathcal{A} > 0\) engages
+\(M\) on the signal, updating \((F, K)\) in response. The encountered
 world states are on-policy --- determined by the entity's trajectory,
 not sampled i.i.d. from \(P(w \mid K)\) --- but this does not impede
 convergence. The subgradient \(\delta\) is valid at every encountered
 \(w\) regardless of how \(w\) was reached; the entity is updating a
-function in \(A\), and each \(\delta\) is a legitimate descent direction
-in that space. The burn tells you that this \(a_i\) was insufficient at
+function in \(F\), and each \(\delta\) is a legitimate descent direction
+in that space. The burn tells you that this \(f_i\) was insufficient at
 \(w\).
 
 An entity with \(\mathcal{A} = 0\) does not update in response to
@@ -1325,7 +944,7 @@ because \(\mathcal{A}\) generates the signal, but because
 \(\mathcal{A}\) is what enables the entity to act on signals that \(W\)
 imposes on every execution regardless. When \(M\) engages:
 
-\[\Delta a_i = -\eta \cdot \delta\]
+\[\Delta f_i = -\eta \cdot \delta\]
 
 \emph{Convergence of U.} The convergence argument does not decompose
 by dimension. \(U(w, K) = H(w \mid K) \geq 0\) (Definition 5) is a
@@ -1334,11 +953,11 @@ expectation under \(M\)-updates and use this to establish convergence
 directly.
 
 \textbf{Step 1 (Each update reduces U in expectation).} By Definition
-3b, every informed action \(a \in A\) applied at world state \(w\) yields
-information gain \(G(a, K) = I(a\,;\,w \mid K) \geq 0\), with equality
-only when \(a\) provides no new information about \(w\) given \(K\).
+3b, every informed action \(f \in F\) applied at world state \(w\) yields
+information gain \(G(f, K) = I(f\,;\,w \mid K) \geq 0\), with equality
+only when \(f\) provides no new information about \(w\) given \(K\).
 When \(M\) engages on the feedback signal \(\delta\) and updates
-\((A, K) \to (A', K')\), the updated knowledge \(K'\) satisfies
+\((F, K) \to (F', K')\), the updated knowledge \(K'\) satisfies
 \(H(w \mid K') \leq H(w \mid K)\) --- conditioning on additional
 evidence cannot increase entropy (data processing inequality,
 {[}Cover2006{]}). Therefore:
@@ -1353,15 +972,15 @@ unchanged.
 \(\{\mathbb{E}[U(w, K(t))]\}_{t \geq 0}\) is non-increasing (by Step 1)
 and bounded below by zero. By the monotone convergence theorem,
 \(\mathbb{E}[U]\) converges. Since
-\(\sum_t G(a_t, K(t)) \leq U(w, K(0)) < \infty\), the information gains
-\(G(a_t, K(t)) \to 0\): the marginal improvement per update vanishes
+\(\sum_t G(f_t, K(t)) \leq U(w, K(0)) < \infty\), the information gains
+\(G(f_t, K(t)) \to 0\): the marginal improvement per update vanishes
 asymptotically. This is convergence to a local minimum of \(U\) given
-the entity's current \(A\) and \(\sigma\).
+the entity's current \(F\) and \(\sigma\).
 
 \textbf{Step 3 (Dimensionality is irrelevant to convergence).} The
 argument above operates on the scalar \(U\), not on individual
-dimensions of \(W\) or components of \(A\). The entity's
-parameterization of \(A\) may grow as
+dimensions of \(W\) or components of \(F\). The entity's
+parameterization of \(F\) may grow as
 \(\mathcal{T}_{reachable}\) expands and new propositions are grounded
 (Part II). This growth does not invalidate convergence: each new
 proposition \(p_{new}\) added to \(K\) can only reduce \(U\) (by the
@@ -1385,19 +1004,19 @@ could in principle be covered; the claim applies in any \(W\) where the
 entity's epistemic horizon has not been closed --- which is the intended
 domain.
 
-By Definition 3a, executing any \(a \in A\) produces feedback
-\(\phi(a, w)\) that grounds a new proposition \(p_a\) not previously in
-\(K\), yielding \(K_a = K \cup \{p_a\}\). This richer \(K_a\) grounds
+By Definition 3a, executing any \(f \in F\) produces feedback
+\(\phi(f, w)\) that grounds a new proposition \(p_f\) not previously in
+\(K\), yielding \(K_f = K \cup \{p_f\}\). This richer \(K_f\) grounds
 new informed actions not available from \(K\) alone (Definitions 3 and
-3b): actions that require \(p_a\) to select or apply, reaching world
-states not reachable without \(p_a\). Therefore
-\(\mathcal{T}_{reachable}(K_a) \supseteq
-\mathcal{T}_{reachable}(K)\), strictly whenever \(p_a\) grounds at least
-one new \(a' \in A\). Since Part I establishes that every executed
+3b): actions that require \(p_f\) to select or apply, reaching world
+states not reachable without \(p_f\). Therefore
+\(\mathcal{T}_{reachable}(K_f) \supseteq
+\mathcal{T}_{reachable}(K)\), strictly whenever \(p_f\) grounds at least
+one new \(f' \in F\). Since Part I establishes that every executed
 action generates a feedback signal, \(\mathcal{T}_{reachable}\) grows
 monotonically with \(K\). At any finite time \(t\), \(K(t)\) has not
 covered \(\mathcal{T}_{reachable}(K(t))\): the frontier always contains
-states \(w\) where \(H(w \mid K) > 0\). Therefore \(\nabla_A U\) is
+states \(w\) where \(H(w \mid K) > 0\). Therefore \(\nabla_F U\) is
 never globally zero over \(\mathcal{T}_{reachable}\), and descent never
 terminates within the entity's reachable epistemic domain.
 
@@ -1418,7 +1037,7 @@ updating \emph{is}: the entity that burns and does not become more
 careful does not survive. The entity that survives is, by definition,
 the one whose \(M\) engaged on the signal. At the evolutionary
 timescale, the mechanism differs in kind: random mutation perturbs the
-\(L_0\) encoding, generating new \((A, K, M, \mathcal{A})\)
+\(L_0\) encoding, generating new \((F, K, M, \mathcal{A})\)
 configurations; \(W\) evaluates each through the survival criterion;
 configurations that persist reproduce. No individual organism follows a
 gradient --- the gradient is revealed by differential survival of
@@ -1431,8 +1050,8 @@ with binary survival feedback (evolution); at the other, directed update
 via continuous \(\delta\) carrying full gradient information (individual
 learning). Gradient descent is the efficient limit of this spectrum
 under two conditions: (i) \(\delta\) carries directional information in
-\(A\) --- not merely pass/fail, but a signed deviation identifying which
-aspect of \(a_i\) was insufficient at \(w\); and (ii) \(M\) can use that
+\(F\) --- not merely pass/fail, but a signed deviation identifying which
+aspect of \(f_i\) was insufficient at \(w\); and (ii) \(M\) can use that
 directional information to bias the update toward lower \(U\) rather
 than generating a random candidate. When both conditions hold, each
 evaluation step directly reduces \(U\). When neither holds, the
@@ -1446,28 +1065,28 @@ common structure: execute, receive signal, retain or revise. The
 mechanisms and mathematical objects differ in kind.
 
 For individual learning, the mechanism is directed: the gradient signal
-\(\delta\) arrives from a specific failure, \(M\) updates \((A, K)\) in
+\(\delta\) arrives from a specific failure, \(M\) updates \((F, K)\) in
 the direction that reduces \(U\):
 
-\[\Delta A_{\text{individual}} = -\eta_{\text{ind}} \nabla_A \, U(w, K)\]
+\[\Delta F_{\text{individual}} = -\eta_{\text{ind}} \nabla_F \, U(w, K)\]
 
 For evolutionary selection, the mechanism is undirected: random mutation
-perturbs the \(L_0\) encoding of \((A, K, M, \mathcal{A})\), generating
+perturbs the \(L_0\) encoding of \((F, K, M, \mathcal{A})\), generating
 candidate configurations. \(W\) evaluates each through survival. The
 aggregate population-level distribution shifts toward configurations
 with lower \(\mathbb{E}[U]\), but no individual organism descends a
 gradient --- the gradient is revealed by differential survival of
 randomly generated candidates. The notation
-\(\Delta A_{\text{species}}\) denotes the shift in the population
-distribution over \(A\)-variants, not a gradient step by any individual:
+\(\Delta F_{\text{species}}\) denotes the shift in the population
+distribution over \(F\)-variants, not a gradient step by any individual:
 
-\[\Delta A_{\text{species}} = \operatorname{select}(\operatorname{mutate}(A_{\text{population}}))\]
+\[\Delta F_{\text{species}} = \operatorname{select}(\operatorname{mutate}(F_{\text{population}}))\]
 
 Both processes are instances of the same structure: generate a candidate
 state, submit to \(W\)'s evaluation, retain if valid. Gradient descent
-(\(\Delta A_{\text{individual}}\)) is the efficient limit when signals
+(\(\Delta F_{\text{individual}}\)) is the efficient limit when signals
 are informative enough to direct updates. Mutation followed by selection
-(\(\Delta A_{\text{species}}\)) is the same mechanism without the
+(\(\Delta F_{\text{species}}\)) is the same mechanism without the
 directed signal. This structural equivalence is not an identity ---
 mechanisms, timescales, and mathematical objects are all distinct ---
 but it grounds the common observation that both processes move toward
@@ -1477,10 +1096,10 @@ consequence in Part II.
 \emph{Derivation.}
 
 \textbf{Part I (Common structure, different mechanisms).} Individual
-learning updates \(A\) for a single entity based on \(U(w, K)\) at
+learning updates \(F\) for a single entity based on \(U(w, K)\) at
 specific world states \(w\) encountered by that entity. Evolutionary
 change operates on a different object: it updates the population-level
-distribution over \(A\)-variants through differential reproduction of
+distribution over \(F\)-variants through differential reproduction of
 randomly generated candidates. These are not the same mathematical
 operation --- individual learning changes a function within one agent
 via directed update; evolutionary change changes a probability
@@ -1612,13 +1231,13 @@ next frontier of uncertainty.
 Space}\label{the-higher-order-function-space}
 
 \textbf{Definition 11 (Higher-Order Function Space).} Let \(M\) be a
-function space operating on the joint \((A, K)\) pair {[}Thrun1998{]}:
+function space operating on the joint \((F, K)\) pair {[}Thrun1998{]}:
 
-\[M : (A, K) \times \mathcal{L} \rightarrow (A, K)\]
+\[M : (F, K) \times \mathcal{L} \rightarrow (F, K)\]
 
 where \(\mathcal{L}\) is a learning signal (experience, execution
 results, selection pressure). \(M\) is the mechanism by which
-\((A, K)\) changes --- categorically different from \(A\), not a more
+\((F, K)\) changes --- categorically different from \(F\), not a more
 certain version of it.
 
 \(M\)'s type signature is complete without enumerating its internal
@@ -1629,12 +1248,12 @@ have not yet precipitated out at the current scale of the entity:
 
 where the product ranges over all dimensions --- drive, meta-learning
 rate, exploration policy, convergence criteria, and whatever else has
-not yet reached the scale threshold to become a named dimension. \(A\),
+not yet reached the scale threshold to become a named dimension. \(F\),
 \(K\), and \(\mathcal{A}\) are factors that have already been extracted
 from this product. \(M\) is always the remainder: the undifferentiated
 joint space of everything not yet named. As the entity scales,
 additional dimensions precipitate out of \(M\) by the same normalization
-argument that precipitated \(K\) from \(A\): when the shared structure
+argument that precipitated \(K\) from \(F\): when the shared structure
 of a dimension across \(M\)-instances is large enough that factoring it
 out reduces retrieval cost from \(O(n \cdot k)\) to \(O(n + k)\),
 selection pressure forces the extraction. Each precipitation shrinks
@@ -1642,15 +1261,15 @@ selection pressure forces the extraction. Each precipitation shrinks
 
 The hierarchy is open upward: there is always potentially a \(M^{(2)}\)
 that operates on \(M^{(1)}\) the same way \(M^{(1)}\) operates on
-\((A, K)\). One level suffices until it does not --- when the gradient
-can no longer be followed by improving \((A, K)\) alone, pressure
+\((F, K)\). One level suffices until it does not --- when the gradient
+can no longer be followed by improving \((F, K)\) alone, pressure
 propagates upward. The required number of levels is determined by the
 problem, not prescribed by the framework. The precipitation argument
 applies at every level; the hierarchy is not a prescribed structure but
 the output of a single recursive process applied at increasing scale.
 See Open Question 7.
 
-The degenerate cases of level merger generalize from the \(A = K\) case:
+The degenerate cases of level merger generalize from the \(F = K\) case:
 for any contiguous block of \(N\) precipitated dimensions together with
 the \(M\) residual, all \(N+1\) collapse to a single undifferentiated
 process when the domain is fully crystallized at all scales in that
@@ -1658,19 +1277,19 @@ block. The merger condition is \(U(w, K) \approx 0\) across the domain
 at all \(N\) scales simultaneously --- one condition, not \(N\) pairwise
 conditions. Since \(M\) represents the full cross product of remaining
 dimensions, any merger including \(M\) collapses not just \(N\) named
-levels but the entire unprecipitated hierarchy simultaneously. \(A = M\)
+levels but the entire unprecipitated hierarchy simultaneously. \(F = M\)
 is the maximally primitive state: action spans the full cross product of
 all remaining dimensions. \(M = M^{(2)}\) means the cross product is
 self-similar under the meta-operation --- evolution approaches this
 limit at the timescale of selection on selection mechanisms.
 
 \textbf{Definition 11a (M Efficiency).} The efficiency \(\eta_M\) of
-\(M\) is the rate at which \(M\) improves the joint \((A, K)\)
+\(M\) is the rate at which \(M\) improves the joint \((F, K)\)
 capability per unit of learning signal:
 
-\[\eta_M(E) = \mathbb{E}_{\mathcal{L}} \left[ \frac{\max_{a' \in A'} G(f', K') - \max_{a \in A} G(f, K)}{|\mathcal{L}|} \right]\]
+\[\eta_M(E) = \mathbb{E}_{\mathcal{L}} \left[ \frac{\max_{f' \in F'} G(f', K') - \max_{f \in F} G(f, K)}{|\mathcal{L}|} \right]\]
 
-where \((A', K') = M((A, K), \mathcal{L})\) is the updated joint state
+where \((F', K') = M((F, K), \mathcal{L})\) is the updated joint state
 after \(M\) acts, \(G(f, K) = I(f\,;\, W \mid K)\) is the information
 gain of the best available informed action (Definition 3b) in bits, and
 \(|\mathcal{L}|\) is the information content of the learning signal in
@@ -1685,9 +1304,9 @@ improvement per bit is not defined.
 
 \(\eta_M\) is a signed quantity ranging over \((-\infty, \infty)\).
 \(\eta_M > 0\): \(M\) improves the best available action in expectation
---- the entity learns. \(\eta_M = 0\): \(M\) cannot improve \((A, K)\)
+--- the entity learns. \(\eta_M = 0\): \(M\) cannot improve \((F, K)\)
 on average --- the entity executes without learning. \(\eta_M < 0\):
-\(M\) degrades \((A, K)\) locally --- overfitting, catastrophic
+\(M\) degrades \((F, K)\) locally --- overfitting, catastrophic
 forgetting, destructive updating, or deliberate exploration. An entity
 with \emph{persistently} \(\eta_M < 0\) does not persist under selection
 pressure. An entity that can act on \(\eta_M < 0\) \emph{temporarily}
@@ -1712,14 +1331,6 @@ time. The theory's predictions (Theorems 1, 2, 4, 6) do not require
 the entity to compute \(I(E)\); they follow from the structural
 constraints regardless of whether the entity knows its own intelligence.
 
-The requirement for uncertainty in the measurement of \(I(E)\) is not a
-defect. It is the definition's content. \(I(E)\) is the rate of
-improvement under novel uncertainty. Absent uncertainty, there is
-nothing to measure. Every operationalization of intelligence, from
-psychometrics to skill acquisition benchmarks {[}Chollet2019{]},
-implicitly assumes this: the test provides the uncertainty; the
-measurement is the response.
-
 \emph{Remark on exploration and the necessity of acting on negative
 \(I(E)\).} Theorem 3 Part II establishes that
 \(\mathcal{T}_{reachable}\) grows without bound: the gradient landscape
@@ -1739,26 +1350,26 @@ are the signature of an \(M\) sophisticated enough to optimize over
 trajectories rather than steps.
 
 \(M\) is itself subject to gradient descent at the meta-learning
-timescale, with the same rigor thresholds (Theorem 4). \(A\) acts on
-\(W\); \(M\) acts on \((A, K)\).
+timescale, with the same rigor thresholds (Theorem 4). \(F\) acts on
+\(W\); \(M\) acts on \((F, K)\).
 
-\textbf{Theorem 5 (Type Irreducibility).} No element of \(A\) can become
+\textbf{Theorem 5 (Type Irreducibility).} No element of \(F\) can become
 an element of \(M\) through any learning process, regardless of
 certainty achieved.
 
-\emph{Proof.} \(A : K \times W_{obs} \rightarrow \Delta \Omega\).
-\(M : (A, K) \times \mathcal{L} \rightarrow (A, K)\). These functions
+\emph{Proof.} \(F : K \times W_{obs} \rightarrow \Delta A\).
+\(M : (F, K) \times \mathcal{L} \rightarrow (F, K)\). These functions
 have different type signatures and operate over different domains. No
 learning process changes the type of a function. An informed action
-\(a \in A\) that achieves certainty is promoted to a lower encoding
-level; it does not change type. \(M\) takes \((A, K)\) as input and
-returns an updated \((A, K)\); \(a\) takes knowledge and observations as
+\(f \in F\) that achieves certainty is promoted to a lower encoding
+level; it does not change type. \(M\) takes \((F, K)\) as input and
+returns an updated \((F, K)\); \(f\) takes knowledge and observations as
 input and returns an action distribution. These are irreducibly
 distinct. \(\square\)
 
-\textbf{Corollary 5a (Distinct Roles).} \(A\) navigates \(W\) given
-\(K\). \(M\) evolves \((A, K)\). Neuroplasticity is \(M\) acting on
-\(A\); insight is \(M\) acting on \(K\); habit formation is \(M\)
+\textbf{Corollary 5a (Distinct Roles).} \(F\) navigates \(W\) given
+\(K\). \(M\) evolves \((F, K)\). Neuroplasticity is \(M\) acting on
+\(F\); insight is \(M\) acting on \(K\); habit formation is \(M\)
 promoting from \(L_n\) to \(L_2\); evolution is \(M\) acting on \(M\)
 itself at the highest rigor threshold.
 
@@ -1801,7 +1412,7 @@ anything persists in the first place.
 
 \textbf{Part 1 (Necessity of \(\mathcal{A} > 0\)).} Suppose
 \(\mathcal{A}(E) = 0\). By Definition 6, \(E\) does not respond to
-gradient signals from \(W\): \((A(t), K(t)) = (A(0), K(0))\) for all
+gradient signals from \(W\): \((F(t), K(t)) = (F(0), K(0))\) for all
 \(t\). \(W\) is a physical state space with positive entropy: it
 generates novel configurations that no finite \(K(0)\) anticipates. This
 is not a modeling assumption but a thermodynamic fact --- any \(W\) with
@@ -1812,10 +1423,10 @@ these novel states in mind, \(U(w, K(0))\) is unconstrained there.
 The selection argument does not require that any single entity
 encounters lethal novelty within its lifetime. It operates on lineages.
 An entity with \(\mathcal{A} = 0\) reproduces copies of itself ---
-copies that inherit the same fixed \((A(0), K(0))\). Those copies
+copies that inherit the same fixed \((F(0), K(0))\). Those copies
 disperse across \(W\). In a world with positive entropy, the lineage's
 collective coverage of \(W\) grows with each generation, even though
-each individual's \((A, K)\) is static. The lineage therefore encounters
+each individual's \((F, K)\) is static. The lineage therefore encounters
 the novel configurations that \(W\) generates: states where
 \(U(w, K(0)) > U_{lethal}^d\) (Definition 5a). No copy can adapt
 (\(\mathcal{A} = 0\)); copies in those regions are removed. Copies in
@@ -1823,7 +1434,7 @@ stable niches persist temporarily, but the niches themselves are not
 permanent --- \(W\) has positive entropy, so no region stays static
 indefinitely. The \(\mathcal{A} = 0\) lineage contracts as its
 environment shifts until it is eliminated. Selection removes the lineage.
-Any lineage that persists must contain entities that update \((A, K)\)
+Any lineage that persists must contain entities that update \((F, K)\)
 --- i.e., entities with \(\mathcal{A} > 0\).
 
 The mechanism by which \(\mathcal{A} > 0\) is enforced is
@@ -1842,10 +1453,10 @@ enforcement mechanism is timescale-specific. \(\square\)
 \(\mathcal{A}(E) > 0\) but \(\eta_M(E) \leq 0\).
 
 \emph{Case \(\eta_M = 0\):} \(E\) has the drive to reduce \(U\) but
-\(M\) produces no net improvement in \((A, K)\) per unit of learning
+\(M\) produces no net improvement in \((F, K)\) per unit of learning
 signal: the best available action's information gain does not increase
-after \(M\) acts. \((A, K)\) is effectively fixed despite
-\(\mathcal{A}\). This reduces to Part 1's condition: with \((A, K)\)
+after \(M\) acts. \((F, K)\) is effectively fixed despite
+\(\mathcal{A}\). This reduces to Part 1's condition: with \((F, K)\)
 fixed, the frontier of \(\mathcal{T}_{reachable}\) grows beyond \(K\)'s
 coverage. Additionally, \(C_n\) is bounded (Definition 8a). As \(E\)
 encounters novel world states, \(L_n\) accumulates unresolved context.
@@ -1860,9 +1471,9 @@ relieved, \(\rho \to 0\), and inference eventually fails. \(U\) exceeds
 \(U_{lethal}^d\) in the domains that required the new actions. Selection
 removes \(E\).
 
-\emph{Case \(\eta_M < 0\) persistently:} \(M\) degrades \((A, K)\) on
+\emph{Case \(\eta_M < 0\) persistently:} \(M\) degrades \((F, K)\) on
 average across the trajectory. This accelerates the failure of the
-\(\eta_M = 0\) case: \((A, K)\) worsens in expectation, \(U\) approaches
+\(\eta_M = 0\) case: \((F, K)\) worsens in expectation, \(U\) approaches
 \(U_{lethal}^d\) from above. Selection removes \(E\) strictly faster.
 Note that temporary \(\eta_M < 0\) --- deliberate exploration to escape
 local optima --- is compatible with persistence and can increase
@@ -1885,14 +1496,14 @@ which it equals zero or its minimum value:
   from gradient descent, beginning with the first feedback signal
   received from \(W\) (Theorem 3, Part I).
 \item
-  \emph{\(A(0) = \{\text{id}\}\):} \(A\) is a function space; its
+  \emph{\(F(0) = \{\text{id}\}\):} \(F\) is a function space; its
   minimal element is the identity --- the action that changes nothing.
   The identity element exists independently of \(K\): it requires no
   grounding because it makes no knowledge claim. Executing the identity
   against \(W\) still returns feedback --- the world observed in the
   absence of action is itself a signal. That feedback grounds the first
   proposition \(p \in K\), after which the first non-trivial informed
-  action can be constructed. The minimally non-empty \(A\) is therefore
+  action can be constructed. The minimally non-empty \(F\) is therefore
   \(\{\text{id}\}\), not \(\emptyset\), and it is sufficient to begin
   gradient descent.
 \item
@@ -1909,26 +1520,6 @@ which it equals zero or its minimum value:
 
 No scalar property other than \(\mathcal{A}\) and \(\eta_M\) has the
 survival-critical necessity shown in Parts 1 and 2. \(\square\)
-
-\emph{On the identity of intelligence and adaptation.} An anticipated
-objection is that Theorem 6 proves only that adaptation is necessary for
-persistence --- survivorship bias formalized --- and says nothing about
-intelligence. This objection presupposes that intelligence and
-adaptation are distinct categories. The framework dissolves that
-distinction. Intelligence as defined here (Definition 7) is the driven
-capacity to improve: \(\mathcal{A}\) exercised through \(\eta_M\).
-Adaptation is the process by which an entity revises its internal state
-in response to environmental signals to maintain persistence. These are
-the same process, formally decomposed. The separation of intelligence
-from adaptation is a category error sustained by restricting
-``intelligence'' to high-level cognition and ``adaptation'' to
-low-level biological change. Theorem 6 shows they share the same
-structural invariants because they are the same thing operating at
-different timescales and encoding levels. An entity that adapts
-\emph{is} exercising intelligence; an entity that reasons \emph{is}
-adapting. The theorem does not merely prove that adaptation is necessary
---- it identifies the formal structure that intelligence and adaptation
-share, and shows that no persistent entity can lack it.
 
 \textbf{Corollary 6a (\(I(E) = \mathcal{A} \cdot \eta_M\) is
 structurally necessary, not stipulated).} From Theorem 6,
@@ -1956,28 +1547,28 @@ criterion: probability of needing it times conditional value.
 \subsection{8. The Unified Model}\label{the-unified-model}
 
 \textbf{Definition 12 (Trajectory).} A trajectory \(\tau\) is a sequence
-of informed actions drawn from \(A\):
+of informed actions drawn from \(F\):
 
-\[\tau = (a_1, a_2, \ldots, a_n), \quad a_i \in A\]
+\[\tau = (f_1, f_2, \ldots, f_n), \quad f_i \in F\]
 
 The \textbf{performance} realized by following trajectory \(\tau\) is:
 
 \[P(E, \tau) = \mathbb{E}_W\left[U(w_0, K_0) - U(w_n, K_n)\right]\]
 
 This is the total uncertainty reduction achieved --- a measure of what
-current \((A, K)\) accomplished, not of intelligence as defined.
+current \((F, K)\) accomplished, not of intelligence as defined.
 \(P(E, \tau)\) grows with trajectory length and with the quality of
-\(A\) at the time of execution. Intelligence \(I(E) = \mathcal{A}
+\(F\) at the time of execution. Intelligence \(I(E) = \mathcal{A}
 \cdot \eta_M\) is what determines how quickly \(P\) improves across
 successive trajectories: an entity with high \(I(E)\) builds better
-\((A, K)\) between trajectories, so \(P\) grows faster over time than
+\((F, K)\) between trajectories, so \(P\) grows faster over time than
 for an entity with low \(I(E)\) starting from identical initial
 conditions.
 
 Agency manifests as a trajectory \(\tau\): a sequence of informed
 actions selected and executed over time. Each action reduces \(U\),
 returns a learning signal to \(M\), and \(M\) uses that signal to
-improve \((A, K)\) for the next action. Intelligence is not visible in
+improve \((F, K)\) for the next action. Intelligence is not visible in
 any single step; it is the rate at which the steps improve.
 
 \subsubsection{Conclusion}\label{conclusion}
@@ -1992,17 +1583,16 @@ growing reachable space \(\mathcal{T}_{reachable}\). From these:
 \tightlist
 \item
   Knowledge and action are inseparable: \(K\) is constitutively indexed
-  by \(A\), with an asymmetric retention criterion derived from survival
+  by \(F\), with an asymmetric retention criterion derived from survival
   pressure (Theorem 1).
 \item
   Graph-structured \(K\) is necessary: bounded context requires
   progressive disclosure, which requires sub-linear retrieval, which
-  requires stored adjacency --- a graph (Theorems 2b, 2c).
+  requires stored adjacency --- a graph ({[}McCarthy2026a{]}).
 \item
-  Escalation is necessary for top-down allocation to remain viable:
-  bottom-up failure signaling keeps \(k\) bounded, preserving the
-  \(C_n\) capacity that top-down precision allocation requires
-  (Theorem 2a).
+  Escalation dominates top-down allocation: bottom-up failure signaling
+  is \(O(1)\) in steady state; top-down precision allocation degrades as
+  \(O(|F|/C_n)\) (Theorem 2a).
 \item
   The encoding hierarchy is a necessary consequence of bounded \(C_n\):
   proven knowledge promotes to lower levels, freeing the active context
@@ -2014,7 +1604,7 @@ growing reachable space \(\mathcal{T}_{reachable}\). From these:
 \item
   Intelligence \(I(E) = \mathcal{A} \cdot \eta_M\) is the driven
   capacity to improve --- not what has been learned, but how efficiently
-  evidence converts into better \((A, K)\).
+  evidence converts into better \((F, K)\).
 \end{itemize}
 
 The framework is substrate-independent: it specifies structural
@@ -2023,12 +1613,12 @@ constraints --- biological, artificial, or hybrid --- is a member of the
 structural class. The biological architecture is accommodated as one
 instance: heritable encoding at \(L_0\), individual learning at
 \(L_n\), and cultural transmission as external \(K\) when the heritable
-channel cannot carry individual \((K, A)\).
+channel cannot carry individual \((K, F)\).
 
 The theory makes testable predictions: that graph structure emerges
 under bounded-context optimization (confirmed in the engineering system
-that motivated the framework); that top-down allocation requires escalation to remain viable under
-scaling (observable in both software and cognitive architectures);
+that motivated the framework); that top-down orchestration degrades
+under scaling (observable in both software and cognitive architectures);
 and that the encoding hierarchy follows from cost structure rather than
 requiring separate explanation.
 
@@ -2039,6 +1629,35 @@ developed in a companion paper.
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{9. Related Work}\label{related-work}
+
+\subsubsection{Graph Necessity and Autonomous
+Learning}\label{graph-necessity-and-autonomous-learning}
+
+The graph necessity result on which this paper builds is established in
+{[}McCarthy2026a{]}: any system accumulating propositions under bounded
+active context must maintain a directed graph with typed edges. The
+proof proceeds from two independent arguments --- information
+preservation (factoring is the only lossless space-creating operation,
+and factoring is graph construction) and retention dynamics (sub-linear
+dependency queries require stored adjacency). That paper also shows that
+continuous-weight retrieval mechanisms (e.g., transformer self-attention)
+implement graph structure rather than constituting an alternative to it.
+
+Dupoux, LeCun, and Malik {[}DupouxLeCunMalik2026{]} propose a
+dual-system architecture (observation + action) with meta-control
+routing, motivated by cognitive science. Their framework is
+architectural and prescriptive: it argues that autonomous learning
+\emph{should} integrate observation, action, and meta-control. The
+present work is complementary: rather than proposing what intelligent
+systems should contain, we derive what they \emph{must} contain. Their
+Systems A and B correspond to \(F\) (informed actions on \(W\)) and
+\(K\) (observational propositions about \(W\)); their System M
+corresponds to the meta-control aspect of \(M\) in this framework. The
+structural results here --- type irreducibility of \(F\) and \(M\)
+(Theorem 5), the necessity of \(\mathcal{A}\) and \(\eta_M\) (Theorem
+6), and escalation dominance (Theorem 2a) --- provide formal grounding
+for architectural choices that {[}DupouxLeCunMalik2026{]} motivates
+empirically.
 
 \subsubsection{Free Energy Principle and Active
 Inference}\label{free-energy-principle-and-active-inference}
@@ -2085,21 +1704,20 @@ structures bootstrap from initial conditions --- is a separate open
 question; see Section 11.) Second, FEP's
 generative model is unconstrained in structure; we derive a structural
 constraint from survival pressure: \(K\) is necessarily indexed by
-\(A\), with an asymmetric retention criterion that makes specific
+\(F\), with an asymmetric retention criterion that makes specific
 testable predictions about what knowledge is retained and what is
 pruned. Third, FEP's precision allocation model is top-down: higher
 levels direct attention to lower levels by weighting prediction errors.
-Theorem 2a shows that this mechanism has an \(O(k)\) cost in high-level
-capacity per concurrent allocation. Escalation --- bottom-up failure
-signaling with promoted crystallization --- is the complementary
-mechanism that keeps \(k\) bounded: by handling routine problems below
-\(L_n\), escalation preserves the capacity that precision allocation
-requires. The contribution is not that precision allocation is wrong
-but that it cannot be the \emph{sole} control architecture under bounded
-context: without escalation to bound \(k\), delegation overhead fills
-\(C_n\) proportionally to \(|A|\) and precision allocation undermines
-itself. Escalation is the mechanism that makes precision allocation
-viable at scale.
+This is one specific implementation of \(M\). We show formally (Theorem
+2a) that this implementation degrades inference quality as capability
+grows under bounded context, because delegation overhead fills \(C_n\)
+proportionally to \(|F|\). The escalation architecture --- bottom-up
+failure signaling with promoted crystallization --- is a different
+implementation of \(M\) that is \(O(1)\) in steady state. This is a
+critique of FEP's architectural \emph{prescription} under bounded
+context, not of its minimization objective or its descriptive
+correctness. FEP's precision weighting may be optimal when \(C_n\) is
+not the binding constraint; under bounded context, escalation dominates.
 
 \subsubsection{Information-Theoretic
 Accounts}\label{information-theoretic-accounts}
@@ -2127,12 +1745,12 @@ only when local processors fail. This is the escalation architecture in
 cognitive science language. The contribution here: the escalation
 criterion is derived from \(U\)-reduction cost (Theorem 2) rather than
 assumed architecturally, the hierarchy is continuous rather than binary,
-and Theorem 2a derives the capacity bound on top-down allocation that
-escalation keeps viable. Kahneman's System 1/System 2 distinction
+and Theorem 2a shows why top-down allocation from the global workspace
+is inefficient. Kahneman's System 1/System 2 distinction
 {[}Kahneman2011{]} is the popular form of the same binary --- corrected
 here by the continuous \(\mathcal{E}(c, r)\) parameterization of
 Definition 8. Gibson's affordances {[}Gibson1979{]} are action
-possibilities indexed by organism capacities --- \(K\) indexed by \(A\)
+possibilities indexed by organism capacities --- \(K\) indexed by \(F\)
 under a different name. Theorem 1 provides what Gibson's account lacks:
 a formal selection criterion for which affordances are retained.
 Anderson and Schooler {[}AndersonSchooler1991{]} show empirically that
@@ -2163,7 +1781,7 @@ efficiency over novel tasks --- structurally close to \(\eta_M\) as
 defined in Definition 11a. The distinction: Chollet treats the prior
 knowledge and experience of the agent as a confound to be controlled;
 here prior \(K\) is constitutive of intelligence because \(\eta_M\)
-operates on \((A, K)\). Chollet's ``scope'' and ``generalization
+operates on \((F, K)\). Chollet's ``scope'' and ``generalization
 difficulty'' map to the growth of \(\mathcal{T}_{reachable}\); his
 ``priors'' correspond to the encoding hierarchy's lower levels. The
 frameworks are compatible but ask different questions: Chollet asks how
@@ -2183,10 +1801,9 @@ rather than computing the globally optimal \(K\).
 Griffiths, Lieder, and Goodman {[}GriffithsEtAl2015{]} formalize
 resource rationality: the optimal algorithm given computational
 constraints may differ from the optimal algorithm given unlimited
-resources. This is precisely the argument of Theorem 2a --- under
-bounded \(C_n\), top-down precision allocation requires escalation to
-remain viable, because its \(O(k)\) overhead must be bounded by an
-independent mechanism. The encoding hierarchy
+resources. This is precisely the argument of Theorem 2a --- top-down
+precision allocation is optimal without resource constraints; under
+bounded \(C_n\), escalation dominates. The encoding hierarchy
 (Definition 8) is a resource-rational architecture: it allocates costly
 active inference only to genuinely uncertain problems, handling resolved
 problems at lower cost.
@@ -2196,7 +1813,7 @@ cognition, arguing that the brain is fundamentally a prediction engine
 that minimizes prediction error hierarchically. This is the cognitive
 science framing of what Theorem 2 formalizes: hierarchical error
 minimization under bounded context. Clark's ``action-oriented predictive
-processing'' corresponds to the \(K\)-indexed-by-\(A\) structure of
+processing'' corresponds to the \(K\)-indexed-by-\(F\) structure of
 Theorem 1 --- predictions are constitutively tied to actions.
 
 Pearl {[}Pearl2009{]} provides the formal framework for causal reasoning
@@ -2205,10 +1822,10 @@ in directed graphs. The knowledge graph \(K\) as defined here (Definition
 Bayesian network interpretation of Definition 5 is grounded in Pearl's
 framework. Pearl's do-calculus formalizes interventional reasoning ---
 the distinction between observing and acting --- which corresponds to
-the distinction between \(K\) (what is known) and \(A\) (what can be
+the distinction between \(K\) (what is known) and \(F\) (what can be
 done). The retention criterion of Theorem 1 can be read as a
 causal relevance filter: retain \(p\) if there exists a causal path
-from \(p\) to some \(a \in A\) that reduces \(U\).
+from \(p\) to some \(f \in F\) that reduces \(U\).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2230,95 +1847,15 @@ An internal-model account predicts decelerating knowledge growth: larger
 models contain more variance, \(\rho\) degrades, and recovery requires
 expanding capacity (Theorem 2a). Civilizational knowledge growth has
 accelerated. The explanation: intelligence externalized \(K\) into
-graph-structured repositories and retrieves \(K^{[a]}\) into active
+graph-structured repositories and retrieves \(K^{[f]}\) into active
 context per problem. This is the escalation architecture (Theorem 2) and
-bounded-context theorem (Theorem 2b) at civilizational scale. Two
+graph necessity result ({[}McCarthy2026a{]}) at civilizational scale. Two
 predictions an internal-model account cannot make: (i) knowledge growth
 accelerates as \(K\) grows (Corollary 6 and Theorem 4: proven actions
 promote to lower levels, freeing \(L_n\) for new learning), and (ii) the
 external
 architecture self-assembles as a graph with provenance. Both are
 observed.
-
-\textbf{Remark on continuous-weight retrieval mechanisms.} The dominant
-scaling optimizations in transformer architectures --- sparse attention,
-learned routing, KV caching --- are each independently converging toward
-stored adjacency. Full self-attention computes the complete
-\(n \times n\) adjacency matrix at every query: \(O(n^2)\) per
-retrieval. Sparse attention mechanisms reduce this cost by learning
-fixed sparsity patterns --- learning which edges to keep. The KV cache
-materializes a subgraph of the full attention structure for reuse across
-queries. Each of these optimizations reduces the cost of dynamic
-adjacency computation by progressively storing more of the structure
-that Theorem 2c identifies as necessary for sub-linear maintenance.
-This convergence is consistent with the prediction that stored typed
-adjacency dominates dynamic recomputation under bounded \(C_n\) and
-continuous retention pressure. It is not part of the proof --- it is
-an empirical observation that the architectural trajectory of the most
-heavily optimized retrieval systems points toward explicit graph
-structure rather than away from it.
-
-\textbf{Predictions for large language model scaling.} The framework
-makes specific predictions about the scaling behavior of large language
-models (LLMs) that are currently testable.
-
-An LLM that stores all knowledge implicitly in its parameters is an
-implicit-\(K\) architecture: \(K\) has not been factored out of \(A\).
-By Corollary 2b, this architecture scales as \(O(n \cdot k)\) --- each
-of \(n\) functions carries its \(k\) shared propositions in the weights,
-with no deduplication. The parameter count of an LLM \emph{is} this
-\(O(n \cdot k)\) cost. The framework predicts that this cost grows
-multiplicatively with knowledge complexity, producing a scaling wall:
-each generation of model requires disproportionately more compute for
-incrementally better performance, because every new proposition must be
-embedded across every function that might reference it.
-
-This prediction is falsifiable: if pure parameter scaling achieves
-arbitrary capability without externalizing \(K\), the \(O(n \cdot k)\)
-bound is wrong. Current evidence is consistent with the prediction ---
-scaling curves are flattening, and the dominant capability additions to
-LLMs are converging on exactly the architecture the framework derives:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Retrieval-augmented generation} is the externalization of
-  \(K\): factoring shared propositions out of the weights into a
-  retrievable store, reducing per-query cost from \(O(n \cdot k)\) to
-  \(O(|K^{[a]}|)\) --- the relevant subgraph for the current problem
-\item
-  \textbf{Tool use and function calling} is the externalization of
-  \(A\): actions that do not need to live in the parameters, accessed by
-  typed interface rather than embedded in weights
-\item
-  \textbf{Agentic workflows} are the escalation architecture: sub-agents
-  handle well-scoped subtasks with local \(K^{[a]}\); the coordinator
-  engages only on failure or integration --- bottom-up signaling, not
-  top-down delegation of every subproblem
-\item
-  \textbf{Context window scaling} shows the diminishing returns predicted
-  by Corollary 4b: growing \(C_n\) without graph-structured retrieval
-  into that context degrades inference quality \(\rho\) on any specific
-  problem {[}Liu2024{]}
-\item
-  \textbf{Fine-tuning dominates prompting for known tasks}, as predicted
-  by the encoding hierarchy (Theorem 4): prompting holds everything at
-  \(L_n\); fine-tuning promotes proven patterns to lower encoding levels,
-  freeing \(L_n\) for genuine novelty
-\end{itemize}
-
-None of these developments were motivated by this framework. They were
-driven by engineering pressure --- cost, latency, accuracy at scale.
-That the selection pressure of deployment independently produces the
-architecture the framework derives from bounded context is the same
-pattern as the engineering system described in Section 1: the formal
-theory explains the convergence, it does not prescribe it. The framework
-predicts that this trajectory continues --- that implicit-\(K\)
-architectures are transitional, and that systems operating under bounded
-\(C_n\) at sufficient scale will converge on explicit, graph-structured
-\(K\) with typed adjacency, because that is the only architecture where
-knowledge maintenance cost does not grow multiplicatively with knowledge
-complexity.
 
 \textbf{Limits of the formal account.} The theory establishes structural
 requirements for individual intelligence under bounded context. It does
@@ -2376,7 +1913,7 @@ than any individual. These extensions are developed in a companion paper.
   (a general orientation toward uncertainty reduction), or does it carry
   direction? Survival pressure selects for reducing \emph{specific}
   uncertainties. Does \(\mathcal{A}\) encode this specificity, or does
-  \(A\) and \(K\) direct it toward particular regions of \(W\) after the
+  \(F\) and \(K\) direct it toward particular regions of \(W\) after the
   fact?
 \item
   \textbf{Perception and \(K\) construction.} How does \(\sigma\)
@@ -2385,8 +1922,8 @@ than any individual. These extensions are developed in a companion paper.
   level?
 \item
   \textbf{Bound composition.} Can bounds compose, i.e., can
-  \(a_1 \circ a_2\) produce informed actions covering regions of \(W\)
-  neither \(a_1\) nor \(a_2\) could cover alone? What are the rules of
+  \(f_1 \circ f_2\) produce informed actions covering regions of \(W\)
+  neither \(f_1\) nor \(f_2\) could cover alone? What are the rules of
   composition?
 \item
   \textbf{The novelty boundary (theory limit).} The framework defines
@@ -2398,20 +1935,20 @@ than any individual. These extensions are developed in a companion paper.
   interpolation, escalation to \(M\)) is outside the formal scope and
   would require extension of the framework.
 \item
-  \textbf{Competing bounds.} When multiple bounds \(a_i \in A\) are
+  \textbf{Competing bounds.} When multiple bounds \(f_i \in F\) are
   applicable to the same region of \(W\), how does \(E\) select among
-  them? Is there a selection function, and is it itself in \(A\) or
+  them? Is there a selection function, and is it itself in \(F\) or
   \(M\)?
 \item
   \textbf{The \(M^{(n)}\) hierarchy.} The framework defines \(M\) as
-  operating on \((A, K)\) (Definition 11) and notes that the same type
+  operating on \((F, K)\) (Definition 11) and notes that the same type
   applies recursively. The formal questions are: how many levels are
   required, what determines when another level becomes necessary, and
   whether the hierarchy has a natural termination point?
 
   The framework's answer to the first question is empirical, not
   prescribed: one level of \(M\) suffices until it does not. As long as
-  the gradient on \((A, K)\) can be followed by improving \((A, K)\)
+  the gradient on \((F, K)\) can be followed by improving \((F, K)\)
   directly, \(M^{(1)}\) is adequate. When it cannot --- when the
   learning mechanism itself is the bottleneck --- selection pressure
   propagates to \(M^{(2)}\). A single level is fine, until it isn't. The
@@ -2441,48 +1978,48 @@ than any individual. These extensions are developed in a companion paper.
   {[}Schrodinger1944, MaynardSmith1995, Hinton1987, England2013{]}.
 
   The framework does not resolve the content of genetic encoding ---
-  what specific mixture of \(M\), \((A_0, K_0)\), and developmental
+  what specific mixture of \(M\), \((F_0, K_0)\), and developmental
   constraint DNA carries across all levels is an open empirical
   question. The claim is narrower: whatever genetic encoding carries
   must be \emph{sufficient to develop the entity} --- sufficient to
-  bootstrap an organism capable of building \((A, K)\) through
+  bootstrap an organism capable of building \((F, K)\) through
   interaction with \(W\). The model is compatible with genetic encoding
   at any level of the hierarchy, in any proportion, provided the
   developmental output is a system that can run the gradient.
 
   What the framework does predict about the evolutionary rigor
-  threshold: specific \((A, K)\) are environment-dependent --- a skill
+  threshold: specific \((F, K)\) are environment-dependent --- a skill
   that reduces \(U\) in one environment may not transfer across the full
   distribution of environments the lineage will encounter. Content that
   clears \(\theta_0\) must generalize across that distribution.
   Developmental machinery --- the programs, architectures, and gradient
-  signals that build \((A, K)\) --- is more likely to generalize than
+  signals that build \((F, K)\) --- is more likely to generalize than
   specific content, because it is environment-agnostic. The framework
   predicts selection pressure favoring developmental generality over
   content specificity at the highest rigor levels; it does not predict
-  that specific \((A_0, K_0)\) is absent.
+  that specific \((F_0, K_0)\) is absent.
 
   This is consistent with the observation that we are not born with the
-  context window of our parents: individual \((K, A)\) --- everything
+  context window of our parents: individual \((K, F)\) --- everything
   learned in one lifetime --- clears \(\theta_n\) but not \(\theta_0\).
   The inheritance mechanism transmits what is sufficient for
   development, not what was learned. The diversity of knowledge across
   individuals with similar genetic endowment is the expected outcome:
   the same developmental machinery operating on different environments
-  produces different \((K, A)\).
+  produces different \((K, F)\).
 
   Cultural transmission (language, writing, institutions) provides a
-  parallel channel for \((K, A)\) at lower fidelity but higher speed ---
+  parallel channel for \((K, F)\) at lower fidelity but higher speed ---
   shared \(K\) functioning as external inheritance,
   serving a transmission function that heritable encoding cannot match for
   individual-lifetime content. The two channels operate at different
   rigor thresholds and different timescales.
 
   Formal questions that remain open: the precise allocation between
-  \(M\)-encoding and \((A_0, K_0)\)-encoding across evolutionary
+  \(M\)-encoding and \((F_0, K_0)\)-encoding across evolutionary
   lineages; whether the modularity of genetic regulatory networks is
   derivable from the type structure of
-  \(M : (A, K) \times \mathcal{L} \rightarrow (A, K)\) at the
+  \(M : (F, K) \times \mathcal{L} \rightarrow (F, K)\) at the
   evolutionary scale; and what determines \(\theta_0\) in terms of
   environmental distribution statistics.
 \end{enumerate}

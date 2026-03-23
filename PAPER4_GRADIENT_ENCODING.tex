@@ -1,0 +1,752 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Evaluation-Driven State Revision and the\\Encoding Hierarchy Under Bounded Context}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove two linked results for any entity persisting under bounded
+active context with survival pressure. First, agency ($\gamma > 0$)
+necessarily produces evaluation-driven state revision, gradient
+descent on uncertainty $U$, with convergence guaranteed by a scalar
+Lyapunov argument: $U \geq 0$ is bounded below, each update reduces
+$\mathbb{E}[U]$ because novel encounters produce informative feedback,
+and monotone convergence applies without dimensional decomposition. The gradient never terminates under positive novelty rate: as
+long as the entity encounters states where $U > 0$, actions with
+positive information gain exist. Second, the certainty threshold for encoding an action
+at level $L_i$ is $\theta_i = 1 - \varepsilon / C_i$, where $C_i$ is
+the cost of failure at that level. This derives the learning rate
+hierarchy: evolutionary rates are necessarily orders of magnitude lower
+than individual learning rates, not by assumption but from
+cost-of-failure differences.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+An entity with agency $\gamma > 0$ acts on the world and receives feedback.
+What is the necessary structure of learning? Papers~1--3 in this
+series established that any entity persisting under bounded active
+context must maintain a directed graph over propositions
+\cite{McCarthy2026a}, that control architectures converge to escalation at scale
+\cite{McCarthy2026b}, and that knowledge and action are inseparable
+under survival pressure \cite{McCarthy2026c}. What remains open is two
+questions: what \emph{dynamics} govern the updating process, and what
+determines the \emph{threshold} at which an action earns promotion to
+a more permanent encoding level.
+
+This paper answers both. We prove that the updating process is
+gradient descent on uncertainty $U$, with convergence guaranteed by a
+scalar Lyapunov argument that requires no dimensional decomposition
+(Theorem~\ref{thm:gradient}). We then prove that the certainty
+threshold for encoding at level $L_i$ is determined by the cost of
+failure at that level, which derives the learning rate hierarchy across
+encoding levels (Theorem~\ref{thm:encoding}).
+
+Several lines of prior work converge on these questions from different
+angles. Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose
+a bilevel optimization framework (evolution as outer loop, development
+as inner loop) but treat the learning rate relationship between levels
+as a design parameter rather than deriving it. Cover and Thomas
+\cite{Cover2006} provide the information-theoretic foundations that
+anchor our convergence argument. Schmidhuber \cite{Schmidhuber2010} identifies
+curiosity as compression progress, structurally identical to our
+learning rate $\eta_M$. Hutter \cite{Hutter2005} constructs AIXI as
+an idealized agent but assumes unbounded computation, precisely the
+constraint our framework takes as central. Chollet
+\cite{Chollet2019} defines intelligence as skill-acquisition
+efficiency, close to $\eta_M$ but treating prior knowledge as
+confound rather than constitutive element. Hinton and Nowlan
+\cite{Hinton1987} demonstrate that learning can guide evolution (the
+Baldwin effect) without formalizing the threshold that governs
+promotion. Finn et al.\ \cite{FinnEtAl2017} and Thrun
+\cite{Thrun1998} develop meta-learning algorithms that operate as $M$
+on $M$, the $M^{(2)}$ level in our hierarchy, but do not derive
+why the meta-level necessarily learns more slowly.
+
+% ------------------------------------------------------------------
+\section{Formal Framework}
+\label{sec:framework}
+% ------------------------------------------------------------------
+
+We introduce the minimal definitions required for the two main
+results, extending the framework of \cite{McCarthy2026a}.
+
+\begin{definition}[Entity, World, Uncertainty]
+\label{def:entity}
+An entity $E = (K, A, \sigma, \gamma)$ consists of a knowledge base $K$
+(propositions about world $W$), an action space $A$ (executable
+actions), a selection mechanism $\sigma$ that chooses actions given
+context, and an agency parameter $\gamma$. The world state space $W$ is a
+measurable space; the true state $w \in W$ is not directly observable.
+The \emph{uncertainty} of $E$ about state $w$ given knowledge $K$ is:
+\[
+U(w, K) = -\log P(w \mid K)
+\]
+The expected uncertainty is the conditional entropy:
+\[
+H(W \mid K) = \mathbb{E}_w[U(w, K)] = -\sum_w P(w \mid K) \log P(w \mid K)
+\]
+\end{definition}
+
+\begin{definition}[Agency]
+\label{def:agency}
+The agency parameter $\gamma \in [0,1]$ is the probability that $E$
+engages its learning mechanism $M$ in response to a learning signal.
+At $\gamma = 0$, $A$ and $K$ are fixed forever: the entity receives
+signals but never updates. The operational signature of $\gamma > 0$ is
+that the entity bounds uncertainty beyond what immediate survival
+requires, freeing active context capacity for novel states. An entity
+that updates only under immediate threat has $\gamma \approx 0$; an
+entity that builds reserve capacity for states it has not yet
+encountered has $\gamma > 0$.
+\end{definition}
+
+\begin{definition}[Action Feedback]
+\label{def:feedback}
+For action $a$ executed in world state $w$, the \emph{feedback}
+$\varphi(a, w)$ is the observable consequence. The entity updates its
+knowledge base: $K_a = K \cup \{p_a\}$, where $p_a$ is the
+proposition encoding the feedback. The \emph{gradient signal} is the
+prediction error:
+\[
+\delta = \varphi(a, w) - \mathbb{E}[\varphi(a, \cdot) \mid K]
+\]
+\end{definition}
+
+\begin{definition}[Information Gain]
+\label{def:gain}
+The information gain from executing $a$ given $K$ is the mutual
+information between the action's outcome and the world state,
+conditioned on current knowledge:
+\[
+G(a, K) = I(a; W \mid K) \geq 0
+\]
+Non-negativity follows from the definition of mutual information
+\cite{Cover2006}. $G = 0$ if and only if $a$ provides no information
+about $W$ beyond what $K$ already contains: the encounter is not
+novel.
+\end{definition}
+
+\begin{definition}[Novelty Rate]
+\label{def:novelty}
+The \emph{novelty rate} $\nu(E)$ is the rate at which entity $E$
+encounters world states $w$ where $U(w, K) > 0$. $\nu$ is a property
+of the entity-environment coupling, not of $W$ alone: the same
+environment presents different novelty rates to entities with different
+$K$. $\nu(E) > 0$ whenever the entity's environment is not fully
+predicted by $K$.
+\end{definition}
+
+\begin{definition}[Encoding Hierarchy]
+\label{def:hierarchy}
+The encoding space $\mathcal{E}(c, r)$ is a continuous space
+parameterized by cost $c$ and reversibility $r$. Within this space,
+interfaces $L_0, L_1, \ldots, L_n$ define discrete encoding levels
+with increasing cost and reversibility:
+\begin{itemize}
+\item $L_0$ (genomic): highest cost of error, lowest reversibility,
+   slowest update rate.
+\item $L_n$ (active context): lowest cost of error, highest
+   reversibility, fastest update rate.
+\end{itemize}
+Escalation \cite{McCarthy2026b} pushes proven actions
+upward toward more permanent levels. The present paper derives the
+threshold that governs this promotion.
+\end{definition}
+
+% ------------------------------------------------------------------
+\section{Gradient Descent on Uncertainty}
+\label{sec:gradient}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Evaluation-Driven State Revision]
+\label{thm:gradient}
+Let $E = (K, A, \sigma, \gamma)$ be an entity with $\gamma > 0$ persisting in
+world $W$ under bounded active context $C_n$.
+
+\textbf{Part I.} Every executed action generates a gradient signal,
+and $\gamma > 0$ guarantees engagement with that signal, producing
+evaluation-driven state revision, gradient descent on $U$, with
+convergence to a local minimum.
+
+\textbf{Part II.} Under positive novelty rate $\nu(E) > 0$
+(Definition~\ref{def:novelty}), the gradient is never globally zero:
+the entity continues to encounter states where $U(w,K) > 0$, so
+descent never terminates.
+\end{theorem}
+
+\begin{proof}
+\textbf{Part I: Forced Signal, Response Gate, and Convergence.}
+
+Every executed action $a$ generates feedback $\varphi(a, w)$ from the
+world. This signal arrives whether or not the entity has $\gamma > 0$: the
+world responds to actions regardless of the actor's capacity to learn
+from them. The gradient signal $\delta = \varphi(a, w) -
+\mathbb{E}[\varphi(a, \cdot) \mid K]$ is therefore produced at every
+action.
+
+Agency $\gamma$ is the response gate. An entity with $\gamma = 0$ receives
+every signal $\delta$ but never updates: $(A, K)$ remain static. An
+entity with $\gamma > 0$ engages $M$ with probability $\gamma$ on each signal,
+producing the update:
+\[
+\Delta_a = -\eta \cdot \delta
+\]
+where $\eta > 0$ is the learning rate of mechanism $M$. The update
+$\Delta_a = -\eta \cdot \delta$ revises $K$ in the direction that
+reduces prediction error. $K$ is a set of propositions, not a
+parameter vector, so $\nabla_K U$ is not defined in the classical
+sense. The descent property is instead established directly: Step~1
+below shows that each informative update strictly reduces
+$\mathbb{E}[U]$, using the fact that conditioning on additional
+evidence cannot increase expected uncertainty \cite{Cover2006}. This
+is evaluation-driven state revision: the entity updates in a descent
+direction on $U$ without requiring a differentiable parameterization
+of $K$.
+
+We now establish convergence via a scalar Lyapunov argument that
+requires no dimensional decomposition.
+
+\emph{Step 1: Each $M$-update from a novel encounter strictly reduces
+$\mathbb{E}[U]$.} When the entity encounters a state $w$ where
+$U(w, K) > 0$ and executes action $a$, the encounter is informative:
+$G(a, K) > 0$ because the feedback resolves uncertainty that $K$ did
+not already contain. When $M$ integrates this feedback into $K$,
+forming $K' = K \cup \{p_a\}$:
+\[
+\mathbb{E}[U(w, K') \mid K] \leq U(w, K) - G(a, K)
+\]
+The inequality is strict whenever $G(a, K) > 0$---that is, whenever
+the encounter was novel. Novelty drives the descent: each novel
+encounter produces an informative update, and each informative update
+strictly reduces expected uncertainty.
+
+\emph{Step 2: Monotone convergence.} Consider the sequence
+$\{E_t\} = \{\mathbb{E}[U(w, K(t))]\}$ indexed by update steps $t$.
+By Step~1, $\{E_t\}$ is non-increasing. By definition, $U(w, K) =
+-\log P(w \mid K) \geq 0$, so $\{E_t\}$ is bounded below by $0$. By
+the monotone convergence theorem, $\{E_t\}$ converges. Since the
+sequence is non-increasing and convergent:
+\[
+\sum_{t=0}^{\infty} G(a_t, K(t)) \leq U(w, K(0)) < \infty
+\]
+Therefore $G(a_t, K(t)) \to 0$ as $t \to \infty$. The entity
+converges to a local minimum of $U$: a state where available
+actions yield diminishing informational returns.
+
+\emph{Step 3: Dimensionality irrelevance.} The entire argument
+operates on the scalar quantity $U$. The entity's internal
+parameterization may grow as the reachable trajectory space
+$T_{\mathrm{reachable}}$ expands. Each new proposition $p_a$ added to
+$K$ from an informative encounter can only reduce $\mathbb{E}[U]$
+(Step~1): integrating novel evidence never increases expected
+uncertainty. Cross-grounding between
+propositions accelerates convergence by allowing a single observation
+to update multiple related beliefs. Adding structure to $K$ is
+analogous to adding a column to a design matrix and re-normalizing:
+the residual can only shrink. The Lyapunov bound $U \geq 0$ holds
+regardless of the dimensionality of $K$ or the parameterization of
+$M$.
+
+\textbf{Part II: Non-Termination Under Positive Novelty.}
+
+When $\nu(E) > 0$ (Definition~\ref{def:novelty}), the entity
+encounters states $w$ with $U(w, K(t)) > 0$ at positive rate. Each
+such encounter produces an action $a$ with $G(a, K(t)) > 0$: the
+feedback from acting under uncertainty is informative. Therefore at
+every finite $t$ there exists some $a'$ with $G(a', K(t)) > 0$.
+
+The gradient is never globally zero. Descent converges locally
+(Part~I) but never terminates globally: as long as the environment
+presents novel states, there remain actions with positive information
+gain.
+
+Non-termination does not require unbounded world complexity. A finite
+world with $\nu(E) > 0$ suffices: even if $W$ is finite, the entity
+may never fully predict it because new evidence can invalidate or
+refine existing propositions, and the combinatorial space of
+entity-environment interactions exceeds what $K$ can index under
+bounded $C_n$.
+
+\emph{Interaction with the curation regime.} The convergence argument
+in Part~I assumes $K$ grows monotonically ($K' = K \cup \{p_a\}$). In
+the curation regime established in \cite{McCarthy2026c}, $|K|$ is
+bounded at $K_{\max}$ and every addition requires displacement. Does
+displacement break convergence?
+
+Not under the cost-benefit displacement criterion of the $K/A$
+inseparability theorem. Every proposition $p \in K$ incurs a positive
+maintenance cost $c_{\text{retain}}(p, K) > 0$: retrieval interference,
+edge maintenance, and context consumption. Proposition $p$ is displaced
+by $q$ only when
+\[
+  \mathbb{E}[B(q, \mathcal{T})] - c_{\text{retain}}(q, K)
+  \;>\;
+  \mathbb{E}[B(p, \mathcal{T})] - c_{\text{retain}}(p, K),
+\]
+where $B$ is expected survival benefit and $\mathcal{T}$ is the
+entity's task distribution. This is a \emph{net} criterion: it accounts
+for the grounding lost when $p$ is removed, not just the grounding
+gained by adding $q$. Displacement occurs only when the swap strictly
+improves net survival value. Therefore $\mathbb{E}[U]$ does not
+increase across displacements, and convergence is preserved---not
+because $K$ grows, but because each displacement strictly improves the
+net survival benefit of a fixed-size $K$.
+
+\textbf{Remark.} An entity with $\gamma = 0$ never updates. As $W$
+changes, its fixed $K$ becomes increasingly inaccurate: $U(w_t, K)$
+grows until it exceeds the lethality threshold $U_{\mathrm{lethal}}$.
+Selection removes such entities. Therefore $\gamma > 0$ is necessary for
+persistence, a claim established fully in Paper~5.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Multi-Timescale Structure}
+\label{sec:multiscale}
+% ------------------------------------------------------------------
+
+\begin{corollary}[Individual Learning and Evolution Share Update Structure]
+\label{cor:multiscale}
+Both individual learning and evolutionary selection instantiate the
+same abstract update: execute, receive signal, retain or revise. They
+differ in mechanism, object, and timescale.
+\end{corollary}
+
+\begin{proof}
+\textbf{Individual learning.} The entity updates its knowledge and
+action space directly from continuous prediction-error signals
+$\delta$. Each update revises $K$ in a direction that reduces
+$\mathbb{E}[U]$ (Theorem~\ref{thm:gradient}, Part~I). The update is
+directed: $\delta$ specifies both magnitude and direction of revision.
+The learning rate $\eta_{\mathrm{ind}}$ is determined by the capacity
+of mechanism $M$.
+
+\textbf{Evolutionary selection.} The population-level update operates
+on a different object (the heritable component of $A$) via a different
+mechanism:
+\[
+\Delta a_{\mathrm{species}} = \mathrm{select}(\mathrm{mutate}(A_{\mathrm{population}}))
+\]
+Mutation is undirected: random perturbation of heritable parameters.
+Selection is binary: survive or not. No individual organism descends a
+gradient at the evolutionary timescale; the population distribution
+shifts toward lower $U$ through differential survival.
+
+Both processes move the entity (individual or lineage) toward lower
+$U$ at their respective timescales. Gradient descent is the efficient
+limit: directed $\delta$ combined with capable $M$ produces the
+steepest feasible descent. Evolution is the general case: random
+perturbation combined with selection produces descent without requiring
+any individual to compute a gradient.
+
+The two are not independent. Individual learning discovers actions at
+$L_n$ that, if sufficiently validated, promote to $L_0$ via the
+encoding hierarchy (Theorem~\ref{thm:encoding}). This is the Baldwin
+effect \cite{Hinton1987}, here derived rather than observed.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Encoding Permanence}
+\label{sec:encoding}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Encoding Permanence Scales with Rigor]
+\label{thm:encoding}
+Let $L_0, \ldots, L_n$ be encoding levels with associated failure
+costs $C_0 > C_1 > \cdots > C_n$ and reversibility costs
+$r_0 > r_1 > \cdots > r_n$. Let $\varepsilon$ be the maximum
+acceptable expected error cost. Then the minimum certainty threshold
+for encoding an action at level $L_i$ is:
+\[
+\theta_i = 1 - \frac{\varepsilon}{C_i}
+\]
+\end{theorem}
+
+\begin{proof}
+Encoding action $a$ at level $L_i$ has reversibility cost $r_i$:
+correcting a bad encoding is not impossible but expensive in proportion
+to $r_i$ (at $L_0$, correction requires generations of selection; at
+$L_n$, a single update suffices). If the encoding is erroneous---$a$
+is not in fact reliably adaptive---the cost of that error is $C_i$. If
+$\theta$ is the certainty that $a$ is correct, then the expected error
+cost is:
+\[
+\mathbb{E}[\text{error cost}] = (1 - \theta) \cdot C_i
+\]
+Encoding is safe when the expected error cost does not exceed the
+acceptable threshold:
+\[
+(1 - \theta) \cdot C_i \leq \varepsilon
+\]
+Rearranging:
+\[
+\theta \geq 1 - \frac{\varepsilon}{C_i}
+\]
+The minimum safe threshold is therefore $\theta_i = 1 -
+\varepsilon / C_i$. This is the break-even point on a cost continuum:
+the certainty at which the expected benefit of encoding at $L_i$
+exceeds the expected cost of error weighted by $C_i$.
+
+\textbf{Consequence.} At $L_0$ (genomic encoding), $C_0$ is the cost
+of lineage extinction, orders of magnitude larger than $\varepsilon$.
+Therefore $\theta_0 \approx 1$: near-certainty is required before the
+expected benefit justifies the risk. A bad encoding at $L_0$ does not
+kill one individual; it kills the lineage.
+At $L_n$ (active context), $C_n$ is small (cost of a single failed
+action), so $\theta_n$ is meaningfully less than $1$: the expected
+benefit of trying exceeds the expected cost of failure at moderate
+confidence. Rigor is proportional to reversibility cost.
+\end{proof}
+
+\textbf{Error propagation through the hierarchy.} A natural objection
+holds that errors compound across levels: if each level has error rate
+$1 - \theta_i$, the cumulative error grows multiplicatively. This
+objection is based on a naive cascading model. Under escalation
+\cite{McCarthy2026b}, errors partition into two categories:
+\emph{handled errors}, which are resolved at level $L_i$ and never
+reach $L_{i+1}$, and \emph{unhandled exceptions}, which represent
+genuinely irreducible failures that escalate. The error rate seen by
+$L_{i+1}$ is not a compounded Bernoulli product of lower-level error
+rates but the rate of genuinely irreducible errors: failures that
+persist across sufficient variation to pass the threshold $\theta_i$.
+The thresholds $\theta_i$ are independent by construction: each is
+determined by $C_i$ and $\varepsilon$, not by the error rates of
+adjacent levels.
+
+\subsection{Deriving the Learning Rate Hierarchy}
+
+The learning rate at level $L_i$ is inversely related to the rigor
+threshold. To see why, consider the sample complexity: encoding at
+$L_i$ requires confidence $\theta_i$ that the action is adaptive. By
+Hoeffding's inequality \cite{Hoeffding1963}, the number of independent
+trials $n_i$ needed to achieve confidence $\theta_i$ satisfies:
+\[
+n_i \;\geq\; \frac{\log(1/(1 - \theta_i))}{2\varepsilon^2}
+\;\approx\; \frac{1}{2\varepsilon^2} \log \frac{C_i}{\varepsilon}
+\]
+The effective learning rate, the fraction of experience that results
+in permanent encoding, is inversely proportional to $n_i$:
+\[
+\eta_i \;\propto\; \frac{1}{n_i}
+\;\propto\; \frac{1}{\log(C_i / \varepsilon)}
+\]
+
+For $L_n$ (active context): $C_n$ is small but finite,
+$\theta_n = 1 - \varepsilon / C_n$ is meaningfully less than $1$, and
+$\eta_{\mathrm{ind}}$ is large. The entity updates rapidly from each
+gradient signal.
+
+For $L_0$ (genomic): $C_0 \gg \varepsilon$, so $\theta_0 \approx 1$
+and $\eta_{\mathrm{evo}} \approx \varepsilon / C_0 \approx 0$. The
+lineage updates only when certainty is overwhelming.
+
+Since $\theta_0 \gg \theta_n$, it follows that
+$\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$. The learning rate
+difference between evolution and individual learning is \emph{derived}
+from the cost-of-failure structure, not assumed as a design parameter.
+
+\begin{corollary}[Bounded Adaptation]
+\label{cor:bounded}
+An action $a$ is \emph{certain} at level $L_i$ when $U(w, K_a)
+\approx 0$ across sufficient variation to meet threshold $\theta_i$.
+Once $\theta_i$ is met, the expected benefit of encoding at $L_i$
+exceeds the expected cost of error. The action is encoded at $L_i$ and
+no longer consumes $L_n$ resources, freeing active context for the
+next epistemic frontier. This encoding is durable, not literally
+irreversible: environmental shift can render it maladaptive, but
+correction requires effort proportional to $r_i$.
+\end{corollary}
+
+\begin{definition}[Certainty]
+\label{def:certain}
+Action $a$ is \emph{certain} when $U(w, K_a) \approx 0$ across
+sufficient variation in $w$ to meet the threshold $\theta_i$ for
+encoding level $L_i$. Formally: $P(\text{$a$ is adaptive} \mid K)
+\geq \theta_i$, where the probability is taken over the distribution
+of world states relevant to $L_i$.
+\end{definition}
+
+% ------------------------------------------------------------------
+\section{Engagement with Prior Work}
+\label{sec:prior}
+% ------------------------------------------------------------------
+
+\textbf{Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.}
+Their bilevel optimization framework, inner loop as development,
+outer loop as evolution, captures the correct structural
+relationship between encoding levels. However, they treat the learning
+rate difference between levels as a design parameter: the inner loop
+is fast because it is designed to be fast, and the outer loop is slow
+because mutation and selection are slow. Theorem~\ref{thm:encoding}
+derives this relationship from first principles: $\eta_{\mathrm{evo}}
+\ll \eta_{\mathrm{ind}}$ because $C_0 \gg C_n$, not because of any
+design choice.
+
+Their framework includes a ``System~M'' that is ``not learned through
+gradient descent'' but fixed by evolution. Our framework explains
+\emph{why}: the rigor threshold $\theta_0 \approx 1$ means that any
+component encoded at $L_0$ must be near-certain across all
+environments in the species distribution. Only mechanisms that
+generalize across the full environmental distribution meet this
+threshold. System~M is not excluded from gradient descent by fiat; it
+is excluded because the cost of a bad learning mechanism at $L_0$ is
+lineage extinction, and the resulting threshold $\theta_0$ permits
+only components validated across maximal variation.
+
+\textbf{Hutter \cite{Hutter2005}: AIXI.}
+AIXI constructs the theoretically optimal agent by enumerating all
+computable hypotheses, weighted by Kolmogorov complexity. The
+construction assumes unbounded computation, precisely the
+constraint our framework takes as central. Under bounded active
+context $C_n$, the AIXI solution is unreachable: the entity cannot
+enumerate hypotheses but must descend the gradient with finite
+resources. Our Theorem~\ref{thm:gradient} characterizes what bounded
+agents actually do: local gradient descent on $U$ with convergence to
+local minima, not global optimization over hypothesis space.
+
+\textbf{Chollet \cite{Chollet2019}: Intelligence as
+skill-acquisition efficiency.}
+Chollet's measure of intelligence, the rate at which an agent
+acquires new skills from limited experience, is structurally close
+to our learning rate $\eta_M$. The key divergence is in the treatment
+of prior knowledge. Chollet treats priors as a confound to be
+controlled for: intelligence is efficiency \emph{net of} prior
+knowledge. In our framework, prior knowledge $K$ is not a confound
+but a constitutive element: $\eta_M$ operates on $K$, and the
+capacity of $M$ is inseparable from the structure of $K$
+\cite{McCarthy2026c}. An entity with richer $K$ does not have
+``unfair advantage.'' It has done more gradient descent.
+
+\textbf{Schmidhuber \cite{Schmidhuber2010}: Curiosity as compression
+progress.}
+Schmidhuber defines intrinsic motivation as the rate of compression
+progress: the reduction in description length of the agent's model
+of the world. This is structurally identical to $\eta_M$: both
+measure the rate of uncertainty reduction. The difference is
+ontological. Schmidhuber treats curiosity as a design objective,
+something to be engineered into agents. Our framework suggests that
+$\gamma > 0$ (the tendency to engage $M$ even without immediate survival
+pressure) is not a design choice but a necessary condition for
+persistence, a claim established fully in Paper~5.
+
+\textbf{Hinton and Nowlan \cite{Hinton1987}: Learning guiding
+evolution.}
+Hinton and Nowlan demonstrate via simulation that individual learning
+can accelerate evolutionary search: the Baldwin effect. An
+organism that can learn a trait during its lifetime effectively
+smooths the fitness landscape for evolution. Our framework formalizes
+this: individual learning at $L_n$ discovers actions via rapid
+gradient descent ($\eta_{\mathrm{ind}}$ large). Encoding permanence
+(Theorem~\ref{thm:encoding}) determines which of these actions
+promote to $L_0$: only those meeting $\theta_0 \approx 1$, actions
+validated across sufficient environmental variation to warrant
+heritable encoding. The Baldwin effect is not an empirical curiosity
+but a necessary consequence of the encoding hierarchy.
+
+\textbf{Kirkpatrick et al.\ \cite{Kirkpatrick2017}: Catastrophic
+forgetting and elastic weight consolidation.}
+Kirkpatrick et al.\ demonstrate that neural networks trained
+sequentially on multiple tasks catastrophically forget earlier tasks
+unless protected by a consolidation mechanism. Their solution,
+elastic weight consolidation (EWC), assigns higher ``importance''
+to weights encoding well-established knowledge, penalizing changes to
+those weights during subsequent learning. This is precisely the
+encoding hierarchy: weights at lower encoding levels (higher
+$\theta_i$, higher cost of error) are protected; weights at higher
+levels (lower $\theta_i$) are free to change. EWC's Fisher information
+matrix empirically estimates our cost-of-failure $C_i$.
+The result provides direct empirical evidence that the encoding
+hierarchy is not merely theoretical: artificial systems that violate
+it (flat learning rate across all parameters) fail, and systems that
+approximate it (EWC, progressive neural networks) succeed.
+
+\textbf{Murray et al.\ \cite{Murray2014}: Cortical temporal
+hierarchy.}
+Murray et al.\ establish that intrinsic timescales of neural
+activity increase systematically along the cortical hierarchy: sensory
+cortex fluctuates rapidly, while prefrontal cortex maintains stable
+representations over seconds. This gradient of temporal stability maps
+directly onto the encoding hierarchy: fast-updating sensory areas
+operate at $L_n$ (low cost of error, high reversibility), while
+slow-updating prefrontal areas operate at lower encoding levels (high
+cost of error, low reversibility). The empirical timescale gradient
+matches the theoretical prediction $\eta_i \propto 1/\log(C_i /
+\varepsilon)$: regions with higher cost of error update more slowly.
+
+\textbf{Finn et al.\ \cite{FinnEtAl2017} and Thrun \cite{Thrun1998}:
+Meta-learning.}
+Model-Agnostic Meta-Learning (MAML) learns an initialization from
+which task-specific learning converges rapidly. ``Learning to learn''
+\cite{Thrun1998} frames this as optimizing the learning algorithm
+itself. In our framework, meta-learning is $M$ operating on $M$:
+the $M^{(2)}$ level. The meta-learner sits at a higher encoding level
+than the base learner: it updates more slowly ($\eta_{M^{(2)}} <
+\eta_M$) because the cost of a bad meta-learning rule ($C_{M^{(2)}}$)
+exceeds the cost of a bad base-level update ($C_M$). The MAML inner
+loop is $L_n$; the outer loop is $L_{n-1}$. The hierarchy extends:
+evolution is meta-meta-$\ldots$-learning at $L_0$.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Gradient descent on uncertainty is not a metaphor for learning. It is
+what survival-driven updating \emph{is}. Any entity with $\gamma > 0$
+that persists under bounded context necessarily engages in
+evaluation-driven state revision: executing actions, receiving
+gradient signals, and updating knowledge to reduce $U$. The
+convergence argument is scalar; it operates on $U$ directly, with
+no dependence on the dimensionality of the entity's internal
+parameterization. Under positive novelty rate ($\nu(E) > 0$), the gradient never
+terminates: novel states ensure actions with positive information
+gain always exist.
+
+The encoding hierarchy is not a design choice but a necessary
+consequence of cost-of-failure differences across encoding levels.
+The threshold $\theta_i = 1 - \varepsilon / C_i$ is the break-even
+point: the certainty at which expected benefit of encoding exceeds
+expected cost of error. From
+this single equation, the entire learning rate hierarchy follows:
+$\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$ because
+$C_0 \gg C_n$, not because evolution is ``inherently slow'' or
+individual learning is ``inherently fast.''
+
+Together with graph necessity \cite{McCarthy2026a}, convergence to
+escalation \cite{McCarthy2026b}, and K/A inseparability \cite{McCarthy2026c},
+this paper completes the structural account of
+how knowledge is acquired, validated, and encoded. What remains is to
+establish that $\gamma > 0$ is itself necessary for persistence: that
+agency is not optional but required. This is the subject of Paper~5.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, literature review, and \LaTeX{} preparation. All theoretical content, proofs, and arguments are the author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{Chollet2019}
+F.~Chollet.
+\newblock On the measure of intelligence.
+\newblock \emph{arXiv preprint arXiv:1911.01547}, 2019.
+
+\bibitem{Cover2006}
+T.~M. Cover and J.~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock Wiley-Interscience, 2nd edition, 2006.
+
+\bibitem{DupouxLeCunMalik2026}
+E.~Dupoux, Y.~LeCun, and J.~Malik.
+\newblock Why {AI} systems don't learn and what to do about it: Lessons on
+  autonomous learning from cognitive science.
+\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
+\bibitem{FinnEtAl2017}
+C.~Finn, P.~Abbeel, and S.~Levine.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning (ICML)}, pages 1126--1135, 2017.
+
+\bibitem{Friston2010}
+K.~Friston.
+\newblock The free-energy principle: A unified brain theory?
+\newblock \emph{Nature Reviews Neuroscience}, 11(2):127--138, 2010.
+
+\bibitem{Hinton1987}
+G.~E. Hinton and S.~J. Nowlan.
+\newblock How learning can guide evolution.
+\newblock \emph{Complex Systems}, 1(3):495--502, 1987.
+
+\bibitem{Hoeffding1963}
+W.~Hoeffding.
+\newblock Probability inequalities for sums of bounded random variables.
+\newblock \emph{Journal of the American Statistical Association},
+  58(301):13--30, 1963.
+
+\bibitem{Hutter2005}
+M.~Hutter.
+\newblock \emph{Universal Artificial Intelligence: Sequential Decisions Based
+  on Algorithmic Probability}.
+\newblock Springer, 2005.
+
+\bibitem{Kirkpatrick2017}
+J.~Kirkpatrick, R.~Pascanu, N.~Rabinowitz, J.~Veness, G.~Desjardins,
+  A.~A. Rusu, K.~Milan, J.~Quan, T.~Ramalho, A.~Grabska-Barwinska,
+  D.~Hassabis, C.~Summerfield, T.~Lillicrap, and D.~Kumaran.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock \emph{Proceedings of the National Academy of Sciences},
+  114(13):3521--3526, 2017.
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under
+  bounded context.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded context.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Knowledge and action are inseparable under survival pressure.
+\newblock Working paper, 2026.
+
+\bibitem{Murray2014}
+J.~D. Murray, A.~Bernacchia, D.~J. Freedman, R.~Romo, J.~D. Wallis,
+  X.~Cai, C.~Padoa-Schioppa, T.~Pasternak, H.~Seo, D.~Lee, and
+  X.-J. Wang.
+\newblock A hierarchy of intrinsic timescales across primate cortex.
+\newblock \emph{Nature Neuroscience}, 17(12):1661--1663, 2014.
+
+\bibitem{RobbinsMonro1951}
+H.~Robbins and S.~Monro.
+\newblock A stochastic approximation method.
+\newblock \emph{The Annals of Mathematical Statistics}, 22(3):400--407, 1951.
+
+\bibitem{Schmidhuber2010}
+J.~Schmidhuber.
+\newblock Formal theory of creativity, fun, and intrinsic motivation
+  (1990--2010).
+\newblock \emph{IEEE Transactions on Autonomous Mental Development},
+  2(3):230--247, 2010.
+
+\bibitem{Shannon1948}
+C.~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock \emph{Bell System Technical Journal}, 27(3):379--423, 1948.
+
+\bibitem{Simon1955}
+H.~A. Simon.
+\newblock A behavioral model of rational choice.
+\newblock \emph{The Quarterly Journal of Economics}, 69(1):99--118, 1955.
+
+\bibitem{Thrun1998}
+S.~Thrun and L.~Pratt.
+\newblock \emph{Learning to Learn}.
+\newblock Kluwer Academic Publishers, 1998.
+
+\end{thebibliography}
+
+\end{document}

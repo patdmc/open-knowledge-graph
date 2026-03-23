@@ -1,0 +1,910 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Knowledge as Normalization:\\Bounded Context Separates Shared\\Propositions from Action}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+When multiple action policies share propositions and active context is
+bounded, storing each policy's propositions independently produces
+$O(n \cdot k)$ context load---multiplicative in the number of policies
+$n$ and propositions per policy $k$. We prove that bounded context
+forces the extraction of shared propositions into a separate
+structure~$K$, reducing context load to $O(n + k')$ where $k' = |K|$.
+This is knowledge as normalization: $K$ precipitates from the action
+space~$A$ the same way normal forms precipitate from redundant
+relations in Codd's relational model. The normalization is not a
+design choice but a scaling constraint imposed by bounded~$C_n$.
+From the normalization theorem we derive the retention criterion
+(retain when benefit is uncertain; prune only when benefit is
+certainly zero) and $K/A$ inseparability (the content of $K$ is
+constitutively determined by $A$). These results engage directly
+with recent proposals to give observation and action separate
+training objectives \cite{DupouxLeCunMalik2026}, showing that such
+separation violates a structural constraint imposed by bounded context.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+McCarthy \cite{McCarthy2026a} establishes that any entity accumulating
+propositions under bounded active context necessarily maintains a
+directed graph with typed edges over its propositions (where
+``necessary'' means selected for under competition---see
+\cite{McCarthy2026a}, Remark~1). That result
+answers a structural question: \emph{what form} must knowledge take?
+McCarthy \cite{McCarthy2026b} establishes that control architectures
+converge to escalation under bounded context. The present paper asks the
+next question: \emph{why does a separated knowledge structure emerge at
+all?}
+
+The answer is a scaling constraint. Consider an entity with $n$ action
+policies, each requiring $k$ propositions on average, with overlap
+fraction $\beta$ (the proportion of propositions shared across two or
+more policies). Without a separated knowledge structure, each policy
+carries its own copy of every required proposition. Total context load
+is $O(n \cdot k)$. Under bounded active context $C_n$, this
+architecture fails for any non-trivial repertoire: two overlapping
+policies loaded simultaneously require $2k - |\text{overlap}|$ context
+slots, and without separation the overlap is not recognized---both full
+copies are loaded.
+
+With a separated structure $K$, shared propositions are stored once and
+referenced by multiple policies. Total context load drops to
+$O(n + k')$ where $k' = |K|$ absorbs the shared propositions. The
+per-action marginal cost approaches $O(1)$ as overlap increases.
+
+This is Codd's insight \cite{Codd1970} applied to bounded cognition.
+Codd showed that redundant copies across relations produce update
+anomalies and wasted storage; normal forms extract shared dependencies
+into referenced tables. The same pressure operates here: bounded
+context is the capacity constraint, and $K$ is the normal form.
+
+The paper proves a single theorem---the Normalization Theorem---and
+derives corollaries establishing a retention criterion for propositions,
+the inseparability of $K$ and $A$, and the asymptotic compactness of $K$
+toward action-relevant propositions. These results engage prior work on
+ecological perception \cite{Gibson1979}, bounded rationality
+\cite{Simon1955}, the information bottleneck \cite{Tishby2000,
+Tishby2011}, and active inference \cite{Friston2010,
+ParrPezzuloFriston2022}.
+
+% ------------------------------------------------------------------
+\section{Formal Framework}
+\label{sec:framework}
+% ------------------------------------------------------------------
+
+Definitions~\ref{def:world} and~\ref{def:knowledge} recapitulate
+\cite{McCarthy2026a}; Definitions~\ref{def:action}--\ref{def:infogain}
+are new.
+
+\begin{definition}[World State Space]
+\label{def:world}
+Let $W$ be a measurable space of possible world states. At time~$t$, the
+true state $w_t \in W$ is not directly observable by any entity.
+\end{definition}
+
+\begin{definition}[Propositions and Posterior]
+\label{def:knowledge}
+A \emph{proposition} $p$ about $W$ is a likelihood function
+$\ell_p : W \to [0,1]$. A set of propositions $\mathcal{P}$ induces a
+posterior:
+\[
+P(w \mid \mathcal{P}) \;\propto\; P_0(w) \cdot \prod_{p \in \mathcal{P}} \ell_p(w)
+\]
+where $P_0$ is a prior. The uncertainty about $w$ is the surprisal
+$U(w, \mathcal{P}) = -\log P(w \mid \mathcal{P})$ \cite{Shannon1948, Cover2006}.
+We use $K$ to denote the separated set of shared propositions that
+Theorem~\ref{thm:normalization} derives from the overlap structure of
+action policies. At the definitional stage, $K$ is not assumed to
+exist; the theorem establishes its necessity.
+\end{definition}
+
+\begin{definition}[Action Space]
+\label{def:action}
+Let $\Omega$ be a set of executable actions and $W_{\text{obs}} \subseteq W$
+the observable component of the world state. The \emph{action space} is
+\[
+A \;\subseteq\; (\mathcal{P} \times W_{\text{obs}} \to \Delta \Omega)
+\]
+where $\Delta \Omega$ is the space of distributions over $\Omega$ and
+$\mathcal{P}$ is the entity's proposition pool
+(Definition~\ref{def:knowledge}). Each $a \in A$ selects an action
+distribution given propositions and current observations. For each $a$,
+the \emph{grounding set} $\mathcal{P}^{[a]} \subseteq \mathcal{P}$ is
+the minimal subset of $\mathcal{P}$ such that $a$'s output is fully
+determined by $\mathcal{P}^{[a]}$ and $W_{\text{obs}}$.
+Theorem~\ref{thm:normalization} shows that the shared propositions
+across action policies separate into a structure $K$; after that
+separation, we write $K^{[a]}$ for the grounding set within $K$.
+
+Action policies span a spectrum of propositional dependence. When
+$\mathcal{P}^{[a]} = \emptyset$, $a$ depends only on
+$W_{\text{obs}}$---a reflex or stimulus-response mapping that requires
+no propositional knowledge. When $|\mathcal{P}^{[a]}| > 0$, $a$ is
+\emph{knowledge-grounded}: its output depends on stored propositions.
+\end{definition}
+
+\begin{definition}[Entity]
+\label{def:entity}
+An entity is a tuple $E = (K, A, \sigma, \Omega)$ where $K$ is the knowledge
+graph (Definition~\ref{def:knowledge}), $A$ is the informed action space
+(Definition~\ref{def:action}), $\sigma : W \to W_{\text{obs}}$ is the
+sensing function, and $\Omega$ is the set of executable actions.
+\end{definition}
+
+\begin{definition}[Bounded Active Context]
+\label{def:context}
+$C_n$ denotes the active context capacity: the maximum number of
+propositions simultaneously available for inference. Let
+$\mathrm{ctx}(t) \subseteq \mathcal{P}$ be the propositions in active
+context at time~$t$, with $|\mathrm{ctx}(t)| \leq C_n$. The relevance
+density for action policy $a$ is:
+\[
+\rho(a) = \frac{|\mathcal{P}^{[a]} \cap \mathrm{ctx}(t)|}{|\mathrm{ctx}(t)|}
+\]
+\end{definition}
+
+\begin{definition}[Survival Threshold]
+\label{def:survival}
+For each domain $d$, let $U_{\text{lethal}}^d$ be the uncertainty
+threshold above which the entity does not survive: if $U(w, K) >
+U_{\text{lethal}}^d$ for the relevant world states in domain $d$, the
+entity's continued existence is not assured.
+\end{definition}
+
+\begin{definition}[Information Gain]
+\label{def:infogain}
+When the entity executes action $a$ and receives feedback encoded as
+proposition $p_a$, the information gain is:
+\[
+G(a, K) = I(p_a ; W \mid K) \;\geq\; 0
+\]
+where $I(\cdot\,;\cdot \mid \cdot)$ is conditional mutual information
+\cite{Cover2006}.
+\end{definition}
+
+% ------------------------------------------------------------------
+\section{The Normalization Theorem}
+\label{sec:theorem}
+% ------------------------------------------------------------------
+
+The theorem establishes that bounded active context forces the
+separation of shared propositions from action policies.
+
+\begin{definition}[Context Load]
+\label{def:load}
+For an entity with action space $A$ and knowledge representation $\mathcal{R}$,
+the \emph{context load} $L(\mathcal{R}, A)$ is the number of proposition
+slots required to simultaneously evaluate any pair of action policies.
+\end{definition}
+
+\begin{theorem}[Normalization of Shared Propositions]
+\label{thm:normalization}
+Let $E = (K, A, \sigma, \Omega)$ be an entity with bounded active context
+$C_n$ (Definition~\ref{def:context}), $n = |A|$ knowledge-grounded
+action policies, average proposition count $k$ per policy, and overlap
+fraction $\beta > 0$, defined over the raw proposition pool:
+$\beta = |\{p \in \mathcal{P} : |\{a \in A : p \in \mathcal{P}^{[a]}\}| \geq 2\}| \,/\, |\mathcal{P}|$,
+the proportion of propositions referenced by two or more policies.
+This is well-defined before $K$ exists, since it depends only on
+$\mathcal{P}$ and the grounding sets $\mathcal{P}^{[a]}$. Then:
+\begin{enumerate}
+\item[(N1)] \textbf{Unnormalized failure.} Under an implicit-$K$
+   architecture where each policy carries its own propositions, the
+   context load for evaluating two overlapping policies is
+   $L_{\text{impl}} = 2k - |\text{overlap}|$, and total proposition
+   storage is $n \cdot k$. For any pair $(a_1, a_2)$ such that
+   $L_{\text{impl}} > C_n$, the architecture cannot simultaneously
+   evaluate both policies. More generally, as $n$ grows, the fraction
+   of policy pairs that exceed $C_n$ increases, progressively
+   restricting the entity's ability to compare and select actions.
+\item[(N2)] \textbf{Normalized architecture.} Extracting shared
+   propositions into a separated structure $K$ with each policy
+   referencing shared propositions via graph edges produces context load
+   $L_{\text{norm}} = |K^{[a_1]} \cup K^{[a_2]}|$ for any pair
+   $(a_1, a_2)$, with total storage $|K| + n \cdot (1 - \beta) \cdot k$.
+   Each shared proposition is loaded once regardless of how many policies
+   reference it.
+\item[(N3)] \textbf{Scaling.} $L_{\text{norm}} \leq L_{\text{impl}}$
+   with strict inequality whenever $\beta > 0$. In the limit $\beta \to 1$,
+   total storage approaches $|K| + n$ and per-action marginal context
+   cost approaches $O(1)$.
+\item[(N4)] \textbf{Anomaly elimination.} Under implicit-$K$, updating
+   a shared proposition $p$ requires modifying $n$ copies, producing the
+   update anomaly: one copy is revised while others retain the stale
+   value, yielding inconsistent action policies. Under normalized $K$,
+   updating $p$ is $O(1)$ and all referencing policies see the revision
+   immediately.
+\end{enumerate}
+Therefore, under bounded $C_n$ with $\beta > 0$, the separated $K$
+architecture is necessary for scaling the action repertoire beyond
+$C_n / k$ policies.
+\end{theorem}
+
+\begin{proof}
+The proof proceeds by counting context slots under each architecture.
+
+\textbf{Part (N1): Unnormalized context load.}
+Under the implicit-$K$ architecture, each action policy $a_i$ stores
+its own copy of every proposition it requires: the set
+$K_i^{\text{local}}$ with $|K_i^{\text{local}}| = k$. When two
+policies $a_1, a_2$ must be evaluated simultaneously (e.g., to compare
+expected outcomes), the entity must load $K_1^{\text{local}}$ and
+$K_2^{\text{local}}$ into active context. Since the copies are
+independent, the overlap between $K_1^{\text{local}}$ and
+$K_2^{\text{local}}$ is not recognized by the retrieval system: both
+full copies are loaded, requiring $2k$ context slots minus any
+structural deduplication the system performs. In the worst case
+(no deduplication), $L_{\text{impl}} = 2k$. With perfect structural
+deduplication, $L_{\text{impl}} = 2k - |\text{overlap}|$. In either
+case, total storage across all policies is $n \cdot k$, and when
+$n \cdot k > C_n$, the entity cannot represent its full repertoire.
+
+\textbf{Part (N2): Normalized context load.}
+Under the normalized architecture, shared propositions are stored once
+in $K$ and each policy $a_i$ is represented as a function of $K^{[a_i]}
+\subseteq K$ and $W_{\text{obs}}$. When two policies $a_1, a_2$ are
+evaluated simultaneously, the entity loads $K^{[a_1]} \cup K^{[a_2]}$
+into context. Shared propositions in $K^{[a_1]} \cap K^{[a_2]}$ are
+loaded once. Context load is $|K^{[a_1]} \cup K^{[a_2]}| = |K^{[a_1]}|
++ |K^{[a_2]}| - |K^{[a_1]} \cap K^{[a_2]}|$. Total storage is
+$|K| + n \cdot (1 - \beta) \cdot k$, where the second term accounts
+for policy-specific (unshared) propositions.
+
+\textbf{Part (N3): Scaling comparison.}
+$L_{\text{norm}} = |K^{[a_1]} \cup K^{[a_2]}| \leq |K^{[a_1]}| +
+|K^{[a_2]}|$, with strict inequality when
+$K^{[a_1]} \cap K^{[a_2]} \neq \emptyset$ (i.e., $\beta > 0$).
+In the limit $\beta \to 1$, nearly all propositions are shared:
+$|K^{[a_i]}|$ is dominated by $K$, and the per-policy marginal
+storage (the unshared component) approaches $O(1)$, giving total
+storage $|K| + n \cdot O(1) = O(|K| + n)$.
+
+\textbf{Part (N4): Update anomaly.}
+Under implicit-$K$, a shared proposition $p$ appears in
+$K_i^{\text{local}}$ for every policy $a_i$ that uses it. Updating $p$
+(e.g., upon receiving new evidence) requires identifying and modifying
+all $n$ copies. If any copy is missed, $a_i$ operates on stale
+information while $a_j$ operates on the revision. This is exactly
+Codd's update anomaly \cite{Codd1970}: redundant storage of the same
+fact causes inconsistency upon partial update. Under normalized $K$,
+$p$ appears once; updating it is $O(1)$ and all policies referencing
+$p$ via graph edges see the update immediately.
+
+\textbf{Necessity.}
+The separation is not a design preference but a scaling constraint. Any
+entity with $n \cdot k > C_n$ and $\beta > 0$ that does not extract
+shared propositions will either (a)~exceed its context bound, or
+(b)~restrict its action repertoire to $\lfloor C_n / k \rfloor$
+policies. Since survival pressure requires maintaining action policies
+across multiple domains (Definition~\ref{def:survival}), and domain
+coverage grows with $n$, the context bound forces normalization for any
+entity whose action repertoire is not trivially small.
+\end{proof}
+
+% ------------------------------------------------------------------
+\section{Corollaries}
+\label{sec:corollaries}
+% ------------------------------------------------------------------
+
+The normalization theorem establishes \emph{that} shared propositions
+separate. The corollaries establish \emph{what determines their
+content}.
+
+\subsection{Retention criterion}
+
+Once $K$ exists as a separated structure, the question becomes: which
+propositions does $K$ retain? The answer follows from the cost
+asymmetry inherent in bounded context under survival pressure.
+
+\begin{lemma}[Proposition Absence Cost]
+\label{lem:absence}
+Let $p \in K$ be a proposition grounding some action policy $a \in A$ in
+domain~$d$. Then:
+\begin{enumerate}
+\item[(i)] Removing $p$ from $K$ weakly increases expected uncertainty:
+$H(W \mid K \setminus \{p\}) \geq H(W \mid K)$.
+\item[(ii)] If $p$ is the sole grounding for a critical action in
+domain~$d$, then removal may cause $U(w, K \setminus \{p\}) >
+U_{\text{lethal}}^d$ for survival-relevant world states.
+\item[(iii)] The cost of absent $p$ when needed,
+$C_{\text{absent}}$, is bounded below by entity non-survival and
+therefore dominates all finite operational costs.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\textbf{Part (i).} Within the entity's model, the posterior is
+$P(w \mid K) \propto P_0(w) \cdot L_K(w)$, where $L_K$ incorporates the
+constraints from all propositions in $K$. Removing proposition $p$
+removes a constraint: $L_{K \setminus \{p\}}$ is less restrictive than
+$L_K$, so the posterior is weakly broader and $H(W \mid K \setminus
+\{p\}) \geq H(W \mid K)$. This is model-internal monotonicity---it
+holds because the entity treats its own propositions as valid
+constraints.
+
+\textbf{Model vs.\ reality.} Model-internal monotonicity does not
+guarantee that the entity's model tracks reality. A proposition may be
+wrong: the likelihood function may be mis-specified, the evidence may be
+noise, or the world may have shifted since the evidence was collected.
+In such cases, the entity's model entropy decreases (it becomes more
+confident) while its true uncertainty about $W$ may increase. The
+retention criterion (Corollary~\ref{cor:retention}) operates on model
+entropy because that is all the entity has access to---it cannot step
+outside its own model to evaluate its propositions against ground truth.
+Whether model entropy tracks true entropy over time is a question about
+learning quality, not about retention logic: an entity whose learning
+mechanism has positive expected accuracy (the propositions it acquires
+are more often right than wrong) will see its model converge toward
+reality; an entity with systematically misleading propositions will not.
+Paper~4 \cite{McCarthy2026d} formalizes this as the requirement
+$\mathbb{E}_t[\eta_M] > 0$.
+The retention criterion is correct given the entity's model; the model's
+fidelity to reality is a separate property.
+
+\textbf{Part (ii).} If $p$ is the sole grounding for the unique
+policy maintaining $U(w, K) \leq U_{\text{lethal}}^d$, removing $p$
+renders that policy ungrounded. No other policy suffices by assumption.
+
+\textbf{Part (iii).} When $U > U_{\text{lethal}}^d$, the entity does
+not survive in domain~$d$. Non-survival terminates all future utility,
+so $C_{\text{absent}} \gg c_{\text{retain}}$ for any finite retention
+cost.
+\end{proof}
+
+\begin{corollary}[Retention Criterion]
+\label{cor:retention}
+Let $E$ be an entity with bounded $C_n$ and normalized $K$
+(Theorem~\ref{thm:normalization}). The retention criterion for
+propositions in $K$ is asymmetric:
+\begin{enumerate}
+\item[(R)] \textbf{Retention}: $p$ is retained when there exists $a \in A$
+applicable to $p$, or when the survival benefit of $p$ is uncertain.
+\item[(P)] \textbf{Pruning}: $p$ is pruned only when the survival benefit
+of $p$ is certainly zero across all reachable future trajectories.
+\item[(D)] \textbf{Displacement} (curation regime, $|K| = K_{\max}$):
+$p$ is displaced by candidate $q$ when $q$ has strictly higher net
+marginal value: expected survival benefit minus maintenance cost.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Define the option value of retaining $p$:
+\[
+\mathrm{OV}(p) = P\!\bigl(\exists\,\tau^* : B(p, \tau^*) > 0\bigr)
+\;\cdot\; \mathbb{E}\bigl[B(p, \tau^*) \mid B(p, \tau^*) > 0\bigr]
+\]
+where $B(p, \tau^*)$ is the benefit of having $p$ at future time
+$\tau^*$ along some reachable trajectory. This is a real option in the
+sense of Dixit and Pindyck \cite{DixitPindyck1994}: retaining $p$
+preserves the option to act on $p$-grounded policies.
+
+The net value of retaining $p$ is $\mathrm{NV}_{\text{retain}} =
+\mathrm{OV}(p) - c_{\text{retain}}(p, K)$, where $c_{\text{retain}}$
+includes retrieval interference, edge maintenance, and context
+consumption. The net value of pruning is
+$\mathrm{NV}_{\text{prune}} = -c_{\text{prune}} -
+P(\exists\,\tau^*) \cdot C_{\text{absent}}$.
+
+By Lemma~\ref{lem:absence}(iii), $C_{\text{absent}} \gg
+c_{\text{retain}}$ whenever $p$ grounds any survival-relevant action.
+For propositions with uncertain relevance, the expected cost of wrongly
+pruning ($C_{\text{absent}}$, unbounded) dominates the expected cost of
+wrongly retaining ($c_{\text{retain}}$, bounded). Therefore:
+\[
+\mathrm{NV}_{\text{retain}} > \mathrm{NV}_{\text{prune}}
+\quad\text{whenever}\quad
+P\!\bigl(\exists\,\tau^* : B(p, \tau^*) > 0\bigr) > 0
+\]
+Retention dominates whenever there is any positive probability of future
+benefit. Pruning is correct only when $P(\exists\,\tau^*) = 0$---certain
+zero benefit---which is unverifiable for most propositions. In the
+curation regime ($|K| = K_{\max}$), every addition requires displacement
+by marginal value comparison.
+
+The richer cost structure sharpens the result. For critical propositions,
+$C_{\text{absent}}$ dominates $c_{\text{retain}}$ regardless of
+maintenance cost. For non-critical propositions, as $|K|$ grows,
+interference and edge costs increase, raising the retention threshold.
+When $c_{\text{retain}}(p, K) > \mathrm{OV}(p)$, displacement is
+correct: the entity replaces $p$ with a candidate of higher net value.
+``Aggressive forgetting'' in bounded systems is displacement, not
+pruning.
+
+Note: the entity cannot classify propositions into ``survival-relevant''
+and ``not'' with certainty. It can form imperfect ordinal rankings of
+expected marginal value. The retention criterion (R) operates on the
+binary question (default to retention); the displacement criterion (D)
+operates on the ordinal question (displace the lowest-ranked occupant).
+\end{proof}
+
+\subsection{Inseparability and indexed knowledge}
+
+\begin{corollary}[$K/A$ Inseparability]
+\label{cor:inseparability}
+The content of $K$ is constitutively determined by $A$. Two entities
+$E_1 = (K_1, A_1, \sigma, \Omega_1)$ and $E_2 = (K_2, A_2, \sigma,
+\Omega_2)$ with identical sensing functions but different action spaces
+$A_1 \neq A_2$ will, in the curation regime, maintain different knowledge
+graphs $K_1 \neq K_2$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:normalization}, $K$ contains the shared propositions
+across $A$. Different action spaces share different propositions:
+if $a \in A_1 \setminus A_2$, propositions exclusively grounding $a$
+have positive marginal value for $E_1$ but zero marginal value for
+$E_2$. Under the displacement criterion
+(Corollary~\ref{cor:retention}(D)), $E_2$ displaces these propositions
+in favor of candidates relevant to $A_2$, while $E_1$ retains them.
+Provided $A_1 \setminus A_2$ contains actions whose grounding
+propositions are exclusive to those actions, $K_1 \neq K_2$.
+
+The inseparability is at the \emph{optimization} level: systems may
+implement $K$ and $A$ as distinct modules, but cannot optimize them
+independently. The training objective for $K$ must reference $A$
+(which propositions are action-relevant), and vice versa (which actions
+are groundable given current $K$).
+\end{proof}
+
+\subsection{Compactness and forgetting}
+
+\begin{corollary}[Asymptotic Compactness]
+\label{cor:compactness}
+Under curation pressure, $K$ converges toward the action-relevant
+subset $\bigcup_{a \in A} K^{[a]}$.
+\end{corollary}
+
+\begin{proof}
+A proposition $p$ with no connection to any current or foreseeable
+action has zero estimated marginal value but positive maintenance cost
+$c_{\text{retain}}(p, K) > 0$. In the growth regime ($|K| < K_{\max}$),
+$p$ is retained because certain zero benefit cannot be verified
+(Corollary~\ref{cor:retention}(P)). In the curation regime, any
+candidate $q$ connected to some $a \in A$ has strictly higher estimated
+marginal value than $p$, so $p$ is displaced
+(Corollary~\ref{cor:retention}(D)). Over time, propositions with no
+estimated action relevance are progressively displaced. The retained set
+converges toward $\bigcup_{a \in A} K^{[a]}$ asymptotically, with the
+rate depending on the accuracy of the entity's marginal-value estimates
+and the frequency of curation events.
+\end{proof}
+
+\begin{corollary}[Curation and Forgetting]
+\label{cor:forgetting}
+Under bounded $K$ ($|K| = K_{\max}$), forgetting is correct behavior.
+Curation displaces propositions of lower marginal value when higher-value
+candidates arrive.
+\end{corollary}
+
+\begin{proof}
+By Corollary~\ref{cor:retention}(D), displacement occurs when a
+candidate $q$ has strictly higher net marginal value than the current
+occupant $p$. This is not information loss but information improvement:
+the entity's net survival benefit improves with each displacement.
+\end{proof}
+
+\textbf{Remark (Free context).}
+Define the \emph{free context} $C_{\mathrm{free}}(t) = C_n -
+|\mathrm{ctx}_{\mathrm{unresolved}}(t)|$: the portion of bounded context
+available for novel problems after existing knowledge maintenance.
+Every proposition retained in $K$ reduces $C_{\mathrm{free}}$ by its
+retrieval interference and edge maintenance overhead. Curation under
+displacement (Corollary~\ref{cor:retention}(D)) is therefore a
+$C_{\mathrm{free}}$-maximizing operation: displacing low-value
+propositions frees context for higher-value candidates.
+
+% ------------------------------------------------------------------
+\section{Strong Inseparability: The Encoding Continuum}
+\label{sec:continuum}
+% ------------------------------------------------------------------
+
+\begin{remark}[$K$ and $A$ Are Not Natural Kinds]
+\label{rem:continuum}
+Given Theorem~\ref{thm:normalization} ($K$ precipitates from $A$) and
+the encoding hierarchy $E(c,r)$ of \cite{McCarthy2026b} (a continuous
+space parameterized by runtime cost $c$ and reversibility $r$), $K$ and
+$A$ are not disjoint categories but regions on $E(c,r)$. The encoding
+hierarchy is empirically instantiated by the complementary learning
+systems of McClelland et al.\ \cite{McClelland1995}: hippocampus (high
+cost, high reversibility, fast episodic learning) and neocortex (low
+cost, low reversibility, slow statistical consolidation). Memory
+consolidation is movement along $E(c,r)$, operating in both directions.
+\end{remark}
+
+\textbf{Argument.}
+We exhibit both directions of flow.
+
+\textbf{$K \to A$ (declarative to procedural).}
+A proposition $p$ grounding action $a$ begins at encoding level $L_n$
+(active reasoning): explicitly represented, revisable. As the entity
+repeatedly applies $a$ successfully, $p$ migrates to lower encoding
+levels. At $L_{n-1}$ (learned heuristic), $p$ is retrievable but not
+explicitly stated. At $L_1$ (developmental encoding), $p$ is compiled
+into the execution of $a$. At $L_0$ (heritable encoding), $p$ is
+implicit in the wiring that produces $a$. This is the
+declarative-to-procedural transition observed in skill acquisition
+\cite{FittsPosner1967}: the novice follows explicit rules ($K$ at
+$L_n$); the expert executes embodied competence ($A$ at $L_1$).
+
+\textbf{$A \to K$ (procedural to declarative).}
+Novel information often enters as pure action. A child touches a hot
+stove and pulls back. The first encoding is $A$: \emph{don't touch
+that}. No proposition about temperature or tissue damage is represented.
+Only later does the entity derive the propositional structure: ``the
+stove is hot,'' ``hot things burn,'' ``heat transfers from higher to
+lower temperature.'' Each proposition is derived from the action, not
+the other way around.
+
+\textbf{Bidirectionality.}
+At no point in either direction does information cross a boundary from
+``knowledge'' to ``action.'' The encoding level determines whether
+information appears propositional (high $c$, high $r$) or procedural
+(low $c$, low $r$), but the information content is continuous through the
+hierarchy. The entity tuple $E = (K, A, \sigma, \Omega)$ is notational
+convenience: $K$ is the high-encoding region of a single structure, $A$
+is the low-encoding region, and information flows in both directions.
+
+\textbf{Implication.} The system does not ``decide'' whether information
+belongs in $K$ or $A$. The encoding dynamics decide. Some information
+enters as explicit propositions and compiles into action ($K \to A$).
+Some enters as pure action and generates propositions only on reflection
+($A \to K$). Some never becomes propositional at all: the expert's
+``feel'' for a material, the athlete's timing. These are $A$ without
+$K$---action knowledge that was never derived from and may never produce
+explicit propositions.
+
+This strengthens the normalization result. The theorem proves the weak
+version: $K$ separates from $A$ as the normalized shared propositions.
+The continuum result proves the strong version: $K$ and $A$ are the same
+structure viewed at different encoding depths, with bidirectional flow.
+Separating them architecturally requires classifying each piece of
+information as ``world model'' or ``action policy'' at acquisition, but
+for $A \to K$ information, the classification is wrong at entry; for
+$K \to A$ information, the classification becomes wrong over time.
+
+\textbf{Remark on modularity of mind.} The strongest version of the
+objection that $K$ and $A$ are natural kinds comes from Fodor's
+modularity thesis \cite{Fodor1983}. Fodor argues that mental modules
+are informationally encapsulated: they process input without access to
+information held by other modules. Carruthers \cite{Carruthers2006}
+extends the argument to central cognition.
+
+The encapsulation is real. The axis of encapsulation is not. Fodor's
+modules are encapsulated along the encoding hierarchy $E(c,r)$: a
+processor at $L_1$ cannot access representations at $L_n$. The visual
+module occupies a region of $E(c,r)$, not a side of a $K/A$ partition.
+The same module holds both knowledge (edge statistics, color constancy
+priors) and action (saccade targeting, vergence control) at its encoding
+level. Encapsulation runs \emph{between encoding levels}, not between
+knowledge and action. Physical modularity---hippocampus, neocortex,
+motor cortex, cerebellum---is $E(c,r)$ physically instantiated, not
+evidence for $K/A$ as a natural partition.
+
+% ------------------------------------------------------------------
+\section{Objections and Scope}
+\label{sec:objections}
+% ------------------------------------------------------------------
+
+\subsection{The overlap assumption}
+
+The normalization theorem requires $\beta > 0$: at least some
+propositions are shared across action policies. Is this assumption
+restrictive?
+
+In practice, $\beta > 0$ is the norm for any entity with a
+non-trivial action repertoire. Physical laws, spatial relations,
+object identities, social norms, and causal regularities ground
+multiple action policies simultaneously. An entity whose action
+policies share \emph{no} propositions would have a purely reflexive
+repertoire---each action depending only on $W_{\text{obs}}$, with
+no propositional grounding at all. Such an entity has $K = \emptyset$
+and the normalization question does not arise. For any entity with
+$K \neq \emptyset$ and $|A| > 1$, overlap is the expected condition.
+
+\subsection{The scope of survival pressure}
+
+The retention asymmetry (Corollary~\ref{cor:retention}) depends on
+$C_{\text{absent}}$ dominating all finite costs, which requires
+survival pressure. But most knowledge does not appear
+survival-critical.
+
+The answer turns on what the entity can know \emph{in advance} about
+which propositions are survival-critical. Under genuine uncertainty
+about future domains of encounter, the entity cannot partition its
+knowledge into ``survival-relevant'' and ``not.'' Any proposition
+might ground a survival-critical action in an unforeseen domain. The
+proposition ``Paris is the capital of France'' is survival-irrelevant
+on an ordinary Tuesday and survival-critical when navigating an
+unfamiliar city to reach a hospital.
+
+The cost of wrongly classifying a proposition as non-critical
+($C_{\text{absent}}$) dominates the cost of wrongly classifying it
+as critical ($c_{\text{retain}}$), by the same asymmetry the
+corollary establishes. The conservative criterion therefore extends
+to all propositions whose future relevance is uncertain---which, for
+any finite entity, is nearly all propositions.
+
+For entities genuinely not under survival pressure---archival databases,
+static knowledge stores---the retention asymmetry weakens.
+$C_{\text{absent}}$ is finite, and the symmetric marginal value
+comparison of the curation regime becomes the primary decision rule.
+
+\subsection{The unfalsifiable pruning criterion}
+
+The pruning condition (P) requires $P(\exists\,\tau^*) = 0$: certain
+zero benefit across all reachable trajectories. No finite agent can
+verify this. Does this make pruning operationally vacuous?
+
+The unfalsifiability is a feature, not a defect. It explains three
+empirical phenomena:
+
+\textbf{(1) Knowledge hoarding in the growth regime.} Biological
+systems accumulate enormous quantities of seemingly useless information
+before capacity forces curation. This is the behavior
+Corollary~\ref{cor:retention} prescribes: in the growth regime, the
+unfalsifiable pruning criterion means \emph{never voluntarily discard}.
+
+\textbf{(2) Forgetting is always forced, never voluntary.} Biological
+forgetting is driven by capacity pressure rather than deliberate
+pruning \cite{AndersonSchooler1991}. The corollary explains why:
+the pruning condition cannot be verified, so forgetting happens only
+via displacement (D).
+
+\textbf{(3) The asymmetry operates within curation.} The displacement
+criterion is not symmetric ``higher value wins.'' The burden of proof
+falls on displacement: the challenger must be strictly better. Ties go
+to the incumbent.
+
+% ------------------------------------------------------------------
+\section{Engagement with Prior Work}
+\label{sec:discussion}
+% ------------------------------------------------------------------
+
+\textbf{Codd \cite{Codd1970}.}
+The normalization theorem is the knowledge-system analogue of Codd's
+relational normalization. Codd identified that redundant storage of
+data across relations produces update anomalies and wasted capacity;
+normal forms extract shared dependencies into referenced tables. We
+prove that the same pressure operates on bounded cognitive systems:
+shared propositions across action policies produce redundant context
+load and update inconsistency; $K$ is the normal form that eliminates
+both. The contribution is showing that normalization is not merely a
+good engineering practice but a necessary consequence of bounded context.
+
+\textbf{Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.}
+Their proposed architecture separates System~A (observation and world
+modeling) from System~B (action and planning), with separate training
+objectives. Corollary~\ref{cor:inseparability} shows that separate
+training objectives violate a structural constraint: the content of
+the world model must reference the action space (which propositions are
+action-relevant), and the action space must reference the world model
+(which actions are groundable). Separate modules with a shared loss is
+compatible; separate training objectives is not.
+
+\textbf{Information Bottleneck \cite{Tishby2000, Tishby2011}.}
+The information bottleneck retains information relevant to an output
+variable subject to a rate constraint, with threshold controlled by
+Lagrange multiplier $\beta$. Our retention criterion
+(Corollary~\ref{cor:retention}) recovers a version of this trade-off
+but derives the threshold rather than positing it: under survival
+pressure, $C_{\text{absent}}$ is bounded below by entity non-survival,
+producing a maximally conservative retention rule. The normalization
+theorem adds a structural result the information bottleneck lacks:
+not just \emph{which} information to retain, but \emph{how} to
+organize it (shared propositions separated from policies).
+
+\textbf{Active inference \cite{Friston2010, ParrPezzuloFriston2022}.}
+Active inference argues that perception and action are jointly optimized
+under variational free energy minimization. This is the closest existing
+framework to $K/A$ inseparability. What
+Theorem~\ref{thm:normalization} adds is the organizational constraint
+under hard capacity limits. When context is unbounded, all information
+can be retained and the coupling is a soft preference. Under bounded
+$C_n$, the coupling becomes a hard constraint: propositions must be
+displaced, and the displacement criterion must reference the action
+space. Active inference tells the entity what to do; the normalization
+theorem tells it how to organize what it knows while doing it.
+
+\textbf{Gibson \cite{Gibson1979}.}
+Gibson's affordances---properties of the environment specified relative to
+an organism's action capabilities---are knowledge indexed by action under
+a different name. Corollary~\ref{cor:inseparability} formalizes Gibson's
+insight. What the normalization theorem adds is a structural account:
+affordances are not merely perceived but \emph{factored out} from action
+policies as shared propositions, and this factoring is forced by bounded
+capacity.
+
+\textbf{Anderson and Schooler \cite{AndersonSchooler1991}.}
+They demonstrated that memory retention statistics mirror environmental
+statistics. This is an empirical prediction of
+Corollary~\ref{cor:retention}: if retention is indexed by action
+relevance, and action relevance tracks environmental statistics, then
+retention curves should mirror environmental frequency
+distributions---precisely what they observe.
+
+\textbf{Simon \cite{Simon1955}.}
+The retention criterion is a satisficing criterion in Simon's sense.
+The entity does not compute the optimal knowledge set (a combinatorial
+problem) but applies a simple rule: retain if benefit is not certainly
+zero, displace if a better candidate arrives. When the benefit function
+is submodular, the greedy criterion achieves a $(1 - 1/e)$-approximation
+to optimal \cite{Nemhauser1978}. In the general case, the guarantee does
+not apply, but the criterion remains a well-defined satisficing
+heuristic.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Knowledge as normalization operates at two levels.
+
+The \emph{structural} level (Theorem~\ref{thm:normalization}):
+bounded active context with overlapping action policies forces the
+extraction of shared propositions into a separated structure $K$,
+converting multiplicative context load ($O(n \cdot k)$) to additive
+load ($O(n + k')$) and eliminating update anomalies. This is not a
+design choice but a scaling constraint. The entity that does not
+normalize cannot scale its action repertoire beyond $C_n / k$ policies.
+
+The \emph{content} level (Corollaries~\ref{cor:retention}--\ref{cor:inseparability}):
+the propositions retained in $K$ are constitutively determined by
+$A$. The retention criterion is asymmetric (retain when benefit is
+uncertain; prune only when certainly zero) and derived from the cost
+structure of bounded context under survival pressure, not from a
+design parameter. Systems may implement $K$ and $A$ as separate
+modules, but cannot give them independent training objectives without
+accepting information loss or reconstruction cost.
+
+The \emph{strong} inseparability (Remark~\ref{rem:continuum}): $K$
+and $A$ are not natural kinds but regions on the encoding hierarchy
+$E(c,r)$, with information flowing in both directions. The boundary
+is not merely blurry---it is incoherent as a classification criterion.
+
+The knowledge graph precipitates from the action space as the
+normalization of shared propositions. It is not a store of declarative
+facts separate from procedural skills; it is the shared structure
+underlying both, factored out to avoid redundancy under bounded
+capacity.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, literature review, and \LaTeX{} preparation. All theoretical content, proofs, and arguments are the author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{Codd1970}
+E.~F. Codd.
+\newblock A relational model of data for large shared data banks.
+\newblock \emph{Communications of the ACM}, 13(6):377--387, 1970.
+
+\bibitem{AndersonSchooler1991}
+J.~R. Anderson and L.~J. Schooler.
+\newblock Reflections of the environment in memory.
+\newblock \emph{Psychological Science}, 2(6):396--408, 1991.
+
+\bibitem{Cover2006}
+T.~M. Cover and J.~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock Wiley-Interscience, 2nd edition, 2006.
+
+\bibitem{Carruthers2006}
+P.~Carruthers.
+\newblock \emph{The Architecture of the Mind: Massive Modularity and the
+  Flexibility of Thought}.
+\newblock Oxford University Press, 2006.
+
+\bibitem{DixitPindyck1994}
+A.~K. Dixit and R.~S. Pindyck.
+\newblock \emph{Investment Under Uncertainty}.
+\newblock Princeton University Press, 1994.
+
+\bibitem{DupouxLeCunMalik2026}
+E.~Dupoux, Y.~LeCun, and J.~Malik.
+\newblock Why {AI} systems don't learn and what to do about it: Lessons on
+  autonomous learning from cognitive science.
+\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
+\bibitem{Fodor1983}
+J.~A. Fodor.
+\newblock \emph{The Modularity of Mind}.
+\newblock MIT Press, 1983.
+
+\bibitem{Friston2010}
+K.~Friston.
+\newblock The free-energy principle: A unified brain theory?
+\newblock \emph{Nature Reviews Neuroscience}, 11(2):127--138, 2010.
+
+\bibitem{ParrPezzuloFriston2022}
+T.~Parr, G.~Pezzulo, and K.~J. Friston.
+\newblock \emph{Active Inference: The Free Energy Principle in Mind, Brain, and
+  Behavior}.
+\newblock MIT Press, 2022.
+
+\bibitem{FittsPosner1967}
+P.~M. Fitts and M.~I. Posner.
+\newblock \emph{Human Performance}.
+\newblock Brooks/Cole, 1967.
+
+\bibitem{Gibson1979}
+J.~J. Gibson.
+\newblock \emph{The Ecological Approach to Visual Perception}.
+\newblock Houghton Mifflin, 1979.
+
+\bibitem{McClelland1995}
+J.~L. McClelland, B.~L. McNaughton, and R.~C. O'Reilly.
+\newblock Why there are complementary learning systems in the hippocampus and
+  neocortex: Insights from the successes and failures of connectionist models
+  of learning and memory.
+\newblock \emph{Psychological Review}, 102(3):419--457, 1995.
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under
+  bounded context.
+\newblock Technical report, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded context.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Evaluation-driven descent, encoding permanence, and the structural
+  invariants of intelligence.
+\newblock Manuscript, 2026.
+
+\bibitem{Nemhauser1978}
+G.~L. Nemhauser, L.~A. Wolsey, and M.~L. Fisher.
+\newblock An analysis of approximations for maximizing submodular set
+  functions --- {I}.
+\newblock \emph{Mathematical Programming}, 14(1):265--294, 1978.
+
+\bibitem{Shannon1948}
+C.~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock \emph{Bell System Technical Journal}, 27(3):379--423, 1948.
+
+\bibitem{Simon1955}
+H.~A. Simon.
+\newblock A behavioral model of rational choice.
+\newblock \emph{The Quarterly Journal of Economics}, 69(1):99--118, 1955.
+
+\bibitem{Tishby2000}
+N.~Tishby, F.~C. Pereira, and W.~Bialek.
+\newblock The information bottleneck method.
+\newblock In \emph{Proceedings of the 37th Annual Allerton Conference on
+  Communication, Control, and Computing}, pages 368--377, 2000.
+
+\bibitem{Tishby2011}
+N.~Tishby and N.~Zaslavsky.
+\newblock Deep learning and the information bottleneck principle.
+\newblock In \emph{IEEE Information Theory Workshop}, pages 1--5, 2015.
+
+\end{thebibliography}
+
+\end{document}
