@@ -194,7 +194,19 @@
       "Bash(git rm:*)",
       "Bash(echo \"=== Source files ===\" && ls -1 McCarthy2026_*.tex && echo \"\" && echo \"=== Source PDFs ===\" && ls -1 McCarthy2026_*.pdf && echo \"\" && echo \"=== Upload PDFs ===\" && ls -1 ssrn_upload/ && echo \"\" && echo \"=== Any old paper files remaining? ===\" && ls -1 PAPER*.tex GRAPH_NECESSITY.tex UNCERTAINTY*.tex CONFIDENCE*.tex REFERENCES.tex 2>&1)",
       "Bash(git checkout:*)",
-      "Bash(ls -la McCarthy2026_6_SubstrateTransition.*)"
+      "Bash(ls -la McCarthy2026_6_SubstrateTransition.*)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"Warning|Error|undefined|Overfull|Underfull\" | head -20)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"undefined|Overfull\" | sort -u)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex > /dev/null 2>&1 && pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"undefined|Error\" | head -10)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex > /dev/null 2>&1; pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"undefined|Error\")",
+      "Bash(python3 -c \"\nimport re\n\nfiles = [\n    'McCarthy2026_1_GraphNecessity.tex',\n    'McCarthy2026_2_Escalation.tex',\n    'McCarthy2026_3_Normalization.tex',\n]\n\npattern = r'<<<<<<< HEAD\\\\n\\(.*?\\)\\\\n=======\\\\n\\(.*?\\)\\\\n>>>>>>> [a-f0-9]+\\\\n?'\n\nfor fname in files:\n    with open\\(fname, 'r'\\) as f:\n        content = f.read\\(\\)\n    \n    before = content.count\\('<<<<<<< HEAD'\\)\n    resolved = re.sub\\(pattern, lambda m: m.group\\(2\\) + '\\\\n', content, flags=re.DOTALL\\)\n    after = resolved.count\\('<<<<<<< HEAD'\\)\n    \n    with open\\(fname, 'w'\\) as f:\n        f.write\\(resolved\\)\n    \n    print\\(f'{fname}: {before} -> {after} conflicts'\\)\n\")",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep \"Error\" | head -10)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"Error|pages\" | head -10)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"Error\" | head -5)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | tail -3)",
+      "Bash(grep -c \"<<<<<<\" McCarthy2026_5_Cancer.tex && pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep \"Error\" | wc -l && pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"undefined|Error\" | head -5)",
+      "Bash(pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex > /dev/null 2>&1; pdflatex -interaction=nonstopmode McCarthy2026_5_Cancer.tex 2>&1 | grep -E \"Error|undefined\")",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)"
     ]
   }
 }
