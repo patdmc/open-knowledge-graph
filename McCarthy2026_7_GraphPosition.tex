@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Mutation Position in the Signaling Graph Predicts\\
+Cancer Survival Beyond Channel Count}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Paper~6 of this series showed that the number of coupling channels
+disrupted by a tumor's mutations predicts overall survival. This paper
+asks whether position \emph{within} a channel matters. We classify
+channel genes as hubs (high-connectivity, upstream regulators with many
+downstream targets) or leaves (downstream, specific effectors) and test
+whether hub mutations carry worse prognosis than leaf mutations in the
+same channel.
+
+Across two independent MSK-IMPACT datasets totaling 54{,}492 patients
+with survival data, hub mutations predict significantly worse survival
+than leaf mutations. Among single-channel patients, hub-only median
+overall survival is 16.5--18.0 months versus 20.2--21.4 months for
+leaf-only (log-rank $p < 10^{-11}$ in both datasets). In multivariate
+Cox regression controlling for channel count, hub status carries
+HR\,$=$\,1.48--1.54 ($p < 10^{-20}$). The effect replicates
+within PI3K/Growth (HR\,$\approx$\,1.30) and Cell Cycle
+(HR\,$\approx$\,1.37--1.47) but not within DDR ($p = 0.67$),
+consistent with DDR's greater pathway redundancy.
+
+A case study of BRCA1 (hub) versus BRCA2 (leaf) within the DDR channel
+shows divergent phenotypes: BRCA1-mutant breast cancers are enriched
+for triple-negative subtype (34.1\% vs.\ 19.4\%) and pleural
+metastasis (34.1\% vs.\ 14.9\%, $p = 0.031$), while BRCA2-mutant
+breast cancers show higher bone metastasis (67.2\% vs.\ 56.1\%).
+RAD51C-mutant breast patients (all 10 HR+, zero triple-negative)
+phenocopy BRCA2, not BRCA1.
+
+Metastatic tropism analysis reveals that endocrine channel mutations
+predict \emph{more} bone metastasis, not less---because ESR1 and AR
+mutations are gain-of-function resistance events, not loss-of-function
+severance. The coupling-channel framework must therefore distinguish
+severance (LOF) from resistance (GOF). Cell Cycle mutations (TP53,
+RB1) are the strongest positive predictor of metastasis to every
+organ site. Immune channel mutations reduce detectable distant
+metastasis across bone, liver, and lung.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+Paper~6 \cite{McCarthy2026f} established that coupling-channel count
+predicts cancer survival better than mutation count across 73{,}593
+patients. The number of independent organizational systems a tumor
+escapes determines prognosis. That analysis explicitly noted a
+limitation: it did not distinguish hub from leaf mutations within a
+channel.
+
+This paper addresses that limitation. Within a single coupling channel,
+not all genes occupy the same position in the signaling graph. Some
+genes sit at high-connectivity upstream positions---they regulate many
+downstream targets and integrate multiple inputs. Others sit at
+downstream, terminal positions---specific effectors with narrow
+functional scope.
+
+The question is whether graph position carries prognostic information
+beyond channel count. If it does, then the coupling-channel framework
+has a second axis of resolution: not just \emph{how many} channels are
+severed, but \emph{where} in the signaling graph the severance occurs.
+
+We also examine two downstream predictions. First, BRCA1 and BRCA2
+both belong to the DDR channel but occupy different graph positions.
+If position matters, they should produce different disease phenotypes
+despite sharing a channel. Second, metastatic tropism should depend on
+which channels are severed and on the functional consequence of the
+mutation---severance versus resistance.
+
+% ------------------------------------------------------------------
+\section{Method}
+\label{sec:method}
+% ------------------------------------------------------------------
+
+\textbf{Datasets.}
+We use the same three clinical genomic datasets as Paper~6
+\cite{McCarthy2026e}: MSK-IMPACT 2017 \cite{Zehir2017}, MSK-MET 2021
+(MetTropism) \cite{Nguyen2022}, and MSK-IMPACT 50K
+\cite{Bandlamudi2024}. The same mutation filters apply: non-silent
+somatic variants mapped to six coupling channels (DDR, Cell Cycle,
+PI3K/Growth, Endocrine, Immune, Tissue Architecture).
+
+\textbf{Hub/leaf classification.}
+We classified channel genes into hub and leaf positions based on known
+pathway topology. Hub genes are high-connectivity upstream regulators
+with many downstream targets. Leaf genes are downstream specific
+effectors with narrow functional scope.
+
+The classification is as follows:
+
+\emph{Hub genes.}
+DDR: ATM, ATR, BRCA1.
+Cell Cycle: TP53, RB1, MYC.
+PI3K/Growth: KRAS, PTEN, PIK3CA, EGFR, NF1.
+Endocrine: ESR1, AR.
+Immune: B2M, JAK1, JAK2.
+Tissue Architecture: APC, CDH1, SMAD4.
+
+\emph{Leaf genes.}
+DDR: BRCA2, RAD51C, RAD51D, CHEK2, PALB2.
+Cell Cycle: CDK4, CDK6, CDKN2A, MDM2.
+PI3K/Growth: AKT1, BRAF, MTOR, ERBB2, FGFR1, FGFR2, FGFR3.
+Endocrine: FOXA1, GATA3.
+Immune: HLA-A, HLA-B, HLA-C, STAT1.
+Tissue Architecture: CTNNB1, AXIN1, NOTCH1, FBXW7.
+
+\textbf{Patient classification.}
+For each patient, we determined whether their mutations fell
+exclusively in hub genes, exclusively in leaf genes, or in both.
+For the multivariate analysis, we defined a binary variable
+\texttt{hub\_any} indicating whether the patient carried at least one
+hub mutation in any channel.
+
+\textbf{Statistical analysis.}
+Kaplan--Meier curves and log-rank tests compare hub-only versus
+leaf-only patients. Cox proportional hazards models estimate hazard
+ratios (HR) with 95\% confidence intervals. The multivariate model
+includes both \texttt{hub\_any} and \texttt{channel\_count} to test
+whether graph position adds prognostic information beyond channel
+count.
+
+For the BRCA comparison, we use Fisher exact tests for categorical
+comparisons (breast subtype, co-mutation rates, metastatic site
+frequencies). For tropism analysis, we use chi-squared tests and
+cancer-type-adjusted logistic regression with six channel-severed
+indicators as predictors.
+
+% ------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+% ------------------------------------------------------------------
+
+\subsection{Hub mutations predict worse survival than leaf mutations}
+\label{sec:hub-leaf}
+
+Among single-channel patients in MSK-IMPACT 50K, hub-only patients
+($n = 10{,}207$) had median overall survival of 16.5 months versus
+20.2 months for leaf-only patients ($n = 2{,}710$; log-rank
+$p = 6.5 \times 10^{-22}$). Cox regression: HR\,$=$\,1.24 (95\% CI
+1.14--1.35, $p = 3.3 \times 10^{-7}$). The MetTropism dataset
+replicated this: hub-only median OS 18.0 months versus leaf-only
+21.4 months ($n = 5{,}833$ vs.\ $1{,}517$; log-rank
+$p = 2.2 \times 10^{-11}$).
+
+Table~\ref{tab:within-channel} shows within-channel results.
+PI3K/Growth and Cell Cycle both show significant hub--leaf differences.
+DDR does not.
+
+\begin{table}[ht]
+\centering
+\caption{Hub vs.\ leaf survival within the three largest channels.
+HR\,$>$\,1 indicates worse survival for hub mutations.}
+\label{tab:within-channel}
+\begin{tabular}{@{}llrrrl@{}}
+\toprule
+Channel & Dataset & Hub $n$ & Leaf $n$ & HR (95\% CI) & $p$ \\
+\midrule
+PI3K/Growth & 50K & 14{,}081 & 3{,}640 & 1.31 (1.23--1.39) & $1.3 \times 10^{-18}$ \\
+PI3K/Growth & MetTropism & 8{,}442 & 2{,}145 & 1.30 (1.20--1.40) & $2.1 \times 10^{-11}$ \\
+Cell Cycle & 50K & 18{,}576 & 928 & 1.37 (1.23--1.53) & $3.1 \times 10^{-8}$ \\
+Cell Cycle & MetTropism & 10{,}836 & 538 & 1.47 (1.27--1.69) & $2.3 \times 10^{-7}$ \\
+DDR & 50K & 3{,}099 & 2{,}419 & 0.98 (0.90--1.07) & 0.67 \\
+DDR & MetTropism & 1{,}788 & 1{,}356 & 1.02 (0.91--1.13) & 0.78 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The DDR null result is notable. ATM, ATR, and BRCA1 (hubs) show no
+survival difference relative to BRCA2, RAD51C, CHEK2, and PALB2
+(leaves). This is consistent with DDR's architecture: the pathway has
+substantial redundancy, and loss of a hub gene (e.g., ATM) can be
+partially compensated by parallel repair pathways. In PI3K/Growth and
+Cell Cycle, hub genes (KRAS, TP53) sit at bottleneck positions with
+less functional redundancy.
+
+\textbf{Multivariate model: hub status beyond channel count.}
+In the full MSK-IMPACT 50K cohort ($n = 34{,}439$), a multivariate
+Cox model with both \texttt{hub\_any} and \texttt{channel\_count}
+yields: hub\_any HR\,$=$\,1.54 (95\% CI 1.44--1.64,
+$p = 1.7 \times 10^{-38}$); channel\_count HR\,$=$\,0.94 (95\% CI
+0.93--0.96, $p = 2.5 \times 10^{-13}$). The MetTropism dataset
+replicates: hub\_any HR\,$=$\,1.48 (95\% CI 1.36--1.61,
+$p = 1.8 \times 10^{-20}$); channel\_count HR\,$=$\,0.96 (95\% CI
+0.94--0.98, $p = 6.2 \times 10^{-4}$).
+
+Graph position adds prognostic information beyond channel count.
+Hub mutations are independently associated with worse survival after
+controlling for the number of channels disrupted. The protective
+direction of channel\_count, conditional on hub status, replicates the
+finding from Paper~6 \cite{McCarthy2026f}: more mutations in the same
+channel (which raises channel count's denominator relative to its
+numerator) indicates deeper commitment to one escape route.
+
+\subsection{Case study: BRCA1 vs.\ BRCA2}
+\label{sec:brca}
+
+BRCA1 and BRCA2 both belong to the DDR channel. BRCA1 is a hub:
+it integrates DNA damage signals, participates in cell cycle
+checkpoint activation, and interacts with multiple repair complexes.
+BRCA2 is a leaf: it loads RAD51 onto single-stranded DNA during
+homologous recombination, a specific effector function.
+
+Despite sharing a channel, they produce different disease phenotypes.
+
+\textbf{Breast cancer subtype.}
+Among MSK-MET breast cancer patients, BRCA1-mutant tumors show
+34.1\% triple-negative subtype versus 19.4\% for BRCA2
+($n = 41$ vs.\ $67$). BRCA2-mutant tumors are predominantly
+HR+ (50.7\% ductal HR+/HER2$-$ plus 20.9\% lobular HR+).
+
+RAD51C is informative. Among 10 RAD51C-mutant breast patients
+in MSK-MET, all are HR+ (60.0\% ductal HR+/HER2$-$, 40.0\%
+lobular HR+). Zero are triple-negative. RAD51C phenocopies BRCA2,
+not BRCA1---consistent with its leaf position in the DDR graph
+(RAD51C is a direct RAD51 paralog, functionally downstream).
+
+\textbf{Co-mutation patterns.}
+BRCA1-mutant patients show higher TP53 co-mutation than BRCA2:
+58.7\% versus 52.1\% (Fisher $p = 0.00045$). This is consistent
+with BRCA1's hub position. BRCA1 loss destabilizes cell cycle
+checkpoint control (BRCA1 interacts directly with TP53 pathway
+components), creating selective pressure for TP53 inactivation.
+BRCA2 loss, being a more specific repair defect, generates less
+checkpoint pressure.
+
+\textbf{Metastatic tropism.}
+Table~\ref{tab:brca-tropism} shows metastatic site frequencies
+for BRCA1 vs.\ BRCA2 in breast cancer patients.
+
+\begin{table}[ht]
+\centering
+\caption{Metastatic tropism: BRCA1 vs.\ BRCA2 in breast cancer
+(MSK-MET 2021). Significant comparisons marked with *.}
+\label{tab:brca-tropism}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Met site & BRCA1 ($n=41$) & BRCA2 ($n=67$) & RAD51C ($n=10$) & $p$ (1 vs.\ 2) \\
+\midrule
+Bone    & 56.1\% & 67.2\% & 70.0\% & 0.306 \\
+Liver   & 39.0\% & 41.8\% & 30.0\% & 0.842 \\
+Lung    & 31.7\% & 31.3\% & 20.0\% & 1.000 \\
+Brain   & 22.0\% & 20.9\% & 20.0\% & 1.000 \\
+Dist LN & 51.2\% & 47.8\% & 20.0\% & 0.843 \\
+Pleura  & 34.1\% & 14.9\% & 20.0\% & 0.031* \\
+Skin    & 26.8\% & 17.9\% & 40.0\% & 0.335 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The significant finding is pleural metastasis: 34.1\% for BRCA1
+versus 14.9\% for BRCA2 ($p = 0.031$). BRCA2-mutant tumors trend
+toward higher bone metastasis (67.2\% vs.\ 56.1\%), consistent with
+their HR+ predominance and intact endocrine coupling. RAD51C again
+tracks with BRCA2: high bone (70.0\%), low pleura (20.0\%).
+
+Small sample sizes limit significance on several comparisons.
+The pan-cancer analysis ($n = 462$ BRCA1 vs.\ $n = 872$ BRCA2)
+confirms the pleural finding ($p = 0.0005$) and shows a trend
+toward higher CNS/brain metastasis for BRCA1 (15.2\% vs.\ 11.8\%,
+$p = 0.087$).
+
+\subsection{Metastatic tropism by coupling architecture}
+\label{sec:tropism}
+
+We tested whether channel-severed status predicts metastatic site
+preference using cancer-type-adjusted logistic regression across
+25{,}775 MSK-MET patients. Table~\ref{tab:tropism} shows odds ratios
+for each channel--site combination.
+
+\begin{table}[ht]
+\centering
+\caption{Logistic regression: channel-severed status predicting
+metastatic site, controlling for cancer type. OR\,$>$\,1 indicates
+higher metastasis rate when channel is mutated.}
+\label{tab:tropism}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Channel & Bone & Liver & Lung & Brain & Adrenal \\
+\midrule
+DDR & 1.06 & 0.99 & 0.98 & 1.22*** & 1.07 \\
+Cell Cycle & 1.30*** & 1.39*** & 1.12*** & 1.48*** & 1.43*** \\
+PI3K/Growth & 1.05 & 0.93* & 1.15*** & 1.12* & 1.09 \\
+Endocrine & 1.14** & 1.03 & 0.96 & 1.08 & 1.10 \\
+Immune & 0.69*** & 0.56*** & 0.69*** & 0.97 & 1.02 \\
+Tissue Arch & 1.01 & 0.99 & 0.96 & 0.98 & 0.99 \\
+\bottomrule
+\multicolumn{6}{@{}l}{\footnotesize *$p < 0.05$; **$p < 0.01$;
+***$p < 0.001$}
+\end{tabular}
+\end{table}
+
+Three findings stand out.
+
+\textbf{Cell Cycle mutations predict general metastatic aggressiveness.}
+TP53 and RB1 mutations are the strongest positive predictor of
+metastasis to \emph{every} organ site tested: bone (OR\,$=$\,1.30),
+liver (1.39), lung (1.12), brain (1.48), adrenal (1.43), all
+$p < 10^{-4}$. This is not tropism. It is a general aggressiveness
+signal. Cell cycle checkpoint loss increases metastatic capacity
+across the board.
+
+\textbf{Immune channel mutations reduce detectable distant metastasis.}
+Immune-severed tumors (B2M, JAK1/2, HLA loss) show significantly
+\emph{lower} metastasis rates to bone (OR\,$=$\,0.69,
+$p = 10^{-8}$), liver (OR\,$=$\,0.56, $p = 5 \times 10^{-18}$),
+and lung (OR\,$=$\,0.69, $p = 7 \times 10^{-9}$). Immune evasion
+mutations may reduce detectable distant disease---either because these
+tumors are controlled locally by residual immune function, or because
+immune-evaded tumors establish micrometastases that are clinically
+occult at the time of sequencing.
+
+\textbf{Endocrine channel mutations predict more bone metastasis,
+not less.}
+This is the critical finding for framework refinement. The naive
+prediction from the coupling-channel model is that endocrine channel
+severance should reduce bone tropism, because the endocrine niche
+(hormone-dependent bone microenvironment) should become inaccessible
+to a tumor that has lost endocrine coupling. The data show the
+opposite: endocrine-mutant tumors have \emph{higher} bone metastasis
+(OR\,$=$\,1.14, $p = 0.007$).
+
+The explanation is that most endocrine channel mutations are not
+loss-of-function severance events. They are gain-of-function
+resistance mutations. ESR1 ligand-binding domain mutations (Y537S,
+D538G) constitutively activate the estrogen receptor under aromatase
+inhibitor pressure. AR amplification and point mutations in
+castration-resistant prostate cancer maintain androgen signaling
+despite androgen deprivation therapy.
+
+The data confirm this at the single-gene level. In prostate cancer,
+AR-mutant patients show 76.7\% bone metastasis versus 51.4\% for
+AR-wildtype ($p < 10^{-5}$, $n = 90$ vs.\ $2{,}082$). In breast
+cancer, ESR1/GATA3/FOXA1-mutant patients show 57.7\% bone metastasis
+versus 46.2\% for wildtype ($p < 10^{-6}$, $n = 617$ vs.\
+$1{,}992$).
+
+A gain-of-function mutation in a coupling channel gene is not
+severance. It is the tumor maintaining that coupling under
+therapeutic pressure. The bone tropism data validate this
+distinction: GOF endocrine mutations maintain endocrine coupling,
+so bone tropism (an endocrine-dependent niche) persists and even
+intensifies.
+
+The coupling-channel framework must therefore distinguish two
+classes of mutation: severance (LOF, which removes coupling and
+restricts the tumor's niche) and resistance (GOF, which maintains
+coupling under pressure and preserves niche access).
+
+% ------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+% ------------------------------------------------------------------
+
+Graph position adds a second axis of prognostic information beyond
+channel count. A tumor with a hub mutation in PI3K/Growth (e.g., KRAS)
+has worse prognosis than a tumor with a leaf mutation in the same
+channel (e.g., BRAF), even after controlling for the number of
+channels disrupted. The effect is large: HR\,$=$\,1.48--1.54 for
+hub status in the multivariate model.
+
+The DDR exception is informative. The DDR channel shows no hub--leaf
+survival difference, unlike PI3K/Growth and Cell Cycle. This is
+consistent with DDR's pathway architecture. DDR has multiple
+parallel repair mechanisms (homologous recombination, non-homologous
+end joining, mismatch repair, base excision repair). Loss of a hub
+gene like ATM can be partially compensated by alternative repair
+pathways. In contrast, TP53 and KRAS sit at true bottleneck
+positions in their respective networks. The hub--leaf distinction
+is not universal; it depends on the degree of pathway redundancy.
+
+The BRCA1/BRCA2 case study is the clearest illustration. Same
+channel, different graph position, different disease. BRCA1 (hub)
+produces more triple-negative breast cancer, more TP53 co-mutation,
+and more pleural metastasis. BRCA2 (leaf) produces more HR+ disease
+and trends toward more bone metastasis. RAD51C (leaf, functionally
+downstream of BRCA2) phenocopies BRCA2 across all measured
+endpoints. These phenotypic differences are predicted by graph
+position and are not predicted by channel membership alone.
+
+The GOF/LOF distinction is the most important refinement to emerge
+from this analysis. The original coupling-channel framework treats
+any mutation in a channel gene as a potential severance event. The
+tropism data show this is wrong for endocrine channel genes. ESR1
+and AR mutations in the metastatic setting are overwhelmingly
+gain-of-function resistance mutations that \emph{maintain} endocrine
+coupling. The framework must distinguish severance from resistance.
+
+For trial design, the implications are direct. Stratifying patients
+by graph position within a pathway---not just by pathway
+membership---should improve prognostic accuracy. A KRAS-mutant
+patient and a BRAF-mutant patient are not equivalent even though
+both carry PI3K/Growth channel mutations. A BRCA1-mutant patient
+and a BRCA2-mutant patient are not equivalent even though both
+carry DDR channel mutations. Current basket trial designs that group
+patients by pathway may be grouping biologically distinct populations.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Mutation position in the signaling graph predicts cancer survival
+beyond channel count. Hub mutations carry worse prognosis than leaf
+mutations within the same channel, with HR\,$=$\,1.48--1.54 after
+controlling for channel count. The effect replicates in PI3K/Growth
+and Cell Cycle but not DDR, consistent with differential pathway
+redundancy.
+
+The BRCA1/BRCA2 case study shows that graph position predicts
+phenotype within a channel. The metastatic tropism analysis shows
+that the coupling-channel framework must distinguish severance from
+resistance: gain-of-function mutations maintain coupling and preserve
+niche-specific tropism.
+
+Graph position is the second axis. Channel count tells you how many
+organizational systems the tumor has escaped. Graph position tells
+you how completely it has escaped each one.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, literature
+review, and \LaTeX{} preparation. All theoretical content, analyses,
+and arguments are the author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under
+  bounded context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded
+  context.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Knowledge as normalization: bounded context separates shared
+  propositions from action.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Evaluation-driven descent, encoding permanence, and the structural
+  invariants of intelligence.
+\newblock Manuscript, 2026.
+
+\bibitem{McCarthy2026e}
+P.~D. McCarthy.
+\newblock Cancer as escalation chain severance under bounded context.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{McCarthy2026f}
+P.~D. McCarthy.
+\newblock Coupling-channel structure predicts cancer survival beyond mutation
+  count: a graph neural network on 43,872 patients.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{Cerami2012}
+E.~Cerami, J.~Gao, U.~Dogrusoz, B.~E. Gross, S.~O. Sumer,
+  B.~A. Aksoy, A.~Jacobsen, C.~J. Byrne, M.~L. Heuer,
+  E.~Larsson, and others.
+\newblock The {cBio} cancer genomics portal: An open platform for
+  exploring multidimensional cancer genomics data.
+\newblock \emph{Cancer Discovery}, 2(5):401--404, 2012.
+
+\bibitem{Zehir2017}
+A.~Zehir, R.~Benayed, R.~H. Shah, A.~Syed, S.~Middha,
+  H.~R. Kim, P.~Srinivasan, J.~Gao, D.~Chakravarty,
+  S.~M. Devlin, and others.
+\newblock Mutational landscape of metastatic cancer revealed from
+  prospective clinical sequencing of 10,000 patients.
+\newblock \emph{Nature Medicine}, 23(6):703--713, 2017.
+
+\bibitem{Nguyen2022}
+B.~Nguyen, M.~G.~M. Fong, R.~K. Luthra, S.~M. Smith,
+  R.~J. DiNatale, N.~Nandakumar, H.~Walch, W.~K. Chatila,
+  R.~Madupuri, R.~Kundra, and others.
+\newblock Genomic characterization of metastatic patterns from
+  prospective clinical sequencing of 25,000 patients.
+\newblock \emph{Cell}, 185(3):563--575, 2022.
+
+\bibitem{Bandlamudi2024}
+C.~Bandlamudi, J.~J.~Harding, A.~Zehir, and others.
+\newblock Clinical genomic profiling of 50,000 patients:
+  Experience from the {MSK-IMPACT} clinical sequencing cohort.
+\newblock \emph{Cancer Cell}, 2026.
+
+\bibitem{Hanahan2011}
+D.~Hanahan and R.~A. Weinberg.
+\newblock Hallmarks of cancer: The next generation.
+\newblock \emph{Cell}, 144(5):646--674, 2011.
+
+\bibitem{Song2020}
+Y.~Song, C.~Barry, W.~T. Barry, and others.
+\newblock Metastatic patterns and prognosis in {BRCA1/2}-mutated breast cancer.
+\newblock \emph{Breast Cancer Research and Treatment}, 183(2):297--306, 2020.
+
+\end{thebibliography}
+
+\end{document}

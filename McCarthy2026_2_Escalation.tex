@@ -55,6 +55,14 @@ of Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.
 \label{sec:intro}
 % ------------------------------------------------------------------
 
+In cancer genomics data, coupling channels are severed in a
+consistent order: cell-tissue growth control first, organism-level
+immune surveillance last \cite{McCarthy2026e}. This ordering matches
+the levels of a hierarchical control architecture, where lower
+levels handle routine coordination and higher levels engage only
+when lower levels fail. The present paper proves that this
+architecture is the only stable outcome under bounded context.
+
 Every system that acts under uncertainty must solve a control problem:
 which problems receive active reasoning, and which are handled by
 automatic, pre-encoded responses? This question is distinct from the
@@ -444,7 +452,7 @@ action policies share more propositions, and those shared propositions
 are extracted into $K$ (the normalization that any bounded system
 converges toward, since maintaining redundant copies exceeds $C_n$ as
 the repertoire scales). Paper~1 \cite{McCarthy2026a} establishes that
-edge density increases as $K$ matures (Corollary~1): $\bar{d}$ is
+edge density increases as $K$ matures (Edge Growth Corollary): $\bar{d}$ is
 monotonically non-decreasing in $|K|$. Since $|K|$ grows with $|A|$
 and $\bar{d}$ grows with $|K|$, we have:
 \[
@@ -1295,6 +1303,12 @@ O.~E. Williamson.
 H.~S. Witsenhausen.
 \newblock A counterexample in stochastic optimum control.
 \newblock \emph{SIAM Journal on Control}, 6(1):131--147, 1968.
+
+\bibitem{McCarthy2026e}
+P.~D. McCarthy.
+\newblock Coupling channels, severance hierarchy, and the prognostic
+structure of cancer: an empirical test of bounded-context theory.
+\newblock \emph{SSRN preprint}, 2026.
 
 \end{thebibliography}
 
