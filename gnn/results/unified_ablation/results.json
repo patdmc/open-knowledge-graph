@@ -1,0 +1,177 @@
+{
+  "config": {
+    "hidden_dim": 128,
+    "cross_channel_heads": 4,
+    "cross_channel_layers": 2,
+    "dropout": 0.3,
+    "lr": 0.0005,
+    "weight_decay": 0.0001,
+    "epochs": 100,
+    "patience": 15,
+    "batch_size": 512,
+    "n_folds": 5,
+    "random_seed": 42,
+    "n_cancer_types": 80
+  },
+  "variant_order": [
+    "V2",
+    "V2_MSI",
+    "V6",
+    "V6c"
+  ],
+  "completed": {
+    "V2_fold0": {
+      "variant": "V2",
+      "fold": 0,
+      "c_index": 0.6715915937504566,
+      "best_c_index": 0.6715915937504566,
+      "epochs": 44
+    },
+    "V2_MSI_fold0": {
+      "variant": "V2_MSI",
+      "fold": 0,
+      "c_index": 0.6777801143961315,
+      "best_c_index": 0.6777801143961315,
+      "epochs": 40
+    },
+    "V6_fold0": {
+      "variant": "V6",
+      "fold": 0,
+      "c_index": 0.6749458821832608,
+      "best_c_index": 0.6749458821832608,
+      "epochs": 29
+    },
+    "V6c_fold0": {
+      "variant": "V6c",
+      "fold": 0,
+      "c_index": 0.6828923535414801,
+      "best_c_index": 0.6828923535414801,
+      "epochs": 33
+    },
+    "V2_fold1": {
+      "variant": "V2",
+      "fold": 1,
+      "c_index": 0.6751538072940662,
+      "best_c_index": 0.6751538072940662,
+      "epochs": 36
+    },
+    "V2_MSI_fold1": {
+      "variant": "V2_MSI",
+      "fold": 1,
+      "c_index": 0.6820252101246077,
+      "best_c_index": 0.6820252101246077,
+      "epochs": 48
+    },
+    "V6_fold1": {
+      "variant": "V6",
+      "fold": 1,
+      "c_index": 0.6767076003501993,
+      "best_c_index": 0.6767076003501993,
+      "epochs": 30
+    },
+    "V6c_fold1": {
+      "variant": "V6c",
+      "fold": 1,
+      "c_index": 0.684364896667751,
+      "best_c_index": 0.684364896667751,
+      "epochs": 37
+    },
+    "V2_fold2": {
+      "variant": "V2",
+      "fold": 2,
+      "c_index": 0.683900959167052,
+      "best_c_index": 0.683900959167052,
+      "epochs": 36
+    },
+    "V2_MSI_fold2": {
+      "variant": "V2_MSI",
+      "fold": 2,
+      "c_index": 0.6876894874521049,
+      "best_c_index": 0.6876894874521049,
+      "epochs": 33
+    },
+    "V6_fold2": {
+      "variant": "V6",
+      "fold": 2,
+      "c_index": 0.6881804843548619,
+      "best_c_index": 0.6881804843548619,
+      "epochs": 40
+    },
+    "V6c_fold2": {
+      "variant": "V6c",
+      "fold": 2,
+      "c_index": 0.690589023974153,
+      "best_c_index": 0.690589023974153,
+      "epochs": 29
+    },
+    "V2_fold3": {
+      "variant": "V2",
+      "fold": 3,
+      "c_index": 0.6724569379104964,
+      "best_c_index": 0.6724569379104964,
+      "epochs": 43
+    },
+    "V2_MSI_fold3": {
+      "variant": "V2_MSI",
+      "fold": 3,
+      "c_index": 0.6772122515743443,
+      "best_c_index": 0.6772122515743443,
+      "epochs": 46
+    },
+    "V6_fold3": {
+      "variant": "V6",
+      "fold": 3,
+      "c_index": 0.6723784894716708,
+      "best_c_index": 0.6723784894716708,
+      "epochs": 36
+    },
+    "V6c_fold3": {
+      "variant": "V6c",
+      "fold": 3,
+      "c_index": 0.6787302372648115,
+      "best_c_index": 0.6787302372648115,
+      "epochs": 40
+    },
+    "V2_fold4": {
+      "variant": "V2",
+      "fold": 4,
+      "c_index": 0.6785333927883649,
+      "best_c_index": 0.6785333927883649,
+      "epochs": 34
+    },
+    "V2_MSI_fold4": {
+      "variant": "V2_MSI",
+      "fold": 4,
+      "c_index": 0.6846424360804825,
+      "best_c_index": 0.6846424360804825,
+      "epochs": 35
+    },
+    "V6_fold4": {
+      "variant": "V6",
+      "fold": 4,
+      "c_index": 0.6824243195617771,
+      "best_c_index": 0.6824243195617771,
+      "epochs": 37
+    },
+    "V6c_fold4": {
+      "variant": "V6c",
+      "fold": 4,
+      "c_index": 0.6881338485462158,
+      "best_c_index": 0.6881338485462158,
+      "epochs": 33
+    }
+  },
+  "means": {
+    "V2": 0.6763273381820871,
+    "V2_MSI": 0.6818698999255342,
+    "V6": 0.678927355184354,
+    "V6c": 0.6849420719988822
+  },
+  "stds": {
+    "V2": 0.0044946826379393436,
+    "V2_MSI": 0.003999967770062722,
+    "V6": 0.00568359464085917,
+    "V6c": 0.004127877711851743
+  },
+  "elapsed_seconds": 15042.298316955566
+}

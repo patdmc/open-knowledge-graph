@@ -1,0 +1,3535 @@
+{
+  "ABL1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT",
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "ABRAXAS1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ACVR1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "AGO2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "AKT1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "AKT2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "AKT3": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ALB": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ALK": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ALOX12B": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "AMER1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ANKRD11": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "APC": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "APLNR": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "AR": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ARAF": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "ARHGAP35": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ARID1A": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ARID1B": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ARID2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ARID5B": {
+    "channel": "Endocrine",
+    "confidence": "low",
+    "hallmark_sets": [
+      "ANDROGEN_RESPONSE",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "ASXL1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ASXL2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ATM": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ATR": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ATRX": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT",
+      "UV_RESPONSE_DN"
+    ],
+    "source": "hallmark"
+  },
+  "ATXN7": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "AURKA": {
+    "channel": "CellCycle",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "MTORC1_SIGNALING",
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT",
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "AURKB": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "AXIN1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "AXIN2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "AXL": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "B2M": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BABAM1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BAP1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BARD1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BBC3": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BCL10": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "BCL2": {
+    "channel": "Endocrine",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_EARLY",
+      "ESTROGEN_RESPONSE_LATE",
+      "IL2_STAT5_SIGNALING",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "BCL2L1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL2_STAT5_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "BCL2L11": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE",
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "BCL6": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB",
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "BCOR": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BIRC3": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "BLM": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BMPR1A": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING",
+      "UV_RESPONSE_DN"
+    ],
+    "source": "both"
+  },
+  "BORCS8-MEF2B": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BRAF": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BRCA1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BRCA2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "BRD4": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BRIP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "BTK": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CALR": {
+    "channel": "PI3K_Growth",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MTORC1_SIGNALING",
+      "UNFOLDED_PROTEIN_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "CARD11": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CARM1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CASP8": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INTERFERON_ALPHA_RESPONSE",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "CBFB": {
+    "channel": "Endocrine",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CBL": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "IL6_JAK_STAT3_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "CCND1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CCND2": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "WNT_BETA_CATENIN_SIGNALING",
+      "P53_PATHWAY",
+      "IL2_STAT5_SIGNALING",
+      "ALLOGRAFT_REJECTION",
+      "ANGIOGENESIS"
+    ],
+    "source": "both"
+  },
+  "CCND3": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "UV_RESPONSE_UP",
+      "ANDROGEN_RESPONSE",
+      "IL2_STAT5_SIGNALING",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "CCNE1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CCNQ": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CD274": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CD276": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "CD79A": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "CD79B": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL2_STAT5_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "CDC42": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "CDC73": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CDH1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDH2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDK12": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CDK4": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDK6": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDK8": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "CDKN1A": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDKN1B": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDKN2A": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDKN2B": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CDKN2C": {
+    "channel": "CellCycle",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT",
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "CEBPA": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "P53_PATHWAY"
+    ],
+    "source": "hallmark"
+  },
+  "CENPA": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "CHEK1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CHEK2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CIC": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "COP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CREBBP": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CRKL": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CRLF2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL6_JAK_STAT3_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "CSDE1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CSF1R": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CSF3R": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE",
+      "IL6_JAK_STAT3_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "CTCF": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "CTLA4": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CTNNB1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "CTR9": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CUL3": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "CXCR4": {
+    "channel": "PI3K_Growth",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MTORC1_SIGNALING",
+      "KRAS_SIGNALING_UP",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "CYLD": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CYP19A1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "CYSLTR2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DAXX": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DCUN1D1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DDR2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DICER1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DIS3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DNAJB1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "DNMT1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "DNMT3A": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DNMT3B": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DOT1L": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DROSHA": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "DUSP4": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "E2F3": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "EED": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "EGFL7": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EGFR": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "EIF1AX": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MYC_TARGETS_V1"
+    ],
+    "source": "hallmark"
+  },
+  "EIF4A2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UNFOLDED_PROTEIN_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "EIF4E": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MYC_TARGETS_V1",
+      "UNFOLDED_PROTEIN_RESPONSE"
+    ],
+    "source": "both"
+  },
+  "ELF3": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_EARLY"
+    ],
+    "source": "hallmark"
+  },
+  "ELOC": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EP300": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EPAS1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EPCAM": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "EPHA3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EPHA5": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "EPHA7": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EPHB1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ERBB2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ERBB3": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ERBB4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ERCC2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "DNA_REPAIR"
+    ],
+    "source": "hallmark"
+  },
+  "ERCC3": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "DNA_REPAIR"
+    ],
+    "source": "hallmark"
+  },
+  "ERCC4": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "DNA_REPAIR"
+    ],
+    "source": "hallmark"
+  },
+  "ERCC5": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "DNA_REPAIR"
+    ],
+    "source": "both"
+  },
+  "ERF": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ERG": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ERRFI1": {
+    "channel": "Endocrine",
+    "confidence": "low",
+    "hallmark_sets": [
+      "CHOLESTEROL_HOMEOSTASIS",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "ESR1": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ESR2": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ETAA1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ETV1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "ETV6": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EZH1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "EZH2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "FANCA": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FANCC": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FANCD2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FAT1": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FBXW7": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FGF19": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FGF3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FGF4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FGFR1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FGFR2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FGFR3": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FGFR4": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FH": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FIP1L1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FLCN": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FLT1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FLT3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FLT4": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "FOXA1": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "FOXF1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FOXL2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FOXO1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FOXP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FUBP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "FYN": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN",
+      "COMPLEMENT"
+    ],
+    "source": "both"
+  },
+  "GAB1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GAB2": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_EARLY"
+    ],
+    "source": "hallmark"
+  },
+  "GATA1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL2_STAT5_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "GATA2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GATA3": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "GJA1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "GJB2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "GLI1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "HEDGEHOG_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "GNA11": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GNAQ": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GNAS": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GNB1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GPS2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GREM1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "EPITHELIAL_MESENCHYMAL_TRANSITION"
+    ],
+    "source": "hallmark"
+  },
+  "GRIN2A": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "GSK3B": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MTORC1_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "GTF2I": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H1-2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "P53_PATHWAY"
+    ],
+    "source": "hallmark"
+  },
+  "H2BC5": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H3-3B": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H3-4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H3-5": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H3C13": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "H3C7": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "HGF": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "HLA-A": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "HLA-B": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "HLA-C": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "HNF1A": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "HOXB13": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "HRAS": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "ICOSLG": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "ID3": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "IDH1": {
+    "channel": "TissueArch",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "MTORC1_SIGNALING",
+      "BILE_ACID_METABOLISM",
+      "ADIPOGENESIS"
+    ],
+    "source": "both"
+  },
+  "IDH2": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_LATE",
+      "BILE_ACID_METABOLISM"
+    ],
+    "source": "hallmark"
+  },
+  "IFNGR1": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "IL6_JAK_STAT3_SIGNALING",
+      "IL2_STAT5_SIGNALING",
+      "ALLOGRAFT_REJECTION",
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "IGF1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "IGF1R": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "IGF2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "IKBKE": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "IKZF1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "IL10": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE",
+      "IL2_STAT5_SIGNALING",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "IL7R": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "INFLAMMATORY_RESPONSE",
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "INHA": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "INHBA": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "INFLAMMATORY_RESPONSE",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "ALLOGRAFT_REJECTION",
+      "EPITHELIAL_MESENCHYMAL_TRANSITION"
+    ],
+    "source": "hallmark"
+  },
+  "INPP4A": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "INPP4B": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN",
+      "ANDROGEN_RESPONSE"
+    ],
+    "source": "both"
+  },
+  "INPPL1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "INS-IGF2": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "INSR": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "INSRR": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "IRF4": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL2_STAT5_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "IRS1": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN",
+      "APICAL_JUNCTION"
+    ],
+    "source": "both"
+  },
+  "IRS2": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "JAK1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "JAK2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "JAK3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "JUN": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "IL6_JAK_STAT3_SIGNALING",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "KBTBD4": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KDM5A": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KDM5C": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KDM6A": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KDR": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KEAP1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KIT": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN"
+    ],
+    "source": "hallmark"
+  },
+  "KLF4": {
+    "channel": "Endocrine",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "P53_PATHWAY",
+      "ESTROGEN_RESPONSE_EARLY",
+      "ESTROGEN_RESPONSE_LATE",
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "KLF5": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KMT2A": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KMT2B": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KMT2C": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KMT2D": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "KMT5A": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "KNSTRN": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "KRAS": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "LATS1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "LATS2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "LMO1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "LYN": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP",
+      "INFLAMMATORY_RESPONSE",
+      "COMPLEMENT",
+      "ALLOGRAFT_REJECTION",
+      "APICAL_SURFACE"
+    ],
+    "source": "hallmark"
+  },
+  "LZTR1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MAD2L2": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MALT1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MAP2K1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MAP2K2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MAP2K4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MAP3K1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MAP3K13": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MAP3K14": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MAPK1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "MAPK3": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MAPKAP1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "MAX": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MCL1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "MDC1": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MDC1-AS1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MDM2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MDM4": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MED12": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MEF2B": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MEN1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MET": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MGA": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MIR4466": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MIR636": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MITF": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MLH1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MLLT1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MPL": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MRE11": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "MSH2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MSH3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MSH6": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MSI1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MSI2": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MST1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MST1R": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MTAP": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MTOR": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MUTYH": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MYC": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MYCL": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "MYCN": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "MYD88": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "IL6_JAK_STAT3_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "MYOD1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NADK": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NBN": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "NCOA3": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL2_STAT5_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "NCOR1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NEGR1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "NF1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NF2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NFE2L2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "NFKBIA": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP",
+      "INFLAMMATORY_RESPONSE",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "NKX2-1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NKX3-1": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ANDROGEN_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "NOTCH1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NOTCH2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NOTCH3": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NOTCH4": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NPM1": {
+    "channel": "CellCycle",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "MYC_TARGETS_V1",
+      "MYC_TARGETS_V2",
+      "UNFOLDED_PROTEIN_RESPONSE",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "NRAS": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "NSD1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NSD2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "NSD3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NTHL1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NTRK1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NTRK2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NTRK3": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "NUF2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "NUP93": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "OBSL1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PAK1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PAK5": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PALB2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PARP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PAX5": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PBRM1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PDCD1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "PDCD1LG2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PDGFRA": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PDGFRB": {
+    "channel": "TissueArch",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN",
+      "EPITHELIAL_MESENCHYMAL_TRANSITION"
+    ],
+    "source": "both"
+  },
+  "PDPK1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PGBD5": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PGR": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PHF6": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PHOX2B": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PIK3C2G": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PIK3C3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PIK3CA": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PIK3CB": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "PIK3CD": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN"
+    ],
+    "source": "hallmark"
+  },
+  "PIK3CG": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "COMPLEMENT"
+    ],
+    "source": "hallmark"
+  },
+  "PIK3R1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PIK3R2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PIK3R3": {
+    "channel": "PI3K_Growth",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MTORC1_SIGNALING",
+      "UV_RESPONSE_DN",
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "PIM1": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "IL6_JAK_STAT3_SIGNALING",
+      "IL2_STAT5_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE",
+      "COMPLEMENT",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "PLCG2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PLK2": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "PMAIP1": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_EARLY"
+    ],
+    "source": "hallmark"
+  },
+  "PMS1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PMS2": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PNRC1": {
+    "channel": "Endocrine",
+    "confidence": "low",
+    "hallmark_sets": [
+      "CHOLESTEROL_HOMEOSTASIS",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "POLD1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "POLE": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "POT1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PPARG": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN",
+      "CHOLESTEROL_HOMEOSTASIS",
+      "ADIPOGENESIS"
+    ],
+    "source": "both"
+  },
+  "PPM1D": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "P53_PATHWAY"
+    ],
+    "source": "hallmark"
+  },
+  "PPP2R1A": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PPP4R2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "PPP6C": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PRDM1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "PRDM14": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PREX2": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PRKAR1A": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PRKCI": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PRKD1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PRKN": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "PTCH1": {
+    "channel": "PI3K_Growth",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "HEDGEHOG_SIGNALING",
+      "WNT_BETA_CATENIN_SIGNALING",
+      "IL2_STAT5_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "PTEN": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "PTP4A1": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PTPN11": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "IL6_JAK_STAT3_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "PTPRD": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP"
+    ],
+    "source": "hallmark"
+  },
+  "PTPRS": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "PTPRT": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RAB35": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RAC1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "RAC2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "RAD21": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "RAD50": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "RAD51": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "DNA_REPAIR"
+    ],
+    "source": "hallmark"
+  },
+  "RAD51B": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "RAD51C": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "RAD51D": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "RAD52": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "DNA_REPAIR"
+    ],
+    "source": "hallmark"
+  },
+  "RAD54L": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "RAF1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "RARA": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ESTROGEN_RESPONSE_EARLY"
+    ],
+    "source": "hallmark"
+  },
+  "RASA1": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [
+      "HEDGEHOG_SIGNALING",
+      "MITOTIC_SPINDLE",
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "RB1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "RBM10": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RECQL": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RECQL4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "REL": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB"
+    ],
+    "source": "hallmark"
+  },
+  "REST": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RET": {
+    "channel": "Endocrine",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "UV_RESPONSE_UP",
+      "ESTROGEN_RESPONSE_EARLY",
+      "ESTROGEN_RESPONSE_LATE"
+    ],
+    "source": "hallmark"
+  },
+  "RHEB": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RHOA": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "RICTOR": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "RIT1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "MTORC1_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "RNF43": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ROS1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "INFLAMMATORY_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "RPS6KA4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RPS6KB2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RPTOR": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "RRAGC": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RRAS": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "RRAS2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RTEL1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "RUNX1": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN"
+    ],
+    "source": "hallmark"
+  },
+  "RXRA": {
+    "channel": "DDR",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "UV_RESPONSE_DN",
+      "BILE_ACID_METABOLISM"
+    ],
+    "source": "both"
+  },
+  "RYBP": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SCG5": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "SDCCAG8": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "SDHA": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SDHAF2": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SDHB": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "SDHC": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "SDHD": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SERPINB3": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SERPINB4": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SESN1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "P53_PATHWAY"
+    ],
+    "source": "hallmark"
+  },
+  "SESN2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SESN3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SETD2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SETDB1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SF3B1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SH2B3": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "COMPLEMENT"
+    ],
+    "source": "hallmark"
+  },
+  "SH2D1A": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SHOC2": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SHQ1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SLFN11": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SLX4": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMAD2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "SMAD3": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "SMAD4": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "SMARCA2": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMARCA4": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMARCB1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMARCD1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMARCE1": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMO": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SMYD3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SNORA63": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SOCS1": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "IL6_JAK_STAT3_SIGNALING",
+      "IL2_STAT5_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "SOS1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MITOTIC_SPINDLE"
+    ],
+    "source": "hallmark"
+  },
+  "SOX17": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SOX2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SOX9": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP"
+    ],
+    "source": "hallmark"
+  },
+  "SPEN": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SPOP": {
+    "channel": "DDR",
+    "confidence": "high",
+    "hallmark_sets": [
+      "UV_RESPONSE_DN"
+    ],
+    "source": "hallmark"
+  },
+  "SPRED1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SPRTN": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SRC": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [
+      "COMPLEMENT",
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "SRSF2": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT",
+      "MYC_TARGETS_V1"
+    ],
+    "source": "hallmark"
+  },
+  "STAG2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "STAT1": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "STAT3": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "IL6_JAK_STAT3_SIGNALING",
+      "INTERFERON_GAMMA_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "STAT5A": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [
+      "TNFA_SIGNALING_VIA_NFKB",
+      "ADIPOGENESIS"
+    ],
+    "source": "hallmark"
+  },
+  "STAT5B": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "STK11": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "STK40": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SUFU": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SUZ12": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "SYK": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "APICAL_JUNCTION"
+    ],
+    "source": "hallmark"
+  },
+  "TAP1": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "P53_PATHWAY",
+      "UV_RESPONSE_UP",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "INTERFERON_ALPHA_RESPONSE",
+      "INTERFERON_GAMMA_RESPONSE",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "TAP2": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "TBX3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TCF3": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TCF7L2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "NOTCH_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "TEK": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TENT5C": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_DN"
+    ],
+    "source": "hallmark"
+  },
+  "TERT": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TET1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TET2": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TGFBR1": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "TGFBR2": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "TIMM8B": {
+    "channel": "CellCycle",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TMEM127": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TMPRSS2": {
+    "channel": "Endocrine",
+    "confidence": "high",
+    "hallmark_sets": [
+      "ANDROGEN_RESPONSE"
+    ],
+    "source": "hallmark"
+  },
+  "TNFAIP3": {
+    "channel": "Immune",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "KRAS_SIGNALING_UP",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "INTERFERON_GAMMA_RESPONSE",
+      "COMPLEMENT",
+      "EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "TNFRSF14": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TOP1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "TP53": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "TP53BP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TP63": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "P53_PATHWAY"
+    ],
+    "source": "hallmark"
+  },
+  "TRAF2": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [
+      "PI3K_AKT_MTOR_SIGNALING",
+      "ALLOGRAFT_REJECTION"
+    ],
+    "source": "hallmark"
+  },
+  "TRAF7": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "TRIP13": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS"
+    ],
+    "source": "hallmark"
+  },
+  "TSC1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "TSC2": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [],
+    "source": "curated"
+  },
+  "TSHR": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "U2AF1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "MYC_TARGETS_V1"
+    ],
+    "source": "hallmark"
+  },
+  "UPF1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "G2M_CHECKPOINT"
+    ],
+    "source": "hallmark"
+  },
+  "USP8": {
+    "channel": "Immune",
+    "confidence": "high",
+    "hallmark_sets": [
+      "COMPLEMENT"
+    ],
+    "source": "hallmark"
+  },
+  "VEGFA": {
+    "channel": "TissueArch",
+    "confidence": "medium",
+    "hallmark_sets": [
+      "HEDGEHOG_SIGNALING",
+      "UNFOLDED_PROTEIN_RESPONSE",
+      "TNFA_SIGNALING_VIA_NFKB",
+      "EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "ANGIOGENESIS",
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "VHL": {
+    "channel": "TissueArch",
+    "confidence": "high",
+    "hallmark_sets": [
+      "HYPOXIA"
+    ],
+    "source": "hallmark"
+  },
+  "VTCN1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "WHR1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "WT1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "WWTR1": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "XIAP": {
+    "channel": "PI3K_Growth",
+    "confidence": "high",
+    "hallmark_sets": [
+      "TGF_BETA_SIGNALING"
+    ],
+    "source": "hallmark"
+  },
+  "XPO1": {
+    "channel": "CellCycle",
+    "confidence": "high",
+    "hallmark_sets": [
+      "E2F_TARGETS",
+      "G2M_CHECKPOINT",
+      "MYC_TARGETS_V1"
+    ],
+    "source": "hallmark"
+  },
+  "XRCC2": {
+    "channel": "PI3K_Growth",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "YAP1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "YES1": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ZFHX3": {
+    "channel": "TissueArch",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ZNRF3": {
+    "channel": "Immune",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  },
+  "ZRSR2": {
+    "channel": "DDR",
+    "confidence": "low",
+    "hallmark_sets": [],
+    "source": "comutation"
+  }
+}

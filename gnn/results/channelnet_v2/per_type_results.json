@@ -1,0 +1,275 @@
+[
+  {
+    "cancer_type": "Adrenocortical Carcinoma",
+    "n_patients": 74,
+    "n_events": 33,
+    "c_index": 0.5305662805662805,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Ampullary Cancer",
+    "n_patients": 107,
+    "n_events": 41,
+    "c_index": 0.5191424196018377,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Anal Cancer",
+    "n_patients": 125,
+    "n_events": 51,
+    "c_index": 0.4897600936220012,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Appendiceal Cancer",
+    "n_patients": 241,
+    "n_events": 84,
+    "c_index": 0.6658108686350022,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Bladder Cancer",
+    "n_patients": 1816,
+    "n_events": 532,
+    "c_index": 0.593451729569779,
+    "cox_sage": 0.627
+  },
+  {
+    "cancer_type": "Bone Cancer",
+    "n_patients": 454,
+    "n_events": 168,
+    "c_index": 0.627294754534937,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Breast Cancer",
+    "n_patients": 5188,
+    "n_events": 1749,
+    "c_index": 0.6541372977657159,
+    "cox_sage": 0.669
+  },
+  {
+    "cancer_type": "Breast Sarcoma",
+    "n_patients": 55,
+    "n_events": 23,
+    "c_index": 0.6023668639053255,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "CNS Cancer",
+    "n_patients": 132,
+    "n_events": 23,
+    "c_index": 0.4420109507217521,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Cancer of Unknown Primary",
+    "n_patients": 1241,
+    "n_events": 707,
+    "c_index": 0.6015727866104077,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Cervical Cancer",
+    "n_patients": 283,
+    "n_events": 102,
+    "c_index": 0.5376724442872303,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Colorectal Cancer",
+    "n_patients": 4618,
+    "n_events": 1489,
+    "c_index": 0.6118187091664761,
+    "cox_sage": 0.646
+  },
+  {
+    "cancer_type": "Endometrial Cancer",
+    "n_patients": 2176,
+    "n_events": 574,
+    "c_index": 0.6956129807692307,
+    "cox_sage": 0.716
+  },
+  {
+    "cancer_type": "Esophagogastric Cancer",
+    "n_patients": 1518,
+    "n_events": 747,
+    "c_index": 0.5465849009215551,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Gastrointestinal Neuroendocrine Tumor",
+    "n_patients": 179,
+    "n_events": 73,
+    "c_index": 0.7241666666666666,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Gastrointestinal Stromal Tumor",
+    "n_patients": 465,
+    "n_events": 87,
+    "c_index": 0.5959314294269566,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Germ Cell Tumor",
+    "n_patients": 554,
+    "n_events": 107,
+    "c_index": 0.6487854928289429,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Glioma",
+    "n_patients": 1809,
+    "n_events": 941,
+    "c_index": 0.6654599201791425,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Head and Neck Cancer",
+    "n_patients": 542,
+    "n_events": 320,
+    "c_index": 0.6025309422538989,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Hepatobiliary Cancer",
+    "n_patients": 1204,
+    "n_events": 729,
+    "c_index": 0.5850868417512947,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Melanoma",
+    "n_patients": 1515,
+    "n_events": 518,
+    "c_index": 0.6074917814518866,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Mesothelioma",
+    "n_patients": 340,
+    "n_events": 214,
+    "c_index": 0.5861575675605378,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Nerve Sheath Tumor",
+    "n_patients": 100,
+    "n_events": 27,
+    "c_index": 0.6311953352769679,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Non-Small Cell Lung Cancer",
+    "n_patients": 6133,
+    "n_events": 2694,
+    "c_index": 0.6319451386083367,
+    "cox_sage": 0.63
+  },
+  {
+    "cancer_type": "Ovarian Cancer",
+    "n_patients": 1911,
+    "n_events": 631,
+    "c_index": 0.5127675016887279,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Pancreatic Cancer",
+    "n_patients": 2408,
+    "n_events": 1410,
+    "c_index": 0.6352671606271089,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Peripheral Nervous System",
+    "n_patients": 302,
+    "n_events": 69,
+    "c_index": 0.6132932004342249,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Prostate Cancer",
+    "n_patients": 2626,
+    "n_events": 716,
+    "c_index": 0.6817610074027389,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Renal Cell Carcinoma",
+    "n_patients": 948,
+    "n_events": 305,
+    "c_index": 0.5836812436819291,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Salivary Gland Cancer",
+    "n_patients": 310,
+    "n_events": 151,
+    "c_index": 0.6110444874274662,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Sex Cord Stromal Tumor",
+    "n_patients": 77,
+    "n_events": 11,
+    "c_index": 0.5708333333333333,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Skin Cancer, Non-Melanoma",
+    "n_patients": 369,
+    "n_events": 118,
+    "c_index": 0.5805953693495038,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Small Bowel Cancer",
+    "n_patients": 133,
+    "n_events": 58,
+    "c_index": 0.5798692199906585,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Small Cell Lung Cancer",
+    "n_patients": 382,
+    "n_events": 246,
+    "c_index": 0.5339632665452337,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Soft Tissue Sarcoma",
+    "n_patients": 1861,
+    "n_events": 673,
+    "c_index": 0.5586499619960202,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Thymic Tumor",
+    "n_patients": 68,
+    "n_events": 19,
+    "c_index": 0.5716145833333334,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Thyroid Cancer",
+    "n_patients": 739,
+    "n_events": 230,
+    "c_index": 0.7270303950228618,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Uterine Sarcoma",
+    "n_patients": 316,
+    "n_events": 153,
+    "c_index": 0.542247570764681,
+    "cox_sage": null
+  },
+  {
+    "cancer_type": "Other",
+    "n_patients": 328,
+    "n_events": 86,
+    "c_index": 0.669306689411478,
+    "cox_sage": null
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "model": "ChannelNetV8",
+  "config": {
+    "feat_dim": 46,
+    "base_feat_dim": 16,
+    "hidden_dim": 128,
+    "cross_channel_heads": 4,
+    "cross_channel_layers": 2,
+    "dropout": 0.3,
+    "lr": 0.0005,
+    "weight_decay": 0.0001,
+    "epochs": 100,
+    "patience": 15,
+    "batch_size": 512,
+    "n_folds": 5,
+    "random_seed": 42,
+    "n_cancer_types": 66,
+    "clinical_dim": 2,
+    "n_interactions": 10,
+    "with_tmb": false
+  },
+  "mean_c_index": 0.6732931818436142,
+  "std_c_index": 0.0038515472364089166,
+  "fold_results": [
+    {
+      "fold": 0,
+      "c_index": 0.6787363530031576,
+      "epochs": 16
+    },
+    {
+      "fold": 1,
+      "c_index": 0.6709901559287202,
+      "epochs": 16
+    },
+    {
+      "fold": 2,
+      "c_index": 0.6673533689341361,
+      "epochs": 16
+    },
+    {
+      "fold": 3,
+      "c_index": 0.6748337157441543,
+      "epochs": 16
+    },
+    {
+      "fold": 4,
+      "c_index": 0.6745523156079029,
+      "epochs": 16
+    }
+  ],
+  "holdback": {
+    "n_patients": 6642,
+    "ensemble_c_index": 0.6656695993337624,
+    "per_fold_c_indices": [
+      0.6656695993337624,
+      0.6656695993337624,
+      0.6656695993337624,
+      0.6656695993337624,
+      0.6656695993337624
+    ],
+    "overfit_gap": 0.007623582509851845
+  },
+  "n_patients_cv": 37641,
+  "n_patients_total": 44283,
+  "elapsed_seconds": 2024.738141298294
+}

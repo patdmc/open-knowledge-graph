@@ -1,0 +1,12 @@
+{
+  "n_pairs": 246,
+  "n_connected": 160,
+  "n_disconnected": 86,
+  "scoring_results": {
+    "A_hotspot_sum": 0.5736917196976381,
+    "B_directional": 0.5747316322800188,
+    "C_graph_dist_weighted": 0.5748346146899921,
+    "D_hub_relative": 0.5748088910799675,
+    "E_combined": 0.5489255382100244
+  }
+}
