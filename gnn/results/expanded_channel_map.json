@@ -75,7 +75,7 @@
     "source": "comutation"
   },
   "ANKRD11": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -121,13 +121,13 @@
     "source": "curated"
   },
   "ARID1B": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "ARID2": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -166,7 +166,7 @@
     "source": "curated"
   },
   "ATRX": {
-    "channel": "CellCycle",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [
       "G2M_CHECKPOINT",
@@ -296,7 +296,7 @@
     "source": "hallmark"
   },
   "BCOR": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -613,7 +613,7 @@
     "source": "comutation"
   },
   "CREBBP": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -718,7 +718,7 @@
     "source": "comutation"
   },
   "DAXX": {
-    "channel": "DDR",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -764,13 +764,13 @@
     "source": "hallmark"
   },
   "DNMT3A": {
-    "channel": "DDR",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "DNMT3B": {
-    "channel": "DDR",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -864,7 +864,7 @@
     "source": "comutation"
   },
   "EP300": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -1335,7 +1335,7 @@
     "source": "comutation"
   },
   "H3C7": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -1403,7 +1403,7 @@
     "source": "hallmark"
   },
   "IDH1": {
-    "channel": "TissueArch",
+    "channel": "DNAMethylation",
     "confidence": "medium",
     "hallmark_sets": [
       "MTORC1_SIGNALING",
@@ -1413,7 +1413,7 @@
     "source": "both"
   },
   "IDH2": {
-    "channel": "Endocrine",
+    "channel": "DNAMethylation",
     "confidence": "high",
     "hallmark_sets": [
       "ESTROGEN_RESPONSE_LATE",
@@ -1624,7 +1624,7 @@
     "source": "comutation"
   },
   "KDM6A": {
-    "channel": "PI3K_Growth",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -1668,25 +1668,25 @@
     "source": "comutation"
   },
   "KMT2A": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "KMT2B": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "KMT2C": {
-    "channel": "PI3K_Growth",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "KMT2D": {
-    "channel": "PI3K_Growth",
+    "channel": "ChromatinRemodel",
     "confidence": "high",
     "hallmark_sets": [
       "KRAS_SIGNALING_DN"
@@ -2153,7 +2153,7 @@
     "source": "curated"
   },
   "NSD1": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -2940,7 +2940,7 @@
     "source": "comutation"
   },
   "SETD2": {
-    "channel": "DDR",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -3020,7 +3020,7 @@
     "source": "comutation"
   },
   "SMARCA4": {
-    "channel": "TissueArch",
+    "channel": "ChromatinRemodel",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
@@ -3276,13 +3276,13 @@
     "source": "comutation"
   },
   "TET1": {
-    "channel": "DDR",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
   },
   "TET2": {
-    "channel": "TissueArch",
+    "channel": "DNAMethylation",
     "confidence": "low",
     "hallmark_sets": [],
     "source": "comutation"
