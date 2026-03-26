@@ -25,7 +25,7 @@
 \begin{abstract}
 When multiple action policies share propositions and active context is
 bounded, storing each policy's propositions independently produces
-$O(n \cdot k)$ context load---multiplicative in the number of policies
+$O(n \cdot k)$ context load, multiplicative in the number of policies
 $n$ and propositions per policy $k$. We prove that bounded context
 forces the extraction of shared propositions into a separate
 structure~$K$, reducing context load to $O(n + k')$ where $k' = |K|$.
@@ -36,10 +36,8 @@ design choice but a scaling constraint imposed by bounded~$C_n$.
 From the normalization theorem we derive the retention criterion
 (retain when benefit is uncertain; prune only when benefit is
 certainly zero) and $K/A$ inseparability (the content of $K$ is
-constitutively determined by $A$). These results engage directly
-with recent proposals to give observation and action separate
-training objectives \cite{DupouxLeCunMalik2026}, showing that such
-separation violates a structural constraint imposed by bounded context.
+constitutively determined by $A$). These results engage with recent proposals to give observation and action separate
+training objectives \cite{DupouxLeCunMalik2026}. Such separation violates a structural constraint imposed by bounded context.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -74,7 +72,7 @@ carries its own copy of every required proposition. Total context load
 is $O(n \cdot k)$. Under bounded active context $C_n$, this
 architecture fails for any non-trivial repertoire: two overlapping
 policies loaded simultaneously require $2k - |\text{overlap}|$ context
-slots, and without separation the overlap is not recognized---both full
+slots, and without separation the overlap is not recognized: both full
 copies are loaded.
 
 With a separated structure $K$, shared propositions are stored once and
@@ -88,7 +86,7 @@ anomalies and wasted storage; normal forms extract shared dependencies
 into referenced tables. The same pressure operates here: bounded
 context is the capacity constraint, and $K$ is the normal form.
 
-The paper proves a single theorem---the Normalization Theorem---and
+The paper proves a single theorem, the Normalization Theorem, and
 derives corollaries establishing a retention criterion for propositions,
 the inseparability of $K$ and $A$, and the asymptotic compactness of $K$
 toward action-relevant propositions. These results engage prior work on
@@ -153,9 +151,9 @@ separation, we write $K^{[a]}$ for the grounding set within $K$.
 
 Action policies span a spectrum of propositional dependence. When
 $\mathcal{P}^{[a]} = \emptyset$, $a$ depends only on
-$W_{\text{obs}}$---a reflex or stimulus-response mapping that requires
+$W_{\text{obs}}$, a reflex or stimulus-response mapping that requires
 no propositional knowledge. When $|\mathcal{P}^{[a]}| > 0$, $a$ is
-\emph{knowledge-grounded}: its output depends on stored propositions.
+\emph{knowledge grounded}: its output depends on stored propositions.
 \end{definition}
 
 \begin{definition}[Entity]
@@ -353,7 +351,7 @@ $P(w \mid K) \propto P_0(w) \cdot L_K(w)$, where $L_K$ incorporates the
 constraints from all propositions in $K$. Removing proposition $p$
 removes a constraint: $L_{K \setminus \{p\}}$ is less restrictive than
 $L_K$, so the posterior is weakly broader and $H(W \mid K \setminus
-\{p\}) \geq H(W \mid K)$. This is model-internal monotonicity---it
+\{p\}) \geq H(W \mid K)$. This is model-internal monotonicity: it
 holds because the entity treats its own propositions as valid
 constraints.
 
@@ -364,7 +362,7 @@ noise, or the world may have shifted since the evidence was collected.
 In such cases, the entity's model entropy decreases (it becomes more
 confident) while its true uncertainty about $W$ may increase. The
 retention criterion (Corollary~\ref{cor:retention}) operates on model
-entropy because that is all the entity has access to---it cannot step
+entropy because that is all the entity has access to; it cannot step
 outside its own model to evaluate its propositions against ground truth.
 Whether model entropy tracks true entropy over time is a question about
 learning quality, not about retention logic: an entity whose learning
@@ -431,8 +429,8 @@ wrongly retaining ($c_{\text{retain}}$, bounded). Therefore:
 P\!\bigl(\exists\,\tau^* : B(p, \tau^*) > 0\bigr) > 0
 \]
 Retention dominates whenever there is any positive probability of future
-benefit. Pruning is correct only when $P(\exists\,\tau^*) = 0$---certain
-zero benefit---which is unverifiable for most propositions. In the
+benefit. Pruning is correct only when $P(\exists\,\tau^*) = 0$, certain
+zero benefit, which is unverifiable for most propositions. In the
 curation regime ($|K| = K_{\max}$), every addition requires displacement
 by marginal value comparison.
 
@@ -585,7 +583,7 @@ enters as explicit propositions and compiles into action ($K \to A$).
 Some enters as pure action and generates propositions only on reflection
 ($A \to K$). Some never becomes propositional at all: the expert's
 ``feel'' for a material, the athlete's timing. These are $A$ without
-$K$---action knowledge that was never derived from and may never produce
+$K$: action knowledge that was never derived from and may never produce
 explicit propositions.
 
 This strengthens the normalization result. The theorem proves the weak
@@ -794,7 +792,7 @@ accepting information loss or reconstruction cost.
 The \emph{strong} inseparability (Remark~\ref{rem:continuum}): $K$
 and $A$ are not natural kinds but regions on the encoding hierarchy
 $E(c,r)$, with information flowing in both directions. The boundary
-is not merely blurry---it is incoherent as a classification criterion.
+is not merely blurry; it is incoherent as a classification criterion.
 
 The knowledge graph precipitates from the action space as the
 normalization of shared propositions. It is not a store of declarative

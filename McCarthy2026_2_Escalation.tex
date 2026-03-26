@@ -22,8 +22,8 @@
 \maketitle
 
 \begin{abstract}
-Top-down allocation---where a supervisory process directs subproblems
-to lower levels---is viable when the concurrent delegation count $k$
+Top-down allocation, where a supervisory process directs subproblems
+to lower levels, is viable when the concurrent delegation count $k$
 fits within bounded active context $C_n$. We prove that as the action repertoire $|A|$ grows under bounded
 $C_n$, concurrent supervisory demands $k$ grow because total domain
 knowledge $|K|$ grows with $|A|$, exposing more dependency chains to
@@ -35,7 +35,7 @@ choice but a scaling consequence:
 maintaining top-down tracking incurs $O(k \cdot \alpha)$ context
 overhead, which fills $C_n$ as capability grows, degrading inference
 quality for novel problems. The crossover occurs when $k \cdot \alpha
-\geq C_n / 2$---for biological working memory, at 2--3 concurrent
+\geq C_n / 2$; for biological working memory, at 2--3 concurrent
 delegations. Beyond the crossover, the only recovery is to stop
 tracking routine actions, which is to adopt escalation for those
 actions. Hierarchical decomposition delays the crossover (each level
@@ -67,10 +67,10 @@ Every system that acts under uncertainty must solve a control problem:
 which problems receive active reasoning, and which are handled by
 automatic, pre-encoded responses? This question is distinct from the
 content of reasoning; it concerns the \emph{architecture of
-attention}. Under bounded active context $C_n$---a hard limit on the
-number of propositions simultaneously available for inference, the
+attention}. Under bounded active context $C_n$, a hard limit on the
+number of propositions simultaneously available for inference and the
 formal analogue of Simon's bounded rationality
-\cite{Simon1955,Simon1962}---the control architecture is not a free
+\cite{Simon1955,Simon1962}, the control architecture is not a free
 parameter but a survival-critical design choice.
 
 Two complementary mechanisms address this problem:
@@ -109,9 +109,9 @@ a scaling consequence: maintaining top-down tracking incurs context
 overhead that grows with capability, eventually filling $C_n$ and
 degrading the very inference the supervisor is meant to optimize.
 As in \cite{McCarthy2026a}, ``necessary'' here means necessary for
-persistence under competition---selective necessity, not logical
+persistence under competition: selective necessity, not logical
 impossibility of alternatives. The
-only recovery is to stop tracking routine actions---which is to adopt
+only recovery is to stop tracking routine actions, which is to adopt
 escalation for those actions.
 
 The proof proceeds as follows. Section~2 introduces the encoding
@@ -245,8 +245,8 @@ escalation policy is strictly dominant on both cost and context
 conservation. This is immediate from the monotone cost structure and
 requires no proof.
 
-The substantive question is not whether escalation is cost-minimizing
----it is, by construction---but whether bounded systems \emph{converge
+The substantive question is not whether escalation is cost-minimizing,
+it is by construction, but whether bounded systems \emph{converge
 toward} escalation as they scale. That is the content of
 Theorem~\ref{thm:topdown}.
 
@@ -318,7 +318,7 @@ under bounded $C_n$:
 \begin{enumerate}
 \item[(i)] $\rho \to 0$: inference quality degrades monotonically.
 \item[(ii)] Recovery requires either growing $C_n$ (impossible under
-   boundedness) or reducing $k$---that is, shedding supervisory
+   boundedness) or reducing $k$; that is, shedding supervisory
    tracking of actions that lower levels can handle autonomously.
 \item[(iii)] The shed actions are, by definition, operating under
    escalation: handled at the lowest sufficient level, with upward
@@ -368,7 +368,7 @@ The critical threshold occurs when $k(t) \cdot \alpha \geq C_n -
 context capacity not occupied by the current problem's knowledge. To
 maintain $\rho$ at a fixed level, $C_n$ must grow at least linearly
 with $k(t)$. But $C_n$ is bounded by substrate. The only alternative
-is to reduce $k$---to stop tracking actions that lower levels can
+is to reduce $k$: stop tracking actions that lower levels can
 handle without supervision.
 
 \textbf{Part (iii): shedding tracking is escalation.} A supervisor
@@ -383,7 +383,7 @@ The convergence follows: as $|A|$ grows, a viable system must shed
 top-down tracking of an increasing fraction of its repertoire. The
 shed fraction operates under escalation. The supervisor retains
 top-down control only for the residual that no lower level can
-handle---genuinely novel problems. The system has not abandoned
+handle: genuinely novel problems. The system has not abandoned
 top-down allocation; it has converged to a hybrid where escalation
 handles the routine and top-down handles the novel. This hybrid is
 the only architecture that remains viable under bounded $C_n$ as
@@ -408,8 +408,8 @@ k^* = \frac{C_n}{2\alpha}
 Below $k^*$, the supervisor retains at least $C_n/2$ slots for
 reasoning about novel problems. Above $k^*$, delegation overhead
 consumes the majority of $C_n$. The specific fraction $C_n/2$ is a
-convention, not a derived quantity; the qualitative result---a finite
-crossover exists---holds for any positive fraction. The quantitative
+convention, not a derived quantity; the qualitative result, that a finite
+crossover exists, holds for any positive fraction. The quantitative
 estimate ($k^* = 2$--$3$ for humans) is sensitive to this choice.
 
 \textbf{Estimating the crossover.} The minimum delegation cost $\alpha$
@@ -467,7 +467,7 @@ unresolved items per unit time.
 Under pure top-down, all concurrent unresolved items would require
 supervisory tracking, producing $k \gg k^*$. The only way to keep
 $k \leq k^*$ is to ensure that most concurrent demands are handled
-autonomously at lower levels---that is, under escalation. The larger
+autonomously at lower levels; that is, under escalation. The larger
 $|A|$ grows, the larger the fraction that must operate under
 escalation to keep $k$ bounded. This is the convergence of
 Theorem~\ref{thm:topdown}(iii): escalation is not adopted as a
@@ -478,9 +478,9 @@ is not wrong; it is viable at small scale, when concurrent demands fit
 within $C_n$. But intelligence requires $|A| \gg C_n$: an entity that
 can only act on what it can simultaneously hold in mind is not
 intelligent but reactive. Every physical system that we recognize as
-intelligent---from insects routing foraging with stigmergic signals to
+intelligent, from insects routing foraging with stigmergic signals to
 humans operating with ${\sim}7$ active context slots across thousands of
-learned skills---appears to have converged, consistent with the
+learned skills, appears to have converged, consistent with the
 cost-minimization pressure of the escalation policy
 (Definition~\ref{def:escalation}):
 the vast majority of its repertoire operates under escalation, with
@@ -491,8 +491,8 @@ An objection: the supervisor need not hold all $k$ delegations
 simultaneously. It could round-robin, checking one subordinate at a
 time, clearing context between checks. This eliminates the simultaneous
 $k \cdot \alpha$ load. But consider what the supervisor must maintain
-across checks: a \emph{delegation list}---which subordinates were
-assigned which tasks---so it knows whom to check next. This list is the
+across checks: a \emph{delegation list}, which subordinates were
+assigned which tasks, so it knows whom to check next. This list is the
 delegation context; storing it costs $k \cdot \alpha$ whether held in
 active context or reloaded from long-term storage (with context-switch
 cost $\gamma$ per reload). As $k$ grows, the total cycle time $k \cdot
@@ -503,7 +503,7 @@ The only way to eliminate the delegation list entirely is to stop
 tracking what was delegated: the supervisor holds zero delegation state
 and processes signals \emph{as they arrive from below}. But a
 supervisor with no delegation list that processes upward signals on
-arrival is not time-multiplexing top-down control---it is escalation
+arrival is not time-multiplexing top-down control; it is escalation
 (Section~\ref{sec:comparison}). Time-multiplexing does not
 avoid the convergence; it is a way station on the path toward it.
 
@@ -714,7 +714,7 @@ toward escalation-like structure:
 \begin{itemize}
 \item \textbf{Sparse attention} (learned sparsity patterns, local
    windows, routing) reduces $O(n^2)$ by learning which edges to
-   keep---learned graph pruning \cite{McCarthy2026a}.
+   keep: learned graph pruning \cite{McCarthy2026a}.
 \item \textbf{Mixture-of-experts} routes tokens to specialized
    sub-networks rather than evaluating all parameters for all tokens:
    escalation at the parameter level.
@@ -888,7 +888,7 @@ The Free Energy Principle \cite{Friston2010,Friston2017} posits that
 biological systems minimize variational free energy, with attention
 implemented as precision weighting: higher cortical levels set the gain
 on prediction errors at lower levels. Precision weighting is not
-top-down delegation in the sense of Definition~\ref{def:delegation}---it
+top-down delegation in the sense of Definition~\ref{def:delegation}; it
 does not track individual subproblems with return-integration context.
 It is a gain modulation mechanism: a higher level sets a parameter on a
 lower-level channel. The cost per channel is lighter than full
@@ -899,7 +899,7 @@ a nonzero cost per channel. Each precision parameter the higher level
 maintains is a representation it must hold, update, and evaluate against
 incoming prediction errors. At small scale, when the number of
 channels $k$ is modest, this cost fits comfortably within $C_n$ and
-precision weighting is viable---potentially optimal. As the system
+precision weighting is viable, potentially optimal. As the system
 scales and $k$ grows, maintaining precision parameters for all channels
 consumes an increasing fraction of $C_n$. The system must shed active
 precision tracking for routine channels: channels whose prediction
@@ -996,8 +996,8 @@ foundational distinction between automatic processing (fast, parallel,
 low-effort, not limited by capacity) and controlled processing (slow,
 serial, effortful, capacity-limited). Automatic processing corresponds
 to actions encoded at lower levels of $E(c,r)$; controlled processing
-corresponds to $L_n$. Their key empirical finding---that practice
-converts controlled processing into automatic processing---is exactly
+corresponds to $L_n$. Their key empirical finding, that practice
+converts controlled processing into automatic processing, is exactly
 the promotion mechanism of the encoding hierarchy: repeated successful
 execution at $L_n$ promotes an action to lower encoding levels, freeing
 $C_n$ for novel problems.
@@ -1008,9 +1008,9 @@ into active context for deliberate use) compiles into procedural
 knowledge (condition-action rules that fire without loading $K$). In
 the present framework, proceduralization is movement along $E(c,r)$
 from high-cost, high-reversibility regions toward low-cost,
-low-reversibility regions. ACT-R's activation-based retrieval---where
+low-reversibility regions. ACT-R's activation-based retrieval, where
 propositions compete for limited working memory based on
-recency, frequency, and contextual relevance---is a specific
+recency, frequency, and contextual relevance, is a specific
 implementation of contextual retrieval under bounded $C_n$.
 
 Both frameworks describe the empirical trajectory that escalation
@@ -1029,8 +1029,8 @@ convergence result.
 \textbf{Ashby's Law of Requisite Variety} \cite{Ashby1956} establishes
 that a controller must have at least as many distinct responses as the
 disturbances it faces. Under bounded $C_n$, the regulator at $L_n$ has
-variety bounded by $C_n$. When the system's variety---the number of
-distinct situations requiring distinct responses---exceeds $C_n$, no
+variety bounded by $C_n$. When the system's variety, the number of
+distinct situations requiring distinct responses, exceeds $C_n$, no
 single regulator at $L_n$ can achieve requisite variety. The only
 solution is to distribute the regulatory function across encoding
 levels, each regulating its local domain, with $L_n$ regulating only
@@ -1043,7 +1043,7 @@ levels where local variety is manageable.
 \textbf{The Conant-Ashby Good Regulator Theorem} \cite{ConantAshby1970}
 proves that every good regulator of a system must contain a model of
 that system. Under top-down allocation, the delegation state
-(Definition~\ref{def:delegation}---specification, expected return,
+(Definition~\ref{def:delegation}: specification, expected return,
 integration context) \emph{is} this model: it is $L_n$'s
 representation of each subprocess it regulates. The good regulator
 theorem establishes that this overhead is not a design inefficiency but
@@ -1095,8 +1095,8 @@ The subsumption architecture also illustrates the one-directionality
 of the convergence. Brooks did not begin with escalation and converge
 toward centralized planning. He began with centralized planning
 (the STRIPS tradition), found it unscalable, and replaced it with
-subsumption. The reverse trajectory---starting from subsumption and
-converging toward centralized planning---has not occurred in the
+subsumption. The reverse trajectory, starting from subsumption and
+converging toward centralized planning, has not occurred in the
 robotics literature, consistent with the irreversibility of escalation
 (Theorem~\ref{thm:topdown}).
 
@@ -1148,7 +1148,7 @@ and the convergence is forced by three steps:
    escalation.
 
 \item The crossover analysis (Section~\ref{sec:crossover}) locates the
-   threshold at $k^* = C_n / 2\alpha$---2--3 concurrent delegations
+   threshold at $k^* = C_n / 2\alpha$; 2--3 concurrent delegations
    for biological working memory. Beyond it, any additional concurrent
    demand must be handled by escalation or inference quality degrades.
 \end{enumerate}
@@ -1163,7 +1163,7 @@ than burdening it.
 
 The falsifiable content of this result is the \emph{cost prediction},
 not the label. The claim is not that every efficient architecture is
-``really escalation''---which would be unfalsifiable by definitional
+``really escalation,'' which would be unfalsifiable by definitional
 absorption. The claim is that top-down tracking costs $O(k \cdot
 \alpha)$ per delegation cycle, and that $k$ grows with $|A|$ under
 positive novelty rate (Section~\ref{sec:crossover}). A system that
@@ -1186,7 +1186,7 @@ the control architecture over that graph converges toward escalation
 as capability grows under bounded context (this paper). Together,
 these results constrain the architecture of any system that
 accumulates knowledge, acts under uncertainty, and operates within
-bounded active context---which is every physical system that persists.
+bounded active context, which is every physical system that persists.
 
 \section*{Acknowledgments}
 

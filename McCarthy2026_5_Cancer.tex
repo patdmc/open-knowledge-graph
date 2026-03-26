@@ -50,8 +50,8 @@ channels and map mutations to them using public pathway databases.
 The variable that predicts prognosis is the number of independent
 organizational functions the tumor has escaped, not the number of
 molecular events. This empirical result implies structural claims
-about multicellular organization---bounded context, escalation
-hierarchies, knowledge-action inseparability---that are stated here
+about multicellular organization, bounded context, escalation
+hierarchies, knowledge-action inseparability, that are stated here
 and proved formally in companion papers.
 \end{abstract}
 
@@ -73,7 +73,7 @@ channel count is a significant predictor of overall survival in
 every dataset ($p < 0.005$). Mutation count alone is either
 non-significant (MetTropism: $p = 0.69$) or weakly significant.
 In the multivariate model including both predictors, channel count
-remains highly significant in all three datasets while mutation
+remains highly significant in all three datasets. Mutation
 count either drops to non-significance (MSK-IMPACT 2017:
 $p = 0.67$) or becomes \emph{protective} (MetTropism:
 HR\,$=$\,0.82; MSK-IMPACT 50K: HR\,$=$\,0.83; both $p < 0.005$).
@@ -132,7 +132,7 @@ pan-cancer) \cite{Zehir2017}, the MSK MetTropism Cohort
 
 \subsection{Method}
 
-For each patient, somatic mutations were mapped to six coupling
+For each patient, we mapped somatic mutations to six coupling
 channels based on the organizational function of the mutated gene:
 (1)~DNA damage response (DDR: \emph{BRCA1}, \emph{BRCA2},
 \emph{ATM}, \emph{CHEK2}, mismatch repair genes),
@@ -148,8 +148,8 @@ channels based on the organizational function of the mutated gene:
 (6)~tissue architecture (\emph{CDH1}, \emph{APC}, \emph{CTNNB1},
 \emph{SMAD4}, \emph{NOTCH1}).
 Non-silent mutations (missense, nonsense, frameshift, splice site)
-in these genes were counted. For each patient, the number of
-\emph{distinct channels} with at least one mutation was recorded.
+in these genes. For each patient, we recorded the number of
+\emph{distinct channels} with at least one mutation.
 The channel mapping and analysis code are provided in the
 supplementary repository.
 
@@ -162,7 +162,7 @@ is a significant predictor of overall survival ($p < 0.005$).
 Mutation count alone is either non-significant (MetTropism:
 $p = 0.69$) or weakly significant. In the multivariate model
 including both predictors, channel count remains highly significant
-in all three datasets while mutation count either drops to
+in all three datasets. Mutation count either drops to
 non-significance (MSK-IMPACT 2017: $p = 0.67$) or becomes
 \emph{protective} (MetTropism: HR $= 0.82$; 50K: HR $= 0.83$;
 both $p < 0.005$). The protective effect of additional mutations,
@@ -341,7 +341,7 @@ a larger relative loss of organizational control.
 \textbf{Full covariate adjustment.} To test whether channel count
 captures anything beyond known prognostic variables, we ran a
 kitchen-sink Cox model controlling for every available clinical
-attribute simultaneously: tumor mutational burden (TMB), MSI score
+attribute simultaneously. Covariates include tumor mutational burden (TMB), MSI score
 and type, cancer type and detailed subtype, age at diagnosis, sex,
 tumor purity, fraction genome altered, primary site, sample type,
 and gene panel version. In the 50K cohort, this produces 275
@@ -523,7 +523,7 @@ types: they are the convergent action space under cell-level bounded
 context.
 
 The Warburg effect illustrates this directly. Cancer cells use
-aerobic glycolysis even when oxygen is present---not because oxygen
+aerobic glycolysis even when oxygen is present. Not because oxygen
 is unavailable, but because after severance the cell lacks
 tissue-level information about oxygen supply reliability and defaults
 to the metabolic strategy that requires no such information
@@ -536,7 +536,7 @@ further, its action space narrows further, and its optimization
 regime converges further toward the cell-level attractor. More
 channels severed means more complete decoupling from the organism.
 Mutation count, by contrast, measures depth within channels already
-severed---which is why it becomes protective conditional on channel
+severed, which is why it becomes protective conditional on channel
 count: deeper commitment to fewer escape routes produces a more
 constrained, predictable tumor.
 
@@ -549,10 +549,10 @@ immune) operates at higher levels and cannot be meaningfully
 exploited until cell-level escape is already achieved. The hierarchy
 is the escalation chain read in reverse.
 
-Chain severance can occur through multiple mechanisms---genetic
+Chain severance can occur through multiple mechanisms: genetic
 (receptor damage), microenvironmental (signal loss), epigenetic
-(promoter silencing), or spatial (basement membrane breach)---all
-producing the same outcome
+(promoter silencing), or spatial (basement membrane breach). All
+produce the same outcome
 (Table~\ref{tab:severance-mechanisms}).
 This explains why cancers arising from different mechanisms
 (hereditary, environmental, sporadic) converge on the same
@@ -596,8 +596,8 @@ derivations appear in companion papers
 \cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d}.
 
 The immediate question the empirical result raises is whether
-finer-grained distinctions within channels---specifically, the
-position of a mutation in the signaling graph (hub vs.\ leaf)---carry
+finer-grained distinctions within channels, specifically the
+position of a mutation in the signaling graph (hub vs.\ leaf), carry
 additional prognostic information beyond channel count alone. If so,
 the coupling-channel framework generates predictions about cancer
 subtype, metastatic tropism, and combination therapy design that are

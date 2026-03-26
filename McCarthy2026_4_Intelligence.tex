@@ -27,8 +27,8 @@ We establish four linked results for any entity with structure
 $(K, A, \sigma, \gamma)$ persisting under bounded active context,
 survival pressure, and positive novelty rate $\nu(E) > 0$.
 First, agency ($\gamma > 0$) necessarily produces evaluation-driven
-state revision---monotone local descent on expected uncertainty
-$H(W \mid K)$---where each informative update reduces $H(W \mid K)$
+state revision: monotone local descent on expected uncertainty
+$H(W \mid K)$, where each informative update reduces $H(W \mid K)$
 by at most the information gain $G(a, K)$, with equality under exact
 Bayesian conditioning. Under non-stationary task distribution,
 descent is local and instantaneous rather than globally convergent.
@@ -57,8 +57,8 @@ the unique measure of intelligence, derived not stipulated.
 
 A cancer cell that has severed its coupling channels operates under
 cell-level bounded context alone. Across 73,593 patients, these cells
-converge on the same phenotypic endpoints---uncontrolled proliferation,
-immune evasion, metabolic reprogramming---regardless of tissue of origin
+converge on the same phenotypic endpoints, uncontrolled proliferation,
+immune evasion, metabolic reprogramming, regardless of tissue of origin
 or mutational path \cite{McCarthy2026e}. Convergence under constraint is
 evaluation-driven descent: the cell optimizes against a reduced
 objective because its context no longer includes the organism.
@@ -67,7 +67,7 @@ measure it implies, are necessary consequences of bounded context.
 
 Paper~1 \cite{McCarthy2026a} established that any entity accumulating
 propositions under bounded context necessarily maintains a directed
-graph with typed edges---where ``necessary'' means selected for under
+graph with typed edges, where ``necessary'' means selected for under
 competition, not logically impossible to avoid (see \cite{McCarthy2026a},
 Remark~1). Paper~2 \cite{McCarthy2026b} established that
 bounded context under growing action count requires convergence toward
@@ -83,7 +83,7 @@ what properties must every persisting entity have?
 
 We answer all three. Theorem~\ref{thm:descent} establishes that
 agency ($\gamma > 0$) with feedback produces evaluation-driven state
-revision---monotone local descent on expected uncertainty
+revision: monotone local descent on expected uncertainty
 $H(W \mid K)$. Definition~\ref{def:encoding} establishes that the
 certainty threshold for encoding at level $L_i$ is
 $\theta_i = 1 - \varepsilon / C_i$, deriving the learning rate
@@ -242,7 +242,7 @@ where $\mathrm{ctx}_{\mathrm{unresolved}}(t)$ is the set of
 propositions in active context that have not yet been encoded at a lower
 level or resolved by $M$. Free context is the entity's reserve capacity
 for handling novel states. The architecture derived in
-Papers~1--3---graph structure, escalation, retention criterion---exists
+Papers~1--3, graph structure, escalation, and retention criterion, exists
 to maximize $C_{\mathrm{free}}$: each result describes a mechanism that
 moves resolved content out of $L_n$, preserving capacity for what the
 entity has not yet encountered.
@@ -265,7 +265,7 @@ action--knowledge pairs.
 
 $M$ contains whatever adaptive capacity has not yet been committed to
 specific knowledge or action. As the entity learns, components of $M$
-resolve into concrete elements of $K$ or $A$---the same normalization
+resolve into concrete elements of $K$ or $A$. This is the same normalization
 by which shared propositions precipitate from action into knowledge
 \cite{McCarthy2026c}. What remains in $M$ is the entity's capacity
 to produce further such resolutions.
@@ -296,7 +296,7 @@ content-blind or directed.
 Both numerator and denominator are measured in bits; $\eta_M$ is
 dimensionless. The three regimes:
 \begin{itemize}
-\item $\eta_M > 0$: the entity learns---grounding improves per unit
+\item $\eta_M > 0$: the entity learns; grounding improves per unit
       of learning signal, conditional on engagement.
 \item $\eta_M = 0$: engagement produces no improvement.
 \item $\eta_M < 0$ temporarily: exploration, creative destruction,
@@ -347,7 +347,7 @@ world $W$ under bounded active context $C_n$.
 
 \textbf{Part I.} Every executed action generates a prediction-error
 signal, and $\gamma > 0$ guarantees engagement with that signal,
-producing evaluation-driven state revision---monotone local descent on
+producing evaluation-driven state revision: monotone local descent on
 expected uncertainty $H(W \mid K)$ within the entity's model. Under
 competition (Remark~1 of \cite{McCarthy2026a}), entities that fail to
 descend are eliminated: descent is selectively necessary, not merely
@@ -516,8 +516,7 @@ error cost is $(1 - \theta) \cdot C_i$. Encoding is safe when:
 \]
 The minimum safe threshold is $\theta_i = 1 - \varepsilon / C_i$.
 This is arithmetic, not a deep result. The substantive content is the
-\emph{identification}: that the certainty threshold is determined by
-cost-of-failure, not by a free parameter. Given that identification,
+\emph{identification}: that cost-of-failure determines the certainty threshold, not a free parameter. Given that identification,
 the formula follows in one line.
 
 \textbf{Consequence.} At $L_0$ (genomic), $C_0$ is the cost of lineage
@@ -751,8 +750,8 @@ The entity has $\nu(E) > 0$: it encounters states where $U(w, K) > 0$
 at positive rate. Under positive entropy, the world drifts: states that
 $K(0)$ was calibrated for become less frequent, and states not covered
 by $K(0)$ become more frequent. The entity must still act to survive.
-Each encounter with a novel state---one where no lower encoding level
-has an adequate response---requires real-time processing at $L_n$,
+Each encounter with a novel state, one where no lower encoding level
+has an adequate response, requires real-time processing at $L_n$,
 consuming active context capacity.
 
 An entity with $\gamma > 0$ resolves these encounters: it updates $K$,
@@ -916,8 +915,8 @@ capacity is exercised.
 
 \begin{remark}[Exploration and Creative Destruction]
 \label{rem:exploration}
-Temporarily negative $\eta_M$---locally irrational steps that reduce
-grounding in the short run---is survival-optimal when the persistence
+Temporarily negative $\eta_M$, locally irrational steps that reduce
+grounding in the short run, is survival-optimal when the persistence
 condition requires only $\mathbb{E}_t[\eta_M] > 0$ over the trajectory.
 An entity restricted to $\eta_M \geq 0$ at every step is trapped in
 local optima; an entity that can tolerate temporary $\eta_M < 0$
@@ -1187,7 +1186,7 @@ retrieval is $O(n^2)$, provenance is absent, and the knowledge is
 neither inspectable nor correctable. The prediction: open knowledge
 graphs with provenance will replicate and eventually surpass the
 factual-knowledge function of parametric models, at a fraction of
-the compute cost, because structured retrieval with attribution is
+the compute cost. Structured retrieval with attribution is
 strictly cheaper than re-deriving answers from weights on every query.
 Falsified if parametric storage achieves cost parity with structured
 retrieval on factual knowledge tasks at arbitrary scale while
@@ -1209,7 +1208,7 @@ widely recognized as artificial general intelligence will exhibit:
 \cite{McCarthy2026a}, (ii)~escalation-based control
 \cite{McCarthy2026b} rather than monolithic inference,
 (iii)~separated $K$ with provenance rather than knowledge fused into
-parameters, and (iv)~$\gamma > 0$---genuine online learning that
+parameters, and (iv)~$\gamma > 0$, genuine online learning that
 updates $(A, K)$ from feedback. These are not design recommendations
 but convergence results: any system that persists under bounded context
 and positive novelty rate will exhibit these properties regardless of
@@ -1225,7 +1224,7 @@ multicellular organisms handle errors at the lowest sufficient level:
 DNA repair ($L_0$), cell-cycle arrest ($L_1$), apoptosis ($L_2$),
 immune surveillance ($L_3$), with conscious medical intervention at
 $L_n$. Cancer is the pathology of broken escalation: mutations disable
-one or more lower-level error handlers, so cellular errors that should
+one or more lower-level error handlers. Cellular errors that should
 be caught and resolved locally instead escalate unchecked to the
 organism level. Current treatment paradigms attack the cancer
 directly at $L_n$ (surgery, chemotherapy, radiation)---the equivalent

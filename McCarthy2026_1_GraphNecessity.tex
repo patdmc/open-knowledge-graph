@@ -43,8 +43,8 @@ We show that continuous-weight mechanisms (e.g., transformer
 self-attention) implement graph structure rather than constitute an
 alternative to it. The result applies to any system that stores
 propositions under bounded context, including artificial neural
-networks, institutional knowledge systems, and---to the extent that
-biological representations admit propositional decomposition---biological
+networks, institutional knowledge systems, and, to the extent that
+biological representations admit propositional decomposition, biological
 neural networks.
 \end{abstract}
 
@@ -150,8 +150,8 @@ agents satisfice rather than optimize. Our bounded context constraint
 structure is not optional but necessary.
 
 Codd's relational model \cite{Codd1970} established that normalizing
-a database---extracting repeated data into separate tables linked by
-foreign keys---eliminates redundancy while preserving information.
+a database, extracting repeated data into separate tables linked by
+foreign keys, eliminates redundancy while preserving information.
 The information-preservation argument (Proposition~\ref{thm:graph-info})
 derives the same structural operation from first principles: factoring
 shared propositions into named nodes with typed edges is normalization.
@@ -182,8 +182,8 @@ $K$ is:
 P(w \mid K) \propto P_0(w) \cdot L_K(w)
 \]
 where $P_0$ is a prior and $L_K$ is the joint likelihood determined by
-$K$. Propositions in $K$ may have arbitrary dependencies---shared
-structure, evidential interactions, causal relationships---so $L_K$ need
+$K$. Propositions in $K$ may have arbitrary dependencies, shared
+structure, evidential interactions, causal relationships, so $L_K$ need
 not factor as a product of individual likelihoods. (When propositions
 are conditionally independent given $w$, $L_K(w) = \prod_{p \in K}
 \ell_p(w)$; this is a special case, not assumed.) The existence of
@@ -233,7 +233,7 @@ The results in this paper show that graph structure is
 \emph{cost-optimal} for information preservation under bounded context.
 A reviewer may ask: is it \emph{necessary}, or merely sufficient? The
 answer depends on the competitive regime. In isolation, an entity could
-use any representation and survive---at higher cost. Under competition
+use any representation and survive, at higher cost. Under competition
 for finite resources, the cost differential becomes a survival
 differential: an entity paying $\Omega(n)$ per dependency query loses
 resources to a competitor paying $O(d)$ for the same query. Under
@@ -296,7 +296,7 @@ these traditions have practiced for decades.
 A \emph{space-creating operation} $f : K \to K'$ reduces active context
 load: $\mathrm{load}(K') < \mathrm{load}(K)$, where load counts the
 propositions simultaneously required in active context. (Node count may
-increase---factoring adds a shared node---but context load decreases
+increase, since factoring adds a shared node, but context load decreases
 because redundant copies are replaced by shared references.) Such an
 operation is \emph{information-preserving} if the posterior over world
 states is unchanged:
@@ -395,9 +395,9 @@ ontology change does not escape the theorem. It is a one-time
 translation that produces a new knowledge base $K'$. The new $K'$
 still describes a structured world, still operates under bounded
 $C_n$, and still accumulates propositions as evidence arrives. As
-$|K'|$ grows, the propositions in $K'$ develop shared structure---the
+$|K'|$ grows, the propositions in $K'$ develop shared structure (the
 species propositions share habitat, physiology, evolutionary
-lineage---and the same curation pressure applies. Ontology change is
+lineage), and the same curation pressure applies. Ontology change is
 analogous to random reseeding in optimization: it selects a different
 starting point but does not change the landscape. The landscape is
 bounded context over shared-structure propositions, and every
@@ -462,7 +462,7 @@ result, because Theorem~\ref{thm:graph-dynamics} provides an
 independent argument that does not rely on exhaustiveness.
 
 The falsifiable content of the theorem is not ``the representation is a
-graph''---which risks being unfalsifiable if \emph{graph} is defined
+graph,'' which risks being unfalsifiable if \emph{graph} is defined
 broadly enough to include any structure that works. The falsifiable
 content is the \emph{cost prediction}: Theorem~\ref{thm:graph-dynamics}
 establishes that answering ``what depends on $p$?''\ costs $\Omega(n)$
@@ -743,15 +743,15 @@ be treated as potentially dependent, expanding cascade to the full
 neighborhood $|\mathrm{adj}(p)|$ rather than the true dependency set
 $|D_p|$.
 
-Under bounded $C_n$, this expansion is not merely wasteful---it
+Under bounded $C_n$, this expansion is not merely wasteful; it
 consumes the same scarce resource (active context slots) that the
 entity needs for inference. Each unnecessary re-evaluation during
 cascade loads propositions into context that displace
 problem-relevant content, degrading $\rho$ for concurrent inference.
 As $|K|$ grows and $|\mathrm{adj}(p)|$ diverges from $|D_p|$, untyped
 cascade consumes an increasing fraction of $C_n$ on irrelevant
-re-evaluation. Typed edges---carrying the relation type (``grounds,''
-``evidences,'' ``causes,'' ``supports'')---restrict cascade to
+re-evaluation. Typed edges, carrying the relation type (``grounds,''
+``evidences,'' ``causes,'' ``supports''), restrict cascade to
 dependency-bearing edges, keeping cost proportional to $|D_p|$.
 
 The distinction matters: directed adjacency is \emph{necessary} (no
@@ -773,8 +773,8 @@ The field converged to typed relations: RDF introduced typed
 predicates \cite{BernersLee2001}, OWL distinguished object properties,
 data properties, and annotation properties with transitive, symmetric,
 and inverse role characteristics \cite{BaaderCalvaneseEtAl2003}.
-This trajectory---starting untyped, encountering scaling failure,
-converging to typed---is the progression Parts~1--5 predict.
+This trajectory, starting untyped, encountering scaling failure,
+converging to typed, is the progression Parts~1--5 predict.
 
 A directed graph with typed edges over propositions is a semantic graph.
 \end{proof}
@@ -876,7 +876,7 @@ Growing $C_n$ directly does not solve the retrieval problem. For any
 specific problem $f$, the relevance density $\rho(f) = |K^{[f]}| /
 |\mathrm{ctx}(t)|$ (Definition~\ref{def:context}) decreases as context
 fills with content not relevant to $f$, an effect documented
-empirically as ``lost in the middle'' \cite{Liu2024}. The efficient
+as ``lost in the middle'' \cite{Liu2024}. The efficient
 path is not to grow the context window but to grow the encoded knowledge
 accessible via stored adjacency: filling the graph, not the context
 window.
@@ -1037,10 +1037,10 @@ currently active propositions. Factoring
 (Proposition~\ref{thm:graph-info}) increases $C_{\mathrm{free}}$ by
 compressing shared structure into fewer propositions; stored adjacency
 (Theorem~\ref{thm:graph-dynamics}) increases $C_{\mathrm{free}}$ by
-enabling targeted retrieval---loading only the $d$ relevant propositions
-rather than scanning all $n$---so that fewer context slots are consumed
+enabling targeted retrieval, loading only the $d$ relevant propositions
+rather than scanning all $n$, so that fewer context slots are consumed
 by irrelevant material during inference. Every result in this paper is, at root,
-a mechanism for maximizing $C_{\mathrm{free}}$---the context capacity
+a mechanism for maximizing $C_{\mathrm{free}}$: the context capacity
 available for novel problems after existing-knowledge maintenance.
 
 \textbf{Implications for scaling.}
