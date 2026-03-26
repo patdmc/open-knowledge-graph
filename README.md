@@ -12,17 +12,17 @@ A paper series deriving the architecture of intelligence from a single generativ
 
 | Paper | Title | Source | Pages |
 |---|---|---|---|
-| 1 | Graph Structure Is Necessary for Information Preservation Under Bounded Context | [McCarthy2026_1_GraphNecessity.tex](McCarthy2026_1_GraphNecessity.tex) | 18 |
-| 2 | Convergence of Control Architectures to Escalation Under Bounded Context | [McCarthy2026_2_Escalation.tex](McCarthy2026_2_Escalation.tex) | 18 |
-| 3 | Knowledge as Normalization: Bounded Context Separates Shared Propositions from Action | [McCarthy2026_3_Normalization.tex](McCarthy2026_3_Normalization.tex) | 12 |
-| 4 | Evaluation-Driven Descent, Encoding Permanence, and the Structural Invariants of Intelligence | [McCarthy2026_4_Intelligence.tex](McCarthy2026_4_Intelligence.tex) | 18 |
+| 1 | Graph Structure Is Necessary for Information Preservation Under Bounded Context | [PDF](McCarthy2026_1_GraphNecessity.pdf) | 18 |
+| 2 | Convergence of Control Architectures to Escalation Under Bounded Context | [PDF](McCarthy2026_2_Escalation.pdf) | 18 |
+| 3 | Knowledge as Normalization: Bounded Context Separates Shared Propositions from Action | [PDF](McCarthy2026_3_Normalization.pdf) | 12 |
+| 4 | Evaluation-Driven Descent, Encoding Permanence, and the Structural Invariants of Intelligence | [PDF](McCarthy2026_4_Intelligence.pdf) | 18 |
 
 ### Application papers
 
 | Paper | Title | Source | Pages | Status |
 |---|---|---|---|---|
-| 5 | Cancer as Escalation Chain Severance Under Bounded Context | [McCarthy2026_5_Cancer.tex](McCarthy2026_5_Cancer.tex) | 25 | Draft — empirical grounding |
-| 8 | Context Window Diseases and Cancer Risk: Neural Computation Cost as a Unifying Mechanism | [McCarthy2026_8_ContextDiseases.tex](McCarthy2026_8_ContextDiseases.tex) | 19 | Draft |
+| 5 | Cancer as Escalation Chain Severance Under Bounded Context | [PDF](McCarthy2026_5_Cancer.pdf) | 25 | Draft — empirical grounding |
+| 8 | Context Window Diseases and Cancer Risk: Neural Computation Cost as a Unifying Mechanism | [PDF](McCarthy2026_8_ContextDiseases.pdf) | 19 | Draft |
 
 Paper 5 applies the framework to cancer biology — mutations as escalation chain breaks, coupling channels as the control hierarchy cancer must sever. Paper 8 extends to psychiatric disorders as context window failures, deriving an inverted-U relationship between context dysfunction severity and cancer risk across 16 conditions, with a three-tier clinical protocol and 12 falsifiable predictions.
 
@@ -30,7 +30,7 @@ Paper 5 applies the framework to cancer biology — mutations as escalation chai
 
 | Paper | Title | Source | Status |
 |---|---|---|---|
-| 6 | Substrate Transition | [McCarthy2026_6_SubstrateTransition.tex](McCarthy2026_6_SubstrateTransition.tex) | Draft — empirical grounding from agentic software systems |
+| 6 | Substrate Transition | [PDF](McCarthy2026_6_SubstrateTransition.pdf) | Draft — empirical grounding from agentic software systems |
 
 ---
 
