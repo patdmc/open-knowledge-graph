@@ -1,0 +1,1041 @@
+id: D11-universal-graph-schema
+type: definition
+name: "Universal Knowledge Graph Schema — Requirements for Every Node and Edge"
+statement: |
+  Every knowledge graph in the system — language, cancer, math, physics, or any future
+  domain — must conform to this schema. A node or edge that does not meet these
+  requirements is not in the graph. No exceptions.
+
+  The schema is the constitution. Domain-specific graphs extend it but cannot violate it.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Open Knowledge Graph Architecture"
+    date: "2026-03-27"
+  evidence:
+    type: definitional
+    description: |
+      Derived from: cancer graph operational experience (EV03), graph durability principle,
+      holdback discipline, and the knowledge-backed LLM architecture design.
+    references:
+      - EV03-cancer-graph-schema
+      - D02-knowledge-graph
+      - NV01-graph-necessity
+
+# ==========================================================================
+# UNIVERSAL NODE REQUIREMENTS
+# Every node in every graph MUST have these properties.
+# ==========================================================================
+
+universal_node_schema:
+
+  required_properties:
+
+    id:
+      type: string
+      format: "{graph}:{type}:{identifier}"
+      description: |
+        Globally unique identifier. Namespaced by graph and type.
+        Examples: "cancer:gene:TP53", "lang:lexeme:run.v.01", "math:theorem:pythagorean"
+      validation: "Must be unique across all graphs in the system."
+
+    graph:
+      type: string
+      description: |
+        Which knowledge graph this node belongs to. A node belongs to exactly one graph.
+        Cross-graph connections are edges, not shared nodes.
+      examples: ["language", "cancer", "mathematics", "physics", "chemistry"]
+
+    type:
+      type: string
+      description: |
+        The node type within its graph. Must be one of the types defined in that
+        graph's domain schema.
+      examples: ["gene", "lexeme", "theorem", "particle"]
+
+    name:
+      type: string
+      description: "Human-readable name. Not necessarily unique."
+
+    created_at:
+      type: datetime
+      description: "When this node was first added to the graph."
+      auto: true
+
+    created_by:
+      type: string
+      description: |
+        What process or source created this node. Either a script name
+        (e.g., "wordnet_ingest.py") or "manual" for hand-curated entries.
+
+    source:
+      type: string
+      description: |
+        Primary data source. Every node must be traceable to an origin.
+        Examples: "WordNet 3.1", "MSK-IMPACT", "arXiv:2106.01234", "PubMed:35012345"
+
+    source_detail:
+      type: string
+      description: "Additional provenance detail — version, query, page number, etc."
+
+    confidence:
+      type: float
+      range: [0.0, 1.0]
+      description: |
+        How confident are we that this node should exist? 1.0 = definitional/axiomatic.
+        0.5 = empirically supported but debatable. <0.3 = speculative.
+      default: 1.0
+
+  optional_properties:
+
+    updated_at:
+      type: datetime
+      description: "Last modification timestamp."
+
+    n_sources:
+      type: integer
+      description: "Number of independent sources confirming this node's existence."
+      default: 1
+
+    deprecated:
+      type: boolean
+      description: |
+        Soft delete. Deprecated nodes are never removed (append-only graph).
+        They are excluded from active queries but preserved for provenance.
+      default: false
+
+    deprecation_reason:
+      type: string
+      description: "Why this node was deprecated."
+
+    notes:
+      type: string
+      description: "Free-text annotation. Not used in computation."
+
+
+# ==========================================================================
+# UNIVERSAL EDGE REQUIREMENTS
+# Every edge in every graph MUST have these properties.
+# ==========================================================================
+
+universal_edge_schema:
+
+  required_properties:
+
+    source_node:
+      type: node_id
+      description: "The origin node. For directed edges, this is the 'from' node."
+
+    target_node:
+      type: node_id
+      description: "The destination node. For directed edges, this is the 'to' node."
+
+    edge_type:
+      type: string
+      description: |
+        Must be one of the edge types defined in the relevant graph's domain schema,
+        or a universal cross-graph edge type (DENOTES, DESCRIBES, INSTANTIATES).
+
+    directed:
+      type: boolean
+      description: |
+        Is this edge directional? If true, source_node → target_node has different
+        semantics than target_node → source_node. Most edges are directed.
+
+    created_at:
+      type: datetime
+      auto: true
+
+    created_by:
+      type: string
+      description: "Process or source that created this edge."
+
+    source:
+      type: string
+      description: |
+        Primary evidence source. Every edge must be traceable.
+        For edges derived from papers: the paper DOI or PubMed ID.
+        For edges derived from data: the dataset name and version.
+        For edges derived from computation: the script name and parameters.
+
+    source_detail:
+      type: string
+      description: "Additional provenance — method, p-value, sample size, etc."
+
+    confidence:
+      type: float
+      range: [0.0, 1.0]
+      description: |
+        How confident are we in this edge? Derived from evidence strength.
+        1.0 = definitional (SYNONYM in WordNet). 0.9 = experimental (PPI from STRING).
+        0.5 = computational prediction. <0.3 = speculative/inferred.
+
+    evidence_type:
+      type: string
+      enum: [definitional, experimental, computational, observational, inferred, asserted]
+      description: |
+        What kind of evidence supports this edge?
+        - definitional: true by definition (lexical relationships from dictionaries)
+        - experimental: measured in a controlled experiment (CRISPR screens, PPI assays)
+        - computational: predicted by an algorithm (co-expression correlation)
+        - observational: observed in data but not experimentally controlled (co-occurrence)
+        - inferred: derived by reasoning over other edges (transitive closure)
+        - asserted: stated in a paper without explicit evidence (literature claims)
+
+  optional_properties:
+
+    sign:
+      type: float
+      range: [-1.0, 1.0]
+      description: |
+        Per-edge sign. NOT per-type. The same edge type can have positive or negative
+        instances. +1 = reinforcing/co-occurring. -1 = opposing/exclusive. 0 = unknown.
+        Must come from data, not assumption.
+
+    weight:
+      type: float
+      description: |
+        Edge strength/magnitude. Interpretation depends on edge type.
+        Always unsigned — direction is in 'sign', magnitude is in 'weight'.
+
+    n_sources:
+      type: integer
+      description: "Number of independent sources confirming this edge."
+      default: 1
+
+    deprecated:
+      type: boolean
+      default: false
+
+    holdback:
+      type: boolean
+      description: |
+        Is this edge held back from training? Holdback edges are used for validation
+        only — they test whether the graph's structure predicts relationships that
+        were not used to build it.
+      default: false
+
+    paper_id:
+      type: string
+      description: |
+        If this edge was extracted from a paper, the paper's identifier.
+        Links to the Paper node in the provenance layer.
+
+    assertion_id:
+      type: string
+      description: |
+        If this edge represents a specific assertion from a paper, the assertion ID.
+        Links to the Assertion node in the provenance layer.
+
+
+# ==========================================================================
+# PROVENANCE LAYER — Papers, Assertions, Evidence
+# Shared across all graphs. This is how papers feed into domain graphs.
+# ==========================================================================
+
+provenance_layer:
+
+  description: |
+    Every domain graph is built from papers, datasets, and computations.
+    The provenance layer tracks the chain from raw source to graph edge.
+
+    Paper → Assertion → Edge
+
+    A paper contains assertions. An assertion becomes one or more edges
+    in a domain graph. The language graph disambiguates the assertion.
+    The domain graph stores the knowledge.
+
+  node_types:
+
+    Paper:
+      description: "A published paper, preprint, or dataset description."
+      required_properties:
+        id: {type: string, format: "paper:{doi_or_pmid}"}
+        graph: {type: string, value: "provenance"}
+        type: {type: string, value: "paper"}
+        title: {type: string}
+        authors: {type: list_of_strings}
+        year: {type: integer}
+        source: {type: string, description: "DOI, PubMed ID, or arXiv ID"}
+        domain: {type: string, description: "Primary domain graph this paper feeds"}
+      optional_properties:
+        abstract: {type: string}
+        journal: {type: string}
+        url: {type: string}
+        n_assertions: {type: integer, description: "Number of assertions extracted"}
+        processed: {type: boolean, default: false, description: "Has this paper been parsed into assertions?"}
+
+    Assertion:
+      description: |
+        A single claim extracted from a paper. The atomic unit of knowledge transfer
+        from literature to graph. An assertion is a (subject, predicate, object) triple
+        with evidence and confidence.
+
+        Examples:
+          "TP53 R175H is a loss-of-function mutation" → edge: Gene→Hotspot, function=LOF
+          "BRCA1 and RAD51C are synthetic lethal partners" → edge: Gene↔Gene, type=SL_PARTNER
+          "Immunotherapy improves survival in MSI-H colorectal cancer" → edge: Treatment→CancerType
+      required_properties:
+        id: {type: string, format: "assertion:{paper_id}:{sequence}"}
+        graph: {type: string, value: "provenance"}
+        type: {type: string, value: "assertion"}
+        paper_id: {type: string, description: "Which paper this assertion comes from"}
+        subject: {type: string, description: "The subject entity (raw text from paper)"}
+        predicate: {type: string, description: "The relationship claimed (raw text)"}
+        object: {type: string, description: "The object entity (raw text from paper)"}
+        original_text: {type: string, description: "The exact sentence(s) from the paper"}
+        confidence: {type: float, range: [0.0, 1.0]}
+        evidence_type: {type: string, enum: [experimental, computational, observational, inferred, asserted]}
+      optional_properties:
+        resolved_subject: {type: string, description: "Disambiguated node ID after language graph resolution"}
+        resolved_predicate: {type: string, description: "Mapped edge type after language graph resolution"}
+        resolved_object: {type: string, description: "Disambiguated node ID after language graph resolution"}
+        domain_edge_id: {type: string, description: "The edge this assertion created/supported in a domain graph"}
+        contradicts: {type: string, description: "ID of another assertion this one contradicts"}
+        supports: {type: string, description: "ID of another assertion this one supports"}
+        status: {type: string, enum: [unresolved, resolved, committed, rejected], default: "unresolved"}
+
+    Dataset:
+      description: "A structured dataset that feeds edges into a domain graph."
+      required_properties:
+        id: {type: string, format: "dataset:{name}:{version}"}
+        graph: {type: string, value: "provenance"}
+        type: {type: string, value: "dataset"}
+        name: {type: string}
+        version: {type: string}
+        source_url: {type: string}
+        domain: {type: string}
+        n_records: {type: integer}
+      optional_properties:
+        license: {type: string}
+        description: {type: string}
+
+  edge_types:
+
+    CONTAINS_ASSERTION:
+      description: "Paper → Assertion. A paper contains this assertion."
+      directed: true
+      source_type: Paper
+      target_type: Assertion
+
+    SUPPORTS_EDGE:
+      description: "Assertion → domain edge. This assertion is evidence for this edge."
+      directed: true
+      source_type: Assertion
+      target_type: any_edge
+
+    CONTRADICTS_ASSERTION:
+      description: "Assertion → Assertion. These assertions contradict each other."
+      directed: false
+      properties:
+        resolution: {type: string, enum: [unresolved, first_wins, second_wins, both_wrong, context_dependent]}
+
+    DERIVED_FROM:
+      description: "Dataset → domain edge. This edge was computed from this dataset."
+      directed: true
+      source_type: Dataset
+      target_type: any_edge
+
+
+# ==========================================================================
+# CROSS-GRAPH BRIDGE EDGES
+# Connect nodes across different knowledge graphs.
+# ==========================================================================
+
+cross_graph_edges:
+
+  description: |
+    Bridge edges connect nodes in different knowledge graphs. These are where
+    new knowledge precipitates — when an edge spans two graphs, it means a
+    concept in one domain is structurally related to a concept in another.
+
+    The language graph is the universal bridge — every domain node can be
+    reached through language.
+
+  edge_types:
+
+    DENOTES:
+      description: |
+        A language node refers to a domain node. This is how natural language
+        maps to structured knowledge.
+        Lang_Lexeme("TP53") → Gene("TP53")
+        Lang_Lexeme("expression") → {genomics: gene_expression, math: algebraic_expression}
+      directed: true
+      source_type: "language:*"
+      target_type: "any_graph:*"
+      required_properties:
+        domain: {type: string, description: "Which domain graph the target is in"}
+        confidence: {type: float}
+      optional_properties:
+        is_technical_term: {type: boolean}
+        sense_id: {type: string, description: "Which sense of the word this denotes"}
+
+    DESCRIBES:
+      description: |
+        A language frame describes the semantic structure of a domain edge type.
+        Lang_Frame("Causation") → cancer:ENABLES
+        Lang_Frame("Similarity") → cancer:ANALOGOUS
+      directed: true
+      source_type: "language:frame"
+      target_type: "any_graph:edge_type"
+
+    INSTANTIATES:
+      description: |
+        A domain edge is a concrete instance of a language-level relationship.
+        cancer:Gene("KRAS")-[ENABLES]->Gene("BRAF") INSTANTIATES lang:Lexeme("enables")
+      directed: true
+      source_type: "any_graph:edge"
+      target_type: "language:*"
+
+    ANALOGOUS_CROSS:
+      description: |
+        Two nodes in different domain graphs are structurally analogous.
+        This is the edge that precipitates new knowledge.
+        math:concept("exponential_decay") ↔ biology:concept("drug_half_life")
+        physics:concept("phase_transition") ↔ cancer:concept("EMT")
+      directed: false
+      source_type: "any_graph:*"
+      target_type: "any_graph:*"
+      required_properties:
+        analogy_type: {type: string, enum: [structural, functional, mathematical, metaphorical]}
+        confidence: {type: float}
+        evidence: {type: string}
+
+
+# ==========================================================================
+# LANGUAGE GRAPH — Domain Schema
+# ==========================================================================
+
+language_graph:
+
+  description: |
+    Layer 0 — foundational. Encodes the structure of English language itself.
+    Not word embeddings. Not tokens. The actual rules, relationships, and
+    compositional mechanisms that let meaning be constructed and interpreted.
+
+    The language graph is the dictionary + grammar + thesaurus + logic system.
+    Every other graph's nodes and edges are labeled with words — the language
+    graph tells you what those words mean and how they combine.
+
+  node_types:
+
+    Morpheme:
+      neo4j_label: "Lang_Morpheme"
+      description: "Smallest meaningful unit: prefix, root, suffix, inflection."
+      required_properties:
+        # All universal required properties, plus:
+        form: {type: string, description: "The morpheme text", examples: ["un-", "graph", "-tion", "-ed"]}
+        morpheme_type: {type: string, enum: [prefix, root, suffix, infix, circumfix]}
+        language_of_origin: {type: string, default: "English"}
+      optional_properties:
+        productivity: {type: float, range: [0, 1], description: "How freely this morpheme combines with others"}
+        meaning: {type: string, description: "Core meaning contribution"}
+
+    Lexeme:
+      neo4j_label: "Lang_Lexeme"
+      description: |
+        A dictionary entry — one per word-sense pair. "bank" (financial) and
+        "bank" (river) are two separate Lexeme nodes. This is the Gene equivalent.
+      required_properties:
+        lemma: {type: string, description: "Base form", examples: ["run", "bank", "expression"]}
+        pos: {type: string, enum: [noun, verb, adjective, adverb, preposition, conjunction, determiner, pronoun, interjection]}
+        sense_id: {type: string, description: "Unique sense identifier", format: "{lemma}.{pos}.{sense_number}"}
+      optional_properties:
+        definition: {type: string}
+        frequency: {type: float, description: "Log frequency in reference corpus"}
+        register: {type: string, enum: [formal, informal, technical, colloquial, archaic, literary]}
+        polysemy_count: {type: integer, description: "Number of distinct senses for this lemma+pos"}
+        etymology_language: {type: string}
+
+    WordForm:
+      neo4j_label: "Lang_WordForm"
+      description: "An inflected surface form. 'running', 'ran', 'banks'."
+      required_properties:
+        surface_form: {type: string}
+      optional_properties:
+        tense: {type: string}
+        number: {type: string, enum: [singular, plural]}
+        case: {type: string}
+        aspect: {type: string}
+        mood: {type: string}
+
+    Frame:
+      neo4j_label: "Lang_Frame"
+      description: |
+        A semantic frame — a structured situation type that words evoke.
+        "Commerce_buy" has roles: buyer, seller, goods, money.
+        This is the Channel equivalent — the functional group that gives
+        meaning to its constituent lexemes.
+      required_properties:
+        frame_name: {type: string, examples: ["Causation", "Commerce_buy", "Statement"]}
+        definition: {type: string}
+      optional_properties:
+        n_roles: {type: integer}
+        n_lexical_units: {type: integer}
+        roles: {type: list_of_strings, description: "Frame element names"}
+
+    Construction:
+      neo4j_label: "Lang_Construction"
+      description: |
+        A grammatical pattern — passive voice, conditional, causative, etc.
+        From Universal Dependencies and Construction Grammar.
+      required_properties:
+        construction_name: {type: string}
+        pattern: {type: string, description: "Syntactic template", examples: ["NP V NP PP", "if S then S"]}
+      optional_properties:
+        language_universality: {type: float, range: [0, 1], description: "How many languages have this construction"}
+
+    Domain:
+      neo4j_label: "Lang_Domain"
+      description: |
+        A knowledge domain that modulates word meaning. This is the CancerType
+        equivalent — the same word in different domains carries different semantics.
+      required_properties:
+        domain_name: {type: string, examples: ["genomics", "finance", "mathematics", "everyday"]}
+      optional_properties:
+        parent_domain: {type: string}
+        n_specialized_terms: {type: integer}
+
+  edge_types:
+
+    COMPOSED_OF:
+      description: "Lexeme → Morpheme. Word contains this morpheme."
+      directed: true
+      source_type: Lexeme
+      target_type: Morpheme
+      required_edge_properties:
+        contribution: {type: float, range: [0, 1], description: "How much this morpheme determines word meaning"}
+        position: {type: integer, description: "Order in the word: 0=first morpheme, 1=second, etc."}
+
+    INFLECTS_TO:
+      description: "Lexeme → WordForm. This lexeme realizes as this surface form."
+      directed: true
+      source_type: Lexeme
+      target_type: WordForm
+      required_edge_properties:
+        inflection_type: {type: string, examples: ["past_tense", "plural", "progressive"]}
+      optional_edge_properties:
+        regularity: {type: string, enum: [regular, irregular]}
+
+    EVOKES:
+      description: |
+        Lexeme → Frame. This word participates in this semantic frame.
+        The BELONGS_TO equivalent — lexemes belong to frames like genes belong to channels.
+      directed: true
+      source_type: Lexeme
+      target_type: Frame
+      required_edge_properties:
+        role: {type: string, description: "The frame element this lexeme fills or evokes"}
+      optional_edge_properties:
+        typicality: {type: float, range: [0, 1]}
+
+    SYNONYMOUS:
+      description: |
+        Two lexemes that can substitute in some contexts. PER-EDGE SIGNED:
+        substitutability ranges from high (perfect synonym) to low (weak overlap).
+      directed: false
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        substitutability: {type: float, range: [0, 1]}
+      optional_edge_properties:
+        context_restriction: {type: string, description: "In what domain/register this holds"}
+
+    ANTONYMOUS:
+      description: "Lexemes in opposition."
+      directed: false
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        opposition_type: {type: string, enum: [complementary, gradable, converse]}
+        opposition_strength: {type: float, range: [0, 1]}
+
+    ENTAILS:
+      description: |
+        If A is true, B must be true. Directed. The ENABLES equivalent.
+        "murder" ENTAILS "kill". "run" ENTAILS "move".
+      directed: true
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        confidence: {type: float, range: [0, 1]}
+
+    CAUSES:
+      description: |
+        Causal/temporal semantic link. Directed.
+        "ignite" CAUSES "burn".
+      directed: true
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        directness: {type: float, range: [0, 1], description: "Immediate vs distal cause"}
+      optional_edge_properties:
+        mechanism: {type: string, enum: [physical, social, logical]}
+
+    PART_OF:
+      description: "Meronymic relation. 'wheel' PART_OF 'car'. Directed."
+      directed: true
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        necessity: {type: float, range: [0, 1], description: "Is this part essential?"}
+
+    HYPERNYM_OF:
+      description: |
+        IS-A hierarchy. 'dog' HYPERNYM_OF 'animal' means dog is a type of animal.
+        Directed: specific → general.
+      directed: true
+      source_type: Lexeme
+      target_type: Lexeme
+
+    COLLOCATES:
+      description: |
+        Words that co-occur significantly. Corpus-derived. SIGNED per-edge.
+        This is the COOCCURS equivalent — the HOLDBACK/EXAM edge type.
+        Training edges: structural knowledge (WordNet, FrameNet).
+        Holdback: do structural edges predict which words actually co-occur?
+      directed: false
+      source_type: Lexeme
+      target_type: Lexeme
+      required_edge_properties:
+        pmi: {type: float, description: "Pointwise mutual information. Can be positive or negative."}
+        corpus_source: {type: string}
+        frequency: {type: integer}
+      optional_edge_properties:
+        syntactic_relation: {type: string, examples: ["adj-noun", "verb-object", "subject-verb"]}
+      holdback: true
+
+    SELECTIONAL_PREFERENCE:
+      description: |
+        A predicate constrains what can fill its argument slots.
+        "devour" selects for physical_object. "ponder" selects for abstract_concept.
+      directed: true
+      source_type: Lexeme
+      target_type: Frame
+      required_edge_properties:
+        role: {type: string, description: "Which argument slot"}
+        typicality: {type: float, range: [0, 1]}
+
+    DOMAIN_SHIFTS:
+      description: |
+        A domain changes a lexeme's meaning. The cancer_type_modulates_channel equivalent.
+        Domain("genomics") → Lexeme("expression") with semantic_distance=0.7
+      directed: true
+      source_type: Domain
+      target_type: Lexeme
+      required_edge_properties:
+        domain_definition: {type: string, description: "What this word means in this domain"}
+        semantic_distance: {type: float, range: [0, 1], description: "How far from the default sense"}
+      optional_edge_properties:
+        is_metaphorical: {type: boolean}
+
+    CONSTRUCTIONAL_MEANING:
+      description: |
+        A syntactic construction modifies constituent meaning.
+        Passive voice shifts agent/patient focus. Conditional adds uncertainty.
+      directed: true
+      source_type: Construction
+      target_type: Lexeme
+      required_edge_properties:
+        meaning_shift: {type: string}
+      optional_edge_properties:
+        obligatoriness: {type: float, range: [0, 1]}
+
+  # -----------------------------------------------------------------------
+  # LOGICAL SEMANTICS — Compact Normal Form for Knowledge
+  # -----------------------------------------------------------------------
+  # Natural language is verbose and ambiguous. Logical form is compact and
+  # machine-checkable. This layer normalizes assertions before they become
+  # graph edges.
+  #
+  # Example:
+  #   Natural:  "BRCA1 loss confers sensitivity to PARP inhibitors"
+  #   Logical:  ∀x. LOF(BRCA1, x) → SENSITIVE(x, PARPi)
+  #   Graph:    BRCA1 -[SL_PARTNER]→ PARP1
+  #
+  # The logical form sits between surface language and domain edges.
+  # It is the NORMALIZATION STEP — many surface forms map to one logical form,
+  # and one logical form maps to one graph edge.
+  #
+  # "BRCA1 loss confers sensitivity to PARP inhibitors"
+  # "PARP inhibitors are effective when BRCA1 is lost"
+  # "Patients with BRCA1 mutations respond to PARPi"
+  #   → ALL normalize to: ∀x. LOF(BRCA1, x) → SENSITIVE(x, PARPi)
+  #   → ALL map to the same edge: BRCA1 -[SL_PARTNER]→ PARP1
+  #
+  # This is why logical form matters: it deduplicates knowledge.
+  # Without it, three papers saying the same thing create three assertions.
+  # With it, they all resolve to the same proposition, incrementing n_sources.
+
+  logical_semantics:
+
+    node_types:
+
+      Predicate:
+        neo4j_label: "Lang_Predicate"
+        description: |
+          A relation between entities. The verb of logic.
+          CAUSE(x,y), INHIBIT(x,y), IS_A(x,y), HAS_PROPERTY(x,p).
+          Each predicate has an arity (number of arguments) and maps to
+          one or more domain edge types.
+        required_properties:
+          id: {type: string, format: "language:predicate:{name}"}
+          predicate_name: {type: string, examples: ["CAUSE", "INHIBIT", "ENABLE", "IS_A", "HAS_PROPERTY", "COOCCURS_WITH"]}
+          arity: {type: integer, description: "Number of arguments (usually 2)"}
+          domain_edge_types: {type: list_of_strings, description: "Which domain edge types this predicate maps to"}
+        optional_properties:
+          inverse: {type: string, description: "The inverse predicate: INHIBIT ↔ ACTIVATE"}
+          symmetric: {type: boolean, default: false, description: "P(x,y) = P(y,x)?"}
+          transitive: {type: boolean, default: false, description: "P(x,y) ∧ P(y,z) → P(x,z)?"}
+
+      Proposition:
+        neo4j_label: "Lang_Proposition"
+        description: |
+          A complete logical statement. The atomic unit of knowledge.
+          P(x, y) is a proposition. ∀x. P(x) → Q(x) is a proposition.
+          Multiple surface-form assertions can resolve to the same proposition.
+          This is how knowledge gets deduplicated.
+        required_properties:
+          id: {type: string, format: "language:proposition:{hash}"}
+          logical_form: {type: string, description: "Formal notation", examples: ["∀x. LOF(BRCA1, x) → SENSITIVE(x, PARPi)"]}
+          canonical_text: {type: string, description: "Human-readable version of the logical form"}
+          n_sources: {type: integer, default: 1, description: "How many assertions resolve to this proposition"}
+        optional_properties:
+          truth_value: {type: string, enum: [true, false, unknown, contested]}
+          domain: {type: string, description: "Which domain graph this proposition feeds"}
+
+      Variable:
+        neo4j_label: "Lang_Variable"
+        description: "A bound or free variable in a proposition. x, y, z."
+        required_properties:
+          id: {type: string, format: "language:variable:{name}"}
+          variable_name: {type: string}
+          bound: {type: boolean, description: "Is this variable bound by a quantifier?"}
+
+      Constant:
+        neo4j_label: "Lang_Constant"
+        description: |
+          A named entity resolved to a specific node in a domain graph.
+          "TP53" → constant that DENOTES cancer:gene:TP53.
+          "PARP inhibitor" → constant that DENOTES cancer:drug_class:PARPi.
+        required_properties:
+          id: {type: string, format: "language:constant:{name}"}
+          constant_name: {type: string}
+          resolved_to: {type: string, description: "Domain graph node ID this constant refers to"}
+        optional_properties:
+          domain: {type: string}
+
+      Quantifier:
+        neo4j_label: "Lang_Quantifier"
+        description: "Universal (∀), existential (∃), negative (∄), proportional (most, some, few)."
+        required_properties:
+          id: {type: string, format: "language:quantifier:{symbol}"}
+          symbol: {type: string, enum: ["∀", "∃", "∄", "most", "some", "few", "exactly_n"]}
+          quantifier_type: {type: string, enum: [universal, existential, negative, proportional]}
+
+      Connective:
+        neo4j_label: "Lang_Connective"
+        description: "Logical connective: ∧ (and), ∨ (or), → (implies), ↔ (iff), ¬ (not)."
+        required_properties:
+          id: {type: string, format: "language:connective:{symbol}"}
+          symbol: {type: string, enum: ["∧", "∨", "→", "↔", "¬"]}
+          arity: {type: integer, description: "1 for ¬, 2 for all others"}
+
+    edge_types:
+
+      DENOTES_PREDICATE:
+        description: "Lexeme → Predicate. Surface word maps to logical predicate."
+        directed: true
+        source_type: Lexeme
+        target_type: Predicate
+        examples:
+          - "'inhibit' → INHIBIT"
+          - "'cause' → CAUSE"
+          - "'is a type of' → IS_A"
+          - "'co-occurs with' → COOCCURS_WITH"
+
+      DENOTES_CONSTANT:
+        description: "Lexeme → Constant. Surface name maps to logical constant."
+        directed: true
+        source_type: Lexeme
+        target_type: Constant
+        examples:
+          - "'TP53' → constant:TP53 → cancer:gene:TP53"
+          - "'olaparib' → constant:olaparib → cancer:drug:olaparib"
+
+      DENOTES_QUANTIFIER:
+        description: "Lexeme → Quantifier. Surface word maps to logical quantifier."
+        directed: true
+        source_type: Lexeme
+        target_type: Quantifier
+        examples:
+          - "'all' → ∀"
+          - "'some' → ∃"
+          - "'no' → ∄"
+          - "'most' → most"
+
+      HAS_PREDICATE:
+        description: "Proposition → Predicate. This proposition uses this predicate."
+        directed: true
+        source_type: Proposition
+        target_type: Predicate
+
+      HAS_ARGUMENT:
+        description: "Proposition → Constant/Variable. This proposition has this argument."
+        directed: true
+        source_type: Proposition
+        target_type: [Constant, Variable]
+        required_edge_properties:
+          role: {type: string, enum: [subject, object, modifier], description: "Argument position"}
+          position: {type: integer, description: "0-indexed argument position in predicate"}
+
+      BOUND_BY:
+        description: "Variable → Quantifier. This variable is bound by this quantifier."
+        directed: true
+        source_type: Variable
+        target_type: Quantifier
+
+      IMPLIES:
+        description: |
+          Proposition → Proposition. If P then Q.
+          This is the logical backbone — chains of implication.
+          ∀x. LOF(BRCA1, x) → SENSITIVE(x, PARPi)
+          SENSITIVE(x, PARPi) → RESPONDS_TO(x, olaparib)
+        directed: true
+        source_type: Proposition
+        target_type: Proposition
+
+      CONTRADICTS:
+        description: "Two propositions that cannot both be true. P ∧ Q = ⊥."
+        directed: false
+        source_type: Proposition
+        target_type: Proposition
+        required_edge_properties:
+          resolution: {type: string, enum: [unresolved, p_wins, q_wins, context_dependent]}
+
+      EQUIVALENT:
+        description: |
+          Two propositions with the same truth conditions. P ↔ Q.
+          Different surface forms, same meaning. This is how knowledge deduplicates.
+        directed: false
+        source_type: Proposition
+        target_type: Proposition
+
+      PREDICATE_ENTAILS:
+        description: "If P(x,y) then Q(x,y). KILL entails DIE. INHIBIT entails REDUCE."
+        directed: true
+        source_type: Predicate
+        target_type: Predicate
+
+      PREDICATE_INVERSE:
+        description: "P(x,y) ↔ Q(y,x). INHIBIT inverse of ACTIVATE. BUY inverse of SELL."
+        directed: false
+        source_type: Predicate
+        target_type: Predicate
+
+  channels:
+    description: |
+      Language's equivalent of cancer channels. Organized by linguistic subsystem.
+      Sub-pathway blocks within each channel discovered by community detection,
+      same as block_assignments.py for the cancer graph.
+
+    Morphology:
+      tier: "Formal Structure"
+      description: "Word formation rules. Contains morphemes and inflection patterns."
+
+    Syntax:
+      tier: "Formal Structure"
+      description: "Sentence structure. Contains constructions and dependency patterns."
+
+    Lexical_Semantics:
+      tier: "Meaning"
+      description: "Word-level meaning. Synonymy, antonymy, hypernymy networks."
+
+    Compositional_Semantics:
+      tier: "Meaning"
+      description: "How meanings combine. Frames, thematic roles, predicate-argument structures."
+
+    Logical_Semantics:
+      tier: "Meaning"
+      description: |
+        Compact normal form for knowledge. Predicates, propositions, quantifiers,
+        connectives. The bridge between natural language and graph edges.
+        Many surface forms → one logical form → one graph edge.
+        This is how knowledge deduplicates across papers.
+
+    Pragmatics:
+      tier: "Use"
+      description: "Meaning in context. Speech acts, implicature, presupposition."
+
+    Discourse:
+      tier: "Use"
+      description: "Text-level structure. Coherence relations, topic structure, anaphora."
+
+    Register_Style:
+      tier: "Meta-Linguistic"
+      description: "How language varies by social context. Formality, domain vocabulary."
+
+    Etymology_History:
+      tier: "Meta-Linguistic"
+      description: "How language changes over time. Borrowing, semantic drift, grammaticalization."
+
+  data_sources:
+    - name: "WordNet 3.1"
+      license: "Princeton License (open)"
+      nodes: ["Lexeme"]
+      edges: ["SYNONYMOUS", "ANTONYMOUS", "ENTAILS", "PART_OF", "HYPERNYM_OF"]
+      priority: 1
+      url: "https://wordnet.princeton.edu/"
+
+    - name: "FrameNet 1.7"
+      license: "CC-BY 3.0"
+      nodes: ["Frame"]
+      edges: ["EVOKES"]
+      priority: 2
+      url: "https://framenet.icsi.berkeley.edu/"
+
+    - name: "ConceptNet 5"
+      license: "CC-BY-SA 4.0"
+      edges: ["CAUSES", "SYNONYMOUS (enrichment)", "ANTONYMOUS (enrichment)", "PART_OF (enrichment)"]
+      priority: 3
+      url: "https://conceptnet.io/"
+
+    - name: "Wiktionary (English)"
+      license: "CC-BY-SA 3.0"
+      nodes: ["Morpheme", "WordForm"]
+      edges: ["COMPOSED_OF", "INFLECTS_TO"]
+      priority: 4
+
+    - name: "English Wikipedia (corpus statistics)"
+      license: "CC-BY-SA"
+      edges: ["COLLOCATES (holdback)"]
+      priority: 5
+
+    - name: "VerbNet"
+      license: "Open"
+      edges: ["SELECTIONAL_PREFERENCE"]
+      priority: 6
+
+    - name: "Domain glossaries"
+      license: "Various"
+      nodes: ["Domain"]
+      edges: ["DOMAIN_SHIFTS"]
+      priority: 7
+
+
+# ==========================================================================
+# DOMAIN GRAPH TEMPLATE
+# Every new domain graph must define these.
+# ==========================================================================
+
+domain_graph_template:
+
+  description: |
+    When creating a new domain knowledge graph (physics, chemistry, etc.),
+    define these sections. The cancer graph (EV03) and language graph above
+    are the two existing implementations.
+
+  required_sections:
+
+    node_types:
+      description: |
+        At minimum 3 tiers of granularity (equivalent to Gene/Channel/Tier in cancer,
+        or Lexeme/Frame/Domain in language). Finer resolution = more specific knowledge.
+
+    edge_types:
+      description: |
+        Must include:
+        - At least one containment/hierarchy edge (BELONGS_TO equivalent)
+        - At least one interaction edge (PPI/SYNONYMOUS equivalent)
+        - At least one opposition edge (SL_PARTNER/ANTONYMOUS equivalent)
+        - At least one holdback/exam edge (COOCCURS/COLLOCATES equivalent)
+        All edges carry per-edge signs from data.
+
+    channels:
+      description: |
+        The major functional subsystems of this domain. Equivalent to cancer channels
+        (DDR, PI3K, CellCycle) or language channels (Morphology, Syntax, Semantics).
+        Usually 6-10 channels. Discovered by a combination of domain expertise and
+        community detection on the interaction edges.
+
+    holdback_strategy:
+      description: |
+        What edges are held back for validation? The holdback edge type must be
+        derivable from independent data (not the same source as training edges).
+        Cancer: COOCCURS from patient data tests graph structure from biology databases.
+        Language: COLLOCATES from corpus tests graph structure from dictionaries/ontologies.
+
+    data_sources:
+      description: |
+        Ordered list of data sources with license, priority, and which nodes/edges
+        they contribute. Must include at least one structured database and one
+        corpus/observational source (for holdback).
+
+
+# ==========================================================================
+# PAPER PARSING PIPELINE
+# How published papers become graph edges.
+# ==========================================================================
+
+paper_pipeline:
+
+  description: |
+    Every published paper can be parsed into assertions. Each assertion is a
+    candidate edge in a domain graph. The language graph disambiguates the
+    assertion. The provenance layer tracks the chain.
+
+  steps:
+
+    1_extract:
+      description: |
+        Parse paper text into assertion triples: (subject, predicate, object).
+        Each assertion includes the original sentence and evidence type.
+      input: "Paper full text or abstract"
+      output: "List of Assertion nodes"
+      method: |
+        Use LLM to extract structured claims. Each claim becomes an Assertion node
+        with subject, predicate, object, original_text, and evidence_type.
+
+        Example from a paper: "BRCA1 loss confers sensitivity to PARP inhibitors"
+        → Assertion(subject="BRCA1 loss", predicate="confers sensitivity to", object="PARP inhibitors")
+
+    2_disambiguate:
+      description: |
+        Use the language graph to resolve ambiguous terms.
+        "expression" → which sense? Check Lang_Domain edges.
+        "bank" → financial or river? Check context via Lang_Frame.
+      input: "Assertion with raw text entities"
+      output: "Assertion with resolved_subject, resolved_predicate, resolved_object"
+      method: |
+        Match subject/object text to Lang_Lexeme nodes via lemmatization + sense disambiguation.
+        Follow DENOTES edges to find candidate domain nodes.
+        Use DOMAIN_SHIFTS edges to select the correct sense for the paper's domain.
+
+    3_classify:
+      description: |
+        Map the predicate to a domain edge type.
+        "confers sensitivity to" → SL_PARTNER? ENABLES? COUPLES?
+        Use Lang_Frame("Causation") DESCRIBES mappings.
+      input: "Disambiguated assertion"
+      output: "Assertion with mapped edge type and target domain graph"
+      method: |
+        Match predicate to Lang_Frame. Follow DESCRIBES edges to find which domain
+        edge types this frame maps to. If ambiguous, flag for human review.
+
+    4_commit:
+      description: |
+        Create or reinforce the edge in the domain graph.
+        If edge already exists: increment n_sources, update confidence.
+        If edge is new: create with evidence trail to assertion and paper.
+        If edge contradicts existing: create CONTRADICTS_ASSERTION edge, flag for review.
+      input: "Classified assertion"
+      output: "Domain graph edge (new or updated)"
+      method: "GraphGateway.merge_edge() — append-only, never overwrite."
+
+    5_validate:
+      description: |
+        Check new edges against holdback. Does this edge improve the graph's
+        ability to predict held-back relationships?
+      input: "Updated domain graph"
+      output: "Validation metrics"
