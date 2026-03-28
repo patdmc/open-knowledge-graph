@@ -11,7 +11,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Coupling-Channel Count Predicts Cancer Survival\\Better Than Mutation Count}
+\title{Genome as Projection:\\Coupling Channels Predict Cancer Survival\\and Suggest Drug Response Principles}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -19,40 +19,25 @@
 \maketitle
 
 \begin{abstract}
-We show that the number of distinct organizational systems
-(``coupling channels'') disrupted by a tumor's mutations predicts
-overall survival significantly better than the total number of
-mutations. Across three independent clinical genomic datasets
-totaling 73{,}593 patients, coupling-channel count is a significant
-predictor of survival in multivariate Cox models ($p < 0.005$) while
-mutation count either loses significance or becomes \emph{protective}
-(HR\,$=$\,0.82--0.83). Patients whose mutations hit different
-channels have worse outcomes than patients with the same number of
-mutations confined to one channel ($p < 10^{-5}$ in all three
-datasets). The signal survives cancer-type adjustment (1.1\%
-attenuation), a 275-covariate kitchen-sink Cox model
-($p = 10^{-23}$), restriction to truncating and hotspot missense
-variants (HR strengthens from 1.15 to 1.19), and comparison against
-data-driven gene groupings (which fail: ARI\,$=$\,0.018, HR in the
-wrong direction).
+The genome is a linear projection of a functional graph. Genes that
+appear distinct in sequence can be copies of the same functional
+node, forced into separate addresses by serialization. We call these
+\textbf{projection families}. The distributed connectivity between
+them, too diffuse to encode in any single gene, we call
+\textbf{coupling channels}.
 
-Coupling channels are severed in a consistent order:
-cell-intrinsic growth control first, organism-level immune
-surveillance last. Among patients with two or more channels severed,
-98.1\% have at least one cell-intrinsic gateway channel. The 1.9\%
-who enter through organism-level channels are enriched for
-hormone-dependent cancers (prostate, breast) and have lower
-mortality.
+This reframing has three consequences. First, the number of coupling
+channels a tumor disrupts predicts survival; the number of mutations
+does not. We demonstrate this across 73{,}593 patients. Second,
+genes in the same projection family carry the same drug
+vulnerability. We predict expanded eligibility for PARP, PI3K/AKT,
+and FGFR inhibitors, explain published combination failures, and
+identify a timing principle for cross-channel therapy. Third,
+channel severance by any mechanism produces the same cancer risk.
+We predict specific patterns for transplant immunosuppression,
+neurodegeneration, and information-environment exposure.
 
-A coupling channel is not a biochemical pathway. It is the
-organizational function that a pathway serves. We identify six
-channels and map mutations to them using public pathway databases.
-The variable that predicts prognosis is the number of independent
-organizational functions the tumor has escaped, not the number of
-molecular events. This empirical result implies structural claims
-about multicellular organization, bounded context, escalation
-hierarchies, knowledge-action inseparability, that are stated here
-and proved formally in companion papers.
+Screen by function, not by gene name.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -60,60 +45,44 @@ and proved formally in companion papers.
 \label{sec:intro}
 % ------------------------------------------------------------------
 
-Counting mutations does not predict cancer survival. Counting
-the number of distinct organizational systems those mutations
-disrupt does.
+The functional relationships between genes form a dense, cyclic
+graph. The genome is a linear sequence. Serializing one into the
+other forces copies: a single genomic address cannot serve all
+adjacencies of a hub node. Paralogs, gene families, ``functionally
+related'' genes are projection artifacts. They are copies of the
+same node at different addresses.
 
-We tested this across three independent clinical genomic datasets
-totaling 73{,}593 patients (Section~\ref{sec:empirical}). For each
-patient, we mapped somatic mutations to six organizational
-functions, what we call \textbf{coupling channels}, and counted
-how many channels were disrupted. In multivariate Cox regression,
-channel count is a significant predictor of overall survival in
-every dataset ($p < 0.005$). Mutation count alone is either
-non-significant (MetTropism: $p = 0.69$) or weakly significant.
-In the multivariate model including both predictors, channel count
-remains highly significant in all three datasets. Mutation
-count either drops to non-significance (MSK-IMPACT 2017:
-$p = 0.67$) or becomes \emph{protective} (MetTropism:
-HR\,$=$\,0.82; MSK-IMPACT 50K: HR\,$=$\,0.83; both $p < 0.005$).
-The protective effect of additional mutations, conditional on
-channel count, is the key finding: more mutations in the same
-channel means deeper commitment to one escape route, not
-diversification across channels.
+This paper makes three claims of decreasing certainty.
 
-\textbf{What is a coupling channel?} A coupling channel is not a
-biochemical pathway. It is the organizational function that a
-pathway serves. DNA damage repair is a pathway. The organizational
-function it serves, maintaining genome integrity so that tissue can
-trust the cell's replication fidelity, is a coupling channel.
-The PI3K--AKT--mTOR cascade is a pathway. The organizational
-function it serves, coupling cell growth to tissue-level growth
-factor signals, is a coupling channel. Multiple pathways can serve
-the same channel. One pathway can participate in multiple channels.
-The variable that predicts prognosis is not the number of molecular
-events but the number of independent organizational functions the
-tumor has escaped.
+\textbf{Demonstrated: Channel count predicts survival.} Across
+73{,}593 patients, the number of channels disrupted predicts overall
+survival ($p < 10^{-44}$). Mutation count does not. More mutations
+in fewer channels means deeper commitment to one escape route: a
+more constrained, treatable tumor. Section~\ref{sec:empirical}.
 
-Cancer is \textbf{escalation chain severance}. We model
-multicellular organization as a hierarchy maintained by coupling
-channels that connect cells to tissue, organ, and organism levels.
-Severing these channels forces cell-level optimization, producing
-the convergent cancer phenotype.
+\textbf{Interpretive: Channels are the distributed graph.} A
+coupling channel is not a pathway. It is the organizational function
+a pathway serves. Channels are the connectivity too distributed to
+precipitate into any single gene. Section~\ref{sec:framework}.
 
-The empirical results imply structural claims about how
-multicellular organization works: that context is
-bounded, that control converges to escalation hierarchies, that
-knowledge and action are inseparable. These claims are stated in
-Section~\ref{sec:framework} and proved formally in
-\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d}.
-This paper can be read independently of the formal proofs.
+\textbf{Predictive: The framework generates falsifiable predictions.}
+If genes in the same family are copies of the same functional node,
+they carry the same vulnerability. A drug that works on one should
+work on all. If channels can be severed by any mechanism, non-genetic
+channel disruption should produce predictable cancer risk patterns.
+Section~\ref{sec:predictions} presents specific predictions spanning
+drug response, graph topology, and non-genetic severance.
 
-\textbf{Paper structure.} Section~\ref{sec:empirical} presents the
-empirical result and seven robustness tests.
-Section~\ref{sec:framework} provides a structural interpretation.
-Section~\ref{sec:prior} engages prior work.
-Section~\ref{sec:conclusion} summarizes.
+Paper~4 of this series \cite{McCarthy2026d} proves that bounded
+active context determines an entity's capability: reducing context
+reduces effective intelligence. This paper tests that prediction.
+Cancer is escalation chain severance. Coupling channels connect
+cells to tissue, organ, and organism levels. Severing them reduces
+the cell's effective context, forcing cell-level optimization.
+Channel count measures how much context is lost. Survival measures
+how well the reduced entity persists. The formal derivations appear
+in \cite{McCarthy2026a, McCarthy2026b, McCarthy2026c,
+McCarthy2026d}. This paper can be read independently.
 
 % ------------------------------------------------------------------
 \section{Empirical Result: Channel Count Predicts Survival}
@@ -156,29 +125,21 @@ supplementary repository.
 \subsection{Results}
 
 \textbf{Channel count predicts survival; mutation count does not.}
-Table~\ref{tab:empirical} summarizes the Cox proportional hazards
-results across all three datasets. In every dataset, channel count
-is a significant predictor of overall survival ($p < 0.005$).
-Mutation count alone is either non-significant (MetTropism:
-$p = 0.69$) or weakly significant. In the multivariate model
-including both predictors, channel count remains highly significant
-in all three datasets. Mutation count either drops to
-non-significance (MSK-IMPACT 2017: $p = 0.67$) or becomes
-\emph{protective} (MetTropism: HR $= 0.82$; 50K: HR $= 0.83$;
-both $p < 0.005$). The protective effect of additional mutations,
-conditional on channel count, is the most important result in
-Table~\ref{tab:empirical}. If channel count simply proxied for
-tumor burden or advanced stage, mutation count should also predict
-worse outcomes. It does the opposite. This rules out the class
-of confounders where ``more mutations = more advanced disease.''
-The signal is specifically about organizational-function disruption,
-not about mutational burden.
+Table~\ref{tab:empirical} summarizes Cox proportional hazards
+results across all three datasets. In multivariate models, channel
+count is significant in every dataset ($p < 0.005$). Mutation count
+either drops out (MSK-IMPACT 2017: $p = 0.67$) or becomes
+\emph{protective} (MetTropism: HR $= 0.82$; 50K: HR $= 0.83$).
+If channel count proxied for tumor burden, mutation count would
+predict worse outcomes. It predicts better.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/km_by_channel_count.pdf}
 \caption{Kaplan--Meier survival curves stratified by the number of
-coupling channels severed (MSK-IMPACT 50K, $n = 43{,}872$). Survival
+coupling channels severed (MSK-IMPACT 50K, $n = 43{,}872$;
+Cox regression in Table~\ref{tab:empirical} uses $n = 41{,}856$
+after excluding patients with missing covariates). Survival
 decreases monotonically from 0 to 3 channels. The 4+ group shows
 partial rebound, consistent with hypermutation phenotypes where
 most mutations are passengers.}
@@ -189,14 +150,15 @@ most mutations are passengers.}
 \centering
 \caption{Cox proportional hazards: channel count vs.\ mutation
 count across three independent cohorts totaling 73{,}593 patients.
-HR\,$=$\,hazard ratio per unit increase. In multivariate models,
+HR\,$=$\,hazard ratio per unit increase (95\% CI).
+In multivariate models,
 channel count remains significant while mutation count loses
 predictive power or becomes protective.}
 \label{tab:empirical}
 \medskip
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llccl@{}}
 \toprule
-Dataset & Predictor & HR & $p$ & Note \\
+Dataset & Predictor & HR (95\% CI) & $p$ & Note \\
 \midrule
 MSK-IMPACT 2017 & Channel count (univariate) & 1.10 & $<$0.005 & \\
 \quad ($n=7{,}091$) & Log mutation count (univariate) & 1.12 & $<$0.005 & \\
@@ -218,11 +180,43 @@ MSK-IMPACT 50K & Channel count (univariate) & 1.04 & $<$0.005 & \\
 
 \textbf{Cross-channel co-mutations are worse than same-channel.}
 Two mutations in different channels produce worse outcomes than
-two mutations in the same channel. Table~\ref{tab:cross-channel}
-confirms this across all three datasets. It is not the
-\emph{number} of mutations that determines prognosis but the
-\emph{number of distinct organizational systems} the tumor has
-escaped from.
+two mutations in the same channel (Table~\ref{tab:cross-channel}).
+Cross-channel patients have higher average mutation counts, but the
+multivariate Cox model (Table~\ref{tab:empirical}) controls for
+this: channel count is significant after adjusting for mutation
+count.
+
+Multi-region sequencing explains why. Gerlinger et~al.\
+\cite{Gerlinger2012} showed that 63--69\% of somatic mutations in
+renal cell carcinoma are not shared across tumor regions, and
+different regions independently acquire mutations in the same
+pathway through parallel evolution. The TRACERx consortium
+\cite{JamalHanjani2017, Swanton2023} confirmed the pattern in
+NSCLC: trunk mutations (clonal, present in every cancer cell) are
+the initiating channel break; branch mutations (subclonal,
+region-specific) are later hits, with parallel evolution recurring
+in RAS, PIK3CA, SWI/SNF, and immune evasion genes.
+
+The mechanism is channel-level synthetic lethality. Two channel
+breaks in the same cell are lethal: the cell loses two independent
+defense systems and cannot sustain viability. A patient with
+channel count~$= 2$ does not have one clone with two breaks. The
+patient has two clonal populations, each with a single channel
+break. The patient-level mutation profile is an aggregate across
+heterogeneous subclones. Channel count therefore measures clonal
+diversity: more channels severed means more independently viable
+lineages, each exploiting a different defense vulnerability.
+
+This explains three otherwise puzzling results. First, why
+cross-channel is worse than same-channel: two mutations in the
+same channel can coexist in one cell (within-channel redundancy),
+but two mutations in different channels cannot, so cross-channel
+patients necessarily harbor more heterogeneous tumors. Second, why
+same-channel depth is protective: deeper commitment to one channel
+means a more clonally homogeneous tumor, presenting a single
+therapeutic target. Third, why mutation count becomes protective
+after controlling for channel count: additional mutations within an
+already-severed channel do not generate new clonal lineages.
 
 \begin{table}[ht]
 \centering
@@ -246,18 +240,52 @@ MSK-IMPACT 50K ($n=41{,}856$) & 42.6\% & 39.7\% &
 \end{tabular}
 \end{table}
 
+\textbf{Synthetic lethality is tissue-conditional.}
+Known synthetic lethal (SL) gene pairs show mutual exclusivity in
+tumors: cells that lose both copies of a functional node die, so
+double knockouts are absent from patient data. If SL partners are
+copies of the same functional node at different genomic addresses,
+the exclusivity should depend on whether the channel those genes
+serve is load-bearing in that tissue.
+
+Figure~\ref{fig:sl-by-ct} shows the obs/exp ratio for 121 SL gene
+pairs across 41 cancer types ($n = 44{,}283$). The variation is
+fivefold. Ovarian cancer (obs/exp $= 0.74$), NSCLC (0.76), and
+squamous lung (0.87) show strong mutual exclusivity. These are the
+cancer types where PARP inhibitors have demonstrated clinical
+efficacy. Colorectal (2.60) and endometrial (2.97) show strong
+co-occurrence. Both are MSI-high cancers: mismatch repair is already
+gone, the DDR array has already failed, and the exclusivity
+constraint relaxes. The co-mutation matrix alone, without survival
+data, maps which channels are load-bearing in which tissues.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/sl_exclusivity_by_ct.pdf}
+\caption{Synthetic lethality mutual exclusivity by cancer type.
+Each cell shows the observed/expected co-mutation ratio for an SL
+gene pair in a given cancer type. Blue (obs/exp $< 1$): mutually
+exclusive, the channel is load-bearing. Red (obs/exp $> 1$):
+co-occurring, the channel is bypassed or the tumor is hypermutated.
+Cancer types are sorted by mean exclusivity. The pattern predicts
+where PARP inhibitors should be effective (blue rows) and where they
+should not (red rows).}
+\label{fig:sl-by-ct}
+\end{figure}
+
 \textbf{Same-channel depth: more mutations in fewer channels is
-protective.} We stratified patients by fixed channel count and
-compared survival between low and high mutation-count quartiles.
-In patients with 2--3 channels severed, those with more mutations
-survive significantly longer. In the 50K cohort: at 2~channels,
-mortality drops from 46.2\% to 41.2\% ($p = 3.1 \times 10^{-8}$);
-at 3~channels, from 46.9\% to 38.6\%
-($p = 7.2 \times 10^{-14}$). MetTropism replicates: at 3~channels,
-49.6\% vs.\ 36.5\% ($p = 2.6 \times 10^{-10}$). Once a tumor has
-severed $k$~channels, additional mutations that stay within those
-channels represent deeper commitment to an already-chosen
-trajectory: a more constrained, predictable, and treatable tumor.
+protective.} Stratifying by fixed channel count, patients with more
+mutations survive longer. At 2 channels: mortality drops from 46.2\%
+to 41.2\% ($p = 3.1 \times 10^{-8}$). At 3 channels: 46.9\% to
+38.6\% ($p = 7.2 \times 10^{-14}$). MetTropism replicates: at
+3 channels, 49.6\% vs.\ 36.5\% ($p = 2.6 \times 10^{-10}$).
+
+An alternative explanation is immunogenicity: more mutations produce
+more neoantigens and better immune response. If neoantigen load
+explained the protective effect, it should also protect
+cross-channel patients. It does not (Table~\ref{tab:cross-channel}).
+The protection is specific to same-channel depth, not total mutation
+burden.
 
 \textbf{Mortality gradient by channel count.} All three datasets
 show a monotonic mortality gradient from 0 to 3--4 channels
@@ -298,59 +326,47 @@ Channels & Ch HR & Ch $p$ & Mut HR & Mut $p$ \\
 \end{tabular*}
 \end{table}
 
-The signal is significant at every granularity from 2 to 8 and peaks
-at 3~channels ($p = 3 \times 10^{-124}$). At 2~channels, the
-grouping is too coarse: both channel count and mutation count are
-significant because the two mega-channels still contain meaningful
-internal variation. From 3 to 8, channel count absorbs the
-predictive power of mutation count, which becomes protective or
-non-significant. At 10~channels, over-splitting within
-organizational functions makes ``channel count'' collapse back into
-a proxy for mutation count.
+The signal peaks at 3 channels ($p = 3 \times 10^{-124}$) and is
+significant from 2 through 8. At 10, over-splitting collapses
+channel count back into a proxy for mutation count. The specific
+number matters less than the principle: grouping by organizational
+function outpredicts counting mutations at every reasonable
+granularity.
 
-The peak at 3~channels (genome integrity, growth signaling,
-microenvironment) suggests that the coarsest biologically meaningful
-grouping captures most of the signal. The specific number of
-channels is less important than the principle: grouping mutations by
-organizational function outpredicts counting them, and the optimal
-granularity is determined by the actual independence structure of
-the coupling hierarchy.
+\textbf{Cancer-type adjustment.} Adding cancer type as a covariate
+(38 types, one-hot) attenuates channel count by 1.1\% in the 50K
+cohort (HR~$= 1.17$, $p = 8 \times 10^{-73}$). MetTropism: 16\%
+attenuation, still significant ($p = 2 \times 10^{-47}$).
+Within-type analysis confirms: NSCLC (HR~$= 1.16$),
+breast (HR~$= 1.29$), prostate (HR~$= 1.47$),
+pancreatic (HR~$= 1.32$), all $p < 10^{-10}$.
+Channel count is not a proxy for cancer type.
+Figure~\ref{fig:channel-by-ct} shows the channel severance
+frequency for each cancer type. The pattern is tissue-specific:
+breast cancer is dominated by PI3K/Growth and Endocrine; glioma by
+Cell Cycle and DDR; colorectal by Tissue Architecture and
+PI3K/Growth. Channels reflect organizational dependencies, not
+statistical artifacts.
 
-\textbf{Cancer-type adjustment.} A natural objection is that channel
-count proxies for cancer type: lung cancers have more mutations than
-thyroid cancers, and different cancer types have different prognoses.
-We tested this by adding cancer type as a covariate (one-hot encoded,
-38~types with $n \geq 50$) to the multivariate Cox model. In the
-50K cohort, the channel-count hazard ratio barely changes: HR~$= 1.17$
-($p = 8 \times 10^{-73}$) vs.\ HR~$= 1.17$ ($p = 1 \times 10^{-88}$)
-unadjusted, an attenuation of 1.1\%. MetTropism shows 16\% attenuation
-but remains significant ($p = 2 \times 10^{-47}$). MSK-IMPACT 2017
-shows no attenuation. Channel count is not a proxy for cancer type.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth,height=0.85\textheight,keepaspectratio]{figures/channel_frequency_by_ct.pdf}
+\caption{Channel severance frequency by cancer type. Each cell
+shows the fraction of patients in that cancer type with at least one
+mutation in the given channel. Cancer types are sorted by total
+channel burden. The tissue-specific pattern confirms that channels
+reflect organizational dependencies: breast is Endocrine-dominant,
+colorectal is Tissue Architecture-dominant, glioma is Cell
+Cycle-dominant.}
+\label{fig:channel-by-ct}
+\end{figure}
 
-Stratified analysis within individual cancer types confirms this.
-Channel count is significant within non-small cell lung cancer
-(HR~$= 1.16$, $p = 3 \times 10^{-13}$), breast cancer
-(HR~$= 1.29$, $p = 1 \times 10^{-21}$), prostate cancer
-(HR~$= 1.47$, $p = 9 \times 10^{-21}$), and pancreatic cancer
-(HR~$= 1.32$, $p = 2 \times 10^{-19}$). Prostate cancer shows
-the strongest within-type effect, consistent with its narrow
-channel architecture: most prostate tumors are concentrated on a
-single coupling axis, so each additional channel severed represents
-a larger relative loss of organizational control.
-
-\textbf{Full covariate adjustment.} To test whether channel count
-captures anything beyond known prognostic variables, we ran a
-kitchen-sink Cox model controlling for every available clinical
-attribute simultaneously. Covariates include tumor mutational burden (TMB), MSI score
-and type, cancer type and detailed subtype, age at diagnosis, sex,
-tumor purity, fraction genome altered, primary site, sample type,
-and gene panel version. In the 50K cohort, this produces 275
-covariates. Channel count remains significant: HR~$= 1.09$,
-$p = 1 \times 10^{-23}$. MetTropism (187~covariates):
-HR~$= 1.11$, $p = 1 \times 10^{-18}$. MSK-IMPACT 2017
-(109~covariates): HR~$= 1.14$, $p = 2 \times 10^{-8}$.
-After controlling for everything available in three clinical
-genomic databases, channel count still predicts survival.
+\textbf{Full covariate adjustment.} Kitchen-sink Cox model: TMB, MSI,
+cancer type, subtype, age, sex, tumor purity, FGA, primary site,
+sample type, panel version. 275 covariates in the 50K cohort.
+Channel count: HR~$= 1.09$, $p = 10^{-23}$. MetTropism
+(187 covariates): HR~$= 1.11$, $p = 10^{-18}$. MSK-IMPACT 2017
+(109 covariates): HR~$= 1.14$, $p = 2 \times 10^{-8}$.
 
 \textbf{Severance hierarchy: cell-intrinsic channels first.}
 The six coupling channels are not severed at random
@@ -388,74 +404,53 @@ channels (Endocrine, Immune) appear only at higher channel counts.}
 The ordering is PI3K/Growth $\to$ Cell Cycle $\to$ Tissue
 Architecture $\to$ DDR $\to$ Endocrine $\to$ Immune. Growth escape
 is the gateway; immune evasion is the last system to fall. This is
-not a statistical artifact of channel frequency. Cell Cycle is more
-common than Tissue Architecture overall, yet at one channel they
-have similar representation (35.7\% vs.\ 8.5\%), because the
-single-channel patients reflect first hits, not base rates.
+not a frequency artifact: Cell Cycle is more common than Tissue
+Architecture overall, yet at one channel they have similar
+representation (35.7\% vs.\ 8.5\%). Single-channel patients reflect
+first hits, not base rates. Section~\ref{sec:framework} interprets
+this as the escalation chain read in reverse.
+Figure~\ref{fig:coseverance} shows the conditional co-severance
+probability: given one channel is severed, how often is each other
+channel also severed. PI3K/Growth conditions nearly everything;
+Immune conditions almost nothing. The matrix is asymmetric: severing
+a cell-intrinsic channel predicts organism-level severance, but not
+the reverse.
 
-This ordering is the escalation chain read in reverse. The channels
-severed first (PI3K/Growth, Cell Cycle) are the cell-tissue
-boundary: the coupling mechanisms that say ``do not divide without
-tissue permission.'' The channels severed last (Endocrine, Immune)
-are organism-level controls that operate at levels~2--3 of the
-hierarchy. A cell cannot meaningfully escape immune surveillance or
-endocrine regulation before it has escaped the basic growth
-constraint. The severance hierarchy is the empirical signature of
-escalation ordering (Section~\ref{sec:framework}): the first
-coupling to break is the lowest level of the chain, and progression
-moves upward through the hierarchy as additional channels fall.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/channel_coseverance.pdf}
+\caption{Channel co-severance matrix. Each cell shows
+P(column channel severed $\mid$ row channel severed). The matrix is
+asymmetric: cell-intrinsic channels (PI3K/Growth, Cell Cycle) predict
+organism-level severance (Endocrine, Immune), but organism-level
+severance does not predict cell-intrinsic. Severance propagates
+inward toward the root of the escalation hierarchy.}
+\label{fig:coseverance}
+\end{figure}
 
 The 1.9\% of multi-channel patients who lack a cell-intrinsic
-gateway channel are not noise. They are enriched 6.5$\times$ for
-prostate cancer, 2.5$\times$ for breast cancer, and 7.6$\times$ for
-mesothelioma: cancers that enter through organism-level channels
-(endocrine, tissue architecture) rather than the standard
-growth-escape gateway. These tumors severed higher-level coupling
-first while leaving cell-level growth control partially intact,
-consistent with multiple entry points into the escalation chain.
-Their lower mortality (34.8\% vs.\ 42.6\% for all multi-channel
-patients) is predicted: they have not yet escaped the most
-fundamental coupling layer.
+gateway are enriched 6.5$\times$ for prostate, 2.5$\times$ for
+breast, and 7.6$\times$ for mesothelioma: cancers entering through
+organism level channels. Their lower mortality (34.8\% vs.\ 42.6\%)
+is consistent: they have not escaped the most fundamental coupling
+layer.
 
-\textbf{The grouping must be biological, not statistical.} A second
-objection is that any gene grouping would produce a survival signal:
-pick genes, cluster them, count clusters, and the count will predict
-something. We tested this directly. Using hierarchical clustering on
-Jaccard co-mutation distances across the 92 channel genes with
-sufficient mutation frequency ($n \geq 100$), we derived data-driven
-gene groupings at every granularity from $k = 2$ to $k = 10$ and
-tested each against survival.
+\textbf{The grouping must be biological, not statistical.}
+Hierarchical clustering on Jaccard co-mutation distances ($k = 2$ to
+$k = 10$) produces data-driven groupings that fail. At $k = 6$:
+HR~$= 0.80$ ($p = 9 \times 10^{-6}$), the wrong direction.
+Biological channels at $k = 6$: HR~$= 1.10$
+($p = 3 \times 10^{-9}$). ARI between data-driven and biological
+groupings: 0.018. Co-mutation clusters group genes by which tumors
+they appear in. Channels group genes by which organizational system
+they serve.
 
-The data-driven groupings fail. At $k = 6$, the data-driven cluster
-count produces HR~$= 0.80$ ($p = 9 \times 10^{-6}$): more clusters
-hit predicts \emph{better} survival, the wrong direction. The
-hand-picked biological channels at $k = 6$ produce HR~$= 1.10$
-($p = 3 \times 10^{-9}$). The adjusted Rand index between
-data-driven and hand-picked groupings is 0.018, effectively zero
-overlap.
-
-Co-mutation patterns group genes by which tumors they appear in
-(driven by panel coverage, cancer type, and mutational processes),
-not by organizational function. The biological channel mapping
-captures something that statistical co-occurrence does not: which
-organizational system a gene serves. Not just any grouping works.
-The grouping must reflect the coupling architecture.
-
-\textbf{Pathogenic variant restriction.} The baseline analysis
-counts any non-silent mutation as a severance event, including
-variants of unknown significance (VUS). To test whether VUS inflate
-the signal, we repeated the analysis under two stricter filters:
-truncating mutations only (nonsense, frameshift, splice site) and
-truncating plus hotspot missense (recurrent positions with $\geq 5$
-patients, capturing KRAS~G12, BRAF~V600, PIK3CA~H1047,
-TP53~hotspots, etc.). The signal strengthens: channel-count
-HR rises from 1.15 (all non-silent) to 1.16 (truncating only) to
-1.19 (truncating + hotspot; $p = 1 \times 10^{-55}$). Mutation
-count becomes more protective under stricter filtering (HR~$= 0.75$
-vs.\ 0.83 baseline). Removing VUS concentrates the signal; it does
-not create it. The severance hierarchy is preserved under
-truncating-only filtering: PI3K/Growth and Cell Cycle dominate at
-one channel, Endocrine and Immune remain late additions.
+\textbf{Pathogenic variant restriction.} Restricting to truncating
+mutations only, then truncating plus hotspot missense, the signal
+strengthens: HR rises from 1.15 to 1.16 to 1.19
+($p = 10^{-55}$). Mutation count becomes more protective
+(HR~$= 0.75$ vs.\ 0.83 baseline). Removing VUS concentrates the
+signal. The severance hierarchy is preserved.
 
 \textbf{Panel bias.} MSK-IMPACT sequences 400--500 genes, a
 fraction of the genome. Mutations in channel genes not on the panel
@@ -464,99 +459,264 @@ compresses the channel-count gradient and works against the
 hypothesis, not for it. The true association between channel count
 and survival is likely stronger than what the panel captures.
 
-\textbf{Limitations.} The analysis does not distinguish hub from
-leaf mutations within a channel, nor does it adjust for stage or
-treatment. The optimal channel count is an empirical question that
-finer-grained pathway databases could resolve. Nevertheless, the
-core result is robust across three independent datasets, eight
-granularities, within individual cancer types, after controlling for
-275 clinical covariates, under three mutation-filtering stringencies,
-and against data-driven alternatives: counting organizational systems
-disrupted predicts survival better than counting disruptions.
+\textbf{Limitations.} Stage at diagnosis and treatment history are
+not available in these datasets. Channel count could correlate with
+stage. Three partial controls mitigate this: (1) within-cancer-type
+analysis, where stage distributions are more homogeneous;
+(2) the 275-covariate model includes FGA and tumor purity, which
+are stage-correlated proxies; (3) MetTropism is an all-metastatic
+cohort where stage variation is minimal, and the signal replicates.
+None of these fully substitute for stage adjustment. The analysis
+also does not distinguish hub from leaf mutations within a channel.
+The projection family predictions (Section~\ref{sec:predictions})
+are untested.
 
 % ------------------------------------------------------------------
-\section{Structural Interpretation}
+\section{Structural Interpretation: Genome as Projection}
 \label{sec:framework}
 % ------------------------------------------------------------------
 
-Why does organizational-function disruption predict survival better
-than mutational burden? The empirical results of
-Section~\ref{sec:empirical} are consistent with a structural model:
-cancer as escalation chain severance under bounded context. The
-formal derivations appear in
-\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d};
-here we state the interpretation in biological terms.
+Mutations damage individual nodes. Channel damage destroys the
+distributed connectivity between nodes. This section explains why.
+
+\textbf{The projection forces three compromises.}
+First, cycles must be broken. A linear sequence can only encode a
+DAG. Feedback loops are severed during projection and reconstructed
+at runtime via transcription factors, signaling cascades, and
+chromatin looping. These reconstructed edges are the most fragile.
+
+Second, hub nodes must be copied. A single address cannot serve all
+adjacencies. The projection writes copies at different addresses.
+What appears as genetic diversity is serialization overhead.
+
+Third, distributed connectivity cannot be written at all. Channels
+exist only in the three dimensional fold of the chromatin:
+unprecipitated knowledge, reconstructed by physical proximity when
+the helix folds.
 
 \textbf{Bounded context and escalation.}
-Any information-processing entity has a hard limit on the number of
-regulatory states it can simultaneously maintain ($C_n$). A cell can
-monitor a finite number of signaling pathways concurrently; an
-organism's working memory holds $4 \pm 1$ items \cite{Cowan2001}.
-Multicellular organization overcomes this limit through hierarchical
-coupling: a cell ($k = 0$) escalates problems exceeding its capacity
-to tissue ($k = 1$), organ ($k = 2$), and organism ($k = 3$) levels
-\cite{McCarthy2026b}. Through intact coupling, the cell's effective
-context exceeds its intrinsic limit.
+A cell can maintain a finite number of regulatory states ($C_n$)
+\cite{Cowan2001}. Multicellular organization overcomes this through
+hierarchical coupling: cell ($k\!=\!0$) escalates to tissue
+($k\!=\!1$), organ ($k\!=\!2$), organism ($k\!=\!3$)
+\cite{McCarthy2026b}. Coupling channels are the independent
+dimensions of this hierarchy: gap junctions at the cell-tissue
+boundary \cite{Aasen2016}, paracrine signaling at tissue-organ,
+endocrine and immune at organ-organism \cite{Hanahan2011}.
 
-\textbf{Coupling channels as the coupling mechanism.}
-The coupling between levels is not monolithic. It decomposes into
-independent channels: gap junctions and cadherins at the cell-tissue
-boundary \cite{Aasen2016, Hanahan2011}, paracrine signaling and ECM
-architecture at the tissue-organ boundary, endocrine signaling and
-immune surveillance at the organ-organism boundary. These are the
-six coupling channels of Section~\ref{sec:empirical}. Each channel
-carries a different class of organizational information; losing one
-does not imply losing the others.
-
-\textbf{Chain severance produces convergent malignancy.}
-When a coupling channel is lost, the cell's effective context
-contracts. Regulatory states that depended on tissue-level or
-organism-level information lose their grounding and are pruned
-\cite{McCarthy2026a}. The action space contracts with the knowledge
-base \cite{McCarthy2026c}: actions requiring tissue-level
-coordination (contact inhibition, apoptosis on organismal command,
-differentiated quiescence) become inaccessible. What remains are
-actions executable with cell-level knowledge alone: proliferation,
-metabolic autonomy, motility. This accounts for why Hanahan and
-Weinberg's hallmarks \cite{Hanahan2011} are observed across cancer
-types: they are the convergent action space under cell-level bounded
-context.
-
-The Warburg effect illustrates this directly. Cancer cells use
-aerobic glycolysis even when oxygen is present. Not because oxygen
-is unavailable, but because after severance the cell lacks
-tissue-level information about oxygen supply reliability and defaults
-to the metabolic strategy that requires no such information
+\textbf{Chain severance.}
+When a channel is lost, the cell's context contracts. Actions
+requiring tissue level coordination become inaccessible
+\cite{McCarthy2026a, McCarthy2026c}. What remains: proliferation,
+metabolic autonomy, motility. Hanahan and Weinberg's hallmarks
+\cite{Hanahan2011} are not acquired capabilities. They are the
+convergent action space under cell level bounded context. The
+Warburg effect is not a metabolic choice; it is the default when
+tissue level information about oxygen supply is gone
 \cite{Warburg1956}.
 
-\textbf{Why channel count predicts survival.}
-Each additional channel severed removes an independent class of
-organizational coupling. The cell's effective context shrinks
-further, its action space narrows further, and its optimization
-regime converges further toward the cell-level attractor. More
-channels severed means more complete decoupling from the organism.
-Mutation count, by contrast, measures depth within channels already
-severed, which is why it becomes protective conditional on channel
-count: deeper commitment to fewer escape routes produces a more
-constrained, predictable tumor.
+Each channel severed removes an independent class of coupling.
+Mutation count measures depth within channels already severed;
+deeper commitment to fewer escape routes produces a more
+constrained tumor. The severance hierarchy (growth first, immune
+last) is the escalation chain read in reverse: cell-tissue coupling
+breaks before organism level coupling can be meaningfully exploited.
 
-\textbf{Why channels are severed in order.}
-The severance hierarchy (PI3K/Growth first, Immune last) follows
-from the escalation architecture. Cell-tissue coupling
-(growth signaling, cell cycle control) is the lowest level of the
-hierarchy and the first to sever. Organism-level coupling (endocrine,
-immune) operates at higher levels and cannot be meaningfully
-exploited until cell-level escape is already achieved. The hierarchy
-is the escalation chain read in reverse.
+Two simultaneous channel breaks in one cell are lethal: the cell
+loses two independent defense axes. Channel count at the patient
+level therefore measures clonal diversity, not per-cell damage.
+Multi-region sequencing confirms this architecture
+\cite{Gerlinger2012, JamalHanjani2017}: trunk mutations (the
+initiating channel break) are clonal; subsequent channel breaks
+appear as subclonal branch events, with different tumor regions
+independently converging on the same pathway through parallel
+evolution. The tumor does not acquire new channels by choice. The
+defense graph topology dictates which channel must break next; the
+specific gene is stochastic.
 
-Chain severance can occur through multiple mechanisms: genetic
-(receptor damage), microenvironmental (signal loss), epigenetic
-(promoter silencing), or spatial (basement membrane breach). All
-produce the same outcome
-(Table~\ref{tab:severance-mechanisms}).
-This explains why cancers arising from different mechanisms
-(hereditary, environmental, sporadic) converge on the same
-phenotypic endpoints.
+\textbf{Projection families.}
+Genes sharing interaction neighborhoods, mutation profiles, channel
+assignments, and survival impact are projections of the same node.
+The genome maintains redundant copies of critical subgraphs like a
+RAID array. Lose one copy and the system degrades. Remove the parity
+check (the synthetic lethal partner) and the degraded array fails.
+
+Drug response follows projection families, not gene names. A PARP
+inhibitor works regardless of which DDR copy is broken: BRCA1,
+BRCA2, RAD51C, or any other projection of the same node. The drug
+targets function, not address.
+
+Chain severance occurs through multiple mechanisms: genetic, micro\-environmental,
+epigenetic, spatial (Table~\ref{tab:severance-mechanisms}). All
+produce the same outcome, explaining why hereditary, environmental,
+and sporadic cancers converge on the same phenotypic endpoints.
+
+% ------------------------------------------------------------------
+\section{Predictions}
+\label{sec:predictions}
+% ------------------------------------------------------------------
+
+Four classes of prediction follow from the projection framework:
+expanded eligibility, combination futility, combination timing, and
+untested targets.
+
+\subsection{DDR family: PARP inhibitor eligibility expansion}
+
+Current PARP inhibitor trials screen for a fixed list of DDR genes:
+\emph{BRCA1}, \emph{BRCA2}, \emph{ATM}, \emph{PALB2},
+\emph{RAD51C}, \emph{RAD51D}, \emph{FANCA}, \emph{FANCC},
+\emph{FANCD2}. The framework predicts that additional DDR genes
+sharing the same protein-protein interaction neighborhoods, mutation
+type profiles, and survival impact should respond identically.
+Candidates include \emph{BLM}, \emph{NBN}, \emph{ERCC4},
+\emph{CHEK1}, \emph{CHEK2}, \emph{RAD51B}, \emph{RAD51},
+\emph{BRIP1}, \emph{MRE11}, and \emph{XRCC2}. In the MSK-IMPACT
+44{,}000-patient cohort, these genes collectively account for over
+4{,}000 patients---nearly 10\% of the cohort---none of whom are
+currently eligible for PARP inhibitor trials.
+
+\textbf{Testable claim:} Patients with loss-of-function mutations in
+\emph{BLM}, \emph{NBN}, \emph{ERCC4}, \emph{BRIP1}, or \emph{MRE11}
+will show PARP inhibitor sensitivity comparable to \emph{BRCA2}
+carriers, as measured by objective response rate and
+progression-free survival.
+
+\subsection{PI3K family: AKT/mTOR inhibitor eligibility expansion}
+
+\emph{PIK3CA} and \emph{PTEN} respond to PI3K/AKT/mTOR inhibitors.
+\emph{PIK3C2G}, \emph{INPP4B}, \emph{PIK3CB}, \emph{PIK3CD}, and
+\emph{PIK3R3} are members of the same functional family with
+overlapping interaction neighborhoods but no drug sensitivity data.
+
+\textbf{Testable claim:} Loss-of-function mutations in
+\emph{INPP4B}, \emph{PIK3CB}, and \emph{PIK3CD} confer sensitivity
+to AKT inhibitors (e.g., capivasertib) comparable to
+\emph{PTEN}-loss patients.
+
+\subsection{FGF family: FGFR inhibitor eligibility expansion}
+
+\emph{FGFR1}, \emph{FGFR2}, and \emph{FGFR3} respond to FGFR
+inhibitors (erdafitinib, futibatinib). \emph{FGFR4} and
+\emph{FGF4} are functional family members with no targeted
+therapy data.
+
+\textbf{Testable claim:} Activating mutations in \emph{FGFR4}
+confer sensitivity to pan-FGFR inhibitors comparable to
+\emph{FGFR2/3} fusion carriers.
+
+\subsection{Chromatin remodeling: CREBBP/EP300}
+
+\emph{CREBBP} and \emph{EP300} form one of the strongest functional
+pairs in the model (3{,}491 combined patients). Both are histone
+acetyltransferases with overlapping PPI neighborhoods and near-identical
+mutation profiles. Neither has established targeted therapy.
+
+\textbf{Testable claim:} \emph{CREBBP} and \emph{EP300} mutations
+should respond to the same targeted therapy, once one exists. The
+projection framework predicts functional equivalence; it does not
+identify the drug. This is a prediction about family structure, not
+a treatment recommendation.
+
+\subsection{Same-channel combinations fail}
+
+The framework predicts that combining two drugs targeting the same
+coupling channel provides additive benefit at best, with compounding
+toxicity. The second drug adds dose, not a new therapeutic axis.
+
+\textbf{Testable claim:} PARP + ATR inhibitors, PARP + WEE1
+inhibitors, PARP + ATM inhibitors, and dual PARP1/2 versus
+PARP1-selective will show no significant PFS improvement over the
+simpler regimen after adjusting for toxicity. Dual targeting within
+a channel is architecturally redundant.
+
+\subsection{Cross-channel combination timing}
+
+Cross-channel combinations target two independent vulnerabilities.
+The framework predicts they work only when \emph{both channels are
+intact at treatment}.
+
+\textbf{Metastatic futility:} In metastatic HR+ breast cancer
+patients post-endocrine progression, adding a SERD (camizestrant)
+to a PARP inhibitor (saruparib) will show minimal additional PFS
+over PARP monotherapy. The endocrine escape has already occurred.
+
+\textbf{Adjuvant harmonization:} In the adjuvant setting, low-dose
+PARP1-selective inhibitor alongside endocrine therapy will produce
+synergistic benefit in germline DDR carriers. The PARP kills cells
+at DDR second-hit before they accumulate ESR1 resistance mutations.
+The endocrine therapy maintains the channel those cells would have
+escaped through. Each drug extends the other's efficacy.
+
+Tamoxifen works adjuvantly because it maintains the endocrine
+channel before severance. The same logic applies to DDR. PARP1-selective
+inhibitors (saruparib) eliminate PARP2-driven hematological
+suppression, enabling the long-term low-dose administration that
+adjuvant use requires. OlympiA showed adjuvant olaparib is
+tolerable alongside endocrine therapy; a PARP1-selective agent
+should be more tolerable still.
+
+\subsection{Testable observation: natural PARP1 disruption}
+
+If projection families share drug vulnerability, then naturally
+occurring \emph{PARP1} loss-of-function mutations should produce
+the same synthetic lethality as PARP inhibitors in patients with
+DDR partner mutations.
+
+\textbf{Testable claim:} Patients with \emph{PARP1}
+loss-of-function alongside DDR partner mutations will show improved
+survival relative to DDR-mutant patients without \emph{PARP1}
+mutations. A properly powered study with matched controls would
+constitute a strong test of the synthetic lethality mechanism
+independent of drug administration.
+
+All drug-response predictions follow from one principle: screen by
+functional node, not by gene name.
+
+\subsection{Graph position predictions}
+
+If projection families define which genes share a vulnerability,
+graph position determines which phenotype results. Hub mutations
+(high-connectivity, upstream) should produce worse outcomes and
+broader phenotypes than leaf mutations (downstream, specific
+effectors) in the same channel, because hubs sever more downstream
+connections per event.
+
+\textbf{Testable claim:} Hub mutations carry worse prognosis than
+leaf mutations within the same channel, after controlling for
+channel count and cancer type.
+
+\textbf{Testable claim:} BRCA1 (DDR hub) and BRCA2 (DDR leaf)
+produce divergent breast cancer phenotypes. BRCA1 mutations enrich
+for triple-negative subtype and aggressive metastatic tropism.
+BRCA2 mutations enrich for HR+ subtype and bone-predominant
+metastasis. RAD51C, as a leaf-position DDR gene, phenocopies BRCA2,
+not BRCA1.
+
+Companion paper \cite{McCarthy2026f} tests these graph-position
+predictions, including the distinction between gain-of-function
+(which maintains coupling) and loss-of-function (which severs it),
+and the directional escalation pattern within and across channels.
+
+\subsection{Channel severance beyond genetics}
+
+Channel severance occurs through any mechanism that disrupts the
+coupling between organizational levels (Table~\ref{tab:severance-mechanisms}).
+Genetic mutation is one route. Immunosuppression, neurodegeneration,
+environmental disruption, and iatrogenic intervention are others.
+If the framework is correct, non-genetic channel severance should
+produce the same cancer risk predictions as genetic severance.
+
+\textbf{Testable claim:} Organ transplant recipients on long-term
+immunosuppression have artificially severed immune channels. The
+framework predicts elevated cancer risk concentrated in immune-
+surveillance-dependent cancer types, not uniform elevation across
+all cancers. This is observed \cite{Engels2011}.
+
+Non-genetic channel severance produces predictions spanning
+psychiatry, neurology, and epidemiology. Companion paper
+\cite{McCarthy2026h} develops these formally; here we note only that
+the framework's logic applies to any severance mechanism, not
+exclusively genetic mutation.
 
 % ------------------------------------------------------------------
 \section{Engagement with Prior Work}
@@ -574,34 +734,38 @@ structure of tissue organization, $C_n^{\mathrm{eff}}$ is the
 measure of organizational integration, and chain severance is
 the formal description of organizational breakdown. TOFT's
 ``default proliferative state'' is our ``necessary action space
-under cell-level $C_n$.''
+under cell level $C_n$.''
+
+No existing cancer model addresses the projection layer. Current
+frameworks treat genes as independent entities that participate in
+shared pathways. The projection view treats them as copies of shared
+functional nodes. This changes what it means to ``target a gene.''
 
 % ------------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
 % ------------------------------------------------------------------
 
-Counting organizational systems disrupted predicts cancer survival
-better than counting mutations. This result is robust across three
-independent datasets (73{,}593 patients), eight channel
-granularities, within individual cancer types, after adjusting for
-275 clinical covariates, under three mutation-filtering stringencies,
-and against data-driven alternatives. Coupling channels are severed
-in escalation order: cell-intrinsic first, organism-level last.
+Channel count predicts cancer survival ($p < 10^{-44}$). Mutation
+count does not.
 
-The structural interpretation is chain severance: a cell that loses
-its coupling channels loses the effective context those channels
-provided and converges on cell-level optimization. The formal
-derivations appear in companion papers
-\cite{McCarthy2026a, McCarthy2026b, McCarthy2026c, McCarthy2026d}.
+The structural interpretation: the genome is a linear projection
+of a functional graph. Channels are the distributed connectivity
+that no single gene encodes. Genes in the same projection family
+carry the same drug vulnerability. Graph position within a family
+determines phenotype. Channel severance by any mechanism, genetic
+or otherwise, produces the same outcome.
 
-The immediate question the empirical result raises is whether
-finer-grained distinctions within channels, specifically the
-position of a mutation in the signaling graph (hub vs.\ leaf), carry
-additional prognostic information beyond channel count alone. If so,
-the coupling-channel framework generates predictions about cancer
-subtype, metastatic tropism, and combination therapy design that are
-testable against these same datasets.
+This generates falsifiable predictions across four domains:
+drug eligibility expansion (PARP, PI3K/AKT, FGFR), combination
+therapy timing, graph position phenotyping, and non-genetic
+channel severance (transplant immunosuppression, neurodegeneration,
+information-environment cancer risk).
+
+Screen by function, not by gene name. Companion papers test these
+predictions \cite{McCarthy2026f, McCarthy2026h}. Formal derivations
+appear in \cite{McCarthy2026a, McCarthy2026b, McCarthy2026c,
+McCarthy2026d}.
 
 \section*{Acknowledgments}
 
@@ -654,6 +818,26 @@ P.~D. McCarthy.
   invariants of intelligence.
 \newblock Manuscript, 2026.
 
+\bibitem{McCarthy2026f}
+P.~D. McCarthy.
+\newblock Mutation position in the signaling graph predicts cancer survival
+  beyond channel count.
+\newblock Manuscript, 2026.
+
+\bibitem{Engels2011}
+E.~A. Engels, R.~M. Pfeiffer, J.~F. Fraumeni, B.~L. Kasiske,
+  A.~K. Israni, J.~J. Snyder, R.~A. Wolfe, N.~P. Goodrich,
+  A.~L. Bayakly, G.~L. Clarke, and others.
+\newblock Spectrum of cancer risk among {US} solid organ transplant
+  recipients.
+\newblock \emph{JAMA}, 306(17):1891--1901, 2011.
+
+\bibitem{McCarthy2026h}
+P.~D. McCarthy.
+\newblock Context window diseases and cancer risk: Neural computation
+  cost as a unifying mechanism.
+\newblock Manuscript, 2026.
+
 \bibitem{Sonnenschein2000}
 C.~Sonnenschein and A.~M. Soto.
 \newblock Somatic mutation theory of carcinogenesis: Why it should be dropped
@@ -700,6 +884,26 @@ C.~Bandlamudi, J.~J.~Harding, A.~Zehir, and others.
 \newblock Clinical genomic profiling of 50,000 patients:
   Experience from the {MSK-IMPACT} clinical sequencing cohort.
 \newblock \emph{Cancer Cell}, 2026.
+
+\bibitem{Gerlinger2012}
+M.~Gerlinger, A.~J. Rowan, S.~Horswell, J.~Larkin, D.~Endesfelder,
+  E.~Gronroos, P.~Martinez, N.~Matthews, A.~Stewart, P.~Tarpey, and others.
+\newblock Intratumor heterogeneity and branched evolution revealed by
+  multiregion sequencing.
+\newblock \emph{New England Journal of Medicine}, 366(10):883--892, 2012.
+
+\bibitem{JamalHanjani2017}
+M.~Jamal-Hanjani, G.~A. Wilson, N.~McGranahan, N.~J. Birkbak,
+  T.~B.~K. Watkins, S.~Veeriah, S.~Shafi, D.~H. Johnson,
+  R.~Mitter, R.~Rosenthal, and others.
+\newblock Tracking the evolution of non-small-cell lung cancer.
+\newblock \emph{New England Journal of Medicine}, 376(22):2109--2121, 2017.
+
+\bibitem{Swanton2023}
+C.~Swanton, N.~McGranahan, G.~A. Wilson, and others (TRACERx Consortium).
+\newblock The evolution of lung cancer and impact of subclonal selection
+  in {TRACERx}.
+\newblock \emph{Nature}, 616(7958):525--533, 2023.
 
 \bibitem{Nowell1976}
 P.~C. Nowell.

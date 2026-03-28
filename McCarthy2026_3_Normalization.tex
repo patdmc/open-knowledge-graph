@@ -36,8 +36,8 @@ design choice but a scaling constraint imposed by bounded~$C_n$.
 From the normalization theorem we derive the retention criterion
 (retain when benefit is uncertain; prune only when benefit is
 certainly zero) and $K/A$ inseparability (the content of $K$ is
-constitutively determined by $A$). These results engage with recent proposals to give observation and action separate
-training objectives \cite{DupouxLeCunMalik2026}. Such separation violates a structural constraint imposed by bounded context.
+constitutively determined by $A$). These results imply that proposals to give observation and action separate
+training objectives violate a structural constraint imposed by bounded context.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -704,15 +704,14 @@ load and update inconsistency; $K$ is the normal form that eliminates
 both. The contribution is showing that normalization is not merely a
 good engineering practice but a necessary consequence of bounded context.
 
-\textbf{Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.}
-Their proposed architecture separates System~A (observation and world
-modeling) from System~B (action and planning), with separate training
-objectives. Corollary~\ref{cor:inseparability} shows that separate
-training objectives violate a structural constraint: the content of
-the world model must reference the action space (which propositions are
-action-relevant), and the action space must reference the world model
-(which actions are groundable). Separate modules with a shared loss is
-compatible; separate training objectives is not.
+\textbf{Separate training objectives for observation and action.}
+Corollary~\ref{cor:inseparability} shows that separate
+training objectives for observation and action modules violate a
+structural constraint: the content of the world model must reference
+the action space (which propositions are action-relevant), and the
+action space must reference the world model (which actions are
+groundable). Separate modules with a shared loss is compatible;
+separate training objectives is not.
 
 \textbf{Information Bottleneck \cite{Tishby2000, Tishby2011}.}
 The information bottleneck retains information relevant to an output
@@ -833,11 +832,7 @@ A.~K. Dixit and R.~S. Pindyck.
 \newblock \emph{Investment Under Uncertainty}.
 \newblock Princeton University Press, 1994.
 
-\bibitem{DupouxLeCunMalik2026}
-E.~Dupoux, Y.~LeCun, and J.~Malik.
-\newblock Why {AI} systems don't learn and what to do about it: Lessons on
-  autonomous learning from cognitive science.
-\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
 
 \bibitem{Fodor1983}
 J.~A. Fodor.

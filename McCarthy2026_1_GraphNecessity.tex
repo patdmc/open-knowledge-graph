@@ -126,17 +126,6 @@ description logics and OWL are not an engineering convenience but the
 minimal structure any system must maintain. This result retroactively
 grounds decades of practice in a formal necessity argument.
 
-Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose a
-dual-system architecture (observation + action) with meta-control
-routing, motivated by cognitive science. Their framework is
-architectural and prescriptive: it argues that autonomous learning
-\emph{should} integrate observation, action, and meta-control. The
-present work is complementary. Rather than proposing what intelligent
-systems should contain, we derive what they \emph{must} contain under
-bounded context. The graph structure derived here also implies that
-information could flow bidirectionally between observation and action,
-not unidirectionally from perception to response.
-
 The information bottleneck principle \cite{Tishby2000} establishes that
 optimal representations compress input while preserving information
 relevant to output. Our information preservation argument
@@ -1168,6 +1157,27 @@ such a system necessarily maintains a directed graph with typed edges, whether t
 graph is realized as explicit edges, learned sparse attention, synaptic
 connectivity, or any other medium.
 
+\subsection*{Computational consequence}
+
+A proven structural result eliminates design space permanently.
+If graph structure is necessary, then any system that discovers
+graph-like organization from data is rediscovering what the proof
+already establishes---paying the discovery cost on every training
+run for structure that was already known. The proof pays that cost
+once.
+
+The practical consequence is direct. A learning system operating
+over $n$ unstructured features must evaluate $O(n^2)$ pairwise
+interactions to discover which ones carry signal. A system informed
+by the proven structure evaluates only the $O(k^2)$ interactions
+the theory identifies as meaningful, where $k \ll n$. The
+compression ratio $(n/k)^2$ is not an approximation; it is the
+computational dividend of a proof. The proven structure does not
+need to be rediscovered. It does not degrade. It does not require
+retraining. Each theorem in this series eliminates a region of
+the search space that no system---biological or artificial---needs
+to explore again.
+
 \section*{Acknowledgments}
 
 The author used Claude (Anthropic) for drafting assistance, literature review, and \LaTeX{} preparation. All theoretical content, proofs, and arguments are the author's own.
@@ -1225,11 +1235,6 @@ J.~Doyle.
 \newblock A truth maintenance system.
 \newblock \emph{Artificial Intelligence}, 12(3):231--272, 1979.
 
-\bibitem{DupouxLeCunMalik2026}
-E.~Dupoux, Y.~LeCun, and J.~Malik.
-\newblock Why {AI} systems don't learn and what to do about it: Lessons on
-  autonomous learning from cognitive science.
-\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
 
 \bibitem{Geva2021}
 M.~Geva, R.~Schuster, J.~Berant, and O.~Levy.

@@ -46,8 +46,7 @@ converges toward escalation. The pressure is one-directional:
 escalation never converges toward top-down, because it never
 introduces anticipatory delegation context. This result refines
 precision allocation models including the Free Energy Principle
-\cite{Friston2010,Friston2017} and the System~M routing architecture
-of Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.
+\cite{Friston2010,Friston2017}.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -82,9 +81,7 @@ Two complementary mechanisms address this problem:
    architecture is implicit in precision weighting under the Free
    Energy Principle \cite{Friston2010,Friston2017}, where higher
    cortical levels set the gain on prediction errors at lower levels.
-   It is explicit in the System~M proposal of Dupoux, LeCun, and Malik
-   \cite{DupouxLeCunMalik2026}, where a meta-controller directs when
-   Systems~A (observation) and B (action) engage. Kahneman's popular
+   Kahneman's popular
    account of System~1 and System~2 \cite{Kahneman2011} implicitly
    assumes top-down control: System~2 ``decides'' when to override
    System~1.
@@ -918,33 +915,6 @@ prediction errors signal genuine novelty. The two mechanisms are
 complementary: escalation handles routine precision; active allocation
 directs the bounded capacity that remains.
 
-\subsection{System M: Dupoux, LeCun, and Malik}
-
-Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose a
-three-component architecture: System~A (observation/world models),
-System~B (action/planning), and System~M (meta-control), where M is a
-fixed evolutionary routing policy that directs when A and B engage.
-System~M monitors epistemic signals and routes data between
-subsystems.
-
-This is explicitly top-down: M sits above A and B, monitoring their
-states and directing their activity. Theorem~\ref{thm:topdown}
-establishes that M's monitoring itself consumes $C_n$ proportionally
-to the number of subsystems and channels it oversees. As the
-architecture scales, more world models, more action policies, more
-channels, M's overhead grows, eventually crowding out the capacity
-for the reasoning that M is supposed to coordinate.
-
-Their architecture would benefit from complementing top-down routing
-with escalation: subsystems A and B signal M only on failure (when
-local uncertainty exceeds a threshold), rather than M continuously
-polling all subsystems for state. Under this hybrid, M retains
-authority for genuinely novel coordination but engages only when a
-subsystem cannot resolve its own uncertainty, so the overhead at
-M's level is proportional to the \emph{failure rate}, not the
-\emph{system size}. Escalation is what keeps M viable as the
-architecture scales.
-
 \subsection{Global Workspace Theory}
 
 Global Workspace Theory \cite{Baars1988,Dehaene2011} already
@@ -1237,11 +1207,7 @@ S.~Dehaene.
   Our Thoughts}.
 \newblock Viking Press, 2011.
 
-\bibitem{DupouxLeCunMalik2026}
-E.~Dupoux, Y.~LeCun, and J.~Malik.
-\newblock Why {AI} systems don't learn and what to do about it: Lessons on
-  autonomous learning from cognitive science.
-\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
 
 \bibitem{Friston2010}
 K.~Friston.

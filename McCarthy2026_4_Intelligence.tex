@@ -47,7 +47,8 @@ under positive novelty rate; without $\eta_M > 0$, active context
 fills without relief and inference degrades to failure. Every other
 property can equal zero for some persistent entity. Therefore
 $I(E) = \gamma \cdot \eta_M$---the rate of adaptation to novelty---is
-the unique measure of intelligence, derived not stipulated.
+the natural measure of intelligence, derived from these structural
+invariants rather than stipulated.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -94,13 +95,10 @@ collapsing them is increasingly costly under positive novelty rate.
 Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
 learning efficiency $\eta_M > 0$ are the unique structural invariants
 of persistence, and Corollary~\ref{cor:measure} derives
-$I(E) = \gamma \cdot \eta_M$ as the unique intelligence measure.
+$I(E) = \gamma \cdot \eta_M$ as the natural intelligence measure.
 
 Several lines of prior work converge on these questions.
-Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026} propose a
-bilevel optimization framework but treat the learning rate
-relationship between levels as a design parameter rather than deriving
-it, and deliberately avoid defining intelligence. Hutter
+Hutter
 \cite{Hutter2005} and Legg and Hutter \cite{LeggHutter2007} define
 intelligence as average performance over computable environments;
 we define it as rate of improvement, independent of current
@@ -930,22 +928,6 @@ accesses a larger region of the $(A, K)$ landscape.
 
 \subsection{Intelligence Measures and Definitions}
 
-\textbf{Dupoux, LeCun, and Malik \cite{DupouxLeCunMalik2026}.}
-They deliberately avoid defining intelligence, instead characterizing
-it as the capacity for autonomous learning. Theorem~\ref{thm:invariants}
-establishes that this is structurally correct: $\gamma > 0$ and
-$\eta_M > 0$ are the unique invariants. Their product is the definition
-they avoided giving. Their bilevel optimization framework (inner loop as
-development, outer loop as evolution) captures the correct structural
-relationship between encoding levels, but treats the learning rate
-difference as a design parameter: the inner loop is fast because it is
-designed to be fast. Definition~\ref{def:encoding} derives this from
-first principles: $\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$ because
-$C_0 \gg C_n$. Their ``System~M'' that is ``not learned through
-gradient descent'' but fixed by evolution is explained by
-$\theta_0 \approx 1$: only mechanisms validated across maximal
-environmental variation meet this threshold.
-
 \textbf{Hutter \cite{Hutter2005} and Legg--Hutter \cite{LeggHutter2007}.}
 Three structural differences: (1)~AIXI assumes unbounded computation;
 we have bounded $C_n$. Under bounded context, the AIXI solution is
@@ -1272,9 +1254,12 @@ Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
 $\eta_M > 0$ are the unique structural invariants of persistence under
 positive novelty rate. The free-context exhaustion argument eliminates
 $\gamma = 0$ entities; the promotion argument eliminates $\eta_M = 0$
-entities. The product $I(E) = \gamma \cdot \eta_M$ is the unique measure
+entities. The product $I(E) = \gamma \cdot \eta_M$ is the natural measure
 consistent with these invariants, derived from the law of total
 expectation applied to a probability gate and a conditional rate.
+Any monotone transform of $I(E)$ preserves the ordering over entities;
+we claim naturality (the measure falls out of the derivation without
+arbitrary choices), not uniqueness up to transformation.
 
 The four-paper chain derives, from the single constraint of bounded
 active context, the necessary architecture: graph structure,
@@ -1316,11 +1301,7 @@ T.~M. Cover and J.~A. Thomas.
 \newblock \emph{Elements of Information Theory}.
 \newblock Wiley-Interscience, 2nd edition, 2006.
 
-\bibitem{DupouxLeCunMalik2026}
-E.~Dupoux, Y.~LeCun, and J.~Malik.
-\newblock Why {AI} systems don't learn and what to do about it: Lessons on
-  autonomous learning from cognitive science.
-\newblock \emph{arXiv preprint arXiv:2603.15381}, 2026.
+
 
 \bibitem{England2013}
 J.~L. England.

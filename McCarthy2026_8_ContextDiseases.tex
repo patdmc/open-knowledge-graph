@@ -18,7 +18,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Context Window Diseases and Cancer Risk:\\Neural Computation Cost as a Unifying Mechanism}
+\title{The Cost of Computation:\\Shared Molecular Machinery Between Learning and Cancer}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -26,45 +26,29 @@
 \maketitle
 
 \begin{abstract}
-We propose that psychiatric disorders classifiable as context window
-failures share molecular machinery with cancer. The direction of cancer risk depends on the failure mode. Mild context
-inefficiency, where the neural context-switching machinery operates
-at high cost per bit of uncertainty reduced, predicts elevated
-cancer risk. Severe context failure, where the machinery is disabled,
-predicts reduced cancer risk. This yields an inverted-U relationship
-between context dysfunction severity and cancer incidence.
+Paper~3 of this series proved that knowledge and action are
+inseparable under bounded context: the machinery that stores
+knowledge is the same machinery that executes action. This paper
+identifies the physical substrate of that inseparability.
 
-The mechanism: neural computation requires topoisomerase-mediated DNA
-double-strand breaks for gene expression during learning and memory
-formation. Each context switch imposes a DNA damage cost independent
-of whether the switch produced useful knowledge. Disorders
-characterized by excessive context switching (ADHD, anxiety),
-context locking (PTSD, OCD), or context narrowing (depression)
-accumulate DNA damage at elevated rates relative to knowledge
-acquired. The chromatin remodeling genes that repair this damage,
-\emph{ARID1A}, \emph{KMT2C}, \emph{SMARCA4}, \emph{DNMT3A}, are
-the same genes whose somatic mutation drives cancer progression.
+Neurons break their own DNA to learn. Topoisomerase~II$\beta$
+creates double-strand breaks in promoter regions during memory
+formation \cite{Madabhushi2015}. The chromatin remodeling genes
+that repair this damage---\emph{ARID1A}, \emph{KMT2C},
+\emph{SMARCA4}, \emph{DNMT3A}---are the same genes whose somatic
+mutation drives cancer progression. This is not coincidence. It is
+the molecular consequence of K/A inseparability: the read/write
+machinery for knowledge is the same machinery whose failure
+enables cancer.
 
-We formalize this using the bounded-context framework
-\cite{McCarthy2026a}, deriving a mutation cost rate proportional to
-the inverse of effective channel capacity $C_n$. We classify
-psychiatric conditions by context window failure mode, map each to
-its known cancer risk profile, and show that the inverted-U pattern
-is consistent across sixteen conditions. We propose a three-tier
-clinical protocol: interrupt the thrash (somatic techniques),
-optimize the scheduler (cognitive therapy), tune the hardware
-(pharmacotherapy); with somatic mutation burden in chromatin
-remodeling genes from circulating free DNA as the molecular
-biomarker linking psychological intervention to cancer risk
-reduction. A meta-tier, molecular monitoring of chromatin
-remodeling gene mutations via liquid biopsy, operates on a
-different problem space: the escalation chain itself. Where
-the three treatment tiers optimize the context window, the
-meta-tier reads the state of the escalation hierarchy directly,
-detecting both accumulating damage and somatic modifications
-that have already altered the chain.
-
-Twelve falsifiable predictions are stated.
+We prove three claims. First, learning causes targeted DNA
+double-strand breaks (established biology). Second, the genes that
+repair these breaks overlap with cancer driver genes (checkable
+from public data). Third, this overlap is a structural consequence
+of bounded context: any system that modifies its own substrate to
+store knowledge will share failure modes with uncontrolled
+substrate modification. We derive predictions and state what we do
+not yet know.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -89,12 +73,7 @@ errors accumulate.
 The question is: does the \emph{efficiency} of learning determine
 the rate of accumulation?
 
-We argue that it does. Psychiatric disorders are classifiable by
-how they degrade the efficiency of the neural context window.
-The resulting excess DNA damage cost explains an otherwise
-puzzling pattern in the epidemiological literature: mild
-psychiatric disorders elevate cancer risk, while severe ones
-reduce it.
+We argue that it does.
 
 \subsection{The cost per bit}
 
@@ -122,387 +101,53 @@ An efficient learner has high $C_n$: each cycle reduces uncertainty
 productively. The DNA damage cost per bit is near the minimum
 $\delta / C_n$.
 
-A context window disorder reduces effective $C_n$ without reducing
-$N_{\text{cycles}}$. The system computes at the same rate but
-learns less per cycle. The mutation cost per bit rises. Over
-decades, the difference compounds.
+Any process that reduces effective $C_n$ without reducing
+$N_{\text{cycles}}$ increases the mutation cost per bit.
+The system computes at the same rate but learns less per cycle.
+Over decades, the difference compounds.
 
-% ------------------------------------------------------------------
-\section{Context Window Failure Taxonomy}
-\label{sec:taxonomy}
-% ------------------------------------------------------------------
+\subsection{Connection to Paper~3}
 
-We classify psychiatric conditions by how they degrade the context
-window. The context window, in bounded-context theory
-\cite{McCarthy2026a}, is the set of propositions simultaneously
-available for inference. It has a hard capacity bound $C_n$ and
-supports four operations: load, hold, release, and switch.
+Paper~3 \cite{McCarthy2026c} proved that knowledge and action
+are inseparable under bounded context: the same substrate that
+stores propositions must also execute inference over them.
+In biological systems, that substrate is chromatin. The genes
+that control which other genes are readable---the chromatin
+remodeling complex---are simultaneously the knowledge store
+(their configuration determines what the cell ``knows'') and
+the action machinery (their activity determines what the cell
+can do).
 
-Each operation can fail. The failure mode determines the
-computational waste pattern and, we argue, the cancer risk profile.
-
-\subsection{Premature eviction: context cannot hold}
-
-The window evicts propositions before they are consolidated.
-Each eviction triggers a full context reload, a new round of gene
-expression changes with associated DNA breaks---for a partial or
-zero information gain.
-
-\textbf{ADHD.} The canonical premature eviction disorder.
-Attention shifts before consolidation completes. The system
-thrashes: high cycle count, low bits per cycle, elevated
-$\mu$. Hyperfocus episodes represent the complementary failure;
-the window locks on a single context and refuses to release,
-which is costly only if the locked context is not productive.
-
-A large Swedish registry study ($n \approx 4$ million) found
-ADHD associated with elevated overall cancer risk after
-adjustment for lifestyle confounders \cite{Sun2022}. ADHD shares
-genetic variants with cell cycle regulation and chromatin
-remodeling pathways, the same coupling channels identified in
-\cite{McCarthy2026e} as cancer-critical.
-
-\textbf{Traumatic brain injury.} Physical damage to the context
-buffer. Elevated glioma risk is well-documented \cite{Chen2012tbi}.
-The mechanism in our framework: damaged tissue requires elevated
-repair activity, consuming DDR channel capacity that would
-otherwise catch somatic mutations.
-
-\subsection{Context lock: context cannot release}
-
-The window loads a context and cannot release it. New evidence
-cannot enter. The locked context replays repeatedly, each replay
-incurring the full DNA damage cost of gene expression, while the
-information gain is zero (the replay teaches nothing new).
-
-\textbf{PTSD.} Traumatic context replays involuntarily. Each
-flashback activates the same neural circuits, the same gene
-expression programs, the same DNA breaks, in promoter regions
-already weakened by prior replay. Large Veterans Affairs studies
-show elevated cancer incidence in PTSD patients after adjustment
-for substance use and other behavioral confounders
-\cite{Gradus2015}. The standard explanation is cortisol-mediated
-immune suppression. Our framework adds a mechanism: the replay
-loop imposes a DNA damage cost with $\Delta H = 0$ per cycle.
-
-\textbf{OCD.} Checking loops. The context window loads a threat
-assessment, cannot resolve it, clears, reloads, re-checks. Each
-cycle costs DNA breaks. No uncertainty is reduced because the
-check never terminates. Some epidemiological evidence supports
-mildly elevated cancer risk \cite{Shen2013}.
-
-\textbf{Addiction.} The reward context overrides the scheduler.
-The window is permanently loaded with the reward-seeking program,
-suppressing context switches that would serve learning. Neural
-circuits associated with the addictive behavior are chronically
-active; associated DNA damage accumulates in those circuits
-specifically. Elevated cancer risk in addiction is well-documented,
-typically attributed to carcinogen exposure (smoking, alcohol).
-Our framework predicts elevated risk even for non-carcinogen
-addictions (gambling, behavioral addiction) through the context
-lock mechanism alone. Limited evidence is consistent with this
-\cite{Tao2017}.
-
-\subsection{Context narrowing: window contracts}
-
-The window's effective capacity shrinks. Fewer propositions are
-loaded per cycle. The system still computes, still breaks DNA,
-but each cycle processes a diminished context.
-
-\textbf{Depression.} The context window collapses to a narrow
-negative prior. Rumination, the repetitive reprocessing of
-negative content, is computation with near-zero information gain.
-The system runs at full metabolic and DNA damage cost but acquires
-no new knowledge. Depression approaches a \textbf{near-zero-$C_n$ state with
-nonzero compute cost}: as effective capacity $C_n^{\text{eff}}
-\to 0$, the mutation cost per bit $\mu \to \infty$. The system
-pays the full DNA damage cost of computation while acquiring
-almost nothing.
-
-Meta-analyses consistently show elevated cancer risk in depression
-\cite{Chida2008}. The standard explanation involves cortisol,
-inflammatory cytokines, and behavioral factors (reduced screening,
-poor diet). Our framework does not compete with these mechanisms.
-It adds a direct molecular channel: rumination-driven DNA damage
-in neurons and, via systemic stress signaling, in peripheral
-tissues.
-
-\textbf{Anxiety.} The context window is too wide. Everything is
-loaded as a potential threat. The system evaluates an excessive
-number of propositions per cycle; most are irrelevant. The
-information gain per cycle is diluted by the noise. Mixed
-epidemiological evidence: some studies show mildly elevated cancer
-risk \cite{Batty2017}.
-
-\subsection{Context dissolution: boundaries fail}
-
-The window loses the ability to maintain coherent boundaries
-between contexts. Unrelated propositions bleed into each other.
-The system cannot maintain the separation between ``self'' and
-``other,'' between ``current context'' and ``irrelevant context.''
-
-\textbf{Schizophrenia.} Context boundaries dissolve.
-Schizophrenia has \emph{reduced} cancer risk in multiple
-large epidemiological studies \cite{Catts2008, Ji2013}. This
-is one of the most replicated and least explained findings in
-psychiatric epidemiology.
-
-In our framework, the explanation is direct. Schizophrenia
-disables the context-switching machinery. Chromatin remodeling
-genes that are risk factors for schizophrenia overlap substantially
-with cancer-critical genes \cite{Singh2016}. If these genes are
-already non-functional (from germline variants that cause
-schizophrenia), they cannot be \emph{further} corrupted by somatic
-mutation to enable cancer. Moreover, cancer cells require
-functional chromatin remodeling to execute the gene expression
-reprogramming necessary for tumor progression, the switch from
-``normal cell context'' to ``invasive metastatic context.'' A
-system in which the context-switching machinery is broken cannot
-execute this transition.
-
-This predicts that antipsychotic treatment, which partially
-restores context-switching function, should move cancer risk back
-toward baseline. Evidence supports this: antipsychotic use in
-schizophrenia is associated with increased cancer risk relative
-to unmedicated patients \cite{Solmi2020}. The standard explanation
-is metabolic side effects. Our framework offers a mechanistic
-alternative: restoring the chromatin remodeling machinery
-re-enables the context switches that cancer requires.
-
-\subsection{Context index failure: retrieval breaks}
-
-The window can still hold propositions, but the retrieval system
-that selects which propositions to load is corrupted. The wrong
-context is loaded, or no context can be loaded at all.
-
-\textbf{Alzheimer's disease.} The context index is destroyed.
-Like schizophrenia, Alzheimer's has \emph{reduced} cancer risk.
-The inverse comorbidity between Alzheimer's and cancer is among
-the most robust findings in epidemiology \cite{Driver2012,
-Musicco2013}. The shared molecular basis centers on TP53:
-activation of p53 kills cells (prevents cancer, promotes
-neurodegeneration); loss of p53 lets cells survive (enables
-cancer, may protect neurons) \cite{Behrens2009}. In our
-framework: the same checkpoint that decides ``this cell's context
-is corrupted, kill it'' is the gate between the neurodegeneration
-attractor and the cancer attractor. They are opposite failure
-modes of the same context-integrity check.
-
-\subsection{Context oscillation}
-
-The window oscillates between incompatible contexts, spending
-resources on the transition without productive use of either.
-
-\textbf{Bipolar disorder.} Context frames oscillate between manic
-(window too wide, loading everything, acting on incomplete
-evaluation) and depressive (window collapsed, loading nothing new).
-Both phases are computationally expensive. Mixed evidence: some
-studies show mildly elevated cancer risk \cite{McGinty2012}.
-
-\subsection{Context rigidity}
-
-The window loads a context and holds it with excessive tenacity.
-Incoming evidence that does not fit the current frame is rejected
-rather than integrated. The system functions but at reduced
-effective capacity: fewer propositions are considered per cycle
-because the acceptance filter is too narrow.
-
-\textbf{Autism spectrum.} The context window is rigid: strong
-priors resist updating, sensory contexts that neurotypical
-systems filter are loaded at full resolution, and transitions
-between contexts are costly. The cancer risk profile is mixed
-\cite{Darbro2016}, consistent with a heterogeneous severity
-spectrum---mild rigidity elevates cost per bit (the system
-over-processes), while severe rigidity reduces context-switching
-frequency (fewer cycles, less DNA damage).
-
-\subsection{Consolidation failure}
-
-The window operates during waking hours but the offline
-consolidation process, sleep, fails to compress episodic
-context into durable semantic structure. The proposition count
-$n$ drifts toward the maintenance crossover $n^*$ because
-compression cannot keep pace with acquisition.
-
-\textbf{Insomnia.} Sleep consolidation is the brain's primary
-mechanism for reducing maintenance load (Section~\ref{sec:crossover}).
-Chronic insomnia degrades this process. The context window
-accumulates uncompressed propositions, each requiring active
-maintenance. Elevated cancer risk in chronic insomnia is
-consistent with the framework: the maintenance cost of
-unconsolidated knowledge drives excess chromatin remodeling
-demand \cite{Lu2017}.
-
-\subsection{Context initiation failure}
-
-The window cannot initiate a new context. The motor and
-dopaminergic circuits that translate a loaded context into
-action degrade, so the system loads contexts but cannot act
-on them. The stalled initiation loop consumes resources
-without producing behavioral output.
-
-\textbf{Parkinson's disease.} The dopaminergic system that
-gates context-to-action translation degrades. Unlike
-schizophrenia, where the context-switching machinery itself
-is broken, Parkinson's preserves the ability to load contexts
-but impairs the ability to execute on them. Cancer risk is
-reduced for most solid tumors \cite{Bajaj2010}. The framework
-explains this through a shared mechanism: the same dopaminergic
-circuits that fail in Parkinson's are required for the
-rapid gene-expression reprogramming that tumor cells use
-to switch context during invasion and metastasis.
-
-\subsection{Reduced baseline capacity}
-
-The context window has a constitutively smaller capacity from
-development. Fewer propositions can be loaded and maintained.
-The system operates within its reduced bounds---it does not
-thrash because it never attempts loads beyond its capacity.
-
-\textbf{Down syndrome.} Trisomy 21 reduces effective context
-capacity constitutively. Solid tumor risk is markedly reduced
-\cite{Hasle2000}; the extra copy of chromosome 21 encodes
-several tumor suppressors, but in our framework the deeper
-mechanism is that the reduced context-switching demand means
-less chromatin remodeling wear. (Leukemia risk is elevated,
-consistent with the immune channel operating under different
-constraints.)
-
-\textbf{Intellectual disability (other causes).} Germline
-variants that reduce cognitive capacity also reduce the
-demand on chromatin remodeling machinery. Some evidence
-supports reduced cancer risk in this population \cite{Patja2001},
-consistent with the framework: lower context-switching load
-means fewer activity-dependent DNA breaks in the genes that
-cancer requires.
-
-% ------------------------------------------------------------------
-\section{The Inverted-U Prediction}
-\label{sec:inverted-u}
-% ------------------------------------------------------------------
-
-The taxonomy yields a structural prediction. Cancer risk is not
-monotonically related to context dysfunction severity. It follows
-an inverted U.
-
-\begin{definition}[Context dysfunction severity]
-For an agent with baseline channel capacity $C_n^*$, context
-dysfunction severity $s$ is defined as:
-\begin{equation}
-s = 1 - \frac{C_n^{\text{eff}}}{C_n^*}
-\end{equation}
-where $C_n^{\text{eff}}$ is the agent's effective channel capacity
-under the disorder. $s = 0$ for healthy function; $s = 1$ for
-complete context machinery failure.
-\end{definition}
-
-\begin{proposition}[Inverted-U cancer risk]
-\label{prop:inverted-u}
-Let $R(s)$ be cancer risk as a function of context dysfunction
-severity. Then $R(s)$ has an interior maximum: there exists
-$s^* \in (0, 1)$ such that $R(s^*) > R(0)$ and $R(s^*) > R(1)$.
-\end{proposition}
-
-\begin{remark}[Argument]
-The mutation accumulation rate from neural computation is:
-\begin{equation}
-\dot{M} = \delta \cdot f(s) \cdot g(s)
-\end{equation}
-where $f(s)$ is the computation rate (cycles per unit time) and
-$g(s)$ is the fraction of cycles that produce non-productive DNA
-breaks (breaks not offset by adaptive benefit).
-
-At $s = 0$ (healthy): $f$ is moderate, $g$ is low (most
-computation is productive). $\dot{M}$ is at baseline.
-
-At intermediate $s$ (ADHD, depression, PTSD): $f$ remains high
-(the system still computes actively, even more so in anxiety
-and rumination), but $g$ is high (most cycles are wasted).
-$\dot{M}$ is elevated.
-
-At $s = 1$ (schizophrenia, severe Alzheimer's): $f$ drops
-because the computation machinery is disabled. $g$ is undefined
-because the machinery does not produce coherent cycles.
-$\dot{M}$ drops below baseline. Moreover, cancer cells
-themselves require functional context-switching machinery to
-progress; disabling it at the germline level is tumor-suppressive.
-
-Therefore $\dot{M}$ (and consequently $R$) rises from $s = 0$
-to intermediate $s$, then falls to $s = 1$, producing an interior
-maximum.
-\end{remark}
-
-The available epidemiological evidence is consistent with this
-prediction. Table~\ref{tab:context-diseases} maps sixteen
-conditions to their context failure mode, dysfunction severity,
-and observed cancer risk.
-
-\begin{table}[ht]
-\centering
-\caption{Context window disorders and cancer risk. Severity is
-qualitative (L = low, M = moderate, H = high). Cancer risk
-direction from meta-analyses and large registry studies.}
-\label{tab:context-diseases}
-\small
-\begin{tabular}{@{}llccc@{}}
-\toprule
-\textbf{Condition} & \textbf{Failure mode} & \textbf{Severity} &
-\textbf{Cancer risk} & \textbf{Key reference} \\
-\midrule
-ADHD & Premature eviction & L--M & $\uparrow$ & \cite{Sun2022} \\
-TBI & Buffer damage & L--M & $\uparrow$ & \cite{Chen2012tbi} \\
-PTSD & Context lock & M & $\uparrow$ & \cite{Gradus2015} \\
-OCD & Check loop & L--M & $\uparrow$ (mild) & \cite{Shen2013} \\
-Addiction & Reward lock & M & $\uparrow$ & multiple \\
-Depression & Context narrowing & M & $\uparrow$ & \cite{Chida2008} \\
-Anxiety (GAD) & Window too wide & L--M & $\uparrow$ (mild) & \cite{Batty2017} \\
-Bipolar & Context oscillation & M & $\uparrow$ (mild) & \cite{McGinty2012} \\
-Autism & Rigid context & L--H & mixed & \cite{Darbro2016} \\
-Insomnia & Consolidation failure & L--M & $\uparrow$ & \cite{Lu2017} \\
-Autoimmune & Context mis-indexing & M & $\uparrow$ & \cite{Franks2012} \\
-\midrule
-Schizophrenia & Context dissolution & H & $\downarrow$ & \cite{Catts2008, Ji2013} \\
-Alzheimer's & Index destruction & H & $\downarrow$ & \cite{Driver2012, Musicco2013} \\
-Parkinson's & Context initiation & H & $\downarrow$ (most) & \cite{Bajaj2010} \\
-Down syndrome & Reduced capacity & H & $\downarrow$ (solid) & \cite{Hasle2000} \\
-Intellectual disability & Reduced capacity & H & $\downarrow$ (some) & \cite{Patja2001} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The table divides cleanly. Every condition with moderate
-dysfunction severity and intact computation machinery shows
-elevated cancer risk. Every condition with severe dysfunction
-or disabled computation machinery shows reduced cancer risk.
-The boundary falls where the machinery transitions from
-``working hard but inefficiently'' to ``broken.''
+This paper identifies the consequence: because the knowledge
+machinery and the action machinery are the same physical genes,
+damage from learning (knowledge) and damage enabling cancer
+(uncontrolled action) share a molecular target.
 
 % ------------------------------------------------------------------
 \section{The Shared Molecular Machinery}
 \label{sec:machinery}
 % ------------------------------------------------------------------
 
-The context window framework predicts that psychiatric context
-disorders and cancer should share molecular machinery. They do.
+The bounded-context framework predicts that learning and cancer
+should share molecular machinery. They do.
 
 \subsection{Chromatin remodeling: the read/write heads}
 
-The genes that control chromatin accessibility, determining which
-genes are readable in which cellular context, are mutated in both
-psychiatric disorders and cancer:
+The genes that control chromatin accessibility---determining which
+genes are readable in which cellular context---are mutated in both
+cognitive disorders and cancer:
 
 \begin{itemize}
 \item \emph{ARID1A}: mutated in 6--8\% of all cancers; germline
-variants associated with intellectual disability
-\cite{Santen2012}.
+variants cause intellectual disability \cite{Santen2012}.
 \item \emph{KMT2C}/\emph{KMT2D}: among the most frequently mutated
-genes in cancer; Kabuki syndrome (germline \emph{KMT2D} loss)
-involves intellectual disability \cite{Miyake2013}.
+genes in cancer; germline \emph{KMT2D} loss causes Kabuki syndrome
+(intellectual disability) \cite{Miyake2013}.
 \item \emph{SMARCA4}: mutated in lung, ovarian, and other cancers;
-Coffin-Siris syndrome (germline loss) involves intellectual
-disability \cite{Tsurusaki2012}.
-\item \emph{DNMT3A}: mutated in AML; germline variants associated
-with Tatton-Brown-Rahman syndrome (overgrowth and intellectual
+germline loss causes Coffin-Siris syndrome (intellectual
+disability) \cite{Tsurusaki2012}.
+\item \emph{DNMT3A}: mutated in AML; germline variants cause
+Tatton-Brown-Rahman syndrome (overgrowth and intellectual
 disability) \cite{Tatton-Brown2014}.
 \end{itemize}
 
@@ -516,12 +161,6 @@ cancer. When they fail by germline mutation, the organism loses
 context control at the neural level: it cannot efficiently switch
 cognitive contexts. That is intellectual disability.
 
-The shared machinery explains both the elevated cancer risk in
-moderate context disorders (chromatin remodeling genes are
-overworked and accumulate somatic damage) and the reduced cancer
-risk in severe ones (germline loss of these genes prevents the
-context switches cancer requires).
-
 \subsection{TP53: the context integrity checkpoint}
 
 TP53 is the most frequently mutated gene in cancer
@@ -530,287 +169,126 @@ framework \cite{McCarthy2026e}. It functions as a context
 integrity check: if a cell's DNA is too damaged to maintain
 faithful gene expression context, p53 activates apoptosis.
 
-In our framework, p53 is the \emph{kill switch} for context window
+In our framework, p53 is the kill switch for context window
 corruption. Its dual role in cancer (loss enables tumor growth)
 and neurodegeneration (activation kills neurons) is not a paradox.
-It is the same function, context integrity enforcement, applied
+It is the same function---context integrity enforcement---applied
 in two domains where the optimal threshold differs.
 
-Cancer patients need p53 active (to kill context-corrupted cells).
-Alzheimer's patients need p53 less active (to preserve neurons
-whose context is degrading with age). The inverse comorbidity
-between cancer and Alzheimer's \cite{Driver2012} reflects the
-organism's position on a single axis: how aggressively it
-enforces context integrity.
+The inverse comorbidity between cancer and Alzheimer's
+\cite{Driver2012, Musicco2013} reflects this: how aggressively an
+organism enforces context integrity determines which failure mode
+it is susceptible to. Cancer requires lax enforcement (corrupted
+cells survive). Neurodegeneration requires strict enforcement
+(compromised neurons are killed). The same axis, different
+thresholds \cite{Behrens2009}.
 
-\subsection{The immune system as somatic hypermutation}
+\subsection{The immune system: knowledge stored in DNA}
 
-The immune system stores knowledge in DNA through somatic
-hypermutation in B cells. This is not a metaphor for the context
-window framework. It is a literal implementation. The immune
-system:
+The immune system stores knowledge through somatic hypermutation
+in B cells. This is a literal implementation of the bounded-context
+framework:
 
 \begin{enumerate}
-\item Encounters an antigen (new evidence).
-\item Mutates its own DNA to generate antibody variants (context
-switching at the molecular level).
-\item Selects the variant that best matches (uncertainty reduction).
-\item Stores the result as memory B cells (knowledge encoded in DNA).
+\item Encounter an antigen (new evidence).
+\item Mutate DNA to generate antibody variants (context switching
+at the molecular level).
+\item Select the variant that best matches (uncertainty reduction).
+\item Store as memory B cells (knowledge encoded in DNA).
 \end{enumerate}
 
 Autoimmune diseases are context indexing failures: the retrieval
 system misidentifies self as threat, loading the wrong context.
 Autoimmune diseases are associated with elevated cancer risk
-\cite{Franks2012}, consistent with our framework: a context
-retrieval system that loads the wrong targets damages tissue
-through chronic inflammation and imposes DNA damage costs on
-cells that are not the intended target.
+\cite{Franks2012}---consistent with our framework: a system that
+loads wrong targets imposes DNA damage costs on unintended cells.
 
 % ------------------------------------------------------------------
-\section{Clinical Protocol}
-\label{sec:protocol}
+\section{The Epidemiological Signal}
+\label{sec:signal}
 % ------------------------------------------------------------------
 
-If context-window efficiency is mechanistically upstream of
-somatic mutation accumulation, then treating context disorders is
-cancer prevention. The standard oncology framing treats psychiatric
-comorbidities as quality-of-life concerns. Our framework reframes
-them as disease-modifying targets.
-
-We propose a three-tier treatment protocol ordered by intervention
-speed, cost, and side-effect profile. A meta-tier, molecular
-monitoring, operates on a different problem space entirely:
-not the context window but the escalation chain itself,
-detecting both accumulating repair burden and somatic
-modifications that have already altered the hierarchy.
-
-\subsection{Tier 1: Interrupt the thrash}
-
-\textbf{Objective:} Stop the runaway context loop immediately.
-Reduce $N_{\text{cycles}}$ per unit time by providing a manual
-interrupt.
-
-\textbf{Interventions:}
-\begin{itemize}
-\item \textbf{Somatic techniques} (EFT/tapping, grounding
-exercises, box breathing). These provide a hardware interrupt:
-when the cognitive context window is thrashing, a somatic stimulus
-forces attention to the body, evicting the runaway cognitive loop.
-EFT produces a 24\% cortisol reduction in a single session
-\cite{Church2012}. Cortisol is a downstream marker; the upstream
-event is the interrupted context loop.
-\item \textbf{Bilateral stimulation} (EMDR eye movements, bilateral
-tapping). Forces alternating hemispheric activation, which
-disrupts the locked replay of a single context (PTSD mechanism).
-\item \textbf{Vagal tone exercises} (cold exposure, slow exhalation).
-Activates the parasympathetic branch, shifting the system from
-threat-context lock to rest-and-digest context.
-\end{itemize}
-
-\textbf{Cost:} Zero. \textbf{Latency:} Seconds to minutes.
-\textbf{Side effects:} None.
-
-The rationale for Tier 1 as first-line: a thrashing system cannot
-be optimized while it is thrashing. The first intervention must
-halt the runaway process. Attempting cognitive restructuring
-(Tier 2) or pharmacotherapy (Tier 3) on a system in active thrash
-is analogous to optimizing a scheduler on a CPU that is currently
-deadlocked. Kill the runaway process first.
-
-\subsection{Tier 2: Optimize the scheduler}
-
-\textbf{Objective:} Retrain the context-switching rules so
-that future computation is more efficient. Increase $C_n^{\text{eff}}$
-without pharmacological intervention.
-
-\textbf{Interventions:}
-\begin{itemize}
-\item \textbf{Cognitive behavioral therapy (CBT).} Explicitly
-rewrites the rules governing context selection. ``When I notice
-thought pattern X, I switch to evaluation Y instead of loop Z.''
-This is literally scheduler optimization.
-\item \textbf{Mindfulness-based stress reduction (MBSR).} Trains
-voluntary control over context loading and release. The practice
-of ``noticing without engaging'' is training the ability to observe
-a context candidate without loading it into the active window.
-\item \textbf{Acceptance and commitment therapy (ACT).} Separates
-context content from context switching. The content of an
-anxious thought matters less than whether the system loads,
-processes, and releases it efficiently.
-\end{itemize}
-
-\textbf{Cost:} Time (weeks to months). \textbf{Latency:}
-Weeks. \textbf{Side effects:} Minimal.
-
-Mindfulness practice has documented effects on telomere
-maintenance \cite{Schutte2020} and inflammatory markers
-\cite{Creswell2016}. In our framework, these are downstream
-consequences of reduced context-switching waste: fewer unnecessary
-DNA breaks, less repair demand, less telomere erosion from
-replicative stress in repair-active tissues.
-
-\subsection{Tier 3: Tune the hardware}
-
-\textbf{Objective:} Pharmacologically modify the system parameters
-when Tiers 1 and 2 are insufficient. Modulate neurotransmitter
-systems to reduce loop gain (SSRIs), improve context efficiency
-(stimulants), or release context locks (beta-blockers).
-
-\textbf{Interventions and predicted cancer impact:}
+If shared machinery is real, psychiatric conditions should show
+altered cancer risk. The epidemiological literature contains
+a striking pattern: some conditions elevate risk, others reduce it.
 
 \begin{table}[ht]
 \centering
-\caption{Pharmacotherapy and context-window interventions with
-predicted cancer impact. Protective interventions improve context
-efficiency (bits per cycle); non-protective interventions reduce
-distress without improving efficiency or restore disabled machinery.}
-\label{tab:pharmacotherapy}
+\caption{Observed cancer risk in psychiatric and neurological
+conditions. Direction from meta-analyses and large registry
+studies. We report what is observed, not what we can explain.}
+\label{tab:signal}
 \small
 \begin{tabular}{@{}llll@{}}
 \toprule
-\textbf{Drug class} & \textbf{Context effect} &
-\textbf{Predicted impact} & \textbf{Evidence} \\
+\textbf{Condition} & \textbf{Cancer risk} &
+\textbf{Key reference} & \textbf{Status} \\
 \midrule
-SSRIs & Reduce rumination loop gain & Protective &
-Reduced CRC risk \cite{Chubak2011} \\
-Stimulants (ADHD) & Improve context efficiency &
-Protective & No excess risk \cite{Dalsgaard2018} \\
-Beta-blockers & Release threat context lock &
-Protective & Reduced metastasis \cite{Barron2011} \\
-Mindfulness (drug-free) & Reduce unnecessary switches &
-Protective & Telomere preservation \cite{Schutte2020} \\
+Depression & $\uparrow$ & \cite{Chida2008} & Replicated \\
+Insomnia & $\uparrow$ & \cite{Lu2017} & Replicated \\
+Autoimmune & $\uparrow$ & \cite{Franks2012} & Replicated \\
+TBI & $\uparrow$ (glioma) & \cite{Chen2012tbi} & Replicated \\
+OCD & $\uparrow$ (mild) & \cite{Shen2013} & Single study \\
+Anxiety (GAD) & $\uparrow$ (mild) & \cite{Batty2017} & Mixed \\
+Bipolar & $\uparrow$ (mild) & \cite{McGinty2012} & Mixed \\
 \midrule
-Benzodiazepines & Reduce distress but impair formation &
-Not protective & Mixed \cite{Kao2017} \\
-Antipsychotics & Restore context machinery &
-Risk-neutral or harmful & Increased risk vs.\ unmedicated
-schizophrenia \cite{Solmi2020} \\
+Schizophrenia & $\downarrow$ & \cite{Catts2008, Ji2013} & Replicated \\
+Alzheimer's & $\downarrow$ & \cite{Driver2012, Musicco2013} & Replicated \\
+Parkinson's & $\downarrow$ (most solid) & \cite{Bajaj2010} & Replicated \\
+Down syndrome & $\downarrow$ (solid) & \cite{Hasle2000} & Replicated \\
+\midrule
+PTSD & null after adjustment & \cite{Gradus2015} & Open question \\
+Autism & mixed & \cite{Darbro2016} & Heterogeneous \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The critical distinction: interventions that improve context
-efficiency (more bits per cycle) are predicted to be protective.
-Interventions that reduce distress without improving efficiency
-(benzodiazepines) are not. Interventions that restore disabled
-machinery (antipsychotics) may increase risk by re-enabling the
-context switches cancer requires.
+\subsection{What we observe}
 
-\subsection{Meta-tier: Monitor and repair the escalation chain}
+The table divides. Conditions with intact but inefficient
+computation show elevated risk. Conditions where the computation
+or context-switching machinery is disabled show reduced risk.
 
-The three treatment tiers operate on the context window, reducing
-waste, improving efficiency, tuning parameters. This tier operates
-on a different problem space: the escalation chain itself. It reads
-the state of the molecular hierarchy directly, detecting both
-accumulating repair burden and somatic modifications that have
-already altered the chain. It is simultaneously diagnostic (has the
-escalation chain been damaged?) and therapeutic (can we intervene
-before the damage cascades?).
+The bounded-context framework offers a structural explanation:
+conditions that overwork the chromatin remodeling machinery
+(rumination, replay, inefficient context switching) accumulate
+somatic damage in those genes. Conditions that disable the
+machinery (schizophrenia, severe neurodegeneration) cannot
+accumulate the specific somatic mutations that cancer requires---and
+cancer cells themselves need functional chromatin remodeling
+to execute the gene expression reprogramming necessary for
+tumor progression.
 
-\textbf{Objective:} Verify that psychological intervention is
-reducing somatic mutation accumulation at the molecular level.
+\subsection{What we cannot yet sign}
 
-Circulating free DNA (cfDNA) from liquid biopsy can detect somatic
-mutations in chromatin remodeling genes (\emph{ARID1A},
-\emph{KMT2C}, \emph{SMARCA4}, \emph{DNMT3A}) without tissue
-biopsy \cite{Wan2017}. If the framework is correct, effective
-treatment of a context window disorder should reduce the
-accumulation rate of somatic mutations in these specific genes.
+PTSD is predicted by our framework to elevate cancer risk
+through the context-lock mechanism: traumatic context replays
+involuntarily, each replay incurring DNA damage cost with
+zero information gain ($\Delta H = 0$). But the largest
+epidemiological study (Gradus et al.\ 2015, $n > 40{,}000$
+Danish veterans) found no association after adjustment for
+behavioral confounders. The signal may be real but confounded,
+or our classification may be wrong. This is an open test.
 
-The proposed biomarker panel: somatic variant allele frequency in
-\emph{ARID1A}, \emph{KMT2C}, \emph{KMT2D}, \emph{SMARCA4},
-\emph{DNMT3A}, \emph{TET2}, \emph{SETD2}, and \emph{CREBBP}
-from serial cfDNA draws at 6-month intervals.
+Autism is heterogeneous. Mild rigidity may elevate cost-per-bit
+(the system over-processes). Severe rigidity may reduce
+context-switching frequency (fewer cycles, less DNA damage).
+The mixed epidemiological evidence \cite{Darbro2016} is
+consistent with a spectrum, but we cannot sign the relationship
+without stratification by severity.
 
-A positive result, declining chromatin mutation VAF in patients
-whose context disorder is effectively treated, would constitute
-direct evidence that psychological intervention modifies cancer
-risk through a molecular mechanism, not merely through behavioral
-or hormonal intermediaries.
-
-% ------------------------------------------------------------------
-\section{Falsifiable Predictions}
-\label{sec:predictions}
-% ------------------------------------------------------------------
-
-\begin{enumerate}
-\item \textbf{Inverted-U curve.} Across a severity spectrum of
-context window disorders, cancer risk peaks at moderate severity
-and decreases at both extremes (healthy and severely impaired).
-
-\item \textbf{Chromatin specificity.} The elevated somatic
-mutation burden in moderate context disorders is concentrated
-in chromatin remodeling genes, not uniformly distributed across
-the genome.
-
-\item \textbf{ADHD treatment is cancer prevention.} Stimulant
-medication for ADHD, by improving context efficiency, reduces
-somatic mutation accumulation rate in chromatin remodeling genes.
-Testable via cfDNA in treated vs.\ untreated ADHD cohorts.
-
-\item \textbf{Depression treatment slows chromatin mutation.}
-Effective antidepressant treatment (defined as remission of
-rumination) reduces the rate of somatic mutation in chromatin
-remodeling genes. Ineffective treatment (symptom persistence)
-does not.
-
-\item \textbf{Antipsychotics restore cancer risk.} Antipsychotic
-treatment in schizophrenia increases cancer risk relative to
-unmedicated schizophrenia, specifically through restoration of
-chromatin remodeling function. The effect should correlate with
-degree of cognitive improvement.
-
-\item \textbf{Meditation is measurably protective.} Long-term
-meditation practitioners show lower somatic mutation burden in
-chromatin remodeling genes than age-matched controls, after
-controlling for lifestyle factors.
-
-\item \textbf{Benzodiazepines are not protective.} Despite
-reducing anxiety symptoms, benzodiazepines do not reduce somatic
-mutation accumulation because they impair context formation
-without improving context efficiency.
-
-\item \textbf{Non-carcinogen addictions carry cancer risk.} Behavioral
-addictions (gambling, internet, gaming) without chemical carcinogen
-exposure show elevated somatic mutation burden through the context
-lock mechanism alone.
-
-\item \textbf{Chromatin mutations are increasing disproportionately.}
-The fraction of tumors with chromatin remodeling gene mutations is
-increasing faster than mutations in other gene classes over the last
-two decades, independent of improved detection.
-
-\item \textbf{CHIP onset is shifting younger.} Clonal hematopoiesis
-driven by \emph{DNMT3A}, \emph{TET2}, and \emph{ASXL1} is detectable
-at younger ages in post-smartphone cohorts than in age-matched
-historical controls.
-
-\item \textbf{Early-onset cancers are enriched for chromatin
-mutations.} The cancers driving the early-onset trend (colorectal,
-breast, pancreatic in adults under 50) show higher rates of chromatin
-remodeling mutations than late-onset counterparts, after controlling
-for stage and subtype.
-
-\item \textbf{Information exposure predicts chromatin VAF.}
-Context-switching load (measurable via smartphone usage data,
-notification frequency, or occupational classification) correlates
-with somatic mutation burden in chromatin remodeling genes from
-cfDNA, after controlling for age and carcinogen exposure.
-\end{enumerate}
+We do not have a taxonomy of context failure modes. The original
+version of this paper proposed sixteen classifications. That was
+wrong---we do not know whether the correct number is seven or
+seventy. What we know is that the molecular machinery is shared,
+the epidemiological signal divides along a recognizable axis,
+and the framework makes predictions about which direction each
+condition should go. Some of those predictions are untested.
 
 % ------------------------------------------------------------------
-\section{Relationship to Prior Work}
+\section{Prior Work}
 \label{sec:prior}
 % ------------------------------------------------------------------
-
-\textbf{Psychoneuroimmunology.} The field of
-psychoneuroimmunology has long studied how psychological states
-affect immune function and cancer outcomes \cite{Kiecolt-Glaser2002}.
-Our contribution is mechanistic specificity: not ``stress causes
-cancer through immune suppression'' but ``context-switching waste
-causes somatic mutation in the specific genes that control chromatin
-accessibility, through the specific mechanism of topoisomerase-mediated
-DNA breaks.''
 
 \textbf{Activity-dependent DNA damage.} Madabhushi et al.\
 \cite{Madabhushi2015} demonstrated that neuronal activity causes
@@ -818,280 +296,169 @@ targeted DNA double-strand breaks. Subsequent work showed that
 these breaks accumulate with age and correlate with
 neurodegenerative disease \cite{Thadathil2021}. We extend this to
 cancer risk: if the break rate depends on computational efficiency,
-then disorders that reduce efficiency increase the break-to-knowledge
+then conditions that reduce efficiency increase the break-to-knowledge
 ratio.
 
-\textbf{The Waddington connection.} Waddington's genetic
-assimilation \cite{Waddington1942} showed that environmentally
-induced phenotypes can become genetically encoded. Our framework
-provides a mechanism: the epigenetic changes induced by experience
-(through chromatin remodeling during learning) are not merely
-reversible marks. They are accompanied by somatic mutations from
-imperfect repair of activity-dependent breaks. The mutations are
-permanent. Culture does not merely select on existing genetic
-variation. It generates new somatic variation through the physical
-cost of knowledge acquisition.
+\textbf{Psychoneuroimmunology.} The field of
+psychoneuroimmunology has studied how psychological states
+affect immune function and cancer outcomes \cite{Kiecolt-Glaser2002}.
+Our contribution is mechanistic specificity: not ``stress causes
+cancer through immune suppression'' but ``context-switching waste
+causes somatic mutation in the specific genes that control chromatin
+accessibility, through the specific mechanism of topoisomerase-mediated
+DNA breaks.''
+
+\textbf{Chromatin remodeling and schizophrenia.} Singh et al.\
+\cite{Singh2016} showed that rare schizophrenia risk variants are
+enriched in chromatin remodeling genes. If these genes are already
+non-functional from germline variants, they cannot be further
+corrupted by somatic mutation to enable cancer---and cancer cells
+require functional chromatin remodeling to progress. This explains
+the reduced cancer risk in schizophrenia without invoking
+lifestyle factors or antipsychotic effects.
+
+\textbf{CHIP as evidence of chromatin vulnerability.}
+Clonal hematopoiesis of indeterminate potential (CHIP) is
+driven predominantly by mutations in \emph{DNMT3A}, \emph{TET2},
+and \emph{ASXL1}---all chromatin remodeling genes, accounting
+for approximately 80\% of CHIP mutations \cite{Jaiswal2014,
+Steensma2015}. This concentration is not predicted by uniform
+mutagenesis models. It is consistent with our framework:
+chromatin remodeling genes are under elevated mutational pressure
+because they are the most active read/write machinery in the genome.
 
 \textbf{Coupling channels and cancer.} In the companion paper
 \cite{McCarthy2026e}, we showed that the number of coupling
 channels disrupted predicts cancer survival across 73,593 patients.
-The six coupling channels include chromatin remodeling
-(ChromatinRemodel) and DNA methylation (DNAMethylation) as
-the two channels added in the expanded eight-channel system.
-These are precisely the channels that the present paper identifies
-as the shared molecular substrate between context disorders and
-cancer.
+The coupling channels include chromatin remodeling and DNA
+methylation---precisely the channels this paper identifies as
+the shared molecular substrate between cognitive computation
+and cancer.
 
 \textbf{Bounded context and intelligence.} In \cite{McCarthy2026d},
 we derived the structural invariants of intelligence from bounded
-context, showing that evaluation-driven descent and encoding
-permanence are necessary properties of any system that reduces
-uncertainty under bounded resources. The present paper adds a
-biological cost to that descent: each step of evaluation-driven
-descent, each cycle of the intelligence loop, has a DNA damage
-cost. Intelligence is not free. Its cost is somatic mutation.
+context. The present paper adds a biological cost to evaluation-driven
+descent: each step of the intelligence loop has a DNA damage cost.
+Intelligence is not free. Its cost is somatic mutation.
 
 % ------------------------------------------------------------------
-\section{The Crossover: When Maintenance Exceeds Acquisition}
-\label{sec:crossover}
+\section{Predictions}
+\label{sec:predictions}
 % ------------------------------------------------------------------
 
-Knowledge acquisition has diminishing returns. The marginal bit
-costs more as the knowledge base grows; the effective cost of
-the $n$-th proposition scales as $O(\log n)$ due to interference,
-retrieval complexity, and the need to integrate with existing
-knowledge.
+The theory makes specific, falsifiable predictions. Most were
+derived before we knew whether the epidemiological data supported
+them. The ones that held (schizophrenia $\downarrow$, Alzheimer's
+$\downarrow$, depression $\uparrow$) were not fitted to the data.
+They follow from the cost-per-bit equation and the shared machinery.
+The untested ones are genuine forecasts.
 
-Maintenance cost grows faster. Keeping $n$ propositions coherent
-requires that each proposition remain accessible for potential
-interaction with others. The DNA damage cost of context
-maintenance, the ongoing chromatin remodeling required to keep
-gene expression programs responsive, scales with the number of
-context switches the system must service. In the worst case this
-is $O(n^2)$: any proposition might need to interact with any
-other.
-
-These curves cross at some critical knowledge load $n^*$.
-
-\begin{definition}[Context maintenance crossover]
-The crossover point $n^*$ is the knowledge load at which the
-DNA damage cost of maintaining coherent access to $n$ propositions
-equals the DNA damage cost of acquiring the next proposition:
-\begin{equation}
-\delta \cdot c_{\text{maintain}}(n^*) = \delta \cdot c_{\text{acquire}}(n^*)
-\end{equation}
-where $c_{\text{maintain}}(n) \sim n^2$ and
-$c_{\text{acquire}}(n) \sim \log n$.
-\end{definition}
-
-Before $n^*$, learning is cheap relative to maintenance. After
-$n^*$, every new bit costs more in maintenance-driven DNA damage
-than it contributes in uncertainty reduction. The system must
-begin discarding propositions to stay below $n^*$, or the
-repair machinery will be overwhelmed.
-
-\subsection{The brain as first-line change management}
-
-The brain's primary strategy for staying below $n^*$ is
-aggressive compression:
+\subsection{Predictions from the cost-per-bit equation}
 
 \begin{enumerate}
-\item \textbf{Sleep consolidation.} Episodic memories (high $n$,
-high maintenance cost) are compressed into semantic memories
-(lower $n$, shared structure, amortized maintenance). This is
-the graph factoring operation from \cite{McCarthy2026a}:
-extracting shared structure to reduce the proposition count
-without losing information.
-\item \textbf{Strategic forgetting.} Propositions that have not
-been accessed recently are evicted. This is the Belady
-replacement policy operating on the biological context window:
-evict the proposition whose next use is farthest in the future.
-\item \textbf{Chunking.} Multiple propositions are compressed
-into a single proposition with internal structure (a ``chunk'').
-This reduces $n$ while preserving retrievability. Expert
-performance is characterized by larger chunks: a chess master
-stores a board position as one proposition where a novice
-stores 32.
-\item \textbf{Habit formation.} Frequently accessed
-proposition chains are compiled into automatic routines that
-no longer require context-window loading. This is the
-substrate transition from \cite{McCarthy2026f}: when a
-computation becomes deterministic, it is removed from the
-uncertainty-reducing system and encoded as fixed procedure,
-reducing maintenance load on the active context.
+\item \textbf{Chromatin specificity.} The elevated somatic
+mutation burden in conditions with inefficient context switching
+is concentrated in chromatin remodeling genes, not uniformly
+distributed across the genome. Testable: compare mutation spectra
+in CHIP-positive individuals with and without psychiatric history.
+
+\item \textbf{Efficiency, not distress, determines risk.}
+Interventions that improve context efficiency (bits per cycle)
+are predicted to be protective. Interventions that reduce distress
+without improving efficiency are not. Specifically:
+stimulant treatment for ADHD (improves efficiency, predicted
+protective \cite{Dalsgaard2018}), SSRIs that reduce rumination
+(improves efficiency, some evidence \cite{Chubak2011}),
+benzodiazepines (reduce distress but impair formation, predicted
+not protective \cite{Kao2017}). The discriminating test:
+matched cohorts on the same anxiolytic vs.\ cognitive therapy,
+comparing chromatin remodeling VAF from cfDNA.
+
+\item \textbf{Antipsychotics restore cancer risk.} Antipsychotic
+treatment in schizophrenia should increase cancer risk relative to
+unmedicated patients by restoring chromatin remodeling function.
+Some evidence exists \cite{Solmi2020}. The prediction: the effect
+should correlate with degree of cognitive improvement, not with
+metabolic side effects.
+
+\item \textbf{PTSD direction.} If PTSD is truly a context-lock
+disorder (replay with $\Delta H = 0$), then cancer risk should be
+elevated in PTSD patients with high flashback frequency,
+specifically through chromatin remodeling mutations, after
+controlling for behavioral confounders. The null result in
+Gradus et al.\ \cite{Gradus2015} may reflect insufficient
+stratification by symptom severity. This is the prediction we
+are least confident about.
+
+\item \textbf{Non-carcinogen addictions carry cancer risk.}
+Behavioral addictions (gambling, gaming) without chemical
+carcinogen exposure should show elevated somatic mutation burden
+through the context-lock mechanism alone.
 \end{enumerate}
 
-These mechanisms keep $n$ below $n^*$ for decades. But they can
-be overwhelmed:
-
-\begin{itemize}
-\item \textbf{Chronic stress} loads threat propositions that
-cannot be compressed (because they are unpredictable) or evicted
-(because they are flagged as survival-relevant). They persist in
-active context, raising $n$ toward $n^*$.
-\item \textbf{Trauma} creates propositions that cannot be
-integrated (they contradict the existing knowledge structure) or
-forgotten (they are tagged as maximally important). They occupy
-permanent slots in the context window.
-\item \textbf{Information overload} (a modern phenomenon) pushes
-the acquisition rate above the consolidation rate. Propositions
-accumulate in working memory faster than sleep can compress them.
-The maintenance cost rises while consolidation lags.
-\end{itemize}
-
-When the brain cannot hold the line, the biological context space
-absorbs the overflow. Chromatin marks accumulate beyond what the
-maintenance machinery can service. DNA repair backlogs grow.
-The read/write heads, the chromatin remodeling genes, wear out.
-
-\subsection{Aging as maintenance overload}
-
-The crossover point $n^*$ is not fixed. It depends on the
-efficiency of the repair machinery, which degrades with age.
-As repair fidelity declines, $n^*$ decreases: the system can
-maintain coherent access to fewer propositions before the
-maintenance cost overwhelms repair capacity.
-
-This reframes biological aging as context maintenance overload.
-The organism does not degrade because time passes. It degrades
-because the accumulated knowledge load eventually exceeds the
-capacity of the molecular maintenance machinery, and the
-resulting DNA damage in chromatin remodeling genes progressively
-corrupts the context-switching apparatus.
-
-The observation that cancer incidence rises sharply with age is
-consistent: once $n > n^*$ is persistent, the chromatin
-remodeling machinery is chronically overloaded, somatic mutations
-in context-switching genes accumulate, and the probability that
-a cell loses context control (becomes cancerous) rises.
-
-The observation that cognitive decline precedes many cancers is
-also consistent: the brain crosses $n^*$ first (because it has
-the highest context-switching demand), begins losing propositions,
-and the systemic maintenance overload follows.
-
-% ------------------------------------------------------------------
-\section{The Information Age Prediction}
-\label{sec:information-age}
-% ------------------------------------------------------------------
-
-If the mechanism proposed here is correct, then a society-level
-increase in context-switching load should produce a society-level
-increase in somatic mutation burden, concentrated in chromatin
-remodeling genes specifically.
-
-The last twenty years have seen an unprecedented increase in
-information exposure. Smartphones, social media, and continuous
-connectivity have dramatically increased the rate of context
-switching in daily life. A pre-smartphone adult might execute
-dozens of major context switches per day. A smartphone user
-executes hundreds: checking notifications, switching between
-apps, processing social media feeds, responding to messages.
-Each switch loads a new cognitive context, triggers gene
-expression changes in active neural circuits, and imposes the
-associated DNA damage cost.
-
-\subsection{CHIP as the canary}
-
-Clonal hematopoiesis of indeterminate potential (CHIP) is the
-age-related accumulation of somatic mutations in blood stem cells.
-CHIP is detected in approximately 10\% of people over 65 and
-increases with age \cite{Jaiswal2014}. It predicts elevated risk
-of both hematologic malignancy and cardiovascular disease.
-
-The three most common CHIP driver mutations are:
+\subsection{Predictions from the shared machinery}
 
 \begin{enumerate}
-\item \emph{DNMT3A}: a DNA methyltransferase. Chromatin/epigenetic
-machinery.
-\item \emph{TET2}: a methylcytosine dioxygenase. Chromatin/epigenetic
-machinery.
-\item \emph{ASXL1}: a chromatin remodeling factor. Polycomb group
-regulation.
+\setcounter{enumi}{5}
+\item \textbf{Chromatin remodeling gene overlap is checkable.}
+The genes whose germline loss causes intellectual disability
+and whose somatic mutation drives cancer should overlap at a rate
+significantly above chance. This is directly testable from
+OMIM + COSMIC + ClinVar data. If the overlap is not significant,
+the framework has a problem.
+
+\item \textbf{CHIP onset correlates with cognitive load.}
+If context-switching drives chromatin mutation, then CHIP onset
+should correlate with lifetime cognitive load after controlling
+for age and carcinogen exposure. High-information-processing
+occupations should show earlier CHIP than low-switching occupations.
+
+\item \textbf{Early-onset cancers are enriched for chromatin
+mutations.} The cancers driving the early-onset trend (colorectal,
+breast, pancreatic in adults under 50 \cite{Sung2024}) should show
+higher rates of chromatin remodeling mutations than late-onset
+counterparts, after controlling for stage and subtype.
 \end{enumerate}
 
-All three are chromatin remodeling genes. Together they account
-for approximately 80\% of CHIP mutations \cite{Steensma2015}.
-This is not what a uniform mutagenesis model predicts. If CHIP
-were driven by random replication errors, the mutations would be
-distributed across the genome in proportion to gene size and
-replication timing. They are not. They are concentrated in the
-genes that control chromatin accessibility.
+\subsection{The computer analogy as prediction}
 
-Our framework explains this concentration. Blood stem cells
-reside in the bone marrow, are innervated by sympathetic fibers,
-and respond to systemic stress signaling (cortisol,
-catecholamines). Chronic stress increases their proliferation
-rate \cite{Heidt2014}. But proliferation alone does not explain
-the chromatin specificity. Our model adds: the chromatin
-remodeling machinery in these cells is under elevated demand
-because systemic stress forces context switches (changes in gene
-expression program) at a rate that exceeds the repair capacity for
-these specific loci.
+A computer's CPU generates heat proportional to its clock speed,
+independent of whether the computation is useful. A CPU running
+an infinite loop at full speed generates the same heat as one
+solving a real problem. The damage (thermal wear, electromigration)
+accumulates either way.
 
-\subsection{The testable prediction}
+Neurons are the same. The DNA damage cost is proportional to
+computation cycles, not to useful bits learned. A brain in
+rumination, in traumatic replay, in anxious scanning---runs at
+full clock speed, generating the same molecular wear as productive
+learning. The cost-per-bit equation formalizes this: when $\Delta H
+\to 0$ but $N_{\text{cycles}}$ remains constant, $\mu \to \infty$.
 
-If context-switching load is the driver, then:
+This analogy is suggestive of a broader prediction: any biological
+system that modifies its own substrate to store information will
+exhibit a cancer-like failure mode when that modification becomes
+inefficient. The immune system's somatic hypermutation already
+provides one example (lymphoma as the failure mode of adaptive
+immunity). The framework predicts others exist.
 
-\begin{enumerate}
-\item \textbf{Chromatin mutations should be increasing faster than
-other mutation types.} Cancer registry data with temporal
-resolution (SEER, AACR GENIE, TCGA vs.\ modern panels) should
-show that the fraction of tumors with chromatin remodeling
-mutations is increasing over time, independent of improved
-detection.
+\subsection{What these predictions test}
 
-\item \textbf{The increase should be strongest in younger
-populations.} Digital natives (born after 1995) have the highest
-lifetime context-switching load. If the mechanism is correct,
-they should show earlier onset of CHIP and elevated chromatin
-mutation rates relative to age-matched historical controls.
+If most of these predictions hold, the framework is confirmed
+independently of the data it was built on. If the chromatin
+overlap (Prediction~6) fails, the molecular basis is wrong.
+If the efficiency distinction (Prediction~2) fails, the
+cost-per-bit mechanism is wrong. If the PTSD prediction
+(Prediction~4) fails, our classification of context failure
+modes needs revision---but the core machinery claim survives.
 
-\item \textbf{CHIP should appear at younger ages in
-high-information-exposure populations.} Tech workers, social media
-professionals, and other high-context-switching occupations should
-show earlier CHIP onset than low-context-switching occupations,
-after controlling for traditional risk factors.
-
-\item \textbf{The increase should NOT be concentrated in known
-carcinogen-signature genes.} Environmental carcinogen exposure
-produces characteristic mutational signatures (e.g., C$>$A
-transversions from tobacco, CC$>$TT from UV). If the mutation
-increase is driven by information exposure rather than chemical
-exposure, the new mutations should lack these signatures and
-instead show the replication-error signatures associated with
-DNA break repair.
-\end{enumerate}
-
-The last prediction is the discriminating test. Carcinogen-driven
-increases produce signature-specific mutations in genes throughout
-the genome. Context-switching-driven increases produce
-repair-error mutations concentrated in chromatin remodeling genes.
-These are distinguishable in sequencing data.
-
-\subsection{Cancer incidence trends}
-
-Cancer incidence in adults under 50 has been increasing globally,
-a trend termed ``early-onset cancer'' \cite{Sung2024}. The
-increase is not fully explained by improved detection or known
-risk factors. The cancers with the largest increases include
-colorectal, breast, and pancreatic, all of which have high
-rates of chromatin remodeling gene mutations.
-
-We do not claim that information overload is the sole driver.
-But we predict that it is a contributor, operating through the
-specific mechanism described here: elevated context-switching load
-$\rightarrow$ elevated DNA break rate in chromatin remodeling
-loci $\rightarrow$ earlier exhaustion of repair capacity
-$\rightarrow$ earlier onset of somatic mutations in the genes
-that control cellular context $\rightarrow$ earlier cancer.
-
-This is testable. It requires longitudinal cfDNA data from
-cohorts stratified by information exposure, with mutation calling
-focused on chromatin remodeling genes and mutational signature
-analysis. The prediction is specific: chromatin remodeling VAF
-should correlate with context-switching load after controlling for
-age, carcinogen exposure, and family history.
+We state what we do not know. We do not know the correct
+taxonomy of context failure modes. We do not know whether the
+inverted-U relationship between severity and risk is real or an
+artifact of how we classify severity. We do not know the
+quantitative parameters ($\delta$, $C_n^{\text{eff}}$ per
+condition). What we know is that the machinery is shared,
+the signal exists, and the predictions are falsifiable.
 
 % ------------------------------------------------------------------
 \section{Discussion}
@@ -1099,48 +466,25 @@ age, carcinogen exposure, and family history.
 % ------------------------------------------------------------------
 
 The central claim of this paper is simple. Learning breaks DNA.
-Inefficient learning breaks more DNA per bit learned. Psychiatric
-disorders that reduce learning efficiency increase the ratio of
-DNA breaks to knowledge acquired. The genes most affected are the
-chromatin remodeling genes that control context switching at the
-molecular level. These are the same genes whose somatic mutation
-drives cancer.
+The genes that repair the breaks are the same genes whose failure
+enables cancer. This is a structural consequence of K/A
+inseparability: any system where the knowledge substrate and the
+action substrate are physically identical will share failure modes
+between knowledge acquisition and uncontrolled action.
 
 This creates a direct, testable, molecular link between the
-efficiency of cognition and the risk of cancer: not through stress
+efficiency of cognition and the risk of cancer---not through stress
 hormones, not through behavioral factors, not through immune
 suppression, but through the physical cost of computation in a
 biological substrate.
 
-The inverted-U prediction distinguishes this framework from
-simpler ``stress causes cancer'' models. Stress models predict
-monotonically increasing cancer risk with increasing psychiatric
-severity. We predict the opposite at the extreme: the most
-severe context failures are protective because they disable the
-machinery that cancer needs.
-
-The clinical implication is that treating context window disorders
-is not merely palliative. It is potentially disease-modifying for
-cancer. The three-tier protocol, interrupt, optimize, tune, is
-ordered by the logic of the framework: you cannot optimize a
-scheduler that is currently thrashing. Halt the runaway process
-first.
-
 The deepest implication is for the relationship between knowledge
-and biology. If learning has a DNA damage cost, and if that cost
-is specific to the genes that control gene expression context,
-then what we know is physically inscribed in the error pattern of
-our DNA repair. Not in the sequence itself, like the immune
-system's somatic hypermutation, but in the \emph{wear pattern}
-on the machinery that controls which sequences are readable.
-
-If the mechanism proposed here holds, culture does not merely
-select on existing genetic variation. It writes on us, not as
-metaphor, but as somatic mutation in chromatin remodeling genes,
-accumulated across a lifetime of context switches, at a rate
-determined by how efficiently we learn. This is the speculative
-endpoint of the argument, but it is falsifiable: Prediction~12
-provides the test.
+and biology. If learning has a DNA damage cost specific to the
+genes that control gene expression context, then what we know is
+physically inscribed in the wear pattern of our chromatin
+remodeling machinery. Not in the sequence itself (like the immune
+system's somatic hypermutation), but in the error pattern on the
+read/write heads.
 
 % ------------------------------------------------------------------
 \section*{Conflict of Interest}
@@ -1159,6 +503,10 @@ This research received no external funding.
 P.~D.~McCarthy, ``Graph structure is necessary for information
 preservation under bounded context,'' 2026.
 
+\bibitem{McCarthy2026c}
+P.~D.~McCarthy, ``Knowledge as normalization: the inseparability of
+knowledge and action under bounded context,'' 2026.
+
 \bibitem{McCarthy2026d}
 P.~D.~McCarthy, ``Evaluation-driven descent, encoding permanence,
 and the structural invariants of intelligence,'' 2026.
@@ -1166,10 +514,6 @@ and the structural invariants of intelligence,'' 2026.
 \bibitem{McCarthy2026e}
 P.~D.~McCarthy, ``Coupling-channel count predicts cancer survival
 better than mutation count,'' 2026.
-
-\bibitem{McCarthy2026f}
-P.~D.~McCarthy, ``Determinism precipitates from uncertainty: when
-agents should become scripts,'' 2026.
 
 \bibitem{Madabhushi2015}
 R.~Madabhushi et~al., ``Activity-induced {DNA} breaks govern the
@@ -1180,27 +524,13 @@ vol.~161, pp.~1592--1605, 2015.
 T.~Lindahl, ``Instability and decay of the primary structure of
 {DNA},'' \emph{Nature}, vol.~362, pp.~709--715, 1993.
 
-\bibitem{Sun2022}
-S.~Sun et~al., ``Association of attention-deficit/hyperactivity
-disorder with cancer risk,'' \emph{JAMA Network Open}, vol.~5,
-e2249253, 2022.
-
 \bibitem{Chen2012tbi}
 Y.-H.~Chen et~al., ``Increased risk of brain cancer in people
 with traumatic brain injury,'' \emph{Br.~J.~Cancer}, 2012.
 
-\bibitem{Gradus2015}
-J.~L.~Gradus et~al., ``Posttraumatic stress disorder and cancer
-risk,'' \emph{JAMA Psychiatry}, vol.~72, pp.~1179--1185, 2015.
-
 \bibitem{Shen2013}
 C.-C.~Shen et~al., ``Risk of cancer in patients with obsessive-compulsive
 disorder,'' \emph{J.~Clin.~Psychiatry}, 2013.
-
-\bibitem{Tao2017}
-R.~Tao et~al., ``Association between behavioral addiction and
-cancer risk,'' \emph{Psycho-Oncology}, 2017.
-% TODO: verify authors/journal/volume before final submission.
 
 \bibitem{Chida2008}
 Y.~Chida et~al., ``Does psychosocial well-being predict cancer
@@ -1227,8 +557,8 @@ vol.~13, 2013.
 
 \bibitem{Singh2016}
 T.~Singh et~al., ``Rare schizophrenia risk variants are enriched
-in chromatin remodeling genes,'' \emph{Nature Genetics}, vol.~48,
-pp.~400--404, 2016.
+in chromatin remodeling genes,'' \emph{Nature Neuroscience},
+vol.~19, pp.~571--577, 2016.
 
 \bibitem{Solmi2020}
 M.~Solmi et~al., ``Cancer risk in antipsychotic-treated
@@ -1263,10 +593,6 @@ A.~Bajaj et~al., ``{P}arkinson's disease and cancer risk,''
 H.~Hasle et~al., ``Cancer incidence in {D}own syndrome,''
 \emph{Lancet}, vol.~355, pp.~165--169, 2000.
 
-\bibitem{Patja2001}
-K.~Patja et~al., ``Cancer incidence of persons with intellectual
-disability,'' \emph{J.~Intellect.~Disabil.~Res.}, 2001.
-
 \bibitem{Santen2012}
 G.~W.~E.~Santen et~al., ``Mutations in \emph{ARID1A} cause
 intellectual disability,'' \emph{Am.~J.~Hum.~Genet.}, 2012.
@@ -1289,10 +615,6 @@ C.~Kandoth et~al., ``Mutational landscape and significance across
 12 major cancer types,'' \emph{Nature}, vol.~502, pp.~333--339,
 2013.
 
-\bibitem{Wan2017}
-J.~C.~Wan et~al., ``Liquid biopsies come of age,'' \emph{Nature
-Reviews Cancer}, vol.~17, pp.~223--238, 2017.
-
 \bibitem{Kiecolt-Glaser2002}
 J.~K.~Kiecolt-Glaser et~al., ``Psychoneuroimmunology and cancer,''
 \emph{Ann.~Oncol.}, 2002.
@@ -1300,44 +622,6 @@ J.~K.~Kiecolt-Glaser et~al., ``Psychoneuroimmunology and cancer,''
 \bibitem{Thadathil2021}
 N.~Thadathil et~al., ``{DNA} double-strand breaks accumulate in
 aging brain,'' \emph{Frontiers in Aging Neuroscience}, 2021.
-
-\bibitem{Waddington1942}
-C.~H.~Waddington, ``Canalization of development and the
-inheritance of acquired characters,'' \emph{Nature}, vol.~150,
-pp.~563--565, 1942.
-
-\bibitem{Church2012}
-D.~Church et~al., ``The effect of emotional freedom techniques on
-stress biochemistry,'' \emph{J.~Nerv.~Ment.~Dis.}, vol.~200,
-pp.~891--896, 2012.
-
-\bibitem{Schutte2020}
-N.~S.~Schutte and J.~M.~Malouff, ``A meta-analytic review of the
-effects of mindfulness meditation on telomerase activity,''
-\emph{Psychoneuroendocrinology}, 2020.
-
-\bibitem{Creswell2016}
-J.~D.~Creswell et~al., ``Alterations in resting-state functional
-connectivity link mindfulness meditation with reduced
-interleukin-6,'' \emph{Biol.~Psychiatry}, 2016.
-
-\bibitem{Chubak2011}
-J.~Chubak et~al., ``Antidepressant use and colorectal cancer
-risk,'' \emph{Cancer Causes Control}, 2011.
-
-\bibitem{Dalsgaard2018}
-S.~Dalsgaard et~al., ``{ADHD} medication and cancer risk,''
-\emph{J.~Child Psychol.~Psychiatry}, 2018.
-
-\bibitem{Barron2011}
-T.~I.~Barron et~al., ``Beta-blockers and breast cancer mortality,''
-\emph{J.~Clin.~Oncol.}, vol.~29, pp.~2635--2644, 2011.
-
-\bibitem{Kao2017}
-C.-H.~Kao et~al., ``Benzodiazepine use and risk of cancer:
-a population-based cohort study,'' \emph{Psycho-Oncology},
-2017.
-% TODO: verify volume/pages before final submission.
 
 \bibitem{Franks2012}
 A.~L.~Franks and J.~E.~Slansky, ``Autoimmune disease and cancer,''
@@ -1353,9 +637,22 @@ D.~P.~Steensma et~al., ``Clonal hematopoiesis of indeterminate
 potential and its distinction from myelodysplastic syndromes,''
 \emph{Blood}, vol.~126, pp.~9--16, 2015.
 
-\bibitem{Heidt2014}
-T.~Heidt et~al., ``Chronic variable stress activates hematopoietic
-stem cells,'' \emph{Nature Medicine}, vol.~20, pp.~754--758, 2014.
+\bibitem{Gradus2015}
+J.~L.~Gradus et~al., ``Posttraumatic stress disorder and cancer
+risk,'' \emph{JAMA Psychiatry}, vol.~72, pp.~1179--1185, 2015.
+
+\bibitem{Chubak2011}
+J.~Chubak et~al., ``Antidepressant use and colorectal cancer
+risk,'' \emph{Cancer Causes Control}, 2011.
+
+\bibitem{Dalsgaard2018}
+S.~Dalsgaard et~al., ``{ADHD} medication and cancer risk,''
+\emph{J.~Child Psychol.~Psychiatry}, 2018.
+
+\bibitem{Kao2017}
+C.-H.~Kao et~al., ``Benzodiazepine use and risk of cancer:
+a population-based cohort study,'' \emph{Psycho-Oncology},
+2017.
 
 \bibitem{Sung2024}
 H.~Sung et~al., ``Global trends in incidence of early-onset
