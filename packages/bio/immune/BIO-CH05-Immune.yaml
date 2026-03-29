@@ -1,0 +1,1735 @@
+id: BIO-CH05-Immune
+type: biology_channel
+domain: molecular_biology
+name: "Immune Regulation"
+channel: Immune
+tier: 2
+tier_name: organism_level
+n_genes: 53
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Coordinates immune surveillance, antigen presentation, and inflammatory signaling. Interfaces between cell-autonomous defense and systemic immunity."
+  healthy_state: "Antigen presentation (HLA-A/B/C, B2M), immune checkpoint balance (PD-1/PD-L1, CTLA4), cytokine signaling (JAK/STAT), NF-kB inflammatory control"
+  failure_mode: "Immune evasion, checkpoint dysregulation, chronic inflammation, loss of antigen presentation"
+
+genes:
+  - id: BIO-APLNR
+    name: APLNR
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-ATXN7
+    name: ATXN7
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-B2M
+    name: B2M
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in Immune. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in Immune, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-C
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TAP1
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.7
+        source: "STRING-DB"
+
+  - id: BIO-BBC3
+    name: BBC3
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PMAIP1
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+
+  - id: BIO-BCL10
+    name: BCL10
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.935
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.888
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.884
+        source: "STRING-DB"
+
+  - id: BIO-BIRC3
+    name: BIRC3
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in Immune. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in Immune, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CYLD
+        type: INTERACTS_WITH
+        score: 0.944
+        source: "STRING-DB"
+      - target: BIO-BCL10
+        type: INTERACTS_WITH
+        score: 0.935
+        source: "STRING-DB"
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.926
+        source: "STRING-DB"
+      - target: BIO-TNFAIP3
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.893
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+
+  - id: BIO-BTK
+    name: BTK
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-CD79B
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-CD79A
+        type: INTERACTS_WITH
+        score: 0.955
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.85
+        source: "STRING-DB"
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.798
+        source: "STRING-DB"
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.7
+        source: "STRING-DB"
+
+  - id: BIO-CALR
+    name: CALR
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-TAP1
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-HLA-C
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-MPL
+        type: INTERACTS_WITH
+        score: 0.889
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-CARD11
+    name: CARD11
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BCL10
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CD79B
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-TNFAIP3
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.848
+        source: "STRING-DB"
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.798
+        source: "STRING-DB"
+      - target: BIO-CD79A
+        type: INTERACTS_WITH
+        score: 0.797
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.746
+        source: "STRING-DB"
+
+  - id: BIO-CBFB
+    name: CBFB
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+
+  - id: BIO-CD276
+    name: CD276
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-ICOSLG
+        type: INTERACTS_WITH
+        score: 0.822
+        source: "STRING-DB"
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.784
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.734
+        source: "STRING-DB"
+
+  - id: BIO-CD79A
+    name: CD79A
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CD79B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.955
+        source: "STRING-DB"
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.797
+        source: "STRING-DB"
+
+  - id: BIO-CD79B
+    name: CD79B
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CD79A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.86
+        source: "STRING-DB"
+
+  - id: BIO-CRLF2
+    name: CRLF2
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.782
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+      - target: BIO-IKZF1
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+
+  - id: BIO-CSF3R
+    name: CSF3R
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.773
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.752
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.739
+        source: "STRING-DB"
+
+  - id: BIO-CXCR4
+    name: CXCR4
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-CYLD
+    name: CYLD
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.944
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.743
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.724
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-FBXW7
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-FIP1L1
+    name: FIP1L1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-GATA3
+    name: GATA3
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.853
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.777
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+      - target: BIO-IKZF1
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-CBFB
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.702
+        source: "STRING-DB"
+
+  - id: BIO-HLA-A
+    name: HLA-A
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-C
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-TAP1
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.705
+        source: "STRING-DB"
+
+  - id: BIO-HLA-B
+    name: HLA-B
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-C
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-TAP1
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.776
+        source: "STRING-DB"
+
+  - id: BIO-HLA-C
+    name: HLA-C
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in Immune. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in Immune, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.727
+        source: "STRING-DB"
+
+  - id: BIO-ICOSLG
+    name: ICOSLG
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-VTCN1
+        type: INTERACTS_WITH
+        score: 0.839
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+      - target: BIO-CD276
+        type: INTERACTS_WITH
+        score: 0.822
+        source: "STRING-DB"
+      - target: BIO-PDCD1LG2
+        type: INTERACTS_WITH
+        score: 0.742
+        source: "STRING-DB"
+
+  - id: BIO-IKZF1
+    name: IKZF1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.954
+        source: "STRING-DB"
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.8
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.745
+        source: "STRING-DB"
+      - target: BIO-CRLF2
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+
+  - id: BIO-IL10
+    name: IL10
+    position: hub
+    healthy_role: "Functional hub of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.919
+        source: "STRING-DB"
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.898
+        source: "STRING-DB"
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+      - target: BIO-ICOSLG
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+      - target: BIO-PDCD1LG2
+        type: INTERACTS_WITH
+        score: 0.797
+        source: "STRING-DB"
+      - target: BIO-CRLF2
+        type: INTERACTS_WITH
+        score: 0.782
+        source: "STRING-DB"
+      - target: BIO-CSF3R
+        type: INTERACTS_WITH
+        score: 0.773
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.756
+        source: "STRING-DB"
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+
+  - id: BIO-IL7R
+    name: IL7R
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CRLF2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.941
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.919
+        source: "STRING-DB"
+      - target: BIO-IKZF1
+        type: INTERACTS_WITH
+        score: 0.8
+        source: "STRING-DB"
+      - target: BIO-PRDM1
+        type: INTERACTS_WITH
+        score: 0.764
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.702
+        source: "STRING-DB"
+
+  - id: BIO-IRF4
+    name: IRF4
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.95
+        source: "STRING-DB"
+      - target: BIO-PRDM1
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.853
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+      - target: BIO-IKZF1
+        type: INTERACTS_WITH
+        score: 0.745
+        source: "STRING-DB"
+
+  - id: BIO-KNSTRN
+    name: KNSTRN
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-MALT1
+    name: MALT1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-BCL10
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.893
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-TNFAIP3
+        type: INTERACTS_WITH
+        score: 0.808
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.79
+        source: "STRING-DB"
+      - target: BIO-CYLD
+        type: INTERACTS_WITH
+        score: 0.724
+        source: "STRING-DB"
+
+  - id: BIO-MPL
+    name: MPL
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.889
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.707
+        source: "STRING-DB"
+
+  - id: BIO-MYD88
+    name: MYD88
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.926
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.903
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.898
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.879
+        source: "STRING-DB"
+      - target: BIO-SOCS1
+        type: INTERACTS_WITH
+        score: 0.778
+        source: "STRING-DB"
+
+  - id: BIO-NFKBIA
+    name: NFKBIA
+    position: hub
+    healthy_role: "Functional hub of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.903
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-BCL10
+        type: INTERACTS_WITH
+        score: 0.888
+        source: "STRING-DB"
+      - target: BIO-TNFAIP3
+        type: INTERACTS_WITH
+        score: 0.87
+        source: "STRING-DB"
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.848
+        source: "STRING-DB"
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+      - target: BIO-CYLD
+        type: INTERACTS_WITH
+        score: 0.743
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.73
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.72
+        source: "STRING-DB"
+
+  - id: BIO-PAX5
+    name: PAX5
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-IKZF1
+        type: INTERACTS_WITH
+        score: 0.954
+        source: "STRING-DB"
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.95
+        source: "STRING-DB"
+      - target: BIO-CD79A
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-PRDM1
+        type: INTERACTS_WITH
+        score: 0.907
+        source: "STRING-DB"
+      - target: BIO-CD79B
+        type: INTERACTS_WITH
+        score: 0.86
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+
+  - id: BIO-PDCD1
+    name: PDCD1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PDCD1LG2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ICOSLG
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-VTCN1
+        type: INTERACTS_WITH
+        score: 0.851
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.827
+        source: "STRING-DB"
+      - target: BIO-CD276
+        type: INTERACTS_WITH
+        score: 0.784
+        source: "STRING-DB"
+      - target: BIO-TNFRSF14
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+
+  - id: BIO-PDCD1LG2
+    name: PDCD1LG2
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-VTCN1
+        type: INTERACTS_WITH
+        score: 0.935
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.797
+        source: "STRING-DB"
+      - target: BIO-ICOSLG
+        type: INTERACTS_WITH
+        score: 0.742
+        source: "STRING-DB"
+
+  - id: BIO-PGBD5
+    name: PGBD5
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-PMAIP1
+    name: PMAIP1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BBC3
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+
+  - id: BIO-PRDM1
+    name: PRDM1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in Immune. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in Immune, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-IRF4
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-PAX5
+        type: INTERACTS_WITH
+        score: 0.907
+        source: "STRING-DB"
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.764
+        source: "STRING-DB"
+
+  - id: BIO-PRKN
+    name: PRKN
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-SERPINB3
+    name: SERPINB3
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-SERPINB4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+
+  - id: BIO-SERPINB4
+    name: SERPINB4
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-SERPINB3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+
+  - id: BIO-SLFN11
+    name: SLFN11
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-SOCS1
+    name: SOCS1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.927
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.926
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.803
+        source: "STRING-DB"
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.778
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.707
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-PTEN
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-STAT1
+    name: STAT1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+  - id: BIO-STAT5A
+    name: STAT5A
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.949
+        source: "STRING-DB"
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-SOCS1
+        type: INTERACTS_WITH
+        score: 0.927
+        source: "STRING-DB"
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.85
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.777
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.775
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.756
+        source: "STRING-DB"
+      - target: BIO-CSF3R
+        type: INTERACTS_WITH
+        score: 0.739
+        source: "STRING-DB"
+      - target: BIO-CRLF2
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+
+  - id: BIO-STAT5B
+    name: STAT5B
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.949
+        source: "STRING-DB"
+      - target: BIO-IL7R
+        type: INTERACTS_WITH
+        score: 0.941
+        source: "STRING-DB"
+      - target: BIO-SOCS1
+        type: INTERACTS_WITH
+        score: 0.926
+        source: "STRING-DB"
+      - target: BIO-SYK
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+      - target: BIO-GATA3
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+      - target: BIO-IL10
+        type: INTERACTS_WITH
+        score: 0.753
+        source: "STRING-DB"
+      - target: BIO-CSF3R
+        type: INTERACTS_WITH
+        score: 0.752
+        source: "STRING-DB"
+      - target: BIO-CRLF2
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+
+  - id: BIO-SYK
+    name: SYK
+    position: hub
+    healthy_role: "Functional hub of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BTK
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CD79B
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-CD79A
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-BCL10
+        type: INTERACTS_WITH
+        score: 0.884
+        source: "STRING-DB"
+      - target: BIO-MYD88
+        type: INTERACTS_WITH
+        score: 0.879
+        source: "STRING-DB"
+      - target: BIO-SOCS1
+        type: INTERACTS_WITH
+        score: 0.803
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.79
+        source: "STRING-DB"
+      - target: BIO-STAT5A
+        type: INTERACTS_WITH
+        score: 0.775
+        source: "STRING-DB"
+      - target: BIO-CSF3R
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+      - target: BIO-STAT5B
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+
+  - id: BIO-TAP1
+    name: TAP1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-TAP2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+
+  - id: BIO-TAP2
+    name: TAP2
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-TAP1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-HLA-A
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-B2M
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-CALR
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-HLA-B
+        type: INTERACTS_WITH
+        score: 0.776
+        source: "STRING-DB"
+      - target: BIO-HLA-C
+        type: INTERACTS_WITH
+        score: 0.727
+        source: "STRING-DB"
+
+  - id: BIO-TNFAIP3
+    name: TNFAIP3
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-BIRC3
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-CARD11
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-NFKBIA
+        type: INTERACTS_WITH
+        score: 0.87
+        source: "STRING-DB"
+      - target: BIO-MALT1
+        type: INTERACTS_WITH
+        score: 0.808
+        source: "STRING-DB"
+      - target: BIO-TNFRSF14
+        type: INTERACTS_WITH
+        score: 0.701
+        source: "STRING-DB"
+
+  - id: BIO-TNFRSF14
+    name: TNFRSF14
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+      - target: BIO-VTCN1
+        type: INTERACTS_WITH
+        score: 0.747
+        source: "STRING-DB"
+      - target: BIO-TNFAIP3
+        type: INTERACTS_WITH
+        score: 0.701
+        source: "STRING-DB"
+
+  - id: BIO-VTCN1
+    name: VTCN1
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+    interacts_with:
+      - target: BIO-PDCD1LG2
+        type: INTERACTS_WITH
+        score: 0.935
+        source: "STRING-DB"
+      - target: BIO-PDCD1
+        type: INTERACTS_WITH
+        score: 0.851
+        source: "STRING-DB"
+      - target: BIO-ICOSLG
+        type: INTERACTS_WITH
+        score: 0.839
+        source: "STRING-DB"
+      - target: BIO-TNFRSF14
+        type: INTERACTS_WITH
+        score: 0.747
+        source: "STRING-DB"
+
+  - id: BIO-ZNRF3
+    name: ZNRF3
+    position: leaf
+    healthy_role: "Functional member of Immune pathway."
+    loss_consequence: "Altered Immune function"
+
+cross_channel_edges:
+  - from: BIO-BBC3
+    to: BIO-BCL2L1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BBC3
+    to: BIO-BCL2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BIRC3
+    to: BIO-TRAF2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BTK
+    to: BIO-PLCG2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CBFB
+    to: BIO-RUNX1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CBFB
+    to: BIO-ELOC
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CD79A
+    to: BIO-LYN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NFKBIA
+    to: BIO-REL
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PDCD1
+    to: BIO-CD274
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PMAIP1
+    to: BIO-MCL1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PMAIP1
+    to: BIO-BCL2L1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PMAIP1
+    to: BIO-BCL2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SOCS1
+    to: BIO-JAK2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SOCS1
+    to: BIO-JAK1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5A
+    to: BIO-JAK1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5A
+    to: BIO-JAK2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5B
+    to: BIO-JAK2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5B
+    to: BIO-JAK1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SYK
+    to: BIO-SRC
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SYK
+    to: BIO-LYN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SYK
+    to: BIO-PLCG2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BBC3
+    to: BIO-MCL1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BCL10
+    to: BIO-CASP8
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MALT1
+    to: BIO-CASP8
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PDCD1
+    to: BIO-PTPN11
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PDCD1LG2
+    to: BIO-CTLA4
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5A
+    to: BIO-EGFR
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5A
+    to: BIO-JAK3
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-STAT5B
+    to: BIO-STAT3
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BTK
+    to: BIO-LYN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH05-Immune
+    name: "Immune Regulation"
+  - id: BIO-APLNR
+    name: APLNR
+  - id: BIO-ATXN7
+    name: ATXN7
+  - id: BIO-B2M
+    name: B2M
+  - id: BIO-BBC3
+    name: BBC3
+  - id: BIO-BCL10
+    name: BCL10
+  - id: BIO-BIRC3
+    name: BIRC3
+  - id: BIO-BTK
+    name: BTK
+  - id: BIO-CALR
+    name: CALR
+  - id: BIO-CARD11
+    name: CARD11
+  - id: BIO-CBFB
+    name: CBFB
+  - id: BIO-CD276
+    name: CD276
+  - id: BIO-CD79A
+    name: CD79A
+  - id: BIO-CD79B
+    name: CD79B
+  - id: BIO-CRLF2
+    name: CRLF2
+  - id: BIO-CSF3R
+    name: CSF3R
+  - id: BIO-CXCR4
+    name: CXCR4
+  - id: BIO-CYLD
+    name: CYLD
+  - id: BIO-FIP1L1
+    name: FIP1L1
+  - id: BIO-GATA3
+    name: GATA3
+  - id: BIO-HLA-A
+    name: HLA-A
+
+edges:
+  - from: BIO-CH05-Immune
+    to: BIO-APLNR
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-ATXN7
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-B2M
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-BBC3
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-BCL10
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-BIRC3
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-BTK
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CALR
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CARD11
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CBFB
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CD276
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CD79A
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CD79B
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CRLF2
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CSF3R
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CXCR4
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-CYLD
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-FIP1L1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-GATA3
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-HLA-A
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-HLA-B
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-HLA-C
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-ICOSLG
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-IKZF1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-IL10
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-IL7R
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-IRF4
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-KNSTRN
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-MALT1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-MPL
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-MYD88
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-NFKBIA
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PAX5
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PDCD1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PDCD1LG2
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PGBD5
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PMAIP1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PRDM1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-PRKN
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-SERPINB3
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-SERPINB4
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-SLFN11
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-SOCS1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-STAT1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-STAT5A
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-STAT5B
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-SYK
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-TAP1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-TAP2
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-TNFAIP3
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-TNFRSF14
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-VTCN1
+    type: CONTAINS
+  - from: BIO-CH05-Immune
+    to: BIO-ZNRF3
+    type: CONTAINS

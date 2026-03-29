@@ -1,0 +1,363 @@
+id: EV03-cancer-graph-schema
+type: empirical
+name: "Cancer Escalation Graph — Node Types, Edge Types, and Directional Weights"
+statement: |
+  The cancer escalation architecture is a directed graph with six node types and
+  seven edge types. This schema replaces the flat metadata representation with
+  proper graph structure where cancer type, mutation type, and hub/leaf status
+  are nodes — not attributes — and edges carry directional weights that differ
+  by direction.
+
+  This graph schema is derived from EM29's empirical results and represents
+  the minimum structure needed to capture the signal that the ChannelNet V6c
+  transformer learns (C-index 0.685). The simple scoring functions that treat
+  these as metadata achieve only 0.575; the gap (0.110) is the value of the
+  graph structure.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Cancer Escalation Analysis — Graph Schema Design"
+    date: "2026"
+  evidence:
+    type: empirical
+    description: |
+      Derived from: EM29 defense profiles, EV01 channel data, EV02 confidence framework,
+      directional edge analysis (246 directed pairs), cancer type × channel defense matrix
+      (15 cancer types × 8 channels), hub-leaf correlation (p=0.017), mutation type
+      interaction table (trunc×trunc 95.8% multiplicative).
+    references:
+      - EM29-cancer-escalation-defense-profiles
+      - EV01-channel-defense-profiles
+      - EV02-mutation-prediction-confidence
+  derivation:
+    from:
+      - EM29-cancer-escalation-defense-profiles
+      - NV01-graph-necessity
+    method: |
+      NV01: graph structure is necessary for information preservation at bounded context.
+      EM29: the cancer mutation data confirms this — flat features lose 0.110 C-index
+      vs graph-structured model. This schema defines the specific graph that preserves
+      the information.
+
+edges:
+  - to: NV01-graph-necessity
+    relation: implements
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EV03 is NV01 instantiated in cancer biology. The graph structure is necessary — flat representation loses signal."
+      derivation:
+        method: "Signal decomposition: flat = 0.575, graph = 0.685. The 0.110 gap is the information NV01 predicts must be preserved."
+
+# ==========================================================================
+# NODE TYPES
+# ==========================================================================
+
+node_types:
+
+  CancerType:
+    description: |
+      The disease context. Not metadata — a first-class node that modulates
+      every edge weight in the graph. The same mutation in the same channel
+      can be protective in one cancer type and harmful in another.
+    count: 42
+    examples:
+      - id: "ct:colorectal"
+        name: "Colorectal Cancer"
+        n_patients: 4618
+        baseline_hazard: -0.25
+        best_defense_channel: DNAMethylation
+        worst_defense_channel: PI3K_Growth
+      - id: "ct:glioma"
+        name: "Glioma"
+        n_patients: 1809
+        baseline_hazard: +0.30
+        best_defense_channel: DNAMethylation  # IDH mutations protective
+        worst_defense_channel: PI3K_Growth    # growth mutations harmful
+        channel_defense_range: 1.402          # most variable cancer type
+      - id: "ct:endometrial"
+        name: "Endometrial Cancer"
+        n_patients: 2176
+        baseline_hazard: -0.70
+        best_defense_channel: Endocrine       # -1.280, strongest defense in dataset
+        worst_defense_channel: CellCycle
+      - id: "ct:breast"
+        name: "Breast Cancer"
+        n_patients: 5188
+        baseline_hazard: -0.15
+        best_defense_channel: Endocrine       # -0.358
+        worst_defense_channel: CellCycle      # -0.029
+
+  Tier:
+    description: |
+      The escalation level. Failures escalate upward through tiers.
+      Lower tier failure + higher tier compensation = rescue.
+      Higher tier failure + lower tier damage = catastrophe.
+    count: 4
+    instances:
+      - {id: "tier:0", name: "Cell Intrinsic", channels: [PI3K_Growth, CellCycle]}
+      - {id: "tier:1", name: "Tissue Level", channels: [DDR, TissueArch]}
+      - {id: "tier:2", name: "Organism Level", channels: [Endocrine, Immune]}
+      - {id: "tier:3", name: "Meta Regulatory", channels: [ChromatinRemodel, DNAMethylation]}
+
+  Channel:
+    description: |
+      A signaling pathway group. Contains genes that perform related functions.
+      The unit at which the escalation cascade operates — channel-level failure
+      triggers tier-level response.
+    count: 8
+    features_per_node: 9  # is_severed, n_mutations, n_genes, frac_trunc, frac_miss, mean_vaf, max_vaf, gof, lof
+    examples:
+      - id: "ch:immune"
+        name: "Immune"
+        tier: "tier:2"
+        n_genes: 35
+        mean_defense: -0.481
+        pct_protective: 100
+      - id: "ch:cellcycle"
+        name: "CellCycle"
+        tier: "tier:0"
+        n_genes: 47
+        mean_defense: -0.374
+        pct_protective: 94
+
+  Gene:
+    description: |
+      A specific gene within a channel. Genes are typed as hub or leaf
+      based on their connectivity in the signaling network. Hub genes
+      have lower hazard than leaf genes (p=0.017) — the graph topology
+      carries information independent of the defense profile.
+    count: 236
+    attributes: [channel, function, n_hotspots, hazard_shift, hub_or_leaf]
+    examples:
+      - id: "gene:TP53"
+        channel: "ch:cellcycle"
+        function: LOF
+        hub_or_leaf: hub
+        n_hotspots: 146
+        hazard_shift: +0.24  # net harmful — corrupted signal dominates
+      - id: "gene:PIK3CA"
+        channel: "ch:pi3k_growth"
+        function: GOF
+        hub_or_leaf: hub
+        n_hotspots: 35
+        hazard_shift: -0.43  # net protective — defense cascade works
+
+  Hotspot:
+    description: |
+      A specific mutation at a specific protein position. The finest resolution
+      node. Same gene, same codon, different substitution can produce opposite
+      outcomes (IDH1 R132H = -1.01 vs R132L = +0.64).
+    count: 471
+    attributes: [gene, position, protein_change, mutation_type, hazard_shift, n_patients, durability]
+    examples:
+      - id: "hs:POLE_V411L"
+        gene: "gene:POLE"
+        position: 411
+        protein_change: "V411L"
+        mutation_type: "mt:missense"
+        hazard_shift: -2.068  # most protective in dataset
+        n_patients: 52
+        durability: 0.65
+      - id: "hs:KRAS_G12D"
+        gene: "gene:KRAS"
+        position: 12
+        protein_change: "G12D"
+        mutation_type: "mt:missense_gof"
+        hazard_shift: +0.383  # harmful solo, rescuer as secondary
+        n_patients: 2249
+        durability: 0.92  # N-terminal, oldest code
+      - id: "hs:IDH1_R132H"
+        gene: "gene:IDH1"
+        position: 132
+        protein_change: "R132H"
+        mutation_type: "mt:missense_gof"
+        hazard_shift: -1.009
+        n_patients: 447
+      - id: "hs:IDH1_R132L"
+        gene: "gene:IDH1"
+        position: 132
+        protein_change: "R132L"
+        mutation_type: "mt:missense_lof"
+        hazard_shift: +0.635
+        n_patients: 30
+
+  MutationType:
+    description: |
+      The class of mutation. Not metadata on a hotspot — a node, because
+      mutation type interactions are edges (trunc×trunc, miss×miss, etc.)
+      with their own weights. The interaction between two mutation types
+      is a property of the EDGE, not the nodes.
+    count: 4
+    instances:
+      - id: "mt:truncating"
+        name: "Truncating (frameshift, nonsense, splice)"
+        mechanism: "Clean break — protein absent, cascade detects absence"
+        defense_detection: high  # cascade evolved to detect absence
+      - id: "mt:missense_gof"
+        name: "Missense Gain-of-Function"
+        mechanism: "Protein active but altered — new function, cascade may detect aberrant activation"
+        defense_detection: moderate
+      - id: "mt:missense_lof"
+        name: "Missense Loss-of-Function"
+        mechanism: "Protein present but non-functional — corrupted signal, cascade cannot detect"
+        defense_detection: low  # the corrupted signal problem
+      - id: "mt:missense_unknown"
+        name: "Missense (GOF/LOF unknown)"
+        mechanism: "Functional impact uncertain"
+        defense_detection: unknown
+
+# ==========================================================================
+# EDGE TYPES
+# ==========================================================================
+
+edge_types:
+
+  tier_contains_channel:
+    description: "Hierarchical containment. Tier → Channel."
+    direction: downward
+    count: 8
+    example: {from: "tier:0", to: "ch:pi3k_growth", relation: contains}
+
+  channel_contains_gene:
+    description: "Channel → Gene membership."
+    direction: downward
+    count: 236
+    example: {from: "ch:cellcycle", to: "gene:TP53", relation: contains}
+
+  gene_contains_hotspot:
+    description: "Gene → Hotspot. Position within the gene determines durability."
+    direction: downward
+    count: 471
+    weight: durability  # derived from normalized protein position
+    example: {from: "gene:TP53", to: "hs:TP53_R175H", relation: contains, durability: 0.46}
+
+  hub_to_leaf:
+    description: |
+      Directed edge within a channel from hub genes to leaf genes.
+      Hub genes (high connectivity) have LOWER mean hazard (0.295) than
+      leaf genes (0.392), p=0.017. Information about graph topology that
+      is independent of the defense profile.
+    direction: hub → leaf
+    weight: connectivity_ratio
+    evidence: "Hub-leaf hazard inversion, p=0.017"
+    example: {from: "gene:TP53", to: "gene:CDKN2A", relation: hub_to_leaf, channel: "ch:cellcycle"}
+
+  hotspot_synergy:
+    description: |
+      DIRECTED edge between hotspots. The key insight: A→B and B→A carry
+      OPPOSITE weights. Primary (more frequent, likely earlier) → secondary
+      (less frequent, likely later) determines whether the pair rescues or
+      compounds.
+
+      r = +0.76 (p = 1.2e-11): mutations harmful solo are helpful as secondary.
+      r = -0.80 (p = 8.4e-57): rarer mutations that are harmful solo produce
+      better pair outcomes.
+    direction: primary → secondary (ordered by frequency)
+    weight: synergy  # positive = multiplicative, negative = rescue
+    count: 246
+    classification:
+      multiplicative: {count: 148, pct: 60.2, description: "Pair worse than sum of parts"}
+      redundant: {count: 75, pct: 30.5, description: "Pair better than sum — overlapping damage"}
+      additive: {count: 23, pct: 9.3, description: "Pair matches sum of parts"}
+    examples:
+      - from: "hs:KRAS_G12D"
+        to: "hs:CTCF_T204Nfs"
+        direction: "KRAS primary → CTCF secondary"
+        synergy: -0.945
+        interpretation: "RESCUE — growth signal supports repair response"
+      - from: "hs:CTCF_T204Nfs"
+        to: "hs:KRAS_G12D"
+        direction: "CTCF primary → KRAS secondary"
+        synergy: +0.945
+        interpretation: "CATASTROPHE — checkpoint loss + uncontrolled growth"
+      - from: "hs:POLE_V411L"
+        to: "hs:PIK3R1_R348*"
+        direction: "POLE primary → PIK3R1 secondary"
+        synergy: +1.954
+        interpretation: "Most multiplicative pair — two strong defenses collide"
+
+  mutation_type_interaction:
+    description: |
+      Edge between MutationType nodes. The interaction is a property of
+      the TYPE COMBINATION, not the individual mutations. This is why it
+      must be an edge, not metadata.
+    direction: undirected (type combination is symmetric)
+    count: 3  # trunc×trunc, miss×trunc, miss×miss
+    instances:
+      - from: "mt:truncating"
+        to: "mt:truncating"
+        pct_multiplicative: 95.8
+        mean_synergy: +0.772
+        interpretation: "Two clean breaks overwhelm cascade compensation"
+      - from: "mt:missense"
+        to: "mt:truncating"
+        pct_multiplicative: 60.5
+        mean_synergy: +0.201
+        interpretation: "Corrupted signal + clean break — mixed"
+      - from: "mt:missense"
+        to: "mt:missense"
+        pct_multiplicative: 31.5
+        mean_synergy: -0.007
+        interpretation: "Two corrupted signals partially cancel — Mr. Burns effect"
+
+  cancer_type_modulates_channel:
+    description: |
+      CancerType → Channel edge with defense_weight. This is the critical
+      edge that explains why cancer type cannot be metadata — the SAME
+      channel mutation is protective in one cancer type and harmful in another.
+
+      Glioma + DNAMethylation = -0.710 (protective, IDH mutations)
+      Glioma + PI3K_Growth = +0.692 (harmful, growth pathway)
+      Range within Glioma alone: 1.402
+
+      This edge is what the transformer's cancer type embedding learns.
+    direction: cancer_type → channel
+    weight: defense_shift  # hazard shift for patients with this cancer type + this channel mutated
+    count: "~120 (15 top cancer types × 8 channels)"
+    examples:
+      - from: "ct:endometrial"
+        to: "ch:endocrine"
+        defense_shift: -1.280
+        interpretation: "Strongest cancer-channel defense in dataset — endocrine cascade protects endometrial"
+      - from: "ct:glioma"
+        to: "ch:dna_methylation"
+        defense_shift: -0.710
+        interpretation: "IDH mutations protective in glioma — epigenetic reprogramming"
+      - from: "ct:glioma"
+        to: "ch:pi3k_growth"
+        defense_shift: +0.692
+        interpretation: "Growth pathway mutations harmful in glioma — no defense"
+      - from: "ct:pancreatic"
+        to: "ch:dna_methylation"
+        defense_shift: +0.067
+        interpretation: "Nearly neutral — only channel that doesn't harm in pancreatic"
+      - from: "ct:prostate"
+        to: "ch:ddr"
+        defense_shift: -0.627
+        interpretation: "DDR is prostate cancer's primary defense"
+
+# ==========================================================================
+# GRAPH STATISTICS
+# ==========================================================================
+
+graph_stats:
+  total_nodes: 761  # 42 cancer types + 4 tiers + 8 channels + 236 genes + 471 hotspots + 4 mutation types (some not populated)
+  total_edges: "~1000+ (containment + synergy + modulation)"
+  max_depth: 5  # CancerType → Tier → Channel → Gene → Hotspot
+  key_insight: |
+    The graph is NOT symmetric. Every edge has a direction, and many edges
+    carry opposite weights in opposite directions. This is the fundamental
+    property of the escalation cascade: it flows upward. Disrupting a lower
+    node and compensating from above (rescue) is the opposite of disrupting
+    an upper node and failing downward (catastrophe).
+
+    The 0.110 C-index gap between flat scoring (0.575) and the transformer
+    (0.685) is the information content of this directional graph structure.
+    A scoring function that properly encodes the directed edges should close
+    this gap without a neural network.

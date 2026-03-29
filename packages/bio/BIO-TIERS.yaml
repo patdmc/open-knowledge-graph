@@ -1,0 +1,78 @@
+id: BIO-TIERS
+type: biology_hierarchy
+domain: molecular_biology
+name: "Cellular Function Hierarchy"
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Tier structure from coupling-channel cancer model, reframed as functional hierarchy"
+    date: 2026-03-28
+
+description: |
+  Four-tier hierarchy of cellular function. Lower tiers are cell-intrinsic
+  (growth, division). Higher tiers are organism-level (immune, endocrine)
+  and meta-regulatory (chromatin, methylation). Meta-regulatory tiers
+  control ACCESS to the genome — they are the read/write permissions
+  layer that governs which lower-tier programs can execute.
+
+tiers:
+  - tier: 0
+    name: cell_intrinsic
+    description: "Core cellular machinery — growth signaling and cell division"
+    channels: [PI3K_Growth, CellCycle]
+    analogy: "The CPU and clock — computation and timing"
+
+  - tier: 1
+    name: tissue_level
+    description: "Tissue integrity — DNA repair and structural organization"
+    channels: [DDR, TissueArch]
+    analogy: "Error correction and filesystem — data integrity and structure"
+
+  - tier: 2
+    name: organism_level
+    description: "Organism-wide coordination — hormonal and immune signaling"
+    channels: [Endocrine, Immune]
+    analogy: "Network and security — inter-process communication and access control"
+
+  - tier: 3
+    name: meta_regulatory
+    description: "Epigenetic access control — which genes can be read at all"
+    channels: [ChromatinRemodel, DNAMethylation]
+    analogy: "Kernel and permissions — controls what userspace programs can access"
+
+cross_domain_edges:
+  - from: BIO-TIERS
+    to: D08-encoding-hierarchy
+    type: INSTANTIATES
+    note: "The cellular tier hierarchy is a biological instantiation of the encoding hierarchy (D08). Tier 0 = L0 genetic, Tier 3 = meta-regulatory."
+  - from: BIO-TIERS
+    to: EC01-bounded-context
+    type: SUPPORTS
+    note: "Each tier has bounded context — channels within a tier share information, cross-tier communication is expensive (escalation)."
+
+concepts:
+  - id: BIO-TIERS
+    name: "Cellular Function Hierarchy"
+  - id: D08-encoding-hierarchy
+    name: "Encoding Hierarchy"
+  - id: EC01-bounded-context
+    name: "Bounded Context"
+  - id: channel_capacity
+    name: "Channel capacity — each tier has bounded throughput"
+  - id: error_correction
+    name: "Error correction — DDR/tissue tiers correct errors in lower tiers"
+  - id: compression
+    name: "Compression — epigenetic tiers compress gene regulation into heritable marks"
+  - id: information_gain
+    name: "Information gain — each tier adds context that reduces uncertainty"
+  - id: graph
+    name: "Graph — tier structure is a directed acyclic graph of functional dependencies"
+
+edges:
+  - from: BIO-TIERS
+    to: D08-encoding-hierarchy
+    type: INSTANTIATES
+  - from: BIO-TIERS
+    to: EC01-bounded-context
+    type: SUPPORTS

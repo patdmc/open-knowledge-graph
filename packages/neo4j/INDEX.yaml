@@ -1,0 +1,16 @@
+id: okg:index:neo4j
+type: index
+name: Neo4j — SPI Implementation
+description: >
+  Implements the core SPI (read/write/walk) against Neo4j.
+  Projects YAML source of truth into Neo4j for querying.
+  Read replica — Neo4j is a view, not the source.
+  YAML packages own the knowledge. Neo4j makes it queryable.
+implements: okg.core.spi
+subgraphs:
+  - id: neo4j:subgraph:loaders
+    path: loaders/
+    description: Per-package loaders (bio, math, cancer, atlas)
+  - id: neo4j:subgraph:schema
+    path: schema/
+    description: Cypher constraints, indexes, label definitions

@@ -1,0 +1,51 @@
+id: okg:index:core
+type: index
+name: Core — Schema, Vocabulary, Validation
+subgraphs: []
+nodes:
+  nouns: [axiom, definition, assertion, conjecture, proof, example, source, context]
+  verbs:
+    truth: [PROVES, SUPPORTS, REFUTES]
+    structure: [INSTANTIATES, DEFINES, SPECIALIZES, GENERALIZES, PART_OF, HAS_PART]
+    logic: [REQUIRES, ASSUMES, IMPLIES, CONTRADICTS]
+    provenance: [CITES, DERIVES_FROM, SUPERSEDES, RETRACTED]
+  formal:
+    quantifiers: [FOR_ALL, THERE_EXISTS, THERE_EXISTS_UNIQUE]
+    connectives: [AND, OR, NOT, IMPLIES, IFF]
+    set_operations: [UNION, INTERSECT, SUBSET, ELEMENT_OF, COMPLEMENT, EMPTY_SET]
+    relations: [EQUALS, LESS_THAN, GREATER_THAN, MAPS_TO]
+spi:
+  description: >
+    Service Provider Interface — the contract any datastore must implement.
+    Read nodes, read edges, write nodes, write edges, walk.
+    Core defines the interface. Packages provide implementations.
+  operations: [read_node, read_edges, write_node, write_edge, walk, query]
+  implementations:
+    - id: yaml
+      description: Flat YAML file reader (current default, used by validator)
+    - id: neo4j
+      package: okg.neo4j
+      description: Neo4j graph database projection
+daemon:
+  - path: graph_daemon.py
+    description: >
+      Generic graph daemon — Unix socket server, keeps configured packages hot in memory.
+      Configure with package list (okg.bio, okg.cancer) or ALL.
+      Serves the SPI contract over JSON protocol.
+  - path: graph_client.py
+    description: Client for connecting to daemon, auto-starts if not running
+  - path: graph_builder.py
+    description: Builds in-memory graph from package YAML
+  - path: graph_schema.py
+    description: Schema validation for graph structures
+  - path: graph_snapshot.py
+    description: Point-in-time graph snapshots
+  - path: graph_precompute.py
+    description: Precompute derived properties (distances, centrality)
+tools:
+  - path: validate.py
+    description: Three-face validator (researcher, editor, librarian)
+  - path: precipitate.py
+    description: Gap review and edge commitment (curator ratchet)
+  - path: observe_claims.py
+    description: Shadow claim observer (stop hook)

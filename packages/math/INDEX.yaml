@@ -1,0 +1,30 @@
+id: okg:index:math
+type: index
+name: Mathematics — Theorems, Definitions, Proofs
+subgraphs:
+  - id: math:subgraph:definitions
+    path: definitions/
+    description: Foundational definitions (D01-D14)
+    count: 16
+  - id: math:subgraph:theorems
+    path: theorems/
+    description: Formal theorems and proofs
+    count: 2
+  - id: math:subgraph:emergent
+    path: emergent/
+    description: Emergent propositions — arise from intersections between frameworks
+    count: 29
+  - id: math:subgraph:equivalency
+    path: equivalency/
+    description: Equivalency mappings between frameworks
+    count: 20
+  - id: math:subgraph:novel
+    path: novel/
+    description: Novel contributions not in prior literature
+    count: 0
+  - id: math:subgraph:overlap
+    path: overlap/
+    description: Overlap analysis between frameworks
+bridges:
+  path: bridges/
+  description: Cross-subgraph edges within math

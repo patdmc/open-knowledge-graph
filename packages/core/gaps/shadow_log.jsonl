@@ -1,0 +1,2 @@
+{"timestamp": "2026-03-29T12:55:45.912506+00:00", "total_claims": 2, "confirmed": 0, "novel": 2, "no_data": 0, "details": "[KNOWLEDGE_GRAPH] 2 claims: 0 confirmed, 2 novel (need source), 0 outside graph\n  GAP [2]: BRCA1 recruits RAD51 \u2014 needs source\n  GAP [3]: ATM phosphorylates CHEK2 \u2014 needs source"}
+{"timestamp": "2026-03-29T21:15:02.725554+00:00", "total_claims": 1, "confirmed": 0, "novel": 1, "no_data": 0, "details": "[KNOWLEDGE_GRAPH] 1 claims: 0 confirmed, 1 novel (need source), 0 outside graph\n  GAP [4]: BRCA1 recruits RAD51 \u2014 needs source"}

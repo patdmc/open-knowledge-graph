@@ -11,3 +11,5 @@ analysis
 */__pycache__/*
 *.pyc
 .DS_Store
+packages/cancer/data/cache/
+packages/cancer/data/changelog/

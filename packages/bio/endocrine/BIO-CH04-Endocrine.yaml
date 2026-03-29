@@ -1,0 +1,475 @@
+id: BIO-CH04-Endocrine
+type: biology_channel
+domain: molecular_biology
+name: "Endocrine Signaling"
+channel: Endocrine
+tier: 2
+tier_name: organism_level
+n_genes: 15
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Mediates hormone-dependent gene regulation through nuclear receptors. Controls tissue-specific differentiation and homeostasis programs."
+  healthy_state: "Hormone reception (AR, ESR1/2), transcriptional programs (FOXA1, GATA1), tissue identity maintenance"
+  failure_mode: "Hormone-independent growth, lineage plasticity, treatment resistance"
+
+genes:
+  - id: BIO-ARID5B
+    name: ARID5B
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-CYP19A1
+    name: CYP19A1
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-ERG
+    name: ERG
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-TMPRSS2
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+
+  - id: BIO-ESR2
+    name: ESR2
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-ETV1
+    name: ETV1
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-TMPRSS2
+        type: INTERACTS_WITH
+        score: 0.942
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ETAA1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-FOXA1
+    name: FOXA1
+    position: hub
+    healthy_role: "Functional hub of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-NKX2-1
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-NCOA3
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+      - target: BIO-GATA1
+        type: INTERACTS_WITH
+        score: 0.706
+        source: "STRING-DB"
+
+  - id: BIO-GATA1
+    name: GATA1
+    position: hub
+    healthy_role: "Functional hub of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-LMO1
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+      - target: BIO-FOXA1
+        type: INTERACTS_WITH
+        score: 0.706
+        source: "STRING-DB"
+
+  - id: BIO-HOXB13
+    name: HOXB13
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-LMO1
+    name: LMO1
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-GATA1
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+
+  - id: BIO-NCOA3
+    name: NCOA3
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in Endocrine. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of Endocrine signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-FOXA1
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+
+  - id: BIO-NKX2-1
+    name: NKX2-1
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-FOXA1
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+
+  - id: BIO-PHOX2B
+    name: PHOX2B
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-PNRC1
+    name: PNRC1
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-SMYD3
+    name: SMYD3
+    position: leaf
+    healthy_role: "Functional member of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+
+  - id: BIO-TMPRSS2
+    name: TMPRSS2
+    position: hub
+    healthy_role: "Functional hub of Endocrine pathway."
+    loss_consequence: "Altered Endocrine function"
+    interacts_with:
+      - target: BIO-ETV1
+        type: INTERACTS_WITH
+        score: 0.942
+        source: "STRING-DB"
+      - target: BIO-ERG
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+
+cross_channel_edges:
+  - from: BIO-NCOA3
+    to: BIO-CREBBP
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-ESR1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FOXA1
+    to: BIO-ESR1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FOXA1
+    to: BIO-GATA3
+    to_channel: Immune
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-CARM1
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-AR
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FOXA1
+    to: BIO-AR
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.996
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA1
+    to: BIO-TCF3
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA1
+    to: BIO-RUNX1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.989
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-RXRA
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.988
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-PGR
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.986
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA1
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.984
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA1
+    to: BIO-GATA2
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.976
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-SRC
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.975
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TMPRSS2
+    to: BIO-AR
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.974
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NKX2-1
+    to: BIO-TSHR
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.954
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-RARA
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.948
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA1
+    to: BIO-IKZF1
+    to_channel: Immune
+    type: INTERACTS_WITH
+    score: 0.939
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-JUN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.938
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FOXA1
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.933
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-NCOR1
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.928
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CYP19A1
+    to: BIO-ESR1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.927
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-RPS6KB2
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.913
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-PPARG
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.909
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ETV1
+    to: BIO-COP1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.901
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ERG
+    to: BIO-AR
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.893
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOA3
+    to: BIO-SPOP
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.889
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NKX2-1
+    to: BIO-SMAD3
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.888
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FOXA1
+    to: BIO-PGR
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.887
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH04-Endocrine
+    name: "Endocrine Signaling"
+  - id: BIO-ARID5B
+    name: ARID5B
+  - id: BIO-CYP19A1
+    name: CYP19A1
+  - id: BIO-ERG
+    name: ERG
+  - id: BIO-ESR2
+    name: ESR2
+  - id: BIO-ETV1
+    name: ETV1
+  - id: BIO-FOXA1
+    name: FOXA1
+  - id: BIO-GATA1
+    name: GATA1
+  - id: BIO-HOXB13
+    name: HOXB13
+  - id: BIO-LMO1
+    name: LMO1
+  - id: BIO-NCOA3
+    name: NCOA3
+  - id: BIO-NKX2-1
+    name: NKX2-1
+  - id: BIO-PHOX2B
+    name: PHOX2B
+  - id: BIO-PNRC1
+    name: PNRC1
+  - id: BIO-SMYD3
+    name: SMYD3
+  - id: BIO-TMPRSS2
+    name: TMPRSS2
+
+edges:
+  - from: BIO-CH04-Endocrine
+    to: BIO-ARID5B
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-CYP19A1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-ERG
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-ESR2
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-ETV1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-FOXA1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-GATA1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-HOXB13
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-LMO1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-NCOA3
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-NKX2-1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-PHOX2B
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-PNRC1
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-SMYD3
+    type: CONTAINS
+  - from: BIO-CH04-Endocrine
+    to: BIO-TMPRSS2
+    type: CONTAINS

@@ -1,0 +1,296 @@
+id: EM29-cancer-escalation-defense-profiles
+type: emergent
+name: "Cancer Mutation Hazard Shifts Are the Escalation Cascade's Defense Record"
+statement: |
+  Two results are established:
+  - EM23: predictive coding is the neural implementation of the escalation architecture.
+    Bottom-up error propagation IS escalation; top-down prediction IS crystallized K.
+    The cortex implements Theorem 2a's efficient design.
+  - MSK-IMPACT 50K (2026): 43,872 cancer patients, 471 recurrent mutation hotspots
+    across 236 genes in 8 signaling channels organized in 4 escalation tiers.
+    A survival model (C-index 0.685) trained on per-channel mutation features
+    produces out-of-fold hazard predictions for every patient.
+
+  Intersection: the per-mutation hazard shift map IS the empirical record of the
+  escalation cascade's defense system. Each mutation's hazard shift measures how
+  effectively the cascade responds to failure at that specific node. The shift is
+  not a property of the mutation alone — it is a property of the cascade's response
+  to the mutation.
+
+  Five empirical results confirm the escalation architecture:
+
+  1. POSITION-DEPENDENT DEFENSE STRENGTH
+     Absolute protein position correlates with hazard shift (r = -0.31, p = 1.2e-11).
+     N-terminal residues (oldest, most conserved code) trigger the strongest
+     defensive responses. C-terminal residues (newest code) trigger weaker responses.
+     62% of genes show last-position mutations more protective than first-position.
+     This is survivorship bias at evolutionary scale: the N-terminal code that
+     lacked robust error-handling went extinct. What remains has battle-tested
+     escalation cascades.
+
+  2. FAILURE MODE HIERARCHY
+     Truncating mutations (clean break, protein absent) produce strong protective
+     responses — the cascade detects absence and escalates correctly.
+     Missense GOF mutations (gain-of-function, protein active but altered) produce
+     moderate protective responses — the cascade detects aberrant activation.
+     Missense LOF mutations (loss-of-function, protein present but non-functional)
+     produce harmful responses — the cascade cannot detect the failure because
+     the corrupted protein still signals "present." This is the corrupted signal
+     problem: the escalation cascade monitors for absence, not corruption.
+
+  3. PAIRWISE INTERACTION CLASSIFICATION
+     At the hotspot level: 60.2% multiplicative (compounding damage), 30.5%
+     redundant (overlapping damage), 9.3% additive, 0% counteractive.
+     Truncating x truncating pairs: 95.8% multiplicative — two clean breaks
+     overwhelm the cascade's capacity to compensate.
+     Missense x missense pairs: only 31.5% multiplicative — corrupted signals
+     partially cancel, consistent with the "Mr. Burns" saturation effect.
+     At the gene level: 0% multiplicative — because adaptive and maladaptive
+     hotspots within the same gene average to zero. The gene-level analysis
+     was an artifact of aggregation that the hotspot-level analysis resolves.
+
+  4. CHANNEL SATURATION (MR. BURNS EFFECT)
+     Patients with 6-8 channels severed show BETTER survival than patients with
+     3-5 channels severed. The expected hazard at 8 channels is strongly positive
+     but the actual hazard is negative (-0.35). At sufficient channel damage,
+     the mutations "jam in the doorway" — so many escalation signals fire
+     simultaneously that the system activates comprehensive defense programs
+     that would not engage for isolated failures.
+
+  5. TIER-ORGANIZED DEFENSE
+     All 8 channels show net protective response (94-100% of genes protective).
+     Immune channel: strongest mean defense (-0.48), 100% protective.
+     ChromatinRemodel: 100% protective, weakest individual shifts — distributed
+     defense across many small contributors.
+     The tier hierarchy (cell_intrinsic → tissue_level → organism_level →
+     meta_regulatory) matches the escalation architecture: lower tiers handle
+     local failures, higher tiers handle systemic ones.
+
+  The clinical consequence: each mutation's defense profile is a prediction
+  about how the cascade will respond. High-confidence predictions come from
+  well-characterized positions in genes with strong, consistent defense profiles.
+  Low-confidence predictions come from novel positions in poorly-characterized genes.
+  This is D13 (provenance) applied to biology: the defense profile IS the
+  provenance of the prediction.
+
+  Neither the MSK-IMPACT dataset (which reports mutations and survival without
+  reference to escalation theory) nor EM23 (which is derived from predictive
+  coding, not oncology) states this correspondence.
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Cancer Escalation Analysis — MSK-IMPACT 50K, ChannelNet V6c"
+    date: "2026"
+  evidence:
+    type: empirical
+    description: |
+      MSK-IMPACT 50K dataset: 43,872 patients with survival data and mutation profiles.
+      ChannelNet V6c model: 5-fold cross-validated, C-index 0.685.
+      Out-of-fold hazard predictions used for all per-mutation analyses.
+      Position correlation: r = -0.31, p = 1.2e-11 (471 hotspots, 32 multi-hotspot genes).
+      Hotspot synergy: 246 pairs with >= 15 co-occurrence, 148 multiplicative (60.2%).
+      Mutation type synergy: truncating x truncating 95.8% multiplicative,
+      missense x missense 31.5% multiplicative.
+    references:
+      - EM23-predictive-coding-is-escalation
+      - D09-survival-threshold
+      - D13-provenance
+  derivation:
+    from:
+      - EM23-predictive-coding-is-escalation
+      - D09-survival-threshold
+    method: |
+      EM23: the escalation cascade is the efficient architecture under bounded context.
+      D09: U_lethal is the survival threshold — cancer mortality IS U > U_lethal.
+      If the escalation cascade operates in cancer biology, then:
+        (a) mutations that sever channels should trigger escalation responses
+        (b) the strength of response should correlate with evolutionary age of the code
+        (c) failure modes that bypass detection (corrupted signal) should be worse
+        (d) overwhelming the cascade should produce non-linear effects
+      All four predictions are confirmed empirically.
+
+edges:
+  - to: EM23-predictive-coding-is-escalation
+    relation: extends
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EM29 provides in-vivo empirical confirmation of the escalation architecture that EM23 identifies in the cortex. The same architecture operates at the cellular/genomic level."
+      derivation:
+        method: "EM23 identifies the architecture; EM29 measures its performance in cancer biology"
+
+  - to: D09-survival-threshold
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Cancer mortality is a direct measurement of U > U_lethal. The hazard shift map quantifies how close each mutation brings the patient to U_lethal."
+      derivation:
+        method: "D09 defines U_lethal; cancer survival data measures distance to it"
+
+  - to: D13-provenance
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "The defense profile of each mutation IS its provenance — the empirical record of how reliably the cascade responds. Prediction confidence follows from provenance quality per D13."
+      derivation:
+        method: "D13: P(p reliable) proportional to prov(p). Defense profile = prov(mutation outcome)."
+
+  - to: NV01-graph-necessity
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: |
+          NV01 now has seven independent derivations:
+          (1) Information theory (UB Theorem 2b Part 3)
+          (2) Philosophy of language (EM11)
+          (3) Algebra (EM16)
+          (4) Spacetime physics (EM18)
+          (5) Compiler theory (EM27)
+          (6) Pangenomics (EM28): genome requires graph structure
+          (7) Cancer biology (EM29): 8-channel signaling graph with tier hierarchy
+              IS the K/F graph observed in cellular biology. The graph structure
+              is necessary — flat mutation count (no graph) achieves C-index 0.55;
+              the graph-structured model achieves 0.685.
+          C_1(NV01) updates toward 0.96.
+      derivation:
+        method: "The 8-channel tier architecture is a K/F graph. Signal decomposition shows the graph adds +0.098 C-index over flat features. The graph structure is not imposed — it is discovered by the model under selection pressure (Cox loss)."
+
+implications:
+  - "The escalation cascade operates in cancer biology — the same architecture the cortex implements (EM23) operates at the cellular/genomic level"
+  - "Each mutation's hazard shift is the cascade's defense report card — not a property of the mutation, but of the cascade's response"
+  - "Prediction confidence for a new mutation can be estimated from its position, type, and the defense profile of its gene/channel"
+  - "NV01 has seven independent derivations — C_1(NV01) updates to 0.96"
+  - "The corrupted signal problem (missense LOF) identifies a specific failure mode of the escalation architecture with direct clinical relevance"
+  - "Channel saturation (Mr. Burns effect) is the cascade succeeding at scale — overwhelming damage triggers comprehensive defense"
+
+defense_profiles:
+  dataset: "MSK-IMPACT 50K (2026)"
+  model: "ChannelNet V6c, 5-fold CV, C-index 0.685"
+  n_patients: 43872
+  n_hotspots: 471
+  n_genes: 236
+
+  global:
+    position_hazard_correlation:
+      absolute: {r: -0.306, p: 1.19e-11}
+      normalized: {r: +0.072, p: 0.119}
+    pct_genes_last_more_protective: 62.5
+    mean_delta_last_minus_first: -0.082
+    failure_mode_synergy:
+      truncating_x_truncating: {pct_multiplicative: 95.8, n_pairs: 71}
+      missense_x_truncating: {pct_multiplicative: 60.5, n_pairs: 86}
+      missense_x_missense: {pct_multiplicative: 31.5, n_pairs: 89}
+
+  channels:
+    PI3K_Growth:
+      tier: 0  # cell_intrinsic
+      n_genes: 56
+      mean_shift: -0.354
+      mean_abs_shift: 0.380
+      pct_protective: 95
+      defense_confidence: high
+      key_genes:
+        PIK3CA: {n_hotspots: 35, earliest_shift: -1.03, latest_shift: -0.12, position_r: +0.165}
+        PTEN: {n_hotspots: 18, earliest_shift: -0.10, latest_shift: -0.28, position_r: -0.037}
+        NF1: {n_hotspots: 4, earliest_shift: -0.85, latest_shift: -1.72, position_r: -0.962}
+        KRAS: {n_hotspots: 15, earliest_shift: +0.09, latest_shift: +0.19, position_r: -0.425}
+        EGFR: {n_hotspots: 8, earliest_shift: +0.82, latest_shift: +0.19, position_r: -0.837}
+
+    CellCycle:
+      tier: 0  # cell_intrinsic
+      n_genes: 47
+      mean_shift: -0.374
+      mean_abs_shift: 0.429
+      pct_protective: 94
+      defense_confidence: high
+      key_genes:
+        TP53: {n_hotspots: 146, earliest_shift: +0.22, latest_shift: -0.41, position_r: +0.068}
+        CDKN2A: {n_hotspots: 8, earliest_shift: +0.88, latest_shift: -0.27, position_r: -0.803}
+        CTCF: {n_hotspots: 2, mean_shift: -1.09}
+
+    DDR:
+      tier: 1  # tissue_level
+      n_genes: 35
+      mean_shift: -0.446
+      mean_abs_shift: 0.449
+      pct_protective: 97
+      defense_confidence: high
+      key_genes:
+        MSH2: {mean_shift: -0.694, function: LOF}
+        MSH6: {mean_shift: -0.624, function: LOF}
+        POLE: {n_hotspots: 2, V411L_shift: -2.07, P286R_shift: -1.91}
+
+    TissueArch:
+      tier: 1  # tissue_level
+      n_genes: 29
+      mean_shift: -0.358
+      mean_abs_shift: 0.381
+      pct_protective: 97
+      defense_confidence: high
+      key_genes:
+        FBXW7: {n_hotspots: 11, earliest_shift: -0.16, latest_shift: -0.99, position_r: -0.640}
+        APC: {n_hotspots: 29, earliest_shift: -0.24, latest_shift: -0.14, position_r: +0.368}
+
+    Endocrine:
+      tier: 2  # organism_level
+      n_genes: 11
+      mean_shift: -0.352
+      mean_abs_shift: 0.352
+      pct_protective: 100
+      defense_confidence: high
+      key_genes:
+        GATA3: {mean_shift: -0.576, function: context}
+        ESR1: {n_hotspots: 4, earliest_shift: +0.18, latest_shift: +0.09, position_r: -0.827}
+
+    Immune:
+      tier: 2  # organism_level
+      n_genes: 35
+      mean_shift: -0.481
+      mean_abs_shift: 0.481
+      pct_protective: 100
+      defense_confidence: high
+      key_genes:
+        B2M: {n_hotspots: 5, earliest_shift: -0.22, latest_shift: -1.12, position_r: -0.797}
+        JAK1: {n_hotspots: 4, earliest_shift: -0.93, latest_shift: -1.08, position_r: -0.565}
+
+    ChromatinRemodel:
+      tier: 3  # meta_regulatory
+      n_genes: 15
+      mean_shift: -0.315
+      mean_abs_shift: 0.315
+      pct_protective: 100
+      defense_confidence: moderate  # distributed defense, no single dominant gene
+      key_genes:
+        KMT2B: {n_hotspots: 5, earliest_shift: -0.74, latest_shift: -1.24, position_r: -0.422}
+        KMT2D: {n_hotspots: 4, earliest_shift: -0.83, latest_shift: -0.94, position_r: -0.718}
+
+    DNAMethylation:
+      tier: 3  # meta_regulatory
+      n_genes: 8
+      mean_shift: -0.420
+      mean_abs_shift: 0.420
+      pct_protective: 100
+      defense_confidence: high
+      key_genes:
+        IDH1: {n_hotspots: 3, R132H_shift: -1.01, R132L_shift: +0.64, same_codon_spread: 1.65}
+        DNMT3B: {mean_shift: -0.490, function: LOF}

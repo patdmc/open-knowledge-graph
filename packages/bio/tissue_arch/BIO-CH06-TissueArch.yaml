@@ -1,0 +1,1269 @@
+id: BIO-CH06-TissueArch
+type: biology_channel
+domain: molecular_biology
+name: "Tissue Architecture"
+channel: TissueArch
+tier: 1
+tier_name: tissue_level
+n_genes: 45
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Maintains tissue organization through cell-cell adhesion, polarity, and developmental signaling pathways (Wnt, Notch, Hedgehog, TGF-beta)."
+  healthy_state: "Cell adhesion (CDH1), Wnt pathway (APC/CTNNB1), TGF-beta signaling (SMAD2/3/4), Notch signaling, Hippo pathway (YAP1/WWTR1), tissue polarity"
+  failure_mode: "Loss of tissue organization, EMT, invasion, metastatic potential"
+
+genes:
+  - id: BIO-ACVR1
+    name: ACVR1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-BMPR1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+      - target: BIO-TGFBR1
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.81
+        source: "STRING-DB"
+
+  - id: BIO-AMER1
+    name: AMER1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-APC
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+
+  - id: BIO-APC
+    name: APC
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-AXIN2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-AMER1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-TCF7L2
+        type: INTERACTS_WITH
+        score: 0.814
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-CTNNB1
+        type: COMPENSATES
+        context: "Wnt pathway SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-AXIN2
+    name: AXIN2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-APC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TCF7L2
+        type: INTERACTS_WITH
+        score: 0.912
+        source: "STRING-DB"
+      - target: BIO-RNF43
+        type: INTERACTS_WITH
+        score: 0.805
+        source: "STRING-DB"
+
+  - id: BIO-BMPR1A
+    name: BMPR1A
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-ACVR1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.728
+        source: "STRING-DB"
+
+  - id: BIO-CDC73
+    name: CDC73
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    compensates:
+      - target: BIO-CHEK1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-CHEK2
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-TOP1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-CDH2
+    name: CDH2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-DROSHA
+    name: DROSHA
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.978
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.907
+        source: "STRING-DB"
+
+  - id: BIO-EGFL7
+    name: EGFL7
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-NOTCH4
+        type: INTERACTS_WITH
+        score: 0.844
+        source: "STRING-DB"
+
+  - id: BIO-EPAS1
+    name: EPAS1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.801
+        source: "STRING-DB"
+      - target: BIO-FH
+        type: INTERACTS_WITH
+        score: 0.799
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.787
+        source: "STRING-DB"
+      - target: BIO-KLF4
+        type: INTERACTS_WITH
+        score: 0.704
+        source: "STRING-DB"
+
+  - id: BIO-FAT1
+    name: FAT1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-FH
+    name: FH
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHA
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-EPAS1
+        type: INTERACTS_WITH
+        score: 0.799
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-MAP2K1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MAPK1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-TOP1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-FOXL2
+    name: FOXL2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.941
+        source: "STRING-DB"
+      - target: BIO-SOX9
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+
+  - id: BIO-FOXP1
+    name: FOXP1
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in TissueArch. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of TissueArch signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-KLF4
+        type: INTERACTS_WITH
+        score: 0.86
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.784
+        source: "STRING-DB"
+
+  - id: BIO-GJA1
+    name: GJA1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-GJB2
+    name: GJB2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-GRIN2A
+    name: GRIN2A
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-INHA
+    name: INHA
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-INHBA
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+
+  - id: BIO-INHBA
+    name: INHBA
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-INHA
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.821
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.738
+        source: "STRING-DB"
+
+  - id: BIO-KLF4
+    name: KLF4
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-FOXP1
+        type: INTERACTS_WITH
+        score: 0.86
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.832
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.743
+        source: "STRING-DB"
+      - target: BIO-EPAS1
+        type: INTERACTS_WITH
+        score: 0.704
+        source: "STRING-DB"
+
+  - id: BIO-KLF5
+    name: KLF5
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-MIR4466
+    name: MIR4466
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-NEGR1
+    name: NEGR1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-NOTCH2
+    name: NOTCH2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-NOTCH4
+        type: INTERACTS_WITH
+        score: 0.823
+        source: "STRING-DB"
+      - target: BIO-NOTCH3
+        type: INTERACTS_WITH
+        score: 0.777
+        source: "STRING-DB"
+
+  - id: BIO-NOTCH3
+    name: NOTCH3
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-NOTCH4
+        type: INTERACTS_WITH
+        score: 0.828
+        source: "STRING-DB"
+      - target: BIO-NOTCH2
+        type: INTERACTS_WITH
+        score: 0.777
+        source: "STRING-DB"
+
+  - id: BIO-NOTCH4
+    name: NOTCH4
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-EGFL7
+        type: INTERACTS_WITH
+        score: 0.844
+        source: "STRING-DB"
+      - target: BIO-NOTCH3
+        type: INTERACTS_WITH
+        score: 0.828
+        source: "STRING-DB"
+      - target: BIO-NOTCH2
+        type: INTERACTS_WITH
+        score: 0.823
+        source: "STRING-DB"
+
+  - id: BIO-RNF43
+    name: RNF43
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-AXIN2
+        type: INTERACTS_WITH
+        score: 0.805
+        source: "STRING-DB"
+      - target: BIO-TCF7L2
+        type: INTERACTS_WITH
+        score: 0.711
+        source: "STRING-DB"
+
+  - id: BIO-SCG5
+    name: SCG5
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-SDHA
+    name: SDHA
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHAF2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-FH
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TMEM127
+        type: INTERACTS_WITH
+        score: 0.807
+        source: "STRING-DB"
+
+  - id: BIO-SDHAF2
+    name: SDHAF2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHA
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-TMEM127
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+
+  - id: BIO-SDHC
+    name: SDHC
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHA
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHAF2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-FH
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-TMEM127
+        type: INTERACTS_WITH
+        score: 0.905
+        source: "STRING-DB"
+      - target: BIO-TIMM8B
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+
+  - id: BIO-SDHD
+    name: SDHD
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHA
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SDHAF2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-FH
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-TMEM127
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-TIMM8B
+        type: INTERACTS_WITH
+        score: 0.877
+        source: "STRING-DB"
+
+  - id: BIO-SMAD2
+    name: SMAD2
+    position: hub
+    healthy_role: "Functional hub of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TGFBR1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-DROSHA
+        type: INTERACTS_WITH
+        score: 0.978
+        source: "STRING-DB"
+      - target: BIO-ACVR1
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-BMPR1A
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-WWTR1
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-KLF4
+        type: INTERACTS_WITH
+        score: 0.832
+        source: "STRING-DB"
+      - target: BIO-EPAS1
+        type: INTERACTS_WITH
+        score: 0.787
+        source: "STRING-DB"
+
+  - id: BIO-SMAD3
+    name: SMAD3
+    position: hub
+    healthy_role: "Functional hub of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TGFBR1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-ACVR1
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+      - target: BIO-BMPR1A
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-NOTCH4
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-FOXL2
+        type: INTERACTS_WITH
+        score: 0.941
+        source: "STRING-DB"
+      - target: BIO-DROSHA
+        type: INTERACTS_WITH
+        score: 0.907
+        source: "STRING-DB"
+      - target: BIO-WWTR1
+        type: INTERACTS_WITH
+        score: 0.881
+        source: "STRING-DB"
+
+  - id: BIO-SOX17
+    name: SOX17
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-TCF7L2
+        type: INTERACTS_WITH
+        score: 0.918
+        source: "STRING-DB"
+
+  - id: BIO-SOX9
+    name: SOX9
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-FOXL2
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.778
+        source: "STRING-DB"
+
+  - id: BIO-SPEN
+    name: SPEN
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-TCF7L2
+    name: TCF7L2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SOX17
+        type: INTERACTS_WITH
+        score: 0.918
+        source: "STRING-DB"
+      - target: BIO-AXIN2
+        type: INTERACTS_WITH
+        score: 0.912
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.911
+        source: "STRING-DB"
+      - target: BIO-APC
+        type: INTERACTS_WITH
+        score: 0.814
+        source: "STRING-DB"
+      - target: BIO-RNF43
+        type: INTERACTS_WITH
+        score: 0.711
+        source: "STRING-DB"
+
+  - id: BIO-TGFBR1
+    name: TGFBR1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ACVR1
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+
+  - id: BIO-TGFBR2
+    name: TGFBR2
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-TGFBR1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.932
+        source: "STRING-DB"
+      - target: BIO-ACVR1
+        type: INTERACTS_WITH
+        score: 0.81
+        source: "STRING-DB"
+      - target: BIO-BMPR1A
+        type: INTERACTS_WITH
+        score: 0.728
+        source: "STRING-DB"
+
+  - id: BIO-TIMM8B
+    name: TIMM8B
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.877
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+
+  - id: BIO-TMEM127
+    name: TMEM127
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SDHD
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-SDHC
+        type: INTERACTS_WITH
+        score: 0.905
+        source: "STRING-DB"
+      - target: BIO-SDHAF2
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-SDHA
+        type: INTERACTS_WITH
+        score: 0.807
+        source: "STRING-DB"
+
+  - id: BIO-VEGFA
+    name: VEGFA
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+
+  - id: BIO-WWTR1
+    name: WWTR1
+    position: leaf
+    healthy_role: "Functional member of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-YAP1
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.881
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-YAP1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-YAP1
+    name: YAP1
+    position: hub
+    healthy_role: "Functional hub of TissueArch pathway."
+    loss_consequence: "Altered TissueArch function"
+    interacts_with:
+      - target: BIO-SMAD2
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-SMAD3
+        type: INTERACTS_WITH
+        score: 0.965
+        source: "STRING-DB"
+      - target: BIO-WWTR1
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-TGFBR2
+        type: INTERACTS_WITH
+        score: 0.932
+        source: "STRING-DB"
+      - target: BIO-TGFBR1
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-TCF7L2
+        type: INTERACTS_WITH
+        score: 0.911
+        source: "STRING-DB"
+      - target: BIO-KLF4
+        type: INTERACTS_WITH
+        score: 0.743
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-WWTR1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+cross_channel_edges:
+  - from: BIO-AMER1
+    to: BIO-AXIN1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-APC
+    to: BIO-GSK3B
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-APC
+    to: BIO-AXIN1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-APC
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-AXIN2
+    to: BIO-AXIN1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-AXIN2
+    to: BIO-GSK3B
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-AXIN2
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDC73
+    to: BIO-CTR9
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EPAS1
+    to: BIO-VHL
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-FH
+    to: BIO-SDHB
+    to_channel: DNAMethylation
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHA
+    to: BIO-SDHB
+    to_channel: DNAMethylation
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHC
+    to: BIO-SDHB
+    to_channel: DNAMethylation
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHD
+    to: BIO-SDHB
+    to_channel: DNAMethylation
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD2
+    to: BIO-SMAD4
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD3
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD3
+    to: BIO-SMAD4
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD3
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TCF7L2
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-YAP1
+    to: BIO-LATS2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-YAP1
+    to: BIO-LATS1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EPAS1
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-KLF4
+    to: BIO-SOX2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHAF2
+    to: BIO-SDHB
+    to_channel: DNAMethylation
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD2
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TGFBR1
+    to: BIO-SMAD4
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD3
+    to: BIO-JUN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-WWTR1
+    to: BIO-LATS1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-YAP1
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-DROSHA
+    to: BIO-TP53
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.996
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMAD3
+    to: BIO-AKT1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.996
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH06-TissueArch
+    name: "Tissue Architecture"
+  - id: BIO-ACVR1
+    name: ACVR1
+  - id: BIO-AMER1
+    name: AMER1
+  - id: BIO-APC
+    name: APC
+  - id: BIO-AXIN2
+    name: AXIN2
+  - id: BIO-BMPR1A
+    name: BMPR1A
+  - id: BIO-CDC73
+    name: CDC73
+  - id: BIO-CDH2
+    name: CDH2
+  - id: BIO-DROSHA
+    name: DROSHA
+  - id: BIO-EGFL7
+    name: EGFL7
+  - id: BIO-EPAS1
+    name: EPAS1
+  - id: BIO-FAT1
+    name: FAT1
+  - id: BIO-FH
+    name: FH
+  - id: BIO-FOXL2
+    name: FOXL2
+  - id: BIO-FOXP1
+    name: FOXP1
+  - id: BIO-GJA1
+    name: GJA1
+  - id: BIO-GJB2
+    name: GJB2
+  - id: BIO-GRIN2A
+    name: GRIN2A
+  - id: BIO-INHA
+    name: INHA
+  - id: BIO-INHBA
+    name: INHBA
+  - id: BIO-KLF4
+    name: KLF4
+
+edges:
+  - from: BIO-CH06-TissueArch
+    to: BIO-ACVR1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-AMER1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-APC
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-AXIN2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-BMPR1A
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-CDC73
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-CDH2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-DROSHA
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-EGFL7
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-EPAS1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-FAT1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-FH
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-FOXL2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-FOXP1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-GJA1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-GJB2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-GRIN2A
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-INHA
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-INHBA
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-KLF4
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-KLF5
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-MIR4466
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-NEGR1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-NOTCH2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-NOTCH3
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-NOTCH4
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-RNF43
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SCG5
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SDHA
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SDHAF2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SDHC
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SDHD
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SMAD2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SMAD3
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SOX17
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SOX9
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-SPEN
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-TCF7L2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-TGFBR1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-TGFBR2
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-TIMM8B
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-TMEM127
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-VEGFA
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-WWTR1
+    type: CONTAINS
+  - from: BIO-CH06-TissueArch
+    to: BIO-YAP1
+    type: CONTAINS

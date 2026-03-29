@@ -1,0 +1,120 @@
+id: EV02-mutation-prediction-confidence
+type: empirical
+name: "Mutation Outcome Prediction Confidence — Defense Profile Provenance"
+statement: |
+  For a novel mutation at gene G, position P, with mutation type T, prediction
+  confidence is derived from the defense profile provenance of EM29/EV01:
+
+    confidence(G, P, T) = f(durability(P), defense_consistency(G), type_clarity(T))
+
+  where:
+    durability(P)          = normalized position score (earlier = more durable, more data)
+    defense_consistency(G) = variance of hazard shifts across G's hotspots (lower = more predictable)
+    type_clarity(T)        = how unambiguous the cascade's response to this type is
+
+  This produces four confidence tiers:
+
+  TIER 1 — HIGH CONFIDENCE (predict specific outcome)
+    Conditions: well-characterized gene (5+ hotspots), position near known hotspot,
+    truncating mutation OR known GOF/LOF class.
+    Example: PIK3CA frameshift at position 540 → predict protective (shift ~ -0.5 to -1.0)
+    Basis: 35 hotspots in PIK3CA, all protective, consistent across positions.
+
+  TIER 2 — MODERATE CONFIDENCE (predict direction)
+    Conditions: gene has 3+ hotspots, position in characterized region, any mutation type.
+    Example: FBXW7 missense at position 600 → predict protective (late position, r = -0.64)
+    Basis: position gradient established but specific shift uncertain.
+
+  TIER 3 — LOW CONFIDENCE (predict range only)
+    Conditions: gene has < 3 hotspots but channel is well-characterized.
+    Example: novel gene in Immune channel → predict likely protective (100% channel rate)
+    Basis: channel-level defense profile, not gene-level.
+
+  TIER 4 — NO CONFIDENCE (defer to model)
+    Conditions: novel position in gene with inconsistent defense profile,
+    OR missense at position with no nearby characterized hotspot.
+    Example: TP53 missense at position 200 in the DNA-binding domain →
+    could be +0.1 or +0.5, cannot distinguish without model.
+    Basis: TP53 DNA-binding domain shows high variance (r = +0.07, n = 146).
+
+  Special rules:
+  - Missense LOF at any position: REDUCE confidence one tier.
+    The corrupted signal problem means defense outcome is less predictable.
+  - Same-codon different-substitution: REDUCE to tier 4.
+    IDH1 R132H (-1.01) vs R132L (+0.64) proves that codon-level prediction
+    is insufficient — the specific amino acid substitution matters.
+  - Activating oncogene (KRAS, EGFR): INVERT the position rule.
+    For oncogenes, early positions are harmful (activation) and late positions
+    are less harmful (partial loss of oncogenic function). The defense profile
+    is not "cascade response" but "degree of oncogenic activation."
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Cancer Escalation Analysis — Prediction Confidence Framework"
+    date: "2026"
+  evidence:
+    type: empirical
+    description: |
+      Derived from EM28's five empirical results and EV01's per-channel defense profiles.
+      Confidence tiers are based on the measured prediction accuracy at each resolution:
+      - Channel-level: 94-100% protective (high directional confidence)
+      - Gene-level: position_r ranges from -0.96 to +0.37 (variable)
+      - Hotspot-level: same-codon spread up to 1.65 (low confidence at this resolution
+        without specific substitution data)
+    references:
+      - EM29-cancer-escalation-defense-profiles
+      - EV01-channel-defense-profiles
+      - D13-provenance
+  derivation:
+    from:
+      - EM29-cancer-escalation-defense-profiles
+      - D13-provenance
+    method: |
+      D13: P(p reliable) proportional to prov(p).
+      EM28: defense profile = provenance of mutation outcome prediction.
+      Confidence tiers follow from provenance quality:
+        High provenance (many observations, consistent) → high confidence.
+        Low provenance (few observations, variable) → low confidence.
+      The tier structure maps D13's continuous provenance quality to discrete
+      clinical decision support levels.
+
+edges:
+  - to: D13-provenance
+    relation: implements
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EV02 is D13 applied to cancer mutation outcome prediction. The confidence tiers operationalize P(p reliable) proportional to prov(p) for clinical use."
+      derivation:
+        method: "D13's provenance triple → EV02's confidence tiers"
+
+  - to: EM29-cancer-escalation-defense-profiles
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EV02's confidence framework is derived from EM28's empirical defense profiles"
+      derivation:
+        method: "EM28 provides the data; EV02 provides the prediction confidence framework"
+
+  - to: EV01-channel-defense-profiles
+    relation: derives_from
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EV02 uses EV01's per-channel data to assign confidence tiers"
+      derivation:
+        method: "EV01's channel/gene/hotspot resolution determines which confidence tier applies"

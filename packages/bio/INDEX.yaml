@@ -1,0 +1,47 @@
+id: okg:index:bio
+type: index
+name: Biology — Healthy Graph
+domain_nouns: [gene, channel, pathway, tier]
+domain_verbs:
+  enzymatic: [PHOSPHORYLATES, UBIQUITINATES, METHYLATES, ACETYLATES]
+  interaction: [BINDS, RECRUITS, ACTIVATES, INHIBITS, STABILIZES, DEGRADES]
+  localization: [TRANSLOCATES, LOCALIZES, EXPORTS, IMPORTS]
+  transcriptional: [TRANSCRIBES, REPRESSES, UPREGULATES, DOWNREGULATES]
+  structural: [DIMERIZES, SCAFFOLDS]
+  functional: [COMPENSATES, COOPERATES, INTERACTS_WITH]
+subgraphs:
+  - id: bio:channel:ddr
+    path: ddr/
+    name: DNA Damage Response
+    tier: 1
+  - id: bio:channel:cellcycle
+    path: cellcycle/
+    name: Cell Cycle
+    tier: 1
+  - id: bio:channel:pi3k_growth
+    path: pi3k_growth/
+    name: PI3K / Growth Signaling
+    tier: 2
+  - id: bio:channel:endocrine
+    path: endocrine/
+    name: Endocrine Signaling
+    tier: 2
+  - id: bio:channel:immune
+    path: immune/
+    name: Immune Signaling
+    tier: 3
+  - id: bio:channel:tissue_arch
+    path: tissue_arch/
+    name: Tissue Architecture
+    tier: 3
+  - id: bio:channel:chromatin_remodel
+    path: chromatin_remodel/
+    name: Chromatin Remodeling
+    tier: 4
+  - id: bio:channel:dna_methylation
+    path: dna_methylation/
+    name: DNA Methylation
+    tier: 4
+bridges:
+  path: bridges/
+  description: Cross-channel edges within biology

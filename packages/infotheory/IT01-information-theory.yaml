@@ -1,0 +1,236 @@
+id: IT01-information-theory
+type: knowledge
+domain: information_theory
+name: "Information Theory"
+
+cross_domain:
+  - target: P01-probability-statistics
+    relation: EXTENDS
+    concepts: [entropy, kl_divergence, mutual_information]
+  - target: A02-linear-algebra
+    relation: REQUIRES
+    concepts: [channel_capacity, rate_distortion]
+  - target: O01-numerical-optimization
+    relation: REQUIRES
+    concepts: [rate_distortion, channel_capacity, blahut_arimoto]
+
+concepts:
+  # === Entropy and Information ===
+  - id: shannon_entropy
+    name: "Shannon Entropy"
+    latex: "H(X) = -\\sum_{x} p(x) \\log_2 p(x)"
+    meaning: "expected surprise — minimum bits to encode a source"
+    axioms:
+      - "H(X) >= 0"
+      - "H(X) <= log_2(|X|) with equality iff X uniform"
+      - "H(X,Y) <= H(X) + H(Y) with equality iff X,Y independent"
+    action:
+      scipy: "scipy.stats.entropy(pk, base=2)"
+    curried: "lambda pk: -sum(p * math.log2(p) for p in pk if p > 0)"
+
+  - id: joint_entropy
+    name: "Joint Entropy"
+    latex: "H(X,Y) = -\\sum_{x,y} p(x,y) \\log_2 p(x,y)"
+    meaning: "total uncertainty of the pair"
+
+  - id: conditional_entropy
+    name: "Conditional Entropy"
+    latex: "H(Y|X) = H(X,Y) - H(X)"
+    meaning: "remaining uncertainty in Y after observing X"
+
+  - id: mutual_information
+    name: "Mutual Information"
+    latex: "I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y)"
+    meaning: "bits shared between X and Y — measures statistical dependence"
+    properties:
+      - "I(X;Y) >= 0"
+      - "I(X;Y) = I(Y;X)"
+      - "I(X;Y) = 0 iff X,Y independent"
+    action:
+      sklearn: "sklearn.metrics.mutual_info_score(labels_true, labels_pred)"
+    curried: "lambda hx, hy, hxy: hx + hy - hxy"
+
+  - id: kl_divergence
+    name: "Kullback-Leibler Divergence"
+    latex: "D_{KL}(P \\| Q) = \\sum_x p(x) \\log \\frac{p(x)}{q(x)}"
+    meaning: "extra bits needed when using code optimized for Q to encode samples from P"
+    properties:
+      - "D_KL(P || Q) >= 0 (Gibbs' inequality)"
+      - "D_KL(P || Q) != D_KL(Q || P) in general"
+      - "D_KL(P || Q) = 0 iff P = Q"
+    action:
+      scipy: "scipy.stats.entropy(pk, qk)"
+    curried: "lambda pk, qk: sum(p * math.log2(p/q) for p, q in zip(pk, qk) if p > 0)"
+
+  - id: cross_entropy
+    name: "Cross Entropy"
+    latex: "H(P, Q) = -\\sum_x p(x) \\log q(x) = H(P) + D_{KL}(P \\| Q)"
+    meaning: "average bits to encode P using code for Q — the loss function of classification"
+    action:
+      torch: "torch.nn.functional.cross_entropy(logits, targets)"
+
+  - id: relative_entropy
+    name: "Relative Entropy"
+    latex: "D(P \\| Q) = D_{KL}(P \\| Q)"
+    meaning: "synonym for KL divergence"
+
+  # === Source Coding ===
+  - id: source_coding_theorem
+    name: "Shannon's Source Coding Theorem"
+    latex: "L^* \\geq H(X)"
+    meaning: "no lossless code can compress below the entropy rate"
+    proved_by: "shannon-1948"
+
+  - id: huffman_coding
+    name: "Huffman Coding"
+    latex: "H(X) \\leq L_{Huffman} < H(X) + 1"
+    meaning: "optimal prefix-free code — greedy bottom-up tree construction"
+    action:
+      python: "heapq-based tree construction"
+
+  - id: arithmetic_coding
+    name: "Arithmetic Coding"
+    meaning: "encodes entire message as single interval — approaches H(X) for long sequences"
+    properties:
+      - "achieves rate arbitrarily close to H(X)"
+      - "no need for integer bit lengths per symbol"
+
+  - id: lempel_ziv
+    name: "Lempel-Ziv Compression"
+    meaning: "universal compression — converges to entropy rate without knowing source distribution"
+    variants: ["LZ77 (sliding window)", "LZ78 (dictionary)", "LZW (dictionary with codes)"]
+
+  - id: kolmogorov_complexity
+    name: "Kolmogorov Complexity"
+    latex: "K(x) = \\min_{p: U(p)=x} |p|"
+    meaning: "shortest program that outputs x — uncomputability makes it a theoretical bound"
+    properties:
+      - "K(x) is uncomputable"
+      - "K(x) <= |x| + c (trivial program just prints x)"
+      - "K(xy) <= K(x) + K(y) + c (subadditivity)"
+
+  # === Channel Coding ===
+  - id: channel_capacity
+    name: "Channel Capacity"
+    latex: "C = \\max_{p(x)} I(X;Y)"
+    meaning: "maximum rate at which information can be reliably transmitted"
+
+  - id: noisy_channel_theorem
+    name: "Noisy Channel Coding Theorem"
+    latex: "R < C \\implies \\exists \\text{ code with } P_e \\to 0"
+    meaning: "reliable communication is possible at any rate below capacity"
+    proved_by: "shannon-1948"
+
+  - id: binary_symmetric_channel
+    name: "Binary Symmetric Channel"
+    latex: "C_{BSC} = 1 - H(p)"
+    meaning: "each bit flipped independently with probability p"
+
+  - id: gaussian_channel
+    name: "Gaussian Channel Capacity"
+    latex: "C = \\frac{1}{2} \\log_2\\left(1 + \\frac{S}{N}\\right)"
+    meaning: "Shannon-Hartley theorem — capacity grows logarithmically with SNR"
+    action:
+      python: "lambda snr: 0.5 * math.log2(1 + snr)"
+
+  - id: error_correcting_codes
+    name: "Error-Correcting Codes"
+    meaning: "structured redundancy to detect and correct errors"
+    subtypes:
+      - "Hamming codes (single-error correcting)"
+      - "Reed-Solomon (burst errors, used in CDs/QR codes)"
+      - "LDPC codes (near-capacity, used in 5G)"
+      - "Turbo codes (near-capacity, used in 3G/4G)"
+      - "Polar codes (provably capacity-achieving)"
+
+  # === Rate-Distortion Theory ===
+  - id: rate_distortion
+    name: "Rate-Distortion Theory"
+    latex: "R(D) = \\min_{p(\\hat{x}|x): E[d(x,\\hat{x})] \\leq D} I(X; \\hat{X})"
+    meaning: "minimum bits to describe X within distortion D — the theory of lossy compression"
+
+  # === Advanced ===
+  - id: fisher_information
+    name: "Fisher Information"
+    latex: "I(\\theta) = E\\left[\\left(\\frac{\\partial}{\\partial \\theta} \\log f(X;\\theta)\\right)^2\\right]"
+    meaning: "curvature of log-likelihood — how much a sample tells you about a parameter"
+    connection: "Cramér-Rao lower bound: Var(hat{theta}) >= 1/I(theta)"
+
+  - id: differential_entropy
+    name: "Differential Entropy"
+    latex: "h(X) = -\\int f(x) \\log f(x) \\, dx"
+    meaning: "continuous analog of Shannon entropy — can be negative"
+    properties:
+      - "h(X) can be negative (e.g., uniform on [0, 1/2])"
+      - "Gaussian maximizes h(X) for given variance"
+
+  - id: maximum_entropy
+    name: "Maximum Entropy Principle"
+    latex: "\\max H(X) \\text{ subject to constraints}"
+    meaning: "least biased distribution consistent with known facts"
+    examples:
+      - constraint: "fixed mean and variance"
+        result: "Gaussian"
+      - constraint: "fixed mean, X >= 0"
+        result: "Exponential"
+      - constraint: "none"
+        result: "Uniform"
+
+  - id: channel_coding_bound
+    name: "Sphere Packing Bound"
+    latex: "A(n, d) \\leq \\frac{2^n}{V(n, \\lfloor(d-1)/2\\rfloor)}"
+    meaning: "upper bound on number of codewords — geometry of Hamming space"
+
+  - id: data_processing_inequality
+    name: "Data Processing Inequality"
+    latex: "X \\to Y \\to Z \\implies I(X;Z) \\leq I(X;Y)"
+    meaning: "processing cannot create information — you can only lose it"
+
+  - id: fano_inequality
+    name: "Fano's Inequality"
+    latex: "H(X|Y) \\leq H(P_e) + P_e \\log(|X|-1)"
+    meaning: "lower bound on error probability from conditional entropy"
+
+  - id: typicality
+    name: "Typical Set"
+    latex: "|A_\\epsilon^{(n)}| \\approx 2^{nH(X)}"
+    meaning: "most probability mass lives on ~2^{nH} sequences — the source of compression"
+
+  - id: blahut_arimoto
+    name: "Blahut-Arimoto Algorithm"
+    meaning: "alternating maximization to compute channel capacity or rate-distortion function"
+    action:
+      python: "iterative algorithm"
+
+  - id: information_geometry
+    name: "Information Geometry"
+    meaning: "statistical manifold where Fisher information is the metric tensor — KL divergence induces dual flat connections"
+    cross_domain:
+      - target: G02-differential-geometry
+        concepts: [metric_tensor, riemannian_manifold, geodesic]
+
+symbols:
+  - { sym: "H", meaning: "entropy" }
+  - { sym: "I", meaning: "mutual information" }
+  - { sym: "D_{KL}", meaning: "KL divergence" }
+  - { sym: "C", meaning: "channel capacity" }
+  - { sym: "R(D)", meaning: "rate-distortion function" }
+  - { sym: "K(x)", meaning: "Kolmogorov complexity" }
+
+edges:
+  - from: IT01-information-theory
+    to: P01-probability-statistics
+    type: EXTENDS
+    note: "entropy generalizes probability into coding-theoretic framework"
+  - from: IT01-information-theory
+    to: CO01-combinatorics
+    type: REQUIRES
+    note: "counting codewords, sphere packing in Hamming space"
+  - from: IT01-information-theory
+    to: O01-numerical-optimization
+    type: REQUIRES
+    note: "capacity and rate-distortion are optimization problems"
+  - from: IT01-information-theory
+    to: AN01-complex-analysis
+    type: USES
+    note: "z-transforms in source coding, analytic continuation of zeta in algorithmic information theory"

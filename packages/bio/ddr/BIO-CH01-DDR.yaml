@@ -1,0 +1,3457 @@
+id: BIO-CH01-DDR
+type: biology_channel
+domain: molecular_biology
+name: DNA Damage Response
+channel: DDR
+tier: 1
+tier_name: tissue_level
+n_genes: 81
+n_hubs: 3
+provenance:
+  attribution:
+    source: cancer_graph_v6_seed
+    method: Seeded from cancer graph — damage framing inverted to function framing
+    date: 2026-03-28
+  data_sources:
+  - STRING-DB PPI (confidence >= 700)
+  - CIViC GOF/LOF annotations
+  - BioGRID/SynLethDB synthetic lethality
+  - MSK-IMPACT gene panel (509 genes)
+function:
+  summary: Detects and repairs DNA damage (double-strand breaks, single-strand breaks,
+    base mismatches, replication fork stalls). Maintains genomic integrity across
+    cell divisions.
+  healthy_state: Damage sensing (ATM/ATR), signal transduction (CHK1/CHK2), repair
+    execution (HR via BRCA1/RAD51, NHEJ via 53BP1, BER via PARP1, MMR via MSH2/MLH1)
+  failure_mode: Unrepaired DNA accumulates, genomic instability, structural variants,
+    microsatellite instability
+genes:
+- id: BIO-ABRAXAS1
+  name: ABRAXAS1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BABAM1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.923
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.843
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.79
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.789
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.785
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.773
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.755
+    source: STRING-DB
+- id: BIO-ATM
+  name: ATM
+  position: hub
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATR
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: ATM-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-ATR
+  name: ATR
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.975
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.968
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.964
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.955
+    source: STRING-DB
+  - target: BIO-FANCA
+    type: INTERACTS_WITH
+    score: 0.953
+    source: STRING-DB
+  compensates:
+  - target: BIO-ARID1A
+    type: COMPENSATES
+    context: ARID1A-ATR SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-ATM
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-POLD1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PTEN
+    type: COMPENSATES
+    context: PTEN-ATR SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-TP53
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-ATRX
+  name: ATRX
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.897
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.891
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.858
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.851
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.796
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.788
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.78
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.742
+    source: STRING-DB
+  compensates:
+  - target: BIO-CDK12
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-SMARCD1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-BABAM1
+  name: BABAM1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ABRAXAS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.72
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.713
+    source: STRING-DB
+- id: BIO-BAP1
+  name: BAP1
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+- id: BIO-BARD1
+  name: BARD1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ABRAXAS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-BABAM1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-RAD50
+    type: INTERACTS_WITH
+    score: 0.997
+    source: STRING-DB
+  - target: BIO-BAP1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-BCOR
+  name: BCOR
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.905
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.904
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.729
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.722
+    source: STRING-DB
+- id: BIO-BLM
+  name: BLM
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-FANCA
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.991
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.978
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.974
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.972
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.969
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.958
+    source: STRING-DB
+  compensates:
+  - target: BIO-CHEK1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-MAP2K1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-RAD51
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-XIAP
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-BRCA1
+  name: BRCA1
+  position: hub
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BABAM1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD50
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ABRAXAS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: BRCA-PARP synthetic lethality
+    source: BioGRID; ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-BRCA2
+  name: BRCA2
+  position: hub
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-PARP1
+    type: INTERACTS_WITH
+    score: 0.985
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.985
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: BRCA-PARP synthetic lethality
+    source: BioGRID; ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-TOP1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-BRIP1
+  name: BRIP1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.951
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.95
+    source: STRING-DB
+- id: BIO-CDK12
+  name: CDK12
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.849
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.831
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.809
+    source: STRING-DB
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.789
+    source: STRING-DB
+  - target: BIO-CTR9
+    type: INTERACTS_WITH
+    score: 0.758
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.74
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATRX
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-CHEK1
+  name: CHEK1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.992
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.971
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.963
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.94
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.933
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.932
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATR
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BLM
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BRD4
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CDC73
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-MTOR
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PIK3CA
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-TOP1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-TP53
+    type: COMPENSATES
+    context: p53-CHK1 SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-CHEK2
+  name: CHEK2
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.99
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.985
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.971
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.937
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.935
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.934
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATR
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BLM
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BRD4
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CDC73
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-CIC
+  name: CIC
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-CSDE1
+  name: CSDE1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-CTR9
+  name: CTR9
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-CDK12
+    type: INTERACTS_WITH
+    score: 0.758
+    source: STRING-DB
+  compensates:
+  - target: BIO-PIK3CA
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-CUL3
+  name: CUL3
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-KEAP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.709
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.706
+    source: STRING-DB
+- id: BIO-CYSLTR2
+  name: CYSLTR2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-DDR2
+  name: DDR2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-EIF1AX
+  name: EIF1AX
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-EPCAM
+  name: EPCAM
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.914
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.874
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.864
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.837
+    source: STRING-DB
+- id: BIO-ERCC2
+  name: ERCC2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC5
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.988
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.914
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.88
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.879
+    source: STRING-DB
+  - target: BIO-PARP1
+    type: INTERACTS_WITH
+    score: 0.846
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.82
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.817
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.816
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-ERCC3
+  name: ERCC3
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ERCC2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC5
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.987
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.866
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.863
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.841
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.829
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.827
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.823
+    source: STRING-DB
+  - target: BIO-PARP1
+    type: INTERACTS_WITH
+    score: 0.813
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-ERCC4
+  name: ERCC4
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC5
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.989
+    source: STRING-DB
+  - target: BIO-ERCC2
+    type: INTERACTS_WITH
+    score: 0.988
+    source: STRING-DB
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.987
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.966
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.965
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.936
+    source: STRING-DB
+- id: BIO-ERCC5
+  name: ERCC5
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.975
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.966
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.963
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.913
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.911
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.893
+    source: STRING-DB
+- id: BIO-ETAA1
+  name: ETAA1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.747
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.735
+    source: STRING-DB
+  compensates:
+  - target: BIO-ETV1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-NFE2L2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PIK3CB
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-FANCA
+  name: FANCA
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-FANCC
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.968
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.953
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.936
+    source: STRING-DB
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.935
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.912
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.907
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.9
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: FA-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-FANCC
+  name: FANCC
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-FANCA
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.926
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.919
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.913
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.908
+    source: STRING-DB
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.887
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.882
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.853
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.829
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.804
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: FA-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-FANCD2
+  name: FANCD2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  compensates:
+  - target: BIO-FBXW7
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PARP1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-KEAP1
+  name: KEAP1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-CUL3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.773
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.757
+    source: STRING-DB
+- id: BIO-MAD2L2
+  name: MAD2L2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.978
+    source: STRING-DB
+  - target: BIO-POLE
+    type: INTERACTS_WITH
+    score: 0.97
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.963
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.891
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.753
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.737
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.701
+    source: STRING-DB
+- id: BIO-MAP3K14
+  name: MAP3K14
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-MDC1
+  name: MDC1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.99
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.965
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.956
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.954
+    source: STRING-DB
+  - target: BIO-RAD50
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.94
+    source: STRING-DB
+- id: BIO-MDC1-AS1
+  name: MDC1-AS1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-MEF2B
+  name: MEF2B
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-MLH1
+  name: MLH1
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.997
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.954
+    source: STRING-DB
+- id: BIO-MRE11
+  name: MRE11
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD50
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.984
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.969
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.968
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+- id: BIO-MSH2
+  name: MSH2
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.989
+    source: STRING-DB
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.972
+    source: STRING-DB
+  compensates:
+  - target: BIO-TOP1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-MSH3
+  name: MSH3
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.946
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.938
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.936
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.91
+    source: STRING-DB
+- id: BIO-MSH6
+  name: MSH6
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  - target: BIO-MUTYH
+    type: INTERACTS_WITH
+    score: 0.982
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.972
+    source: STRING-DB
+- id: BIO-MSI1
+  name: MSI1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-MUTYH
+  name: MUTYH
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.982
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.946
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.92
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.904
+    source: STRING-DB
+  - target: BIO-NTHL1
+    type: INTERACTS_WITH
+    score: 0.901
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.89
+    source: STRING-DB
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.828
+    source: STRING-DB
+  - target: BIO-POLE
+    type: INTERACTS_WITH
+    score: 0.822
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.812
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.783
+    source: STRING-DB
+- id: BIO-MYCL
+  name: MYCL
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-NBN
+  name: NBN
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD50
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.964
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.935
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.925
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-NSD2
+  name: NSD2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.89
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.796
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.761
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.715
+    source: STRING-DB
+- id: BIO-NTHL1
+  name: NTHL1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MUTYH
+    type: INTERACTS_WITH
+    score: 0.901
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.803
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.779
+    source: STRING-DB
+  - target: BIO-POLE
+    type: INTERACTS_WITH
+    score: 0.772
+    source: STRING-DB
+  - target: BIO-ERCC5
+    type: INTERACTS_WITH
+    score: 0.768
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.735
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.735
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.723
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.718
+    source: STRING-DB
+- id: BIO-PALB2
+  name: PALB2
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-KEAP1
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.987
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.949
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.945
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-TOP1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-PARP1
+  name: PARP1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.985
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.974
+    source: STRING-DB
+  - target: BIO-TOP1
+    type: INTERACTS_WITH
+    score: 0.936
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.879
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.875
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.86
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.858
+    source: STRING-DB
+  - target: BIO-ERCC2
+    type: INTERACTS_WITH
+    score: 0.846
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.826
+    source: STRING-DB
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.813
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATM
+    type: COMPENSATES
+    context: ATM-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BRCA1
+    type: COMPENSATES
+    context: BRCA-PARP synthetic lethality
+    source: BioGRID; ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-BRCA2
+    type: COMPENSATES
+    context: BRCA-PARP synthetic lethality
+    source: BioGRID; ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-FANCA
+    type: COMPENSATES
+    context: FA-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-FANCC
+    type: COMPENSATES
+    context: FA-PARP SL
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-FANCD2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PALB2
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-RAD51C
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-RAD51D
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-PMS1
+  name: PMS1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.991
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.917
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.886
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.863
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.843
+    source: STRING-DB
+  - target: BIO-MUTYH
+    type: INTERACTS_WITH
+    score: 0.828
+    source: STRING-DB
+- id: BIO-PMS2
+  name: PMS2
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-PMS1
+    type: INTERACTS_WITH
+    score: 0.991
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.961
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.95
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+- id: BIO-POLD1
+  name: POLD1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-POLE
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.994
+    source: STRING-DB
+  - target: BIO-MAD2L2
+    type: INTERACTS_WITH
+    score: 0.978
+    source: STRING-DB
+  - target: BIO-ERCC5
+    type: INTERACTS_WITH
+    score: 0.966
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.961
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.96
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.946
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.944
+    source: STRING-DB
+  compensates:
+  - target: BIO-ATR
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-POLE
+  name: POLE
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MAD2L2
+    type: INTERACTS_WITH
+    score: 0.97
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.957
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.919
+    source: STRING-DB
+  - target: BIO-PMS2
+    type: INTERACTS_WITH
+    score: 0.893
+    source: STRING-DB
+  - target: BIO-MLH1
+    type: INTERACTS_WITH
+    score: 0.879
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.853
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.849
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.828
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-POT1
+  name: POT1
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.838
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.78
+    source: STRING-DB
+  - target: BIO-RTEL1
+    type: INTERACTS_WITH
+    score: 0.729
+    source: STRING-DB
+  compensates:
+  - target: BIO-KRAS
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-PPM1D
+  name: PPM1D
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.924
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.918
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.775
+    source: STRING-DB
+  compensates:
+  - target: BIO-TP53
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-PRKAR1A
+  name: PRKAR1A
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-PRKD1
+  name: PRKD1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-PTPRD
+  name: PTPRD
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+- id: BIO-PTPRS
+  name: PTPRS
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-RAB35
+  name: RAB35
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-RAD21
+  name: RAD21
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.862
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.841
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.72
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.701
+    source: STRING-DB
+- id: BIO-RAD50
+  name: RAD50
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-NBN
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.997
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.99
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.947
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.92
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.905
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.884
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.858
+    source: STRING-DB
+- id: BIO-RAD51
+  name: RAD51
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATRX
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.998
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.995
+    source: STRING-DB
+  compensates:
+  - target: BIO-BLM
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-RAD51B
+  name: RAD51B
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-XRCC2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.961
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.922
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.908
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.904
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.89
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.889
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.865
+    source: STRING-DB
+- id: BIO-RAD51C
+  name: RAD51C
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51B
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-XRCC2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.98
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.941
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.933
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-RAD51D
+  name: RAD51D
+  position: leaf
+  cancer_function: LOF
+  healthy_role: 'Tumor suppressor: provides essential restraint/repair in DDR. When
+    working correctly, maintains pathway integrity and prevents aberrant activation.'
+  loss_consequence: Loss of restraint/repair in DDR, pathway proceeds unchecked
+  interacts_with:
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-XRCC2
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51B
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.983
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.953
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.949
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.946
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.94
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.93
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.89
+    source: STRING-DB
+  compensates:
+  - target: BIO-PARP1
+    type: COMPENSATES
+    context: HR-deficiency PARP sensitivity
+    source: ISLE/Literature
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-RAD52
+  name: RAD52
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-ATRX
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.993
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.987
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.962
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.958
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.955
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.94
+    source: STRING-DB
+  - target: BIO-RAD54L
+    type: INTERACTS_WITH
+    score: 0.937
+    source: STRING-DB
+- id: BIO-RAD54L
+  name: RAD54L
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.992
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.937
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.876
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.845
+    source: STRING-DB
+  - target: BIO-RAD51B
+    type: INTERACTS_WITH
+    score: 0.844
+    source: STRING-DB
+  - target: BIO-RECQL4
+    type: INTERACTS_WITH
+    score: 0.82
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.797
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.796
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.782
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.756
+    source: STRING-DB
+- id: BIO-RECQL
+  name: RECQL
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.782
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.78
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.722
+    source: STRING-DB
+- id: BIO-RECQL4
+  name: RECQL4
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.982
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.929
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.913
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.894
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.882
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.858
+    source: STRING-DB
+  - target: BIO-MSH6
+    type: INTERACTS_WITH
+    score: 0.85
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.843
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.84
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.836
+    source: STRING-DB
+- id: BIO-RPS6KA4
+  name: RPS6KA4
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-RTEL1
+  name: RTEL1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-SLX4
+    type: INTERACTS_WITH
+    score: 0.955
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.852
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.832
+    source: STRING-DB
+  - target: BIO-POLD1
+    type: INTERACTS_WITH
+    score: 0.819
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.812
+    source: STRING-DB
+  - target: BIO-ERCC3
+    type: INTERACTS_WITH
+    score: 0.783
+    source: STRING-DB
+  - target: BIO-RECQL4
+    type: INTERACTS_WITH
+    score: 0.73
+    source: STRING-DB
+  - target: BIO-POT1
+    type: INTERACTS_WITH
+    score: 0.729
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.716
+    source: STRING-DB
+- id: BIO-SH2B3
+  name: SH2B3
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-SHQ1
+  name: SHQ1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-SLX4
+  name: SLX4
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ERCC4
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MSH2
+    type: INTERACTS_WITH
+    score: 0.972
+    source: STRING-DB
+  - target: BIO-MSH3
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+  - target: BIO-RTEL1
+    type: INTERACTS_WITH
+    score: 0.955
+    source: STRING-DB
+  - target: BIO-FANCA
+    type: INTERACTS_WITH
+    score: 0.935
+    source: STRING-DB
+  - target: BIO-BRIP1
+    type: INTERACTS_WITH
+    score: 0.907
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.905
+    source: STRING-DB
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.897
+    source: STRING-DB
+  - target: BIO-FANCC
+    type: INTERACTS_WITH
+    score: 0.887
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.879
+    source: STRING-DB
+- id: BIO-TOP1
+  name: TOP1
+  position: leaf
+  cancer_function: GOF
+  healthy_role: 'Gain-of-function oncogene: normally a regulated activator in DDR.
+    When working correctly, provides controlled positive signaling.'
+  loss_consequence: Constitutive activation of DDR signaling regardless of upstream
+    input
+  interacts_with:
+  - target: BIO-PARP1
+    type: INTERACTS_WITH
+    score: 0.936
+    source: STRING-DB
+  - target: BIO-TP53BP1
+    type: INTERACTS_WITH
+    score: 0.828
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.784
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.743
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.724
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.722
+    source: STRING-DB
+  - target: BIO-RECQL4
+    type: INTERACTS_WITH
+    score: 0.713
+    source: STRING-DB
+  compensates:
+  - target: BIO-BRCA2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CDC73
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-CHEK1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-FH
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-MSH2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-NF1
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+  - target: BIO-PALB2
+    type: COMPENSATES
+    source: BioGRID
+    note: Synthetic lethality implies functional redundancy — loss of both is lethal
+      because neither can compensate
+- id: BIO-TP53BP1
+  name: TP53BP1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-MDC1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-CHEK2
+    type: INTERACTS_WITH
+    score: 0.996
+    source: STRING-DB
+  - target: BIO-CHEK1
+    type: INTERACTS_WITH
+    score: 0.992
+    source: STRING-DB
+  - target: BIO-BLM
+    type: INTERACTS_WITH
+    score: 0.978
+    source: STRING-DB
+  - target: BIO-ATR
+    type: INTERACTS_WITH
+    score: 0.975
+    source: STRING-DB
+  - target: BIO-RAD52
+    type: INTERACTS_WITH
+    score: 0.967
+    source: STRING-DB
+  - target: BIO-MAD2L2
+    type: INTERACTS_WITH
+    score: 0.963
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.94
+    source: STRING-DB
+- id: BIO-UPF1
+  name: UPF1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-WHR1
+  name: WHR1
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+- id: BIO-XRCC2
+  name: XRCC2
+  position: leaf
+  healthy_role: Functional member of DDR pathway.
+  loss_consequence: Altered DDR function
+  interacts_with:
+  - target: BIO-RAD51C
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51B
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-RAD51D
+    type: INTERACTS_WITH
+    score: 0.999
+    source: STRING-DB
+  - target: BIO-BRCA2
+    type: INTERACTS_WITH
+    score: 0.982
+    source: STRING-DB
+  - target: BIO-RAD51
+    type: INTERACTS_WITH
+    score: 0.981
+    source: STRING-DB
+  - target: BIO-BRCA1
+    type: INTERACTS_WITH
+    score: 0.954
+    source: STRING-DB
+  - target: BIO-MRE11
+    type: INTERACTS_WITH
+    score: 0.912
+    source: STRING-DB
+  - target: BIO-BARD1
+    type: INTERACTS_WITH
+    score: 0.888
+    source: STRING-DB
+  - target: BIO-PALB2
+    type: INTERACTS_WITH
+    score: 0.856
+    source: STRING-DB
+  - target: BIO-ATM
+    type: INTERACTS_WITH
+    score: 0.818
+    source: STRING-DB
+cross_channel_edges:
+- from: BIO-ATM
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATRX
+  to: BIO-H3-3B
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATRX
+  to: BIO-DAXX
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BAP1
+  to: BIO-ASXL1
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BAP1
+  to: BIO-ASXL2
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BCOR
+  to: BIO-BCL6
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BRCA1
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BRCA1
+  to: BIO-ESR1
+  to_channel: PI3K_Growth
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BRCA1
+  to: BIO-MYC
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-CHEK2
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-CTR9
+  to: BIO-CDC73
+  to_channel: TissueArch
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-CUL3
+  to: BIO-SPOP
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-KEAP1
+  to: BIO-NFE2L2
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-PTPRS
+  to: BIO-NTRK3
+  to_channel: PI3K_Growth
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-RAD21
+  to: BIO-STAG2
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-RAD21
+  to: BIO-CTCF
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-RAD51
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-TP53BP1
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.999
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-CUL3
+  to: BIO-LZTR1
+  to_channel: PI3K_Growth
+  type: INTERACTS_WITH
+  score: 0.998
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-CHEK1
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.997
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATR
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.996
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-PARP1
+  to: BIO-SMARCA4
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.996
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATM
+  to: BIO-MDM2
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.995
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATRX
+  to: BIO-H3-4
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.995
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BRCA2
+  to: BIO-TP53
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.995
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-MAP3K14
+  to: BIO-TRAF2
+  to_channel: PI3K_Growth
+  type: INTERACTS_WITH
+  score: 0.995
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-BRCA1
+  to: BIO-AKT1
+  to_channel: PI3K_Growth
+  type: INTERACTS_WITH
+  score: 0.993
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATRX
+  to: BIO-H3C13
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.992
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-TP53BP1
+  to: BIO-H3C13
+  to_channel: CellCycle
+  type: INTERACTS_WITH
+  score: 0.992
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from: BIO-ATRX
+  to: BIO-H3-5
+  to_channel: ChromatinRemodel
+  type: INTERACTS_WITH
+  score: 0.991
+  source: STRING-DB
+  note: Cross-channel physical interaction — potential escalation bridge
+- from_gene: BRCA1
+  to_gene: RAD51
+  type: RECRUITS
+  source: PMID:20723754
+  confidence: 0.8
+  provenance: precipitated
+  added: '2026-03-29T12:43:34.241718+00:00'
+concepts:
+- id: BIO-CH01-DDR
+  name: DNA Damage Response
+- id: BIO-ABRAXAS1
+  name: ABRAXAS1
+- id: BIO-ATM
+  name: ATM
+- id: BIO-ATR
+  name: ATR
+- id: BIO-ATRX
+  name: ATRX
+- id: BIO-BABAM1
+  name: BABAM1
+- id: BIO-BAP1
+  name: BAP1
+- id: BIO-BARD1
+  name: BARD1
+- id: BIO-BCOR
+  name: BCOR
+- id: BIO-BLM
+  name: BLM
+- id: BIO-BRCA1
+  name: BRCA1
+- id: BIO-BRCA2
+  name: BRCA2
+- id: BIO-BRIP1
+  name: BRIP1
+- id: BIO-CDK12
+  name: CDK12
+- id: BIO-CHEK1
+  name: CHEK1
+- id: BIO-CHEK2
+  name: CHEK2
+- id: BIO-CIC
+  name: CIC
+- id: BIO-CSDE1
+  name: CSDE1
+- id: BIO-CTR9
+  name: CTR9
+- id: BIO-CUL3
+  name: CUL3
+- id: BIO-CYSLTR2
+  name: CYSLTR2
+edges:
+- from: BIO-CH01-DDR
+  to: BIO-ABRAXAS1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ATM
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ATR
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ATRX
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BABAM1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BAP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BARD1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BCOR
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BLM
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BRCA1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BRCA2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-BRIP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CDK12
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CHEK1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CHEK2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CIC
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CSDE1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CTR9
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CUL3
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-CYSLTR2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-DDR2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-EIF1AX
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-EPCAM
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ERCC2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ERCC3
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ERCC4
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ERCC5
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-ETAA1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-FANCA
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-FANCC
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-FANCD2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-KEAP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MAD2L2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MAP3K14
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MDC1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MDC1-AS1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MEF2B
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MLH1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MRE11
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MSH2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MSH3
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MSH6
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MSI1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MUTYH
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-MYCL
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-NBN
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-NSD2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-NTHL1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PALB2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PARP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PMS1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PMS2
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-POLD1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-POLE
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-POT1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PPM1D
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PRKAR1A
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PRKD1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PTPRD
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-PTPRS
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAB35
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD21
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD50
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD51
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD51B
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD51C
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD51D
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD52
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RAD54L
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RECQL
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RECQL4
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RPS6KA4
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-RTEL1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-SH2B3
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-SHQ1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-SLX4
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-TOP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-TP53BP1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-UPF1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-WHR1
+  type: CONTAINS
+- from: BIO-CH01-DDR
+  to: BIO-XRCC2
+  type: CONTAINS

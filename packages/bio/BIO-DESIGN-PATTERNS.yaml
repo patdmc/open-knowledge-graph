@@ -1,0 +1,493 @@
+id: BIO-DESIGN-PATTERNS
+type: biology_mechanism
+domain: systems_biology
+name: "Design Patterns in Biological Channels"
+
+provenance:
+  attribution:
+    source: "channel_architecture_analysis"
+    method: "Mapping GoF design patterns to biological channel functions"
+    date: 2026-03-28
+  rationale: >
+    Design patterns exist to bind specific types of uncertainty.
+    Biological channels each manage a specific class of uncertainty
+    in multicellular life. The mapping is not metaphorical — the
+    patterns describe the actual information-processing architecture.
+
+# =============================================================================
+# DDR: CQRS (Command Query Responsibility Segregation)
+# =============================================================================
+DDR:
+  pattern: CQRS
+  uncertainty: "Read/write corruption during DNA repair"
+  description: >
+    Homologous recombination separates the write path (loading repair
+    machinery) from the read path (scanning for template). The two
+    paths use different proteins and never overlap.
+  command_side:
+    role: "Position the reader head"
+    proteins: [BRCA1, PALB2, BRCA2]
+    operation: "BRCA2 loads RAD51 monomers onto ssDNA at break site"
+  query_side:
+    role: "Scan for homologous template"
+    proteins: [RAD51, RAD51B, RAD51C, RAD51D]
+    operation: "Filament scans dsDNA by twist-dependent physical alignment"
+  failure_mode: >
+    Loss of either side stalls the pipeline at the same fork.
+    PARP lethality = forcing forks that need both paths when one is gone.
+    All pathway members produce identical PARP sensitivity because
+    they are all components of the same CQRS pipeline.
+  mutation_meaning: >
+    BRCA2 loss = can't write the reader onto the medium.
+    RAD51C loss = can't execute the query.
+    Both = fork stalls. Same phenotype, different side of CQRS.
+
+# =============================================================================
+# METHYLATION + CHROMATIN: ABSTRACT FACTORY + BUILDER
+# =============================================================================
+DNAMethylation_ChromatinRemodel:
+  pattern: "Abstract Factory + Builder"
+  uncertainty: "Construction — how to produce 200+ cell types from one genome"
+  description: >
+    DNA methylation defines the factory configuration (which cell type
+    to build). Chromatin remodeling executes the initialization sequence
+    (which addresses to expose). Together they run once during
+    differentiation and set up the cell's identity.
+  factory_config:
+    role: "Define which cell type to construct"
+    mechanism: "Methylation patterns written during differentiation"
+    proteins: [DNMT3A, DNMT3B, TET2]
+    operation: >
+      DNMT3A writes methyl marks at CpG sites = factory configuration.
+      TET2 erases marks = factory reset. IDH1/IDH2 mutations produce
+      2-hydroxyglutarate which inhibits TET2 = factory config locked,
+      can't reinitialize.
+  builder_init:
+    role: "Execute the initialization sequence"
+    mechanism: "ATP-dependent nucleosome repositioning"
+    proteins: [SMARCA4, ARID1A, ARID1B, SMARCB1]
+    operation: >
+      SWI/SNF complex reads the factory config (methylation state)
+      and repositions nucleosomes to expose the correct addresses.
+      This is __init__ — it runs during differentiation and sets up
+      which TF binding sites are physically accessible.
+  failure_mode: >
+    Corrupting the factory produces broad phenotypes because the
+    wrong cell type is constructed. ARID1A loss = init runs with
+    wrong parameters = wrong addresses exposed across the genome.
+    DNMT3A loss = factory config degrades over time = cell identity
+    drifts (clonal hematopoiesis, pre-leukemic state).
+  mutation_meaning: >
+    These mutations don't break a single function. They corrupt the
+    constructor. Every downstream operation runs on a malformed object.
+
+# =============================================================================
+# CELL CYCLE: STATE MACHINE + GUARD CONDITIONS
+# =============================================================================
+CellCycle:
+  pattern: "State Machine with Guards"
+  uncertainty: "Temporal — when to replicate, when to stop, when to die"
+  description: >
+    The cell cycle is a finite state machine: G1 → S → G2 → M → G1.
+    Transitions are gated by checkpoint guards that verify preconditions.
+    Mutations don't break the states — they remove the guards.
+  states:
+    - name: G1
+      description: "Growth phase — accumulate resources, check environment"
+      guard: "TP53 + RB1: is the genome intact? Is the environment permissive?"
+    - name: S
+      description: "DNA synthesis — replicate the genome"
+      guard: "CDKN2A/CDK4: has G1 been completed correctly?"
+    - name: G2
+      description: "Second growth phase — verify replication"
+      guard: "CHEK1/CHEK2: is the copy error-free?"
+    - name: M
+      description: "Mitosis — divide"
+      guard: "Spindle assembly checkpoint: are chromosomes attached?"
+  key_proteins:
+    - gene: TP53
+      role: "Guard on G1→S transition"
+      pattern_role: "Guard condition"
+      note: >
+        TP53 doesn't drive replication. It PREVENTS replication when
+        preconditions aren't met. Loss of TP53 = the state machine
+        runs without permission checks. The most common cancer event
+        is not breaking a function — it is removing a guard.
+    - gene: RB1
+      role: "Guard on S entry"
+      pattern_role: "Guard condition"
+    - gene: CDKN2A
+      role: "Timeout on G1"
+      pattern_role: "Timer/watchdog"
+      note: "Encodes p16 (CDK4 inhibitor) and p14ARF (MDM2 inhibitor → TP53 stabilizer)"
+    - gene: MYC
+      role: "Accelerator"
+      pattern_role: "Transition trigger"
+      note: "Drives G1→S entry. Gain-of-function = guard bypassed by force."
+  failure_mode: >
+    Guard removal. The state machine itself is robust — cells always
+    know what state they're in. But without guards, transitions fire
+    unconditionally. TP53 loss = G1→S always fires. CDKN2A loss =
+    no timeout in G1. CDK4 amplification = guard overwhelmed by signal.
+  mutation_meaning: >
+    CellCycle mutations almost never break the machinery of division.
+    They remove the decision points. The machine runs but nobody is
+    checking if it should.
+
+# =============================================================================
+# PI3K_GROWTH: CHAIN OF RESPONSIBILITY
+# =============================================================================
+PI3K_Growth:
+  pattern: "Chain of Responsibility"
+  uncertainty: "Signal routing — should this growth signal propagate?"
+  description: >
+    Growth signals arrive at membrane receptors and propagate through
+    a chain of handlers. Each handler can amplify, attenuate, modify,
+    or terminate the signal. The chain is the decision pipeline for
+    resource allocation.
+  chain:
+    - handler: EGFR/ERBB2
+      role: "Receptor — receives external signal"
+      decision: "Ligand present? → activate and pass to RAS"
+    - handler: KRAS/NRAS/HRAS
+      role: "First router — binary switch"
+      decision: "GTP-loaded? → pass to RAF and PI3K branches"
+      terminator: NF1
+      terminator_role: "RAS-GAP — forces GTP→GDP, terminates chain"
+    - handler: BRAF/RAF1
+      role: "MAPK branch relay"
+      decision: "Pass to MEK → ERK cascade"
+    - handler: PIK3CA
+      role: "PI3K branch relay"
+      decision: "Phosphorylate PIP2→PIP3, activate AKT"
+      terminator: PTEN
+      terminator_role: "Phosphatase — reverses PIP3→PIP2, terminates branch"
+    - handler: AKT1/MTOR
+      role: "Terminal effector — resource allocation"
+      decision: "Activate growth, inhibit apoptosis"
+  failure_mode: >
+    Terminator loss = chain never stops. NF1 loss = RAS stays GTP-loaded.
+    PTEN loss = PI3K branch stays active. GOF KRAS = handler that always
+    passes forward regardless of input. The chain becomes a wire.
+  mutation_meaning: >
+    PI3K mutations are routing errors. The signal is real or fabricated,
+    but the chain can't stop it. This is why PI3K_Growth is the most
+    commonly mutated channel — it has the longest chain with the most
+    handlers, each of which can fail independently.
+
+# =============================================================================
+# IMMUNE: OBSERVER + STRATEGY
+# =============================================================================
+Immune:
+  pattern: "Observer + Strategy"
+  uncertainty: "Detection and execution — find aberrant cells, choose response"
+  description: >
+    Every nucleated cell publishes its internal state via MHC-I.
+    Immune cells subscribe to this publication. When published state
+    is aberrant, the immune system selects and executes a strategy.
+  observer:
+    publisher: "MHC-I complex (HLA-A, HLA-B, HLA-C + B2M)"
+    publication: "Peptide fragments of all proteins being produced"
+    mechanism: >
+      Every cell samples its own proteome, loads 8-10 aa fragments
+      onto MHC-I, and presents them on the surface. This is the
+      observable interface — the cell declares what it's making.
+    subscribers:
+      - "CD8+ cytotoxic T cells — check peptide against known threats"
+      - "NK cells — check for MHC-I presence (missing self)"
+  strategy:
+    strategies:
+      - name: "Cytotoxic T cell killing"
+        trigger: "Foreign/mutant peptide on MHC-I"
+        mechanism: "Perforin/granzyme — direct cell lysis"
+      - name: "NK cell killing"
+        trigger: "Missing MHC-I (cell went dark)"
+        mechanism: "Missing-self recognition — kill anything not publishing"
+      - name: "Antibody-dependent"
+        trigger: "Surface antigen marking"
+        mechanism: "Opsonization → phagocytosis"
+    circuit_breakers:
+      - gene: PD-L1/CD274
+        role: "Cell-side circuit breaker — tells T cells to stand down"
+      - gene: CTLA4
+        role: "T cell-side circuit breaker — self-inhibition"
+      note: >
+        Checkpoint inhibitors (anti-PD1, anti-CTLA4) remove the circuit
+        breakers. This is literally disabling the rate limiter on the
+        observer-strategy pipeline.
+  failure_mode: >
+    B2M loss = MHC-I can't assemble = cell stops publishing state =
+    goes dark on the observer. T cells can't see it, but NK cells
+    detect missing-self. HLA-A loss = publication format corrupted =
+    specific peptides can't be presented. JAK1/2 loss = cell can't
+    respond to interferon-gamma = can't upregulate MHC-I when told to.
+  mutation_meaning: >
+    Immune evasion mutations target the observer interface, not the
+    strategy execution. The immune system's kill mechanisms are intact.
+    The cancer cell hides by corrupting its own publication.
+
+# =============================================================================
+# ENDOCRINE: ADAPTER
+# =============================================================================
+Endocrine:
+  pattern: Adapter
+  uncertainty: "Interface mismatch — translating remote signals to local action"
+  description: >
+    Hormones are remote messages from distant tissues. Nuclear hormone
+    receptors are adapters that convert the external signal format
+    (lipophilic molecule) into the internal format (DNA-binding TF
+    activating specific gene sets).
+  remote_signal:
+    format: "Hormone molecule (estrogen, testosterone, cortisol)"
+    source: "Distant endocrine gland"
+    transport: "Bloodstream — broadcast to all cells"
+  adapter:
+    proteins: [ESR1, ESR2, AR, PGR, FOXA1, GATA3]
+    mechanism: >
+      Receptor sits in cytoplasm, inactive. Hormone binds → conformational
+      change → receptor dimerizes → translocates to nucleus → binds
+      DNA at hormone response elements. The adapter converts
+      "estrogen present" into "activate these 500 genes."
+    specificity: >
+      The adapter has a conformational gate. Only the right hormone
+      opens the gate. Once open, which DNA addresses the adapter reads
+      depends on co-factors (FOXA1, GATA3) — the adapter's output
+      depends on context.
+  failure_mode: >
+    ESR1 GOF mutation = adapter stuck open, fires without hormone.
+    ESR1 loss = adapter missing, tissue deaf to estrogen.
+    Tamoxifen = blocks the conformational change = adapter can't open.
+    Aromatase inhibitor = cuts the remote signal = nothing to adapt.
+  mutation_meaning: >
+    Endocrine mutations are interface failures. The local machinery
+    is intact, the remote signal may be intact, but the translation
+    layer is broken. This is why endocrine therapy works by targeting
+    the adapter or the signal, not the downstream machinery.
+
+# =============================================================================
+# TISSUE ARCHITECTURE: COMPOSITE
+# =============================================================================
+TissueArch:
+  pattern: Composite
+  uncertainty: "Structural — how individual cells compose into tissues"
+  description: >
+    Cells organize into hierarchical structures (epithelium, stroma,
+    lumen). The Composite pattern allows uniform treatment of
+    individual cells and cell groups. Tissue architecture genes
+    manage the interfaces, hierarchy, and structural signals.
+  interface:
+    gene: CDH1
+    role: "E-cadherin — the interface between nodes in the composite"
+    mechanism: >
+      Calcium-dependent homophilic adhesion. CDH1 on one cell binds
+      CDH1 on the adjacent cell. This is the interface contract —
+      both nodes must implement it to participate in the composite.
+    failure: >
+      CDH1 loss = interface broken = cell detaches from composite =
+      epithelial-mesenchymal transition (EMT). Lobular breast cancer
+      is defined by CDH1 loss — cells can't compose into ducts.
+  hierarchy:
+    genes: [APC, CTNNB1]
+    role: "Wnt pathway — controls whether branches grow"
+    mechanism: >
+      APC degrades beta-catenin (CTNNB1). When Wnt signal arrives,
+      APC is inhibited, CTNNB1 accumulates, enters nucleus, activates
+      growth. APC = branch pruner. CTNNB1 = branch grower.
+    failure: >
+      APC loss = can't prune = constitutive branching = polyps (CRC).
+      CTNNB1 GOF = grows regardless of Wnt signal.
+  structural_signals:
+    genes: [SMAD3, SMAD4]
+    role: "TGF-beta signaling — carry structural information between levels"
+    mechanism: >
+      TGF-beta signals from stroma to epithelium. SMADs transduce
+      the message: "this tissue is at capacity, stop growing."
+    failure: >
+      SMAD4 loss = structural signal can't propagate = tissue ignores
+      spatial constraints. Pancreatic cancer: SMAD4 lost in 55% of cases.
+  failure_mode: >
+    Composite pattern failures produce architectural collapse.
+    CDH1 loss = nodes leave the tree. APC loss = tree grows without
+    pruning. SMAD4 loss = levels can't communicate. All produce
+    disorganized growth — the cells are functional but unstructured.
+  mutation_meaning: >
+    TissueArch mutations don't break individual cell functions.
+    They break the composition rules. Cells work fine in isolation
+    but can't form or maintain tissue structure.
+
+# =============================================================================
+# CROSS-PATTERN INTERACTIONS
+# =============================================================================
+cross_pattern:
+  summary: >
+    Cancer progression is a sequence of pattern failures, not random
+    damage. The escalation hierarchy reflects pattern dependencies:
+
+  dependencies:
+    - from: "Factory (Methylation/Chromatin)"
+      to: "All other patterns"
+      relationship: "Factory must run first — all patterns operate on the constructed object"
+      implication: "Chromatin mutations have the broadest phenotype because they corrupt init"
+
+    - from: "State Machine (CellCycle)"
+      to: "Chain of Responsibility (PI3K)"
+      relationship: "Growth signals feed the state machine transition guards"
+      implication: "PI3K GOF + TP53 LOF = signal without guard = fastest progression"
+
+    - from: "Observer (Immune)"
+      to: "All cell-intrinsic patterns"
+      relationship: "Observer validates outputs of all internal patterns"
+      implication: "Immune evasion is always late — must evade after internal patterns fail"
+
+    - from: "Composite (TissueArch)"
+      to: "Adapter (Endocrine)"
+      relationship: "Tissue structure determines which adapters are expressed"
+      implication: "EMT (CDH1 loss) changes which remote signals the cell responds to"
+
+    - from: "CQRS (DDR)"
+      to: "Factory (Methylation/Chromatin)"
+      relationship: "DDR maintains the medium that Factory wrote"
+      implication: "DDR loss → medium degrades → factory config corrupts → identity drifts"
+
+  escalation_prediction: >
+    The defense hierarchy IS the pattern dependency graph:
+    1. Factory runs once (Methylation/Chromatin) — must be intact for anything else
+    2. State machine guards (CellCycle) — first to be removed, most common mutations
+    3. Chain terminators (PI3K) — second to fail, enables growth signal
+    4. CQRS maintenance (DDR) — degrades the medium over time
+    5. Composite structure (TissueArch) — breaks when local control overwhelms structure
+    6. Adapter sensitivity (Endocrine) — fails when tissue context no longer constrains
+    7. Observer evasion (Immune) — last to fail, required for metastasis
+
+    This matches the empirical severance hierarchy from MSK-IMPACT:
+    CellCycle/PI3K first (80% of single-channel patients), Immune/Endocrine last.
+
+# =============================================================================
+# PATTERN TRADEOFFS: THE FUNDAMENTAL WEAKNESS OF EACH DESIGN
+# =============================================================================
+pattern_tradeoffs:
+  principle: >
+    Every design pattern has an inherent tradeoff — a weakness that comes
+    with the pattern itself, not from implementation bugs. You cannot fix
+    the tradeoff, only move it. Cancer exploits exactly the tradeoff of
+    each channel's pattern.
+
+  tradeoffs:
+    - pattern: "CQRS (DDR)"
+      strength: "Read/write integrity — command and query never interfere"
+      tradeoff: "Eventual consistency — CAP theorem. Command and query operate on different copies of the data. They can get out of sync."
+      cancer_exploitation: >
+        The write side (BRCA2 loading RAD51) and read side (RAD51 scanning)
+        operate on DIFFERENT copies — the broken strand vs the intact
+        template homolog. They are eventually consistent. If the template
+        has its own errors (mutations, epigenetic drift), the repair copies
+        those errors in faithfully. The query side doesn't know the read
+        model is stale. Genomic instability is not pipeline saturation —
+        it is consistency failure between the damaged copy and a template
+        that has itself drifted. The CQRS pipeline completes successfully
+        but produces a wrong result because the read model was stale.
+      aging_expression: >
+        Both homologs accumulate damage over decades. The read model (template)
+        drifts from the original spec. Each repair operation is correct
+        relative to the template but wrong relative to the original —
+        compounding consistency error. Aging IS the drift between the
+        command side's writes and the query side's stale reads.
+
+    - pattern: "Abstract Factory (Methylation/Chromatin)"
+      strength: "Construct 200+ cell types from one genome"
+      tradeoff: "Drift — the constructed object diverges from spec over time"
+      cancer_exploitation: >
+        DNMT1 copy-on-write is lossy. Each cell division loses ~1-5% of
+        methylation marks stochastically. Without DNMT3A to re-establish
+        them, the factory config drifts. Clonal hematopoiesis IS factory
+        drift — the cell slowly forgets what it was built to be.
+      aging_expression: >
+        The methylation clock (Horvath clock) IS the drift rate. Biological
+        age = cumulative factory drift. You can predict age from methylation
+        state because drift is monotonic.
+
+    - pattern: "State Machine (CellCycle)"
+      strength: "Strict temporal ordering of division"
+      tradeoff: "Rigidity / deadlock — the machine has no 'maybe'"
+      cancer_exploitation: >
+        Guards can be too strict (senescence = permanent arrest, the cell
+        deadlocks in G1 forever) or removed entirely (TP53 loss = G1→S
+        fires unconditionally). There is no gradual failure — the state
+        machine either checks or doesn't. This binary is why TP53 is
+        all-or-nothing: heterozygous loss has intermediate phenotype only
+        because some tetramers still form with wild-type monomers.
+      aging_expression: >
+        Senescent cell accumulation = increasing deadlocked processes.
+        Senolytics work by killing the deadlocked cells — clearing the
+        process table of zombies.
+
+    - pattern: "Chain of Responsibility (PI3K)"
+      strength: "Flexible, modular signal routing"
+      tradeoff: "Amplification cascade — each handler can amplify noise"
+      cancer_exploitation: >
+        One broken terminator and the chain becomes a wire. NF1 loss =
+        RAS never turns off. PTEN loss = PI3K branch never stops. GOF
+        KRAS = handler permanently forwarding. The chain is the longest
+        in the system (EGFR→RAS→RAF→MEK→ERK + RAS→PI3K→AKT→MTOR),
+        which means the most independent failure points. This is why
+        PI3K_Growth is the most commonly mutated channel.
+      aging_expression: >
+        Signal-to-noise ratio degrades. Older cells have noisier signaling
+        — not because the handlers break, but because accumulated low-level
+        damage makes each handler slightly less precise.
+
+    - pattern: "Observer + Strategy (Immune)"
+      strength: "Can detect any aberrant cell state"
+      tradeoff: "False positive / false negative — the ROC tradeoff"
+      cancer_exploitation: >
+        The observer's threshold is set by PD-1/PD-L1 and CTLA-4.
+        Too sensitive = autoimmunity (false positives kill healthy cells).
+        Too tolerant = cancer escapes (false negatives let aberrant cells
+        live). Cancer always exploits the tolerance side — B2M loss hides
+        the cell, PD-L1 upregulation raises the threshold. Checkpoint
+        inhibitors work by lowering the threshold — accepting more
+        false positives to catch true positives.
+      aging_expression: >
+        Immunosenescence = observer sensitivity declining. The knowledge
+        base (T cell repertoire) shrinks as thymic output drops.
+        Fewer subscribers = more cells go unobserved.
+
+    - pattern: "Adapter (Endocrine)"
+      strength: "Remote coordination across tissues"
+      tradeoff: "Signal dependency — adapter useless without the signal"
+      cancer_exploitation: >
+        ESR1 GOF mutation = adapter stuck open, fires without hormone.
+        The cancer cell decouples from the remote signal — no longer
+        needs estrogen. This is endocrine resistance: the adapter
+        rewrites itself to be signal-independent. Alternatively,
+        menopause removes estrogen = adapter has nothing to adapt =
+        hormone-dependent tissues involute.
+      aging_expression: >
+        Hormone levels decline (menopause, andropause). The adapters
+        are intact but starved of input. Tissue maintenance degrades
+        because the coordination signal weakens.
+
+    - pattern: "Composite (TissueArch)"
+      strength: "Scale from single cell to organ"
+      tradeoff: "Coordination overhead — interface breaks cascade"
+      cancer_exploitation: >
+        CDH1 loss = interface contract broken = cell detaches from
+        composite = EMT = metastasis. The composite pattern is only
+        as strong as its weakest interface. One node leaving can
+        cascade if that node was structural (like removing a brick
+        from an arch). SMAD4 loss = levels can't communicate =
+        the composite grows without spatial constraint.
+      aging_expression: >
+        Tissue architecture degrades. Fibrosis = excessive matrix
+        deposition = the composite stiffens. Sarcopenia = composite
+        loses nodes without replacement.
+
+  meta_insight: >
+    Cancer is not random damage. It is systematic exploitation of design
+    pattern tradeoffs. Each channel fails at its pattern's inherent
+    weakness because that weakness cannot be engineered away — it is the
+    cost of the pattern's benefit. The defense hierarchy is the order in
+    which tradeoffs become exploitable: state machine guards are easiest
+    to remove (binary), composite interfaces are hardest to break
+    (distributed), observer evasion requires the most steps (must hide
+    from multiple subscribers).

@@ -1,0 +1,375 @@
+id: EV01-channel-defense-profiles
+type: empirical
+name: "Per-Channel Escalation Defense Profiles — MSK-IMPACT 50K"
+statement: |
+  Empirical defense profiles for each of the 8 signaling channels in the cancer
+  escalation architecture. Each profile records the cascade's measured response
+  to mutations in that channel: how many genes are protective, the strength
+  and consistency of the defense, and the position-dependent pattern within
+  key genes.
+
+  These profiles are the provenance layer for mutation outcome predictions.
+  A mutation at a well-characterized position in a channel with a strong,
+  consistent defense profile has high prediction confidence. A mutation at
+  a novel position in a channel with variable defense has low confidence.
+
+  Defense confidence is assigned as:
+    high     — 95%+ genes protective, consistent shifts, multiple well-characterized genes
+    moderate — 90%+ genes protective, but distributed defense with no dominant gene
+    low      — insufficient data or inconsistent patterns
+
+provenance:
+  attribution:
+    author: "Patrick McCarthy"
+    source: "Cancer Escalation Analysis — MSK-IMPACT 50K, ChannelNet V6c"
+    date: "2026"
+  evidence:
+    type: empirical
+    description: |
+      Dataset: MSK-IMPACT 50K (43,872 patients with OS data).
+      Model: ChannelNet V6c, 5-fold CV, C-index 0.685.
+      Method: out-of-fold hazard predictions, per-gene hazard shift = mean(hazard|mutated) - baseline.
+      Position analysis: 471 hotspots with >= 30 patients, protein position extracted from proteinChange.
+      236 genes across 8 channels analyzed.
+    references:
+      - EM29-cancer-escalation-defense-profiles
+  derivation:
+    from:
+      - EM29-cancer-escalation-defense-profiles
+    method: "Per-channel aggregation of the gene-level and hotspot-level results described in EM28"
+
+edges:
+  - to: EM29-cancer-escalation-defense-profiles
+    relation: evidences
+    provenance:
+      attribution:
+        author: "Patrick McCarthy"
+        source: "Cancer Escalation Analysis"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "EV01 provides the structured per-channel evidence that EM28 summarizes"
+      derivation:
+        method: "Direct decomposition of EM28's aggregate results into per-channel profiles"
+
+channels:
+
+  # =====================================================================
+  # TIER 0 — CELL INTRINSIC
+  # =====================================================================
+
+  PI3K_Growth:
+    tier: {index: 0, name: "Cell Intrinsic"}
+    summary:
+      n_genes: 56
+      mean_shift: -0.354
+      mean_abs_shift: 0.380
+      pct_protective: 95
+      defense_confidence: high
+      interpretation: |
+        The largest channel. 3 of 56 genes show net harmful shifts (KRAS, EGFR, CDKN2B).
+        These are the oncogenic drivers — mutations that activate growth signaling rather
+        than severing it. The cascade has no defense against activation because activation
+        is the expected state; only absence triggers escalation.
+
+    genes:
+      - gene: PIK3CA
+        n_hotspots: 35
+        position_range: [38, 1049]
+        earliest: {position: 38, change: R38C, shift: -1.03, type: Missense, n: 33}
+        latest: {position: 1049, change: G1049R, shift: -0.12, type: Missense, n: 60}
+        position_hazard_r: +0.165
+        interpretation: |
+          Highly protective across all positions. Earliest position (R38C) has strongest
+          defense — the regulatory domain, oldest code, most rehearsed response. The kinase
+          domain hotspots (E542K, E545K, H1047R) are the most common and moderately protective.
+          Defense weakens at C-terminus but never goes harmful.
+
+      - gene: PTEN
+        n_hotspots: 18
+        position_range: [55, 343]
+        earliest: {position: 55, change: X55_splice, shift: -0.10, type: Splice_Site, n: 34}
+        deepest_defense: {position: 323, change: N323Mfs*21, shift: -1.14, type: Frame_Shift_Del, n: 61}
+        position_hazard_r: -0.037
+        interpretation: |
+          Tumor suppressor — loss triggers PI3K pathway activation. Defense is strong
+          but NOT position-ordered: the deepest defense (-1.14) is at position 323,
+          near the C-terminus. Frame-shift deletions are consistently more protective
+          than splice site mutations. Clean breaks defended better than partial loss.
+
+      - gene: NF1
+        n_hotspots: 4
+        position_range: [440, 2429]
+        earliest: {position: 440, shift: -0.85}
+        latest: {position: 2429, change: R2429*, shift: -1.72, type: Nonsense, n: 57}
+        position_hazard_r: -0.962
+        interpretation: |
+          Extremely strong position gradient (r = -0.96, p = 0.04). Later positions
+          are dramatically more protective. The C-terminal nonsense mutation triggers
+          the strongest defense of any NF1 hotspot. This gene's defense gets BETTER
+          deeper into the protein — the system has layered defenses at every level.
+
+      - gene: KRAS
+        n_hotspots: 15
+        position_range: [12, 146]
+        codon12: {G12D: +0.38, G12V: +0.39, G12C: +0.24, G12R: +0.76}
+        codon61: {Q61H: +0.46, Q61R: +0.42}
+        late_protective: {K117N: -0.32, A146T: -0.16}
+        position_hazard_r: -0.425
+        interpretation: |
+          Activating oncogene — early codons (12, 61) are HARMFUL because they
+          constitutively activate RAS signaling. The cascade cannot defend against
+          activation at these positions. But late-position mutations (117, 146) are
+          PROTECTIVE — these disrupt the protein enough to lose oncogenic function
+          without full activation. Position gradient confirms: early = harmful driver,
+          late = loss of oncogenic function = protective.
+
+      - gene: EGFR
+        n_hotspots: 8
+        position_range: [108, 861]
+        earliest_harmful: {position: 108, change: R108K, shift: +0.82, type: Missense, n: 32}
+        latest_protective: {position: 861, change: L861Q, shift: +0.19, type: Missense, n: 53}
+        position_hazard_r: -0.837
+        interpretation: |
+          All positions harmful (activating oncogene), but harm DECREASES with position
+          (r = -0.84, p = 0.01). Early extracellular domain mutations (+0.82 to +0.91)
+          cause constitutive activation. Late kinase domain mutations (+0.17 to +0.19)
+          are still harmful but much less so — the activation is weaker or more targetable
+          (L858R is the classic TKI-sensitive mutation).
+
+    # Additional genes with notable defense profiles
+      - gene: ARID1A
+        n_hotspots: 15
+        position_range: [224, 2141]
+        position_hazard_r: +0.091
+        interpretation: |
+          Consistently protective across all positions (all negative shifts).
+          No strong position gradient — the defense is uniform along the protein.
+          Chromatin remodeling function; loss triggers epigenetic compensation.
+
+  CellCycle:
+    tier: {index: 0, name: "Cell Intrinsic"}
+    summary:
+      n_genes: 47
+      mean_shift: -0.374
+      mean_abs_shift: 0.429
+      pct_protective: 94
+      defense_confidence: high
+      interpretation: |
+        Second largest channel. Contains the most dramatic position-dependent
+        defense patterns in the dataset. TP53 (146 hotspots) and CDKN2A (8 hotspots)
+        show strong N-terminal harm → C-terminal protection gradients.
+
+    genes:
+      - gene: TP53
+        n_hotspots: 146
+        position_range: [32, 382]
+        earliest: {position: 32, change: X32_splice, shift: +0.22, type: Splice_Site, n: 48}
+        latest: {position: 382, change: K382Nfs*40, shift: -0.41, type: Frame_Shift_Del, n: 33}
+        position_hazard_r: +0.068
+        hotspot_peak: {region: "175-282 (DNA binding domain)", mean_shift: +0.31, n_hotspots: 89}
+        notable:
+          R181C: {shift: -0.43, note: "Rare protective missense in sea of harmful DNA-binding mutations"}
+          R213Q: {shift: -0.15, note: "Protective variant at otherwise harmful codon (R213* = +0.07)"}
+          R267W: {shift: -0.08, note: "Mild protective at position where most are +0.3 to +0.5"}
+        interpretation: |
+          The most complex defense landscape in the dataset. The DNA-binding domain
+          (positions 100-290) is almost universally harmful — these mutations produce
+          a protein that binds DNA incorrectly, the paradigm case of corrupted signal.
+          The C-terminal regulatory domain (position 382) is protective — truncation
+          here removes the regulatory tail but leaves core function partially intact,
+          triggering compensatory pathways. The weak overall r (+0.07) reflects the
+          complexity: TP53 is not a simple gradient but a domain-by-domain defense map.
+
+      - gene: CDKN2A
+        n_hotspots: 8
+        position_range: [16, 114]
+        earliest: {position: 16, change: L16Pfs*9, shift: +0.88, type: Frame_Shift_Del, n: 39}
+        latest: {position: 114, change: P114L, shift: -0.27, type: Missense, n: 39}
+        position_hazard_r: -0.803
+        interpretation: |
+          The most dramatic position gradient in the dataset (delta = -1.14, r = -0.80).
+          N-terminal frame-shift at position 16 is catastrophic (+0.88) — complete loss
+          of p16 cell cycle inhibitor, no defense. C-terminal missense at position 114
+          is protective (-0.27) — partial function retained, triggers compensatory
+          RB pathway activation. This gene is the clearest example of the durability
+          principle: early code is load-bearing with no fallback; late code has alternatives.
+
+  DDR:
+    tier: {index: 1, name: "Tissue Level"}
+    summary:
+      n_genes: 35
+      mean_shift: -0.446
+      mean_abs_shift: 0.449
+      pct_protective: 97
+      defense_confidence: high
+      interpretation: |
+        DNA damage repair — the second strongest defense channel.
+        POLE mutations produce the two most protective hotspots in the entire
+        dataset (V411L at -2.07, P286R at -1.91). These are hypermutator
+        phenotypes — they generate massive mutation loads that trigger
+        comprehensive immune surveillance. The cascade's response to
+        overwhelming DNA damage is paradoxically protective: the body
+        treats the tumor as foreign.
+
+    genes:
+      - gene: POLE
+        n_hotspots: 2
+        V411L: {shift: -2.07, n: 52, event_rate: 0.038}
+        P286R: {shift: -1.91, n: 58, event_rate: 0.034}
+        interpretation: |
+          The strongest protective mutations in the dataset. Both are exonuclease
+          domain mutations that cause ultra-hypermutation. The massive neoantigen
+          load triggers immune recognition. This is the escalation cascade's
+          ultimate response: if DNA repair fails catastrophically, escalate to
+          the organism level (immune system). Event rates of 3-4% confirm
+          extraordinary survival.
+
+      - gene: MSH2
+        mean_shift: -0.694
+        function: LOF
+      - gene: MSH6
+        mean_shift: -0.624
+        function: LOF
+
+  TissueArch:
+    tier: {index: 1, name: "Tissue Level"}
+    summary:
+      n_genes: 29
+      mean_shift: -0.358
+      mean_abs_shift: 0.381
+      pct_protective: 97
+      defense_confidence: high
+
+    genes:
+      - gene: FBXW7
+        n_hotspots: 11
+        position_range: [278, 689]
+        earliest: {position: 278, change: R278*, shift: -0.16}
+        latest: {position: 689, change: R689W, shift: -0.99}
+        position_hazard_r: -0.640
+        interpretation: |
+          Strong C-terminal protective gradient. Late-position mutations produce
+          3-6x stronger defense than early positions. FBXW7 is an E3 ubiquitin
+          ligase — C-terminal substrate-binding domain mutations trigger compensatory
+          degradation pathways.
+
+      - gene: APC
+        n_hotspots: 29
+        position_range: [213, 1556]
+        position_hazard_r: +0.368
+        interpretation: |
+          Anomalous: SLIGHT positive position gradient (later = less protective).
+          APC is unusual because the mutation cluster region (MCR, positions 1286-1513)
+          contains the most functionally relevant truncations. But the effect is weak —
+          APC mutations are protective across all positions.
+
+  Endocrine:
+    tier: {index: 2, name: "Organism Level"}
+    summary:
+      n_genes: 11
+      mean_shift: -0.352
+      mean_abs_shift: 0.352
+      pct_protective: 100
+      defense_confidence: high
+      interpretation: |
+        100% protective. Endocrine signaling mutations trigger systemic hormonal
+        compensation — the organism-level response. Smaller channel but highly
+        consistent defense pattern.
+
+    genes:
+      - gene: ESR1
+        n_hotspots: 4
+        position_hazard_r: -0.827
+        interpretation: |
+          Estrogen receptor — strong position gradient. Early mutations more
+          harmful, late mutations protective. Clinically relevant: ESR1 mutations
+          are the primary resistance mechanism in ER+ breast cancer.
+
+  Immune:
+    tier: {index: 2, name: "Organism Level"}
+    summary:
+      n_genes: 35
+      mean_shift: -0.481
+      mean_abs_shift: 0.481
+      pct_protective: 100
+      defense_confidence: high
+      interpretation: |
+        Strongest mean defense of any channel. 100% of genes protective.
+        Immune escape mutations (B2M, HLA, JAK1) paradoxically trigger stronger
+        immune responses elsewhere — the cascade escalates to alternative immune
+        pathways when primary antigen presentation fails.
+
+    genes:
+      - gene: B2M
+        n_hotspots: 5
+        position_range: [1, 69]
+        earliest: {position: 1, change: M1?, shift: -0.22, type: Translation_Start_Site, n: 62}
+        latest: {position: 69, change: V69Wfs*34, shift: -1.12, type: Frame_Shift_Del, n: 39}
+        position_hazard_r: -0.797
+        interpretation: |
+          Strong position gradient — later mutations more protective. B2M loss
+          eliminates MHC-I surface expression, which should enable immune escape.
+          The protective shift indicates the cascade compensates: NK cell activation,
+          alternative antigen presentation, or immune checkpoint dynamics. Complete
+          loss (late frame-shift) triggers stronger compensation than partial loss
+          (translation start site). Clean break > corrupted signal.
+
+      - gene: JAK1
+        n_hotspots: 4
+        position_range: [339, 860]
+        earliest: {position: 339, change: N339Ifs*3, shift: -0.93}
+        latest: {position: 860, change: K860Nfs*16, shift: -1.08}
+        position_hazard_r: -0.565
+
+  ChromatinRemodel:
+    tier: {index: 3, name: "Meta Regulatory"}
+    summary:
+      n_genes: 15
+      mean_shift: -0.315
+      mean_abs_shift: 0.315
+      pct_protective: 100
+      defense_confidence: moderate
+      interpretation: |
+        100% protective but with the weakest individual shifts. Defense is
+        distributed — many genes contributing small protective effects rather
+        than a few dominant defenders. This is consistent with the meta-regulatory
+        role: chromatin remodeling affects gene expression broadly, and the
+        defense is correspondingly broad.
+
+    genes:
+      - gene: KMT2B
+        n_hotspots: 5
+        position_hazard_r: -0.422
+      - gene: KMT2D
+        n_hotspots: 4
+        position_hazard_r: -0.718
+
+  DNAMethylation:
+    tier: {index: 3, name: "Meta Regulatory"}
+    summary:
+      n_genes: 8
+      mean_shift: -0.420
+      mean_abs_shift: 0.420
+      pct_protective: 100
+      defense_confidence: high
+      interpretation: |
+        Small but strongly protective channel. Contains IDH1, the most dramatic
+        same-codon opposite-outcome example in the dataset.
+
+    genes:
+      - gene: IDH1
+        n_hotspots: 3
+        same_codon_analysis:
+          R132H: {shift: -1.01, n: 447, type: Missense, interpretation: "Neomorphic — produces 2-HG, triggers epigenetic reprogramming. Adaptive."}
+          R132L: {shift: +0.64, n: 30, type: Missense, interpretation: "Different substitution at SAME codon. Maladaptive. 1.65 hazard spread."}
+          same_codon_spread: 1.65
+        interpretation: |
+          The clearest example of the corrupted signal problem at the amino acid level.
+          R132H and R132L are mutations at the SAME codon producing OPPOSITE outcomes.
+          The difference is not position — it is the specific corruption. R132H produces
+          a specific gain-of-function (2-HG production) that the cascade can detect and
+          respond to. R132L produces a different corruption that the cascade misreads.
+          This is the provenance problem at maximum resolution: same gene, same codon,
+          opposite defense outcome. Prediction requires mutation-specific, not just
+          position-specific, provenance.

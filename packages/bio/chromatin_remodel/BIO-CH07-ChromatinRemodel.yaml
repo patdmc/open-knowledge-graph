@@ -1,0 +1,1530 @@
+id: BIO-CH07-ChromatinRemodel
+type: biology_channel
+domain: molecular_biology
+name: "Chromatin Remodeling"
+channel: ChromatinRemodel
+tier: 3
+tier_name: meta_regulatory
+n_genes: 38
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Controls physical access to DNA through ATP-dependent nucleosome repositioning and histone modification. The 'read/write head' of epigenetic regulation."
+  healthy_state: "SWI/SNF complex (SMARCA4, ARID1A/B, SMARCB1), histone methylation (KMT2A-D, SETD2, EZH2), histone acetylation (CREBBP, EP300), chromatin reading (BRD4)"
+  failure_mode: "Aberrant gene accessibility, silencing of tumor suppressors, activation of oncogenic programs"
+
+genes:
+  - id: BIO-ANKRD11
+    name: ANKRD11
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ARID1A
+    name: ARID1A
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.823
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.813
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ARID1B
+        type: COMPENSATES
+        context: "ARID1A-ARID1B SL (SWI/SNF)"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-ATR
+        type: COMPENSATES
+        context: "ARID1A-ATR SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-EZH2
+        type: COMPENSATES
+        context: "ARID1A-EZH2 SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ARID1B
+    name: ARID1B
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.757
+        source: "STRING-DB"
+      - target: BIO-ELOC
+        type: INTERACTS_WITH
+        score: 0.721
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ARID1A
+        type: COMPENSATES
+        context: "ARID1A-ARID1B SL (SWI/SNF)"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ARID2
+    name: ARID2
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.8
+        source: "STRING-DB"
+
+  - id: BIO-CARM1
+    name: CARM1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-DOT1L
+    name: DOT1L
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-MLLT1
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.934
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.894
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.878
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.821
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ELF3
+    name: ELF3
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    compensates:
+      - target: BIO-ERBB2
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ELOC
+    name: ELOC
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-VHL
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MLLT1
+        type: INTERACTS_WITH
+        score: 0.904
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.84
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.721
+        source: "STRING-DB"
+
+  - id: BIO-GATA2
+    name: GATA2
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-TCF3
+        type: INTERACTS_WITH
+        score: 0.861
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+
+  - id: BIO-GPS2
+    name: GPS2
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RXRA
+        type: INTERACTS_WITH
+        score: 0.725
+        source: "STRING-DB"
+
+  - id: BIO-H3-5
+    name: H3-5
+    position: hub
+    healthy_role: "Functional hub of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.992
+        source: "STRING-DB"
+      - target: BIO-CARM1
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-NSD3
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-DOT1L
+        type: INTERACTS_WITH
+        score: 0.878
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.855
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.84
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.839
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.815
+        source: "STRING-DB"
+
+  - id: BIO-H3C7
+    name: H3C7
+    position: hub
+    healthy_role: "Functional hub of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-DOT1L
+        type: INTERACTS_WITH
+        score: 0.934
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.932
+        source: "STRING-DB"
+      - target: BIO-CARM1
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-NSD3
+        type: INTERACTS_WITH
+        score: 0.915
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.915
+        source: "STRING-DB"
+      - target: BIO-MLLT1
+        type: INTERACTS_WITH
+        score: 0.913
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.859
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.855
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.841
+        source: "STRING-DB"
+
+  - id: BIO-HNF1A
+    name: HNF1A
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+
+  - id: BIO-KDM5A
+    name: KDM5A
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.768
+        source: "STRING-DB"
+      - target: BIO-NSD1
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.71
+        source: "STRING-DB"
+
+  - id: BIO-KDM5C
+    name: KDM5C
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.923
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.887
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.858
+        source: "STRING-DB"
+
+  - id: BIO-KDM6A
+    name: KDM6A
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KDM5C
+        type: INTERACTS_WITH
+        score: 0.923
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.869
+        source: "STRING-DB"
+      - target: BIO-KDM5A
+        type: INTERACTS_WITH
+        score: 0.768
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.721
+        source: "STRING-DB"
+      - target: BIO-KMT2B
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+
+  - id: BIO-KMT2A
+    name: KMT2A
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-MEN1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-KMT2B
+        type: INTERACTS_WITH
+        score: 0.973
+        source: "STRING-DB"
+      - target: BIO-MLLT1
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.915
+        source: "STRING-DB"
+      - target: BIO-MGA
+        type: INTERACTS_WITH
+        score: 0.912
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.901
+        source: "STRING-DB"
+      - target: BIO-DOT1L
+        type: INTERACTS_WITH
+        score: 0.894
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-KMT2B
+    name: KMT2B
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.973
+        source: "STRING-DB"
+      - target: BIO-MEN1
+        type: INTERACTS_WITH
+        score: 0.968
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.949
+        source: "STRING-DB"
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+
+  - id: BIO-KMT2C
+    name: KMT2C
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-KMT2B
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.839
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.83
+        source: "STRING-DB"
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.823
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.757
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.749
+        source: "STRING-DB"
+      - target: BIO-MEN1
+        type: INTERACTS_WITH
+        score: 0.724
+        source: "STRING-DB"
+
+  - id: BIO-KMT2D
+    name: KMT2D
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-MEN1
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-KMT2B
+        type: INTERACTS_WITH
+        score: 0.949
+        source: "STRING-DB"
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.813
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+      - target: BIO-MED12
+        type: INTERACTS_WITH
+        score: 0.716
+        source: "STRING-DB"
+
+  - id: BIO-MED12
+    name: MED12
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.716
+        source: "STRING-DB"
+
+  - id: BIO-MEN1
+    name: MEN1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2B
+        type: INTERACTS_WITH
+        score: 0.968
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.724
+        source: "STRING-DB"
+
+  - id: BIO-MGA
+    name: MGA
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.912
+        source: "STRING-DB"
+
+  - id: BIO-MLLT1
+    name: MLLT1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-DOT1L
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.913
+        source: "STRING-DB"
+      - target: BIO-ELOC
+        type: INTERACTS_WITH
+        score: 0.904
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.811
+        source: "STRING-DB"
+
+  - id: BIO-MYOD1
+    name: MYOD1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-TCF3
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+
+  - id: BIO-NCOR1
+    name: NCOR1
+    position: hub
+    healthy_role: "Functional hub of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-GPS2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RXRA
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-KMT2C
+        type: INTERACTS_WITH
+        score: 0.83
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.782
+        source: "STRING-DB"
+      - target: BIO-KMT2D
+        type: INTERACTS_WITH
+        score: 0.763
+        source: "STRING-DB"
+      - target: BIO-MED12
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.754
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.747
+        source: "STRING-DB"
+      - target: BIO-CARM1
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.725
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-FBXW7
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MYC
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-NSD1
+    name: NSD1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-KDM5A
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+
+  - id: BIO-NSD3
+    name: NSD3
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.915
+        source: "STRING-DB"
+
+  - id: BIO-PBRM1
+    name: PBRM1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.992
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.932
+        source: "STRING-DB"
+      - target: BIO-SETD2
+        type: INTERACTS_WITH
+        score: 0.906
+        source: "STRING-DB"
+
+  - id: BIO-REL
+    name: REL
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in ChromatinRemodel. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of ChromatinRemodel signaling regardless of upstream input"
+
+  - id: BIO-RXRA
+    name: RXRA
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-GPS2
+        type: INTERACTS_WITH
+        score: 0.725
+        source: "STRING-DB"
+
+  - id: BIO-SETD2
+    name: SETD2
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.947
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.906
+        source: "STRING-DB"
+      - target: BIO-KDM6A
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-KDM5C
+        type: INTERACTS_WITH
+        score: 0.887
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.84
+        source: "STRING-DB"
+      - target: BIO-DOT1L
+        type: INTERACTS_WITH
+        score: 0.821
+        source: "STRING-DB"
+      - target: BIO-KDM5A
+        type: INTERACTS_WITH
+        score: 0.71
+        source: "STRING-DB"
+
+  - id: BIO-SMARCA2
+    name: SMARCA2
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-VHL
+        type: INTERACTS_WITH
+        score: 0.91
+        source: "STRING-DB"
+      - target: BIO-ELOC
+        type: INTERACTS_WITH
+        score: 0.84
+        source: "STRING-DB"
+      - target: BIO-H3-5
+        type: INTERACTS_WITH
+        score: 0.815
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-SMARCA4
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-SMARCB1
+    name: SMARCB1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-KMT2A
+        type: INTERACTS_WITH
+        score: 0.901
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.859
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.754
+        source: "STRING-DB"
+
+  - id: BIO-SMARCD1
+    name: SMARCD1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.841
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.725
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ATRX
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-SMARCE1
+    name: SMARCE1
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-ARID1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-PBRM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCD1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ARID1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3C7
+        type: INTERACTS_WITH
+        score: 0.819
+        source: "STRING-DB"
+      - target: BIO-NCOR1
+        type: INTERACTS_WITH
+        score: 0.747
+        source: "STRING-DB"
+
+  - id: BIO-TCF3
+    name: TCF3
+    position: leaf
+    healthy_role: "Functional member of ChromatinRemodel pathway."
+    loss_consequence: "Altered ChromatinRemodel function"
+    interacts_with:
+      - target: BIO-MYOD1
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-GATA2
+        type: INTERACTS_WITH
+        score: 0.861
+        source: "STRING-DB"
+
+  - id: BIO-VHL
+    name: VHL
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in ChromatinRemodel. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in ChromatinRemodel, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-ELOC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SMARCA2
+        type: INTERACTS_WITH
+        score: 0.91
+        source: "STRING-DB"
+
+cross_channel_edges:
+  - from: BIO-ARID1A
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ARID1B
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ARID2
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CARM1
+    to: BIO-EP300
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ELOC
+    to: BIO-CBFB
+    to_channel: Immune
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MED12
+    to: BIO-CDK8
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOR1
+    to: BIO-RARA
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOR1
+    to: BIO-PPARG
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOR1
+    to: BIO-BCL6
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NCOR1
+    to: BIO-ESR1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NSD3
+    to: BIO-BRD4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PBRM1
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-REL
+    to: BIO-NFKBIA
+    to_channel: Immune
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-RXRA
+    to: BIO-RARA
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-RXRA
+    to: BIO-PPARG
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMARCA2
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMARCB1
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMARCD1
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SMARCE1
+    to: BIO-SMARCA4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-VHL
+    to: BIO-EPAS1
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-H3-5
+    to: BIO-DNMT3A
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CARM1
+    to: BIO-NCOA3
+    to_channel: Endocrine
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-DOT1L
+    to: BIO-H3C13
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.997
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GATA2
+    to: BIO-RUNX1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.996
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ELOC
+    to: BIO-EPAS1
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-KMT2A
+    to: BIO-CREBBP
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MGA
+    to: BIO-MAX
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PBRM1
+    to: BIO-H3C13
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETD2
+    to: BIO-H3C13
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TCF3
+    to: BIO-GATA1
+    to_channel: Endocrine
+    type: INTERACTS_WITH
+    score: 0.995
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH07-ChromatinRemodel
+    name: "Chromatin Remodeling"
+  - id: BIO-ANKRD11
+    name: ANKRD11
+  - id: BIO-ARID1A
+    name: ARID1A
+  - id: BIO-ARID1B
+    name: ARID1B
+  - id: BIO-ARID2
+    name: ARID2
+  - id: BIO-CARM1
+    name: CARM1
+  - id: BIO-DOT1L
+    name: DOT1L
+  - id: BIO-ELF3
+    name: ELF3
+  - id: BIO-ELOC
+    name: ELOC
+  - id: BIO-GATA2
+    name: GATA2
+  - id: BIO-GPS2
+    name: GPS2
+  - id: BIO-H3-5
+    name: H3-5
+  - id: BIO-H3C7
+    name: H3C7
+  - id: BIO-HNF1A
+    name: HNF1A
+  - id: BIO-KDM5A
+    name: KDM5A
+  - id: BIO-KDM5C
+    name: KDM5C
+  - id: BIO-KDM6A
+    name: KDM6A
+  - id: BIO-KMT2A
+    name: KMT2A
+  - id: BIO-KMT2B
+    name: KMT2B
+  - id: BIO-KMT2C
+    name: KMT2C
+  - id: BIO-KMT2D
+    name: KMT2D
+
+edges:
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ANKRD11
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ARID1A
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ARID1B
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ARID2
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-CARM1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-DOT1L
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ELF3
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-ELOC
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-GATA2
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-GPS2
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-H3-5
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-H3C7
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-HNF1A
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KDM5A
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KDM5C
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KDM6A
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KMT2A
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KMT2B
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KMT2C
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-KMT2D
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-MED12
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-MEN1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-MGA
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-MLLT1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-MYOD1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-NCOR1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-NSD1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-NSD3
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-PBRM1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-REL
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-RXRA
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-SETD2
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-SMARCA2
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-SMARCB1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-SMARCD1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-SMARCE1
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-TCF3
+    type: CONTAINS
+  - from: BIO-CH07-ChromatinRemodel
+    to: BIO-VHL
+    type: CONTAINS

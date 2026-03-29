@@ -1,0 +1,40 @@
+id: okg:index:root
+type: index
+name: Open Knowledge Graph — Package Index
+packages:
+  - id: okg.core
+    path: core/
+    description: Schema, validation, hooks, core nouns/verbs, formal vocabulary, language layer
+    dependencies: []
+  - id: okg.math
+    path: math/
+    description: Mathematical structures, theorems, proofs
+    dependencies: [okg.core]
+  - id: okg.bio
+    path: bio/
+    description: Biology nodes, healthy graph, pathways
+    dependencies: [okg.core]
+  - id: okg.cancer
+    path: cancer/
+    description: Cancer graph, GNN, scoring, clinical data
+    dependencies: [okg.core]
+  - id: okg.infotheory
+    path: infotheory/
+    description: Information theory, channel capacity, encoding
+    dependencies: [okg.core]
+  - id: okg.neuro
+    path: neuro/
+    description: Neurology
+    dependencies: [okg.core]
+  - id: okg.endo
+    path: endo/
+    description: Endocrinology
+    dependencies: [okg.core]
+  - id: okg.atlas
+    path: atlas/
+    description: Meta-graph — cross-package edges, cartographer output
+    dependencies: [okg.core]
+  - id: okg.neo4j
+    path: neo4j/
+    description: Graph projection layer — YAML to Neo4j. Read replica, not source of truth.
+    dependencies: [okg.core]

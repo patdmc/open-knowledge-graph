@@ -1,0 +1,11 @@
+id: bio:channel:ddr
+type: index
+name: DNA Damage Response
+tier: 1
+tier_name: tissue_level
+n_genes: 81
+n_hubs: 3
+files:
+  - path: BIO-CH01-DDR.yaml
+    contains: 81 genes with internal PPI edges
+    hubs: [ATM, BRCA1, BRCA2]

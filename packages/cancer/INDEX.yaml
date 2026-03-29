@@ -1,0 +1,27 @@
+id: okg:index:cancer
+type: index
+name: Cancer — Graph Scoring, Survival Modeling, Clinical Data
+domain_nouns: [mutation, patient, cancer_type, panel, sample]
+domain_verbs: [HAS_MUTATION, COOCCURS, BELONGS_TO, SL_PARTNER]
+subgraphs:
+  - id: cancer:subgraph:data
+    path: data/
+    description: Dataset loaders, channel definitions v2-v8, feature encoders, clinical caches
+  - id: cancer:subgraph:models
+    path: models/
+    description: Cox loss, graph scorer, hierarchical scorer, channel net, transformers
+  - id: cancer:subgraph:training
+    path: training/
+    description: Trainer, cross-validation, metrics
+  - id: cancer:subgraph:scripts
+    path: scripts/
+    description: Analysis scripts — walks, ablations, benchmarks, scoring
+  - id: cancer:subgraph:analysis
+    path: analysis/
+    description: Attention analysis, deep inspection
+  - id: cancer:subgraph:benchmark
+    path: benchmark/
+    description: Model comparison benchmarks
+key_files:
+  - path: config.py
+    description: CHANNEL_MAP, 509 genes, 8 channels, hub/leaf, GOF/LOF

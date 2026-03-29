@@ -1,0 +1,3728 @@
+id: BIO-CH02-CellCycle
+type: biology_channel
+domain: molecular_biology
+name: "Cell Cycle Regulation"
+channel: CellCycle
+tier: 0
+tier_name: cell_intrinsic
+n_genes: 95
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Controls cell division timing through cyclin-CDK complexes and checkpoint surveillance. Ensures DNA replication and chromosome segregation fidelity."
+  healthy_state: "G1/S checkpoint (RB1/E2F/CDK4), S-phase progression (CDK2/CCNE1), G2/M checkpoint (CDK1/CCNB1), mitotic surveillance (AURKA/B), senescence enforcement (TP53/CDKN2A)"
+  failure_mode: "Uncontrolled proliferation, checkpoint bypass, aneuploidy, replicative immortality"
+
+genes:
+  - id: BIO-ABL1
+    name: ABL1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.98
+        source: "STRING-DB"
+      - target: BIO-EPHA5
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-EPHA3
+        type: INTERACTS_WITH
+        score: 0.958
+        source: "STRING-DB"
+      - target: BIO-EPHB1
+        type: INTERACTS_WITH
+        score: 0.94
+        source: "STRING-DB"
+      - target: BIO-EPHA7
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.909
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.896
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.878
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.871
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.785
+        source: "STRING-DB"
+
+  - id: BIO-AGO2
+    name: AGO2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DICER1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.992
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.872
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.851
+        source: "STRING-DB"
+      - target: BIO-E2F3
+        type: INTERACTS_WITH
+        score: 0.807
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.779
+        source: "STRING-DB"
+      - target: BIO-XPO1
+        type: INTERACTS_WITH
+        score: 0.767
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+      - target: BIO-SOX2
+        type: INTERACTS_WITH
+        score: 0.757
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.705
+        source: "STRING-DB"
+
+  - id: BIO-AR
+    name: AR
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in CellCycle. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of CellCycle signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.978
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-SPOP
+        type: INTERACTS_WITH
+        score: 0.953
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.952
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.905
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.878
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.874
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.848
+        source: "STRING-DB"
+
+  - id: BIO-ASXL1
+    name: ASXL1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.939
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.939
+        source: "STRING-DB"
+      - target: BIO-EZH1
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.897
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.875
+        source: "STRING-DB"
+      - target: BIO-ASXL2
+        type: INTERACTS_WITH
+        score: 0.852
+        source: "STRING-DB"
+      - target: BIO-ZRSR2
+        type: INTERACTS_WITH
+        score: 0.824
+        source: "STRING-DB"
+
+  - id: BIO-ASXL2
+    name: ASXL2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.857
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.852
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.756
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.735
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.705
+        source: "STRING-DB"
+
+  - id: BIO-AURKA
+    name: AURKA
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in CellCycle. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of CellCycle signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.959
+        source: "STRING-DB"
+      - target: BIO-AURKB
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.914
+        source: "STRING-DB"
+      - target: BIO-NUF2
+        type: INTERACTS_WITH
+        score: 0.893
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.856
+        source: "STRING-DB"
+      - target: BIO-LATS2
+        type: INTERACTS_WITH
+        score: 0.773
+        source: "STRING-DB"
+      - target: BIO-TRIP13
+        type: INTERACTS_WITH
+        score: 0.771
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.761
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-MYC
+        type: COMPENSATES
+        context: "MYC-Aurora SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-AURKB
+    name: AURKB
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-NUF2
+        type: INTERACTS_WITH
+        score: 0.95
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.908
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.902
+        source: "STRING-DB"
+      - target: BIO-TRIP13
+        type: INTERACTS_WITH
+        score: 0.788
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.761
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.733
+        source: "STRING-DB"
+
+  - id: BIO-BCL6
+    name: BCL6
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.922
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.851
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.795
+        source: "STRING-DB"
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.708
+        source: "STRING-DB"
+
+  - id: BIO-BORCS8-MEF2B
+    name: BORCS8-MEF2B
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-BRD4
+    name: BRD4
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.988
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.941
+        source: "STRING-DB"
+      - target: BIO-SPOP
+        type: INTERACTS_WITH
+        score: 0.914
+        source: "STRING-DB"
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-CHEK1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-CHEK2
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-CCND2
+    name: CCND2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.988
+        source: "STRING-DB"
+      - target: BIO-CDKN2C
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.937
+        source: "STRING-DB"
+      - target: BIO-BCL6
+        type: INTERACTS_WITH
+        score: 0.851
+        source: "STRING-DB"
+
+  - id: BIO-CCND3
+    name: CCND3
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2C
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.937
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.861
+        source: "STRING-DB"
+
+  - id: BIO-CCNE1
+    name: CCNE1
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in CellCycle. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of CellCycle signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.926
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.908
+        source: "STRING-DB"
+      - target: BIO-E2F3
+        type: INTERACTS_WITH
+        score: 0.831
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.814
+        source: "STRING-DB"
+
+  - id: BIO-CCNQ
+    name: CCNQ
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-CDK4
+    name: CDK4
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in CellCycle. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of CellCycle signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2C
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+
+  - id: BIO-CDK6
+    name: CDK6
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2C
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+
+  - id: BIO-CDK8
+    name: CDK8
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.776
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.726
+        source: "STRING-DB"
+      - target: BIO-CEBPA
+        type: INTERACTS_WITH
+        score: 0.724
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.707
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.702
+        source: "STRING-DB"
+
+  - id: BIO-CDKN1A
+    name: CDKN1A
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.982
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.981
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.98
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TP63
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-CDKN1B
+    name: CDKN1B
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.982
+        source: "STRING-DB"
+      - target: BIO-XPO1
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-CDKN2C
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+
+  - id: BIO-CDKN2A
+    name: CDKN2A
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-MDM4
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+
+  - id: BIO-CDKN2B
+    name: CDKN2B
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.951
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.86
+        source: "STRING-DB"
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.859
+        source: "STRING-DB"
+      - target: BIO-MTAP
+        type: INTERACTS_WITH
+        score: 0.818
+        source: "STRING-DB"
+
+  - id: BIO-CDKN2C
+    name: CDKN2C
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.902
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.815
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.751
+        source: "STRING-DB"
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.719
+        source: "STRING-DB"
+
+  - id: BIO-CEBPA
+    name: CEBPA
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-RARA
+        type: INTERACTS_WITH
+        score: 0.909
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.904
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.902
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.813
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.737
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.735
+        source: "STRING-DB"
+
+  - id: BIO-CENPA
+    name: CENPA
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-AURKB
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-H2BC5
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.971
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.959
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.953
+        source: "STRING-DB"
+      - target: BIO-NUF2
+        type: INTERACTS_WITH
+        score: 0.936
+        source: "STRING-DB"
+      - target: BIO-KMT5A
+        type: INTERACTS_WITH
+        score: 0.927
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.736
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-COP1
+    name: COP1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.928
+        source: "STRING-DB"
+
+  - id: BIO-CREBBP
+    name: CREBBP
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.986
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.985
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.945
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.944
+        source: "STRING-DB"
+      - target: BIO-NFE2L2
+        type: INTERACTS_WITH
+        score: 0.942
+        source: "STRING-DB"
+
+  - id: BIO-CTCF
+    name: CTCF
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-STAG2
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.959
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.856
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.85
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.83
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.794
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.778
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-DAXX
+    name: DAXX
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.986
+        source: "STRING-DB"
+      - target: BIO-SPOP
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.928
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.9
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.848
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.842
+        source: "STRING-DB"
+      - target: BIO-MDM4
+        type: INTERACTS_WITH
+        score: 0.744
+        source: "STRING-DB"
+
+  - id: BIO-DCUN1D1
+    name: DCUN1D1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-DICER1
+    name: DICER1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-AGO2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.762
+        source: "STRING-DB"
+
+  - id: BIO-DNAJB1
+    name: DNAJB1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.951
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.735
+        source: "STRING-DB"
+
+  - id: BIO-DNMT1
+    name: DNMT1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.928
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.921
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.911
+        source: "STRING-DB"
+
+  - id: BIO-DNMT3A
+    name: DNMT3A
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.939
+        source: "STRING-DB"
+
+  - id: BIO-DNMT3B
+    name: DNMT3B
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.971
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.923
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.895
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.852
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.842
+        source: "STRING-DB"
+
+  - id: BIO-E2F3
+    name: E2F3
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.832
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.831
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.811
+        source: "STRING-DB"
+      - target: BIO-AGO2
+        type: INTERACTS_WITH
+        score: 0.807
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.802
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.754
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.747
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.735
+        source: "STRING-DB"
+
+  - id: BIO-EED
+    name: EED
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.96
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.939
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.923
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.921
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.804
+        source: "STRING-DB"
+
+  - id: BIO-EIF4A2
+    name: EIF4A2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-EP300
+    name: EP300
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.988
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+
+  - id: BIO-EPHA3
+    name: EPHA3
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.958
+        source: "STRING-DB"
+      - target: BIO-EPHA7
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-EPHA5
+        type: INTERACTS_WITH
+        score: 0.884
+        source: "STRING-DB"
+
+  - id: BIO-EPHA5
+    name: EPHA5
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-EPHA3
+        type: INTERACTS_WITH
+        score: 0.884
+        source: "STRING-DB"
+
+  - id: BIO-EPHA7
+    name: EPHA7
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-EPHA3
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+
+  - id: BIO-EPHB1
+    name: EPHB1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.94
+        source: "STRING-DB"
+
+  - id: BIO-EZH1
+    name: EZH1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.924
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.719
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+
+  - id: BIO-EZH2
+    name: EZH2
+    position: hub
+    healthy_role: "Functional hub of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ARID1A
+        type: COMPENSATES
+        context: "ARID1A-EZH2 SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-FUBP1
+    name: FUBP1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.828
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.769
+        source: "STRING-DB"
+      - target: BIO-SF3B1
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+
+  - id: BIO-GLI1
+    name: GLI1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-SPOP
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.831
+        source: "STRING-DB"
+      - target: BIO-SOX2
+        type: INTERACTS_WITH
+        score: 0.772
+        source: "STRING-DB"
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+
+  - id: BIO-GTF2I
+    name: GTF2I
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.781
+        source: "STRING-DB"
+
+  - id: BIO-H1-2
+    name: H1-2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H2BC5
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+
+  - id: BIO-H2BC5
+    name: H2BC5
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.985
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.914
+        source: "STRING-DB"
+      - target: BIO-H1-2
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.821
+        source: "STRING-DB"
+
+  - id: BIO-H3-3B
+    name: H3-3B
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.985
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.971
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.971
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+
+  - id: BIO-H3-4
+    name: H3-4
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.986
+        source: "STRING-DB"
+      - target: BIO-AURKB
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.956
+        source: "STRING-DB"
+
+  - id: BIO-H3C13
+    name: H3C13
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.986
+        source: "STRING-DB"
+      - target: BIO-H2BC5
+        type: INTERACTS_WITH
+        score: 0.985
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-KMT5A
+        type: INTERACTS_WITH
+        score: 0.973
+        source: "STRING-DB"
+
+  - id: BIO-KBTBD4
+    name: KBTBD4
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-KMT5A
+    name: KMT5A
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.973
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.927
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.916
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.745
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.743
+        source: "STRING-DB"
+
+  - id: BIO-LATS2
+    name: LATS2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.773
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.753
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.738
+        source: "STRING-DB"
+
+  - id: BIO-MAX
+    name: MAX
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.712
+        source: "STRING-DB"
+
+  - id: BIO-MCL1
+    name: MCL1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.918
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.857
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.849
+        source: "STRING-DB"
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.753
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.75
+        source: "STRING-DB"
+
+  - id: BIO-MDM2
+    name: MDM2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MDM4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.98
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-LATS2
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-MDM4
+    name: MDM4
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.963
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.754
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.744
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-MIR636
+    name: MIR636
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-MTAP
+    name: MTAP
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.931
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.818
+        source: "STRING-DB"
+
+  - id: BIO-MYC
+    name: MYC
+    position: hub
+    healthy_role: "Functional hub of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MAX
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.991
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.984
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.981
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-CDKN2B
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-AURKA
+        type: COMPENSATES
+        context: "MYC-Aurora SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-FBXW7
+        type: COMPENSATES
+        context: "FBXW7-MYC SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-GSK3B
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-NCOR1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-MYCN
+    name: MYCN
+    position: leaf
+    cancer_function: GOF
+    healthy_role: "Gain-of-function oncogene: normally a regulated activator in CellCycle. When working correctly, provides controlled positive signaling."
+    loss_consequence: "Constitutive activation of CellCycle signaling regardless of upstream input"
+    interacts_with:
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-MAX
+        type: INTERACTS_WITH
+        score: 0.996
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.952
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.89
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.852
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.782
+        source: "STRING-DB"
+      - target: BIO-GLI1
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+      - target: BIO-SOX2
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+
+  - id: BIO-NFE2L2
+    name: NFE2L2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.961
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.942
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.933
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.78
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.75
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.745
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ETAA1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-NPM1
+    name: NPM1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-AGO2
+        type: INTERACTS_WITH
+        score: 0.992
+        source: "STRING-DB"
+      - target: BIO-CTCF
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.953
+        source: "STRING-DB"
+      - target: BIO-RARA
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.897
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.896
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+
+  - id: BIO-NUF2
+    name: NUF2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-AURKB
+        type: INTERACTS_WITH
+        score: 0.95
+        source: "STRING-DB"
+      - target: BIO-CENPA
+        type: INTERACTS_WITH
+        score: 0.936
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.893
+        source: "STRING-DB"
+      - target: BIO-TRIP13
+        type: INTERACTS_WITH
+        score: 0.816
+        source: "STRING-DB"
+
+  - id: BIO-NUP93
+    name: NUP93
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-XPO1
+        type: INTERACTS_WITH
+        score: 0.712
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-OBSL1
+    name: OBSL1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.734
+        source: "STRING-DB"
+
+  - id: BIO-PHF6
+    name: PHF6
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.803
+        source: "STRING-DB"
+      - target: BIO-ZRSR2
+        type: INTERACTS_WITH
+        score: 0.784
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+      - target: BIO-STAG2
+        type: INTERACTS_WITH
+        score: 0.739
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.734
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.706
+        source: "STRING-DB"
+
+  - id: BIO-PIM1
+    name: PIM1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.796
+        source: "STRING-DB"
+
+  - id: BIO-PLK2
+    name: PLK2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.855
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.8
+        source: "STRING-DB"
+
+  - id: BIO-PPP4R2
+    name: PPP4R2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-PPP6C
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+
+  - id: BIO-PPP6C
+    name: PPP6C
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-PPP4R2
+        type: INTERACTS_WITH
+        score: 0.765
+        source: "STRING-DB"
+      - target: BIO-SF3B1
+        type: INTERACTS_WITH
+        score: 0.751
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-PTP4A1
+    name: PTP4A1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-RARA
+    name: RARA
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.938
+        source: "STRING-DB"
+      - target: BIO-CEBPA
+        type: INTERACTS_WITH
+        score: 0.909
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.905
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.889
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.866
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.826
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.764
+        source: "STRING-DB"
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.719
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+
+  - id: BIO-RB1
+    name: RB1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-E2F3
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-CCNE1
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-CCND3
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-CCND2
+        type: INTERACTS_WITH
+        score: 0.988
+        source: "STRING-DB"
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.98
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.936
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-TSC1
+        type: COMPENSATES
+        context: "RB1-TSC1 SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-RBM10
+    name: RBM10
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-REST
+    name: REST
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.766
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.76
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.721
+        source: "STRING-DB"
+      - target: BIO-SUZ12
+        type: INTERACTS_WITH
+        score: 0.72
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+
+  - id: BIO-RUNX1
+    name: RUNX1
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-CEBPA
+        type: INTERACTS_WITH
+        score: 0.994
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.977
+        source: "STRING-DB"
+      - target: BIO-CDK6
+        type: INTERACTS_WITH
+        score: 0.929
+        source: "STRING-DB"
+      - target: BIO-RARA
+        type: INTERACTS_WITH
+        score: 0.905
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.875
+        source: "STRING-DB"
+      - target: BIO-ABL1
+        type: INTERACTS_WITH
+        score: 0.871
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.869
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.854
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.82
+        source: "STRING-DB"
+
+  - id: BIO-RYBP
+    name: RYBP
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-E2F3
+        type: INTERACTS_WITH
+        score: 0.715
+        source: "STRING-DB"
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.705
+        source: "STRING-DB"
+
+  - id: BIO-SESN3
+    name: SESN3
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.796
+        source: "STRING-DB"
+
+  - id: BIO-SF3B1
+    name: SF3B1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-ZRSR2
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-PPP6C
+        type: INTERACTS_WITH
+        score: 0.751
+        source: "STRING-DB"
+      - target: BIO-FUBP1
+        type: INTERACTS_WITH
+        score: 0.723
+        source: "STRING-DB"
+
+  - id: BIO-SMARCA4
+    name: SMARCA4
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.993
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-RB1
+        type: INTERACTS_WITH
+        score: 0.979
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.969
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.966
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.957
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.944
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-SMARCA2
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-SNORA63
+    name: SNORA63
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+
+  - id: BIO-SOX2
+    name: SOX2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.958
+        source: "STRING-DB"
+      - target: BIO-TP63
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.923
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+      - target: BIO-SMARCA4
+        type: INTERACTS_WITH
+        score: 0.823
+        source: "STRING-DB"
+      - target: BIO-GLI1
+        type: INTERACTS_WITH
+        score: 0.772
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.77
+        source: "STRING-DB"
+      - target: BIO-CTCF
+        type: INTERACTS_WITH
+        score: 0.768
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.766
+        source: "STRING-DB"
+      - target: BIO-MYCN
+        type: INTERACTS_WITH
+        score: 0.759
+        source: "STRING-DB"
+
+  - id: BIO-SPOP
+    name: SPOP
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-GLI1
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.974
+        source: "STRING-DB"
+      - target: BIO-AR
+        type: INTERACTS_WITH
+        score: 0.953
+        source: "STRING-DB"
+      - target: BIO-BRD4
+        type: INTERACTS_WITH
+        score: 0.914
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.734
+        source: "STRING-DB"
+      - target: BIO-CDK4
+        type: INTERACTS_WITH
+        score: 0.722
+        source: "STRING-DB"
+
+  - id: BIO-STAG2
+    name: STAG2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CTCF
+        type: INTERACTS_WITH
+        score: 0.983
+        source: "STRING-DB"
+      - target: BIO-ZRSR2
+        type: INTERACTS_WITH
+        score: 0.794
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.794
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.771
+        source: "STRING-DB"
+      - target: BIO-PHF6
+        type: INTERACTS_WITH
+        score: 0.739
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.717
+        source: "STRING-DB"
+
+  - id: BIO-SUZ12
+    name: SUZ12
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-EED
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EZH1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.995
+        source: "STRING-DB"
+      - target: BIO-H3C13
+        type: INTERACTS_WITH
+        score: 0.99
+        source: "STRING-DB"
+      - target: BIO-CTCF
+        type: INTERACTS_WITH
+        score: 0.987
+        source: "STRING-DB"
+      - target: BIO-H3-3B
+        type: INTERACTS_WITH
+        score: 0.962
+        source: "STRING-DB"
+      - target: BIO-H3-4
+        type: INTERACTS_WITH
+        score: 0.925
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.911
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.895
+        source: "STRING-DB"
+
+  - id: BIO-TET2
+    name: TET2
+    position: leaf
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.975
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.946
+        source: "STRING-DB"
+      - target: BIO-EZH2
+        type: INTERACTS_WITH
+        score: 0.875
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.874
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.869
+        source: "STRING-DB"
+      - target: BIO-DNMT3B
+        type: INTERACTS_WITH
+        score: 0.852
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.776
+        source: "STRING-DB"
+      - target: BIO-ZRSR2
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.755
+        source: "STRING-DB"
+      - target: BIO-CEBPA
+        type: INTERACTS_WITH
+        score: 0.718
+        source: "STRING-DB"
+
+  - id: BIO-TP53
+    name: TP53
+    position: hub
+    cancer_function: LOF
+    healthy_role: "Tumor suppressor: provides essential restraint/repair in CellCycle. When working correctly, maintains pathway integrity and prevents aberrant activation."
+    loss_consequence: "Loss of restraint/repair in CellCycle, pathway proceeds unchecked"
+    interacts_with:
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CREBBP
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-DAXX
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-MDM4
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.998
+        source: "STRING-DB"
+      - target: BIO-DNMT1
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+      - target: BIO-MYC
+        type: INTERACTS_WITH
+        score: 0.997
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-ATR
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-CENPA
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-CHEK1
+        type: COMPENSATES
+        context: "p53-CHK1 SL"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-DOT1L
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-EGFR
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-ETV1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-KDR
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-KRAS
+        type: COMPENSATES
+        context: "KRAS-TP53 co-vulnerability"
+        source: "ISLE/Literature"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MDM2
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MDM4
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MST1
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-MTOR
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-PPM1D
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-TP63
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-TP63
+    name: TP63
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.953
+        source: "STRING-DB"
+      - target: BIO-SOX2
+        type: INTERACTS_WITH
+        score: 0.93
+        source: "STRING-DB"
+      - target: BIO-MDM2
+        type: INTERACTS_WITH
+        score: 0.9
+        source: "STRING-DB"
+      - target: BIO-EP300
+        type: INTERACTS_WITH
+        score: 0.85
+        source: "STRING-DB"
+      - target: BIO-CDKN2A
+        type: INTERACTS_WITH
+        score: 0.741
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-CDKN1A
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+      - target: BIO-TP53
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-TRIP13
+    name: TRIP13
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-NUF2
+        type: INTERACTS_WITH
+        score: 0.816
+        source: "STRING-DB"
+      - target: BIO-AURKB
+        type: INTERACTS_WITH
+        score: 0.788
+        source: "STRING-DB"
+      - target: BIO-AURKA
+        type: INTERACTS_WITH
+        score: 0.771
+        source: "STRING-DB"
+
+  - id: BIO-XPO1
+    name: XPO1
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN1B
+        type: INTERACTS_WITH
+        score: 0.97
+        source: "STRING-DB"
+      - target: BIO-TP53
+        type: INTERACTS_WITH
+        score: 0.959
+        source: "STRING-DB"
+      - target: BIO-NPM1
+        type: INTERACTS_WITH
+        score: 0.789
+        source: "STRING-DB"
+      - target: BIO-AGO2
+        type: INTERACTS_WITH
+        score: 0.767
+        source: "STRING-DB"
+      - target: BIO-NUP93
+        type: INTERACTS_WITH
+        score: 0.712
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-ZFHX3
+    name: ZFHX3
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-CDKN1A
+        type: INTERACTS_WITH
+        score: 0.781
+        source: "STRING-DB"
+
+  - id: BIO-ZRSR2
+    name: ZRSR2
+    position: leaf
+    healthy_role: "Functional member of CellCycle pathway."
+    loss_consequence: "Altered CellCycle function"
+    interacts_with:
+      - target: BIO-SF3B1
+        type: INTERACTS_WITH
+        score: 0.989
+        source: "STRING-DB"
+      - target: BIO-ASXL1
+        type: INTERACTS_WITH
+        score: 0.824
+        source: "STRING-DB"
+      - target: BIO-STAG2
+        type: INTERACTS_WITH
+        score: 0.794
+        source: "STRING-DB"
+      - target: BIO-PHF6
+        type: INTERACTS_WITH
+        score: 0.784
+        source: "STRING-DB"
+      - target: BIO-TET2
+        type: INTERACTS_WITH
+        score: 0.774
+        source: "STRING-DB"
+      - target: BIO-DNMT3A
+        type: INTERACTS_WITH
+        score: 0.72
+        source: "STRING-DB"
+      - target: BIO-RUNX1
+        type: INTERACTS_WITH
+        score: 0.719
+        source: "STRING-DB"
+
+cross_channel_edges:
+  - from: BIO-ASXL1
+    to: BIO-BAP1
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-ASXL2
+    to: BIO-BAP1
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BCL6
+    to: BIO-NCOR1
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BCL6
+    to: BIO-BCOR
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-BRD4
+    to: BIO-NSD3
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDK4
+    to: BIO-CCND1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDK6
+    to: BIO-CCND1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDK8
+    to: BIO-MED12
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDKN1A
+    to: BIO-CCND1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CDKN1B
+    to: BIO-CCND1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CREBBP
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CREBBP
+    to: BIO-NCOA3
+    to_channel: Endocrine
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-CTCF
+    to: BIO-RAD21
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-DAXX
+    to: BIO-ATRX
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EIF4A2
+    to: BIO-EIF4E
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-STAT3
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-JUN
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-SMAD3
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-CARM1
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-NCOA3
+    to_channel: Endocrine
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-EP300
+    to: BIO-CTNNB1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-GLI1
+    to: BIO-SUFU
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-H3-3B
+    to: BIO-ATRX
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-LATS2
+    to: BIO-YAP1
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MCL1
+    to: BIO-PMAIP1
+    to_channel: Immune
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MCL1
+    to: BIO-BCL2L11
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MDM2
+    to: BIO-AKT1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MYC
+    to: BIO-BRCA1
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-MYC
+    to: BIO-FBXW7
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NFE2L2
+    to: BIO-KEAP1
+    to_channel: DDR
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH02-CellCycle
+    name: "Cell Cycle Regulation"
+  - id: BIO-ABL1
+    name: ABL1
+  - id: BIO-AGO2
+    name: AGO2
+  - id: BIO-AR
+    name: AR
+  - id: BIO-ASXL1
+    name: ASXL1
+  - id: BIO-ASXL2
+    name: ASXL2
+  - id: BIO-AURKA
+    name: AURKA
+  - id: BIO-AURKB
+    name: AURKB
+  - id: BIO-BCL6
+    name: BCL6
+  - id: BIO-BORCS8-MEF2B
+    name: BORCS8-MEF2B
+  - id: BIO-BRD4
+    name: BRD4
+  - id: BIO-CCND2
+    name: CCND2
+  - id: BIO-CCND3
+    name: CCND3
+  - id: BIO-CCNE1
+    name: CCNE1
+  - id: BIO-CCNQ
+    name: CCNQ
+  - id: BIO-CDK4
+    name: CDK4
+  - id: BIO-CDK6
+    name: CDK6
+  - id: BIO-CDK8
+    name: CDK8
+  - id: BIO-CDKN1A
+    name: CDKN1A
+  - id: BIO-CDKN1B
+    name: CDKN1B
+  - id: BIO-CDKN2A
+    name: CDKN2A
+
+edges:
+  - from: BIO-CH02-CellCycle
+    to: BIO-ABL1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-AGO2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-AR
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-ASXL1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-ASXL2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-AURKA
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-AURKB
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-BCL6
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-BORCS8-MEF2B
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-BRD4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CCND2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CCND3
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CCNE1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CCNQ
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDK4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDK6
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDK8
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDKN1A
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDKN1B
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDKN2A
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDKN2B
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CDKN2C
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CEBPA
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CENPA
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-COP1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CREBBP
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-CTCF
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DAXX
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DCUN1D1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DICER1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DNAJB1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DNMT1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DNMT3A
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-DNMT3B
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-E2F3
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EED
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EIF4A2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EP300
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EPHA3
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EPHA5
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EPHA7
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EPHB1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EZH1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-EZH2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-FUBP1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-GLI1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-GTF2I
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-H1-2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-H2BC5
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-H3-3B
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-H3-4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-H3C13
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-KBTBD4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-KMT5A
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-LATS2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MAX
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MCL1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MDM2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MDM4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MIR636
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MTAP
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MYC
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-MYCN
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-NFE2L2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-NPM1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-NUF2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-NUP93
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-OBSL1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PHF6
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PIM1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PLK2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PPP4R2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PPP6C
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-PTP4A1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-RARA
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-RB1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-RBM10
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-REST
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-RUNX1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-RYBP
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SESN3
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SF3B1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SMARCA4
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SNORA63
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SOX2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SPOP
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-STAG2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-SUZ12
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-TET2
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-TP53
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-TP63
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-TRIP13
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-XPO1
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-ZFHX3
+    type: CONTAINS
+  - from: BIO-CH02-CellCycle
+    to: BIO-ZRSR2
+    type: CONTAINS

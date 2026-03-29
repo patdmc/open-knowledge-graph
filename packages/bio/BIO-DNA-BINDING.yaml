@@ -1,0 +1,455 @@
+id: BIO-DNA-BINDING
+type: biology_mechanism
+domain: structural_biology
+name: "DNA Binding Mechanisms"
+
+provenance:
+  attribution:
+    source: "structural_biology_literature"
+    method: "Curated from crystallography, cryo-EM, and biochemical studies"
+    date: 2026-03-28
+  data_sources:
+    - PDB (Protein Data Bank)
+    - "Alberts et al., Molecular Biology of the Cell"
+    - "Rohs et al. (2010) Annual Review of Biochemistry — DNA shape recognition"
+
+overview:
+  summary: >
+    Proteins interact with DNA through two fundamentally different mechanisms.
+    Sequence-specific binding reads the chemical identity of base pairs directly.
+    Structure-dependent binding reads the physical geometry of the double helix —
+    twist, groove width, bend angle — without requiring a specific sequence.
+    Many proteins use both, but the distinction matters: sequence-specific
+    binding is like reading a string literal, while structure-dependent binding
+    is like reading a memory address.
+
+# =============================================================================
+# TYPE 1: SEQUENCE-SPECIFIC (EXPLICIT) BINDING
+# =============================================================================
+sequence_specific_binding:
+  mechanism: >
+    Protein domains insert into the major groove of B-form DNA and form
+    hydrogen bonds with exposed edges of base pairs. Each base pair presents
+    a unique pattern of H-bond donors and acceptors in the major groove,
+    so the protein can discriminate A-T from G-C from T-A from C-G without
+    unwinding the helix. The minor groove is less informative — A-T and T-A
+    look identical from the minor groove side.
+
+  why_major_groove: >
+    The major groove is ~12 angstroms wide (vs ~6 for minor groove).
+    Four distinct H-bond patterns are readable in the major groove;
+    only two are distinguishable in the minor groove. The major groove
+    is the high-bandwidth channel.
+
+  common_domains:
+    - name: Zinc finger (Cys2His2)
+      example_gene: CTCF
+      mechanism: "Each finger reads 3 bp in major groove. Tandem fingers tile along DNA."
+      relevance: "CTCF defines topological domain boundaries — the delimiter between channels"
+
+    - name: Helix-turn-helix
+      example_gene: TP53
+      mechanism: >
+        Recognition helix inserts into major groove. TP53 binds as a tetramer
+        to two half-sites separated by 0-13 bp. Each monomer reads 5 bp.
+        The spacer length between half-sites changes which genes are activated —
+        tight spacing = cell cycle arrest, loose spacing = apoptosis.
+      relevance: >
+        TP53 is a sequence-specific reader. It finds its binding sites by
+        explicit string matching. This is why TP53 is a checkpoint — it reads
+        specific addresses in the genome and decides what to do based on what
+        it finds there.
+
+    - name: Basic helix-loop-helix (bHLH)
+      example_gene: MYC
+      mechanism: "Basic region contacts E-box (CACGTG) in major groove. Dimerizes with MAX."
+      relevance: "MYC reads specific promoter sequences — address-based activation"
+
+    - name: Homeodomain
+      example_gene: HOXA9
+      mechanism: "60-aa domain, recognition helix in major groove, N-terminal arm in minor groove"
+      relevance: "Developmental TFs — positional identity along body axis"
+
+    - name: Nuclear hormone receptor
+      example_gene: ESR1
+      mechanism: >
+        Zinc finger DBD reads palindromic hormone response elements (HREs).
+        ESR1 reads AGGTCAnnnTGACCT. Spacing between half-sites determines
+        which receptor binds — 3 bp = estrogen receptor, 4 bp = thyroid receptor,
+        5 bp = retinoic acid receptor. The spacer IS the address.
+      relevance: >
+        Endocrine channel genes (ESR1, AR, PGR) are all sequence-specific readers.
+        Hormone binding changes protein conformation, which changes which
+        DNA addresses are readable. Endocrine therapy blocks the conformational
+        change — the reader can't open.
+
+  analogy: >
+    Sequence-specific binding is a hash table lookup. The protein has a key
+    (its binding domain shape), and the DNA has a lock (the base pair sequence
+    in the major groove). The protein scans until key matches lock. O(n) scan,
+    O(1) recognition.
+
+# =============================================================================
+# TYPE 2: STRUCTURE-DEPENDENT (TWIST/SHAPE) BINDING
+# =============================================================================
+structure_dependent_binding:
+  mechanism: >
+    The double helix is not uniform. Local sequence affects twist angle
+    (degrees per base pair), roll (tilt between stacked bases), propeller
+    twist, and minor groove width. AA/TT dinucleotides narrow the minor
+    groove. GC-rich regions are stiffer. These shape features create a
+    physical landscape that proteins can read without contacting individual
+    bases.
+
+  twist_parameters:
+    average_twist: "36 degrees per bp (10 bp per full turn in B-DNA)"
+    variation: "33-39 degrees depending on local sequence"
+    implication: >
+      Two binding sites 10 bp apart are on the same face of the helix.
+      Sites 5 bp apart are on opposite faces. Proteins that need to
+      cooperate must be on the same helical face — the twist determines
+      which proteins can see each other. This is a physical addressing
+      constraint: the helix rotation is a modular arithmetic address space.
+
+  minor_groove_width:
+    mechanism: >
+      A-tract sequences (AAAA, AATT) compress the minor groove from ~5.7 A
+      to ~3.5 A. Arginine-rich protein loops detect narrow minor grooves
+      by electrostatic fit. This is shape-reading, not sequence-reading —
+      AAAA and TTTT create the same narrow groove on opposite strands.
+
+  examples:
+    - name: RAD51 nucleoprotein filament
+      genes: [RAD51, RAD51B, RAD51C, RAD51D, BRCA2]
+      mechanism: >
+        RAD51 does NOT read DNA sequence. It coats single-stranded DNA
+        (ssDNA) exposed during repair, forming a helical filament that
+        stretches the DNA to 150% of B-form length (5.1 A per bp vs 3.4 A).
+        This stretched filament then searches for homologous sequence in
+        intact dsDNA by a twist-dependent mechanism:
+
+        1. BRCA2 loads RAD51 monomers onto ssDNA at the break site
+        2. RAD51 polymerizes into a right-handed helix (6 monomers per turn)
+        3. The filament samples dsDNA by inserting into the major groove
+        4. It tests 8 bp at a time — if complementary, it extends the match
+        5. The stretched geometry means each triplet is tested as a unit
+           (like a codon), and the twist angle of the filament determines
+           which face of the target dsDNA is sampled
+
+        RAD51 finds its target by PHYSICAL ALIGNMENT, not by reading
+        sequence. The helix geometry constrains which sequences can pair.
+        This is why all RAD51 paralogs are functionally equivalent for
+        PARP sensitivity — they all maintain the same filament geometry.
+      relevance: >
+        RAD51/BRCA2-mediated homologous recombination is structure-first
+        search. The twist of the filament determines the search space.
+        BRCA2 is the loader (puts the reader head on the track), RAD51
+        is the reader head (scans by physical complementarity).
+        Loss of either = reader head never gets positioned = no HR = PARP lethal.
+
+    - name: Nucleosome positioning
+      genes: [SMARCA4, ARID1A, SMARCB1, SMARCD1]
+      mechanism: >
+        Histones wrap 147 bp of DNA in 1.7 left-handed superhelical turns.
+        DNA bends toward the histone surface every ~10 bp, with the minor
+        groove facing inward at bend points. Sequences with AA/TT
+        dinucleotides at 10 bp intervals (matching helical repeat) wrap
+        easily — they naturally bend where the nucleosome needs them to.
+        GC-rich sequences resist wrapping.
+
+        SWI/SNF complexes (SMARCA4/ARID1A) use ATP to break histone-DNA
+        contacts and slide nucleosomes. This exposes or buries binding
+        sites for sequence-specific TFs. The chromatin remodeler doesn't
+        read sequence — it reads the PHYSICAL TENSION in the wrapped DNA
+        and redistributes it.
+      relevance: >
+        Chromatin remodeling is the access control layer. It determines
+        which addresses are readable by sequence-specific TFs. ARID1A loss
+        = access control failure = wrong addresses exposed. This is why
+        chromatin remodeling channel mutations don't look like the other
+        channels — they change what is READABLE, not what is READ.
+
+    - name: DNA methylation reading
+      genes: [DNMT3A, DNMT3B, TET2, IDH1, IDH2]
+      mechanism: >
+        5-methylcytosine doesn't change base pairing but changes major
+        groove shape — the methyl group protrudes into the groove. Proteins
+        with MBD (methyl-binding domain) detect this shape change. DNMT3A
+        recognizes unmethylated CpG by shape and adds methyl groups.
+        The methyl mark is a shape annotation on the helix — like a
+        physical flag that changes the groove profile without changing
+        the sequence.
+      relevance: >
+        Methylation is a write operation that changes the physical shape
+        of DNA without changing the sequence. It is the epigenetic write
+        mechanism — shape annotation on top of sequence content.
+
+  analogy: >
+    Structure-dependent binding is pointer arithmetic. The protein doesn't
+    read the data at the address — it reads the address itself. The twist
+    angle, groove width, and bend of the helix ARE the address space.
+    RAD51 doesn't know what sequence it's looking for — it knows what
+    SHAPE it's looking for. Nucleosomes don't read genes — they read the
+    physical accessibility of the fiber.
+
+# =============================================================================
+# THE TWO TYPES INTERACT
+# =============================================================================
+interaction:
+  summary: >
+    Most genome regulation involves both types in sequence:
+    1. Structure-dependent machinery (chromatin remodelers, methylation)
+       controls physical accessibility
+    2. Sequence-specific TFs read the exposed addresses
+    3. Structure-dependent repair (RAD51/HR, MMR) maintains the medium
+
+    This is a layered architecture:
+    - Layer 0: Physical medium (helix shape, nucleosome state)
+    - Layer 1: Address space (sequence-specific binding sites)
+    - Layer 2: Operations (TF binding, gene activation)
+    - Layer 3: Error correction (DDR, MMR, BER)
+
+    Layers 0 and 3 are structure-dependent. Layers 1 and 2 are
+    sequence-specific. Cancer mutations in structure-dependent genes
+    (ARID1A, SMARCA4, RAD51C) corrupt the medium. Mutations in
+    sequence-specific genes (TP53, MYC, ESR1) corrupt the operations.
+    Both kill the system, but through different failure modes.
+
+  key_distinction: >
+    When TP53 is mutated, it misreads specific addresses — wrong genes
+    activated/repressed. The medium is intact but the reader is broken.
+
+    When ARID1A is mutated, all readers may be intact but the addresses
+    are scrambled — nucleosomes cover wrong sites, expose wrong sites.
+    The reader is fine but the medium is corrupted.
+
+    When RAD51C is deleted, the error correction system for the medium
+    itself is gone. The medium degrades over time. This is why
+    RAD51C/BRCA2 loss leads to genomic instability — not a misread,
+    but progressive corruption of the physical substrate.
+
+  connection_to_channels: >
+    The 6 cancer channels map onto this architecture:
+    - ChromatinRemodel + DNAMethylation = Layer 0 (medium control)
+    - Endocrine + PI3K_Growth = Layer 1-2 (address reading + operations)
+    - DDR = Layer 3 (medium error correction)
+    - CellCycle = Scheduler (when to read/write/copy)
+    - Immune = External validator (detects corrupted outputs)
+    - TissueArch = Structural constraints (physical topology of the system)
+
+# =============================================================================
+# CQRS PATTERN IN HOMOLOGOUS RECOMBINATION
+# =============================================================================
+cqrs:
+  summary: >
+    BRCA2/RAD51 homologous recombination is Command Query Responsibility
+    Segregation (CQRS). The command path (write) and query path (read)
+    are separate proteins that never overlap.
+
+  command_side:
+    role: "Write the reader onto the medium"
+    proteins: [BRCA2, PALB2, BRCA1]
+    mechanism: >
+      BRCA2 physically loads RAD51 monomers onto single-stranded DNA
+      at the break site. PALB2 bridges BRCA1 to BRCA2. BRCA1 marks
+      the break for resection. None of these proteins search for
+      homology — they only prepare the read surface.
+
+  query_side:
+    role: "Scan for homologous template without writing"
+    proteins: [RAD51, RAD51B, RAD51C, RAD51D]
+    mechanism: >
+      RAD51 filament scans intact dsDNA by physical alignment —
+      twist-dependent major groove insertion, 8 bp sampling window.
+      Pure read operation. RAD51 never loads itself and never writes
+      the repair — it only locates the template.
+
+  event_pipeline:
+    - step: 1
+      event: "Double-strand break detected"
+      type: domain_event
+    - step: 2
+      event: "5' resection exposes ssDNA"
+      type: state_change
+      note: "Exposes the query surface — like building the read model"
+    - step: 3
+      event: "BRCA2 loads RAD51 onto ssDNA"
+      type: command
+      note: "Write the reader head onto the track"
+    - step: 4
+      event: "RAD51 filament scans dsDNA for homology"
+      type: query
+      note: "Read-only scan of intact copy — the query"
+    - step: 5
+      event: "Polymerase extends from template"
+      type: command
+      note: "Write the repair from the read result"
+
+  parp_lethality: >
+    PARP inhibitors trap repair forks that require HR to resolve.
+    Loss of BRCA2 (command path) = reader never gets positioned.
+    Loss of RAD51C (query path) = reader can't scan.
+    Either way, the fork stalls at step 3 or 4. CQRS requires both
+    paths. This is why all RAD51 paralogs and both BRCA genes produce
+    the same PARP sensitivity — they are all part of the same CQRS
+    pipeline, and losing any component stalls the same fork.
+
+  genome_wide_pattern:
+    description: >
+      The CQRS pattern extends beyond DDR to the entire genome:
+    mapping:
+      - cqrs_role: "Event store"
+        dna_mechanism: "The double helix itself"
+        note: "Immutable log of sequence — the source of truth"
+      - cqrs_role: "Command (write state)"
+        dna_mechanism: "Chromatin remodeling"
+        genes: [SMARCA4, ARID1A, SMARCB1]
+        note: "ATP-dependent nucleosome repositioning — changes which addresses are exposed"
+      - cqrs_role: "Command (write annotation)"
+        dna_mechanism: "DNA methylation"
+        genes: [DNMT3A, DNMT3B, TET2]
+        note: "Shape annotations on the helix — events written to the store"
+      - cqrs_role: "Materialized view"
+        dna_mechanism: "Chromatin accessibility state"
+        note: "The current read model — which addresses are queryable"
+      - cqrs_role: "Query (read address)"
+        dna_mechanism: "Sequence-specific transcription factors"
+        genes: [TP53, ESR1, MYC, CTCF]
+        note: "Read the materialized view, not the raw event store"
+      - cqrs_role: "Read model projection"
+        dna_mechanism: "mRNA / protein output"
+        note: "The denormalized output — what the cell actually uses"
+
+# =============================================================================
+# METHYLATION ADDRESSING: CQRS FOR AN EXPERT SYSTEM
+# =============================================================================
+methylation_expert_system:
+  summary: >
+    DDR CQRS separates read from write for data integrity.
+    Methylation CQRS separates DECISION from EXECUTION — the query
+    side is not reading data, it is consulting a knowledge base and
+    firing production rules. Three domain experts, one write head.
+
+  architecture:
+    knowledge_base:
+      what: "Histone modification code"
+      entries:
+        - mark: H3K4me0
+          meaning: "Unmodified — permissive for de novo methylation"
+        - mark: H3K4me3
+          meaning: "Active promoter — do NOT methylate"
+        - mark: H3K27me3
+          meaning: "Polycomb-silenced — already repressed, methylation locks it"
+        - mark: H3K9me3
+          meaning: "Heterochromatin — constitutively silenced"
+      note: >
+        The knowledge base is the histone code. It is not a list of
+        addresses — it is a set of state annotations on the chromatin
+        fiber. The expert reads the annotations and decides.
+
+    inference_engine:
+      gene: DNMT3L
+      mechanism: >
+        Catalytically dead paralog of DNMT3A. Has the ADD domain that
+        reads H3 tail state but lacks the methyltransferase domain.
+        DNMT3L reads the histone code and applies production rules:
+          IF H3K4 unmethylated AND CpG present → recruit DNMT3A → methylate
+          IF H3K4 methylated → do not recruit → skip
+        DNMT3L is the inference engine. It reasons about the knowledge
+        base and calls the executor.
+      note: >
+        DNMT3L is essential during gametogenesis and early development
+        but dispensable in somatic cells — the expert system runs the
+        factory during construction, then the factory config persists
+        via maintenance methylation (DNMT1 copying on replication).
+
+    domain_experts:
+      - name: "Histone reader (DNMT3L)"
+        expertise: "Chromatin state — reads shape, not sequence"
+        rule_type: "Production rules on histone marks"
+        example: "H3K4me0 + CpG → methylate"
+
+      - name: "Transcription factor recruitment"
+        expertise: "Sequence context — TF reads address, calls writer"
+        rule_type: "Address-based pointer"
+        example: >
+          TF binds promoter of gene X → physically recruits DNMT3A →
+          gene X silenced. The TF is the domain expert that knows
+          WHICH gene to silence based on cell-type context.
+        note: >
+          This is how cell-type specificity emerges. Liver TFs recruit
+          DNMT3A to silence brain genes. Brain TFs do the reverse.
+          Same write head, same knowledge base, different expert in chair.
+
+      - name: "RNA-guided (piRNA/lncRNA)"
+        expertise: "Template matching — RNA base-pairs with target"
+        rule_type: "Lookup table (RNA sequence = key, locus = value)"
+        example: >
+          piRNA complementary to LINE-1 transposon → recruits
+          methylation machinery → transposon silenced. This is the
+          immune system of the genome — recognizing foreign/repetitive
+          sequence by template match.
+
+    action_executor:
+      gene: DNMT3A
+      mechanism: >
+        Catalytically active methyltransferase. Decision-blind.
+        Writes a methyl group on cytosine wherever it is positioned.
+        Does not know why it is writing. Does not choose where.
+        Pure executor — same separation as RAD51 (pure scanner)
+        and BRCA2 (pure loader).
+
+    maintenance:
+      gene: DNMT1
+      role: "Copy-on-write during replication"
+      mechanism: >
+        After the expert system runs during differentiation, the
+        factory config must persist across cell divisions. DNMT1
+        reads hemi-methylated CpG (one strand methylated after
+        replication, new strand unmethylated) and copies the mark
+        to the new strand. This is the persistence layer — the
+        expert system decides once, DNMT1 propagates forever.
+      note: >
+        DNMT1 is not an expert. It is a replication hook.
+        copy_on_write(parent_state) → child_state.
+        No decision, no knowledge base, just propagation.
+
+  failure_modes:
+    - mutation: "DNMT3A loss"
+      effect: "Expert system can't write new decisions"
+      consequence: >
+        Factory config degrades over cell divisions as maintenance
+        methylation (DNMT1) loses marks stochastically with no
+        expert to re-establish them. Result: clonal hematopoiesis,
+        pre-leukemic drift. The factory slowly forgets what it built.
+
+    - mutation: "TET2 loss"
+      effect: "Can't erase expert decisions"
+      consequence: >
+        Methylation marks accumulate, can't be reversed. Factory
+        config locked — cell can't reprogram. Combined with DNMT3A
+        loss: no new writes AND no erasure = frozen stale config.
+
+    - mutation: "IDH1/IDH2 GOF"
+      effect: "Produces 2-hydroxyglutarate which poisons TET2"
+      consequence: >
+        Pharmacological TET2 inhibition. Same as TET2 loss but
+        drug-targetable — IDH inhibitors (ivosidenib) restore
+        TET2 function = unfreeze the expert system.
+
+    - mutation: "DNMT3L loss (germline)"
+      effect: "Inference engine missing during factory construction"
+      consequence: >
+        Imprinting defects — the expert system never ran correctly
+        during gametogenesis. Factory config never established.
+        Lethal or severe developmental defects.
+
+  key_insight: >
+    The methylation system is not CQRS for data integrity (like DDR).
+    It is CQRS for an expert system: the decision (where to write)
+    and the execution (the write itself) are separated into different
+    proteins because they require different competencies. The decision
+    requires reading the knowledge base (histone code). The execution
+    requires catalytic activity. No single protein does both.
+    This is why DNMT3L exists as a catalytically dead paralog —
+    evolution separated the reader from the writer.

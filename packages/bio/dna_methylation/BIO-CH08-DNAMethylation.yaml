@@ -1,0 +1,392 @@
+id: BIO-CH08-DNAMethylation
+type: biology_channel
+domain: molecular_biology
+name: "DNA Methylation"
+channel: DNAMethylation
+tier: 3
+tier_name: meta_regulatory
+n_genes: 8
+n_hubs: 3
+
+provenance:
+  attribution:
+    source: "cancer_graph_v6_seed"
+    method: "Seeded from cancer graph — damage framing inverted to function framing"
+    date: 2026-03-28
+  data_sources:
+    - STRING-DB PPI (confidence >= 700)
+    - CIViC GOF/LOF annotations
+    - BioGRID/SynLethDB synthetic lethality
+    - MSK-IMPACT gene panel (509 genes)
+
+function:
+  summary: "Maintains heritable epigenetic state through CpG methylation. Controls gene silencing, genomic imprinting, and transposon suppression across cell divisions."
+  healthy_state: "Methylation writers (DNMT3A/B), methylation erasers (TET1/2), metabolic coupling (IDH1/2 produce alpha-KG for TET), splicing regulation (SRSF2, U2AF1)"
+  failure_mode: "Global hypomethylation, focal hypermethylation of tumor suppressors, loss of imprinting, CIMP phenotype"
+
+genes:
+  - id: BIO-IDH2
+    name: IDH2
+    position: hub
+    healthy_role: "Functional hub of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-SDHB
+        type: INTERACTS_WITH
+        score: 0.885
+        source: "STRING-DB"
+      - target: BIO-NADK
+        type: INTERACTS_WITH
+        score: 0.881
+        source: "STRING-DB"
+      - target: BIO-SRSF2
+        type: INTERACTS_WITH
+        score: 0.732
+        source: "STRING-DB"
+      - target: BIO-U2AF1
+        type: INTERACTS_WITH
+        score: 0.731
+        source: "STRING-DB"
+
+  - id: BIO-NADK
+    name: NADK
+    position: leaf
+    healthy_role: "Functional member of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-IDH2
+        type: INTERACTS_WITH
+        score: 0.881
+        source: "STRING-DB"
+    compensates:
+      - target: BIO-KRAS
+        type: COMPENSATES
+        source: "BioGRID"
+        note: "Synthetic lethality implies functional redundancy — loss of both is lethal because neither can compensate"
+
+  - id: BIO-PRDM14
+    name: PRDM14
+    position: leaf
+    healthy_role: "Functional member of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-TET1
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+
+  - id: BIO-SDHB
+    name: SDHB
+    position: leaf
+    healthy_role: "Functional member of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-IDH2
+        type: INTERACTS_WITH
+        score: 0.885
+        source: "STRING-DB"
+
+  - id: BIO-SETDB1
+    name: SETDB1
+    position: leaf
+    healthy_role: "Functional member of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+
+  - id: BIO-SRSF2
+    name: SRSF2
+    position: hub
+    healthy_role: "Functional hub of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-U2AF1
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-IDH2
+        type: INTERACTS_WITH
+        score: 0.732
+        source: "STRING-DB"
+
+  - id: BIO-TET1
+    name: TET1
+    position: leaf
+    healthy_role: "Functional member of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-PRDM14
+        type: INTERACTS_WITH
+        score: 0.883
+        source: "STRING-DB"
+
+  - id: BIO-U2AF1
+    name: U2AF1
+    position: hub
+    healthy_role: "Functional hub of DNAMethylation pathway."
+    loss_consequence: "Altered DNAMethylation function"
+    interacts_with:
+      - target: BIO-SRSF2
+        type: INTERACTS_WITH
+        score: 0.999
+        source: "STRING-DB"
+      - target: BIO-IDH2
+        type: INTERACTS_WITH
+        score: 0.731
+        source: "STRING-DB"
+
+cross_channel_edges:
+  - from: BIO-SDHB
+    to: BIO-SDHA
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-FH
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-SDHC
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-SDHD
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.999
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-SDHAF2
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.998
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-DNMT3A
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.996
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-H3C13
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.992
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-DNMT3B
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.985
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-H3-3B
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.982
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-H3-4
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.982
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-H3-5
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.982
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-PRDM14
+    to: BIO-SOX2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.965
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-DNMT1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.962
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-IDH2
+    to: BIO-IDH1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.961
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SRSF2
+    to: BIO-ZRSR2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.943
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-IDH2
+    to: BIO-FH
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.934
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-TMEM127
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.934
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-U2AF1
+    to: BIO-SF3B1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.927
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SETDB1
+    to: BIO-H3C7
+    to_channel: ChromatinRemodel
+    type: INTERACTS_WITH
+    score: 0.915
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SRSF2
+    to: BIO-SF3B1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.909
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TET1
+    to: BIO-DNMT1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.902
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SRSF2
+    to: BIO-ASXL1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.889
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-IDH1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.887
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-NADK
+    to: BIO-IDH1
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.886
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-TET1
+    to: BIO-DNMT3A
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.886
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-SDHB
+    to: BIO-RET
+    to_channel: PI3K_Growth
+    type: INTERACTS_WITH
+    score: 0.883
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-U2AF1
+    to: BIO-ASXL1
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.881
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-IDH2
+    to: BIO-TET2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.871
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-IDH2
+    to: BIO-SDHA
+    to_channel: TissueArch
+    type: INTERACTS_WITH
+    score: 0.869
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+  - from: BIO-U2AF1
+    to: BIO-ZRSR2
+    to_channel: CellCycle
+    type: INTERACTS_WITH
+    score: 0.869
+    source: "STRING-DB"
+    note: "Cross-channel physical interaction — potential escalation bridge"
+
+concepts:
+  - id: BIO-CH08-DNAMethylation
+    name: "DNA Methylation"
+  - id: BIO-IDH2
+    name: IDH2
+  - id: BIO-NADK
+    name: NADK
+  - id: BIO-PRDM14
+    name: PRDM14
+  - id: BIO-SDHB
+    name: SDHB
+  - id: BIO-SETDB1
+    name: SETDB1
+  - id: BIO-SRSF2
+    name: SRSF2
+  - id: BIO-TET1
+    name: TET1
+  - id: BIO-U2AF1
+    name: U2AF1
+
+edges:
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-IDH2
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-NADK
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-PRDM14
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-SDHB
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-SETDB1
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-SRSF2
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-TET1
+    type: CONTAINS
+  - from: BIO-CH08-DNAMethylation
+    to: BIO-U2AF1
+    type: CONTAINS
