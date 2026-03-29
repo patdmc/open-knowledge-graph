@@ -106,9 +106,18 @@ $N_{\text{cycles}}$ increases the mutation cost per bit.
 The system computes at the same rate but learns less per cycle.
 Over decades, the difference compounds.
 
-\subsection{Connection to Paper~3}
+\textbf{Scope of the prediction.}
+We cannot measure absolute $C_n^{\text{eff}}$ per psychiatric
+condition. The equation therefore does not predict absolute cancer
+risk. What it predicts is \emph{rank order}: conditions with lower
+context efficiency should have higher cancer risk than conditions
+with higher context efficiency, controlling for cycle rate.
+The equation predicts the ordering, not the magnitude. The
+epidemiological data in Table~1 test this ordering directly.
 
-Paper~3 \cite{McCarthy2026c} proved that knowledge and action
+\subsection{Connection to Paper~2}
+
+Paper~2 \cite{McCarthy2026b} proved that knowledge and action
 are inseparable under bounded context: the same substrate that
 stores propositions must also execute inference over them.
 In biological systems, that substrate is chromatin. The genes
@@ -317,13 +326,21 @@ require functional chromatin remodeling to progress. This explains
 the reduced cancer risk in schizophrenia without invoking
 lifestyle factors or antipsychotic effects.
 
-\textbf{CHIP as evidence of chromatin vulnerability.}
+\textbf{CHIP as evidence of index degradation.}
 Clonal hematopoiesis of indeterminate potential (CHIP) is
 driven predominantly by mutations in \emph{DNMT3A}, \emph{TET2},
-and \emph{ASXL1}---all chromatin remodeling genes, accounting
-for approximately 80\% of CHIP mutations \cite{Jaiswal2014,
-Steensma2015}. This concentration is not predicted by uniform
-mutagenesis models. It is consistent with our framework:
+and \emph{ASXL1} (all chromatin remodeling and methylation genes)
+accounting for approximately 80\% of CHIP mutations
+\cite{Jaiswal2014, Steensma2015}. This concentration is the
+strongest single piece of evidence for our framework. DNA
+replication copies the sequence with extraordinary fidelity
+(multiple proofreading and repair layers). But the epigenetic
+state (methylation marks, chromatin conformation) has fewer
+correction layers. The data is protected. The index is not.
+CHIP is the index degrading in real time: the methylation
+machinery that determines which genes are accessible in which
+cell types is the first thing to fail. This is not predicted
+by uniform mutagenesis models. It is predicted by our framework:
 chromatin remodeling genes are under elevated mutational pressure
 because they are the most active read/write machinery in the genome.
 
@@ -455,10 +472,12 @@ modes needs revision---but the core machinery claim survives.
 We state what we do not know. We do not know the correct
 taxonomy of context failure modes. We do not know whether the
 inverted-U relationship between severity and risk is real or an
-artifact of how we classify severity. We do not know the
-quantitative parameters ($\delta$, $C_n^{\text{eff}}$ per
-condition). What we know is that the machinery is shared,
-the signal exists, and the predictions are falsifiable.
+artifact of how we classify severity. We cannot measure absolute
+$C_n^{\text{eff}}$ per condition, so the cost-per-bit equation
+predicts rank order (which conditions carry higher risk) rather
+than magnitude (how much higher). What we know is that the
+machinery is shared, the signal exists, the rank ordering matches,
+and the predictions are falsifiable.
 
 % ------------------------------------------------------------------
 \section{Discussion}
@@ -503,9 +522,9 @@ This research received no external funding.
 P.~D.~McCarthy, ``Graph structure is necessary for information
 preservation under bounded context,'' 2026.
 
-\bibitem{McCarthy2026c}
-P.~D.~McCarthy, ``Knowledge as normalization: the inseparability of
-knowledge and action under bounded context,'' 2026.
+\bibitem{McCarthy2026b}
+P.~D.~McCarthy, ``Knowledge as normalization: consistency under partition
+separates shared propositions from action,'' 2026.
 
 \bibitem{McCarthy2026d}
 P.~D.~McCarthy, ``Evaluation-driven descent, encoding permanence,

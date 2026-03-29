@@ -15,7 +15,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Knowledge as Normalization:\\Bounded Context Separates Shared\\Propositions from Action}
+\title{Knowledge as Normalization:\\Consistency Under Partition Separates\\Shared Propositions from Action}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -33,11 +33,28 @@ This is knowledge as normalization: $K$ precipitates from the action
 space~$A$ the same way normal forms precipitate from redundant
 relations in Codd's relational model. The normalization is not a
 design choice but a scaling constraint imposed by bounded~$C_n$.
+
+The update anomaly that normalization eliminates is a consistency
+failure in the sense of Brewer's CAP theorem~\cite{Brewer2000}: redundant copies of a shared
+proposition diverge upon partial update, producing action policies
+that disagree on the state of the world. The normalized architecture
+achieves consistency by construction---each proposition lives in one
+place, referenced by many policies---precisely the strategy that
+relational databases use to maintain source-of-truth guarantees.
+Architectures that distribute propositions across parameters without
+addressable partition boundaries (e.g., neural network weight
+matrices) cannot scope updates and therefore cannot maintain
+consistency without global coordination at $O(n^2)$ cost.
+
 From the normalization theorem we derive the retention criterion
 (retain when benefit is uncertain; prune only when benefit is
-certainly zero) and $K/A$ inseparability (the content of $K$ is
-constitutively determined by $A$). These results imply that proposals to give observation and action separate
-training objectives violate a structural constraint imposed by bounded context.
+certainly zero), $K/A$ inseparability (the content of $K$ is
+constitutively determined by $A$), and the partition requirement
+(normalization creates typed boundaries that scope update cascades).
+These results imply that proposals to give observation and action separate
+training objectives violate a structural constraint imposed by bounded context,
+and that architectures lacking addressable partition boundaries pay
+a structural consistency tax that grows quadratically with capacity.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -51,45 +68,66 @@ supported \cite{McCarthy2026e}. A cell that can no longer sense
 tissue-level growth signals can no longer execute tissue-coordinated
 quiescence. Knowledge and action are inseparable: losing one entails
 losing the other. The present paper proves that this inseparability
-is a structural consequence of bounded context.
+is a structural consequence of bounded context---and that the
+structure which enforces it is the same structure that solves the
+consistency problem in distributed systems.
 
-McCarthy \cite{McCarthy2026a} establishes that any entity accumulating
-propositions under bounded active context necessarily maintains a
-directed graph with typed edges over its propositions (where
-``necessary'' means selected for under competition---see
-\cite{McCarthy2026a}, Remark~1). That result
-answers a structural question: \emph{what form} must knowledge take?
-McCarthy \cite{McCarthy2026b} establishes that control architectures
-converge to escalation under bounded context. The present paper asks the
-next question: \emph{why does a separated knowledge structure emerge at
-all?}
+\textbf{The consistency problem under bounded context.}
+McCarthy \cite{McCarthy2026a} establishes that bounded active context
+forces graph structure: typed edges over propositions, necessary for
+consistency and availability within finite capacity
+(Paper~1 frames this as the CAP requirement under bounded context).
+McCarthy \cite{McCarthy2026c} establishes that control architectures
+converge to escalation under the same constraint (the service topology
+result). The present paper asks the next question: \emph{why does a
+separated knowledge structure emerge at all?}
 
-The answer is a scaling constraint. Consider an entity with $n$ action
-policies, each requiring $k$ propositions on average, with overlap
-fraction $\beta$ (the proportion of propositions shared across two or
-more policies). Without a separated knowledge structure, each policy
-carries its own copy of every required proposition. Total context load
-is $O(n \cdot k)$. Under bounded active context $C_n$, this
-architecture fails for any non-trivial repertoire: two overlapping
-policies loaded simultaneously require $2k - |\text{overlap}|$ context
-slots, and without separation the overlap is not recognized: both full
-copies are loaded.
+The answer is a consistency constraint. Consider an entity with $n$
+action policies, each requiring $k$ propositions on average, with
+overlap fraction $\beta$ (the proportion of propositions shared across
+two or more policies). Without a separated knowledge structure, each
+policy carries its own copy of every required proposition. Total
+context load is $O(n \cdot k)$. Under bounded active context $C_n$,
+this architecture fails in two ways. First, the \emph{capacity
+failure}: two overlapping policies loaded simultaneously require
+$2k - |\text{overlap}|$ context slots, and without separation the
+overlap is not recognized---both full copies are loaded. Second, the
+\emph{consistency failure}: when a shared proposition is updated, all
+$n$ copies must be found and revised. If any copy is missed, different
+action policies disagree on the state of the world. This is exactly
+the update anomaly Codd identified in redundant relational
+schemas~\cite{Codd1970}, and exactly the consistency problem Brewer
+identified in distributed systems~\cite{Brewer2000}: redundant state
+across partitions diverges upon partial update.
 
 With a separated structure $K$, shared propositions are stored once and
 referenced by multiple policies. Total context load drops to
 $O(n + k')$ where $k' = |K|$ absorbs the shared propositions. The
 per-action marginal cost approaches $O(1)$ as overlap increases.
+Critically, each proposition now lives in exactly one place. Updates
+are $O(1)$ and immediately visible to all referencing policies.
+Consistency is achieved by construction---the same strategy relational
+databases use to maintain source-of-truth guarantees.
 
-This is Codd's insight \cite{Codd1970} applied to bounded cognition.
+This is Codd's insight \cite{Codd1970} applied to bounded cognition,
+and Brewer's insight \cite{Brewer2000} applied to knowledge systems.
 Codd showed that redundant copies across relations produce update
-anomalies and wasted storage; normal forms extract shared dependencies
-into referenced tables. The same pressure operates here: bounded
-context is the capacity constraint, and $K$ is the normal form.
+anomalies; normal forms extract shared dependencies into referenced
+tables. Brewer showed that distributed systems face a fundamental
+tradeoff among consistency, availability, and partition
+tolerance~\cite{Gilbert2002}. The normalized $K$ achieves consistency
+and partition tolerance (each typed edge is a partition boundary that
+scopes update cascades) at the cost of availability (propositions must
+be retrieved before use, not copied into every policy). This is the
+CP strategy---the strategy of relational databases, knowledge graphs,
+and biological genomes---and the present paper proves it is forced by
+bounded context.
 
 The paper proves a single theorem, the Normalization Theorem, and
 derives corollaries establishing a retention criterion for propositions,
-the inseparability of $K$ and $A$, and the asymptotic compactness of $K$
-toward action-relevant propositions. These results engage prior work on
+the inseparability of $K$ and $A$, the asymptotic compactness of $K$
+toward action-relevant propositions, and the partition requirement for
+consistent update. These results engage prior work on
 ecological perception \cite{Gibson1979}, bounded rationality
 \cite{Simon1955}, the information bottleneck \cite{Tishby2000,
 Tishby2011}, and active inference \cite{Friston2010,
@@ -314,6 +352,55 @@ coverage grows with $n$, the context bound forces normalization for any
 entity whose action repertoire is not trivially small.
 \end{proof}
 
+\begin{remark}[The update anomaly as consistency failure]
+\label{rem:consistency}
+Part~(N4) is a consistency failure in the precise sense of Brewer's CAP
+theorem~\cite{Brewer2000, Gilbert2002}. The unnormalized architecture
+maintains $n$ copies of shared proposition~$p$ across action policies.
+Each copy is a replica in a distributed system. When $p$ is revised,
+the revision must propagate to all $n$ copies. If propagation is
+incomplete---if any policy retains the stale value---the system is
+\emph{inconsistent}: different policies operating on different versions
+of $p$ may produce contradictory actions.
+
+The normalized architecture eliminates this by storing $p$ once in~$K$,
+with policies referencing $p$ via typed edges. Each typed edge is a
+partition boundary: updates to $p$ are scoped to $O(1)$ writes, and
+all referencing policies see the revision immediately. This is the CP
+(consistency + partition tolerance) strategy. The typed edges provide
+the partition structure; single-copy storage provides consistency.
+
+\textbf{Architectures without partition boundaries.}
+Consider an architecture that distributes propositions across a dense
+parameter space without addressable boundaries---a neural network weight
+matrix $W \in \mathbb{R}^{d \times d}$. A shared concept (``TP53
+suppresses cell cycle progression'') is encoded across many parameters
+with no explicit boundary marking which parameters encode which
+concept. Updating the concept requires modifying parameters that also
+encode other concepts. The update cannot be scoped: it is $O(d^2)$ in
+the worst case, and there is no mechanism to verify that the intended
+concept was revised without corrupting co-located concepts.
+
+This is the consistency problem without partition boundaries. The
+normalized graph achieves consistency at $O(1)$ per update because typed
+edges create addressable partitions. The weight matrix cannot achieve
+consistency at any bounded cost because there are no partitions to scope
+the update. Techniques to impose partition structure on weight matrices
+after the fact---block-sparse attention, mixture-of-experts routing,
+modular networks---are attempts to recover partition boundaries that the
+architecture does not provide natively. They work, but they are
+explicit, costly, and fragile: the partitions must be maintained by
+external mechanisms rather than by the data structure itself.
+
+The asymmetry parallels the broader CAP observation of Paper~1: it is
+cheap to add availability to a consistent-partitioned system (serve
+reads from any replica of $K$), but expensive to add consistency to an
+available-partitioned system (find and reconcile all copies of a concept
+distributed across $d^2$ parameters). Starting CP and adding A is
+$O(1)$; starting AP and adding C is $O(d^2/\text{partition size})$,
+which without native partitions is $O(d^2)$.
+\end{remark}
+
 % ------------------------------------------------------------------
 \section{Corollaries}
 \label{sec:corollaries}
@@ -479,6 +566,110 @@ independently. The training objective for $K$ must reference $A$
 are groundable given current $K$).
 \end{proof}
 
+\begin{remark}[The index requirement: knowing what you know]
+\label{rem:index}
+Inseparability has a stronger consequence than joint optimization.
+For the retention criterion (Corollary~\ref{cor:retention}) to
+operate, the entity must be able to enumerate its propositions: it
+must know \emph{what it knows}. Retention, pruning, and displacement
+all require evaluating the marginal value of a proposition $p$, which
+presupposes that $p$ can be identified, located, and distinguished
+from other propositions.
+
+The normalized $K$ satisfies this requirement by construction. Each
+proposition has an address (a node in the graph), a type (an edge
+label), and a provenance (the history of how it entered $K$). The
+entity can enumerate its contents, verify internal consistency, and
+answer the query ``do I have a proposition about $X$?'' with a
+lookup---$O(1)$ in a hash-indexed graph, $O(\log |K|)$ in the worst
+case.
+
+An architecture that distributes propositions across a dense parameter
+space without an address system cannot enumerate its contents. It
+cannot answer ``do I know $X$?'' without generating a response and
+evaluating it---which is itself an action that requires propositions
+to ground it, producing a regress. The system's model of its own
+knowledge state is undefined: it cannot distinguish ``I know $X$''
+from ``I can produce plausible output about $X$.'' This is not a
+training deficiency but a structural one. Without addressable
+propositions, the entity has no index over its own knowledge, and
+therefore cannot execute the retention, pruning, or displacement
+operations that bounded context requires.
+
+Every major augmentation to unindexed architectures---retrieval stores,
+tool registries, adapter catalogs, expert routing tables---is an
+external index: a directed graph of capabilities, types, and
+references that the base architecture cannot maintain internally. Each
+augmentation moves the system toward the normalized architecture the
+theorem requires. The trajectory is toward a directed graph not by
+design preference but by the constraint that bounded-context curation
+presupposes knowing what you know.
+\end{remark}
+
+\begin{remark}[Normalization optionality]
+\label{rem:optionality}
+Codd's relational model provides ultimate flexibility in \emph{how}
+to normalize because relationships are bounded by the schema. A
+relational database can denormalize for read performance (materialized
+views, star schemas) and renormalize for write consistency (extract
+shared dependencies back into referenced tables) at any time, without
+data loss. The partition boundaries are in the schema, not in the
+data, so restructuring preserves content while changing organization.
+
+$K/A$ inseparability provides the same capability. Because $K$ and
+$A$ are regions on the encoding continuum $E(c,r)$
+(Remark~\ref{rem:continuum}), the entity retains the option to
+restructure: compile explicit knowledge into action ($K \to A$),
+derive new propositions from action ($A \to K$), or reorganize the
+partition structure of $K$ itself. The propositions remain
+addressable throughout, so the option to renormalize is preserved.
+
+An architecture that distributes propositions across a dense parameter
+space without addressable boundaries destroys this optionality at
+training time. Shared propositions are entangled across parameters
+during gradient descent. There is no ``normalize later'' because the
+system cannot identify which parameters encode which propositions.
+The window to normalize closes at architecture selection, not at
+deployment. In the language of real options
+\cite{DixitPindyck1994}: the relational architecture and the
+normalized $K$ preserve the option to restructure; the unpartitioned
+architecture exercises an irreversible commitment to a specific
+(and unknowable) entanglement of propositions across parameters.
+
+This connects the normalization theorem to the retention criterion.
+The option value $\mathrm{OV}(p)$ of retaining a proposition
+(Corollary~\ref{cor:retention}) depends on the proposition remaining
+addressable---available for future retrieval, update, or
+displacement. An architecture that cannot address its own
+propositions has $\mathrm{OV}(p) = 0$ for all $p$ it cannot locate,
+regardless of $p$'s potential future value. The addressability
+that normalization provides is not merely organizational convenience;
+it is the precondition for the retention criterion to operate at all.
+
+\textbf{Optimization and imprecision management.}
+Normalization serves two functions simultaneously. The
+\emph{optimization} function is the capacity argument of
+Theorem~\ref{thm:normalization}: single-copy storage reduces context
+load from $O(n \cdot k)$ to $O(n + k')$. The \emph{imprecision
+management} function follows from addressability: a proposition stored
+once in a known location can carry metadata---confidence, provenance,
+version history, conflict annotations---that supports uncertainty
+quantification. The entity can ask ``how confident am I in
+proposition $p$?'' and receive a bounded answer, because $p$ is a
+discrete addressable object. When $p$ is revised, the confidence
+updates in one place and propagates to all referencing policies.
+
+In relational databases, this dual function is standard: normalization
+eliminates redundancy (optimization) and enables constraints, triggers,
+and validation rules (imprecision management). Both depend on the same
+property: the data is addressable and bounded by the schema. In the
+normalized $K$, the same property enables both scaled action
+repertoires and principled uncertainty management. The two functions
+are coupled: you cannot manage the imprecision of what you cannot
+address, and you cannot address what you have distributed without
+partition boundaries.
+\end{remark}
+
 \subsection{Compactness and forgetting}
 
 \begin{corollary}[Asymptotic Compactness]
@@ -534,7 +725,7 @@ propositions frees context for higher-value candidates.
 \begin{remark}[$K$ and $A$ Are Not Natural Kinds]
 \label{rem:continuum}
 Given Theorem~\ref{thm:normalization} ($K$ precipitates from $A$) and
-the encoding hierarchy $E(c,r)$ of \cite{McCarthy2026b} (a continuous
+the encoding hierarchy $E(c,r)$ of \cite{McCarthy2026c} (a continuous
 space parameterized by runtime cost $c$ and reversibility $r$), $K$ and
 $A$ are not disjoint categories but regions on $E(c,r)$. The encoding
 hierarchy is empirically instantiated by the complementary learning
@@ -576,6 +767,49 @@ information appears propositional (high $c$, high $r$) or procedural
 hierarchy. The entity tuple $E = (K, A, \sigma, \Omega)$ is notational
 convenience: $K$ is the high-encoding region of a single structure, $A$
 is the low-encoding region, and information flows in both directions.
+
+\textbf{The encoding hierarchy as a view hierarchy.}
+The encoding levels $L_0$ through $L_n$ map directly to the view
+hierarchy of relational databases. The normalized $K$ is the source of
+truth: fully addressable, consistent, supporting arbitrary
+restructuring (Remark~\ref{rem:optionality}). Each lower encoding
+level is a \emph{view}---a denormalized projection of the normalized
+store, optimized for read speed at the cost of write flexibility:
+\begin{itemize}
+\item $L_n$ (active reasoning): an \emph{ephemeral view}, a real-time
+   join computed at query time. The DDR repair complex is an example:
+   BRCA2 (command: load the filament) and RAD51 (query: scan for
+   homology) are stored as separate normalized propositions; the repair
+   action is their runtime join, assembled at the moment of the
+   double-strand break and discarded afterward.
+\item $L_{n-1}$ (learned heuristic): a \emph{cached view}, partially
+   materialized. The join has been computed before and the result is
+   retained, but the underlying normalized propositions are still
+   accessible and the view can be recomputed if they change.
+\item $L_1$ (developmental encoding): a \emph{materialized view},
+   persisted for fast access. The expert's compiled skill is a
+   precomputed join that does not require the original explicit
+   propositions at query time. Methylation patterns are biological
+   materialized views: precomputed projections of the chromatin state
+   that persist across cell divisions.
+\item $L_0$ (heritable encoding): a materialized view written to
+   durable storage---the genome. The join was computed once (by
+   selection over evolutionary time) and persisted as the default
+   configuration for all future instances.
+\end{itemize}
+
+At every level, the view is \emph{derived from} the normalized store.
+Consistency flows downward: when the source of truth changes, views at
+higher encoding levels (ephemeral, cached) update immediately; views at
+lower levels (materialized, heritable) become stale until explicitly
+refreshed. This is exactly the staleness problem in materialized
+database views---and it is exactly the pathology of compiled knowledge
+that no longer matches reality. The entity that has compiled a
+proposition into $L_1$ and then receives contradicting evidence at $L_n$
+must propagate the revision downward: the materialized view must be
+invalidated and recomputed. The cost of this propagation increases with
+encoding depth, explaining why deeply compiled beliefs are hardest to
+revise.
 
 \textbf{Implication.} The system does not ``decide'' whether information
 belongs in $K$ or $A$. The encoding dynamics decide. Some information
@@ -662,6 +896,39 @@ static knowledge stores---the retention asymmetry weakens.
 $C_{\text{absent}}$ is finite, and the symmetric marginal value
 comparison of the curation regime becomes the primary decision rule.
 
+\textbf{Prediction: architectural selection activates with survival
+pressure.} The normalization theorem makes a testable prediction about
+engineered systems. An architecture that favors availability over
+consistency (AP in the sense of Brewer~\cite{Brewer2000})---one that
+always produces output but cannot guarantee that output is consistent
+with its own prior state---is viable as long as the cost of
+inconsistency remains sublethal. When no competing architecture
+offers demonstrably higher consistency at comparable availability,
+$C_{\text{absent}}$ is bounded and the AP architecture persists.
+
+The theorem predicts that this changes under three conditions:
+\emph{(i)}~a competing architecture achieves consistency and
+availability simultaneously (CP + A, per Paper~1), creating selective
+pressure; \emph{(ii)}~a deployment domain where inconsistency is
+lethal (medical, legal, financial, autonomous systems), making
+$C_{\text{absent}}$ unbounded; or \emph{(iii)}~the action repertoire
+grows beyond what flat context can hold ($n \cdot k > C_n$), as
+occurs when systems must maintain persistent state across hundreds of
+tools and long-running tasks.
+
+Under any of these conditions, the normalization theorem binds: the
+entity that does not separate shared propositions into a consistent,
+partitioned store cannot scale its action repertoire beyond
+$\lfloor C_n / k \rfloor$ policies. The biological parallel is
+instructive. Single-celled organisms without partitioned knowledge
+structures (no separated chromosomes, no DNA repair channels) persist
+in environments without multicellular competitors. Once a competitor
+with normalized, partition-tolerant architecture appears, selective
+pressure activates and the unnormalized architecture is displaced---not
+because it was deficient in isolation, but because bounded context under
+survival pressure forces a different architecture
+(Paper~5,~\cite{McCarthy2026e}).
+
 \subsection{The unfalsifiable pruning criterion}
 
 The pruning condition (P) requires $P(\exists\,\tau^*) = 0$: certain
@@ -693,16 +960,23 @@ to the incumbent.
 \label{sec:discussion}
 % ------------------------------------------------------------------
 
-\textbf{Codd \cite{Codd1970}.}
+\textbf{Codd \cite{Codd1970} and Brewer \cite{Brewer2000}.}
 The normalization theorem is the knowledge-system analogue of Codd's
-relational normalization. Codd identified that redundant storage of
-data across relations produces update anomalies and wasted capacity;
-normal forms extract shared dependencies into referenced tables. We
-prove that the same pressure operates on bounded cognitive systems:
-shared propositions across action policies produce redundant context
-load and update inconsistency; $K$ is the normal form that eliminates
-both. The contribution is showing that normalization is not merely a
-good engineering practice but a necessary consequence of bounded context.
+relational normalization, and the update anomaly it eliminates is a
+consistency failure in the sense of Brewer's CAP theorem.
+Codd identified that redundant storage of data across relations produces
+update anomalies and wasted capacity; normal forms extract shared
+dependencies into referenced tables. Brewer and Gilbert and
+Lynch~\cite{Gilbert2002} proved that distributed systems cannot
+simultaneously guarantee consistency, availability, and partition
+tolerance. We prove that the same pressures operate on bounded cognitive
+systems: shared propositions across action policies produce redundant
+context load and update inconsistency; $K$ is the normal form that
+eliminates both. The normalized architecture is a CP system: consistent
+(single-copy propositions, $O(1)$ update) and partition-tolerant (typed
+edges scope update cascades), at the cost of availability (propositions
+must be retrieved, not inlined into every policy). This is the same
+tradeoff relational databases make---and for the same reason.
 
 \textbf{Separate training objectives for observation and action.}
 Corollary~\ref{cor:inseparability} shows that separate
@@ -711,7 +985,13 @@ structural constraint: the content of the world model must reference
 the action space (which propositions are action-relevant), and the
 action space must reference the world model (which actions are
 groundable). Separate modules with a shared loss is compatible;
-separate training objectives is not.
+separate training objectives is not. In CAP terms, separating training
+objectives creates a distributed consistency problem between two
+stores that share propositions. The $K$-module and $A$-module each
+maintain a copy of the shared state; independent optimization lets
+these copies diverge. This is the update anomaly
+(Theorem~\ref{thm:normalization}, N4) applied to the training process
+itself.
 
 \textbf{Information Bottleneck \cite{Tishby2000, Tishby2011}.}
 The information bottleneck retains information relevant to an output
@@ -769,7 +1049,7 @@ heuristic.
 \label{sec:conclusion}
 % ------------------------------------------------------------------
 
-Knowledge as normalization operates at two levels.
+Knowledge as normalization operates at three levels.
 
 The \emph{structural} level (Theorem~\ref{thm:normalization}):
 bounded active context with overlapping action policies forces the
@@ -779,6 +1059,21 @@ load ($O(n + k')$) and eliminating update anomalies. This is not a
 design choice but a scaling constraint. The entity that does not
 normalize cannot scale its action repertoire beyond $C_n / k$ policies.
 
+The \emph{consistency} level (Remark~\ref{rem:consistency}):
+the update anomaly that normalization eliminates is a consistency
+failure in the sense of CAP~\cite{Brewer2000, Gilbert2002}. The
+normalized architecture achieves consistency by construction: each
+proposition lives in one place, typed edges create partition
+boundaries that scope update cascades to $O(1)$, and all referencing
+policies see revisions immediately. Architectures without addressable
+partition boundaries---dense weight matrices being the canonical
+example---cannot scope updates and therefore cannot maintain consistency
+without global coordination at $O(d^2)$ cost. Starting CP and adding
+availability is cheap; starting AP and adding consistency is expensive.
+This asymmetry, proved formally in Paper~1~\cite{McCarthy2026a},
+manifests here as the difference between $O(1)$ normalized update and
+$O(d^2)$ unpartitioned update.
+
 The \emph{content} level (Corollaries~\ref{cor:retention}--\ref{cor:inseparability}):
 the propositions retained in $K$ are constitutively determined by
 $A$. The retention criterion is asymmetric (retain when benefit is
@@ -786,7 +1081,9 @@ uncertain; prune only when certainly zero) and derived from the cost
 structure of bounded context under survival pressure, not from a
 design parameter. Systems may implement $K$ and $A$ as separate
 modules, but cannot give them independent training objectives without
-accepting information loss or reconstruction cost.
+accepting information loss or reconstruction cost---because separate
+objectives create a distributed consistency problem between stores
+that share state.
 
 The \emph{strong} inseparability (Remark~\ref{rem:continuum}): $K$
 and $A$ are not natural kinds but regions on the encoding hierarchy
@@ -796,8 +1093,30 @@ is not merely blurry; it is incoherent as a classification criterion.
 The knowledge graph precipitates from the action space as the
 normalization of shared propositions. It is not a store of declarative
 facts separate from procedural skills; it is the shared structure
-underlying both, factored out to avoid redundancy under bounded
-capacity.
+underlying both, factored out to maintain consistency under bounded
+capacity. It is, in the language of distributed systems, a CP store:
+consistent, partition-tolerant, and the minimum structure that makes
+those guarantees possible without unbounded coordination cost.
+
+\subsection*{The series from here}
+
+Paper~1~\cite{McCarthy2026a} proves that bounded context requires
+graph structure for consistency and availability (the data store).
+The present paper proves that bounded context forces
+normalization---the separation of shared propositions into a single
+consistent store---and that this separation creates the partition
+boundaries required for scoped update (the CAP properties of the
+data store). Paper~3~\cite{McCarthy2026c}
+proves that bounded context forces escalation as the control
+architecture (the service topology). Paper~4~\cite{McCarthy2026d}
+formalizes the efficiency of this entire apparatus as $I = \gamma
+\cdot \eta_M$: intelligence is CAP management within a context bound,
+where $\gamma$ measures how much consistency and availability the
+entity can maintain, and $\eta_M$ measures how well its design
+patterns---normalization, escalation, typed edges---manage the
+tradeoff. The empirical papers (5--8) test these predictions in
+biological systems, where evolution has converged on the same
+architectural solutions that distributed systems theory requires.
 
 \section*{Acknowledgments}
 
@@ -805,6 +1124,18 @@ The author used Claude (Anthropic) for drafting assistance, literature review, a
 
 \bibliographystyle{plain}
 \begin{thebibliography}{99}
+
+\bibitem{Brewer2000}
+E.~A. Brewer.
+\newblock Towards robust distributed systems (invited talk).
+\newblock In \emph{Proceedings of the 19th ACM Symposium on Principles of
+  Distributed Computing (PODC)}, 2000.
+
+\bibitem{Gilbert2002}
+S.~Gilbert and N.~Lynch.
+\newblock Brewer's conjecture and the feasibility of consistent, available,
+  partition-tolerant web services.
+\newblock \emph{ACM SIGACT News}, 33(2):51--59, 2002.
 
 \bibitem{Codd1970}
 E.~F. Codd.
@@ -869,11 +1200,10 @@ J.~L. McClelland, B.~L. McNaughton, and R.~C. O'Reilly.
 
 \bibitem{McCarthy2026a}
 P.~D. McCarthy.
-\newblock Graph structure is necessary for information preservation under
-  bounded context.
+\newblock Managing consistency and availability under bounded context.
 \newblock Technical report, 2026.
 
-\bibitem{McCarthy2026b}
+\bibitem{McCarthy2026c}
 P.~D. McCarthy.
 \newblock Convergence of control architectures to escalation under bounded context.
 \newblock Working paper, 2026.

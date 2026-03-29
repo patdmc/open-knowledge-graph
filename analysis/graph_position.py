@@ -1,14 +1,16 @@
 """
-graph_position.py — Test whether hub mutations (high connectivity in signaling
-networks) predict worse survival than leaf mutations (low connectivity) within
-the same coupling channel.
+graph_position.py — Test whether graph position (STRING PPI degree) predicts
+mutation severity within coupling channels.
 
-Uses curated hub/leaf classification based on known pathway topology.
+Hub/leaf classification derived from STRING PPI within-channel degree.
+Top-3 genes per channel by within-channel degree are hubs; rest are leaves.
+Continuous degree also available as GENE_DEGREE for regression models.
 """
 
 import os
 import sys
 import warnings
+import json
 import numpy as np
 import pandas as pd
 
@@ -80,24 +82,78 @@ CHANNEL_MAP = {
     "GJA1": "TissueArch", "GJB2": "TissueArch",
 }
 
-# Curated hub/leaf mapping based on pathway topology
-HUB_GENES = {
-    "DDR": {"ATM", "ATR", "BRCA1"},
-    "CellCycle": {"TP53", "RB1", "MYC"},
-    "PI3K_Growth": {"KRAS", "PTEN", "PIK3CA", "EGFR", "NF1"},
-    "Endocrine": {"ESR1", "AR"},
-    "Immune": {"B2M", "JAK1", "JAK2"},
-    "TissueArch": {"APC", "CDH1", "SMAD4"},
-}
+# ---------------------------------------------------------------------------
+# STRING PPI degree-based hub/leaf classification
+# ---------------------------------------------------------------------------
+GNN_CACHE = os.path.join(os.path.dirname(BASE), "gnn", "data", "cache")
+STRING_CACHE = os.path.join(GNN_CACHE, "string_ppi_edges.json")
 
-LEAF_GENES = {
-    "DDR": {"BRCA2", "RAD51C", "RAD51D", "CHEK2", "PALB2", "FANCA", "FANCC"},
-    "CellCycle": {"CDK4", "CDK6", "CDKN2A", "CDKN2B", "MDM2", "CCND1"},
-    "PI3K_Growth": {"AKT1", "BRAF", "MTOR", "ERBB2", "MAP2K1", "FGFR1", "FGFR2", "FGFR3"},
-    "Endocrine": {"FOXA1", "GATA3", "PGR"},
-    "Immune": {"HLA-A", "HLA-B", "HLA-C", "STAT1"},
-    "TissueArch": {"CTNNB1", "AXIN1", "NOTCH1", "FBXW7", "TGFBR2"},
-}
+def _compute_string_hub_leaf():
+    """Derive hub/leaf from STRING PPI within-channel degree (top 3 per channel)."""
+    if not os.path.exists(STRING_CACHE):
+        # Fallback to legacy curated if STRING cache missing
+        print("WARNING: STRING cache not found, using legacy curated hub/leaf")
+        return _legacy_hub_leaf()
+
+    with open(STRING_CACHE) as f:
+        edges_data = json.load(f)
+
+    # Compute total and within-channel degree
+    total_degree = {}
+    within_ch_degree = {}  # (gene, channel) -> degree
+
+    for key, edge_list in edges_data.items():
+        channel = key if key != "cross_channel" else None
+        for edge in edge_list:
+            a, b = edge[0], edge[1]
+            if a in CHANNEL_MAP:
+                total_degree[a] = total_degree.get(a, 0) + 1
+            if b in CHANNEL_MAP:
+                total_degree[b] = total_degree.get(b, 0) + 1
+            if channel and channel != "cross_channel":
+                within_ch_degree[(a, channel)] = within_ch_degree.get((a, channel), 0) + 1
+                within_ch_degree[(b, channel)] = within_ch_degree.get((b, channel), 0) + 1
+
+    # Top 3 per channel by within-channel degree
+    hub_genes = {}
+    for ch in set(CHANNEL_MAP.values()):
+        ch_genes = [(g, d) for (g, c), d in within_ch_degree.items() if c == ch]
+        ch_genes.sort(key=lambda x: -x[1])
+        hub_genes[ch] = set(g for g, d in ch_genes[:3])
+
+    # Everything else is leaf
+    leaf_genes = {}
+    hub_flat = set()
+    for genes in hub_genes.values():
+        hub_flat |= genes
+    for ch in set(CHANNEL_MAP.values()):
+        ch_all = {g for g, c in CHANNEL_MAP.items() if c == ch}
+        leaf_genes[ch] = ch_all - hub_genes.get(ch, set())
+
+    return hub_genes, leaf_genes, total_degree
+
+def _legacy_hub_leaf():
+    """Legacy curated classification (kept for comparison only)."""
+    hub = {
+        "DDR": {"ATM", "ATR", "BRCA1"},
+        "CellCycle": {"TP53", "RB1", "MYC"},
+        "PI3K_Growth": {"KRAS", "PTEN", "PIK3CA", "EGFR", "NF1"},
+        "Endocrine": {"ESR1", "AR"},
+        "Immune": {"B2M", "JAK1", "JAK2"},
+        "TissueArch": {"APC", "CDH1", "SMAD4"},
+    }
+    leaf = {
+        "DDR": {"BRCA2", "RAD51C", "RAD51D", "CHEK2", "PALB2", "FANCA", "FANCC"},
+        "CellCycle": {"CDK4", "CDK6", "CDKN2A", "CDKN2B", "MDM2", "CCND1"},
+        "PI3K_Growth": {"AKT1", "BRAF", "MTOR", "ERBB2", "MAP2K1", "FGFR1", "FGFR2", "FGFR3"},
+        "Endocrine": {"FOXA1", "GATA3", "PGR"},
+        "Immune": {"HLA-A", "HLA-B", "HLA-C", "STAT1"},
+        "TissueArch": {"CTNNB1", "AXIN1", "NOTCH1", "FBXW7", "TGFBR2"},
+    }
+    degree = {g: 0 for g in CHANNEL_MAP}
+    return hub, leaf, degree
+
+HUB_GENES, LEAF_GENES, GENE_DEGREE = _compute_string_hub_leaf()
 
 # Flatten for quick lookup: gene -> "hub" or "leaf"
 GENE_POSITION = {}
@@ -324,7 +380,157 @@ def run_analysis(dataset_name):
         except Exception as e:
             log(f"  Multivariate Cox failed: {e}")
 
+    # ----- Analysis 4: TP53/KRAS Sensitivity -----
+    log(f"\n--- Analysis 4: Degree effect EXCLUDING TP53 and KRAS ---")
+
+    # Get patients whose ONLY hub mutations are TP53 or KRAS
+    # We want to test: does degree predict survival without these two genes?
+    tp53_kras = {"TP53", "KRAS"}
+
+    # For continuous degree: assign max mutated gene degree per patient
+    mut_with_degree = mut.copy()
+    mut_with_degree["degree"] = mut_with_degree["gene.hugoGeneSymbol"].map(GENE_DEGREE).fillna(0)
+
+    # Patient max degree (all genes)
+    pat_degree_all = mut_with_degree.groupby("patientId")["degree"].max().reset_index()
+    pat_degree_all.columns = ["patientId", "max_degree"]
+
+    # Patient max degree EXCLUDING TP53/KRAS
+    mut_no_tk = mut_with_degree[~mut_with_degree["gene.hugoGeneSymbol"].isin(tp53_kras)]
+    pat_degree_notk = mut_no_tk.groupby("patientId")["degree"].max().reset_index()
+    pat_degree_notk.columns = ["patientId", "max_degree_no_tk"]
+
+    # Also: mean degree per patient (weighted by all mutated genes)
+    pat_mean_degree = mut_with_degree.groupby("patientId")["degree"].mean().reset_index()
+    pat_mean_degree.columns = ["patientId", "mean_degree"]
+
+    pat_mean_notk = mut_no_tk.groupby("patientId")["degree"].mean().reset_index()
+    pat_mean_notk.columns = ["patientId", "mean_degree_no_tk"]
+
+    # Merge
+    deg_df = clin[["patientId", "time", "event"]].copy()
+    deg_df = deg_df.merge(pat_degree_all, on="patientId", how="inner")
+    deg_df = deg_df.merge(pat_degree_notk, on="patientId", how="left")
+    deg_df = deg_df.merge(pat_mean_degree, on="patientId", how="left")
+    deg_df = deg_df.merge(pat_mean_notk, on="patientId", how="left")
+    deg_df = deg_df.merge(psumm[["patientId", "channel_count"]], on="patientId", how="left")
+    deg_df["channel_count"] = deg_df["channel_count"].fillna(0)
+
+    log(f"  Patients with degree data: {len(deg_df):,}")
+
+    # 4a: Continuous degree (all genes) — Cox
+    log(f"\n  4a. Continuous max degree (all genes):")
+    try:
+        from lifelines.utils import concordance_index
+        c_all = concordance_index(deg_df["time"], -deg_df["max_degree"], deg_df["event"])
+        log(f"    C-index (max degree): {c_all:.4f}")
+
+        cph = CoxPHFitter()
+        cox_in = deg_df[["time", "event", "max_degree", "channel_count"]].dropna()
+        cph.fit(cox_in, duration_col="time", event_col="event")
+        for var in ["max_degree", "channel_count"]:
+            r = cph.summary.loc[var]
+            log(f"    {var}: HR={r['exp(coef)']:.4f} "
+                f"(95% CI {r['exp(coef) lower 95%']:.4f}-{r['exp(coef) upper 95%']:.4f}), "
+                f"p={r['p']:.4e}")
+    except Exception as e:
+        log(f"    Cox with degree failed: {e}")
+
+    # 4b: Continuous degree EXCLUDING TP53/KRAS
+    log(f"\n  4b. Continuous max degree (EXCLUDING TP53/KRAS):")
+    deg_notk = deg_df.dropna(subset=["max_degree_no_tk"])
+    log(f"    Patients with non-TP53/KRAS mutations: {len(deg_notk):,}")
+
+    if len(deg_notk) > 100:
+        try:
+            c_notk = concordance_index(deg_notk["time"], -deg_notk["max_degree_no_tk"], deg_notk["event"])
+            log(f"    C-index (max degree excl TP53/KRAS): {c_notk:.4f}")
+
+            cph = CoxPHFitter()
+            cox_in = deg_notk[["time", "event", "max_degree_no_tk", "channel_count"]].dropna()
+            cph.fit(cox_in, duration_col="time", event_col="event")
+            for var in ["max_degree_no_tk", "channel_count"]:
+                r = cph.summary.loc[var]
+                log(f"    {var}: HR={r['exp(coef)']:.4f} "
+                    f"(95% CI {r['exp(coef) lower 95%']:.4f}-{r['exp(coef) upper 95%']:.4f}), "
+                    f"p={r['p']:.4e}")
+        except Exception as e:
+            log(f"    Cox excl TP53/KRAS failed: {e}")
+
+    # 4c: Hub/leaf EXCLUDING TP53/KRAS
+    log(f"\n  4c. Hub/leaf binary (EXCLUDING TP53/KRAS patients):")
+    # Find patients whose ONLY hub mutations are in TP53/KRAS
+    hub_genes_per_patient = mut[mut["position"] == "hub"].groupby("patientId")["gene.hugoGeneSymbol"].apply(set).reset_index()
+    hub_genes_per_patient.columns = ["patientId", "hub_genes"]
+
+    # Patients with hub mutations in non-TP53/KRAS genes
+    hub_genes_per_patient["has_other_hub"] = hub_genes_per_patient["hub_genes"].apply(
+        lambda s: len(s - tp53_kras) > 0
+    )
+
+    # Keep: patients with no hub mutations (leaf-only), OR patients with non-TP53/KRAS hubs
+    leaf_patients = set(psumm[psumm["max_position"] == "leaf"]["patientId"])
+    other_hub_patients = set(hub_genes_per_patient[hub_genes_per_patient["has_other_hub"]]["patientId"])
+
+    df_notk = df_all[df_all["patientId"].isin(leaf_patients | other_hub_patients)].copy()
+    df_notk["hub_any"] = df_notk["patientId"].isin(other_hub_patients).astype(int)
+
+    n_hub_notk = df_notk["hub_any"].sum()
+    n_leaf_notk = (df_notk["hub_any"] == 0).sum()
+    log(f"    Hub (non-TP53/KRAS): {n_hub_notk:,}  |  Leaf: {n_leaf_notk:,}")
+
+    if n_hub_notk >= 20 and n_leaf_notk >= 20:
+        try:
+            cph = CoxPHFitter()
+            cox_in = df_notk[["time", "event", "hub_any", "channel_count"]].dropna()
+            cph.fit(cox_in, duration_col="time", event_col="event")
+            for var in ["hub_any", "channel_count"]:
+                r = cph.summary.loc[var]
+                log(f"    {var}: HR={r['exp(coef)']:.3f} "
+                    f"(95% CI {r['exp(coef) lower 95%']:.3f}-{r['exp(coef) upper 95%']:.3f}), "
+                    f"p={r['p']:.4e}")
+        except Exception as e:
+            log(f"    Cox excl TP53/KRAS failed: {e}")
+
+    # 4d: Per-channel degree analysis
+    log(f"\n  4d. Per-channel continuous degree (within-channel degree):")
+    for ch_name in ["PI3K_Growth", "CellCycle", "DDR"]:
+        ch_mut = mut_with_degree[mut_with_degree["channel"] == ch_name].copy()
+        # Within-channel degree
+        ch_mut["within_degree"] = ch_mut["gene.hugoGeneSymbol"].apply(
+            lambda g: within_ch_degree.get((g, ch_name), 0)
+            if (g, ch_name) in within_ch_degree else 0
+        )
+        pat_ch_deg = ch_mut.groupby("patientId")["within_degree"].max().reset_index()
+        pat_ch_deg.columns = ["patientId", "wc_degree"]
+        ch_df = pat_ch_deg.merge(clin[["patientId", "time", "event"]], on="patientId", how="inner")
+
+        if len(ch_df) > 100:
+            try:
+                c = concordance_index(ch_df["time"], -ch_df["wc_degree"], ch_df["event"])
+                cph = CoxPHFitter()
+                cph.fit(ch_df[["time", "event", "wc_degree"]], duration_col="time", event_col="event")
+                r = cph.summary.loc["wc_degree"]
+                log(f"    {ch_name}: C={c:.4f}, HR={r['exp(coef)']:.4f}, p={r['p']:.4e}")
+            except Exception as e:
+                log(f"    {ch_name}: failed — {e}")
+
+    # Need within_ch_degree accessible here
     return df_all
+
+
+# Expose within_ch_degree at module level for Analysis 4d
+_string_within_ch_degree = {}
+if os.path.exists(STRING_CACHE):
+    with open(STRING_CACHE) as _f:
+        _edges_data = json.load(_f)
+    for _key, _edge_list in _edges_data.items():
+        if _key != "cross_channel":
+            for _edge in _edge_list:
+                _a, _b = _edge[0], _edge[1]
+                _string_within_ch_degree[(_a, _key)] = _string_within_ch_degree.get((_a, _key), 0) + 1
+                _string_within_ch_degree[(_b, _key)] = _string_within_ch_degree.get((_b, _key), 0) + 1
+within_ch_degree = _string_within_ch_degree
 
 
 # ---------------------------------------------------------------------------

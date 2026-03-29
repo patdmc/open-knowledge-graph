@@ -70,11 +70,11 @@ Paper~1 \cite{McCarthy2026a} established that any entity accumulating
 propositions under bounded context necessarily maintains a directed
 graph with typed edges, where ``necessary'' means selected for under
 competition, not logically impossible to avoid (see \cite{McCarthy2026a},
-Remark~1). Paper~2 \cite{McCarthy2026b} established that
-bounded context under growing action count requires convergence toward
-escalation. Paper~3 \cite{McCarthy2026c} established that bounded context forces the
+Remark~1). Paper~2 \cite{McCarthy2026b} established that bounded context forces the
 normalization of shared propositions from action into a separated $K$,
-with an asymmetric retention criterion.
+with an asymmetric retention criterion. Paper~3 \cite{McCarthy2026c} established that
+bounded context under growing action count requires convergence toward
+escalation.
 
 Three questions remain. First: what dynamics govern the updating
 process when an entity with agency acts on the world and receives
@@ -129,7 +129,7 @@ extending the framework of \cite{McCarthy2026a}.
 An entity $E = (K, A, \sigma, \gamma)$ consists of a knowledge base $K$
 (propositions about world $W$), an action space $A$ (executable
 actions, absorbing the separate action set $\Omega$ of
-\cite{McCarthy2026c}), a selection mechanism $\sigma$ that chooses
+\cite{McCarthy2026b}), a selection mechanism $\sigma$ that chooses
 actions given context (which presupposes sensing capacity; see
 Theorem~\ref{thm:invariants}), and an agency parameter $\gamma$. The world state space $W$ is a
 measurable space; the true state $w \in W$ is not directly observable.
@@ -224,7 +224,7 @@ with increasing cost and reversibility:
 \item $L_n$ (active context): lowest cost of error, highest
    reversibility, fastest update rate.
 \end{itemize}
-Escalation \cite{McCarthy2026b} pushes proven actions
+Escalation \cite{McCarthy2026c} pushes proven actions
 upward toward more permanent levels. The present paper derives the
 threshold that governs this promotion.
 \end{definition}
@@ -265,7 +265,7 @@ $M$ contains whatever adaptive capacity has not yet been committed to
 specific knowledge or action. As the entity learns, components of $M$
 resolve into concrete elements of $K$ or $A$. This is the same normalization
 by which shared propositions precipitate from action into knowledge
-\cite{McCarthy2026c}. What remains in $M$ is the entity's capacity
+\cite{McCarthy2026b}. What remains in $M$ is the entity's capacity
 to produce further such resolutions.
 
 The hierarchy is open upward: $M^{(2)}$ operates on $M^{(1)}$, yielding
@@ -305,11 +305,46 @@ dimensionless. The three regimes:
 
 \begin{remark}[Measurement]
 \label{rem:measurement}
-Computing $\eta_M$ requires evaluating $G(a, K) = I(p_a; W \mid K)$,
-which depends on the true joint distribution $P(p_a, W, K)$. The entity
-cannot compute its own $\eta_M$; it would need the very information
-it is trying to learn. Both $\gamma$ and $\eta_M$ are measurable by an
-external observer with access to the entity's trajectory and outcomes.
+Computing the exact value of $\eta_M$ requires evaluating
+$G(a, K) = I(p_a; W \mid K)$, which depends on the true joint
+distribution $P(p_a, W, K)$. The entity cannot compute its own
+$\eta_M$; it would need the very information it is trying to learn.
+
+However, $\eta_M$ need not be measured exactly to be compared across
+entities. The ceiling on $\eta_M$ is determined by two independent
+constraints:
+
+\begin{enumerate}
+\item \textbf{Functional context size} $C_n$: the substrate-determined
+   bound on active context. This is the size of the pipe. It cannot be
+   changed by the entity.
+
+\item \textbf{Architectural efficiency}: the asymptotic cost of
+   integrating new knowledge into $(A, K)$. This is how efficiently
+   the entity packs the pipe. An entity with separated $K$, $A$, $M$
+   and stored adjacency pays $O(d)$ per update, where $d$ is the
+   local degree. An entity with collapsed parameters pays $O(n^2)$
+   per update, where $n$ is the total parameter count exposed to the
+   update.
+\end{enumerate}
+
+As $|K|$ grows, a suboptimal architecture fills $C_n$ faster. The
+rate at which performance degrades under increasing knowledge load is
+observable: it is the empirical signature of the architectural class.
+An entity with $O(n^2)$ architecture and large $C_n$ will hit its
+context boundary before an entity with $O(d)$ architecture and small
+$C_n$, once knowledge load is sufficient. This is the crossover of
+Paper~3 \cite{McCarthy2026c} expressed as a measurement principle.
+
+The function signature dominates over the coefficients. Within an
+architectural class, the exact value of $\eta_M$ depends on
+coefficients (quality of evidence integration, accuracy of the model).
+Across architectural classes, the asymptotic cost determines the
+ceiling. Comparing $\eta_M$ across entities is therefore a Big-$O$
+problem: identify the architectural class (collapsed vs.\ separated
+vs.\ recursive), and the class determines the bound. The class is
+directly observable from the entity's structure without requiring
+access to the true joint distribution.
 \end{remark}
 
 \begin{definition}[Intelligence]
@@ -389,7 +424,7 @@ The descent is on the entity's \emph{model} of $W$, not on the true
 state of $W$. Adding a proposition to $K$ refines the posterior within
 the entity's model---this is monotone by construction, since adding a
 constraint to the joint likelihood $L_K$ cannot broaden the posterior
-(see the model-vs-reality remark in \cite{McCarthy2026c}, Lemma~1).
+(see the model-vs-reality remark in \cite{McCarthy2026b}, Lemma~1).
 But the proposition may be wrong: the evidence may be noise, the
 likelihood function may be mis-specified, or the world may have shifted
 since the evidence was collected. In such cases, the entity's model
@@ -443,7 +478,7 @@ can index under bounded $C_n$.
 
 \emph{Interaction with the curation regime.} The convergence argument
 in Part~I assumes $K$ grows monotonically. In
-the curation regime established in \cite{McCarthy2026c}, $|K|$ is
+the curation regime established in \cite{McCarthy2026b}, $|K|$ is
 bounded and every addition requires displacement. The
 Lyapunov function must be refined. Raw $H(W \mid K)$ is the wrong
 quantity: displacing a proposition about an irrelevant domain in favor
@@ -456,7 +491,7 @@ H_{\mathcal{T}}(W \mid K) = \mathbb{E}_{w \sim \mathcal{T}}[U(w, K)]
 where $\mathcal{T}$ is the entity's task distribution over
 survival-relevant world states.
 
-Under the cost-benefit displacement criterion of \cite{McCarthy2026c},
+Under the cost-benefit displacement criterion of \cite{McCarthy2026b},
 proposition $p$ is displaced by $q$ only when
 \[
   \mathbb{E}[B(q, \mathcal{T})] - c_{\text{retain}}(q, K)
@@ -524,7 +559,7 @@ meaningfully less than $1$: the expected benefit of trying exceeds the
 expected cost of failure at moderate confidence.
 
 \textbf{Error propagation through the hierarchy.} Under escalation
-\cite{McCarthy2026b}, errors partition into \emph{handled errors},
+\cite{McCarthy2026c}, errors partition into \emph{handled errors},
 resolved at level $L_i$, and \emph{unhandled exceptions}, which
 escalate. The error rate seen by $L_{i+1}$ is the rate of genuinely
 irreducible errors, not a compounded Bernoulli product of lower-level
@@ -617,6 +652,21 @@ action--knowledge pairs. These are different functions serving
 different roles. The question is not whether a system \emph{must}
 separate them---it need not---but what happens when it does not.
 
+\textbf{The relational database clarification.}
+$K/A$ inseparability (Paper~2, \cite{McCarthy2026b}) does not imply
+that $M$ is inseparable from $(A, K)$. In a relational database, data
+(rows) and queries (SELECT, INSERT) are inseparable: queries are
+defined over tables, tables are designed for queries. Neither makes
+sense without the other. But DDL (ALTER TABLE, CREATE INDEX) is
+obviously separate from DML. Schema migration operates on the
+structure of tables and queries to produce new tables and queries.
+No one confuses ALTER TABLE with SELECT. The type signatures are
+different, the rate of change is different, and the database enforces
+the separation. $K/A$ inseparability says data and operations over
+data co-define each other. $A/M$ stratification says operations that
+\emph{change} the data-and-operations are a categorically different
+function. Inseparability is not transitive.
+
 \textbf{The degenerate case.}
 A system with no separation at all has a single function type
 $T : W_{\mathrm{obs}} \to \Delta\mathcal{A}$.
@@ -632,7 +682,7 @@ Factoring $K$ out of $A$ converts that redundant node weight into
 edges---each action links to shared propositions rather than
 storing its own copy. Separating $M$ does the same for learning:
 update logic is extracted once rather than embedded in every action.
-This is exactly the normalization argument of \cite{McCarthy2026c}
+This is exactly the normalization argument of \cite{McCarthy2026b}
 applied to function types rather than propositions.
 
 More generally, $M$, $A$, and $K$ can all be unified into a single
@@ -1024,19 +1074,19 @@ a single generative constraint:
 \item \textbf{Bounded $C_n$ + information preservation $\;\Rightarrow\;$
       graph structure} \cite{McCarthy2026a}. Any entity accumulating
       propositions under bounded context necessarily maintains a
-      directed graph with typed edges.
-
-\item \textbf{Bounded $C_n$ + growing $A$ $\;\Rightarrow\;$ convergence
-      to escalation} \cite{McCarthy2026b}. Any viable control
-      architecture converges toward escalation properties as concurrent
-      demands grow relative to $C_n$.
+      directed graph with typed edges. (The data store.)
 
 \item \textbf{Bounded context $\;\Rightarrow\;$ normalization of shared
       propositions into $K$, with asymmetric retention}
-      \cite{McCarthy2026c}. Overlapping action policies under bounded
+      \cite{McCarthy2026b}. Overlapping action policies under bounded
       $C_n$ force extraction of shared propositions into separated $K$;
       the retention criterion is probability of need $\times$ conditional
-      value.
+      value. (The data store's consistency properties.)
+
+\item \textbf{Bounded $C_n$ + growing $A$ $\;\Rightarrow\;$ convergence
+      to escalation} \cite{McCarthy2026c}. Any viable control
+      architecture converges toward escalation properties as concurrent
+      demands grow relative to $C_n$. (The service topology.)
 
 \item \textbf{$\gamma > 0$ + feedback $\;\Rightarrow\;$ descent on $U$
       + encoding hierarchy; positive entropy $\;\Rightarrow\;$
@@ -1069,9 +1119,40 @@ pressure, and feedback.
 \item \textbf{Direction of $\gamma$.} Is agency uniformly distributed
       across learning signals, or does it have intrinsic directedness?
 
-\item \textbf{The $M^{(n)}$ hierarchy.} How many levels of
-      meta-learning does a persistent entity require? Is there a natural
-      termination point, or is the hierarchy open upward without bound?
+\item \textbf{The $M^{(n)}$ hierarchy closes by recursion.}
+      The relational database analogy clarifies the stratification.
+      $K$ is data (rows in tables). $A$ is DML: operations on data
+      (SELECT, INSERT, UPDATE). $M$ is DDL: operations on schema
+      (ALTER TABLE, CREATE INDEX). $M' = S$ is system architecture:
+      operations on DDL (choice of engine, sharding topology,
+      replication strategy). Each level operates on the level below
+      with a different type signature and a different rate of change,
+      corresponding to the encoding hierarchy with $\theta_i$
+      increasing at each level.
+
+      The hierarchy is not open upward. $S$ decomposes into its own
+      $(K_S, A_S, M_S)$: the architect needs knowledge about
+      architectures, actions to implement them, and the capacity to
+      learn which architectures work. When $M_S$ operates on $S$
+      itself, the loop closes: the system can redesign its own
+      architecture. This recursion is the natural termination point.
+
+      After closure, further refinement of $M$ is edge identification
+      within the existing graph, not level creation. The normalization
+      argument of Paper~2 \cite{McCarthy2026b} applies: shared
+      propositions precipitate, new edges form between existing nodes,
+      the graph gets richer. The cycle does not change. Growth after
+      closure is knowledge accumulation within a complete architecture.
+
+      The open question reduces to: how does $M$ decompose across
+      dimensions of $W$ before and after closure? The decomposition is
+      edge identification (which typed relationships connect which
+      components of $M$), not architectural (how many levels exist).
+      An entity whose $S$ has $\gamma_S > 0$---whose architecture
+      itself learns---operates at the recursive level. Whether this
+      constitutes what is colloquially called ``superintelligence''
+      is an empirical question about the consequences of the recursion,
+      not a separate theoretical construct.
 
 \item \textbf{Bound composition in $A$.} How do individual action
       bounds compose when multiple actions share knowledge substructure?
@@ -1155,7 +1236,7 @@ to unstructured literature search.
 
 \textbf{6. Open knowledge graphs with provenance will undercut
 parametric knowledge storage.}
-The normalization result \cite{McCarthy2026c} establishes that
+The normalization result \cite{McCarthy2026b} establishes that
 commonly held knowledge---the high-overlap region of $K$ across
 entities---is exactly the set of propositions that factoring extracts
 into shared, reusable nodes. Provenance is a typed edge:
@@ -1188,7 +1269,7 @@ positive novelty rate. The framework predicts that the first system
 widely recognized as artificial general intelligence will exhibit:
 (i)~explicit or learned graph structure over propositions
 \cite{McCarthy2026a}, (ii)~escalation-based control
-\cite{McCarthy2026b} rather than monolithic inference,
+\cite{McCarthy2026c} rather than monolithic inference,
 (iii)~separated $K$ with provenance rather than knowledge fused into
 parameters, and (iv)~$\gamma > 0$, genuine online learning that
 updates $(A, K)$ from feedback. These are not design recommendations
@@ -1201,7 +1282,7 @@ deployment without degradation.
 
 \textbf{8. Cancer treatment will converge on restoring broken
 escalation chains.}
-The escalation hierarchy \cite{McCarthy2026b} predicts that
+The escalation hierarchy \cite{McCarthy2026c} predicts that
 multicellular organisms handle errors at the lowest sufficient level:
 DNA repair ($L_0$), cell-cycle arrest ($L_1$), apoptosis ($L_2$),
 immune surveillance ($L_3$), with conscious medical intervention at
@@ -1369,14 +1450,14 @@ P.~D. McCarthy.
 
 \bibitem{McCarthy2026b}
 P.~D. McCarthy.
-\newblock Convergence of control architectures to escalation under bounded
-  context.
+\newblock Knowledge as normalization: consistency under partition separates
+  shared propositions from action.
 \newblock Manuscript, 2026.
 
 \bibitem{McCarthy2026c}
 P.~D. McCarthy.
-\newblock Knowledge as normalization: bounded context separates shared
-  propositions from action.
+\newblock Convergence of control architectures to escalation under bounded
+  context.
 \newblock Manuscript, 2026.
 
 \bibitem{Murray2014}

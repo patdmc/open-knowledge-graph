@@ -15,7 +15,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Graph Structure Is Necessary for\\Information Preservation Under Bounded Context}
+\title{Graph Structure Is Necessary for\\Managing Consistency and Availability Under Bounded Context}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -23,29 +23,31 @@
 \maketitle
 
 \begin{abstract}
-Any system that (i) accumulates propositions about a world it cannot
-fully observe, (ii) operates under a bounded active context, a
-hard limit on the number of propositions simultaneously available for
-inference, (iii) must preserve information as the proposition
-count grows beyond that bound, and (iv) receives evidence that can
-be corrupted or invalidated, necessarily maintains a directed graph
-over its propositions, with typed edges emerging under competitive
-pressure (selective necessity). We prove this claim from two
-independent arguments. The \emph{information-preservation argument}
-shows that the only space-creating operation that does not lose
-information is factoring, extracting shared structure into named
-nodes with typed edges, and that factoring \emph{is} graph
-construction. The \emph{retention-dynamics argument} shows that any
-representation supporting sub-linear dependency queries, contextual
-retrieval, and selective removal with cascade necessarily encodes
-directed adjacency, which is a semantic graph regardless of substrate.
+Any system that accumulates knowledge under bounded active context
+faces a fundamental tradeoff: it must be \emph{consistent}
+(not lose or contradict what it knows) and \emph{available}
+(retrieve and act on what it knows in sub-linear time). A flat
+representation can provide one but not both---consistent storage
+without structure requires $O(n)$ retrieval; available retrieval
+without structure cannot scope invalidation cascades.
+We prove that a directed graph with typed edges is the minimum
+structure that provides both simultaneously. The proof proceeds
+from two independent arguments, each corresponding to one side of
+the tradeoff. The \emph{consistency argument} shows that the only
+space-creating operation that does not lose information is factoring
+--- extracting shared structure into named nodes with typed edges ---
+and that factoring \emph{is} graph construction. The
+\emph{availability argument} shows that any representation supporting
+sub-linear dependency queries, contextual retrieval, and selective
+removal with cascade necessarily encodes directed adjacency.
+Together, these establish that graph structure is not a design
+preference but the unique representation that manages both
+consistency and availability under bounded context.
 We show that continuous-weight mechanisms (e.g., transformer
 self-attention) implement graph structure rather than constitute an
-alternative to it. The result applies to any system that stores
-propositions under bounded context, including artificial neural
-networks, institutional knowledge systems, and, to the extent that
-biological representations admit propositional decomposition, biological
-neural networks.
+alternative to it. The result is substrate-independent, applying
+to artificial neural networks, institutional knowledge systems, and
+biological systems alike.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -53,100 +55,179 @@ neural networks.
 \label{sec:intro}
 % ------------------------------------------------------------------
 
-Across 73{,}593 cancer patients, the number of distinct
-organizational systems disrupted by a tumor's mutations predicts
-survival better than the total number of mutations
-\cite{McCarthy2026e}. The organizational function a gene serves, not
-its molecular identity, determines prognosis. This requires that
-biological information be structured by function, not stored as a
-flat list. The present paper proves that this structure is necessary.
+Any system that persists in a physical world is caught between two
+forces. From above: entropy is positive, the world produces novel
+states, and an entity that does not grow its knowledge $K$ eventually
+encounters a state it cannot handle. Growth is not optional; it is
+forced by the novelty rate that entropy guarantees. From below:
+active context $C_n$ is bounded, and $|K|$ eventually exceeds $C_n$.
+The system must structure what it knows or drown in its own
+knowledge. These two forces---growth pressure from entropy, capacity
+constraint from bounded context---define the problem. Everything in
+this series follows from their intersection.
 
-As a knowledge base grows, the capacity to reason over it, at any
-single moment, does not grow proportionally. Biological working memory holds
-roughly $4 \pm 1$ items \cite{Cowan2001} (Miller's classic
-$7 \pm 2$ \cite{Miller1956} reflects rehearsal-augmented span,
-not raw capacity). Transformer context windows,
+The vise admits exactly two responses: minimize the need for context
+or maximize context capacity. Strategy~1 keeps $|K|$ small (fungible
+units, no hierarchy, partition tolerance through redundancy). Bacteria,
+BitTorrent swarms, and transformer attention layers all follow this
+pattern: flat, replaceable, and robust by sheer count. Strategy~2
+structures $K$ into addressable hierarchy (typed edges, scoped
+domains, sub-linear retrieval). At small scale, Strategy~1 does not merely
+suffice---it \emph{outperforms}. When $|K| \ll C_n$, exhaustive search
+is faster than indexed retrieval because the constant dominates the
+exponent. The dangerous property of the inferior scaling class is not
+that it fails but that it succeeds, conspicuously, until a crossover it
+cannot see. The two cost curves intersect; past the intersection, only
+Strategy~2 survives. Critically, multicellular life is not Strategy~2 replacing
+Strategy~1. It is Strategy~1 \emph{organized by} Strategy~2: fungible
+cells composed into a graph whose topology carries the knowledge.
+Cancer, viewed from this framing, is the defection of cells from graph
+back to swarm (Papers~5--6, \cite{McCarthy2026e, McCarthy2026f}).
+
+\emph{Physarum polycephalum} (slime mold) provides a striking
+existence proof that the crossover is real. Under abundant resources,
+\emph{Physarum} persists as individual fungible cells (Strategy~1).
+Under scarcity---when environmental novelty exceeds what a single cell
+can handle---the cells aggregate into a tubular network that solves
+shortest-path problems through physical flow dynamics alone
+\cite{Nakagaki2000}. The organism floods all paths simultaneously,
+then prunes low-flow tubes until only the optimal routes remain:
+parallel exploration followed by topological optimization. No neuron,
+no central controller, no designer. The same cells, the same genome,
+switching from swarm to graph when the pressure crosses the threshold.
+Graph structure emerges from the constraint, not from design.
+Large language models are undergoing the same transition now:
+retrieval-augmented generation, tool use, and agent architectures are
+graph structure aggregating around a flat substrate under scaling
+pressure. The industry is slime-molding.
+
+The intersection creates two demands that pull in opposite
+directions. The system must be \emph{consistent}: when a proposition is
+updated or invalidated, every dependent proposition must reflect the
+change, or downstream inferences will contradict upstream evidence.
+It must also be \emph{available}: when a problem requires a subset of
+stored knowledge, that subset must be retrievable without examining
+everything the system knows. In distributed systems, this tension is
+formalized as the CAP theorem \cite{Brewer2000, Gilbert2002}: under
+network partitions, a system cannot simultaneously guarantee
+consistency and availability.
+
+A knowledge system under bounded active context faces an analogous
+constraint. Active context---the number of propositions simultaneously
+available for inference---is the partition. Biological working memory holds
+roughly $4 \pm 1$ items \cite{Cowan2001}. Transformer context windows,
 though large, degrade in inference quality as they fill with content
-irrelevant to the current problem \cite{Liu2024}. Institutional
-decision makers cannot hold an entire organization's knowledge in a
-single meeting. In each case, there is a hard or effective bound on
-\emph{active context}: the number of propositions simultaneously
-available for inference.
+irrelevant to the current problem \cite{Liu2024}. In each case,
+there is a hard or effective bound $C_n$ on how many propositions can
+be loaded at once. The system's total knowledge exceeds $C_n$, so at
+any moment, most knowledge is partitioned away from active inference.
 
-This paper asks a narrow question: \textbf{what are the requirements of a knowledge representation if information
-is not to be lost as the number of stored propositions exceeds the
-active context bound?}
+A flat representation (an unstructured list of propositions) can
+serve one demand but not both. Consistency without structure requires
+examining every proposition to propagate an update: $O(n)$ per
+invalidation. Availability without structure provides no way to scope
+which propositions depend on a changed one, so invalidation cascades
+either propagate too broadly (wasting context) or too narrowly
+(leaving stale dependents---inconsistency).
 
-The answer is a directed graph with typed edges. We prove this from two
-independent arguments, each sufficient on its own:
+This paper proves that a directed graph with typed edges is the
+minimum structure that provides both consistency and availability
+under bounded context. We establish this from two independent
+arguments, each corresponding to one side of the tradeoff:
 
 \begin{enumerate}
-\item \textbf{Information preservation} (Proposition~\ref{thm:graph-info}).
+\item \textbf{Consistency} (Proposition~\ref{thm:graph-info}).
    When a bounded system must make space for new propositions, the only
    operation that creates space without losing information is
    \emph{factoring}: extracting shared structure into a named node with
-   typed edges. Factoring is graph construction. Discarding without
-   adjacency information is blind; lossy compression without adjacency is
-   blind discarding with extra steps.
+   typed edges. Factoring is graph construction. It preserves the
+   posterior over world states exactly---the consistency guarantee.
+   Discarding without adjacency information is blind; lossy compression
+   without adjacency is blind discarding with extra steps.
 
-\item \textbf{Retention dynamics} (Theorem~\ref{thm:graph-dynamics}).
-   Any representation that supports sub-linear dependency queries,
+\item \textbf{Availability} (Theorem~\ref{thm:graph-dynamics}).
+   Any representation that supports sub-linear dependency queries---
    answering ``what depends on this proposition?'' in less than $O(n)$
-   time, necessarily stores directed adjacency. Selective removal
+   time---necessarily stores directed adjacency. Selective removal
    with cascade (invalidating a proposition and propagating to its
-   dependents) requires typed edges to scope correctly. These are the
-   operations any system performs when maintaining knowledge under
-   continuous evidence arrival.
+   dependents) requires typed edges to scope correctly. These
+   operations are the availability guarantee: maintaining knowledge
+   under continuous evidence arrival without loading all of $K$ into
+   context.
 \end{enumerate}
 
-The result is substrate independent. It does not prescribe an
+The two arguments are independent: consistency alone forces graph
+structure; availability alone forces graph structure. A system
+requiring both---which is every system that persists under bounded
+context with evidence arrival---is doubly committed.
+
+The result is substrate-independent. It does not prescribe an
 implementation (adjacency lists, edge tables, attention masks, synaptic
 connections). It proves that the \emph{information content} of any
 adequate representation is a directed graph, regardless of how that
 graph is physically realized.
 
+This has a direct consequence for the relationship between knowledge
+and action. A highly connected graph creates consistency risk:
+the more edges a node has, the larger the cascade when it is
+updated. Separating knowledge from the action system that maintains
+it---as current neural network architectures do, with weights
+encoding knowledge and forward passes encoding action---creates two
+representations that must be kept consistent with each other.
+The consistency cost of that separation grows with graph density.
+Paper~2 in this series \cite{McCarthy2026b} proves that under
+bounded context, the separation cost exceeds its benefit: knowledge
+and action must share a single representation. The graph proven
+necessary here is not merely a data structure. It is the
+architecture.
+
 \subsection{Related work}
 
-Graph-structured knowledge representations are widely used in practice:
+\textbf{The CAP theorem} \cite{Brewer2000, Gilbert2002} proves that a
+distributed data store cannot simultaneously provide consistency
+(every read returns the most recent write), availability (every
+request receives a response), and partition tolerance (the system
+operates despite message loss). The standard response is to choose
+two: CP systems (e.g., ZooKeeper) sacrifice availability; AP systems
+(e.g., Cassandra) sacrifice consistency; CQRS architectures maintain
+separate read and write models to manage the tradeoff explicitly
+\cite{Young2010}. The present paper shows that bounded active context
+creates an analogous constraint for any knowledge system, and that
+graph structure is the minimum representation that manages both sides.
+
+\textbf{Graph-structured knowledge representations} are widely used:
 knowledge graphs \cite{Hogan2021}, Bayesian networks \cite{Pearl1988},
 description logics \cite{BaaderCalvaneseEtAl2003}, and the
 RDF/OWL stack \cite{BernersLee2001} all represent knowledge as directed
-labeled graphs. Guarino's formal ontology \cite{Guarino1998} grounds
-this choice in the structure of the domain: entities, relations, and
-constraints map naturally to nodes, edges, and types. These demonstrate that graph structure is \emph{effective} for knowledge
-representation. The question of whether it is \emph{necessary}, as
-opposed to convenient, has received less formal attention.
+labeled graphs. These demonstrate that graph structure is
+\emph{effective}. The question of whether it is \emph{necessary} has
+received less formal attention. The present paper provides the missing
+argument: graph structure is necessary because it is the minimum
+representation that provides both consistency and availability under
+bounded context.
 
-The present paper provides the missing argument: under bounded active
-context, graph structure is not a design preference but a
-mathematical consequence of information preservation
-(Proposition~\ref{thm:graph-info}) and sub-linear maintenance
-(Theorem~\ref{thm:graph-dynamics}). The typed directed edges of
-description logics and OWL are not an engineering convenience but the
-minimal structure any system must maintain. This result retroactively
-grounds decades of practice in a formal necessity argument.
-
-The information bottleneck principle \cite{Tishby2000} establishes that
+\textbf{The information bottleneck} \cite{Tishby2000} establishes that
 optimal representations compress input while preserving information
-relevant to output. Our information preservation argument
+relevant to output. Our consistency argument
 (Proposition~\ref{thm:graph-info}) addresses a different question: not what
 to compress, but what structure the representation must have to compress
 without information loss.
 
-Simon's bounded rationality \cite{Simon1955} establishes that cognitive
+\textbf{Bounded rationality} \cite{Simon1955} establishes that cognitive
 agents satisfice rather than optimize. Our bounded context constraint
 ($C_n$) formalizes a specific consequence: when the bound is hard,
 structure is not optional but necessary.
 
-Codd's relational model \cite{Codd1970} established that normalizing
-a database, extracting repeated data into separate tables linked by
-foreign keys, eliminates redundancy while preserving information.
-The information-preservation argument (Proposition~\ref{thm:graph-info})
-derives the same structural operation from first principles: factoring
-shared propositions into named nodes with typed edges is normalization.
-The contribution is not the operation itself but the proof that it is
-the \emph{unique} space-creating operation that preserves information
-under bounded context, and that it necessarily produces graph structure.
+\textbf{Codd's relational model} \cite{Codd1970} established that normalizing
+a database---extracting repeated data into separate tables linked by
+foreign keys---eliminates redundancy while preserving information.
+Normalization is a consistency operation: it eliminates update anomalies
+(where changing a fact in one place leaves stale copies elsewhere).
+The consistency argument (Proposition~\ref{thm:graph-info})
+derives the same operation from first principles: factoring
+shared propositions into named nodes with typed edges is normalization,
+and it is the \emph{unique} space-creating operation that preserves
+information under bounded context.
 
 % ------------------------------------------------------------------
 \section{Formal Framework}
@@ -233,7 +314,7 @@ logical impossibility of alternatives.
 \end{remark}
 
 % ------------------------------------------------------------------
-\section{Graph Necessity from Information Preservation}
+\section{The Consistency Requirement: Graph from Information Preservation}
 \label{sec:info}
 % ------------------------------------------------------------------
 
@@ -541,7 +622,7 @@ but insufficient: it delays the curation problem without eliminating
 it.
 
 % ------------------------------------------------------------------
-\section{Graph Necessity from Retention Dynamics}
+\section{The Availability Requirement: Graph from Retention Dynamics}
 \label{sec:dynamics}
 % ------------------------------------------------------------------
 
@@ -870,21 +951,80 @@ path is not to grow the context window but to grow the encoded knowledge
 accessible via stored adjacency: filling the graph, not the context
 window.
 
+\textbf{Remark (Catastrophic forgetting as consistency failure).}
+The consistency-availability framing explains a fundamental limitation
+of continuous-weight knowledge stores. In a graph, every proposition
+has an address and every dependency is a typed edge. When a proposition
+is updated, the invalidation cascade follows the edges: the system
+knows exactly what depends on the changed fact and can scope the
+update. Typed edges are partition boundaries---they delineate which
+knowledge is coupled to which.
+
+A weight matrix has no partition boundaries. An update to any weight
+potentially affects every output. There is no adjacency structure to
+scope the cascade, because the matrix encodes no structural information
+about which outputs depend on which inputs through which weights.
+Consequently, learning a new fact can silently overwrite an existing
+one, with no mechanism to detect or recover the loss. This is
+\emph{catastrophic forgetting} \cite{McCloskey1989, Kirkpatrick2017}:
+the consistency failure of an available system with no partition
+structure.
+
+Every proposed mitigation---elastic weight consolidation
+\cite{Kirkpatrick2017}, experience replay \cite{Rolnick2019},
+progressive networks \cite{Rusu2016}---is an attempt to bolt partition
+boundaries onto a system that does not natively have them.
+The graph structure proven necessary in this paper provides those
+boundaries natively: typed edges tell the system which knowledge
+is coupled to which, so updates propagate correctly and nothing is
+silently lost. This is not an engineering convenience; it is the
+consistency guarantee that bounded-context systems require.
+
+The cost comparison is stark. A graph provides $O(d)$ retrieval
+(follow stored edges) and $O(d)$ scoped update cascade (propagate
+along typed dependencies). A weight matrix provides $O(n^2)$
+retrieval (full attention computation) and $O(n^2)$ unscoped update
+cascade (gradient flows through all parameters). The weight matrix
+is not merely inconsistent---it is $O(n^2/d)$ worse at both
+retrieval and update than the graph it is dynamically recomputing.
+It chose availability over consistency and got poor availability as
+well, because recomputing structure from scratch at every step is
+strictly more expensive than storing it.
+
 % ------------------------------------------------------------------
 \section{Discussion}
 \label{sec:discussion}
 % ------------------------------------------------------------------
 
-The two results establish graph necessity from independent premises.
-Proposition~\ref{thm:graph-info} requires only the curation regime (bounded
-capacity, new propositions arriving). Theorem~\ref{thm:graph-dynamics}
-requires only continuous knowledge maintenance (evidence arrives,
-dependencies must be traced) and does not assume lossless preservation
-; it applies equally to systems that tolerate information loss,
-because the cost argument concerns maintenance operations, not
-retention policy. Any system subject to both constraints,
-which includes every physical system that accumulates knowledge, is
-doubly committed to graph structure.
+The two results establish graph necessity from independent premises,
+each corresponding to one side of the consistency-availability tradeoff.
+Proposition~\ref{thm:graph-info} establishes the consistency
+requirement: the only way to make space without losing information is
+to factor shared structure into named nodes with typed edges.
+Theorem~\ref{thm:graph-dynamics} establishes the availability
+requirement: sub-linear dependency queries, contextual retrieval, and
+scoped invalidation cascade all require directed adjacency.
+
+In distributed systems, the analogous tension is formalized by the
+CAP theorem \cite{Brewer2000}: no system can simultaneously guarantee
+consistency, availability, and partition tolerance. Under bounded
+active context, the partition is the context bound itself---most
+knowledge is always partitioned away from inference. The graph
+structure proven necessary here is the minimum representation that
+manages the resulting tradeoff: typed edges enable scoped consistency
+(update anomalies propagate only along typed dependencies, not
+globally), and adjacency enables sub-linear availability (retrieve
+$K^{[f]}$ in $O(d)$ rather than $O(n)$).
+
+This is not merely analogous to the engineering practice of
+graph-structured data stores. Relational databases---directed graphs
+over tables linked by foreign keys---remain the gold standard for
+consistent, available data precisely because the relational model
+enforces both sides of the tradeoff through normalization (consistency)
+and indexing (availability). The present result proves that this is
+not a design preference but a mathematical necessity: any system that
+must be both consistent and available under bounded capacity must
+maintain graph structure, regardless of substrate.
 
 \subsection{The continuous representation objection}
 
@@ -1146,37 +1286,62 @@ remains an open empirical question.
 % ------------------------------------------------------------------
 
 We have shown that graph structure over propositions is not a design
-choice but a necessary consequence of two independently sufficient
-constraints: information preservation under bounded capacity, and
-sub-linear knowledge maintenance under continuous evidence arrival.
-Continuous-weight mechanisms such as transformer self-attention implement
-graph structure dynamically rather than constituting alternatives to it.
-The result applies to any system that accumulates
-propositions under bounded active context and must preserve information:
-such a system necessarily maintains a directed graph with typed edges, whether that
-graph is realized as explicit edges, learned sparse attention, synaptic
-connectivity, or any other medium.
+choice but the minimum representation that provides both consistency
+and availability under bounded context. The consistency argument
+(Proposition~\ref{thm:graph-info}) shows that factoring is the unique
+information-preserving space-creating operation. The availability
+argument (Theorem~\ref{thm:graph-dynamics}) shows that sub-linear
+maintenance operations require directed adjacency. Together, they
+establish that any system managing the consistency-availability
+tradeoff under bounded context necessarily maintains a directed graph
+with typed edges, whether realized as explicit edges, learned sparse
+attention, synaptic connectivity, or foreign keys in a relational
+database.
+
+Continuous-weight mechanisms such as transformer self-attention
+implement graph structure dynamically rather than constituting
+alternatives to it. They pay $O(n^2)$ per inference step to
+recompute the graph that a stored-adjacency system accesses in $O(d)$.
+This is the availability cost of not storing the structure permanently.
+
+\subsection*{The series from here}
+
+This result establishes that graph structure is necessary.
+The remaining papers in this series address the consequences.
+If knowledge is a graph, can it be separated from the action system
+that maintains it? Paper~2 \cite{McCarthy2026b} proves that
+separation creates a distributed consistency problem whose cost
+exceeds the benefit under bounded context: knowledge and action must
+share a single representation, and the graph must be normalized with
+typed edges that scope updates. This is the data store's consistency
+property.
+If the knowledge system is a normalized graph, what control
+architecture manages it? Paper~3 \cite{McCarthy2026c} proves that
+bounded context forces convergence toward escalation---handle
+problems at the lowest sufficient level, escalate on failure---because
+top-down supervision costs context that scales with action repertoire.
+This is the service topology.
+What measure of performance is appropriate for a system operating
+under these constraints? Paper~4 \cite{McCarthy2026d} derives
+$I = \gamma \cdot \eta_M$---the rate of adaptation to novelty---as
+the unique structural invariant of persistence under bounded context.
+Together, these are not independent insights. They are consequences
+of one constraint: bounded context forces the
+consistency-availability tradeoff, and every architectural decision
+follows from how that tradeoff is managed.
 
 \subsection*{Computational consequence}
 
 A proven structural result eliminates design space permanently.
-If graph structure is necessary, then any system that discovers
-graph-like organization from data is rediscovering what the proof
-already establishes---paying the discovery cost on every training
-run for structure that was already known. The proof pays that cost
-once.
-
-The practical consequence is direct. A learning system operating
-over $n$ unstructured features must evaluate $O(n^2)$ pairwise
-interactions to discover which ones carry signal. A system informed
-by the proven structure evaluates only the $O(k^2)$ interactions
-the theory identifies as meaningful, where $k \ll n$. The
-compression ratio $(n/k)^2$ is not an approximation; it is the
-computational dividend of a proof. The proven structure does not
+A learning system operating over $n$ unstructured features must
+evaluate $O(n^2)$ pairwise interactions to discover which ones
+carry signal---rediscovering on every training run what the proof
+already establishes. A system informed by the proven structure
+evaluates only the $O(k^2)$ interactions the theory identifies as
+meaningful, where $k \ll n$. The compression ratio $(n/k)^2$ is
+the computational dividend of a proof. The proven structure does not
 need to be rediscovered. It does not degrade. It does not require
-retraining. Each theorem in this series eliminates a region of
-the search space that no system---biological or artificial---needs
-to explore again.
+retraining.
 
 \section*{Acknowledgments}
 
@@ -1189,6 +1354,12 @@ The author used Claude (Anthropic) for drafting assistance, literature review, a
 R.~Arp, B.~Smith, and A.~D. Spear.
 \newblock \emph{Building Ontologies with Basic Formal Ontology}.
 \newblock MIT Press, 2015.
+
+\bibitem{Brewer2000}
+E.~A. Brewer.
+\newblock Towards robust distributed systems.
+\newblock In \emph{Proceedings of the 19th ACM Symposium on Principles of
+Distributed Computing (PODC)}, 2000.
 
 \bibitem{BaaderCalvaneseEtAl2003}
 F.~Baader, D.~Calvanese, D.~L. McGuinness, D.~Nardi, and P.~F.
@@ -1241,6 +1412,12 @@ M.~Geva, R.~Schuster, J.~Berant, and O.~Levy.
 \newblock Transformer feed-forward layers are key-value memories.
 \newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
   Natural Language Processing}, pages 5484--5495, 2021.
+
+\bibitem{Gilbert2002}
+S.~Gilbert and N.~Lynch.
+\newblock Brewer's conjecture and the feasibility of consistent, available,
+  partition-tolerant web services.
+\newblock \emph{ACM SIGACT News}, 33(2):51--59, 2002.
 
 \bibitem{Guarino1998}
 N.~Guarino.
@@ -1300,6 +1477,18 @@ G.~A. Miller.
   capacity for processing information.
 \newblock \emph{Psychological Review}, 63(2):81--97, 1956.
 
+\bibitem{Rolnick2019}
+D.~Rolnick, A.~Ahuja, J.~Schwarz, T.~P. Lillicrap, and G.~Wayne.
+\newblock Experience replay for continual learning.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~32, 2019.
+
+\bibitem{Rusu2016}
+A.~A. Rusu, N.~C. Rabinowitz, G.~Desjardins, H.~Sober, J.~Kirkpatrick,
+  K.~Kavukcuoglu, R.~Pascanu, and R.~Hadsell.
+\newblock Progressive neural networks.
+\newblock \emph{arXiv preprint arXiv:1606.04671}, 2016.
+
 \bibitem{Pearl1988}
 J.~Pearl.
 \newblock \emph{Probabilistic Reasoning in Intelligent Systems: Networks of
@@ -1329,6 +1518,11 @@ N.~Tishby, F.~C. Pereira, and W.~Bialek.
 \newblock In \emph{Proceedings of the 37th Annual Allerton Conference on
   Communication, Control, and Computing}, pages 368--377, 2000.
 
+\bibitem{Young2010}
+G.~Young.
+\newblock CQRS Documents.
+\newblock \url{https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf}, 2010.
+
 \bibitem{Woods1975}
 W.~A. Woods.
 \newblock What's in a link: Foundations for semantic networks.
@@ -1336,11 +1530,40 @@ W.~A. Woods.
   Understanding: Studies in Cognitive Science}, pages 35--82. Academic Press,
   1975.
 
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Knowledge as normalization: consistency under partition separates
+  shared propositions from action.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded
+  context.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Evaluation-driven descent, encoding permanence, and the structural
+  invariants of intelligence.
+\newblock Working paper, 2026.
+
 \bibitem{McCarthy2026e}
 P.~D. McCarthy.
 \newblock Coupling channels, severance hierarchy, and the prognostic
 structure of cancer: an empirical test of bounded-context theory.
 \newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{McCarthy2026f}
+P.~D. McCarthy.
+\newblock Channel biology validates the encoding hierarchy: distributed
+  coupling predicts survival where hub genes do not.
+\newblock Working paper, 2026.
+
+\bibitem{Nakagaki2000}
+T.~Nakagaki, H.~Yamada, and {\'A}.~T{\'o}th.
+\newblock Intelligence: Maze-solving by an amoeboid organism.
+\newblock \emph{Nature}, 407(6803):470, 2000.
 
 \end{thebibliography}
 

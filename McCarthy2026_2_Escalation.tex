@@ -30,11 +30,22 @@ knowledge $|K|$ grows with $|A|$, exposing more dependency chains to
 evidence revision. Any control architecture that remains viable must
 progressively shed supervisory tracking of routine actions, offloading
 them to autonomous lower levels that signal upward only on failure. This shedding \emph{is} escalation.
-This monotone increase in the escalation fraction is not a design
-choice but a scaling consequence:
-maintaining top-down tracking incurs $O(k \cdot \alpha)$ context
-overhead, which fills $C_n$ as capability grows, degrading inference
-quality for novel problems. The crossover occurs when $k \cdot \alpha
+
+Read through layered architecture: the encoding hierarchy is a stack of
+bounded domains. $L_0$ holds heritable encodings, $L_1$
+holds developmental encodings, $L_n$ holds active context. Each level
+encapsulates its own state; the internal routing between levels is
+opaque to the environment. Requests enter from outside and flow
+downward through the stack. Errors flow upward: when a level cannot
+resolve a problem with its encoded knowledge, it signals the next level
+up. This is escalation as error handling. Top-down allocation is the
+request path: the supervisor delegates downward and waits for results.
+Escalation is the error path: failure propagates upward and the next
+level engages reactively. The convergence result establishes that as
+capability grows, the error path handles an increasing fraction of
+the work, because lower levels resolve more problems locally.
+
+The crossover occurs when $k \cdot \alpha
 \geq C_n / 2$; for biological working memory, at 2--3 concurrent
 delegations. Beyond the crossover, the only recovery is to stop
 tracking routine actions, which is to adopt escalation for those
@@ -71,6 +82,23 @@ number of propositions simultaneously available for inference and the
 formal analogue of Simon's bounded rationality
 \cite{Simon1955,Simon1962}, the control architecture is not a free
 parameter but a survival-critical design choice.
+
+The control problem is an architecture problem. The encoding hierarchy
+is a stack of bounded domains, each encapsulating its own state. The
+environment sends requests that enter the stack from outside. Each
+domain either resolves the request with its encoded knowledge or
+signals failure upward. Requests flow top-down; errors flow bottom-up.
+These are two paths through the same layered architecture. Top-down
+allocation is the request path: a supervisor at $L_n$ delegates
+downward and holds state for each delegation. Escalation is the error
+path: lower levels handle requests autonomously and signal upward only
+on failure. The convergence result proves that as capability grows,
+the error path handles an increasing fraction of work, because
+lower-level domains resolve more requests locally. Paper~1
+\cite{McCarthy2026a} proved that knowledge under bounded context
+necessarily forms a graph. This paper proves that the
+\emph{control architecture} over that graph converges to escalation:
+layered domains with upward error propagation.
 
 Two complementary mechanisms address this problem:
 
@@ -121,11 +149,21 @@ viable at scale necessarily converges toward escalation. Section~5
 compares the two architectures directly. Section~6 engages with prior
 work.
 
-This paper is the second in a series. Paper~1 \cite{McCarthy2026a}
-established that any system accumulating knowledge under bounded
-context necessarily maintains graph structure. The present paper
-addresses how that structure is \emph{controlled}: how problems are
-routed through the encoding hierarchy.
+This paper is the third in a series on bounded-context architecture.
+Paper~1 \cite{McCarthy2026a} established that any system accumulating
+knowledge under bounded context necessarily maintains graph structure.
+Paper~2 \cite{McCarthy2026b} established that the graph must be
+normalized---typed edges scoping updates to $O(1)$---the data store's
+consistency properties.
+The present paper addresses how that structure is \emph{controlled}:
+how problems are routed through the encoding hierarchy. The answer is
+layered architecture. Each encoding level is a bounded domain that
+encapsulates its own state and resolves requests with its encoded
+knowledge. The internal routing between levels is opaque to the
+environment. Requests enter from outside and flow downward; errors
+propagate upward. As capability grows, lower levels handle more
+requests locally, and $L_n$ engages only on failure. This is
+escalation: the error-handling path through a layered architecture.
 
 % ------------------------------------------------------------------
 \section{Formal Framework}
@@ -291,6 +329,42 @@ serialize processing through a hierarchy; it parallelizes across levels,
 with upward propagation occurring only on failure.
 \end{corollary}
 
+\textbf{Remark (Escalation as error handling in layered architecture).}
+The encoding hierarchy is a layered architecture in the software sense:
+each level is a bounded domain that encapsulates its own state, accepts
+requests through a defined interface, and handles what it can locally.
+The internal state and messaging between levels is opaque to the outside
+system. The environment couples to the interface, not the
+implementation.
+
+Requests enter the stack from outside and flow downward through the
+layers. This is the top-down path: the supervisor delegates, each level
+receives its assignment. Errors flow in the opposite direction. When a
+level cannot resolve a request with its encoded knowledge, it signals
+upward. This is escalation: not an alternative architecture but the
+error-handling path through the same layered architecture.
+
+The circuit breaker pattern makes this precise. Each level monitors its
+own uncertainty. When uncertainty exceeds the level's capacity to bound
+it, the circuit trips: the problem is ejected upward rather than
+processed with insufficient knowledge. The alternative (processing with
+insufficient knowledge) produces incorrect actions. The circuit breaker
+prevents this by sacrificing local completeness (the level admits it
+cannot handle the problem) so that a higher level with broader
+knowledge can handle it correctly.
+
+Top-down allocation is the request path operating in the opposite
+direction: the supervisor initiates downward calls to every domain,
+holding connection state for all of them. The overhead is $O(k \cdot
+\alpha)$ (the supervisor's model of every active delegation). This is
+the centralized orchestrator. Escalation is the event-driven
+alternative: each domain handles its own requests, the orchestrator
+only hears about failures. As the system matures and lower domains
+become more capable, fewer errors propagate upward. The orchestrator's
+load \emph{decreases} with system capability. Under top-down, the
+orchestrator's load \emph{increases} with capability because each new
+domain adds a delegation to track.
+
 % ------------------------------------------------------------------
 \section{Convergence to Escalation Under Bounded Context}
 \label{sec:topdown}
@@ -386,6 +460,40 @@ handles the routine and top-down handles the novel. This hybrid is
 the only architecture that remains viable under bounded $C_n$ as
 $|A| \to \infty$.
 \end{proof}
+
+\textbf{Remark (Design pattern correspondence).}
+The convergence has a precise correspondence to software design
+patterns \cite{GammaEtAl1994}. Top-down allocation is the
+\emph{Mediator} pattern: a central object coordinates all communication
+between components, holding state for every interaction. Escalation is
+the \emph{Chain of Responsibility} pattern with circuit breakers: each
+handler attempts the request; if it cannot handle it, the request
+propagates to the next handler. No handler tracks what other handlers
+are doing.
+
+The Mediator's coordination cost grows with the number of components:
+each new component adds state the mediator must track. The Chain of
+Responsibility's cost at any handler is $O(1)$: attempt, succeed or
+propagate. This is the $O(k \cdot \alpha)$ versus $O(1)$ distinction
+of Theorem~\ref{thm:topdown}. Every large-scale software system that
+has replaced centralized orchestration with event-driven architecture
+has enacted this convergence. The trajectory from monolithic
+application servers to microservices with message queues is
+escalation at the system level: each service handles what it can,
+failures propagate to a supervisor service, no central process tracks
+all service states simultaneously.
+
+This is one of the two fundamental architectural choices any system
+must make: service topology. The other is data store (how knowledge is
+structured and maintained), which is the subject of Papers~1 and~2
+\cite{McCarthy2026a,McCarthy2026b}. The service topology determines
+how requests and errors flow through the system. The data store
+determines how knowledge is organized within each domain. Together
+they define the architecture. The convergence result establishes that
+the service topology converges toward layered domains with
+escalation (Chain of Responsibility) as the system scales. The data
+store result (Paper~1) establishes that each domain's knowledge
+converges toward graph structure.
 
 \subsection{The crossover: when top-down yields to escalation}
 \label{sec:crossover}
@@ -728,7 +836,7 @@ The industry is converging toward hybrid architectures that incorporate
 escalation. Dense attention is the starting point, not the destination.
 The cost pressures the theorem identifies are driving the convergence.
 
-\textbf{Remark: the LLM theory of the case.}
+\textbf{Remark: the LLM as flat architecture.}
 Theorem~\ref{thm:topdown} does not claim that large language models
 \emph{cannot work}. Dense attention over a large context window is a
 viable strategy as long as the context can cover the problem space,
@@ -736,6 +844,27 @@ that is, as long as the system operates below the crossover
 (Section~\ref{sec:crossover}). Current LLMs succeed precisely because
 their context windows are large enough, relative to the problems they
 are asked to solve, that $\rho$ degradation is tolerable.
+
+Architecturally, an LLM begins as a flat service: every token attends
+to every other token at $O(n^2)$ cost. Gradient descent recovers
+structure within this flat space---attention heads specialize, layers
+develop hierarchical representations (syntax in early layers, semantics
+in later layers), and sparse activation patterns emerge. This is the
+convergence the theorem predicts, occurring \emph{inside the weights}
+through training pressure. The LLM is rediscovering layered
+architecture from data.
+
+But the recovered structure is not addressable. The entity cannot
+enumerate what it knows, cannot scope an update to a bounded domain,
+and cannot detect when its knowledge is insufficient for a given
+request. There are no circuit breakers: given any input, the system
+produces an output. The hallucination failure mode is what happens when
+an architecture processes a request with insufficient knowledge but has
+no error path through which to escalate. The structure learned by
+gradient descent is evidence for the theorem, not a counterexample
+to it---the system is converging toward the architecture the theorem
+identifies as necessary, paying $O(n^2)$ per forward pass to
+rediscover structure that a stored graph would provide at $O(d)$.
 
 What the theorem establishes is that this strategy is
 \emph{suboptimal and expensive}. Full self-attention recomputes the
@@ -745,7 +874,8 @@ retrieval, where $d$ is the local degree. The cost ratio grows
 quadratically with context size. For a 128k-token context window, the
 system computes ${\sim}10^{10}$ pairwise attention weights per layer per
 query, the vast majority of which are near-zero (irrelevant pairs). This
-is the computational cost of not having a graph.
+is the computational cost of a flat architecture that has not been
+decomposed into layered domains.
 
 The theorem also predicts a ceiling. As the problems LLMs are asked to
 solve grow in complexity, requiring more knowledge, more reasoning
@@ -763,7 +893,14 @@ dense top-down attention is functional but costly. The industry
 trajectory toward sparse attention, mixture-of-experts, and
 retrieval-augmented generation is movement toward the post-crossover
 architecture the theorem identifies as necessary: stored adjacency,
-selective retrieval, escalation on failure.
+selective retrieval, escalation on failure. Each of these modifications
+introduces layered structure into the flat architecture: sparse
+attention learns which connections to keep (domain boundaries emerging
+from data), MoE routes tokens to specialized sub-networks (bounded
+domains with encapsulated parameters), and RAG retrieves from an
+external store (a separate data-store service called across a domain
+boundary). The trajectory is from flat Mediator toward layered Chain
+of Responsibility.
 
 \textbf{Remark on scope.} Theorem~\ref{thm:topdown} does not claim
 that top-down control is unnecessary. Top-down allocation handles
@@ -1150,13 +1287,55 @@ generation: this trajectory is not a design trend but the scaling
 convergence the theorem predicts. Systems scaling beyond $k^*$
 \emph{must} adopt escalation-like structure or degrade.
 
-The series to this point has established two results: knowledge under
-bounded context necessarily forms a graph \cite{McCarthy2026a}; and
-the control architecture over that graph converges toward escalation
-as capability grows under bounded context (this paper). Together,
-these results constrain the architecture of any system that
+\subsection*{Series from here}
+
+Any system operating under bounded context must make two fundamental
+architectural choices: how to organize its \emph{data store}
+(knowledge structure) and how to organize its \emph{service topology}
+(control architecture). The series to this point addresses both:
+
+\begin{enumerate}
+\item \textbf{Paper~1} \cite{McCarthy2026a}: The data store.
+   Knowledge under bounded context necessarily forms a graph. This is
+   the structural result: what form the data store must take.
+
+\item \textbf{Paper~2} \cite{McCarthy2026b}: The data store's
+   consistency properties. The graph must be normalized, with typed
+   edges scoping updates to $O(1)$. This is the CAP result: K/A
+   inseparability, partition boundaries, update anomaly as consistency
+   failure.
+
+\item \textbf{This paper}: The service topology. The control
+   architecture over the data store converges toward escalation as
+   capability grows. Each encoding level is a bounded domain that
+   encapsulates its own state. Requests flow top-down through the
+   layered architecture; errors propagate bottom-up. Top-down control
+   is the Mediator pattern (centralized orchestration); escalation is
+   Chain of Responsibility with circuit breakers (layered domains with
+   error handling). The Mediator's cost grows with the number of
+   domains; the Chain of Responsibility's cost is bounded by the
+   failure rate.
+\end{enumerate}
+
+What is notable is that these are not design recommendations but
+convergence results. Software engineering arrived at layered
+architectures, bounded contexts, and normalized data stores through
+decades of empirical iteration. Biology arrived at the same structures
+through billions of years of selection. The encoding hierarchy
+(Definition~\ref{def:hierarchy}) with escalation on failure is the
+architecture of the nervous system, the immune system, and the
+cell-division control hierarchy. The convergence is not coincidence:
+bounded context imposes the same constraints regardless of substrate,
+and the viable architectures under those constraints are the same.
+
+Together, these results constrain the architecture of any system that
 accumulates knowledge, acts under uncertainty, and operates within
-bounded active context, which is every physical system that persists.
+bounded active context. The data store is a normalized graph. The
+service topology is layered domains with escalation. The remaining
+question is what constitutes \emph{intelligence} within this
+architecture: Paper~4 \cite{McCarthy2026d} addresses this as
+management efficiency $I = \gamma \cdot \eta_M$, the capacity to
+extract inference quality from bounded context.
 
 \section*{Acknowledgments}
 
@@ -1237,10 +1416,26 @@ N.~F. Liu, K.~Lin, J.~Hewitt, A.~Paranjape, M.~Bevilacqua, F.~Petroni, and
 \newblock \emph{Transactions of the Association for Computational Linguistics},
   12:157--173, 2024.
 
+\bibitem{GammaEtAl1994}
+E.~Gamma, R.~Helm, R.~Johnson, and J.~Vlissides.
+\newblock \emph{Design Patterns: Elements of Reusable Object-Oriented Software}.
+\newblock Addison-Wesley, 1994.
+
 \bibitem{McCarthy2026a}
 P.~D. McCarthy.
-\newblock Graph structure is necessary for information preservation under
-  bounded context.
+\newblock Managing consistency and availability under bounded context:
+  graph structure as necessary consequence.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Knowledge as normalization: consistency under partition separates
+  shared propositions from action.
+\newblock Working paper, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Intelligence as management efficiency under bounded context.
 \newblock Working paper, 2026.
 
 \bibitem{Simon1955}

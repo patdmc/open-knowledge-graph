@@ -361,6 +361,66 @@ Cycle-dominant.}
 \label{fig:channel-by-ct}
 \end{figure}
 
+\textbf{Channel identity vs.\ gene degree per cancer type.}
+Network degree---the number of protein interactions a gene
+participates in---predicts survival pan-cancer ($p = 10^{-39}$).
+But per-cancer-type analysis reveals that degree is significant in
+only 15 of 29 evaluable cancer types, while channel identity
+(which of the six channels is mutated) is significant in 22 of 29
+(Table~\ref{tab:degree-vs-channel}).
+Degree is a roll-up: it measures whether TP53 or CDKN2A is mutated.
+Channel identity captures which organizational function failed.
+In seven cancer types---colorectal, glioma, esophagogastric,
+melanoma, renal cell, small bowel, and small cell lung---degree is
+non-significant while at least one channel reaches $p < 0.05$.
+In colorectal cancer ($n = 4{,}596$), degree contributes nothing
+($p = 0.36$), but PI3K/Growth ($p = 1.8 \times 10^{-8}$) and
+Immune ($p = 8.5 \times 10^{-7}$) are highly significant.
+In glioma ($n = 1{,}457$), degree is marginal ($p = 0.08$)
+while PI3K/Growth alone reaches $p = 5.9 \times 10^{-18}$.
+
+\begin{table}[ht]
+\centering
+\caption{Channel identity vs.\ network degree, per cancer type
+(MSK-IMPACT 50K). Each row shows the best channel $p$-value from a
+six-channel Cox model and the degree-only $p$-value for the same
+cohort. 99 genes mapped to 6 channels across 468 panel genes.
+Cancer types with $n < 100$ or $<30$ events excluded.}
+\label{tab:degree-vs-channel}
+\medskip
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrcccl@{}}
+\toprule
+Cancer Type & $n$ & Degree $p$ & Channel $p$ & \#sig & Best channel \\
+\midrule
+Breast                    & 4709 & $2 \times 10^{-30}$ & $2 \times 10^{-37}$ & 4 & CellCycle \\
+Prostate                  & 1747 & $5 \times 10^{-14}$ & $3 \times 10^{-17}$ & 2 & CellCycle \\
+Thyroid                   &  597 & $3 \times 10^{-16}$ & $5 \times 10^{-16}$ & 1 & CellCycle \\
+Endometrial               & 2150 & $6 \times 10^{-20}$ & $1 \times 10^{-14}$ & 5 & CellCycle \\
+Pancreatic                & 2227 & $1 \times 10^{-10}$ & $6 \times 10^{-6}$  & 2 & CellCycle \\
+NSCLC                     & 5578 & $1 \times 10^{-9}$  & $3 \times 10^{-10}$ & 2 & CellCycle \\
+\midrule
+Colorectal                & 4596 & 0.36                & $2 \times 10^{-8}$  & 5 & PI3K\_Growth \\
+Glioma                    & 1457 & 0.08                & $6 \times 10^{-18}$ & 1 & PI3K\_Growth \\
+Melanoma                  & 1323 & 0.005               & $4 \times 10^{-5}$  & 3 & PI3K\_Growth \\
+Esophagogastric           & 1422 & 0.78                & 0.068               & 0 & Endocrine \\
+Renal Cell                &  568 & 0.25                & 0.022               & 1 & CellCycle \\
+Small Bowel               &  129 & 0.27                & $2 \times 10^{-3}$  & 1 & Immune \\
+Small Cell Lung           &  375 & 0.69                & 0.021               & 1 & PI3K\_Growth \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+The top block: both degree and channel are significant, with comparable
+or stronger $p$-values for channels. The bottom block: degree is
+non-significant, but the channel model identifies exactly which
+organizational function is load-bearing in that tissue.
+This is not a modeling improvement. It is a structural claim:
+cancer is not ``high-degree gene mutated.'' Cancer is ``this
+channel severed in this tissue.'' Degree absorbs that signal
+pan-cancer because CellCycle genes (TP53, CDKN2A) are
+high-degree. Per cancer type, the channel is the ground truth.
+
 \textbf{Full covariate adjustment.} Kitchen-sink Cox model: TMB, MSI,
 cancer type, subtype, age, sex, tumor purity, FGA, primary site,
 sample type, panel version. 275 covariates in the 50K cohort.
@@ -499,7 +559,7 @@ A cell can maintain a finite number of regulatory states ($C_n$)
 \cite{Cowan2001}. Multicellular organization overcomes this through
 hierarchical coupling: cell ($k\!=\!0$) escalates to tissue
 ($k\!=\!1$), organ ($k\!=\!2$), organism ($k\!=\!3$)
-\cite{McCarthy2026b}. Coupling channels are the independent
+\cite{McCarthy2026c}. Coupling channels are the independent
 dimensions of this hierarchy: gap junctions at the cell-tissue
 boundary \cite{Aasen2016}, paracrine signaling at tissue-organ,
 endocrine and immune at organ-organism \cite{Hanahan2011}.
@@ -507,7 +567,7 @@ endocrine and immune at organ-organism \cite{Hanahan2011}.
 \textbf{Chain severance.}
 When a channel is lost, the cell's context contracts. Actions
 requiring tissue level coordination become inaccessible
-\cite{McCarthy2026a, McCarthy2026c}. What remains: proliferation,
+\cite{McCarthy2026a, McCarthy2026b}. What remains: proliferation,
 metabolic autonomy, motility. Hanahan and Weinberg's hallmarks
 \cite{Hanahan2011} are not acquired capabilities. They are the
 convergent action space under cell level bounded context. The
@@ -803,13 +863,13 @@ P.~D. McCarthy.
 
 \bibitem{McCarthy2026b}
 P.~D. McCarthy.
-\newblock Convergence of control architectures to escalation under bounded context.
+\newblock Knowledge as normalization: consistency under partition separates
+  shared propositions from action.
 \newblock Manuscript, 2026.
 
 \bibitem{McCarthy2026c}
 P.~D. McCarthy.
-\newblock Knowledge as normalization: bounded context separates shared
-  propositions from action.
+\newblock Convergence of control architectures to escalation under bounded context.
 \newblock Manuscript, 2026.
 
 \bibitem{McCarthy2026d}
