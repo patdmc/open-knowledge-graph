@@ -1,0 +1,688 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{The Ratchet:\\Evolution and Cancer as Opposing Failures\\of the Same Mechanism}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper completes the series. Papers~1--4 derive the structural
+constraints of bounded context. Papers~5--8 validate them in cancer
+genomics. Paper~9 shows their instantiation in a production system.
+Paper~10 shows their instantiation in the genome. This paper names
+the mechanism that connects them.
+
+A knowledge graph under bounded context can fail in two directions.
+Forward: novel signal exceeds the graph's capacity to encode it, and
+the system must restructure. This is evolution. Backward: governance
+degrades and the system loses the capacity to maintain its own
+structure. This is cancer. The mechanism is the same. The direction
+differs. We call it the ratchet.
+
+The ratchet has a characteristic shape: the sigmoid. Two scaling
+classes ($O(n^2)$ and $O(\log n)$) compete. The inferior class
+outperforms at small scale. At a crossover point, it fails
+catastrophically. Every system transition in the series follows
+this curve. We derive its shape from the bounded context constraint
+and show that cancer, evolution, aging, and the current crisis in
+AI scaling are all instances of the same crossover.
+
+The genome and the software industry arrived at identical
+architectures not by analogy but by necessity. Bounded context
+admits only one family of solutions. 3.8 billion years of selection
+and 60 years of engineering found the same one.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+The series began with a constraint: active context is finite. Every
+paper since has been a consequence of that constraint. This paper is
+the last consequence.
+
+Paper~1 proved that bounded context requires graph structure.
+Paper~2 proved that graphs under survival pressure escalate.
+Paper~3 proved that knowledge and action cannot be separated.
+Paper~4 proved that encoding permanence must track confidence.
+Papers~5--8 showed that cancer data obeys these constraints.
+Paper~9 showed a production system discovering them.
+Paper~10 showed the genome implementing them.
+
+This paper asks: what happens when the constraints are violated?
+
+The answer is the ratchet. It clicks forward (evolution) or backward
+(cancer). Both are failures of the same mechanism. The mechanism is
+governance under bounded context. The direction depends on which
+force dominates: novelty from outside the graph or degradation from
+within it.
+
+% ------------------------------------------------------------------
+\section{The Graph Changes First}
+\label{sec:graph-first}
+% ------------------------------------------------------------------
+
+The standard model of molecular biology places DNA at the center:
+DNA $\to$ RNA $\to$ protein. Changes begin in the sequence and
+propagate outward. This paper inverts the arrow.
+
+The cell is a running knowledge graph. Its Meta/Action/Knowledge
+state (Paper~1) is maintained in protein concentrations, metabolite
+levels, signaling cascades, and chromatin accessibility. DNA is the
+serialized projection of this graph (Paper~10). Epigenetic marks are
+the write-ahead log. The sequence is the commit log.
+
+Changes begin in the running graph, not in the sequence. A cell
+responds to a signal. Its M/A/K state shifts. If the shift is small,
+the epigenetic layer (the write-ahead log) absorbs it. The scratch
+pad handles the transaction. No sequence change is needed.
+
+If the shift exceeds the scratch pad's capacity, the change must be
+committed to the sequence. This is a one-way door. The scratch pad
+(epigenetics) is lossy: transgenerational epigenetic inheritance fades
+after 3--5 generations \cite{Heard2014} because the WAL has
+approximately one layer of error correction (Paper~10). The commit log (DNA) persists
+indefinitely because it has seven.
+
+The one-way door is the ratchet. Small changes are absorbed and may
+wash out. Large changes, if they survive long enough to exceed the
+scratch pad, commit. Once committed, they do not uncommit. The
+sequence ratchets forward.
+
+\subsection{Evidence: epigenetics precedes genetics}
+
+This inversion is not novel. The epigenetic progenitor model
+\cite{Feinberg2006} and the Waddington landscape tradition
+established that epigenetic changes precede genetic ones in
+carcinogenesis. The contribution here is not the observation but
+the formalization: the WAL/commit-log architecture from Paper~10
+explains \emph{why} this ordering is necessary, not merely that
+it is observed.
+
+If the graph changes first, epigenetic changes should precede
+sequence changes. They do. DNA methylation changes
+are detectable in pre-malignant tissue years before driver mutations
+appear \cite{Feinberg2006}. The scratch pad fills before the commit
+log corrupts. CHIP (Paper~10) is this sequence in slow motion:
+epigenetic maintenance fails first, and sequence-level driver
+mutations follow years to decades later \cite{Jaiswal2014}.
+
+Field cancerization---the observation that histologically normal
+tissue adjacent to tumors carries epigenetic but not genetic
+alterations \cite{Slaughter1953}---is the spatial version of the
+same sequence. The graph is already changed. The commit has not yet
+happened.
+
+\subsection{One mutation can spawn an organ}
+
+A single germline mutation does not build an organ. It changes the
+decompression instructions (Paper~10, selective decompression).
+The complexity was already latent in the projection. The mutation
+unlocks a subgraph that was never previously decompressed.
+
+This resolves the paradox of how a point mutation can produce a
+complex phenotype. The phenotype is not encoded in the mutation.
+It is encoded in the graph. The mutation changes which part of the
+graph gets traversed. A single switch in a routing table redirects
+traffic to an entire subnetwork that was always present but never
+addressed.
+
+% ------------------------------------------------------------------
+\section{The Ratchet}
+\label{sec:ratchet}
+% ------------------------------------------------------------------
+
+The ratchet clicks in two directions.
+
+\subsection{Forward: evolution}
+
+A novel signal arrives from outside the graph. Environmental change.
+A new pathogen. A new food source. The signal cannot be handled by
+the current M/A/K state. The system must restructure.
+
+If the restructuring is small, epigenetics absorbs it. The population
+adapts without sequence change. This is phenotypic plasticity.
+
+If the restructuring exceeds the scratch pad, a sequence change is
+needed. The mutation that enables the restructuring is selected for.
+It commits. The ratchet clicks forward.
+
+Forward ratcheting builds larger, more complex graphs. More nodes.
+More edges. More layers of governance (Paper~10). The organism gains
+capacity. It can handle more signal. It can maintain more context.
+It moves rightward on the scaling curve.
+
+But forward ratcheting has a cost: every new node in the graph is a
+new node that must be governed. The governance burden scales as
+$\log(n)$ (Paper~10), but it scales. The organism becomes more
+capable and more vulnerable simultaneously. More context capacity
+means more context to maintain. More governance layers means more
+layers that can fail.
+
+\subsection{Backward: cancer}
+
+Governance degrades. A repair layer loses confidence. A checkpoint
+gene mutates. The WAL replay machinery fails (CHIP). The system
+cannot maintain its own structure.
+
+The cell does not ``decide'' to become cancerous. It loses the
+capacity to maintain its position in the graph. Its M/A/K state
+drifts. It stops responding to coordination signals. It stops
+respecting resource boundaries. It reverts to the strategy that
+preceded governance: replicate, consume, compete.
+
+This is not reversion to an ancestral form. The bacterial mutation
+rate ($\sim 10^{-6}$) is not something cancer cells accelerate to.
+It is the base rate. It was always there. The seven governance layers
+suppressed it. As layers are shed, the base rate re-emerges
+(Paper~10). The cell is not going backward. The governance that was
+holding it forward is falling away.
+
+Cancer is the ratchet clicking backward: not because the sequence
+reverts, but because the governance that made the sequence
+meaningful degrades. The cell defects from the graph to the swarm.
+From Strategy~2 (maximize context) to Strategy~1 (minimize context
+need). From $O(\log n)$ back to $O(n^2)$.
+
+\subsection{The asymmetry}
+
+Forward ratcheting requires something rare: a mutation that enables
+a novel, beneficial restructuring of the graph. It requires signal
+from outside the system.
+
+Backward ratcheting requires something common: degradation of any
+one of $k$ governance layers. It requires only entropy.
+
+Evolution is hard. Cancer is easy. The forward ratchet clicks rarely.
+The backward ratchet clicks constantly. The organism exists in the
+interval between them: building complexity that entropy is always
+trying to dismantle. This is the vise from Paper~1. Novelty from
+above, degradation from below. The graph is the structure that
+survives between them.
+
+% ------------------------------------------------------------------
+\section{The Sigmoid}
+\label{sec:sigmoid}
+% ------------------------------------------------------------------
+
+\subsection{Two scaling classes}
+
+Paper~1 identified two strategies for bounded context:
+\begin{enumerate}
+\item \textbf{Minimize context need.} Stay flat. Stay fungible.
+   Horizontal scaling. $O(n^2)$ search over a small domain.
+   Bacteria, BitTorrent, transformers.
+\item \textbf{Maximize context capacity.} Build hierarchy. Build
+   a graph. Vertical scaling. $O(\log n)$ indexed retrieval.
+   Multicellular life, knowledge graphs, compiled code.
+\end{enumerate}
+
+At small scale, Strategy~1 outperforms. When $|K| \ll C_n$,
+exhaustive search is faster than indexed retrieval because the
+constant overhead of index maintenance dominates the exponent.
+The dangerous property of the inferior scaling class is not that it
+fails but that it succeeds, conspicuously, until a crossover it
+cannot see.
+
+\subsection{The crossover}
+
+The crossover occurs where the total cost of Strategy~1 exceeds
+the total cost of Strategy~2 (governance overhead included).
+Below this point, Strategy~1 dominates. Above it, Strategy~2
+dominates.
+
+For any two functions $f(n) = an^2$ and $g(n) = b \log n + c$,
+the crossover point $n^*$ satisfies $a(n^*)^2 = b \log n^* + c$.
+The ratio $f/g$ diverges monotonically. It is not itself a sigmoid.
+But it does not need to be.
+
+Every real system has a resource bound $R$. The context window is
+finite. The blood supply is finite. The budget is finite. The cost
+curve $f(n) = an^2$ exists on a domain bounded by $R$. Below $R$,
+the system absorbs the quadratic cost. At $R$, the system fails.
+The transition between ``absorbs'' and ``fails'' is bounded between
+0 and 1. It has the shape of a sigmoid: flat for a long time, steep
+at the transition, flat again after failure.
+
+The dangerous property is not the shape. It is the scale. The
+sigmoid is so large---the upper bound so far from the current
+operating point---that from below, the curve looks logarithmic.
+The system sees steady improvement. It extrapolates forward and
+sees more of the same. The inflection point is real but it is
+beyond the observable horizon. By the time the curvature becomes
+visible, the system is past it. This is why the transition appears
+sudden. It is not sudden. It was accumulating on the part of the
+curve that looked flat because the sigmoid was too big to see.
+
+\subsection{Every system transition follows this curve}
+
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+\textbf{Transition} & \textbf{Strategy 1} & \textbf{Strategy 2} & \textbf{Crossover signal} \\
+\midrule
+Unicellular $\to$ multicellular & Replicate, compete & Coordinate, specialize & Colony size \\
+Prokaryote $\to$ eukaryote & Flat genome & Compartmented nucleus & Genome size \\
+Innate $\to$ adaptive immunity & Fixed receptors & V(D)J recombination & Pathogen diversity \\
+Scripted $\to$ learned behavior & Reflexes & Neural plasticity & Environment variance \\
+Agent $\to$ script (Paper~9) & Full context per call & Cached determinism & Uncertainty $< \tau$ \\
+Context stuffing $\to$ graph & $O(n^2)$ token cost & $O(\log n)$ traversal & Context window size \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In every case, the system begins with Strategy~1 because it is
+simpler and cheaper at small scale. When the domain exceeds the
+crossover, the system either transitions to Strategy~2 or dies.
+There is no third option. The scaling math does not negotiate.
+
+\subsection{Cancer as reverse crossover}
+
+Cancer reverses the transition. A cell that has been operating under
+Strategy~2 (coordinated, governed, part of the tissue graph) loses
+enough governance to fall below the crossover. It reverts to
+Strategy~1: replicate, compete, consume.
+
+This reversion succeeds locally. The cancer cell outcompetes its
+neighbors because it is not paying the governance overhead. It is
+faster, less constrained, more resource-hungry. For the same reason
+that Strategy~1 outperforms at small scale. The cancer cell is
+operating below the crossover where $O(n^2)$ wins.
+
+But the organism is above the crossover. The cancer cell's local
+success is the organism's systemic failure. The noisy neighbor
+consumes bounded resources (Paper~10). The system that vertically
+scaled cannot tolerate a component that horizontally scales
+without authorization.
+
+% ------------------------------------------------------------------
+\section{The Mutation Rate Signature}
+\label{sec:mutation-rate}
+% ------------------------------------------------------------------
+
+The mutation rate of a cell is a direct readout of its remaining
+governance (Paper~10, Table~1 \cite{McCarthy2026j}). Normal human
+cells: $\sim 5 \times 10^{-10}$ (all seven layers). MSI-high
+cancers: $\sim 10^{-7}$ (MMR lost). Hypermutated cancers:
+$\sim 10^{-5}$ (multiple layers lost). The progression is not
+``speeding up.'' It is shedding layers. The base rate was always
+there. Cancer cells have lost the deceleration.
+
+The convergence between late-stage cancer rates and bacterial rates
+($\sim 10^{-6}$ to $10^{-3}$) is the prediction. Both represent the
+base rate with minimal governance. The difference: bacteria evolved
+to operate there. Cancer cells are operating there inside a system
+that requires $10^{-10}$. The rate is the same. The context is
+catastrophically different.
+
+% ------------------------------------------------------------------
+\section{Aging as Ratchet Drag}
+\label{sec:aging}
+% ------------------------------------------------------------------
+
+If the forward ratchet is evolution and the backward ratchet is
+cancer, aging is the friction in between: the slow accumulation of
+governance degradation that has not yet crossed the threshold into
+frank disease.
+
+Paper~10 established the asymmetry: DNA (the data) has seven layers
+of error correction. Epigenetic marks (the index) have approximately
+one. Every cell division copies the data with high fidelity and the
+index with low fidelity. Over a lifetime of divisions, the data
+remains largely intact. The index degrades.
+
+Aging is index degradation. The cell's data is fine. Its ability to
+\emph{find} the right data---to maintain the right genes in the right
+activation state in the right tissue---declines. Epigenetic drift is
+the index losing coherence. Cellular senescence is the system
+blocking writes when the WAL buffer is full (Paper~10). Stem cell
+exhaustion is the system running out of instances that still have a
+coherent index.
+
+CHIP is the canary. DNMT3A, TET2, ASXL1---the index maintenance
+machinery---fail first because they have the least redundancy
+\cite{Jaiswal2014}. The data repair systems (proofreading, MMR, BER)
+are still running. The checkpoints (p53) are still running. But the
+WAL replay is failing, and every subsequent cell division loses more
+index state.
+
+The ratchet does not click backward all at once. It drags. Each
+cell division with slightly worse index fidelity is a fraction of
+a click. Over decades, the accumulated drag reaches a threshold
+where some cell's governance falls below the crossover. That cell
+reverts to Strategy~1. That is cancer. The ratchet has clicked.
+
+% ------------------------------------------------------------------
+\section{The Forward Ratchet in Software}
+\label{sec:software}
+% ------------------------------------------------------------------
+
+The same mechanism operates in the systems described in Paper~9.
+
+A software system begins simple: flat architecture, exhaustive
+search, full context per query. Strategy~1. At small scale, this
+outperforms. The system is fast, simple, and easy to reason about.
+
+As the domain grows, the system hits the crossover. Context windows
+fill. Response times degrade quadratically. The system must
+restructure: build a knowledge graph, factor shared structure,
+transition predictable actions to scripts. Strategy~2. The ratchet
+clicks forward.
+
+But forward ratcheting creates governance overhead. The knowledge
+graph must be maintained. The scripts must be validated. The
+transition thresholds must be monitored. Every abstraction is a
+new node that must be governed. Paper~9's forever tax is the
+governance cost of the forward ratchet.
+
+And the backward ratchet operates too. Technical debt is governance
+degradation. An abstraction that was correct becomes stale as the
+domain shifts. A script that was validated against one input class
+encounters a new class. A knowledge graph edge that was true becomes
+false. Each degradation reduces the system's governance capacity.
+Enough degradation and the system reverts: the team abandons the
+graph, goes back to context stuffing, pays the $O(n^2)$ cost because
+the governance overhead has become more expensive than the
+alternative.
+
+The software industry cycles between these states: build structure,
+let it degrade, tear it down, build new structure. The ratchet clicks
+forward when someone invests in governance. It drags backward when
+no one does. The cycle is not a failure of engineering. It is the
+ratchet operating on a shorter timescale than biological evolution
+but under the same constraints.
+
+Large language models are undergoing the transition now. The context
+window is the bounded context. The quadratic attention cost is
+$O(n^2)$. Retrieval-augmented generation, tool use, agent
+architectures---these are the $O(\log n)$ infrastructure being built
+under scaling pressure.
+
+The parallel to the K-Pg extinction is precise. Dinosaurs at the
+boundary occupied three positions on the sigmoid:
+
+\begin{enumerate}
+\item \textbf{Birds.} Had already begun building $O(\log n)$
+   infrastructure: smaller bodies, endothermy, enhanced metabolic
+   efficiency. The exogenous shock cleared the niche above them.
+   They crossed.
+\item \textbf{Crocodilians.} Stayed on Strategy~1 in a niche where
+   the crossover never arrives. Cold-blooded, low metabolic rate,
+   indeterminate growth. The domain stays small enough that $O(n^2)$
+   works. They have not changed in 200 million years because the
+   niche has not changed.
+\item \textbf{Non-avian dinosaurs.} Too large for Strategy~1, had not
+   built Strategy~2. Sitting in the middle of the sigmoid when the
+   shock arrived. Extinct.
+\end{enumerate}
+
+Current language models are building feathers. The question is not
+whether the transition happens---the scaling math guarantees it---but
+which systems are birds and which are crocodilians. Both survive.
+LLMs handling bounded-scope tasks (conversation, creative writing,
+single-document analysis) may never hit the crossover. They are the
+crocodile niche: the domain is small enough. LLMs attempting
+open-ended reasoning over large knowledge bases will hit the
+crossover. They must build the graph or hit the wall.
+
+The systems that will not survive are the ones scaling the
+dinosaur: making the context window bigger, adding more parameters,
+paying the quadratic cost---too large for Strategy~1, not yet
+building Strategy~2. The middle of the sigmoid is where extinction
+happens.
+
+% ------------------------------------------------------------------
+\section{Convergence}
+\label{sec:convergence}
+% ------------------------------------------------------------------
+
+The genome and the software industry arrived at the same architecture:
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Architectural pattern} & \textbf{Genome} & \textbf{Software} \\
+\midrule
+Directed graph with typed edges & Regulatory network & Knowledge graph \\
+Hierarchical error correction & 7 repair layers & Test/staging/prod \\
+Write-ahead log & Epigenetic marks & Transaction log \\
+Selective decompression & Cell-type-specific expression & Lazy loading \\
+Encoding permanence & DNA $>$ epigenetics $>$ protein & Code $>$ config $>$ runtime \\
+Autoscaling with policy & Mitosis + contact inhibition & Container orchestration \\
+Horizontal + vertical scaling & Cell division + specialization & Replicas + microservices \\
+Orchestrator as SPOF & TP53 & Load balancer \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This convergence is not metaphor. It is not analogy. It is the
+consequence of a mathematical constraint. Papers~1--4 prove that
+any persistent system under bounded context must maintain these
+structures. The genome and the software industry are both persistent
+systems under bounded context. They found the same solution because
+it is the only solution.
+
+The timescales differ by eight orders of magnitude (3.8 billion years
+versus 60 years). The substrates differ entirely (nucleotides versus
+silicon). The selection pressures differ (survival versus profit).
+But the constraint is the same. And the constraint determines the
+architecture.
+
+% ------------------------------------------------------------------
+\section{What the Series Claims}
+\label{sec:claims}
+% ------------------------------------------------------------------
+
+Taken together, the eleven papers make the following claims:
+
+\begin{enumerate}
+\item Any persistent system under bounded active context must
+   maintain a directed graph with typed edges (Paper~1).
+
+\item Such systems converge to escalation architectures under
+   survival pressure (Paper~2).
+
+\item Knowledge and action are inseparable under this constraint
+   (Paper~3).
+
+\item Information encodes at permanence levels proportional to
+   confidence (Paper~4).
+
+\item Cancer follows the topology of the biological knowledge graph:
+   channels, positions, and co-occurrence patterns carry independent
+   survival signal (Papers~5--8).
+
+\item The genome is an instance of this architecture: DNA as commit
+   log, epigenetics as write-ahead log, repair layers as governance
+   scaling logarithmically with cell count (Paper~10).
+
+\item The forward ratchet (evolution) and the backward ratchet
+   (cancer) are opposing failures of the same governance mechanism.
+   The sigmoid crossover between scaling classes determines when each
+   occurs (this paper).
+
+\item Software systems under bounded context discover the same
+   architecture independently (Paper~9).
+
+\item The convergence is not analogy. It is mathematical necessity.
+\end{enumerate}
+
+\subsection{What this series does not claim}
+
+It does not claim that biology is a computer. It claims that
+biology and computers are both subject to the same information-theoretic
+constraint, and that the constraint admits one family of solutions.
+
+It does not claim that cancer can be ``solved'' by better engineering.
+It claims that the structural nature of the problem is identical to
+problems that distributed systems engineering has formalized, and that
+the formalism may yield insight.
+
+It does not claim that evolution is ``designed.'' It claims that
+selection under bounded context is a sufficient condition for the
+emergence of graph structure, and that no designer is needed for
+the architecture to converge.
+
+% ------------------------------------------------------------------
+\section{The Dangerous Property of the Inferior Scaling Class}
+\label{sec:dangerous}
+% ------------------------------------------------------------------
+
+The dangerous property of $O(n^2)$ is not that it fails. It is that
+it succeeds.
+
+At small scale, quadratic search is faster than logarithmic retrieval.
+The constant overhead of maintaining an index exceeds the cost of
+brute-force search. A flat transformer outperforms a structured
+retriever when the corpus is small. A bacterial colony outperforms a
+multicellular organism when the environment is simple. A startup with
+no process outperforms a company with governance when the team is
+five people.
+
+The success is real. The success is measurable. The success is
+temporary.
+
+The crossover is invisible from below. Not because it is hidden.
+Because the sigmoid is so large that the curve looks flat from where
+you stand. The system that is winning at $n = 100$ sees a log curve.
+It extrapolates and sees more log curve. The inflection at
+$n = 10{,}000$ is real, but it is beyond the horizon. The scaling
+exponent is a fact about the function, not about the current input.
+By the time the curvature becomes visible, the system is past it.
+
+Cancer follows this curve exactly. A cell with one governance layer
+lost is indistinguishable from its neighbors. Two layers lost, still
+functional. Three layers lost, measurably different but not yet
+dangerous. Each step looks like the last. The curve looks flat. Then
+four layers lost---past the inflection---and the cell is replicating
+without constraint. Cancer appears sudden because the sigmoid was
+too big to see from inside it.
+
+Dinosaurs followed this curve. 165 million years of dominance.
+Strategy~1 at enormous scale: large bodies, high metabolic cost,
+brute-force resource acquisition. The sigmoid was always there.
+They could not see it because the flat part lasted longer than
+most lineages exist. When the exogenous shock arrived (the K-Pg
+asteroid), three outcomes followed:
+
+\begin{itemize}
+\item The lineages that had already begun building $O(\log n)$
+   infrastructure---smaller bodies, endothermy, metabolic
+   efficiency---survived and radiated. These became birds.
+\item The lineages that remained on Strategy~1 in a niche where
+   the crossover never arrives---cold-blooded, low metabolic rate,
+   small effective $n$---survived unchanged. These are crocodilians.
+\item The lineages in between---too large for Strategy~1, too
+   invested in the old architecture to build Strategy~2---went
+   extinct. The middle of the sigmoid is where extinction happens.
+\end{itemize}
+
+This is the prediction the series makes about artificial intelligence.
+The current generation of language models operates on the flat part of
+the curve. Context windows are growing. Performance is improving.
+The success is real. The curve looks like a log from here. It is not.
+
+Some systems will cross: build graph structure, governance layers,
+retrieval infrastructure. Birds. Some will find the niche where
+quadratic attention is sufficient---bounded tasks, single-document
+scope, conversational interaction---and remain there indefinitely.
+Crocodilians. Both survive.
+
+The systems that will not survive are the ones scaling the dinosaur:
+making the context window bigger, adding parameters, paying the
+quadratic cost at increasing scale. Too large for Strategy~1. Not
+building Strategy~2. The middle of the sigmoid. The scaling math
+does not negotiate.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+The ratchet clicks forward when a system acquires the governance to
+handle more complexity. It clicks backward when governance degrades
+and the system can no longer maintain its own structure. Forward is
+evolution. Backward is cancer. The mechanism is governance under
+bounded context. The shape is a sigmoid. The constraint is
+mathematical.
+
+The genome and the software industry are not analogous systems. They
+are the same system, implemented on different substrates, operating
+at different timescales, subject to the same constraint. The
+architecture they share was not borrowed from one domain to the other.
+It was derived independently, because it is the only architecture
+that satisfies the constraint.
+
+Active context is finite. Everything else follows.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance and
+\LaTeX{} preparation. All theoretical content and arguments are the
+author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation
+under bounded context.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{McCarthy2026j}
+P.~D. McCarthy.
+\newblock The genome as knowledge graph: governance, scaling, and the
+architecture of multicellular life.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{Feinberg2006}
+A.~P. Feinberg, R.~Ohlsson, and S.~Henikoff.
+\newblock The epigenetic progenitor origin of human cancer.
+\newblock \emph{Nature Reviews Genetics}, 7(1):21--33, 2006.
+
+\bibitem{Jaiswal2014}
+S.~Jaiswal, P.~Fontanillas, J.~Flannick, et~al.
+\newblock Age-related clonal hematopoiesis associated with adverse
+outcomes.
+\newblock \emph{New England Journal of Medicine}, 371(26):2488--2498, 2014.
+
+\bibitem{Slaughter1953}
+D.~P. Slaughter, H.~W. Southwick, and W.~Smejkal.
+\newblock ``Field cancerization'' in oral stratified squamous epithelium.
+\newblock \emph{Cancer}, 6(5):963--968, 1953.
+
+\bibitem{Bianconi2013}
+E.~Bianconi, A.~Piovesan, F.~Facchin, et~al.
+\newblock An estimation of the number of cells in the human body.
+\newblock \emph{Annals of Human Biology}, 40(6):463--471, 2013.
+
+\bibitem{Heard2014}
+E.~Heard and R.~A. Martienssen.
+\newblock Transgenerational epigenetic inheritance: myths and mechanisms.
+\newblock \emph{Cell}, 157(1):95--109, 2014.
+
+\end{thebibliography}
+
+\end{document}

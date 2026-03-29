@@ -1,0 +1,1034 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{The Genome as Knowledge Graph:\\Governance, Scaling, and the Architecture of Multicellular Life}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Papers~1--4 of this series derive the structural constraints any
+persistent system must satisfy under bounded context: graph structure,
+escalation, inseparability of knowledge and action, and encoding
+permanence. Papers~5--8 validate these constraints empirically in
+cancer genomics. This paper shows that the genome itself is such a
+system. DNA is the serialized projection of a directed knowledge graph.
+Epigenetic marks are the write-ahead log. Repair layers are the
+governance architecture. We show that the number of distinct repair
+mechanisms scales as $\log_{10}(n)$ where $n$ is organism cell count
+($R^2 = 0.84$, $p = 1.8 \times 10^{-4}$), and that this relationship
+is driven by scale, not by reproduction rate. The naked mole rat and
+the mouse---same cell count, same layer count, 300-fold difference in
+cancer rate---demonstrate that layer \emph{count} tracks architecture
+while layer \emph{confidence} tracks outcome. Cancer is not uncontrolled
+growth. It is a resource allocation failure in a bounded system: an
+autoscaling policy that lost its controls, consuming fixed resources
+that coordinated function requires. The genome invested seven layers
+of error correction in its data and approximately one in its index.
+CHIP is the invoice for that asymmetry.
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+Every system in this series operates under the same constraint: bounded
+active context. A knowledge graph in a software system has a finite
+working set. A language model has a finite context window. The genome
+has a finite cell, finite blood supply, finite immune capacity.
+
+The previous papers derive what follows from this constraint and
+validate those derivations in cancer data. This paper makes a stronger
+claim: the genome is not merely subject to the same constraints. It
+\emph{is} a knowledge graph under bounded context, and its architecture
+follows the predictions exactly.
+
+We proceed in four steps. Section~\ref{sec:projection} establishes
+DNA as the serialized projection of a running knowledge graph.
+Section~\ref{sec:governance} shows that repair layers scale
+logarithmically with organism size. Section~\ref{sec:confidence}
+separates architecture (layer count) from confidence (layer quality)
+and identifies the measurement gap. Section~\ref{sec:autoscaling}
+reframes cancer as an autoscaling failure in a bounded resource pool.
+
+% ------------------------------------------------------------------
+\section{DNA as Serialized Projection}
+\label{sec:projection}
+% ------------------------------------------------------------------
+
+A cell is a running system. It maintains metabolic state, responds to
+signals, executes repair, and coordinates with neighboring cells. The
+cell's active knowledge---its runtime graph---is encoded in protein
+concentrations, metabolite levels, chromatin accessibility, and
+epigenetic marks. This is the Meta/Action/Knowledge triad from
+Paper~1 \cite{McCarthy2026a}, instantiated in biochemistry.
+
+DNA is not the system. DNA is the system's serialized reboot contract.
+When the cell divides, the runtime is destroyed (denaturing dissolves
+the chromatin structure that constitutes the working index). What
+survives is the sequence---the data---and a partial copy of the
+epigenetic state. The daughter cell must reconstruct the runtime from
+this projection.
+
+The three encoding layers from Paper~4 \cite{McCarthy2026d} map
+directly:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Encoding layer} & \textbf{Paper~4} & \textbf{Genome} \\
+\midrule
+Most permanent & Axioms & DNA sequence \\
+Intermediate & Validated propositions & Epigenetic marks \\
+Most volatile & Working memory & Protein/metabolite state \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Different cell types access different subsets of the DNA sequence. A
+hepatocyte decompresses liver-relevant genes; a neuron decompresses
+brain-relevant genes. The sequence is identical. The index state
+differs. Cell type \emph{is} index state. This is selective
+decompression: the bounded context constraint means no cell can
+maintain the full graph in working memory, so each cell maintains a
+view.
+
+Cancer mutations cluster in tissue-relevant genes because those are
+the only genes decompressed in that tissue. An unexpressed gene cannot
+be disrupted by a replication error in a context where it is never
+replicated. The mutation spectrum per tissue type is a map of which
+subgraph was active.
+
+\subsection{The write-ahead log}
+
+In database systems, the write-ahead log (WAL) records intended
+changes before they are applied to the data files. If the system
+crashes mid-write, the WAL enables recovery. Epigenetic marks serve
+the same function.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Database concept} & \textbf{Biology} & \textbf{Survives replication?} \\
+\midrule
+RAM (query state) & Protein/metabolite levels & No \\
+Write-ahead log & Epigenetic marks & Partially (DNMT1 copies) \\
+Data files & DNA sequence & Yes (7 repair layers) \\
+Backup/replica & Germline DNA & Yes + meiotic recombination \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+DNMT1 follows the replication fork, reading methylation marks from
+the parent strand and copying them to the daughter. This is WAL replay.
+Histone modifications distribute roughly 50/50 to daughter strands,
+with neighboring histones providing quorum-based reconstruction. This
+is partial checkpoint recovery.
+
+The WAL has approximately one layer of error correction (DNMT1
+maintenance copying, partially backed by histone quorum). DNA has
+seven. This asymmetry has consequences.
+
+\subsection{CHIP as WAL buffer overflow}
+
+Clonal hematopoiesis of indeterminate potential (CHIP) is the
+age-related accumulation of somatic mutations in blood stem cells.
+Approximately 80\% of CHIP mutations occur in three genes: DNMT3A,
+TET2, and ASXL1 \cite{Jaiswal2014}. All three are methylation and
+chromatin maintenance genes. They are the WAL replay machinery.
+
+CHIP is not data corruption. The DNA sequence is intact. CHIP is
+index corruption: the machinery that maintains epigenetic state after
+replication is failing. Each replication event that proceeds with
+degraded WAL replay loses more index state. The cell gradually
+forgets its type specification.
+
+In database terms: the WAL buffer is full. The system has two options.
+Block new writes until the buffer drains (senescence---the cell stops
+dividing). Or write without journaling (cancer---the cell divides
+without maintaining epigenetic coherence). Fast, no stalling, but one
+bad write and the table is corrupt.
+
+The 80\% concentration in methylation genes tells you exactly which
+service is the bottleneck. The genome invested seven layers of error
+correction in its data and approximately one in its index. CHIP is
+the invoice for that asymmetry.
+
+% ------------------------------------------------------------------
+\section{Governance Scales Logarithmically}
+\label{sec:governance}
+% ------------------------------------------------------------------
+
+\subsection{The prediction}
+
+Each repair layer provides multiplicative suppression of the base
+mutation rate. Polymerase alone (without proofreading) produces errors
+at approximately $10^{-6}$ per base per replication. Each subsequent
+layer (proofreading, mismatch repair, base excision repair, nucleotide
+excision repair, double-strand break repair, cell cycle checkpoints,
+immune surveillance) catches a fraction of what the previous layer
+missed.
+
+A note on the taxonomy: the discretization into seven layers is a
+modeling choice, not a biological given. Double-strand break repair
+could be split into homologous recombination and non-homologous end
+joining. Base excision repair could be subdivided by substrate. Some
+authors count differently. What matters for the scaling argument is
+not the exact count but that the number of \emph{qualitatively distinct}
+repair mechanisms increases with organism complexity. Any reasonable
+discretization (5--9 layers) yields the same logarithmic relationship
+with cell count. The specific taxonomy here follows the conventional
+textbook decomposition.
+
+For an organism with $n$ cells to be viable, the total mutation burden
+must remain bounded:
+
+\[
+\mu_{\text{base}} \cdot \frac{n}{10^k} \leq T
+\]
+
+where $\mu_{\text{base}}$ is the unsuppressed base rate, $k$ is the
+number of governance layers, and $T$ is the maximum tolerable mutation
+burden. Solving for $k$:
+
+\[
+k \geq \log_{10}\left(\frac{\mu_{\text{base}} \cdot n}{T}\right) \propto \log_{10}(n)
+\]
+
+The number of layers required grows logarithmically with cell count.
+
+\subsection{The data}
+
+We compiled repair layer counts and cell counts across ten organisms
+spanning 15 orders of magnitude in cell count (Table~\ref{tab:organisms}).
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrl}
+\toprule
+\textbf{Organism} & \textbf{Cell count} & \textbf{Layers} & \textbf{Mut.\ rate} & \textbf{Layers present} \\
+\midrule
+\textit{E.\ coli} & $1$ & 2 & $5.4 \times 10^{-10}$ & Proof, MMR \\
+\textit{S.\ cerevisiae} & $1$ & 3 & $3.3 \times 10^{-10}$ & +BER \\
+\textit{C.\ elegans} & $959$ & 5 & $2.7 \times 10^{-9}$ & +NER, apoptosis \\
+\textit{D.\ melanogaster} & $5 \times 10^4$ & 5 & $3.5 \times 10^{-9}$ & +NER, apoptosis \\
+Zebrafish & $10^{10}$ & 6 & $7.5 \times 10^{-9}$ & +DSB, checkpoints \\
+Naked mole rat & $10^{10}$ & 7 & $1.0 \times 10^{-9}$ & All 7, enhanced \\
+Mouse & $10^{10}$ & 7 & $5.4 \times 10^{-9}$ & All 7 \\
+Human & $3.7 \times 10^{13}$ & 7 & $5.0 \times 10^{-10}$ & All 7 \\
+Elephant & $10^{15}$ & 7 & $3.0 \times 10^{-10}$ & All 7, 20$\times$ TP53 \\
+Bowhead whale & $10^{15}$ & 7 & $2.0 \times 10^{-10}$ & All 7, enh.\ DSB \\
+\bottomrule
+\end{tabular}
+\caption{Governance layers across organisms. Mutation rates are per
+base pair per cell division. Layer count reflects distinct repair/checkpoint
+mechanisms present, not quality or redundancy within each layer. Sources:
+Drake 1991, Lynch 2010, Denver et al.\ 2004, Cagan et al.\ 2022.}
+\label{tab:organisms}
+\end{table}
+
+Linear regression of governance layers on $\log_{10}(\text{cell count})$
+yields:
+
+\[
+\text{layers} = 0.290 \times \log_{10}(n) + 3.245 \qquad
+R^2 = 0.843, \quad p = 1.8 \times 10^{-4}
+\]
+
+The relationship is logarithmic, as predicted
+(Figure~\ref{fig:governance}, Panel~A).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{analysis/results/governance_scaling/governance_scaling.pdf}
+\caption{Governance scaling across organisms.
+\textbf{A.}~Repair layer count vs.\ $\log_{10}(\text{cell count})$
+($R^2 = 0.843$, $p = 1.8 \times 10^{-4}$).
+\textbf{B.}~Orders of magnitude of mutation rate suppression vs.\ cell
+count. Suppression is roughly constant ($\sim$3 orders), indicating
+that per-layer confidence, not layer count, explains the residual
+variance.
+\textbf{C.}~Mutation burden (rate $\times$ cell count) vs.\ cell count.
+Red line: expected burden with no governance. Blue line: observed
+trajectory with log-scaled governance. Without $\log(n)$ scaling,
+elephants would carry $10^9$ per-division mutations; observed burden is
+orders of magnitude lower.}
+\label{fig:governance}
+\end{figure}
+
+\subsection{The confound: reproduction rate}
+
+An obvious objection: organisms with more cells also reproduce more
+slowly. Perhaps governance layers track reproduction rate, not cell
+count. Elephants have fewer offspring than mice. The correlation might
+be driven by life history rather than scale.
+
+We tested four candidate predictors (Table~\ref{tab:confound},
+Figure~\ref{fig:confound}).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+\textbf{Predictor} & $R^2$ & $p$ \\
+\midrule
+$\log_{10}(\text{cell count})$ & 0.843 & $1.8 \times 10^{-4}$ \\
+$\log_{10}(\text{reproduction rate})$ & 0.628 & $6.3 \times 10^{-3}$ \\
+$\log_{10}(\text{generation time})$ & 0.890 & $4.2 \times 10^{-5}$ \\
+$\log_{10}(\text{lifespan})$ & 0.900 & $2.8 \times 10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\caption{Governance layer count regressed on candidate predictors.
+Lifespan and generation time show higher $R^2$ but are confounded
+with cell count. The naked mole rat breaks the confound.}
+\label{tab:confound}
+\end{table}
+
+Lifespan ($R^2 = 0.900$) and generation time ($R^2 = 0.890$) outperform
+cell count ($R^2 = 0.843$) as raw correlates. With $N = 10$ and only
+one overlapping pair (mouse/naked mole rat), this difference is not
+statistically decisive. The honest statement: we cannot statistically
+reject lifespan as the primary predictor from these data alone.
+
+The argument for cell count as the architectural driver is not purely
+statistical. It is mechanistic. The naked mole rat exposes the logic.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{analysis/results/governance_scaling/confound_analysis.pdf}
+\caption{Confound analysis: governance layers regressed on four
+candidate predictors. Red circles highlight the mouse and naked mole
+rat---same cell count, same layer count, different reproduction rate.
+In the cell count panel (upper left), they overlap. In every other
+panel, they separate. Cell count predicts layer \emph{count}.
+Lifespan and generation time conflate count with \emph{confidence}.}
+\label{fig:confound}
+\end{figure}
+
+\subsubsection{The naked mole rat}
+
+The naked mole rat (\textit{Heterocephalus glaber}) and the laboratory
+mouse have approximately the same cell count ($\sim 10^{10}$) and the
+same seven governance layers. They differ in everything else:
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Metric} & \textbf{Mouse} & \textbf{Naked mole rat} \\
+\midrule
+Cell count & $10^{10}$ & $10^{10}$ \\
+Governance layers & 7 & 7 \\
+Mutation rate (per bp/div) & $5.4 \times 10^{-9}$ & $1.0 \times 10^{-9}$ \\
+Generation time (days) & 60 & 365 \\
+Lifespan (years) & 2 & 30 \\
+Cancer rate & 30\% & $<0.1\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Same architecture. Same layer count. 300-fold difference in cancer
+rate. Layer count tracks cell count (both $10^{10}$, both 7 layers).
+Cancer rate tracks something else. That something is layer confidence.
+
+% ------------------------------------------------------------------
+\section{Architecture and Confidence}
+\label{sec:confidence}
+% ------------------------------------------------------------------
+
+\subsection{The two-dimensional model}
+
+Governance is not a scalar. It has two dimensions:
+
+\begin{enumerate}
+\item \textbf{Architecture}: the number of distinct governance layers.
+   This is the structural decision. It scales as $\log(n)$ where $n$
+   is cell count. It is set at speciation.
+\item \textbf{Confidence}: the reliability of each layer. This is
+   the investment decision. It varies within an architecture. It is
+   set by selection pressure on lifespan.
+\end{enumerate}
+
+Total governance capacity is the product of these dimensions:
+
+\[
+G = \prod_{i=1}^{k} (1 - \epsilon_i)
+\]
+
+where $k$ is the layer count and $\epsilon_i$ is the error rate of
+layer $i$. This product is dominated by the weakest layer.
+
+\subsection{The $n$-nines problem}
+
+In distributed systems, overall availability is bounded by the least
+reliable component. A service mesh with six components at 99.99\%
+availability and one component at 99\% delivers 99\% system
+availability. The weak link is the bottleneck.
+
+The same constraint governs biological governance. Seven repair layers
+at $1 - \epsilon$ each yield system confidence
+$(1-\epsilon)^7 \approx 1 - 7\epsilon$ for small $\epsilon$. But if
+one layer is at $1 - 10\epsilon$ while the others are at
+$1 - \epsilon$, the system confidence is approximately
+$1 - 16\epsilon$, dominated by the weak layer.
+
+Cancer does not need to defeat the governance system. It needs to
+defeat \emph{one layer}. The cascade handles the rest.
+
+To make this concrete: suppose each layer catches fraction $d_i$ of
+errors that reach it. Layer 1 (proofreading) sees the raw error rate
+$\mu_{\text{base}}$ and passes through $\mu_{\text{base}}(1 - d_1)$.
+Layer 2 (MMR) sees that residual and passes through
+$\mu_{\text{base}}(1-d_1)(1-d_2)$. The observed mutation rate is:
+
+\[
+\mu_{\text{obs}} = \mu_{\text{base}} \prod_{i=1}^{k} (1 - d_i)
+\]
+
+For humans, $\mu_{\text{base}} \approx 10^{-6}$ and
+$\mu_{\text{obs}} \approx 5 \times 10^{-10}$, so:
+
+\[
+\prod_{i=1}^{7} (1-d_i) = \frac{5 \times 10^{-10}}{10^{-6}}
+= 5 \times 10^{-4}
+\]
+
+If all layers had equal detection rate $d$, then $(1-d)^7 = 5 \times
+10^{-4}$, giving $d \approx 0.65$ (each layer catches 65\% of errors
+reaching it). But the product is dominated by the minimum. If six
+layers are at $d = 0.90$ and one is at $d = 0.30$:
+
+\[
+(1 - 0.90)^6 \times (1 - 0.30) = 10^{-6} \times 0.70
+= 7 \times 10^{-7}
+\]
+
+That single weak layer degrades the system by three orders of
+magnitude. This is the $n$-nines problem: you cannot achieve five
+nines of system reliability from a component running at three nines.
+The system is bounded by its weakest layer.
+
+\subsection{Measuring confidence per layer}
+
+The decomposition above requires per-layer detection rates $d_i$.
+These exist in fragments:
+
+\begin{center}
+\small
+\begin{tabular}{llr}
+\toprule
+\textbf{Layer} & \textbf{Measurement method} & \textbf{Est.\ $d_i$} \\
+\midrule
+Polymerase proofreading & In vitro fidelity assays & $\sim$0.99 \\
+Mismatch repair (MMR) & MMR$^{-/-}$ vs.\ wild-type rate & $\sim$0.99 \\
+Base excision repair & 8-oxoG accumulation & $\sim$0.99 \\
+Nucleotide excision repair & UV dose-response & $\sim$0.90 \\
+DSB repair (HR/NHEJ) & HR: high fidelity; NHEJ: lossy & $\sim$0.85 \\
+Checkpoints (p53/Rb) & Apoptotic rate per damage signal & $\sim$0.70 \\
+Immune surveillance & NK/T-cell clearance of transformed cells & Unknown \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A caveat on the cascade model: the layers are not purely serial. BER
+handles oxidative damage, NER handles bulky adducts, DSB repair handles
+strand breaks. They are partially parallel, each addressing a different
+class of lesion. The serial product formula overstates total suppression
+because it treats each layer as if it operates on the same error stream.
+The true architecture is a mix of serial (proofreading $\to$ MMR on
+replication errors) and parallel (BER, NER, DSB on damage-type-specific
+lesions), with checkpoints and immune surveillance as system-level
+catches operating on all error classes.
+
+The measurable quantity is the system output: proofreading and MMR
+together suppress replication errors by $\sim 10^{4}$-fold (from
+$10^{-6}$ to $\sim 10^{-10}$). The remaining layers primarily
+address non-replication damage and transformed-cell clearance. Their
+contribution to the per-base-per-division rate is smaller; their
+contribution to preventing cancer is not.
+
+The mouse/naked mole rat comparison illustrates the point without
+requiring exact per-layer decomposition. Both have seven layers. Both
+have the same replication fidelity machinery. The naked mole rat's
+advantage is in the system-level layers: enhanced contact inhibition
+(growth arrest at lower cell densities), more stable epigenetic
+maintenance, and more robust p53 response. The 5.4-fold lower
+mutation rate ($1.0 \times 10^{-9}$ vs.\ $5.4 \times 10^{-9}$)
+is modest. The 300-fold cancer rate difference is not. The gap between
+mutation rate difference and cancer rate difference is exactly the
+signal from checkpoint and surveillance layers---the layers the
+per-base rate does not capture.
+
+The honest statement: we can measure architecture (layer count). We
+can measure system output (mutation rate). We can partially decompose
+via knockout experiments (MMR$^{-/-}$ mice) and cancer spectrum
+analysis (MSI-high $=$ MMR failure, BRCA-mutant $=$ DSB failure,
+TP53-mutant $=$ checkpoint failure). Each sequenced tumor is a
+natural knockout experiment---a postmortem report identifying which
+layer went down. But a full per-layer confidence matrix across species
+does not yet exist.
+
+\subsection{Where the data goes}
+
+The naked mole rat's advantage is not in layer count. It is in
+checkpoint confidence. High-molecular-weight hyaluronan triggers
+early contact inhibition---growth arrest at lower cell densities
+than in mice \cite{Seluanov2009}. This is the same checkpoint
+layer (growth control), with higher detection confidence.
+
+The elephant's advantage is not in layer count. It is in checkpoint
+redundancy. Twenty copies of TP53 versus human two \cite{Sulak2016}.
+Same layer. More copies. Higher confidence at the bottleneck.
+
+Both organisms invested in the \emph{same} layer: the one most
+likely to be the system's weak link. The investment is not random.
+It targets the minimum.
+
+% ------------------------------------------------------------------
+\section{Cancer as Autoscaling Failure}
+\label{sec:autoscaling}
+% ------------------------------------------------------------------
+
+\subsection{The base rate}
+
+A bacterial cell mutates at approximately $10^{-6}$ to $10^{-3}$ per
+base per generation. This is the base rate. It was not selected for.
+It is the intrinsic error rate of polymerase-based replication.
+
+Every human cell carries the same polymerase machinery. The base rate
+is present in every one of the $3.7 \times 10^{13}$ cells. The seven
+governance layers suppress it to $\sim 5 \times 10^{-10}$: a
+$\sim$2000-fold reduction. The mutation rate is not something cancer
+cells ``speed up to.'' It is the base rate that governance suppresses.
+Cancer cells shed governance layers, and the base rate re-emerges.
+
+Cagan et al.\ showed that somatic mutation rates scale inversely with
+lifespan across 16 mammalian species, converging on similar end-of-life
+mutation burdens \cite{Cagan2022}. This is governance scaling in action:
+longer-lived organisms invest more in per-layer confidence, keeping the
+lifetime accumulation bounded despite more cell divisions.
+
+MSI-high cancers (mismatch repair lost): $\sim 10^{-7}$. Hypermutated
+cancers (multiple layers lost): $\sim 10^{-5}$. The mutation rate is
+a readout of remaining governance layers. It is the system's monitoring
+dashboard: you can read how many services are still running from the
+error rate.
+
+\subsection{The autoscaling analogy}
+
+Bacteria solved the scaling problem horizontally: stateless, fungible,
+$O(1)$ governance per instance (Paper~1 \cite{McCarthy2026a}). No
+$\log(n)$ governance overhead, which is why they won the biomass war.
+But horizontal scaling cannot build an eye.
+
+Multicellular life vertically scaled, and every failure mode of
+distributed systems followed: consensus failures (defective signaling),
+state corruption (epigenetic drift), resource contention (cachexia).
+
+Every cell in a human body is horizontally scaling. Gut lining
+replaces every 5 days. Skin every 2 weeks. Blood every 120 days.
+The autoscaler runs constantly. This is the mechanism, not the
+failure.
+
+Cancer is not a cell that learned to replicate. It is a cell whose
+autoscaling policy broke. The scale-up signal fires. The scale-down
+signal does not.
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Autoscaling concept} & \textbf{Biology} & \textbf{Cancer} \\
+\midrule
+Scale-up trigger & Growth factors (EGF) & Constitutive activation \\
+Scale-down trigger & Contact inhibition, TGF-$\beta$ & Lost \\
+Max instances & Hayflick limit (telomeres) & Bypassed (telomerase) \\
+Health check & p53 checkpoint & Disabled (TP53 mutated) \\
+Circuit breaker & Apoptosis & Evaded (BCL2 overexpressed) \\
+Resource quota & Nutrient dependence & Self-sufficient (Warburg) \\
+Graceful shutdown & Anoikis & Ignored (metastasis) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every hallmark of cancer \cite{Hanahan2011} is a broken autoscaling
+control. Not one is ``cell learned to replicate.'' The capacity was
+always there. That is the base rate. The controls made it a managed
+service instead of a runaway process.
+
+\subsection{Bounded context makes misallocation fatal}
+
+In an unbounded system, a misconfigured autoscaler is a nuisance. In
+a bounded system, it is fatal. The organism has a fixed context
+window: fixed blood supply, fixed glucose, fixed immune capacity.
+
+Every resource consumed by uncoordinated growth is unavailable to
+coordinated function. A tumor does not kill by being a tumor. It kills
+by consuming glucose (Warburg effect), co-opting blood supply
+(angiogenesis), occupying physical space, and hijacking immune
+resources. This is noisy neighbor syndrome in a fixed resource pool.
+
+The Warburg effect illustrates the point \cite{VanderHeiden2009}.
+Cancer cells switch to glycolysis: 2 ATP per glucose instead of 36
+from oxidative phosphorylation. Why choose the less efficient pathway? Because
+glycolysis is \emph{faster}. In a bounded resource environment, the
+service that captures resources fastest wins, even if it wastes 94\%
+of them. A misconfigured autoscaler spinning up 100 instances at 2\%
+utilization starves the service next to it that needs 3 instances at
+90\%.
+
+Cachexia---the wasting syndrome that kills most cancer patients---is
+the system running out of resources. Not because the tumor consumed
+them all directly, but because the immune response to the tumor
+burned the budget. The system crashed not from the attack but from
+the incident response. That is a DDoS from inside the mesh.
+
+The tumor does not need to be malicious. It only needs to be
+uncoordinated. In a bounded system, uncoordinated scaling
+\emph{is} an attack on everything else.
+
+% ------------------------------------------------------------------
+\section{Governance Confidence Predicts Lifespan}
+\label{sec:cagan}
+% ------------------------------------------------------------------
+
+Cagan et al.\ measured somatic mutation rates (single-base
+substitutions per year in colonic crypts) across 16 mammalian species
+\cite{Cagan2022}. The relationship between mutation rate and lifespan
+is almost exactly the inverse predicted by the governance model
+(Figure~\ref{fig:cagan}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{analysis/results/governance_scaling/cagan_kill_shot.pdf}
+\caption{The Cagan relationship and its interpretation.
+\textbf{A.}~Somatic mutation rate vs.\ lifespan across 16 mammalian
+species (log-log). Slope $= -0.81$ ($R^2 = 0.84$,
+$p = 5.9 \times 10^{-7}$). Predicted slope for constant lifetime
+burden: $-1.0$ (blue dotted line).
+\textbf{B.}~Lifetime mutation burden (rate $\times$ lifespan) is
+approximately constant across species (mean $= 2{,}191$,
+CV $= 0.34$). Red band: $\pm 1$ SD.
+\textbf{C.}~Confidence per governance layer (orders of suppression /
+layer count) vs.\ lifespan for the three species with both Cagan
+somatic rates and governance layer data. Red ring intensity indicates
+cancer rate.}
+\label{fig:cagan}
+\end{figure}
+
+\subsection{The constant}
+
+If governance confidence is calibrated to lifespan, then:
+\[
+\mu_{\text{somatic}} \times L \approx T
+\]
+where $\mu_{\text{somatic}}$ is the somatic mutation rate per year,
+$L$ is lifespan, and $T$ is the tolerable lifetime burden. Across
+16 mammals, $T \approx 2{,}191$ (mean; CV $= 0.34$). The slope of
+$\log(\mu)$ vs.\ $\log(L)$ is $-0.81$, close to the $-1.0$ predicted
+by a perfect constant. The residual (slope $\neq -1$) indicates that
+longer-lived species tolerate slightly more total burden, likely due
+to greater redundancy in downstream repair.
+
+This means governance confidence directly predicts lifespan:
+\[
+L \approx \frac{T}{\mu_{\text{somatic}}} \propto \text{confidence}
+\]
+
+Not through a proxy. Through the system output of the governance
+product. Mouse: 796 SBS/year, 2.7-year lifespan, 0.32 orders of
+suppression per layer. Naked mole rat: 93 SBS/year, 37-year lifespan,
+0.43 orders per layer. Human: 47 SBS/year, 80-year lifespan, 0.47
+orders per layer. The ranking is exact.
+
+\subsection{Two optimization surfaces}
+
+The Cagan data covers mammals. Mammals are determinate growers: cell
+count is fixed at maturity. The constant $T$ is mutations per cell at
+end of life.
+
+Reptiles, fish, and amphibians are often indeterminate growers:
+cell count increases throughout life. They do not stop growing.
+They maintain continuous telomerase expression in somatic cells
+(mammals shut it off). Despite this, their cancer rates are lower:
+mammals $\sim$12\% at death, reptiles and birds $\sim$4\%,
+amphibians $\sim$1.2\% \cite{Vincze2024}.
+
+The fixed metric for indeterminate growers cannot be total burden. It
+must be mutation \emph{density}: burden per cell at any given time.
+The governance is maintaining a rate sustainable as the system scales.
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+& \textbf{Mammals} & \textbf{Indeterminate growers} \\
+\midrule
+Optimization target & Context per cell & System longevity \\
+Cell count & Fixed at maturity & Growing \\
+Fixed metric & Burden/cell at death & Burden density/cell/time \\
+Telomerase & Off (limits divisions) & On (continuous renewal) \\
+Specialization & Extreme & Moderate \\
+Cancer strategy & Hayflick limit & Maintain governance at scale \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Mammals traded system longevity for context per cell. Reptiles traded
+context per cell for system longevity. A crocodile neuron is simpler
+than a human neuron. A tortoise liver cell is less differentiated than
+a human hepatocyte. The governance overhead per cell is lower, which
+is why the system can keep adding cells indefinitely.
+
+The Greenland shark lives 400+ years with 81 duplicated DNA repair
+genes and an altered TP53 \cite{Spath2024}. Galapagos tortoises have
+duplicated tumor suppressors (NF2, SMAD4, PML) and 75\% of
+turtle species show negligible senescence \cite{daSilva2022}. These
+organisms did not solve the governance problem by increasing
+confidence per layer (the mammalian solution). They solved it by
+keeping the governance overhead low enough that continuous growth
+remains viable.
+
+Cephalopods took a third path entirely: extensive RNA editing
+(11,000+ active sites \cite{Liscovitch2017}) instead of DNA repair for adaptive flexibility.
+They sacrifice genomic evolution rate to preserve editing sites. Short
+lifespan (1--5 years), but extraordinary per-cell computational
+flexibility. All context, no longevity. The inverse of the reptile
+strategy.
+
+No somatic SBS/year data exists for any non-mammalian vertebrate.
+This is the critical measurement gap. The framework predicts that
+each vertebrate class has its own constant $T$, determined by
+its governance architecture. Within each class, the Cagan inverse
+should hold. Across classes, the constants should differ.
+
+% ------------------------------------------------------------------
+\section{The Monolith Tradeoff}
+\label{sec:monolith}
+% ------------------------------------------------------------------
+
+A monolith with 2 layers at 99.999\% each delivers higher availability
+than a microservice mesh with 7 layers at 99.9\%. The product math
+favors fewer layers \emph{if} each layer is near-perfect.
+
+Bacteria are the monolith. Two repair layers. Ancient. Refined over
+3.8 billion years. Extremely high confidence per layer. No coordination
+overhead. No service mesh. And it works: bacteria do not get cancer.
+
+But a monolith cannot scale vertically. The same reason a single-process
+application handles 100 requests per second and collapses at 100,000.
+Bacteria solved this by horizontal scaling: stay small, replicate fast,
+let the colony absorb individual failures.
+
+The moment the organism needs $3.7 \times 10^{13}$ cells to
+coordinate, it needs the mesh. And the mesh introduces:
+
+\begin{itemize}
+\item Each layer is a new attack surface (MMR genes can themselves mutate)
+\item Layers interact (DSB repair depends on checkpoints for time)
+\item Coordination has overhead (immune surveillance costs energy,
+   causes autoimmunity)
+\item The mesh needs an orchestrator (p53), which becomes a single
+   point of failure
+\end{itemize}
+
+TP53 is mutated in over half of all human cancers not because it is
+fragile but because it is the orchestrator. The most attacked node in
+any distributed system is the load balancer.
+
+% ------------------------------------------------------------------
+\section{Predictions}
+\label{sec:predictions}
+% ------------------------------------------------------------------
+
+The framework generates testable predictions:
+
+\begin{enumerate}
+\item \textbf{Layer addition threshold.} If governance layers scale as
+   $\log(n)$, there should be a cell count threshold at which a new
+   layer becomes necessary. Organisms near $10^{16}$ cells (blue whales)
+   should show evidence of an eighth layer or enhanced redundancy in
+   existing layers.
+
+\item \textbf{Cancer as layer readout.} The mutation rate in a tumor
+   should predict which governance layers remain functional. MSI-high
+   tumors ($\sim 10^{-7}$) have lost MMR. Tumors at $\sim 10^{-5}$
+   have lost multiple layers. The rate is a count of remaining layers.
+
+\item \textbf{CHIP precedes cancer by the WAL-to-data delay.} CHIP
+   mutations (WAL degradation) should precede driver mutations (data
+   corruption) by the number of cell divisions required for index
+   loss to produce data loss. This lag is observed: CHIP is detectable
+   years to decades before cancer diagnosis \cite{Jaiswal2014}.
+
+\item \textbf{Layer confidence predicts cancer spectrum.} Organisms
+   with the same layer count but different per-layer confidence should
+   show different cancer spectra. The naked mole rat (enhanced
+   checkpoints) should be resistant to checkpoint-driven cancers
+   specifically. Evidence: the rare naked mole rat tumors that have
+   been documented are \emph{not} carcinomas (checkpoint-driven) but
+   sarcomas (mesenchymal, potentially driven by other layers)
+   \cite{Delaney2016}.
+
+\item \textbf{The weakest layer predicts the first cancer.} In a
+   given species, the most common cancer type should correspond to
+   the lowest-confidence governance layer. In mice (low checkpoint
+   confidence), lymphoma dominates. In humans (low WAL confidence),
+   the cancers that increase most with age are those in rapidly
+   dividing tissues (colon, skin, blood) where WAL burden is highest.
+
+\item \textbf{Cross-class constants.} The Cagan inverse relationship
+   ($\mu \times L \approx T$) should hold within each vertebrate
+   class but with a different constant $T$ per class. Mammals
+   ($T \approx 2{,}200$), reptiles (predicted: lower $T$, reflecting
+   lower per-cell governance burden), and birds (predicted: higher $T$,
+   reflecting their elevated metabolic rate and enhanced DSB repair).
+   No somatic SBS/year data exists for non-mammals. This measurement
+   would directly test the framework.
+
+\item \textbf{Indeterminate growers optimize density, not total.}
+   For reptiles and fish with continuous growth, the fixed metric
+   should be mutation burden per cell (density), not total mutations.
+   Plotting mutations/cell vs.\ age should yield a constant slope
+   regardless of body size, while total mutations should scale with
+   size. For mammals, the opposite: total burden is constant, but
+   burden per cell is irrelevant because cell count is fixed.
+
+\item \textbf{Early-diverging mammals as intermediates.} Marsupials
+   and monotremes diverged from placental mammals $\sim$160~MYA.
+   They should show intermediate governance profiles: mammalian layer
+   count but with different per-layer confidence, reflecting their
+   older governance architecture. Opossums show $\sim$56\% neoplasia
+   rate \cite{Vincze2024}, the highest of any mammal studied. The
+   governance version is outdated.
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\section{Relationship to the Series}
+\label{sec:series}
+% ------------------------------------------------------------------
+
+This paper is the existence proof. Papers~1--4 derive from first
+principles that a persistent system under bounded context must
+maintain a directed graph, must escalate, must couple knowledge with
+action, and must encode at permanence levels proportional to
+confidence. Papers~5--8 show that cancer data is consistent with
+these constraints.
+
+This paper shows the genome doing all of it.
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Paper} & \textbf{Prediction} & \textbf{Genome instantiation} \\
+\midrule
+1 (Graph) & Must maintain directed graph & DNA + regulatory network \\
+2 (Escalation) & Top-down allocation via escalation & 7-layer repair hierarchy \\
+3 (K/A) & Knowledge and action inseparable & Coding + regulatory in same sequence \\
+4 (Encoding) & Permanence $\propto$ confidence & DNA $>$ epigenetics $>$ protein state \\
+\midrule
+5 (Cancer) & Disruption follows graph topology & Mutations cluster by channel \\
+6 (Channels) & Channels carry independent signal & Channel count predicts survival \\
+7 (Position) & Connectivity predicts severity & Degree $\times$ architecture interaction \\
+8 (Context) & Context diseases share machinery & Chromatin genes serve multiple functions \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The genome did not read these papers. It arrived at the same
+architecture because it is subject to the same constraints.
+3.8 billion years of selection under bounded context produced the
+same design patterns that software engineering rediscovered in 60
+years.
+
+% ------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+% ------------------------------------------------------------------
+
+\subsection{What this paper does not claim}
+
+This paper does not claim the genome was ``designed'' as a knowledge
+graph. It claims that selection under bounded context produces graph
+structure as a necessary consequence (Paper~1), and that the genome
+is an instance of this necessity.
+
+This paper does not claim cancer is ``merely'' an engineering problem.
+It claims that the structural constraints governing cancer are the
+same structural constraints governing any distributed system under
+bounded context. The analogy is not metaphorical. It is mathematical.
+
+\subsection{The measurement gap}
+
+The central limitation is per-layer confidence measurement. We can
+count layers. We can measure system output. We cannot decompose
+confidence per layer without either destructive testing (knockouts)
+or indirect inference (cancer spectrum analysis). Closing this gap
+would enable the $n$-nines decomposition that distributed systems
+engineering takes for granted.
+
+Cancer genomics is beginning to close it. Every sequenced tumor is a
+natural knockout experiment. Systematic comparison of mutation
+signatures across tumor types, mapped to known repair pathway
+deficiencies, could yield per-layer confidence estimates across
+species and tissue types.
+
+\subsection{Implications for cancer treatment}
+
+If cancer is an autoscaling failure, treatment should restore the
+autoscaling policy, not merely kill the rogue instances. Chemotherapy
+kills rogue instances. Immunotherapy restores the monitoring layer.
+Targeted therapy (PARP inhibitors, checkpoint inhibitors) restores
+specific governance layers. The framework predicts that treatments
+targeting the \emph{specific failed layer} should outperform treatments
+that target the tumor generically. Early evidence supports this:
+PARP inhibitors in BRCA-mutant cancers (restoring DSB repair
+governance) show higher efficacy than in BRCA-wild-type cancers
+\cite{Lord2017}.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+The genome is a knowledge graph under bounded context. DNA is its
+serialized projection. Epigenetic marks are its write-ahead log.
+Repair layers are its governance architecture. Their number scales
+logarithmically with the system they govern.
+
+Cancer is not a disease of uncontrolled growth. It is a disease of
+uncontrolled growth \emph{control}. The cell's capacity to replicate
+is not the pathology---it is the substrate on which the organism
+depends. The pathology is in the policy, not the process.
+
+In a bounded system, every resource consumed by uncoordinated function
+is unavailable to coordinated function. The tumor does not need to be
+malicious. It only needs to be uncoordinated. That is sufficient.
+
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance, data
+compilation, and \LaTeX{} preparation. All theoretical content and
+arguments are the author's own.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation
+under bounded context.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Evaluation-driven state revision and the encoding hierarchy
+under bounded context.
+\newblock \emph{SSRN preprint}, 2026.
+
+\bibitem{Jaiswal2014}
+S.~Jaiswal, P.~Fontanillas, J.~Flannick, et~al.
+\newblock Age-related clonal hematopoiesis associated with adverse
+outcomes.
+\newblock \emph{New England Journal of Medicine}, 371(26):2488--2498, 2014.
+
+\bibitem{Seluanov2009}
+A.~Seluanov, C.~Hine, M.~Bozzella, et~al.
+\newblock Distinct tumor suppressor mechanisms evolve in rodent species
+that differ in size and lifespan.
+\newblock \emph{Aging Cell}, 8(4):353--361, 2009.
+
+\bibitem{Sulak2016}
+M.~Sulak, L.~Fong, K.~Mika, et~al.
+\newblock TP53 copy number expansion is associated with the evolution
+of increased body size and an enhanced DNA damage response in elephants.
+\newblock \emph{eLife}, 5:e11994, 2016.
+
+\bibitem{Hanahan2011}
+D.~Hanahan and R.~A. Weinberg.
+\newblock Hallmarks of cancer: the next generation.
+\newblock \emph{Cell}, 144(5):646--674, 2011.
+
+\bibitem{Delaney2016}
+M.~A. Delaney, L.~Ward, T.~Walsh, et~al.
+\newblock Initial case reports of cancer in naked mole-rats
+(\textit{Heterocephalus glaber}).
+\newblock \emph{Veterinary Pathology}, 53(3):691--696, 2016.
+
+\bibitem{Lord2017}
+C.~J. Lord and A.~Ashworth.
+\newblock PARP inhibitors: synthetic lethality in the clinic.
+\newblock \emph{Science}, 355(6330):1152--1158, 2017.
+
+\bibitem{Cagan2022}
+A.~Cagan, A.~Baez-Ortega, N.~Brzozowska, et~al.
+\newblock Somatic mutation rates scale with lifespan across mammals.
+\newblock \emph{Nature}, 604(7906):517--524, 2022.
+
+\bibitem{Drake1991}
+J.~W. Drake.
+\newblock A constant rate of spontaneous mutation in DNA-based microbes.
+\newblock \emph{Proceedings of the National Academy of Sciences},
+88(16):7160--7164, 1991.
+
+\bibitem{Lynch2010}
+M.~Lynch.
+\newblock Evolution of the mutation rate.
+\newblock \emph{Trends in Genetics}, 26(8):345--352, 2010.
+
+\bibitem{Bianconi2013}
+E.~Bianconi, A.~Piovesan, F.~Facchin, et~al.
+\newblock An estimation of the number of cells in the human body.
+\newblock \emph{Annals of Human Biology}, 40(6):463--471, 2013.
+
+\bibitem{Vincze2024}
+O.~Vincze, F.~Colchero, J.-F. Lema\^itre, et~al.
+\newblock Cancer prevalence across vertebrates.
+\newblock \emph{Cancer Discovery}, 15(1):227--237, 2024.
+
+\bibitem{Spath2024}
+P.~Spath, E.~Kuderna, A.~Valen, et~al.
+\newblock The Greenland shark genome reveals longevity-associated
+DNA repair gene expansions.
+\newblock \emph{bioRxiv}, 2024.
+
+\bibitem{daSilva2022}
+R.~da~Silva, D.~A. Conde, A.~Baudisch, and F.~Colchero.
+\newblock Slow and negligible senescence among testudines challenges
+evolutionary theories of senescence.
+\newblock \emph{Science}, 376(6600):1466--1470, 2022.
+
+\bibitem{Liscovitch2017}
+N.~Liscovitch-Brauer, S.~Alon, H.~T. Porath, et~al.
+\newblock Trade-off between transcriptome plasticity and genome evolution in
+cephalopods.
+\newblock \emph{Cell}, 169(2):191--202, 2017.
+
+\bibitem{VanderHeiden2009}
+M.~G. {Vander Heiden}, L.~C. Cantley, and C.~B. Thompson.
+\newblock Understanding the Warburg effect: the metabolic requirements of cell
+proliferation.
+\newblock \emph{Science}, 324(5930):1029--1033, 2009.
+
+\end{thebibliography}
+
+\end{document}

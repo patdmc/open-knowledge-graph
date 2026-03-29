@@ -1,0 +1,168 @@
+{
+  "paper9_concept": "equivalence_class",
+  "language_graph_instantiation": "theoretical_convergence_class",
+  "n_classes": 19,
+  "classes": [
+    {
+      "ec_id": "EC01-bounded-context",
+      "ec_name": "Bounded Internal Representation: C_n = Approximate Posterior = Global Workspace Capacity",
+      "paper9_uncertainty": 0.06,
+      "paper9_confidence": 0.94,
+      "n_observations": 6,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC02-improvement-rate",
+      "ec_name": "Rate of Model Improvement: eta_M = d/dt Compression = dF/dt Learning Signal",
+      "paper9_uncertainty": 0.12,
+      "paper9_confidence": 0.88,
+      "n_observations": 4,
+      "paper9_interpretation": "high_confidence"
+    },
+    {
+      "ec_id": "EC03-structured-representation",
+      "ec_name": "Structured Internal Representation: K/F Graph = Hierarchical Generative Model = Affordance Structure",
+      "paper9_uncertainty": 0.12,
+      "paper9_confidence": 0.88,
+      "n_observations": 7,
+      "paper9_interpretation": "high_confidence"
+    },
+    {
+      "ec_id": "EC04-survival-threshold",
+      "ec_name": "Survival Threshold: U_lethal = Free Energy Bound = Negentropy Floor = Dissipation Threshold",
+      "paper9_uncertainty": 0.06,
+      "paper9_confidence": 0.94,
+      "n_observations": 5,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC05-incompleteness",
+      "ec_name": "Epistemic Incompleteness: M < N = q(s) != p(s) = Truth as Long-Run Limit = Undefinability",
+      "paper9_uncertainty": 0.03,
+      "paper9_confidence": 0.97,
+      "n_observations": 5,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC06-belief-as-action",
+      "ec_name": "Belief as Action Disposition: K grounds F = Habit of Action = Affordance = Active Inference",
+      "paper9_uncertainty": 0.05,
+      "paper9_confidence": 0.95,
+      "n_observations": 5,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC07-collective-knowledge",
+      "ec_name": "Collective Knowledge as Information Integration: K_collective = Major Transitions = Cultural Evolution",
+      "paper9_uncertainty": 0.17,
+      "paper9_confidence": 0.83,
+      "n_observations": 4,
+      "paper9_interpretation": "moderate_confidence"
+    },
+    {
+      "ec_id": "EC08-compression-factoring",
+      "ec_name": "Compression as Factoring: Factorization = Compression Progress = Sufficient Statistic = Aperiodic Encoding",
+      "paper9_uncertainty": 0.07,
+      "paper9_confidence": 0.93,
+      "n_observations": 6,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC09-hierarchy-cost-triage",
+      "ec_name": "Hierarchical Cost Triage: L0-L3 = System 1/2 = GWT Levels = FEP Precision Hierarchy",
+      "paper9_uncertainty": 0.09,
+      "paper9_confidence": 0.91,
+      "n_observations": 6,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC10-inquiry-driver",
+      "ec_name": "Uncertainty as Inquiry Driver: U(w,K) > 0 = Free Energy > 0 = Doubt = Surprise",
+      "paper9_uncertainty": 0.07,
+      "paper9_confidence": 0.93,
+      "n_observations": 6,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC11-graph-necessity",
+      "ec_name": "Graph Necessity: K Must Be Indexed by F \u2014 Six Independent Derivations",
+      "paper9_uncertainty": 0.09,
+      "paper9_confidence": 0.91,
+      "n_observations": 7,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC12-metalanguage-necessity",
+      "ec_name": "Metalanguage Necessity: Self-Referential Systems Require a Metalanguage \u2014 Provenance Triple as the Implementation",
+      "paper9_uncertainty": 0.07,
+      "paper9_confidence": 0.93,
+      "n_observations": 6,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC13-optimal-prior",
+      "ec_name": "Optimal Prior Selection: MaxEnt = Solomonoff = SRM = FEP Variational \u2014 The Minimum-Commitment Prior Is Uniquely Determined",
+      "paper9_uncertainty": 0.1,
+      "paper9_confidence": 0.9,
+      "n_observations": 4,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC14-survival-trajectory",
+      "ec_name": "Survival as Trajectory Bound: Homeorhesis = Viable System = Autopoiesis \u2014 Persistence Requires a Bounded Developmental Trajectory",
+      "paper9_uncertainty": 0.14,
+      "paper9_confidence": 0.86,
+      "n_observations": 4,
+      "paper9_interpretation": "high_confidence"
+    },
+    {
+      "ec_id": "EC15-collective-coherence",
+      "ec_name": "K_collective Coherence: Integrated Information = Small-World Topology = Dunbar Scaling \u2014 Collective Knowledge Has a Structural Optimum",
+      "paper9_uncertainty": 0.13,
+      "paper9_confidence": 0.87,
+      "n_observations": 4,
+      "paper9_interpretation": "high_confidence"
+    },
+    {
+      "ec_id": "EC16-consistency-protocol",
+      "ec_name": "K_collective Consistency Protocol: Cache Coherence = Provenance = Locality \u2014 Distributed Knowledge Requires a Consistency Protocol",
+      "paper9_uncertainty": 0.08,
+      "paper9_confidence": 0.92,
+      "n_observations": 4,
+      "paper9_interpretation": "scriptable"
+    },
+    {
+      "ec_id": "EC17-compression-duality",
+      "ec_name": "Compression Duality: Weyl Symmetry = T-Duality = Data Processing Inequality \u2014 Representation-Level Descent Is a Universal Structure-Preserving Operation",
+      "paper9_uncertainty": 0.16,
+      "paper9_confidence": 0.84,
+      "n_observations": 4,
+      "paper9_interpretation": "moderate_confidence"
+    },
+    {
+      "ec_id": "EC18-agency-gate",
+      "ec_name": "Agency as Probability Gate: The Agent Is the Entity That Assigns Non-Uniform Distributions Over Future States",
+      "paper9_uncertainty": 0.12,
+      "paper9_confidence": 0.88,
+      "n_observations": 4,
+      "paper9_interpretation": "high_confidence"
+    },
+    {
+      "ec_id": "EC19-encoding-descent",
+      "ec_name": "Encoding-Level Descent: Canalization = Dissipative Adaptation = Backprop = Habit Formation \u2014 Selection Embeds Recurrent Solutions Into Structure",
+      "paper9_uncertainty": 0.11,
+      "paper9_confidence": 0.89,
+      "n_observations": 4,
+      "paper9_interpretation": "high_confidence"
+    }
+  ],
+  "summary": {
+    "mean_confidence": 0.903,
+    "min_confidence": 0.83,
+    "max_confidence": 0.97,
+    "n_scriptable": 11,
+    "n_agent_required": 2,
+    "scriptability_rate": 0.579,
+    "mean_observations_per_class": 5.0
+  }
+}
