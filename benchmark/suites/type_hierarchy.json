@@ -1,0 +1,91 @@
+{
+  "name": "type_hierarchy",
+  "description": "Questions that require navigating IS-A / hypernym chains. The graph has these pre-computed; the LLM must reason from training data.",
+  "version": "1.0",
+  "cases": [
+    {
+      "id": "typ-001",
+      "category": "hypernym",
+      "difficulty": "easy",
+      "question": "Is a sparrow a bird? Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "typ-002",
+      "category": "hypernym",
+      "difficulty": "medium",
+      "question": "Is a penguin a mammal? Answer yes or no.",
+      "answer": "no"
+    },
+    {
+      "id": "typ-003",
+      "category": "hypernym",
+      "difficulty": "medium",
+      "question": "What is the most specific common category for 'hammer' and 'screwdriver'? One word.",
+      "answer": "tool"
+    },
+    {
+      "id": "typ-004",
+      "category": "hypernym",
+      "difficulty": "hard",
+      "question": "What is the most specific common category for 'whale' and 'bat'? One word.",
+      "answer": "mammal"
+    },
+    {
+      "id": "typ-005",
+      "category": "hypernym",
+      "difficulty": "hard",
+      "question": "What is the most specific common category for 'guitar' and 'violin'? One or two words.",
+      "answer": "stringed instrument"
+    },
+    {
+      "id": "typ-006",
+      "category": "meronym",
+      "difficulty": "medium",
+      "question": "Name a part of a car that is also a part of a bicycle. One word.",
+      "answer": "wheel"
+    },
+    {
+      "id": "typ-007",
+      "category": "hypernym",
+      "difficulty": "hard",
+      "question": "What is the hypernym chain from 'poodle' to 'animal'? List the intermediate categories.",
+      "answer": "dog, canine, carnivore, mammal, vertebrate, animal"
+    },
+    {
+      "id": "typ-008",
+      "category": "antonym",
+      "difficulty": "easy",
+      "question": "What is the antonym of 'ascend'?",
+      "answer": "descend"
+    },
+    {
+      "id": "typ-009",
+      "category": "entailment",
+      "difficulty": "hard",
+      "question": "Does 'snoring' entail 'sleeping'? Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "typ-010",
+      "category": "entailment",
+      "difficulty": "hard",
+      "question": "Does 'buying' entail 'paying'? Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "typ-011",
+      "category": "hypernym",
+      "difficulty": "hard",
+      "question": "What is the most specific common category for 'oak' and 'maple'? One word.",
+      "answer": "tree"
+    },
+    {
+      "id": "typ-012",
+      "category": "meronym",
+      "difficulty": "medium",
+      "question": "What is a meronym (part) of 'tree' that is also a meronym of 'feather'?",
+      "answer": "shaft"
+    }
+  ]
+}

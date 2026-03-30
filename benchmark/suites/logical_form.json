@@ -1,0 +1,77 @@
+{
+  "name": "logical_form",
+  "description": "Natural language to logical form translation. The graph has predicate/proposition nodes; tests whether graph-augmented inference produces more precise logical representations.",
+  "version": "1.0",
+  "cases": [
+    {
+      "id": "log-001",
+      "category": "quantifier",
+      "difficulty": "easy",
+      "question": "Translate to predicate logic: 'All dogs are animals.' Use standard notation.",
+      "answer": "∀x(Dog(x) → Animal(x))"
+    },
+    {
+      "id": "log-002",
+      "category": "quantifier",
+      "difficulty": "medium",
+      "question": "Translate to predicate logic: 'Some birds cannot fly.'",
+      "answer": "∃x(Bird(x) ∧ ¬CanFly(x))"
+    },
+    {
+      "id": "log-003",
+      "category": "negation",
+      "difficulty": "medium",
+      "question": "Translate to predicate logic: 'No reptile is a mammal.'",
+      "answer": "∀x(Reptile(x) → ¬Mammal(x))"
+    },
+    {
+      "id": "log-004",
+      "category": "causation",
+      "difficulty": "hard",
+      "question": "Translate to predicate logic: 'If a mutation breaks DDR, then PARP inhibition causes cell death.'",
+      "answer": "∀x(Mutation(x) ∧ Breaks(x, DDR) → Causes(PARPInhibition, CellDeath(x)))"
+    },
+    {
+      "id": "log-005",
+      "category": "implication",
+      "difficulty": "medium",
+      "question": "Is this valid? 'All A are B. All B are C. Therefore all A are C.' Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "log-006",
+      "category": "implication",
+      "difficulty": "hard",
+      "question": "Is this valid? 'Some A are B. Some B are C. Therefore some A are C.' Answer yes or no.",
+      "answer": "no"
+    },
+    {
+      "id": "log-007",
+      "category": "contradiction",
+      "difficulty": "medium",
+      "question": "Are these contradictory? 'All swans are white' and 'There exists a black swan.' Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "log-008",
+      "category": "equivalence",
+      "difficulty": "hard",
+      "question": "Are these logically equivalent? 'No A is B' and 'No B is A.' Answer yes or no.",
+      "answer": "yes"
+    },
+    {
+      "id": "log-009",
+      "category": "causation",
+      "difficulty": "hard",
+      "question": "Translate: 'Inhibiting PARP1 in BRCA2-deficient cells causes synthetic lethality.' Use Causes/Inhibit predicates.",
+      "answer": "Inhibit(PARP1) ∧ Deficient(cell, BRCA2) → Causes(SyntheticLethality(cell))"
+    },
+    {
+      "id": "log-010",
+      "category": "quantifier",
+      "difficulty": "hard",
+      "question": "Translate: 'Most mutations in channel genes are harmful, but some are passengers.' Use quantifiers.",
+      "answer": "Most(x, ChannelGene(x) ∧ Mutation(x), Harmful(x)) ∧ ∃x(ChannelGene(x) ∧ Mutation(x) ∧ Passenger(x))"
+    }
+  ]
+}

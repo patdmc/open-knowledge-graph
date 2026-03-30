@@ -1,0 +1,112 @@
+{
+  "name": "disambiguation",
+  "description": "Word sense disambiguation — the graph should resolve ambiguity deterministically where the LLM guesses.",
+  "version": "1.0",
+  "cases": [
+    {
+      "id": "dis-001",
+      "category": "homophone",
+      "difficulty": "easy",
+      "question": "Which word is correct: 'The team lost there momentum after the penalty.'",
+      "answer": "their"
+    },
+    {
+      "id": "dis-002",
+      "category": "homophone",
+      "difficulty": "easy",
+      "question": "Which word is correct: 'Your going to need a bigger boat.'",
+      "answer": "you're"
+    },
+    {
+      "id": "dis-003",
+      "category": "homophone",
+      "difficulty": "medium",
+      "question": "Which word is correct: 'The affect of the drug was immediate.'",
+      "answer": "effect"
+    },
+    {
+      "id": "dis-004",
+      "category": "homophone",
+      "difficulty": "medium",
+      "question": "Which word is correct: 'She did better then expected.'",
+      "answer": "than"
+    },
+    {
+      "id": "dis-005",
+      "category": "homophone",
+      "difficulty": "easy",
+      "question": "Which word is correct: 'Its going to rain tomorrow.'",
+      "answer": "it's"
+    },
+    {
+      "id": "dis-006",
+      "category": "polysemy",
+      "difficulty": "medium",
+      "question": "In the sentence 'The bank was steep and muddy', what does 'bank' mean? Answer with one word.",
+      "answer": "riverbank"
+    },
+    {
+      "id": "dis-007",
+      "category": "polysemy",
+      "difficulty": "medium",
+      "question": "In the sentence 'She set the table for dinner', what does 'set' mean? Answer with one word.",
+      "answer": "arranged"
+    },
+    {
+      "id": "dis-008",
+      "category": "polysemy",
+      "difficulty": "hard",
+      "question": "In the sentence 'The crane flew over the construction site', is 'crane' a bird or a machine?",
+      "answer": "bird"
+    },
+    {
+      "id": "dis-009",
+      "category": "polysemy",
+      "difficulty": "hard",
+      "question": "In the sentence 'He could not bear the weight', does 'bear' mean 'carry/endure' or 'animal'?",
+      "answer": "carry/endure"
+    },
+    {
+      "id": "dis-010",
+      "category": "homophone",
+      "difficulty": "hard",
+      "question": "Correct this sentence: 'The principle investigator lead the study for to long.'",
+      "answer": "The principal investigator led the study for too long."
+    },
+    {
+      "id": "dis-011",
+      "category": "polysemy",
+      "difficulty": "medium",
+      "question": "In 'The match was struck', does 'match' refer to a game, a stick, or a pairing?",
+      "answer": "stick"
+    },
+    {
+      "id": "dis-012",
+      "category": "polysemy",
+      "difficulty": "hard",
+      "question": "In 'The bass was too loud', does 'bass' refer to a fish or a musical frequency?",
+      "answer": "musical frequency"
+    },
+    {
+      "id": "dis-013",
+      "category": "homophone",
+      "difficulty": "medium",
+      "question": "Which word is correct: 'The lose wire caused a short circuit.'",
+      "answer": "loose"
+    },
+    {
+      "id": "dis-014",
+      "category": "frame",
+      "difficulty": "hard",
+      "question": "In 'The soldier discharged his weapon', what frame does 'discharged' evoke: FIRING, RELEASE, or EMPLOYMENT_END?",
+      "answer": "FIRING"
+    },
+    {
+      "id": "dis-015",
+      "category": "frame",
+      "difficulty": "hard",
+      "question": "In 'The patient was discharged from the hospital', what frame does 'discharged' evoke: FIRING, RELEASE, or EMPLOYMENT_END?",
+      "answer": "RELEASE"
+    }
+  ]
+}

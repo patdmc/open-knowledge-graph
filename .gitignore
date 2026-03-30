@@ -13,3 +13,4 @@ analysis
 .DS_Store
 packages/cancer/data/cache/
 packages/cancer/data/changelog/
+packages/core/language/data/cache/
