@@ -1,0 +1,13 @@
+id: cancer:source:cox_sage_benchmark
+name: Cox-SAGE Benchmark Data
+access: public
+description: >
+  7 TCGA cohort benchmark from Briefings in Bioinformatics.
+  Used for fair model comparison. Read-only — never feeds back.
+citation: "Briefings in Bioinformatics, 2025"
+zenodo:
+  record_id: 14204893
+  url: https://zenodo.org/records/14204893
+  api: https://zenodo.org/api/records/14204893
+cohorts: [BRCA, BLCA, COADREAD, GBM, LUAD, STAD, UCEC]
+cache_dir: cache/cox_sage_data/

@@ -1,0 +1,21 @@
+id: cancer:source:string_ppi
+name: STRING Protein-Protein Interactions
+access: public
+description: >
+  Functional protein interactions from STRING database.
+  Queried per-gene via API. High-confidence threshold (700).
+  Used for PPI edges, hub/leaf classification, block discovery.
+citation: "Szklarczyk et al., Nucleic Acids Research 2023"
+api:
+  url: https://string-db.org/api/json/network
+  params:
+    species: 9606
+    required_score: 700
+    network_type: functional
+    limit: 0
+  batch_limit: 2000
+cache_dir: cache/
+cache_files:
+  - string_ppi_edges.json
+  - string_ppi_edges_503.json
+  - precomputed_ppi_distances.json

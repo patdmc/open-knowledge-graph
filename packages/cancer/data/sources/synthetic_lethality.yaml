@@ -1,0 +1,26 @@
+id: cancer:source:synthetic_lethality
+name: Synthetic Lethality Databases
+access: public
+description: >
+  Gene-gene synthetic lethality interactions from BioGRID experimental data
+  and SynLethDB curated literature. Used for SL_PARTNER edges in graph.
+sources:
+  - id: biogrid
+    name: BioGRID
+    url: https://downloads.thebiogrid.org/Download/BioGRID/Latest-Release/BIOGRID-ALL-LATEST.tab3.zip
+    species_filter: 9606
+    description: Experimental genetic interactions, filtered to human
+  - id: synlethdb
+    name: SynLethDB 2.0
+    citation: "Shanghai Tech University"
+    urls:
+      - https://synlethdb.sist.shanghaitech.edu.cn/static/SynLethDB2.0_Human.zip
+      - https://synlethdb.sist.shanghaitech.edu.cn/static/download/SynLethDB_Human.csv
+    description: Curated synthetic lethality database
+  - id: curated_literature
+    description: >
+      High-confidence pairs from ISLE and clinical publications.
+      Hardcoded in download script — should migrate to bio graph assertions.
+    examples: [BRCA1-PARP1, RAD51C-PARP1, TP53-PLK1]
+cache_dir: cache/synthetic_lethality/
+download_script: scripts/download_synthetic_lethality.py

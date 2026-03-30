@@ -1,0 +1,28 @@
+id: cancer:source:depmap
+name: DepMap Cancer Dependency Map
+access: public
+description: >
+  CRISPR gene dependency scores across ~1,200 cell lines.
+  Used for essentiality pre-training and synthetic lethality validation.
+citation: "Meyers et al., Nature Reviews Cancer 2023"
+license: CC-BY-4.0
+urls:
+  - version: "25Q3"
+    date: "2025-09"
+    files:
+      - name: CRISPRGeneEffect.csv
+        url: https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q3-public-6202.1%2FCRISPRGeneEffect.csv
+      - name: Model.csv
+        url: https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q3-public-6202.1%2FModel.csv
+  - version: "25Q2"
+    date: "2025-06"
+    files:
+      - name: CRISPRGeneEffect.csv
+        url: https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneEffect.csv
+  - version: "24Q4"
+    date: "2024-12"
+    files:
+      - name: CRISPRGeneEffect.csv
+        url: https://ndownloader.figshare.com/files/51064667
+cache_dir: cache/depmap/
+download_script: scripts/download_depmap.py

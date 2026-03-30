@@ -1,0 +1,24 @@
+id: cancer:source:variant_annotations
+name: Variant Functional Annotations
+access: public
+description: >
+  Mutation-level GOF/LOF annotations from OncoKB and CIViC.
+  Used for GENE_FUNCTION map and directed edge encoding.
+sources:
+  - id: oncokb
+    name: OncoKB
+    citation: "Memorial Sloan Kettering Cancer Center"
+    urls:
+      api: https://www.oncokb.org/api/v1/utils/allAnnotatedVariants.tsv
+      github: https://raw.githubusercontent.com/oncokb/oncokb-public/master/data/{version}/allAnnotatedVariants.tsv
+      curated_genes: https://www.oncokb.org/api/v1/utils/allCuratedGenes.tsv
+    versions: [v4.25, v4.24, v4.23, v4.22, v4.20, v4.18, v4.15, v4.10]
+  - id: civic
+    name: CIViC
+    citation: "CIViC Consortium"
+    urls:
+      variants: https://civicdb.org/downloads/nightly/nightly-VariantSummaries.tsv
+      evidence: https://civicdb.org/downloads/nightly/nightly-ClinicalEvidenceSummaries.tsv
+      graphql: https://civicdb.org/api/graphql
+cache_dir: cache/oncokb/
+download_script: scripts/download_variant_annotations.py

@@ -1,0 +1,16 @@
+id: bio:source:uniprot
+name: UniProt Protein Knowledge Base
+access: public
+description: >
+  Protein function summaries, catalytic activity, binding sites,
+  subcellular location. Provides the "what does this gene DO" layer
+  that the cancer graph never defines.
+citation: "UniProt Consortium, Nucleic Acids Research 2023"
+urls:
+  api: https://rest.uniprot.org/uniprotkb/search
+  sparql: https://sparql.uniprot.org/sparql
+  id_mapping: https://rest.uniprot.org/idmapping
+license: CC-BY-4.0
+species_filter: 9606
+cache_dir: cache/uniprot/
+status: planned

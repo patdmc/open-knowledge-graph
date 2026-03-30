@@ -1,0 +1,31 @@
+id: core:source:nltk_corpora
+name: NLTK Linguistic Corpora
+access: public
+description: >
+  FrameNet, VerbNet, WordNet, PropBank — the linguistic substrate
+  for the language graph. Provides predicate frames, verb classes,
+  synonym sets, and semantic role labels.
+sources:
+  - id: framenet
+    name: FrameNet 1.7
+    citation: "Baker et al., International Journal of Lexicography 1998"
+    nltk_package: framenet_v17
+    description: Semantic frames — predicates + their argument structures
+  - id: verbnet
+    name: VerbNet 3.3
+    citation: "Kipper-Schuler, PhD Thesis 2005"
+    nltk_package: verbnet3
+    description: Verb classes — syntactic/semantic alternations
+  - id: wordnet
+    name: WordNet 3.1
+    citation: "Miller, Communications of the ACM 1995"
+    nltk_package: wordnet
+    description: Synonym sets, hypernym/hyponym hierarchy
+  - id: propbank
+    name: PropBank
+    citation: "Palmer et al., Computational Linguistics 2005"
+    nltk_package: propbank
+    description: Proposition annotations — semantic role labels
+license: various (academic)
+cache_dir: data/cache/nltk_data/
+download: "python3 -c \"import nltk; nltk.download('framenet_v17'); nltk.download('verbnet3'); nltk.download('wordnet'); nltk.download('propbank')\""

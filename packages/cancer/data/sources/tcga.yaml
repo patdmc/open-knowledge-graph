@@ -1,0 +1,54 @@
+id: cancer:source:tcga
+name: TCGA Pan-Cancer Atlas
+access: public
+description: >
+  External validation cohort. 32 cancer types from the Cancer Genome Atlas.
+  Queried via cBioPortal API. Never used for training — holdback only.
+citation: "TCGA Research Network, Cell 2018"
+api:
+  cbioportal:
+    url: https://www.cbioportal.org/api
+    studies: 32
+    study_format: "{abbrev}_tcga_pan_can_atlas_2018"
+  gdc:
+    url: https://api.gdc.cancer.gov
+    purpose: UUID-to-barcode mapping
+cancer_types:
+  - acc
+  - blca
+  - brca
+  - cesc
+  - chol
+  - coadread
+  - dlbc
+  - esca
+  - gbm
+  - hnsc
+  - kich
+  - kirc
+  - kirp
+  - laml
+  - lgg
+  - lihc
+  - luad
+  - lusc
+  - meso
+  - ov
+  - paad
+  - pcpg
+  - prad
+  - sarc
+  - skcm
+  - stad
+  - tgct
+  - thca
+  - thym
+  - ucec
+  - ucs
+  - uvm
+cache_dir: cache/tcga/
+download_scripts:
+  - cache/tcga/download_tcga.py
+  - cache/tcga/download_tcga_segments.py
+  - cache/tcga/download_tcga_treatments.py
+  - cache/tcga/download_clinical_detail.py

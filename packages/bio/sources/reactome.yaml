@@ -1,0 +1,17 @@
+id: bio:source:reactome
+name: Reactome Pathways
+access: public
+description: >
+  Curated pathway membership with roles (catalyst, substrate, regulator).
+  Hierarchy maps to channel → sub-pathway → assertion chain.
+  Provides directed edges the cancer graph currently lacks.
+citation: "Jassal et al., Nucleic Acids Research 2020"
+urls:
+  pathways: https://reactome.org/download/current/ReactomePathways.txt
+  relations: https://reactome.org/download/current/ReactomePathwaysRelation.txt
+  gene_map: https://reactome.org/download/current/NCBI2Reactome_All_Levels.txt
+  api: https://reactome.org/ContentService
+license: CC-BY-4.0
+species_filter: "Homo sapiens"
+cache_dir: cache/reactome/
+status: planned

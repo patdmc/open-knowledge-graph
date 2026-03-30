@@ -1,0 +1,15 @@
+id: bio:source:gene_ontology
+name: Gene Ontology
+access: public
+description: >
+  Biological process, molecular function, cellular component ontology.
+  GO terms become nodes. ANNOTATED_WITH edges link genes to terms.
+  Hierarchy maps to channel/tier structure.
+citation: "Gene Ontology Consortium, Nucleic Acids Research 2023"
+urls:
+  obo: http://purl.obolibrary.org/obo/go.obo
+  annotations: http://geneontology.org/gene-associations/goa_human.gaf.gz
+  api: https://api.geneontology.org
+license: CC-BY-4.0
+cache_dir: cache/go/
+status: planned
