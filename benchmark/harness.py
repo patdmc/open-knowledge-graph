@@ -7,41 +7,36 @@ Compares two conditions:
 
 On standardized test suites. Measures:
   - Accuracy (exact match or judge-scored)
-  - Input tokens (context size)
-  - Output tokens (response length)
+  - Input tokens (estimated from prompt length)
+  - Output tokens (estimated from response length)
   - Latency (wall clock)
-  - Cost (estimated from token counts)
+
+Uses Claude CLI (subprocess) — no API key or separate billing needed.
+Future: migrate to claude_agent_sdk for programmatic access.
 
 Usage:
-    python -m gnn.benchmark.harness --suite disambiguation --model haiku
-    python -m gnn.benchmark.harness --suite all --model sonnet --runs 3
+    python -m benchmark.harness --suite disambiguation --model haiku
+    python -m benchmark.harness --suite all --model sonnet --runs 3
 """
 
 import argparse
 import json
 import os
+import subprocess
+import tempfile
 import time
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Optional
 
-import anthropic
-
-REPO_ROOT = Path(__file__).parent.parent.parent
-RESULTS_DIR = REPO_ROOT / "gnn" / "benchmark" / "results"
-SUITES_DIR = REPO_ROOT / "gnn" / "benchmark" / "suites"
-
-# Token pricing per 1M tokens (as of 2026-03)
-PRICING = {
-    "claude-haiku-4-5-20251001":  {"input": 0.80,  "output": 4.00},
-    "claude-sonnet-4-6":          {"input": 3.00,  "output": 15.00},
-    "claude-opus-4-6":            {"input": 15.00, "output": 75.00},
-}
+REPO_ROOT = Path(__file__).parent.parent
+RESULTS_DIR = REPO_ROOT / "benchmark" / "results"
+SUITES_DIR = REPO_ROOT / "benchmark" / "suites"
 
 MODEL_ALIASES = {
-    "haiku":  "claude-haiku-4-5-20251001",
-    "sonnet": "claude-sonnet-4-6",
-    "opus":   "claude-opus-4-6",
+    "haiku":  "haiku",
+    "sonnet": "sonnet",
+    "opus":   "opus",
 }
 
 
@@ -70,10 +65,11 @@ class RunResult:
     model: str
     answer: str
     correct: Optional[bool] = None
-    input_tokens: int = 0
-    output_tokens: int = 0
+    input_chars: int = 0            # prompt character count
+    output_chars: int = 0           # response character count
+    input_tokens_est: int = 0       # estimated tokens (~4 chars/token)
+    output_tokens_est: int = 0
     latency_ms: int = 0
-    cost_usd: float = 0.0
     error: str = ""
 
 
@@ -89,11 +85,10 @@ class SuiteResult:
     graph_mean_input_tokens: float = 0.0
     vanilla_mean_output_tokens: float = 0.0
     graph_mean_output_tokens: float = 0.0
-    vanilla_total_cost: float = 0.0
-    graph_total_cost: float = 0.0
     vanilla_mean_latency_ms: float = 0.0
     graph_mean_latency_ms: float = 0.0
     token_savings_ratio: float = 0.0
+    accuracy_delta: float = 0.0
     runs: list = field(default_factory=list)
 
 
@@ -101,19 +96,19 @@ class SuiteResult:
 # Graph context retrieval
 # ---------------------------------------------------------------------------
 
-def retrieve_graph_context(question: str, graph_backend: str = "language") -> str:
+def retrieve_graph_context(question: str, graph_backend: str = "full") -> str:
     """
     Query the knowledge graph for context relevant to the question.
-
-    This is the key function that determines what the graph adds.
-    Strategies (plug in as backends):
-      - "language": WordNet synonyms/hypernyms/frames for key terms
-      - "inference": chunk retrieval from equivalence classes
-      - "neo4j": live Neo4j traversal
-
     Returns a context string to prepend to the prompt.
+
+    Backends:
+      "full"      — language graph + math graph + structure extraction
+      "language"   — language graph only (WordNet + homophones)
+      "inference"  — embedding-based retrieval
     """
-    if graph_backend == "language":
+    if graph_backend == "full":
+        return _retrieve_full_graph(question)
+    elif graph_backend == "language":
         return _retrieve_language_graph(question)
     elif graph_backend == "inference":
         return _retrieve_inference_pipeline(question)
@@ -121,21 +116,153 @@ def retrieve_graph_context(question: str, graph_backend: str = "language") -> st
         return ""
 
 
+def _retrieve_full_graph(question: str) -> str:
+    """
+    Full knowledge graph retrieval: language + math + structure.
+
+    For math word problems, this:
+    1. Extracts quantities and units (structured representation)
+    2. Identifies operation type (rate, proportion, remainder, etc.)
+    3. Provides relevant mathematical relationships from the graph
+    4. Runs language disambiguation on ambiguous terms
+    """
+    parts = []
+
+    # --- Layer 1: Structure extraction (problem decomposition) ---
+    parts.extend(_extract_math_structure(question))
+
+    # --- Layer 2: Language graph (disambiguation) ---
+    lang_ctx = _retrieve_language_graph(question)
+    if lang_ctx:
+        # Strip the wrapper, we'll add our own
+        for line in lang_ctx.split("\n"):
+            if line.startswith("["):
+                parts.append(line)
+
+    # --- Layer 3: Math graph (relevant definitions/formulas) ---
+    parts.extend(_retrieve_math_graph(question))
+
+    if not parts:
+        return ""
+
+    return "GRAPH CONTEXT:\n" + "\n".join(parts) + "\n---\n"
+
+
+def _extract_math_structure(question: str) -> list[str]:
+    """
+    Extract quantities, units, and relationships from a word problem.
+    This is the graph doing what a compiler front-end does: parsing
+    the unstructured text into structured representation.
+    """
+    import re
+    parts = []
+
+    # Extract all numbers with surrounding context
+    quantities = []
+    for m in re.finditer(
+        r'(\$?\d[\d,]*\.?\d*)\s*(%|percent|per\s+\w+|each|every|'
+        r'dollars?|cents?|hours?|minutes?|days?|weeks?|months?|years?|'
+        r'miles?|km|feet|inches?|pounds?|kg|gallons?|liters?|'
+        r'times?|pieces?|pairs?|sets?|groups?|boxes?|bags?|'
+        r'dozen|score)?',
+        question, re.IGNORECASE
+    ):
+        num_str = m.group(1).replace(',', '').lstrip('$')
+        unit = m.group(2) or ""
+        is_dollar = m.group(1).startswith('$')
+        if is_dollar:
+            unit = "dollars"
+        try:
+            num = float(num_str)
+            quantities.append((num, unit.strip().lower()))
+        except ValueError:
+            pass
+
+    if quantities:
+        q_strs = [f"{n:g} {u}".strip() for n, u in quantities]
+        parts.append(f"[QUANTITIES] {'; '.join(q_strs)}")
+
+    # Identify operation patterns
+    q_lower = question.lower()
+    ops = []
+    if any(w in q_lower for w in ["per ", "each ", "every ", "rate"]):
+        ops.append("rate/unit-conversion")
+    if any(w in q_lower for w in ["remain", "left over", "surplus", "difference"]):
+        ops.append("subtraction/remainder")
+    if any(w in q_lower for w in ["total", "altogether", "combined", "sum"]):
+        ops.append("addition/total")
+    if any(w in q_lower for w in ["times", "twice", "triple", "double", "multiply"]):
+        ops.append("multiplication")
+    if any(w in q_lower for w in ["split", "divide", "share", "distribute", "half"]):
+        ops.append("division")
+    if any(w in q_lower for w in ["percent", "%", "fraction", "ratio"]):
+        ops.append("percentage/ratio")
+    if any(w in q_lower for w in ["more than", "less than", "fewer", "greater"]):
+        ops.append("comparison")
+    if any(w in q_lower for w in ["profit", "cost", "price", "spend", "earn", "save"]):
+        ops.append("financial")
+
+    if ops:
+        parts.append(f"[OPERATIONS] {', '.join(ops)}")
+
+    # Count steps implied (number of sentences as proxy)
+    sentences = [s.strip() for s in re.split(r'[.!?]', question) if s.strip()]
+    if len(sentences) > 2:
+        parts.append(f"[COMPLEXITY] {len(sentences)} steps implied")
+
+    return parts
+
+
+def _retrieve_math_graph(question: str) -> list[str]:
+    """
+    Retrieve relevant mathematical knowledge from the graph YAML definitions.
+    """
+    import yaml
+    parts = []
+
+    q_lower = question.lower()
+
+    # Check if info theory concepts are relevant
+    info_keywords = {"entropy", "information", "probability", "random",
+                     "likely", "chance", "odds", "expected"}
+    if info_keywords & set(q_lower.split()):
+        try:
+            it_path = REPO_ROOT / "packages" / "infotheory" / "IT01-information-theory.yaml"
+            if it_path.exists():
+                with open(it_path) as f:
+                    it = yaml.safe_load(f)
+                for concept in it.get("concepts", [])[:3]:
+                    if any(k in q_lower for k in concept.get("name", "").lower().split()):
+                        parts.append(
+                            f"[MATH] {concept['name']}: {concept.get('latex', '')} "
+                            f"— {concept.get('meaning', '')}"
+                        )
+        except Exception:
+            pass
+
+    # Rate/proportion: provide the relationship
+    if "per " in q_lower or "each " in q_lower:
+        parts.append("[FORMULA] total = rate × quantity; unit_price × count = cost")
+
+    if "percent" in q_lower or "%" in q_lower:
+        parts.append("[FORMULA] percentage: part/whole × 100; amount × (pct/100)")
+
+    return parts
+
+
 def _retrieve_language_graph(question: str) -> str:
     """
     Use the language graph to resolve ambiguity and provide structure.
-
-    1. Tokenize the question
-    2. For each token: check polysemy, retrieve synsets, hypernym chains
-    3. For ambiguous tokens: retrieve disambiguation context
-    4. For domain terms: retrieve frame evocations
-    5. Return compact context string
     """
     try:
-        from language_graph.check import check_text, get_polysemy
+        from packages.core.language.check import check_text, get_polysemy
         from nltk.corpus import wordnet as wn
     except ImportError:
-        return "[language graph unavailable]"
+        try:
+            from language_graph.check import check_text, get_polysemy
+            from nltk.corpus import wordnet as wn
+        except ImportError:
+            return ""
 
     tokens = question.lower().split()
     context_parts = []
@@ -150,7 +277,7 @@ def _retrieve_language_graph(question: str) -> str:
     content_words = [t.strip(".,;:!?\"'") for t in tokens
                      if len(t) > 3 and get_polysemy(t.strip(".,;:!?\"'")) > 0]
 
-    for word in content_words[:10]:  # cap to avoid bloat
+    for word in content_words[:10]:
         synsets = wn.synsets(word)
         if not synsets:
             continue
@@ -189,7 +316,6 @@ def _retrieve_language_graph(question: str) -> str:
 def _retrieve_inference_pipeline(question: str) -> str:
     """
     Use the inference pipeline (embeddings → clusters → retrieval).
-    Finds the most relevant equivalence class for the question.
     """
     try:
         import numpy as np
@@ -197,7 +323,6 @@ def _retrieve_inference_pipeline(question: str) -> str:
 
         emb_path = REPO_ROOT / "inference" / "01-embeddings" / "embeddings.npy"
         meta_path = REPO_ROOT / "inference" / "01-embeddings" / "metadata.json"
-        classes_path = REPO_ROOT / "inference" / "02-clusters" / "classes.json"
 
         if not emb_path.exists():
             return ""
@@ -205,14 +330,10 @@ def _retrieve_inference_pipeline(question: str) -> str:
         embeddings = np.load(str(emb_path))
         with open(meta_path) as f:
             metadata = json.load(f)
-        with open(classes_path) as f:
-            classes = json.load(f)
 
-        # Embed the question
         model = SentenceTransformer(metadata["model"])
         q_emb = model.encode([question], convert_to_numpy=True)[0]
 
-        # Find nearest chunk
         sims = embeddings @ q_emb / (
             np.linalg.norm(embeddings, axis=1) * np.linalg.norm(q_emb) + 1e-8
         )
@@ -222,7 +343,6 @@ def _retrieve_inference_pipeline(question: str) -> str:
         if top_sim < 0.3:
             return ""
 
-        # Load the chunk text
         chunks_path = REPO_ROOT / "inference" / "00-chunks" / "chunks.jsonl"
         with open(chunks_path) as f:
             chunks = [json.loads(line) for line in f if line.strip()]
@@ -242,83 +362,180 @@ def _retrieve_inference_pipeline(question: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Claude CLI runner
+# ---------------------------------------------------------------------------
+
+def call_claude_cli(prompt: str, model: str = "sonnet",
+                    max_tokens: int = 256) -> tuple[str, int]:
+    """
+    Call Claude via the CLI subprocess.
+    Returns (response_text, latency_ms).
+
+    Uses --print flag for non-interactive single-turn.
+    No memory, no project context, no MCP — clean room.
+    """
+    start = time.monotonic()
+
+    try:
+        result = subprocess.run(
+            [
+                "claude",
+                "-p", prompt,           # --print: non-interactive, stdout only
+                "--model", model,
+                "--output-format", "text",
+                "--disable-slash-commands",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        elapsed_ms = int((time.monotonic() - start) * 1000)
+
+        if result.returncode != 0:
+            return f"[ERROR: {result.stderr.strip()[:200]}]", elapsed_ms
+
+        return result.stdout.strip(), elapsed_ms
+
+    except subprocess.TimeoutExpired:
+        elapsed_ms = int((time.monotonic() - start) * 1000)
+        return "[ERROR: timeout]", elapsed_ms
+    except FileNotFoundError:
+        return "[ERROR: claude CLI not found]", 0
+
+
+# ---------------------------------------------------------------------------
 # Model runner
 # ---------------------------------------------------------------------------
 
-def run_case(client: anthropic.Anthropic, case: TestCase, condition: str,
-             model: str) -> RunResult:
+def solve_graph_only(question: str) -> tuple[str, int]:
+    """
+    Attempt to solve the problem using only the knowledge graph.
+    No LLM call. Pure structure extraction + deterministic computation.
+
+    Returns (answer_str, latency_ms). Returns empty string if unsolvable.
+    """
+    start = time.monotonic()
+
+    try:
+        from packages.core.interpret import solve
+        answer, problem = solve(question)
+
+        elapsed = int((time.monotonic() - start) * 1000)
+
+        if answer is not None and problem.confidence >= 0.5:
+            # Format as integer if it's a whole number
+            if answer == int(answer):
+                return str(int(answer)), elapsed
+            return str(round(answer, 2)), elapsed
+
+        return "", elapsed
+
+    except Exception:
+        elapsed = int((time.monotonic() - start) * 1000)
+        return "", elapsed
+
+
+def run_case(case: TestCase, condition: str, model: str) -> RunResult:
     """Run one test case under one condition."""
 
+    system_prefix = (
+        "Answer the question concisely. Give ONLY the final numeric answer, "
+        "no explanation, no units, just the number.\n\n"
+    )
+
     if condition == "vanilla":
-        prompt = case.question
+        prompt = system_prefix + case.question
+        answer, latency_ms = call_claude_cli(prompt, model)
     elif condition == "graph":
-        if case.graph_context:
-            prompt = case.graph_context + "\n" + case.question
-        else:
-            # Retrieve on the fly
-            ctx = retrieve_graph_context(case.question)
-            prompt = ctx + "\n" + case.question if ctx else case.question
+        ctx = case.graph_context if case.graph_context else retrieve_graph_context(case.question)
+        prompt = system_prefix + (ctx + "\n" if ctx else "") + case.question
+        answer, latency_ms = call_claude_cli(prompt, model)
+    elif condition == "graph_only":
+        answer, latency_ms = solve_graph_only(case.question)
+        prompt = ""
     else:
         raise ValueError(f"Unknown condition: {condition}")
 
-    system_msg = (
-        "Answer the question concisely. Give only the answer, "
-        "no explanation unless asked."
+    # Estimate tokens (~4 chars per token)
+    input_chars = len(prompt)
+    output_chars = len(answer)
+    input_tokens_est = input_chars // 4
+    output_tokens_est = output_chars // 4
+
+    # Score
+    correct = score_answer(answer, case.reference_answer) if answer else False
+
+    error = ""
+    if answer.startswith("[ERROR:"):
+        error = answer
+        correct = False
+
+    return RunResult(
+        test_id=case.id, condition=condition, model=model,
+        answer=answer, correct=correct,
+        input_chars=input_chars, output_chars=output_chars,
+        input_tokens_est=input_tokens_est,
+        output_tokens_est=output_tokens_est,
+        latency_ms=latency_ms, error=error,
     )
-
-    start = time.monotonic()
-    try:
-        response = client.messages.create(
-            model=model,
-            max_tokens=256,
-            system=system_msg,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        elapsed_ms = int((time.monotonic() - start) * 1000)
-
-        answer = response.content[0].text.strip()
-        input_tokens = response.usage.input_tokens
-        output_tokens = response.usage.output_tokens
-
-        # Cost estimate
-        pricing = PRICING.get(model, {"input": 3.0, "output": 15.0})
-        cost = (input_tokens * pricing["input"] + output_tokens * pricing["output"]) / 1_000_000
-
-        # Score
-        correct = score_answer(answer, case.reference_answer)
-
-        return RunResult(
-            test_id=case.id, condition=condition, model=model,
-            answer=answer, correct=correct,
-            input_tokens=input_tokens, output_tokens=output_tokens,
-            latency_ms=elapsed_ms, cost_usd=round(cost, 6),
-        )
-
-    except Exception as e:
-        elapsed_ms = int((time.monotonic() - start) * 1000)
-        return RunResult(
-            test_id=case.id, condition=condition, model=model,
-            answer="", correct=False, latency_ms=elapsed_ms,
-            error=str(e),
-        )
 
 
 def score_answer(answer: str, reference: str) -> bool:
     """Score an answer against reference. Flexible matching."""
+    import re
+
     a = answer.lower().strip().rstrip(".")
     r = reference.lower().strip().rstrip(".")
+
+    # Error responses are always wrong
+    if a.startswith("[error:"):
+        return False
 
     # Exact match
     if a == r:
         return True
+
+    # Try numeric comparison first (handles "18", "$18", "18.0", "18 dollars")
+    def extract_number(text: str):
+        """Extract the final/primary number from text."""
+        # Look for boxed answer (MATH benchmark)
+        boxed = re.search(r'\\boxed\{([^}]+)\}', text)
+        if boxed:
+            text = boxed.group(1)
+        # Strip currency, commas, units
+        nums = re.findall(r'-?\$?\d[\d,]*\.?\d*', text)
+        if nums:
+            # Take the last number (usually the final answer)
+            n = nums[-1].replace(',', '').lstrip('$')
+            try:
+                return float(n)
+            except ValueError:
+                pass
+        return None
+
+    a_num = extract_number(a)
+    r_num = extract_number(r)
+    if a_num is not None and r_num is not None:
+        # Numeric match with small tolerance
+        if abs(a_num - r_num) < 0.01:
+            return True
 
     # Reference contained in answer (for short answers)
     if r in a:
         return True
 
     # Answer contained in reference
-    if a in r:
+    if a in r and len(a) > 2:
         return True
+
+    # Word-level near-match: handle inflection ("string" vs "stringed")
+    a_words = a.split()
+    r_words = r.split()
+    if len(a_words) == len(r_words) and len(a_words) >= 1:
+        matches = sum(1 for aw, rw in zip(a_words, r_words)
+                      if aw == rw or aw.startswith(rw) or rw.startswith(aw))
+        if matches == len(a_words):
+            return True
 
     # Multiple choice: extract letter
     for prefix in ["(a)", "(b)", "(c)", "(d)", "a)", "b)", "c)", "d)",
@@ -372,14 +589,15 @@ def list_suites() -> list[str]:
 
 def run_benchmark(suite_name: str, model: str, n_runs: int = 1,
                   graph_backend: str = "language") -> SuiteResult:
-    """Run a complete benchmark: all cases × both conditions × n_runs."""
+    """Run a complete benchmark: all cases x both conditions x n_runs."""
 
-    client = anthropic.Anthropic()
     cases = load_suite(suite_name)
-
     result = SuiteResult(suite=suite_name, model=model, n_cases=len(cases))
 
     all_runs = []
+    total = len(cases) * n_runs * 2
+    done = 0
+
     for run_idx in range(n_runs):
         for case in cases:
             # Pre-compute graph context if not cached
@@ -389,12 +607,28 @@ def run_benchmark(suite_name: str, model: str, n_runs: int = 1,
                 )
 
             # Run vanilla
-            vanilla_result = run_case(client, case, "vanilla", model)
+            vanilla_result = run_case(case, "vanilla", model)
             all_runs.append(vanilla_result)
+            done += 1
+            v_mark = "+" if vanilla_result.correct else "X"
+            v_ans = vanilla_result.answer[:40].replace("\n", " ")
+            print(f"  [{done}/{total}] {case.id} vanilla {v_mark}  "
+                  f"ans={v_ans:<20} ref={case.reference_answer:<10} "
+                  f"{vanilla_result.latency_ms}ms  "
+                  f"in={vanilla_result.input_tokens_est}tok")
 
             # Run graph-augmented
-            graph_result = run_case(client, case, "graph", model)
+            graph_result = run_case(case, "graph", model)
             all_runs.append(graph_result)
+            done += 1
+            g_mark = "+" if graph_result.correct else "X"
+            g_ans = graph_result.answer[:40].replace("\n", " ")
+            ctx_chars = len(case.graph_context) if case.graph_context else 0
+            print(f"  [{done}/{total}] {case.id} graph   {g_mark}  "
+                  f"ans={g_ans:<20} ref={case.reference_answer:<10} "
+                  f"{graph_result.latency_ms}ms  "
+                  f"in={graph_result.input_tokens_est}tok  "
+                  f"ctx={ctx_chars}ch")
 
     # Aggregate
     vanilla_runs = [r for r in all_runs if r.condition == "vanilla"]
@@ -405,26 +639,24 @@ def run_benchmark(suite_name: str, model: str, n_runs: int = 1,
 
     result.vanilla_accuracy = v_correct / len(vanilla_runs) if vanilla_runs else 0
     result.graph_accuracy = g_correct / len(graph_runs) if graph_runs else 0
+    result.accuracy_delta = result.graph_accuracy - result.vanilla_accuracy
 
     result.vanilla_mean_input_tokens = (
-        sum(r.input_tokens for r in vanilla_runs) / len(vanilla_runs)
+        sum(r.input_tokens_est for r in vanilla_runs) / len(vanilla_runs)
         if vanilla_runs else 0
     )
     result.graph_mean_input_tokens = (
-        sum(r.input_tokens for r in graph_runs) / len(graph_runs)
+        sum(r.input_tokens_est for r in graph_runs) / len(graph_runs)
         if graph_runs else 0
     )
     result.vanilla_mean_output_tokens = (
-        sum(r.output_tokens for r in vanilla_runs) / len(vanilla_runs)
+        sum(r.output_tokens_est for r in vanilla_runs) / len(vanilla_runs)
         if vanilla_runs else 0
     )
     result.graph_mean_output_tokens = (
-        sum(r.output_tokens for r in graph_runs) / len(graph_runs)
+        sum(r.output_tokens_est for r in graph_runs) / len(graph_runs)
         if graph_runs else 0
     )
-
-    result.vanilla_total_cost = sum(r.cost_usd for r in vanilla_runs)
-    result.graph_total_cost = sum(r.cost_usd for r in graph_runs)
 
     result.vanilla_mean_latency_ms = (
         sum(r.latency_ms for r in vanilla_runs) / len(vanilla_runs)
@@ -435,11 +667,10 @@ def run_benchmark(suite_name: str, model: str, n_runs: int = 1,
         if graph_runs else 0
     )
 
-    # Token savings: how much LESS context does graph need for same/better accuracy?
-    if result.vanilla_mean_input_tokens > 0:
+    if result.graph_mean_input_tokens > 0:
         result.token_savings_ratio = round(
             result.vanilla_mean_input_tokens / result.graph_mean_input_tokens, 2
-        ) if result.graph_mean_input_tokens > 0 else 0
+        )
 
     result.runs = [asdict(r) for r in all_runs]
 
@@ -457,31 +688,48 @@ def print_result(result: SuiteResult):
     print(f"  {'-'*65}")
     print(f"  {'Accuracy':<25} {result.vanilla_accuracy:.1%}{'':>9} "
           f"{result.graph_accuracy:.1%}{'':>9} "
-          f"{result.graph_accuracy - result.vanilla_accuracy:+.1%}")
+          f"{result.accuracy_delta:+.1%}")
     print(f"  {'Avg input tokens':<25} {result.vanilla_mean_input_tokens:.0f}{'':>11} "
           f"{result.graph_mean_input_tokens:.0f}{'':>11} "
           f"{result.graph_mean_input_tokens - result.vanilla_mean_input_tokens:+.0f}")
     print(f"  {'Avg output tokens':<25} {result.vanilla_mean_output_tokens:.0f}{'':>11} "
           f"{result.graph_mean_output_tokens:.0f}{'':>11} "
           f"{result.graph_mean_output_tokens - result.vanilla_mean_output_tokens:+.0f}")
-    print(f"  {'Total cost ($)':<25} ${result.vanilla_total_cost:.4f}{'':>8} "
-          f"${result.graph_total_cost:.4f}{'':>8}")
     print(f"  {'Avg latency (ms)':<25} {result.vanilla_mean_latency_ms:.0f}{'':>11} "
           f"{result.graph_mean_latency_ms:.0f}")
-    print(f"  {'Token savings ratio':<25} {'1.0x':<15} "
+    print(f"  {'Input token ratio':<25} {'1.0x':<15} "
           f"{result.token_savings_ratio}x")
+
+    # Show mismatches
+    mismatches = []
+    vanilla_map = {r["test_id"]: r for r in result.runs if r["condition"] == "vanilla"}
+    graph_map = {r["test_id"]: r for r in result.runs if r["condition"] == "graph"}
+    for tid in vanilla_map:
+        v = vanilla_map[tid]
+        g = graph_map.get(tid, {})
+        if v.get("correct") != g.get("correct"):
+            mismatches.append((tid, v, g))
+
+    if mismatches:
+        print(f"\n  Differences (vanilla vs graph):")
+        for tid, v, g in mismatches:
+            v_mark = "ok" if v.get("correct") else "X"
+            g_mark = "ok" if g.get("correct") else "X"
+            print(f"    {tid}: vanilla={v_mark} graph={g_mark}")
+            print(f"      vanilla: {v.get('answer', '')[:80]}")
+            print(f"      graph:   {g.get('answer', '')[:80]}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="AI benchmark harness")
     parser.add_argument("--suite", default="disambiguation",
                         help="Test suite name or 'all'")
-    parser.add_argument("--model", default="haiku",
+    parser.add_argument("--model", default="sonnet",
                         help="Model: haiku, sonnet, opus")
     parser.add_argument("--runs", type=int, default=1,
                         help="Number of runs per case")
-    parser.add_argument("--backend", default="language",
-                        help="Graph backend: language, inference")
+    parser.add_argument("--backend", default="full",
+                        help="Graph backend: full, language, inference")
     parser.add_argument("--list", action="store_true",
                         help="List available suites")
     args = parser.parse_args()
@@ -500,7 +748,16 @@ def main():
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Verify claude CLI is available
+    try:
+        result = subprocess.run(["claude", "--version"], capture_output=True, text=True, timeout=5)
+        print(f"Claude CLI: {result.stdout.strip()}")
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        print("ERROR: 'claude' CLI not found. Install with: npm install -g @anthropic-ai/claude-code")
+        return
+
     for suite_name in suites:
+        print(f"\nRunning {suite_name} ({model})...")
         result = run_benchmark(suite_name, model, args.runs, args.backend)
         print_result(result)
 

@@ -6,8 +6,9 @@
 *.fdb_latexmk
 *.synctex.gz
 .temp/
-gnn/results
-analysis
+gnn/results/
+packages/cancer/results/
+analysis/
 */__pycache__/*
 *.pyc
 .DS_Store

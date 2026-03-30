@@ -149,6 +149,15 @@ Librarian agent maintains the indexes. Node added = index updated. Node moved = 
 
 Directory structure matches the encoding hierarchy: sub-pathway → channel → cross-channel.
 
+### Migrate hardcoded language interpretation to graph
+- [ ] Verb → operation mappings (operations.py) → graph edges: `verb_node --RESOLVES_TO--> operation_node`
+- [ ] Unit multipliers (dozen=12, pair=context-dependent) → graph edges with context predicates
+- [ ] Disambiguation rules (pair of shoes=1 unit, pair of dice=2) → context-conditioned edges, not Python sets
+- [ ] Rate operator equivalences: "per" = "each" = "for every" = "for each" → single equivalence class node
+- [ ] Greedy matching: graph traversal naturally picks longest/most specific edge first ("gets rid of" > "gets")
+- [ ] The compiler becomes a graph walker: verb resolution, unit conversion, and disambiguation all via edge lookup
+- [ ] New world knowledge = new edges, not code changes
+
 ### Still needs discussion
 - [ ] Schema version strategy
 - [ ] How agents reference the core vocabulary (import? config?)
