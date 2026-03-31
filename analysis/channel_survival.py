@@ -35,71 +35,23 @@ HEADERS = {"Accept": "application/json"}
 #   5. Immune       — immune surveillance / antigen presentation
 #   6. Tissue arch  — cell adhesion, tissue architecture, Wnt, Notch, TGF-beta
 
-CHANNEL_MAP = {
-    # DDR channel
-    "BRCA1": "DDR", "BRCA2": "DDR", "PALB2": "DDR",
-    "RAD51C": "DDR", "RAD51D": "DDR", "RAD51B": "DDR",
-    "ATM": "DDR", "ATR": "DDR", "CHEK2": "DDR", "CHEK1": "DDR",
-    "FANCA": "DDR", "FANCC": "DDR", "FANCD2": "DDR",
-    "BAP1": "DDR", "BARD1": "DDR",
-    "MLH1": "DDR", "MSH2": "DDR", "MSH6": "DDR", "PMS2": "DDR",
-    "POLE": "DDR", "POLD1": "DDR",
+def _load_channel_map():
+    """Load canonical 8-channel gene map from CSV."""
+    import csv as _csv
+    _csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "channel_gene_map.csv")
+    if not os.path.exists(_csv_path):
+        _csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "channel_gene_map.csv")
+    result = {}
+    with open(_csv_path) as f:
+        for row in _csv.DictReader(f):
+            ch = row["channel"]
+            if ch == "TissueArchitecture":
+                ch = "TissueArch"
+            result[row["gene"]] = ch
+    return result
 
-    # Cell cycle / apoptosis channel
-    "TP53": "CellCycle", "RB1": "CellCycle",
-    "CDKN1A": "CellCycle", "CDKN1B": "CellCycle",
-    "CDKN2A": "CellCycle", "CDKN2B": "CellCycle",
-    "CDK4": "CellCycle", "CDK6": "CellCycle",
-    "CCND1": "CellCycle", "CCNE1": "CellCycle",
-    "MDM2": "CellCycle", "MDM4": "CellCycle",
-    "MYC": "CellCycle", "MYCN": "CellCycle",
 
-    # PI3K / Growth signaling channel
-    "PIK3CA": "PI3K_Growth", "PIK3R1": "PI3K_Growth",
-    "PTEN": "PI3K_Growth", "AKT1": "PI3K_Growth",
-    "AKT2": "PI3K_Growth", "AKT3": "PI3K_Growth",
-    "MTOR": "PI3K_Growth",
-    "KRAS": "PI3K_Growth", "NRAS": "PI3K_Growth", "HRAS": "PI3K_Growth",
-    "BRAF": "PI3K_Growth", "RAF1": "PI3K_Growth",
-    "MAP2K1": "PI3K_Growth", "MAP2K2": "PI3K_Growth",
-    "MAP3K1": "PI3K_Growth", "MAP3K13": "PI3K_Growth",
-    "ERBB2": "PI3K_Growth", "ERBB3": "PI3K_Growth",
-    "EGFR": "PI3K_Growth", "FGFR1": "PI3K_Growth",
-    "FGFR2": "PI3K_Growth", "FGFR3": "PI3K_Growth",
-    "IGF1R": "PI3K_Growth", "MET": "PI3K_Growth",
-    "NF1": "PI3K_Growth", "NF2": "PI3K_Growth",
-    "TSC1": "PI3K_Growth", "TSC2": "PI3K_Growth",
-    "STK11": "PI3K_Growth",
-    "ARID1A": "PI3K_Growth",
-
-    # Endocrine / hormone receptor channel
-    "ESR1": "Endocrine", "ESR2": "Endocrine",
-    "PGR": "Endocrine", "AR": "Endocrine",
-    "FOXA1": "Endocrine",
-    "GATA3": "Endocrine",
-
-    # Immune surveillance channel
-    "B2M": "Immune", "HLA-A": "Immune", "HLA-B": "Immune",
-    "HLA-C": "Immune",
-    "JAK1": "Immune", "JAK2": "Immune",
-    "STAT1": "Immune",
-    "CD274": "Immune",  # PD-L1
-    "PDCD1LG2": "Immune",  # PD-L2
-    "CTLA4": "Immune",
-
-    # Tissue architecture channel (adhesion, Wnt, Notch, TGF-beta)
-    "CDH1": "TissueArch", "CDH2": "TissueArch",
-    "CTNNB1": "TissueArch",  # beta-catenin
-    "APC": "TissueArch",
-    "AXIN1": "TissueArch", "AXIN2": "TissueArch",
-    "SMAD2": "TissueArch", "SMAD3": "TissueArch", "SMAD4": "TissueArch",
-    "TGFBR1": "TissueArch", "TGFBR2": "TissueArch",
-    "NOTCH1": "TissueArch", "NOTCH2": "TissueArch",
-    "NOTCH3": "TissueArch", "NOTCH4": "TissueArch",
-    "FBXW7": "TissueArch",
-    "GJA1": "TissueArch",  # Connexin 43
-    "GJB2": "TissueArch",  # Connexin 26
-}
+CHANNEL_MAP = _load_channel_map()
 
 CHANNEL_NAMES = {
     "DDR": "DNA Damage Response",
@@ -108,6 +60,8 @@ CHANNEL_NAMES = {
     "Endocrine": "Endocrine / Hormone",
     "Immune": "Immune Surveillance",
     "TissueArch": "Tissue Architecture",
+    "ChromatinRemodel": "Chromatin Remodeling",
+    "DNAMethylation": "DNA Methylation",
 }
 
 

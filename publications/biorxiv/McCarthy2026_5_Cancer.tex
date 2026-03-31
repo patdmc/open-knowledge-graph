@@ -104,21 +104,29 @@ pan-cancer) \cite{Zehir2017}, the MSK MetTropism Cohort
 
 \subsection{Method}
 
-For each patient, we mapped somatic mutations to six coupling
-channels based on the organizational function of the mutated gene:
-(1)~DNA damage response (DDR: \emph{BRCA1}, \emph{BRCA2},
-\emph{ATM}, \emph{CHEK2}, mismatch repair genes),
-(2)~cell cycle checkpoint (\emph{TP53}, \emph{RB1}, \emph{CDKN2A},
-\emph{CDK4/6}),
-(3)~growth signaling (PI3K--AKT--mTOR, RAS--MAPK:
+For each patient, we mapped somatic mutations to eight coupling
+channels based on the organizational function of the mutated gene,
+organized into four hierarchical tiers:
+(1)~growth signaling (PI3K--AKT--mTOR, RAS--MAPK:
 \emph{PIK3CA}, \emph{PTEN}, \emph{KRAS}, \emph{BRAF}, \emph{EGFR},
 \emph{ERBB2}),
-(4)~endocrine/hormone (\emph{ESR1}, \emph{GATA3}, \emph{FOXA1},
+(2)~cell cycle checkpoint (\emph{TP53}, \emph{RB1}, \emph{CDKN2A},
+\emph{CDK4/6}),
+(3)~DNA damage response (DDR: \emph{BRCA1}, \emph{BRCA2},
+\emph{ATM}, \emph{CHEK2}, mismatch repair genes),
+(4)~tissue architecture (\emph{CDH1}, \emph{APC}, \emph{CTNNB1},
+\emph{SMAD4}, \emph{NOTCH1}),
+(5)~endocrine/hormone (\emph{ESR1}, \emph{GATA3}, \emph{FOXA1},
 \emph{AR}),
-(5)~immune surveillance (\emph{B2M}, \emph{HLA-A/B/C},
+(6)~immune surveillance (\emph{B2M}, \emph{HLA-A/B/C},
 \emph{JAK1/2}),
-(6)~tissue architecture (\emph{CDH1}, \emph{APC}, \emph{CTNNB1},
-\emph{SMAD4}, \emph{NOTCH1}).
+(7)~chromatin remodeling (\emph{ARID1A}, \emph{SMARCA4},
+\emph{KMT2C}, \emph{KMT2D}, \emph{SETD2}),
+(8)~DNA methylation (\emph{DNMT3A}, \emph{TET2}, \emph{IDH1},
+\emph{IDH2}).
+Tiers pair complementary functions: cell-intrinsic (1--2),
+tissue-level (3--4), organism-level (5--6), and meta-regulatory
+(7--8). See \cite{McCarthy2026f} for the full tier analysis.
 Non-silent mutations (missense, nonsense, frameshift, splice site)
 in these genes. For each patient, we recorded the number of
 \emph{distinct channels} with at least one mutation.
@@ -141,7 +149,7 @@ predict worse outcomes. It predicts better.
 \includegraphics[width=0.85\textwidth]{km_by_channel_count.pdf}
 \caption{Kaplan--Meier survival curves stratified by the number of
 coupling channels severed (MSK-IMPACT 50K, $n = 43{,}872$;
-Cox regression in Table~\ref{tab:empirical} uses $n = 41{,}856$
+Cox regression in Table~\ref{tab:empirical} uses $n = 43{,}872$
 after excluding patients with missing covariates). Survival
 decreases monotonically from 0 to 3 channels. The 4+ group shows
 partial rebound, consistent with hypermutation phenotypes where
@@ -152,7 +160,7 @@ most mutations are passengers.}
 \begin{table}[ht]
 \centering
 \caption{Cox proportional hazards: channel count vs.\ mutation
-count across three independent cohorts totaling 73{,}593 patients.
+count across three independent cohorts totaling 75{,}995 patients.
 HR\,$=$\,hazard ratio per unit increase (95\% CI).
 In multivariate models,
 channel count remains significant while mutation count loses
@@ -163,20 +171,20 @@ predictive power or becomes protective.}
 \toprule
 Dataset & Predictor & HR (95\% CI) & $p$ & Note \\
 \midrule
-MSK-IMPACT 2017 & Channel count (univariate) & 1.10 & $<$0.005 & \\
-\quad ($n=7{,}091$) & Log mutation count (univariate) & 1.12 & $<$0.005 & \\
- & Channel count (multivariate) & 1.09 & $<$0.005 & Significant \\
- & Log mutation count (multivariate) & 1.02 & 0.67 & Not significant \\
+MSK-IMPACT 2017 & Channel count (univariate) & 1.09 & $5 \times 10^{-13}$ & \\
+\quad ($n=7{,}562$) & Log mutation count (univariate) & 1.16 & $2 \times 10^{-11}$ & \\
+ & Channel count (multivariate) & 1.07 & 0.006 & Significant \\
+ & Log mutation count (multivariate) & 1.05 & 0.32 & Not significant \\
 \midrule
-MetTropism & Channel count (univariate) & 1.06 & $<$0.005 & \\
-\quad ($n=24{,}646$) & Log mutation count (univariate) & 1.00 & 0.69 & Not significant \\
- & Channel count (multivariate) & 1.17 & $<$0.005 & Significant \\
- & Log mutation count (multivariate) & 0.82 & $<$0.005 & Protective \\
+MetTropism & Channel count (univariate) & 1.05 & $1 \times 10^{-16}$ & \\
+\quad ($n=24{,}561$) & Log mutation count (univariate) & 1.03 & 0.002 & \\
+ & Channel count (multivariate) & 1.14 & $7 \times 10^{-29}$ & Significant \\
+ & Log mutation count (multivariate) & 0.84 & $5 \times 10^{-16}$ & Protective \\
 \midrule
-MSK-IMPACT 50K & Channel count (univariate) & 1.04 & $<$0.005 & \\
-\quad ($n=41{,}856$) & Log mutation count (univariate) & 0.98 & 0.03 & Weakly protective \\
- & Channel count (multivariate) & 1.15 & $<$0.005 & Significant \\
- & Log mutation count (multivariate) & 0.83 & $<$0.005 & Protective \\
+MSK-IMPACT 50K & Channel count (univariate) & 1.04 & $6 \times 10^{-21}$ & \\
+\quad ($n=43{,}872$) & Log mutation count (univariate) & 1.04 & $1 \times 10^{-7}$ & \\
+ & Channel count (multivariate) & 1.09 & $4 \times 10^{-21}$ & Significant \\
+ & Log mutation count (multivariate) & 0.92 & $3 \times 10^{-8}$ & Protective \\
 \bottomrule
 \end{tabular*}
 \end{table}
@@ -233,12 +241,12 @@ is significant in all three datasets.}
 \toprule
 Dataset & Cross-channel & Same-channel & $p$ (log-rank) \\
 \midrule
-MSK-IMPACT 2017 ($n=7{,}091$) & 33.1\% & 27.7\% &
-  $1.4 \times 10^{-5}$ \\
-MetTropism ($n=24{,}646$) & 42.9\% & 39.0\% &
-  $6.3 \times 10^{-13}$ \\
-MSK-IMPACT 50K ($n=41{,}856$) & 42.6\% & 39.7\% &
-  $5.7 \times 10^{-13}$ \\
+MSK-IMPACT 2017 ($n=7{,}574$) & 32.3\% & 26.7\% &
+  $4.7 \times 10^{-5}$ \\
+MetTropism ($n=25{,}659$) & 42.6\% & 37.1\% &
+  $8.8 \times 10^{-19}$ \\
+MSK-IMPACT 50K ($n=44{,}283$) & 42.1\% & 38.9\% &
+  $6.0 \times 10^{-13}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -278,10 +286,10 @@ should not (red rows).}
 
 \textbf{Same-channel depth: more mutations in fewer channels is
 protective.} Stratifying by fixed channel count, patients with more
-mutations survive longer. At 2 channels: mortality drops from 46.2\%
-to 41.2\% ($p = 3.1 \times 10^{-8}$). At 3 channels: 46.9\% to
-38.6\% ($p = 7.2 \times 10^{-14}$). MetTropism replicates: at
-3 channels, 49.6\% vs.\ 36.5\% ($p = 2.6 \times 10^{-10}$).
+mutations survive longer. At 2 channels: mortality drops from 43.8\%
+to 41.3\% ($p = 6.8 \times 10^{-4}$). At 3 channels: 45.8\% to
+42.8\% ($p = 4.3 \times 10^{-4}$). MetTropism replicates: at
+3 channels, 48.4\% vs.\ 43.7\% ($p = 1.8 \times 10^{-3}$).
 
 An alternative explanation is immunogenicity: more mutations produce
 more neoantigens and better immune response. If neoantigen load
@@ -292,13 +300,13 @@ burden.
 
 \textbf{Mortality gradient by channel count.} All three datasets
 show a monotonic mortality gradient from 0 to 3--4 channels
-severed (Figure~\ref{fig:km}). In the 50K cohort: 30.4\% (0~channels), 38.5\% (1),
-44.2\% (2), 44.3\% (3), 40.3\% (4). Patients with 5--6 channels
-show lower mortality (29.0\%, 20.7\%), consistent with the
+severed (Figure~\ref{fig:km}). In the 50K cohort: 26.9\% (0~channels), 37.3\% (1),
+42.6\% (2), 44.6\% (3), 43.9\% (4). Patients with 6--8 channels
+show lower mortality (33.2\%, 23.4\%, 21.1\%), consistent with the
 hypermutation phenotype (MSI-high, mismatch repair deficient) where
 most mutations are passengers that do not functionally sever channels.
 
-\textbf{Sensitivity to channel granularity.} The six-channel mapping
+\textbf{Sensitivity to channel granularity.} The eight-channel mapping
 is one hypothesis. To test robustness, we repeated the multivariate
 Cox regression at every granularity from 2 to 10 channels.
 Table~\ref{tab:sensitivity} shows the results for the MSK-IMPACT
@@ -306,10 +314,10 @@ Table~\ref{tab:sensitivity} shows the results for the MSK-IMPACT
 
 \begin{table}[ht]
 \centering
-\caption{Sensitivity analysis (MSK-IMPACT 50K, $n = 41{,}856$):
+\caption{Sensitivity analysis (MSK-IMPACT 50K, $n = 43{,}872$):
 multivariate Cox hazard ratios for channel count and log mutation
 count at different channel granularities. Channel count is
-significant from 2 through 8 channels, peaks at 3, and collapses
+significant from 2 through 8 channels, peaks at 3--4, and collapses
 at 10. All three datasets replicate this pattern.}
 \label{tab:sensitivity}
 \medskip
@@ -317,19 +325,19 @@ at 10. All three datasets replicate this pattern.}
 \toprule
 Channels & Ch HR & Ch $p$ & Mut HR & Mut $p$ \\
 \midrule
-2 & 1.25 & $2 \times 10^{-52}$ & 0.94 & $4 \times 10^{-9}$ \\
-3 & 1.30 & $3 \times 10^{-124}$ & 0.86 & $8 \times 10^{-41}$ \\
+2 & 1.11 & $1 \times 10^{-17}$ & 0.95 & $3 \times 10^{-4}$ \\
+3 & 1.20 & $1 \times 10^{-69}$ & 0.85 & $1 \times 10^{-31}$ \\
 4 & 1.21 & $3 \times 10^{-75}$ & 0.88 & $9 \times 10^{-27}$ \\
-5 & 1.17 & $8 \times 10^{-58}$ & 0.88 & $6 \times 10^{-22}$ \\
-6 & 1.14 & $1 \times 10^{-44}$ & 0.90 & $2 \times 10^{-16}$ \\
-7 & 1.10 & $7 \times 10^{-24}$ & 0.93 & $1 \times 10^{-7}$ \\
+5 & 1.11 & $3 \times 10^{-29}$ & 0.90 & $2 \times 10^{-12}$ \\
+6 & 1.09 & $4 \times 10^{-21}$ & 0.92 & $3 \times 10^{-8}$ \\
+7 & 1.05 & $2 \times 10^{-9}$ & 0.96 & $9 \times 10^{-3}$ \\
 8 & 1.07 & $3 \times 10^{-14}$ & 0.95 & $4 \times 10^{-4}$ \\
 10 & 1.01 & 0.064 & 1.02 & 0.20 \\
 \bottomrule
 \end{tabular*}
 \end{table}
 
-The signal peaks at 3 channels ($p = 3 \times 10^{-124}$) and is
+The signal peaks at 3--4 channels ($p = 3 \times 10^{-75}$) and is
 significant from 2 through 8. At 10, over-splitting collapses
 channel count back into a proxy for mutation count. The specific
 number matters less than the principle: grouping by organizational
@@ -369,7 +377,7 @@ Network degree---the number of protein interactions a gene
 participates in---predicts survival pan-cancer ($p = 10^{-39}$).
 But per-cancer-type analysis reveals that degree is significant in
 only 15 of 29 evaluable cancer types, while channel identity
-(which of the six channels is mutated) is significant in 22 of 29
+(which of the eight channels is mutated) is significant in 22 of 29
 (Table~\ref{tab:degree-vs-channel}).
 Degree is a roll-up: it measures whether TP53 or CDKN2A is mutated.
 Channel identity captures which organizational function failed.
@@ -386,8 +394,8 @@ while PI3K/Growth alone reaches $p = 5.9 \times 10^{-18}$.
 \centering
 \caption{Channel identity vs.\ network degree, per cancer type
 (MSK-IMPACT 50K). Each row shows the best channel $p$-value from a
-six-channel Cox model and the degree-only $p$-value for the same
-cohort. 99 genes mapped to 6 channels across 468 panel genes.
+eight-channel Cox model and the degree-only $p$-value for the same
+cohort. 122 genes mapped to 8 channels across 468 panel genes.
 Cancer types with $n < 100$ or $<30$ events excluded.}
 \label{tab:degree-vs-channel}
 \medskip
@@ -432,25 +440,29 @@ Channel count: HR~$= 1.09$, $p = 10^{-23}$. MetTropism
 (109 covariates): HR~$= 1.14$, $p = 2 \times 10^{-8}$.
 
 \textbf{Severance hierarchy: cell-intrinsic channels first.}
-The six coupling channels are not severed at random
+The eight coupling channels are not severed at random
 (Figure~\ref{fig:hierarchy}). Among patients
-with exactly one channel severed ($n = 12{,}558$), 80\% have
+with exactly one channel severed ($n = 10{,}807$), 65.7\% have
 PI3K/Growth Signaling or Cell Cycle: the cell-intrinsic channels
-that govern proliferation. Endocrine and Immune account for fewer
+that govern proliferation. Chromatin Remodeling appears in 12.9\%,
+consistent with its meta-regulatory role.
+Endocrine and Immune account for fewer
 than 5\%. Among patients with two or more channels severed
-($n = 24{,}535$), 98.1\% have at least one cell-intrinsic channel.
+($n = 31{,}156$), 94.5\% have at least one cell-intrinsic channel.
 
 The progression ladder is:
 \begin{itemize}
-\item \textbf{1~channel}: PI3K/Growth (44.5\%) or Cell Cycle
-  (35.7\%) dominate. Immune: 0.7\%.
-\item \textbf{2~channels}: PI3K/Growth rises to 73.9\%, Cell Cycle
-  to 64.6\%. Tissue Architecture enters at 33.6\%.
-\item \textbf{3~channels}: PI3K/Growth at 90.8\%, Cell Cycle 80.9\%,
-  Tissue Architecture 70.8\%. Endocrine (13.5\%) and Immune (7.2\%)
-  remain rare.
-\item \textbf{4~channels}: PI3K/Growth at 96.7\%. Endocrine and
-  Immune are the last additions (30\%, 25\%).
+\item \textbf{1~channel}: PI3K/Growth (35.6\%) or Cell Cycle
+  (30.0\%) dominate. Chromatin Remodeling: 12.9\%. Immune: 0.7\%.
+\item \textbf{2~channels}: PI3K/Growth rises to 59.9\%, Cell Cycle
+  to 56.8\%. Chromatin Remodeling enters at 29.1\%.
+  Tissue Architecture at 25.4\%.
+\item \textbf{3~channels}: PI3K/Growth at 78.4\%, Cell Cycle 69.6\%,
+  Chromatin Remodeling 52.1\%, Tissue Architecture 50.0\%.
+  Endocrine (9.9\%) and Immune (4.1\%) remain rare.
+\item \textbf{4~channels}: PI3K/Growth at 87.7\%, Chromatin
+  Remodeling 75.7\%. Endocrine and Immune are the last additions
+  (16.4\%, 9.9\%).
 \end{itemize}
 
 \begin{figure}[ht]
@@ -464,12 +476,13 @@ channels (Endocrine, Immune) appear only at higher channel counts.}
 \label{fig:hierarchy}
 \end{figure}
 
-The ordering is PI3K/Growth $\to$ Cell Cycle $\to$ Tissue
-Architecture $\to$ DDR $\to$ Endocrine $\to$ Immune. Growth escape
-is the gateway; immune evasion is the last system to fall. This is
-not a frequency artifact: Cell Cycle is more common than Tissue
-Architecture overall, yet at one channel they have similar
-representation (35.7\% vs.\ 8.5\%). Single-channel patients reflect
+The ordering is PI3K/Growth $\to$ Cell Cycle $\to$ Chromatin
+Remodeling $\to$ Tissue Architecture $\to$ DDR $\to$ Endocrine
+$\to$ Immune. Growth escape is the gateway; immune evasion is the
+last system to fall. Chromatin Remodeling appearing third is
+consistent with its Tier~3 (meta-regulatory) role: disrupting
+the machinery that controls gene expression enables subsequent
+channel breaks. Single-channel patients reflect
 first hits, not base rates. Section~\ref{sec:framework} interprets
 this as the escalation chain read in reverse.
 Figure~\ref{fig:coseverance} shows the conditional co-severance
@@ -491,10 +504,10 @@ inward toward the root of the escalation hierarchy.}
 \label{fig:coseverance}
 \end{figure}
 
-The 1.9\% of multi-channel patients who lack a cell-intrinsic
-gateway are enriched 6.5$\times$ for prostate, 2.5$\times$ for
-breast, and 7.6$\times$ for mesothelioma: cancers entering through
-organism level channels. Their lower mortality (34.8\% vs.\ 42.6\%)
+The 5.5\% of multi-channel patients who lack a cell-intrinsic
+gateway are enriched for prostate,
+breast, and mesothelioma: cancers entering through
+organism-level channels. Their lower mortality (37.8\% vs.\ 42.3\%)
 is consistent: they have not escaped the most fundamental coupling
 layer.
 
@@ -1056,7 +1069,7 @@ Ecological process \cite{Merlo2006}
 \centering
 \caption{Complete gene-to-channel mapping used in all analyses.
 Genes are assigned based on organizational function served, not
-pathway membership alone. The full mapping (92 genes) and analysis
+pathway membership alone. The full mapping (122 genes) and analysis
 code are provided in the supplementary repository.}
 \label{tab:gene-mapping}
 \begin{tabular}{@{}>{\raggedright}p{4.5cm}>{\raggedright\arraybackslash}p{18cm}@{}}
