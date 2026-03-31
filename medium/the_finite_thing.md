@@ -60,7 +60,7 @@ I had to learn to ask for help at work. It took years. The moment I stopped aski
 
 After grad school I did not know what to do. I was working temp jobs.
 
-A friend at a startup called SingleStep Technologies got me an interview. They offered me a job — thirteen dollars an hour, no benefits. I had also applied to be an engineering apprentice. I was accepted, and I had a choice. Take less pay, less security, less everything — or take the sure thing. But I knew I could do more than be an electrician. I bet on myself.
+A friend at a startup called SingleStep Technologies got me an interview. They offered me a job — thirteen dollars an hour, no benefits. I had also applied to be an electricians apprentice. I was accepted, and I had a choice. Take less pay, less security, less everything — or take the sure thing. But I knew I could do more than be an electrician. I bet on myself.
 
 This journey quite literally started with a SingleStep.
 
@@ -76,7 +76,7 @@ RealNetworks was a dinosaur from the 1990s, still barely chugging along. When th
 
 Then SingleStep called me back. They had a full-time offer. They had to replace me with two full-time QA engineers. They did not know what they had until they let me go. I gave them another chance because they gave me my first one. A bidirectional edge. And it was the next step in my career.
 
-When SingleStep finally closed, my boss Tom's wife worked at WhitePages. They hired three of us. Another interview. The last real interview of my career. Everything else has been connected edges. Nathan was a founder at Dwellable. He remembered I only asked once.
+When SingleStep finally closed, my boss Tom's wife worked at WhitePages. They hired three of us. Another interview. The last real interview of my career. Everything else has been connected edges. 
 
 Manual QA is testing software by hand. Clicking through interfaces. Filing bugs. No code. No computer science degree. The QA mindset is adversarial — you assume the system is broken and you try to prove it. You decompose by probing. No encapsulation. No dependency trees. Just: here is the system, find the boundaries by walking it blind.
 
@@ -102,9 +102,9 @@ I taught myself to code. The first real lesson was functional composition — pu
 
 That is how you decompose a skill when you have no formal training. No mixins. No inheritance hierarchies to lean on. Just: does this function do one thing, and can I plug it into the next one?
 
-A mentor at WhitePages, Nathan Kriege, taught me version control — git, getting the data pipeline code into repos. That was the first graph I ever used. A directed acyclic graph of commits. Shared state with branching, merging, history. I did not know to call it a graph. But it was one.
+A mentor at WhitePages, Nathan Kriege, taught me version control — git, getting the data pipeline code into repos. A directed acyclic graph of commits. Shared state with branching, merging, history. I did not know to call it a graph. But it was one. Nathan was a founder at Dwellable. He remembered I only asked once.
 
-Then MapReduce. Big data. Distributed computation. MapReduce is a context management game. You preload maps with as much work as you can. You reduce on a single instance so you can do it in one pass. You partition well and only handle deep context in small groups. You winnow to a solvable space.
+Then MapReduce. Big data. Distributed computation. MapReduce is a context management game. You spread work across a fleet of machines by dividing it up into chunks. Maps are fast - they all operate on one thing. The game is to preload maps with as much work as you can. You reduce on a single instance so you can do it in one pass. You partition well and only handle deep context in small groups. You winnow to a solvable space.
 
 The math lesson inside MapReduce was this: the fastest way to improve your knowledge is to group observations by equivalence class first, find the deltas within each class, then run inference on the set of classes. Not on the items. On the categories. Factor before you compute.
 
@@ -154,19 +154,19 @@ Kara Swisher — married to a Google executive, working 80 hours a week, always 
 
 They did not want to pay for her to be pregnant and have a baby. That is what it was.
 
-But Tricia would say, later, that it was a gift. She had to grieve it first. Losing that job probably saved our marriage. We got to do stuff together again. She was not always stressed.
+But Tricia would later say that it was a gift. She had to grieve it first. Losing that job probably saved our marriage. We got to do stuff together again. She was not always stressed.
 
 Dylan. We implanted on the healthy side of the uterus. Tricia got a cerclage and was on bed rest for the last thirteen weeks — from week 23 on. The same boundary as Oscar. But this time we knew, and she held still to get past it.
 
 Dylan was born at five pounds. Healthy. Home after two days. No NICU.
 
-After Dylan, Tricia got a part-time gig at GeekWire. It felt like a big step down from AllThingsD. It was perfect. She did not care about missing work anymore. And I was getting raises.
+After Dylan, Tricia got a part-time gig at GeekWire. It felt like a big step down from AllThingsD. It was perfect, at least from my perspective. She thrived as a mom. She did not care about missing work anymore. And I was getting raises so it didn't matter.
 
 ---
 
 ## VI.
 
-Around the same time I was building my career, I was coaching the University of Washington ultimate frisbee team. Nine years. 2004 to 2013. I started with the B team — two years there — then seven as the A team coach. I called them my practice children.
+Around the same time I was building my career, I was coaching the University of Washington ultimate frisbee team. Nine years. 2004 to 2012. I started with the B team — two years there — then seven as the A team coach. I called them my practice children.
 
 That is not a joke. I was a person who did not know how to ask for help, learning how to teach others to ask for it. A kid who grew up in a system that handled every problem with a crisis response, building a system that responded all the time so we could be ready when crisis really hit. The axioms, the accountability, the shared intelligence. The support structure I never had, built for twenty-year-olds on a field. Before Oscar. Before Dylan and Colin.
 
@@ -176,7 +176,7 @@ I thought coaching was about strategy. I tried to script complex plays and expec
 
 I had to strip it back to axioms.
 
-Handlers always attack upfield. You sprint to clear space. Defensive positioning follows these rules. Simple rules that drove complex behavior. Proper edge definition.
+Handlers always attack upfield. You sprint to clear space. On defense, get in the way of where they want to go. Simple rules that drove complex behavior. Proper edge definition.
 
 I scripted practices down to the minute. Maximized touches — no standing around, no drills where most of the movement was two players while everyone watched. Everything was a competition. I could not waste time.
 
@@ -184,25 +184,25 @@ But I could not make a team care more about winning than me. They had to hold ea
 
 The hardest problem was turnover. Your most knowledgeable players graduate every year. The knowledge walks out with them unless you have encoded it in something durable. Not in a person. In the system. The axioms are the graph. The players are the traversal. The graph has to survive the players leaving.
 
-And there was a lesson about context windows. You are dumb when you are tired. Your brain has less oxygen. Every axiom you have trained into muscle memory is one fewer thing competing for a context window that is shrinking every minute of the game. The defaults have to survive exhaustion. That is the whole point of compressing the known — to free up bandwidth for the novel.
+And there was a lesson about context windows. You are dumb when you are tired. Your brain has less oxygen. Every axiom you have trained into muscle memory is one fewer thing competing for a context window that is shrinking every minute of the game. The defaults have to survive exhaustion. That is the whole point of compressing the known — to free up bandwidth for the novel. So you can win.
 
 ---
 
 ## VII.
 
-When Dylan was eight months old I started at a startup called Dwellable — a vacation rental app with a Tinder-like swipe interface. I was their first engineer hire. I managed the data pipeline, built the checkout and quoting architecture, moved our data storage to AWS, helped close potential partners. They let me do what I thought was right because I could do the work and I understood what the business needed.
+When Dylan was eight months old I started at a startup called Dwellable — a vacation rental app with a Tinder-like swipe interface. One of the founders, Nathan, was the same engineer that taught me git. He must of remembered I only asked once. I was their first engineer hire. I managed the data pipeline, built the quoting architecture into checkout, moved our data storage to AWS, helped close potential partners. They let me do what I thought was right because I could do the work and I understood what the business needed.
 
-We got pregnant with Colin in 2015. That summer Dwellable was acquired by HomeAway. The deal closed the day Expedia announced it was buying HomeAway — same earnings call. Moving to Austin was required. I had to be there by January 1st. Colin was born November 17th.
+We got pregnant with Colin in 2015. That summer Dwellable was acquired by HomeAway. The deal closed the day Expedia announced it was buying HomeAway — same earnings call. Moving to Austin from Seattle was required. But it was now a Seattle company. I had to be there by January 1st. Colin was born November 17th.
 
-We never sold the Seattle house. We thought we might move back.
+We didn't sell the Seattle house. We thought we would move back.
 
 I had never written Java before. HomeAway's mobile backend was a Java monolith that served all the APIs for both traveler and partner applications. The surface area was equivalent to all our web applications combined. You could not even book on the app — checkout was a web view. I was responsible for it. For the first three months I was still in Seattle, working remote into a codebase and a language I had never touched, while Tricia was eight months pregnant and we were packing. I could not even get the applications to compile — my network permissions were wrong, no access to the Maven repository. Learning a language I had never written, in a codebase I could not build, from two thousand miles away. The other mobile backend engineer would just not show up to work — for weeks at a time. And things broke constantly. We connected to other applications via client libraries they published, but they shipped breaking changes without telling their clients. If you happened to be behind a version when they deployed to production, it caused an outage. Not an incident — we did not really have those yet. HomeAway was still shutting the entire site down for four hours every month to do database updates.
 
-New city. New baby. New language. A codebase that could not compile, a coworker who did not show up, dependencies that broke without warning, and an organization that thought a monthly four-hour outage was normal.
+New city. New baby. New language. A codebase that could not compile. A coworker who did not show up. Dependencies that broke without warning. An organization that thought a monthly four-hour outage was normal.
 
 In March 2016 — three months in — Tricia found a lump. One in six chance the lump needs a biopsy. We were hoping it was just a clogged duct. One in four the biopsy comes back bad.
 
-About a 5% chance overall. It was 100% for us.
+About 4% chance overall. It was 100% for us.
 
 No network. Just making friends. New town. We probably should have moved back, but to what job? We needed my salary, my insurance, and the four-year payout to make it all worth it.
 
@@ -214,23 +214,21 @@ It was Stage 2A. We thought local treatment would be fine.
 
 So I dug myself out the same way I always did. One edge at a time.
 
-I built the first Swagger plugin so I could see the API contracts — what each service actually expected and returned. Teams would not accept my pull request adding it to their application, so I maintained forks of every app we depended on with the plugin integrated. For months I ran my own copies of their code just to be able to read the interfaces.
+I built the first companies first Swagger plugin so I could see the API contracts — what each service actually expected and returned. Teams would not accept my pull request adding it to their application, so I maintained forks of every app we depended on with the plugin integrated. For months I ran my own copies of their code just to be able to read the interfaces. 2 years later everyone used it.
 
 I forced the teams we depended on to verify we were on the right client version before they shipped every week. I started breaking up 2,000-line class files. Pushing shared logic into libraries that the web teams could use too. Decomposing the monolith from the inside.
 
 The same thing I had done at WhitePages with the Oracle report. The same thing I had done with the deduplication pipeline. Walk the system blind, find the boundaries, automate the thing nobody thought could be automated.
 
-Then we went whole hog with GraphQL. Full decomposition — not just breaking up the monolith but mapping every service directly to its business domain. I built a GraphQL business layer. A set of composable, domain-scoped JavaScript libraries — called GraphQL partials — that could be assembled into any configuration. Each partial knew its dependent packages. We used currying to build complex, multidomain interactions — each partial added one layer of context, and the composition handled the rest. The API deployed as a directed acyclic graph. An ephemeral BFF layer built on shared components that executed like a DAG.
+Then we went whole hog with GraphQL. Full decomposition — not just breaking up the monolith, but mapping every service directly to its business domain. I built a GraphQL business layer. A set of composable, domain-scoped JavaScript libraries — called GraphQL partials — that could be assembled into any configuration. Each partial knew its dependent packages. We chained them together to build complex, multi-domain interactions — each partial added one layer of context, and the composition handled the rest. The API deployed as a directed acyclic graph. An ephemeral BFF layer built on shared components that executed like a DAG.
 
-I had a team of four including me. We rebuilt the entire business layer of VRBO's traveler applications. I coached the organization through it the same way I coached the ultimate team — define the axioms, implement the reference examples, let the teams compose their own solutions.
+I had a team of four including me. We rebuilt the entire business layer of HomeAway's traveler applications. I coached the organization through it the same way I coached the ultimate team — define the axioms, implement the reference examples, let the teams compose their own solutions.
 
-The checkout code we wrote is still running in production today. Basically unupdated for five years. They cannot beat the conversion of our simple system. To beat a single UI with well-factored sources of truth, handled in a single call with partial-level errors, you would have to be flawless. The replacement attempt is nine independent UIs all fetching data from a shared cache, each with its own failure modes, needing to be alerted for when to update. A distributed consensus problem nobody designed as one.
+The checkout code we wrote is still running in production today. Basically unupdated for over five years. They cannot beat the conversion of our simple system. To beat a single UI with well-factored sources of truth, handled in a single call with partial-level errors, you would have to be flawless. The replacement attempt is nine independent UIs all fetching data from a shared cache, each with its own failure modes, needing to be alerted for when to update. A distributed consensus problem nobody designed as one. Three years in and it still hasn't won. A part of me exasperated. A part of me is cheering for the code that can't be replaced.
 
-I also cut response times for search and details pages by 50% and costs by the same amount. COVID proved it was structural — traffic dropped, came back, costs never came back up. Conversion rate higher. Customers happier.
+The GraphQL change was a sea change for HomeAway. Response times for search and details pages by 50% and costs by the same amount. But then COVID hit and no one knew what any numbers meant anymore. But the change was structural — traffic dropped, came back, costs never came back up. Conversion rate higher. Customers happier.
 
-I shipped it two weeks after the promotion cycle closed. The person who got promoted instead of me left within nine months. He got the title he needed.
-
-I got promoted six months later. And some kind of special recognition award. But the lesson was clear. People get promoted for shipping complexity. Architecture is about simplicity.
+I shipped it two weeks after the promotion cycle closed. The person who got promoted instead of me left within nine months. He got the title he needed. I got promoted six months later. And some kind of special recognition award. But the lesson was clear. People get promoted for shipping complexity. Architecture is about simplicity.
 
 Architecture is a plan to move forward. On the surface it looks smooth and calm. Like a duck swimming across a pond. But underneath the surface its feet are churning. You do not see it because it is purpose-driven and encapsulated. Unneeded complexity is like a bug stuck on its back. Its legs are flailing. Easy to see. And when it rights itself everyone notices and the builder gets rewarded for flipping the bug back on its feet and moving forward. Meanwhile the duck is already across the pond.
 
@@ -272,7 +270,7 @@ Cancer is the same. A runaway exception. A failure that escalated through every 
 
 I tried to research RAD51C on my own. I got fixated on Fanconi anemia — an inherited DNA repair disorder.
 
-I was right. Same channel. The Fanconi anemia genes — FANCA, FANCC, FANCD2 — are on the PARP inhibitor trial list. RAD51C is in the same repair family. I found the parent node by instinct, years before I had the vocabulary for what I was doing.
+The Fanconi anemia genes — FANCA, FANCC, FANCD2 — are on the PARP inhibitor trial list. RAD51C is in the same repair family. I found the parent node by instinct, years before I had the vocabulary for what I was doing.
 
 The thing that made me fixate was this: Fanconi anemia patients have a higher incidence of bicornuate uterus. And horseshoe kidneys. Tricia had one big fused kidney, not two.
 
@@ -346,7 +344,7 @@ We did not quite get there together. The fog was too thick. Medical uncertainty,
 
 ## XIV.
 
-I have been pouring for eighteen months. Doing my best but deep down not myself. Not curious. Not engaged. Faking it. A great dad. But not taking care of myself.
+I have been pouting for eighteen months. Doing my best but deep down not myself. Not curious. Not engaged. Faking it. A great dad. But not taking care of myself.
 
 I fought using AI. It was the opposite of everything I had done to get where I was. I never ask the same question twice. AI asks every question from scratch every time.
 
