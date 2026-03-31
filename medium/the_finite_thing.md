@@ -2,11 +2,11 @@
 
 Tricia Duryee broke big news stories. That is how she introduced herself to me. "I break big news stories, and you can read one tomorrow on A1." I did. It was the front page of the Seattle Times. I was impressed. I stayed impressed for eighteen years.
 
-We met in 2006. I had just started at WhitePages — $13 an hour, 29 hours a week, no insurance. My previous startup had gone under and my manager's wife got me the job. Tricia was covering the tech beat at the Seattle Times, where she drove the Tech Tracks blog — one of the paper's first forays into digital. She was tenacious, precise, and fearless. She would ask a powerful person the question they did not want to answer. Her favorite thing was when a source would say "I can't believe I'm telling you this" — and then give her the scoop. She reveled in revealing secret truth to the world.
+We met in 2006. Tricia was covering the tech beat at the Seattle Times, where she drove the Tech Tracks blog — one of the paper's first forays into digital. She was tenacious, precise, and fearless. She would ask a powerful person the question they did not want to answer. Her favorite thing was when a source would say "I can't believe I'm telling you this" — and then give her the scoop. She reveled in revealing secret truth to the world.
 
 I am the opposite. I am a software engineer who never trusted anything until I could prove it. Especially what I knew. In life I would guess casually — "that bird looks like a cardinal" — and be right, because I have good pattern recognition. But professionally I needed the proof before I would commit. She needed the question to be worth asking. Between the two of us, nothing got left unasked and nothing got left unverified.
 
-She was a researcher, then an interrogator. I was a predictor, then a validator. Both paths arrive at verified knowledge. The traversal is opposite.
+She was a researcher, then an interrogator. I was a predictor, then a validator. Both paths arrive at verified knowledge. The traversal is opposite. I lived the escalation hierarchy. She traced the control structure. When I finally built the thing that could explain what killed her, I recognized the architecture. It was mine.
 
 Tricia died on August 30th, 2024. She was 46. Breast cancer. HR-positive, metastatic. A mutation in a gene called RAD51C — one of the genes that fixes broken DNA. She fought it for nine years. Three kids, four cities, seven drugs, too many rounds of radiation.
 
@@ -58,13 +58,31 @@ I had to learn to ask for help at work. It took years. The moment I stopped aski
 
 ## III.
 
-Before WhitePages, I did QA at RealNetworks. A dinosaur from the 1990s, still barely chugging along. When we finally won an antitrust lawsuit against Microsoft for $500 million, it was the first time the company had been profitable in years. The company survived on litigation, not on product.
+After grad school I did not know what to do. I was working temp jobs.
+
+A friend at a startup called SingleStep Technologies got me an interview. They offered me a job — thirteen dollars an hour, no benefits. I had also applied to be an engineering apprentice. I was accepted, and I had a choice. Take less pay, less security, less everything — or take the sure thing. But I knew I could do more than be an electrician. I bet on myself.
+
+This journey quite literally started with a SingleStep.
+
+SingleStep was an interesting company. Their technology was a GUI-based system where you connected execution blocks with arrows. You were making a DAG. It always stuck with me. I could understand that better than object-oriented design.
+
+They lost funding and I was let go. I found a job at RealNetworks. They liked me but I had almost no technical skill. The hiring manager wanted me to write a bash script. I told him I could not do it. He gave me a chance — come back tomorrow, write what he wanted, and the job was mine.
+
+Getting home, I had an old Windows computer my friend had given me. I had never owned my own computer before. I had to write every paper in college in the computer lab. So I installed Cygwin — a Linux interface for Windows — and got started. I never believed in all-nighters. Tired brains are dumb brains. But I had no choice. I spent the night learning enough nano and looping and conditionals to give myself a shot.
+
+The next morning at RealNetworks, I had to write the bash script. No notes. No references. And I did. And I got the offer.
+
+RealNetworks was a dinosaur from the 1990s, still barely chugging along. When they won a $500 million antitrust lawsuit against Microsoft, it was the first time the company had been profitable in years. The company survived on litigation, not on product. I worked there for a year.
+
+Then SingleStep called me back. They had a full-time offer. They had to replace me with two full-time QA engineers. They did not know what they had until they let me go. I gave them another chance because they gave me my first one. A bidirectional edge. And it was the next step in my career.
+
+When SingleStep finally closed, my boss Tom's wife worked at WhitePages. They hired three of us. Another interview. The last real interview of my career. Everything else has been connected edges. Nathan was a founder at Dwellable. He remembered I only asked once.
 
 Manual QA is testing software by hand. Clicking through interfaces. Filing bugs. No code. No computer science degree. The QA mindset is adversarial — you assume the system is broken and you try to prove it. You decompose by probing. No encapsulation. No dependency trees. Just: here is the system, find the boundaries by walking it blind.
 
 But I could see in 2006 that manual QA was going to die. People were writing more tests. Unit tests, integration tests — testing each logical assertion in isolation. The work I did by hand would be done by code. I needed to evolve.
 
-So I found the next gig I was capable of. Business analyst at WhitePages. Step up in pay. I learned the business side. I did the weekly metrics reporting for our ad impressions and presented them to leadership. I got comfortable speaking noncontroversial truth to power.
+At WhitePages I was a business analyst. Step up in pay. I learned the business side. I did the weekly metrics reporting for our ad impressions and presented them to leadership. I got comfortable speaking noncontroversial truth to power.
 
 But the reporting process was ridiculous. It took all day. Copy-pasting queries and results from an Oracle UI. So I bought an Oracle book and automated the whole thing.
 
@@ -78,7 +96,7 @@ I stopped asking my boss for advice and started asking the smart and helpful sof
 
 ---
 
-## III.
+## IV.
 
 I taught myself to code. The first real lesson was functional composition — pure functions, no side effects, input-output contracts. Break the problem into the smallest units that can be independently reasoned about. Wire them together. If each function does one thing, the composition handles everything.
 
