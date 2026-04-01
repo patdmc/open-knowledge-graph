@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Remove people who boarded at second stop",
+    "operation": "subtract",
+    "operands": [
+      20,
+      8
+    ],
+    "result": 12,
+    "variable": "people before second stop boarding"
+  },
+  {
+    "step": 2,
+    "description": "Add back people who exited at second stop",
+    "operation": "add",
+    "operands": [
+      12,
+      7
+    ],
+    "result": 19,
+    "variable": "people before second stop"
+  },
+  {
+    "step": 3,
+    "description": "Remove people who boarded at first stop",
+    "operation": "subtract",
+    "operands": [
+      19,
+      5
+    ],
+    "result": 14,
+    "variable": "people who got on at terminal"
+  }
+]

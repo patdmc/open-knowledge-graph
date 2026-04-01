@@ -1,0 +1,61 @@
+id: CT-RCC
+type: knowledge
+domain: cancer_biology
+name: "Renal Cell Carcinoma"
+
+n_patients: 963
+n_mutated: 576
+mutation_rate: 0.5981
+channel_entropy: 2.0183
+hub_fraction: 0.3330
+median_os_months: 18.8710
+event_rate: 0.3313
+survival_36m: 0.3063
+mean_channels_per_patient: 1.5191
+top_gene: BAP1
+top_gene_frequency: 0.1221
+n_harmful_mutations: 7
+n_protective_mutations: 0
+dominant_channels: [CHAN-PI3K_Growth, CHAN-DDR]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=963)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Renal Cell Carcinoma"
+  - to: CHAN-DDR
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Renal Cell Carcinoma"
+  - to: GENE-BAP1
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "BAP1 mutated in 0.1221 of Renal Cell Carcinoma patients"
+

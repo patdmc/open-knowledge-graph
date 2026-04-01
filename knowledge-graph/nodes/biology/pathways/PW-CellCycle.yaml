@@ -1,0 +1,42 @@
+id: PW-CellCycle
+type: knowledge
+domain: biology
+name: Cell Cycle
+reactome_id: R-HSA-1640170
+
+description: "The replication of the genome and the subsequent segregation of chromosomes into daughter cells are controlled by a series of events collectively known as the cell cycle. DNA replication is carried out during a discrete temporal period known as the S (synthesis)-phase, and chromosome segregation occurs during a massive reorganization to cellular architecture at mitosis. Two gap-phases separate these major cell cycle events: G1 between mitosis and S-phase, and G2 between S-phase and mitosis."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Cell Cycle Checkpoints
+    reactome_id: R-HSA-69620
+    type: Pathway
+  - name: Cell Cycle, Mitotic
+    reactome_id: R-HSA-69278
+    type: Pathway
+  - name: Chromosome Maintenance
+    reactome_id: R-HSA-73886
+    type: Pathway
+  - name: Meiosis
+    reactome_id: R-HSA-1500620
+    type: Pathway
+
+edges:
+  - to: CHAN-CellCycle
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Cell Cycle pathway components are encoded by CHAN-CellCycle genes"

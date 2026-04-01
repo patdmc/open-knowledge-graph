@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "total glass chips from two bags",
+    "operation": "multiply",
+    "operands": [
+      2,
+      72
+    ],
+    "result": 144,
+    "variable": "total_chips"
+  },
+  {
+    "step": 2,
+    "description": "total square inches of mosaic",
+    "operation": "divide",
+    "operands": [
+      144,
+      12
+    ],
+    "result": 12,
+    "variable": "total_square_inches"
+  },
+  {
+    "step": 3,
+    "description": "length of mosaic in inches",
+    "operation": "divide",
+    "operands": [
+      12,
+      3
+    ],
+    "result": 4.0,
+    "variable": "mosaic_length_inches"
+  }
+]

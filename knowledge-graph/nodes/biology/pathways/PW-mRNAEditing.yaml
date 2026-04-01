@@ -1,0 +1,26 @@
+id: PW-mRNAEditing
+type: knowledge
+domain: biology
+name: mRNA Editing
+reactome_id: R-HSA-75072
+
+description: "After transcription, some RNA molecules are altered to contain bases not encoded in the genome. Most often this involves the editing or modification of one base to another, but in some organisms can involve the insertion or deletion of a base. Such editing events alter the coding properties of mRNA.RNA editing can be generally defined as the co- or post transcriptional modification of  the primary sequence of RNA from that encoded in the genome through nucleotide deletion, insertion, or base modification mechanisms.There are two pathways of RNA editing:  the substitution/conversion pathway and the insertion/deletion pathway."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "mRNA Editing: C to U Conversion"
+    reactome_id: R-HSA-72200
+    type: Pathway
+  - name: "mRNA Editing: A to I Conversion"
+    reactome_id: R-HSA-75064
+    type: Pathway
+
+edges:

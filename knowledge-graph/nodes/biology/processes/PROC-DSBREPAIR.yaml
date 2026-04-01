@@ -1,0 +1,60 @@
+id: PROC-DSBREPAIR
+type: knowledge
+domain: biology
+name: "double-strand break repair"
+go_id: GO:0006302
+
+definition: "The repair of double-strand breaks in DNA via homologous and nonhomologous mechanisms to reform a continuous DNA helix."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1990612
+    name: "Sad1-Kms1 LINC complex"
+    relation: capable_of_part_of
+  - id: GO:2000780
+    name: "negative regulation of double-strand break repair"
+    relation: negatively_regulates
+  - id: GO:2000779
+    name: "regulation of double-strand break repair"
+    relation: regulates
+  - id: GO:2000781
+    name: "positive regulation of double-strand break repair"
+    relation: positively_regulates
+  - id: GO:0097551
+    name: "mitochondrial double-strand break repair"
+    relation: is_a
+  - id: GO:1990918
+    name: "double-strand break repair involved in meiotic recombination"
+    relation: is_a
+  - id: GO:0006303
+    name: "double-strand break repair via nonhomologous end joining"
+    relation: is_a
+  - id: GO:0045002
+    name: "double-strand break repair via single-strand annealing"
+    relation: is_a
+  - id: GO:0000729
+    name: "DNA double-strand break processing"
+    relation: part_of
+  - id: GO:0000724
+    name: "double-strand break repair via homologous recombination"
+    relation: is_a
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-DDR encode components of double-strand break repair"

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "find one quarter by dividing known amount by 3",
+    "operation": "divide",
+    "operands": [
+      9,
+      3
+    ],
+    "result": 3,
+    "variable": "one_quarter"
+  },
+  {
+    "step": 2,
+    "description": "find full amount by multiplying one quarter by 4",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "novels_this_year"
+  }
+]

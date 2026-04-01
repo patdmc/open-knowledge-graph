@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Points from Ava's extra enemies",
+    "operation": "multiply",
+    "operands": [
+      8,
+      10
+    ],
+    "result": 80,
+    "variable": "ava_enemy_advantage"
+  },
+  {
+    "step": 2,
+    "description": "Points from Ava's extra berries",
+    "operation": "multiply",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 15,
+    "variable": "ava_berry_advantage"
+  },
+  {
+    "step": 3,
+    "description": "Points lost from Ava's slower finish",
+    "operation": "multiply",
+    "operands": [
+      4,
+      30
+    ],
+    "result": 120,
+    "variable": "ava_time_penalty"
+  },
+  {
+    "step": 4,
+    "description": "Total advantage before time penalty",
+    "operation": "add",
+    "operands": [
+      80,
+      15
+    ],
+    "result": 95,
+    "variable": "ava_gross_advantage"
+  },
+  {
+    "step": 5,
+    "description": "Net score difference (Ava minus Emma)",
+    "operation": "subtract",
+    "operands": [
+      95,
+      120
+    ],
+    "result": -25,
+    "variable": "net_difference"
+  },
+  {
+    "step": 6,
+    "description": "Absolute difference between scores",
+    "operation": "multiply",
+    "operands": [
+      -25,
+      -1
+    ],
+    "result": 25.0,
+    "variable": "score_difference"
+  }
+]

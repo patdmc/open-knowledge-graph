@@ -1,0 +1,97 @@
+{
+  "class_id": "EC04",
+  "label": "introduction-escalation-principle",
+  "n_chunks": 11,
+  "representative": {
+    "chunk_index": 65,
+    "section_title": "8. Conclusion",
+    "similarity": 0.808
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 65,
+      "section_title": "8. Conclusion",
+      "similarity": 0.808,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex"
+    },
+    {
+      "chunk_index": 2,
+      "section_title": "1. Introduction > [part 2/2]",
+      "similarity": 0.8062,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 26,
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 7/7]",
+      "similarity": 0.7865,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "context capacity inference",
+      "score": 0.6081
+    },
+    {
+      "phrase": "daptive evolution",
+      "score": 0.6068
+    },
+    {
+      "phrase": "paradigmatic crystallized intelligence",
+      "score": 0.6008
+    },
+    {
+      "phrase": "evolutionary rigor threshold",
+      "score": 0.5952
+    },
+    {
+      "phrase": "cognitive architecturescognitive",
+      "score": 0.594
+    },
+    {
+      "phrase": "encoding hierarchy continuous",
+      "score": 0.5927
+    },
+    {
+      "phrase": "general collective intelligence",
+      "score": 0.5734
+    },
+    {
+      "phrase": "structure math evolutionary",
+      "score": 0.5622
+    },
+    {
+      "phrase": "knowledge substrate",
+      "score": 0.5481
+    },
+    {
+      "phrase": "principle definition encoding",
+      "score": 0.5461
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "On the relationship to prior accounts.",
+    "The origin: provenance as the root constraint.",
+    "The graph structure as an optimization.",
+    "The empirical measurement of factor extraction.",
+    "The escalation architecture as a consequence.",
+    "What this means for the formal claims.",
+    "Definition 8 (Encoding Hierarchy).",
+    "interfaces",
+    "upward interface protocol",
+    "downward interface protocol",
+    "Theorem 2 (Escalation).",
+    "Corollary 3 (Context Window as Frontier).",
+    "Corollary 4 (Simultaneous Multi-Level Activity).",
+    "Definition 8a (Active Context Capacity and Inference Quality).",
+    "inference quality"
+  ],
+  "bridge_chunks": [
+    9,
+    10
+  ]
+}

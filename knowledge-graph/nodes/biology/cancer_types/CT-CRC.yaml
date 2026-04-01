@@ -1,0 +1,61 @@
+id: CT-CRC
+type: knowledge
+domain: cancer_biology
+name: "Colorectal Cancer"
+
+n_patients: 4643
+n_mutated: 4621
+mutation_rate: 0.9953
+channel_entropy: 2.1409
+hub_fraction: 0.5844
+median_os_months: 18.5420
+event_rate: 0.3252
+survival_36m: 0.2055
+mean_channels_per_patient: 2.8838
+top_gene: APC
+top_gene_frequency: 0.1993
+n_harmful_mutations: 11
+n_protective_mutations: 79
+dominant_channels: [CHAN-TissueArchitecture, CHAN-PI3K_Growth]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=4643)"
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Colorectal Cancer"
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Colorectal Cancer"
+  - to: GENE-APC
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "APC mutated in 0.1993 of Colorectal Cancer patients"
+

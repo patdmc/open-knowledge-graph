@@ -1,0 +1,29 @@
+id: PW-Mitochondrialbiogenesis
+type: knowledge
+domain: biology
+name: Mitochondrial biogenesis
+reactome_id: R-HSA-1592230
+
+description: Mitochondrial biogenesis and remodeling occur in response to exercise and redox state (reviewed in Scarpulla et al. 2012, Handy and Loscalzo 2012, Piantadosi and Suliman 2012, Scarpulla 2011, Wenz et al. 2011, Bo et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Activation of PPARGC1A (PGC-1alpha) by phosphorylation"
+    reactome_id: R-HSA-2151209
+    type: Pathway
+  - name: Transcriptional activation of mitochondrial biogenesis
+    reactome_id: R-HSA-2151201
+    type: Pathway
+  - name: Cristae formation
+    reactome_id: R-HSA-8949613
+    type: Pathway
+
+edges:

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate red jellybeans (twice the green)",
+    "operation": "multiply",
+    "operands": [
+      17,
+      2
+    ],
+    "result": 34,
+    "variable": "red_jellybeans"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total non-blue jellybeans",
+    "operation": "add",
+    "operands": [
+      17,
+      34
+    ],
+    "result": 51,
+    "variable": "non_blue_jellybeans"
+  },
+  {
+    "step": 3,
+    "description": "Calculate blue jellybeans by subtracting non-blue from total",
+    "operation": "subtract",
+    "operands": [
+      60,
+      51
+    ],
+    "result": 9,
+    "variable": "blue_jellybeans"
+  }
+]

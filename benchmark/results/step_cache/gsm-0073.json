@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total cost of 5 phones",
+    "operation": "multiply",
+    "operands": [
+      5,
+      150
+    ],
+    "result": 750,
+    "variable": "total_cost"
+  },
+  {
+    "step": 2,
+    "description": "Interest per phone",
+    "operation": "multiply",
+    "operands": [
+      150,
+      0.02
+    ],
+    "result": 3,
+    "variable": "interest_per_unit"
+  },
+  {
+    "step": 3,
+    "description": "Total interest for all 5 phones",
+    "operation": "multiply",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 15,
+    "variable": "total_interest"
+  },
+  {
+    "step": 4,
+    "description": "Total amount to pay including interest",
+    "operation": "add",
+    "operands": [
+      750,
+      15
+    ],
+    "result": 765,
+    "variable": "total_with_interest"
+  },
+  {
+    "step": 5,
+    "description": "Monthly payment over 3 months",
+    "operation": "divide",
+    "operands": [
+      765,
+      3
+    ],
+    "result": 255.0,
+    "variable": "monthly_payment"
+  }
+]

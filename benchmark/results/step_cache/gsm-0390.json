@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add family and friend gifts",
+    "operation": "add",
+    "operands": [
+      6,
+      4
+    ],
+    "result": 10,
+    "variable": "family_and_friend_gifts"
+  },
+  {
+    "step": 2,
+    "description": "Add teacher gifts to get total gifts",
+    "operation": "add",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 12,
+    "variable": "total_gifts"
+  },
+  {
+    "step": 3,
+    "description": "Divide total ribbon by total gifts",
+    "operation": "divide",
+    "operands": [
+      144,
+      12
+    ],
+    "result": 12.0,
+    "variable": "ribbon_per_gift"
+  }
+]

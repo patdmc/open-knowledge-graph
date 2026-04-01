@@ -1,0 +1,120 @@
+id: PR17-divergence-theorem
+type: proof
+domain: calculus
+name: "Divergence Theorem (Gauss)"
+target:
+  statement: "\\oiint_S \\vec{F} \\cdot d\\vec{S} = \\iiint_V (\\nabla \\cdot \\vec{F}) \\, dV"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: setup
+    type: hypothesis
+    statement: "\\vec{F} = (P, Q, R) \\text{ is } C^1 \\text{ on closed bounded region } V \\text{ with boundary } S"
+    justification: "theorem hypotheses"
+    depends_on: []
+    references: [divergence]
+
+  - step: 2
+    id: suffices-components
+    type: claim
+    statement: "\\text{Suffices to prove } \\iint_S R\\,dz\\,dx = \\iiint_V \\frac{\\partial R}{\\partial z} dV \\text{ (and similarly for P, Q)}"
+    justification: "divergence theorem is sum of three component identities; prove one, others follow by symmetry"
+    depends_on: [setup]
+
+  - step: 3
+    id: z-simple-region
+    type: hypothesis
+    statement: "V = \\{(x,y,z) : (x,y) \\in D, \\; g_1(x,y) \\leq z \\leq g_2(x,y)\\}"
+    justification: "assume V is z-simple (bounded between two surfaces); general case by decomposition"
+    depends_on: []
+
+  - step: 4
+    id: integrate-z-first
+    type: claim
+    statement: "\\iiint_V \\frac{\\partial R}{\\partial z} dV = \\iint_D \\left[\\int_{g_1}^{g_2} \\frac{\\partial R}{\\partial z} dz\\right] dA"
+    justification: "Fubini's theorem: integrate z first"
+    depends_on: [z-simple-region]
+
+  - step: 5
+    id: ftc-in-z
+    type: claim
+    statement: "\\int_{g_1(x,y)}^{g_2(x,y)} \\frac{\\partial R}{\\partial z} dz = R(x, y, g_2) - R(x, y, g_1)"
+    justification: "Fundamental Theorem of Calculus in z"
+    depends_on: [integrate-z-first]
+    references: [fundamental_theorem]
+
+  - step: 6
+    id: volume-integral-result
+    type: claim
+    statement: "\\iiint_V \\frac{\\partial R}{\\partial z} dV = \\iint_D R(x,y,g_2)\\,dA - \\iint_D R(x,y,g_1)\\,dA"
+    justification: "substitute FTC result into double integral"
+    depends_on: [ftc-in-z]
+
+  - step: 7
+    id: surface-decomposition
+    type: claim
+    statement: "S = S_{\\text{top}} \\cup S_{\\text{bottom}} \\cup S_{\\text{side}}"
+    justification: "boundary of z-simple region has top (z=g2), bottom (z=g1), and lateral surface"
+    depends_on: [z-simple-region]
+    references: [surface_normal]
+
+  - step: 8
+    id: flux-top
+    type: claim
+    statement: "\\iint_{S_{\\text{top}}} R\\,dx\\,dy = \\iint_D R(x,y,g_2)\\,dA"
+    justification: "on top surface z=g2(x,y), outward normal has positive z-component; dS projects to dA"
+    depends_on: [surface-decomposition]
+
+  - step: 9
+    id: flux-bottom
+    type: claim
+    statement: "\\iint_{S_{\\text{bottom}}} R\\,dx\\,dy = -\\iint_D R(x,y,g_1)\\,dA"
+    justification: "on bottom surface, outward normal has negative z-component; negative sign"
+    depends_on: [surface-decomposition]
+
+  - step: 10
+    id: flux-side
+    type: claim
+    statement: "\\iint_{S_{\\text{side}}} R\\,dx\\,dy = 0"
+    justification: "lateral surface has normal perpendicular to z-axis; R dxdy component vanishes"
+    depends_on: [surface-decomposition]
+
+  - step: 11
+    id: combine-surfaces
+    type: claim
+    statement: "\\iint_S R\\,dx\\,dy = \\iint_D R(x,y,g_2)\\,dA - \\iint_D R(x,y,g_1)\\,dA"
+    justification: "sum top + bottom + side flux"
+    depends_on: [flux-top, flux-bottom, flux-side]
+
+  - step: 12
+    id: conclusion
+    type: theorem
+    statement: "\\iiint_V \\frac{\\partial R}{\\partial z}\\,dV = \\iint_S R\\,dx\\,dy"
+    justification: "step 6 = step 11; same for P and Q components; sum gives divergence theorem"
+    depends_on: [volume-integral-result, combine-surfaces]
+
+qed: true
+
+corollaries:
+  - id: greens-first-identity
+    statement: "\\iiint_V (f \\nabla^2 g + \\nabla f \\cdot \\nabla g)\\,dV = \\oiint_S f \\frac{\\partial g}{\\partial n}\\,dS"
+    justification: "apply divergence theorem to F = f*grad(g)"
+    depends_on: [conclusion]
+    references: [laplacian]
+
+  - id: integration-by-parts-multidim
+    statement: "\\iiint_V f \\frac{\\partial g}{\\partial x_i}\\,dV = \\oiint_S f g \\, n_i\\,dS - \\iiint_V g \\frac{\\partial f}{\\partial x_i}\\,dV"
+    justification: "apply divergence theorem to F = f*g*e_i"
+    depends_on: [conclusion]
+
+edges:
+  - to: C03-multivariable-calculus
+    relation: PROVES_FROM
+  - to: C02-integral-calculus
+    relation: USES
+    note: "FTC for inner integral"
+  - to: PR11-stokes-theorem
+    relation: RELATED
+    note: "both are special cases of generalized Stokes theorem"

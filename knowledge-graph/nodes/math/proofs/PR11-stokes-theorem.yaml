@@ -1,0 +1,111 @@
+id: PR11-stokes-theorem
+type: proof
+domain: calculus
+name: "Stokes' Theorem (sketch)"
+target:
+  statement: "\\oint_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}"
+  type: theorem
+method: direct
+
+note: >
+  Full proof requires careful treatment of orientability and regularity.
+  This sketch shows the logical structure for a surface parametrized as r(u,v).
+
+assertions:
+  - step: 1
+    id: parametrize-surface
+    type: definition
+    statement: "S = \\{\\vec{r}(u,v) : (u,v) \\in D\\}, \\quad \\partial S = \\vec{r}(\\partial D)"
+    justification: "parametrize surface by domain D in uv-plane; boundary maps to boundary"
+    depends_on: []
+    references: [parametric_surface]
+
+  - step: 2
+    id: rewrite-line-integral
+    type: claim
+    statement: "\\oint_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\oint_{\\partial D} \\vec{F}(\\vec{r}(u,v)) \\cdot \\left(\\frac{\\partial \\vec{r}}{\\partial u} du + \\frac{\\partial \\vec{r}}{\\partial v} dv\\right)"
+    justification: "substitute parametrization into line integral; chain rule"
+    depends_on: [parametrize-surface]
+    references: [chain_rule]
+
+  - step: 3
+    id: define-PQ
+    type: definition
+    statement: "P(u,v) = \\vec{F} \\cdot \\vec{r}_u, \\quad Q(u,v) = \\vec{F} \\cdot \\vec{r}_v"
+    justification: "abbreviate the dot products as scalar functions on D"
+    depends_on: [rewrite-line-integral]
+
+  - step: 4
+    id: apply-greens
+    type: claim
+    statement: "\\oint_{\\partial D} (P\\,du + Q\\,dv) = \\iint_D \\left(\\frac{\\partial Q}{\\partial u} - \\frac{\\partial P}{\\partial v}\\right) du\\,dv"
+    justification: "Green's theorem in the plane applied to domain D"
+    depends_on: [define-PQ]
+
+  - step: 5
+    id: expand-partials
+    type: claim
+    statement: "\\frac{\\partial Q}{\\partial u} - \\frac{\\partial P}{\\partial v} = \\frac{\\partial}{\\partial u}(\\vec{F} \\cdot \\vec{r}_v) - \\frac{\\partial}{\\partial v}(\\vec{F} \\cdot \\vec{r}_u)"
+    justification: "substitute definitions of P and Q"
+    depends_on: [apply-greens, define-PQ]
+
+  - step: 6
+    id: product-rule-expansion
+    type: claim
+    statement: "= (\\vec{F}_u \\cdot \\vec{r}_v + \\vec{F} \\cdot \\vec{r}_{vu}) - (\\vec{F}_v \\cdot \\vec{r}_u + \\vec{F} \\cdot \\vec{r}_{uv})"
+    justification: "product rule on each term"
+    depends_on: [expand-partials]
+    references: [product_rule]
+
+  - step: 7
+    id: mixed-partials-cancel
+    type: claim
+    statement: "\\vec{r}_{uv} = \\vec{r}_{vu} \\implies \\vec{F} \\cdot \\vec{r}_{vu} - \\vec{F} \\cdot \\vec{r}_{uv} = 0"
+    justification: "equality of mixed partials (Clairaut's theorem) for C^2 parametrization"
+    depends_on: [product-rule-expansion]
+    references: [partial_derivative]
+
+  - step: 8
+    id: remaining-terms
+    type: claim
+    statement: "= \\vec{F}_u \\cdot \\vec{r}_v - \\vec{F}_v \\cdot \\vec{r}_u"
+    justification: "after cancellation of mixed partial terms"
+    depends_on: [mixed-partials-cancel]
+
+  - step: 9
+    id: identify-curl
+    type: claim
+    statement: "\\vec{F}_u \\cdot \\vec{r}_v - \\vec{F}_v \\cdot \\vec{r}_u = (\\nabla \\times \\vec{F}) \\cdot (\\vec{r}_u \\times \\vec{r}_v)"
+    justification: >
+      expand F_u and F_v using chain rule as Jacobian of F composed with r;
+      the resulting expression equals the curl dotted with the surface normal vector
+    depends_on: [remaining-terms]
+    references: [curl, surface_normal]
+
+  - step: 10
+    id: conclusion
+    type: theorem
+    statement: "\\oint_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_D (\\nabla \\times \\vec{F}) \\cdot (\\vec{r}_u \\times \\vec{r}_v)\\, du\\,dv = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}"
+    justification: "chain: line integral → Green's → expand → identify curl × normal = surface integral of curl"
+    depends_on: [apply-greens, identify-curl]
+
+qed: true
+
+corollaries:
+  - id: greens-as-special-case
+    statement: "\\text{Green's theorem is Stokes' for flat surface in } xy\\text{-plane}"
+    depends_on: [conclusion]
+
+  - id: curl-free-conservative
+    statement: "\\nabla \\times \\vec{F} = 0 \\text{ on simply connected domain} \\implies \\oint \\vec{F} \\cdot d\\vec{r} = 0"
+    justification: "curl is zero everywhere, so surface integral is zero for any spanning surface"
+    depends_on: [conclusion]
+
+edges:
+  - to: C03-multivariable-calculus
+    relation: PROVES_FROM
+  - to: C02-integral-calculus
+    relation: USES
+  - to: A02-linear-algebra
+    relation: USES
+    note: "cross product, Jacobian"

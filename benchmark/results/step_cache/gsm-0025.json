@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 5 packs of milk",
+    "operation": "multiply",
+    "operands": [
+      5,
+      3
+    ],
+    "result": 15,
+    "variable": "milk_total"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 4 apples",
+    "operation": "multiply",
+    "operands": [
+      4,
+      1.5
+    ],
+    "result": 6,
+    "variable": "apple_total"
+  },
+  {
+    "step": 3,
+    "description": "Add chicken meal and milk total",
+    "operation": "add",
+    "operands": [
+      12,
+      15
+    ],
+    "result": 27,
+    "variable": "chicken_plus_milk"
+  },
+  {
+    "step": 4,
+    "description": "Add apple total to running sum",
+    "operation": "add",
+    "operands": [
+      27,
+      6
+    ],
+    "result": 33,
+    "variable": "known_costs_total"
+  },
+  {
+    "step": 5,
+    "description": "Remaining amount spent on pizza",
+    "operation": "subtract",
+    "operands": [
+      50,
+      33
+    ],
+    "result": 17,
+    "variable": "pizza_total"
+  },
+  {
+    "step": 6,
+    "description": "Number of pizza boxes ordered",
+    "operation": "divide",
+    "operands": [
+      17,
+      8.5
+    ],
+    "result": 2.0,
+    "variable": "pizza_boxes"
+  }
+]

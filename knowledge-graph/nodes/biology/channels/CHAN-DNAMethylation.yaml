@@ -1,0 +1,222 @@
+id: CHAN-DNAMethylation
+type: knowledge
+domain: cancer_biology
+name: DNA Methylation
+gene_count: 8
+hub_genes: []
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: ATRX
+    string_ppi_degree: 0
+    position: leaf
+    full_name: ATRX chromatin remodeler
+    chromosome: X
+    ncbi_summary: "The protein encoded by this gene contains an ATPase/helicase domain, and thus it belongs to the SWI/SNF family of chromatin remodeling proteins. This protein is found to undergo cell cycle-dependent phosphorylation, which regulates its nuclear matrix and chromatin association, and suggests its involvement in the gene regulation at interphase and chromosomal segregation in mitosis."
+    protein_name: Transcriptional regulator ATRX
+    uniprot_function: Involved in transcriptional regulation and chromatin remodeling. Facilitates DNA replication in multiple cellular environments and is required for efficient replication of a subset of genomic loci. Bi...
+    subcellular_location: [Nucleus, Chromosome, telomere, Nucleus, PML body]
+    diseases:
+      - "Alpha-thalassemia/impaired intellectual development syndrome, X-linked"
+      - "Intellectual disability-hypotonic facies syndrome, X-linked, 1"
+      - "Alpha-thalassemia myelodysplasia syndrome"
+    go_biological_process:
+      - cellular response to hydroxyurea
+      - chromatin organization
+      - chromatin remodeling
+      - chromosome organization involved in meiotic cell cycle
+      - DNA damage response, signal transduction by p53 class mediator
+      - DNA repair
+      - forebrain development
+      - meiotic spindle organization
+    kegg_pathways:
+      - hsa04110
+  - id: DAXX
+    string_ppi_degree: 0
+    position: leaf
+    full_name: death domain associated protein
+    chromosome: 6
+    ncbi_summary: This gene encodes a multifunctional protein that resides in multiple locations in the nucleus and in the cytoplasm. It interacts with a wide variety of proteins, such as apoptosis antigen Fas, centromere protein C, and transcription factor erythroblastosis virus E26 oncogene homolog 1.
+    protein_name: "Death domain-associated protein 6"
+    uniprot_function: "Transcription corepressor known to repress transcriptional potential of several sumoylated transcription factors. Down-regulates basal and activated transcription. Its transcription repressor activity..."
+    subcellular_location: [Cytoplasm, Nucleus, nucleoplasm, Nucleus, PML body]
+    go_biological_process:
+      - androgen receptor signaling pathway
+      - cellular response to cadmium ion
+      - cellular response to copper ion
+      - cellular response to diamide
+      - cellular response to heat
+      - cellular response to sodium arsenite
+      - cellular response to unfolded protein
+      - chromatin remodeling
+    kegg_pathways:
+      - hsa04010
+      - hsa04210
+      - hsa05012
+      - hsa05014
+      - hsa05022
+      - hsa05168
+  - id: DNMT3A
+    string_ppi_degree: 0
+    position: leaf
+    full_name: DNA methyltransferase 3 alpha
+    chromosome: 2
+    ncbi_summary: "CpG methylation is an epigenetic modification that is important for embryonic development, imprinting, and X-chromosome inactivation. Studies in mice have demonstrated that DNA methylation is required for mammalian development."
+    protein_name: "DNA (cytosine-5)-methyltransferase 3A"
+    uniprot_function: "Required for genome-wide de novo methylation and is essential for the establishment of DNA methylation patterns during development (PubMed:12138111, PubMed:16357870, PubMed:30478443). DNA methylation ..."
+    subcellular_location: [Nucleus, Chromosome, Cytoplasm]
+    diseases:
+      - "Tatton-Brown-Rahman syndrome"
+      - Leukemia, acute myelogenous
+      - "Heyn-Sproul-Jackson syndrome"
+    go_biological_process:
+      - autosome genomic imprinting
+      - cellular response to amino acid stimulus
+      - cellular response to bisphenol A
+      - cellular response to ethanol
+      - cellular response to hypoxia
+      - "DNA methylation-dependent constitutive heterochromatin formation"
+      - hepatocyte apoptotic process
+      - methylation
+    kegg_pathways:
+      - hsa00270
+      - hsa01100
+      - hsa04148
+      - hsa05206
+  - id: DNMT3B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: DNA methyltransferase 3 beta
+    chromosome: 20
+    ncbi_summary: "CpG methylation is an epigenetic modification that is important for embryonic development, imprinting, and X-chromosome inactivation. Studies in mice have demonstrated that DNA methylation is required for mammalian development."
+    protein_name: "DNA (cytosine-5)-methyltransferase 3B"
+    uniprot_function: "Required for genome-wide de novo methylation and is essential for the establishment of DNA methylation patterns during development. DNA methylation is coordinated with methylation of histones. May pre..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Immunodeficiency-centromeric instability-facial anomalies syndrome 1"
+      - Facioscapulohumeral muscular dystrophy 4, digenic
+    go_biological_process:
+      - methylation
+      - negative regulation of transcription by RNA polymerase II
+      - positive regulation of gene expression
+    kegg_pathways:
+      - hsa00270
+      - hsa01100
+      - hsa05206
+  - id: IDH1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: isocitrate dehydrogenase (NADP(+)) 1
+    chromosome: 2
+    ncbi_summary: "Isocitrate dehydrogenases catalyze the oxidative decarboxylation of isocitrate to 2-oxoglutarate. These enzymes belong to two distinct subclasses, one of which utilizes NAD(+) as the electron acceptor and the other NADP(+)."
+    protein_name: "Isocitrate dehydrogenase [NADP] cytoplasmic"
+    uniprot_function: "Catalyzes the NADP(+)-dependent oxidative decarboxylation of isocitrate (D-threo-isocitrate) to 2-ketoglutarate (2-oxoglutarate), which is required by other enzymes such as the phytanoyl-CoA dioxygena..."
+    subcellular_location: [Cytoplasm, cytosol, Peroxisome]
+    diseases:
+      - Glioma
+    go_biological_process:
+      - "2-oxoglutarate metabolic process"
+      - female gonad development
+      - glutathione metabolic process
+      - glyoxylate cycle
+      - isocitrate metabolic process
+      - NADP+ metabolic process
+      - NADPH regeneration
+      - regulation of phospholipid biosynthetic process
+    kegg_pathways:
+      - hsa00020
+      - hsa00480
+      - hsa01100
+      - hsa01200
+      - hsa01210
+      - hsa01230
+      - hsa04146
+      - hsa05230
+  - id: IDH2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: isocitrate dehydrogenase (NADP(+)) 2
+    chromosome: 15
+    ncbi_summary: "Isocitrate dehydrogenases catalyze the oxidative decarboxylation of isocitrate to 2-oxoglutarate. These enzymes belong to two distinct subclasses, one of which utilizes NAD(+) as the electron acceptor and the other NADP(+)."
+    protein_name: "Isocitrate dehydrogenase [NADP], mitochondrial"
+    uniprot_function: "Plays a role in intermediary metabolism and energy production (PubMed:19228619, PubMed:22416140). It may tightly associate or interact with the pyruvate dehydrogenase complex (PubMed:19228619, PubMed:..."
+    subcellular_location: [Mitochondrion]
+    diseases:
+      - "D-2-hydroxyglutaric aciduria 2"
+      - Glioma
+    go_biological_process:
+      - "2-oxoglutarate metabolic process"
+      - carbohydrate metabolic process
+      - glyoxylate cycle
+      - isocitrate metabolic process
+      - NADP+ biosynthetic process
+      - NADP+ metabolic process
+      - negative regulation of glial cell migration
+      - negative regulation of glial cell proliferation
+    kegg_pathways:
+      - hsa00020
+      - hsa00480
+      - hsa01100
+      - hsa01200
+      - hsa01210
+      - hsa01230
+      - hsa04146
+      - hsa05230
+  - id: TET1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: tet methylcytosine dioxygenase 1
+    chromosome: 10
+    ncbi_summary: "DNA methylation is an epigenetic mechanism that is important for controlling gene expression. The protein encoded by this gene is a demethylase that belongs to the TET (ten-eleven translocation) family."
+    protein_name: Methylcytosine dioxygenase TET1
+    uniprot_function: "Dioxygenase that plays a key role in active DNA demethylation, by catalyzing the sequential oxidation of the modified genomic base 5-methylcytosine (5mC) into 5-hydroxymethylcytosine (5hmC), 5-formylc..."
+    subcellular_location: [Nucleus, Chromosome]
+    go_biological_process:
+      - cellular response to reactive oxygen species
+      - chromatin remodeling
+      - inner cell mass cell differentiation
+      - negative regulation of cell migration
+      - negative regulation of stem cell population maintenance
+      - negative regulation of transcription by RNA polymerase II
+      - negative regulation of transforming growth factor beta receptor signaling pathway
+      - positive regulation of gene expression via chromosomal CpG island demethylation
+  - id: TET2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: tet methylcytosine dioxygenase 2
+    chromosome: 4
+    ncbi_summary: "The protein encoded by this gene is a methylcytosine dioxygenase that catalyzes the conversion of methylcytosine to 5-hydroxymethylcytosine. The encoded protein is involved in myelopoiesis, and defects in this gene have been associated with several myeloproliferative disorders."
+    protein_name: Methylcytosine dioxygenase TET2
+    uniprot_function: "Dioxygenase that catalyzes the conversion of the modified genomic base 5-methylcytosine (5mC) into 5-hydroxymethylcytosine (5hmC) and plays a key role in active DNA demethylation. Has a preference for..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Polycythemia vera
+      - Myelodysplastic syndrome
+      - Immunodeficiency 75 with lymphoproliferation
+    go_biological_process:
+      - leukocyte differentiation
+      - myeloid cell differentiation
+      - positive regulation of gene expression via chromosomal CpG island demethylation
+      - positive regulation of transcription by RNA polymerase II
+      - "protein O-linked glycosylation"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

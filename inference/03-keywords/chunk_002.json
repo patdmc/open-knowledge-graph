@@ -1,0 +1,54 @@
+{
+  "chunk_index": 2,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "1. Introduction > [part 2/2]",
+  "section_path": [
+    "1. Introduction",
+    "[part 2/2]"
+  ],
+  "char_count": 2813,
+  "keyphrases": [
+    {
+      "phrase": "architecture feasible genetic",
+      "score": 0.5362
+    },
+    {
+      "phrase": "biology intelligence unambiguously",
+      "score": 0.4798
+    },
+    {
+      "phrase": "observed reason evolutionary",
+      "score": 0.4363
+    },
+    {
+      "phrase": "software optimization theory",
+      "score": 0.4362
+    },
+    {
+      "phrase": "theory intelligence formal",
+      "score": 0.426
+    },
+    {
+      "phrase": "theory explanation lethality",
+      "score": 0.4045
+    },
+    {
+      "phrase": "math generations corollary",
+      "score": 0.3883
+    },
+    {
+      "phrase": "question encoding hierarchy",
+      "score": 0.3317
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "On the relationship to prior accounts."
+    ],
+    "has_math": true
+  }
+}

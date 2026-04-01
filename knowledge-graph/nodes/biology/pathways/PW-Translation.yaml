@@ -1,0 +1,41 @@
+id: PW-Translation
+type: knowledge
+domain: biology
+name: Translation
+reactome_id: R-HSA-72766
+
+description: "Protein synthesis is accomplished through the process of translation of an mRNA sequence into a polypeptide chain. This process can be divided into three distinct stages:  initiation, elongation and termination. During the initiation phase, the two subunits of the ribosome are brought together to the translation start site on the mRNA where the polypeptide chain is to begin."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: tRNA Aminoacylation
+    reactome_id: R-HSA-379724
+    type: Pathway
+  - name: Eukaryotic Translation Initiation
+    reactome_id: R-HSA-72613
+    type: Pathway
+  - name: "SRP-dependent cotranslational protein targeting to membrane"
+    reactome_id: R-HSA-1799339
+    type: Pathway
+  - name: Eukaryotic Translation Elongation
+    reactome_id: R-HSA-156842
+    type: Pathway
+  - name: Eukaryotic Translation Termination
+    reactome_id: R-HSA-72764
+    type: Pathway
+  - name: Mitochondrial translation
+    reactome_id: R-HSA-5368287
+    type: Pathway
+  - name: "Ribosome-associated quality control"
+    reactome_id: R-HSA-9948299
+    type: Pathway
+
+edges:

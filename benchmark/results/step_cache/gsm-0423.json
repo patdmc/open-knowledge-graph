@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Jogger jeans sale price (tattered minus 6)",
+    "operation": "subtract",
+    "operands": [
+      28,
+      6
+    ],
+    "result": 22,
+    "variable": "jogger_sale_price"
+  },
+  {
+    "step": 2,
+    "description": "Savings from jogger jeans (1/3 of total savings)",
+    "operation": "divide",
+    "operands": [
+      6,
+      3
+    ],
+    "result": 2,
+    "variable": "jogger_savings"
+  },
+  {
+    "step": 3,
+    "description": "Savings from tattered jeans (rest of total savings)",
+    "operation": "subtract",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 4,
+    "variable": "tattered_savings"
+  },
+  {
+    "step": 4,
+    "description": "Original price of tattered jeans (sale price plus savings)",
+    "operation": "add",
+    "operands": [
+      28,
+      4
+    ],
+    "result": 32,
+    "variable": "tattered_original_price"
+  },
+  {
+    "step": 5,
+    "description": "Original price of jogger jeans (sale price plus savings)",
+    "operation": "add",
+    "operands": [
+      22,
+      2
+    ],
+    "result": 24,
+    "variable": "jogger_original_price"
+  },
+  {
+    "step": 6,
+    "description": "How much more tattered jeans originally cost than jogger jeans",
+    "operation": "subtract",
+    "operands": [
+      32,
+      24
+    ],
+    "result": 8.0,
+    "variable": "price_difference"
+  }
+]

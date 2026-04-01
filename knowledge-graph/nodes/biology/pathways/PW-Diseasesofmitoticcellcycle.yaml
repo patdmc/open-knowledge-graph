@@ -1,0 +1,26 @@
+id: PW-Diseasesofmitoticcellcycle
+type: knowledge
+domain: biology
+name: Diseases of mitotic cell cycle
+reactome_id: R-HSA-9675126
+
+description: "Diseases of mitotic cell cycle are caused by mutations in cell cycle regulators (Collins and Garrett 2005, Diaz-Moralli et al. 2013), such as retinoblastoma protein RB1 (Classon and Harlow 2002), as well as proteins involved in telomere maintenance, such as ATRX and DAXX (Sarek et al. 2015)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Aberrant regulation of mitotic cell cycle due to RB1 defects
+    reactome_id: R-HSA-9687139
+    type: Pathway
+  - name: Diseases of Telomere Maintenance
+    reactome_id: R-HSA-9673013
+    type: Pathway
+
+edges:

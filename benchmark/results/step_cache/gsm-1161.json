@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate land sold in first sale (half of 80)",
+    "operation": "divide",
+    "operands": [
+      80,
+      2
+    ],
+    "result": 40,
+    "variable": "land_sold_first_sq_m"
+  },
+  {
+    "step": 2,
+    "description": "Calculate remaining land after first sale",
+    "operation": "subtract",
+    "operands": [
+      80,
+      40
+    ],
+    "result": 40,
+    "variable": "land_remaining_after_first"
+  },
+  {
+    "step": 3,
+    "description": "Calculate land sold in second sale (1/4 of remaining 40)",
+    "operation": "divide",
+    "operands": [
+      40,
+      4
+    ],
+    "result": 10,
+    "variable": "land_sold_second_sq_m"
+  },
+  {
+    "step": 4,
+    "description": "Calculate remaining land after second sale",
+    "operation": "subtract",
+    "operands": [
+      40,
+      10
+    ],
+    "result": 30,
+    "variable": "land_remaining_final_sq_m"
+  },
+  {
+    "step": 5,
+    "description": "Calculate money earned from final land sale at $3/sq m",
+    "operation": "multiply",
+    "operands": [
+      30,
+      3
+    ],
+    "result": 90,
+    "variable": "money_from_final_sale"
+  },
+  {
+    "step": 6,
+    "description": "Add money from first and second sales",
+    "operation": "add",
+    "operands": [
+      50,
+      30
+    ],
+    "result": 80,
+    "variable": "money_from_first_two_sales"
+  },
+  {
+    "step": 7,
+    "description": "Add all sales together for total earnings",
+    "operation": "add",
+    "operands": [
+      80,
+      90
+    ],
+    "result": 170,
+    "variable": "total_money_earned"
+  }
+]

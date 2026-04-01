@@ -1,0 +1,39 @@
+id: PW-DNAReplication
+type: knowledge
+domain: biology
+name: DNA Replication
+reactome_id: R-HSA-69306
+
+description: Studies in the past decade have suggested that the basic mechanism of DNA replication initiation is conserved in all kingdoms of life. Initiation in unicellular eukaryotes, in particular Saccharomyces cerevisiae (budding yeast), is well understood, and has served as a model for studies of DNA replication initiation in multicellular eukaryotes, including humans. In general terms, the first step of initiation is the binding of the replication initiator to the origin of replication.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "DNA Replication Pre-Initiation"
+    reactome_id: R-HSA-69002
+    type: Pathway
+  - name: Synthesis of DNA
+    reactome_id: R-HSA-69239
+    type: Pathway
+  - name: "Strand-asynchronous mitochondrial DNA replication"
+    reactome_id: R-HSA-9913635
+    type: Pathway
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "DNA Replication pathway components are encoded by CHAN-DDR genes"

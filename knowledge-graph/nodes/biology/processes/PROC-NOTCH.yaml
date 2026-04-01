@@ -1,0 +1,51 @@
+id: PROC-NOTCH
+type: knowledge
+domain: biology
+name: Notch signaling pathway
+go_id: GO:0007219
+
+definition: The series of molecular signals initiated by an extracellular ligand binding to the receptor Notch on the surface of a target cell, and ending with the regulation of a downstream cellular process, e.g. transcription.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0061314
+    name: Notch signaling involved in heart development
+    relation: is_a
+  - id: GO:0008593
+    name: regulation of Notch signaling pathway
+    relation: regulates
+  - id: GO:0045746
+    name: negative regulation of Notch signaling pathway
+    relation: negatively_regulates
+  - id: GO:0045747
+    name: positive regulation of Notch signaling pathway
+    relation: positively_regulates
+  - id: GO:0060853
+    name: Notch signaling pathway involved in arterial endothelial cell fate commitment
+    relation: is_a
+  - id: GO:0035333
+    name: "Notch receptor processing, ligand-dependent"
+    relation: part_of
+  - id: GO:0007221
+    name: positive regulation of transcription of Notch receptor target
+    relation: part_of
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-TissueArchitecture encode components of Notch signaling pathway"

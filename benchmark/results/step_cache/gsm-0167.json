@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract Brooke's 2-year increment from future sum",
+    "operation": "subtract",
+    "operands": [
+      28,
+      2
+    ],
+    "result": 26,
+    "variable": "sum after removing one +2"
+  },
+  {
+    "step": 2,
+    "description": "Subtract Seth's 2-year increment to get current age sum",
+    "operation": "subtract",
+    "operands": [
+      26,
+      2
+    ],
+    "result": 24,
+    "variable": "current sum of ages (3B)"
+  },
+  {
+    "step": 3,
+    "description": "Divide by 3 to solve for Brooke's current age",
+    "operation": "divide",
+    "operands": [
+      24,
+      3
+    ],
+    "result": 8,
+    "variable": "Brooke's current age"
+  },
+  {
+    "step": 4,
+    "description": "Multiply Brooke's age by 2 to get Seth's age",
+    "operation": "multiply",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 16,
+    "variable": "Seth's current age"
+  }
+]

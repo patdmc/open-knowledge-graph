@@ -1,0 +1,94 @@
+{
+  "class_id": "EC05",
+  "label": "unified-model-universal",
+  "n_chunks": 10,
+  "representative": {
+    "chunk_index": 52,
+    "section_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+    "similarity": 0.8268
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 52,
+      "section_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+      "similarity": 0.8268,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    },
+    {
+      "chunk_index": 55,
+      "section_title": "9. Discussion > 9.2 Limitations",
+      "similarity": 0.8001,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    },
+    {
+      "chunk_index": 56,
+      "section_title": "10. Conclusion",
+      "similarity": 0.791,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "novel contradiction classification",
+      "score": 0.8791
+    },
+    {
+      "phrase": "definition equivalency class",
+      "score": 0.7622
+    },
+    {
+      "phrase": "definition provenance triple",
+      "score": 0.729
+    },
+    {
+      "phrase": "cited confidence propagates",
+      "score": 0.7112
+    },
+    {
+      "phrase": "equivalency class math",
+      "score": 0.7048
+    },
+    {
+      "phrase": "provenance triplesprovenance triples",
+      "score": 0.6958
+    },
+    {
+      "phrase": "equivalency classes admit",
+      "score": 0.6857
+    },
+    {
+      "phrase": "equivalency classes cross",
+      "score": 0.678
+    },
+    {
+      "phrase": "triplesprovenance triples definition",
+      "score": 0.6419
+    },
+    {
+      "phrase": "merging diffs provenance",
+      "score": 0.6395
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "R1 (Equivalency class declaration)",
+    "R2 (Collapse/novel/contradiction classification)",
+    "R3 (Confidence scores for novel claims)",
+    "R4 (Provenance triples for cited claims)",
+    "R5 (Knowledge graph submission)",
+    "Definition 16c (The Confidence Regress).",
+    "Theorem 7 (Epistemic Ceiling).",
+    "Corollary 8 (The Sentience Gradient is Infinite).",
+    "Theorem 8 (Sentience Implies Superintelligence).",
+    "Overlapping dimensions",
+    "Distinct dimensions",
+    "Definition 19 (Collective General Intelligence).",
+    "Corollary 14 (Non-Termination of Collective Gradient Descent).",
+    "Corollary 15 (Self-Assembly of Graph-Structured Collective\nKnowledge).",
+    "The attribution-confidence conflation."
+  ],
+  "bridge_chunks": []
+}

@@ -1,0 +1,80 @@
+id: PW-Factorsinvolvedinmegakaryocyte
+type: knowledge
+domain: biology
+name: Factors involved in megakaryocyte development and platelet production
+reactome_id: R-HSA-983231
+
+description: "Megakaryocytes (MKs) give rise to circulating platelets (thrombocytes) through terminal differentiation of MKs which release cytoplasmic fragments as circulating platelets. As MKs mature they undergo endoreduplication (polyploidisation) and expansion of cytoplasmic mass to cell sizes larger than 50-100 microns, and ploidy ranges up to 128 N. As MKs mature, the polyploid nucleus becomes horseshoe-shaped, the cytoplasm expands, and platelet organelles and the demarcation membrane system are amplified."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: RAD51B binds RAD51C
+    reactome_id: R-HSA-983285
+    type: Reaction
+  - name: "RAD51B:RAD51C binds single-stranded DNA"
+    reactome_id: R-HSA-983218
+    type: Reaction
+  - name: "Dual-specific AKAPs bind type I and II PKA regulatory subunits"
+    reactome_id: R-HSA-992708
+    type: Reaction
+  - name: "Mitofusins trans-interact linking mitochondria prior to fusion"
+    reactome_id: R-HSA-992703
+    type: Reaction
+  - name: p53, SIN3A and MYB form a complex
+    reactome_id: R-HSA-992696
+    type: Reaction
+  - name: IRF1 binds the promoters of Interferon alpha and beta
+    reactome_id: R-HSA-994020
+    type: Reaction
+  - name: "Expression of Interferon-alpha and beta"
+    reactome_id: R-HSA-994034
+    type: BlackBoxEvent
+  - name: IRF2 binds the promoters of Interferon alpha and beta
+    reactome_id: R-HSA-994038
+    type: Reaction
+  - name: HP1 alpha binds Histone H3K9(me)3
+    reactome_id: R-HSA-994106
+    type: Reaction
+  - name: "ITPK1 converts Ins-3,4,5,6-P4 to Ins-1,3,4,5,6-P5"
+    reactome_id: R-HSA-994137
+    type: Reaction
+  - name: "ITPK1 converts Ins-1,3,4-P3 to Ins-1,3,4,5-P4"
+    reactome_id: R-HSA-994140
+    type: Reaction
+  - name: "ITPK1 converts Ins-1,3,4-P3 to Ins-1,3,4,6-P4"
+    reactome_id: R-HSA-2267372
+    type: Reaction
+  - name: "LRRC16A binds F-actin capping protein"
+    reactome_id: R-HSA-994148
+    type: Reaction
+  - name: "F-actin capping protein is a heterodimer"
+    reactome_id: R-HSA-879459
+    type: Reaction
+  - name: "F-actin capping protein binds to the barbed end of elongating F-actin"
+    reactome_id: R-HSA-994169
+    type: Reaction
+  - name: MICAL1 produces NADP+, H2O2
+    reactome_id: R-HSA-8865107
+    type: BlackBoxEvent
+  - name: REST recruits the BHC complex
+    reactome_id: R-HSA-996727
+    type: Reaction
+  - name: ZFPM proteins bind GATA proteins
+    reactome_id: R-HSA-996755
+    type: Reaction
+  - name: "JMJD1C demethylates H3K9 mono- and di-methylation"
+    reactome_id: R-HSA-997263
+    type: Reaction
+  - name: SH2B proteins bind JAK2
+    reactome_id: R-HSA-997237
+    type: Reaction
+
+edges:

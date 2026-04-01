@@ -1,0 +1,35 @@
+id: PW-PotassiumChannels
+type: knowledge
+domain: biology
+name: Potassium Channels
+reactome_id: R-HSA-1296071
+
+description: Potassium channels are tetrameric ion channels that are widely distributed and are found in all cell types. Potassium channels control resting membrane potential in neurons, contribute to regulation of action potentials in cardiac muscle and help release of insulin form pancreatic beta cells.Broadly K+ channels are classified into voltage gated K+ channels, Hyperpolarization activated cyclic nucleotide gated K+ channels (HCN), Tandem pore domain K+ channels, Ca2+ activated K+ channels and inwardly rectifying K+ channels.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Ca2+ activated K+ channels
+    reactome_id: R-HSA-1296052
+    type: Pathway
+  - name: HCN channels
+    reactome_id: R-HSA-1296061
+    type: Pathway
+  - name: Inwardly rectifying K+ channels
+    reactome_id: R-HSA-1296065
+    type: Pathway
+  - name: Voltage gated Potassium channels
+    reactome_id: R-HSA-1296072
+    type: Pathway
+  - name: Tandem pore domain potassium channels
+    reactome_id: R-HSA-1296346
+    type: Pathway
+
+edges:

@@ -1,0 +1,47 @@
+id: EMP04-sl-same-channel-protective
+type: knowledge
+domain: cancer_biology
+name: Synthetic Lethal Same-Channel Protection
+
+claim: >
+  When two genes share both a synthetic lethal (SL) relationship and membership in the
+  same functional channel, their co-mutation is strongly protective (HR=0.626).
+  This multivalent edge combination (SL_PARTNER x SAME_CHANNEL) outperforms either
+  edge type alone. It represents within-channel redundancy: the cell has backup
+  pathways within the same functional domain.
+
+key_statistics:
+  combined_hr: 0.626
+  sl_only_hr: 0.85
+  same_channel_only_hr: 0.92
+  improvement_over_sl_alone: "26% lower HR"
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Multivalent Edge Analysis (Paper 5 supplement)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Edge type interaction analysis on MSK-IMPACT 50K gene pairs"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: validates
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Edge type combinations carry information beyond node degree — graph topology encodes biological function"
+  - to: EMP02-compensatory-edges
+    relation: related_to
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Within-channel SL protection is a specific case of the broader compensation phenomenon"

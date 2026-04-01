@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 6 toy cars at $2 each",
+    "operation": "multiply",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 12,
+    "variable": "toy_cars_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 5 teddy bears at $1 each",
+    "operation": "multiply",
+    "operands": [
+      5,
+      1
+    ],
+    "result": 5,
+    "variable": "teddy_bears_cost"
+  },
+  {
+    "step": 3,
+    "description": "Total amount spent on toys",
+    "operation": "add",
+    "operands": [
+      12,
+      5
+    ],
+    "result": 17,
+    "variable": "total_spent"
+  },
+  {
+    "step": 4,
+    "description": "Money remaining after toy purchases",
+    "operation": "subtract",
+    "operands": [
+      28,
+      17
+    ],
+    "result": 11,
+    "variable": "money_after_shopping"
+  },
+  {
+    "step": 5,
+    "description": "Money after mother gives extra $10",
+    "operation": "add",
+    "operands": [
+      11,
+      10
+    ],
+    "result": 21,
+    "variable": "final_amount"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Number of 3-flower packages needed for 18 flowers",
+    "operation": "divide",
+    "operands": [
+      18,
+      3
+    ],
+    "result": 6,
+    "variable": "packages_of_3"
+  },
+  {
+    "step": 2,
+    "description": "Total cost buying 18 flowers in packages of 3 at $2.50 each",
+    "operation": "multiply",
+    "operands": [
+      6,
+      2.5
+    ],
+    "result": 15.0,
+    "variable": "cost_option1"
+  },
+  {
+    "step": 3,
+    "description": "Number of 2-flower packages needed for 18 flowers",
+    "operation": "divide",
+    "operands": [
+      18,
+      2
+    ],
+    "result": 9,
+    "variable": "packages_of_2"
+  },
+  {
+    "step": 4,
+    "description": "Total cost buying 18 flowers in packages of 2 at $1.00 each",
+    "operation": "multiply",
+    "operands": [
+      9,
+      1.0
+    ],
+    "result": 9.0,
+    "variable": "cost_option2"
+  },
+  {
+    "step": 5,
+    "description": "Savings by choosing the cheaper option (packages of 2)",
+    "operation": "subtract",
+    "operands": [
+      15.0,
+      9.0
+    ],
+    "result": 6.0,
+    "variable": "total_savings"
+  }
+]

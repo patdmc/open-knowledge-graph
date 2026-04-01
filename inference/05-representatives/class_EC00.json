@@ -1,0 +1,78 @@
+{
+  "class_id": "EC00",
+  "label": "knowledge-graph-schema",
+  "n_chunks": 3,
+  "representative": {
+    "chunk_index": 47,
+    "section_title": "3. Knowledge Graph Schema > 3.2 Edge Types",
+    "similarity": 0.8968
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 47,
+      "section_title": "3. Knowledge Graph Schema > 3.2 Edge Types",
+      "similarity": 0.8968,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    },
+    {
+      "chunk_index": 46,
+      "section_title": "3. Knowledge Graph Schema > 3.1 Node Types",
+      "similarity": 0.893,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    },
+    {
+      "chunk_index": 51,
+      "section_title": "5. Results > 5.1 Equivalency Classes > [part 3/3]",
+      "similarity": 0.8063,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "edge provenance structurally",
+      "score": 0.6298
+    },
+    {
+      "phrase": "theory confidence profiletheory",
+      "score": 0.5099
+    },
+    {
+      "phrase": "underlying claim nodes",
+      "score": 0.5016
+    },
+    {
+      "phrase": "base assumption frameworks",
+      "score": 0.4901
+    },
+    {
+      "phrase": "nodes philosophical _precursor",
+      "score": 0.4692
+    },
+    {
+      "phrase": "projections generates new",
+      "score": 0.4645
+    },
+    {
+      "phrase": "primary basis minipage",
+      "score": 0.439
+    },
+    {
+      "phrase": "contradicts node conflicts",
+      "score": 0.4211
+    },
+    {
+      "phrase": "node typesnode types",
+      "score": 0.4131
+    },
+    {
+      "phrase": "premises emergent _from",
+      "score": 0.4089
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [],
+  "bridge_chunks": []
+}

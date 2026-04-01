@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "kilometers per week in phase 1",
+    "operation": "multiply",
+    "operands": [
+      5,
+      25
+    ],
+    "result": 125,
+    "variable": "phase1_weekly_km"
+  },
+  {
+    "step": 2,
+    "description": "total kilometers in phase 1",
+    "operation": "multiply",
+    "operands": [
+      125,
+      4
+    ],
+    "result": 500,
+    "variable": "phase1_total_km"
+  },
+  {
+    "step": 3,
+    "description": "kilometers per week in phase 2",
+    "operation": "multiply",
+    "operands": [
+      2,
+      60
+    ],
+    "result": 120,
+    "variable": "phase2_weekly_km"
+  },
+  {
+    "step": 4,
+    "description": "total kilometers in phase 2",
+    "operation": "multiply",
+    "operands": [
+      120,
+      3
+    ],
+    "result": 360,
+    "variable": "phase2_total_km"
+  },
+  {
+    "step": 5,
+    "description": "total kilometers overall",
+    "operation": "add",
+    "operands": [
+      500,
+      360
+    ],
+    "result": 860,
+    "variable": "total_km"
+  }
+]

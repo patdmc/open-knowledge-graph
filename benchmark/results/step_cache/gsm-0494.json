@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Add height of bottom row to height of second row",
+    "operation": "add",
+    "operands": [
+      64,
+      64
+    ],
+    "result": 128,
+    "variable": "inches_bottom_two_rows"
+  },
+  {
+    "step": 2,
+    "description": "Add height of third row",
+    "operation": "add",
+    "operands": [
+      128,
+      64
+    ],
+    "result": 192,
+    "variable": "inches_bottom_three_rows"
+  },
+  {
+    "step": 3,
+    "description": "Add height of top (shortest) cheerleader",
+    "operation": "add",
+    "operands": [
+      192,
+      60
+    ],
+    "result": 252,
+    "variable": "total_inches"
+  },
+  {
+    "step": 4,
+    "description": "Convert total inches to feet",
+    "operation": "divide",
+    "operands": [
+      252,
+      12
+    ],
+    "result": 21.0,
+    "variable": "pyramid_height_feet"
+  }
+]

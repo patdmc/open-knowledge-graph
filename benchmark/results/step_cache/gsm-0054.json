@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Patchy's kittens (thrice the 7 adopted)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      7
+    ],
+    "result": 21,
+    "variable": "patchy_kittens"
+  },
+  {
+    "step": 2,
+    "description": "Add adopted kittens to Patchy's kittens",
+    "operation": "add",
+    "operands": [
+      7,
+      21
+    ],
+    "result": 28,
+    "variable": "adopted_plus_patchy"
+  },
+  {
+    "step": 3,
+    "description": "Add Trixie's kittens to get total",
+    "operation": "add",
+    "operands": [
+      28,
+      12
+    ],
+    "result": 40,
+    "variable": "total_kittens"
+  }
+]

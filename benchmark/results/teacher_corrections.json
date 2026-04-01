@@ -1,0 +1,393 @@
+[
+  {
+    "problem_id": "gsm-0338",
+    "class": "additive_rel",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Partition problems with inter-group constraints require algebraic setup\u2014summing named parts to a known whole\u2014not direct arithmetic on the total",
+        "details": {
+          "key": "split into N groups",
+          "fix": "When a total is split into groups with relational constraints (equal, less than, more than), introduce a variable for the base group size and build a linear equation summing all groups to the total",
+          "problem_id": "gsm-0338",
+          "our_error": "The solver failed to decompose the group-splitting constraint into an algebraic equation with a shared unknown, returning the total instead of solving for the smallest partition",
+          "correct_steps": [
+            "step 1: Identify three groups where two are equal size (call it x) and one is (x - 10)",
+            "step 2: Set up equation: x + x + (x - 10) = 200, i.e. 3x - 10 = 200",
+            "step 3: Solve: 3x = 210, x = 70",
+            "step 4: Smallest group = x - 10 = 70 - 10 = 60"
+          ]
+        }
+      },
+      {
+        "type": "verb_map",
+        "description": "Comparative phrases like 'N less than' define a variable relationship, not an independent subtraction operation; they must bind to the same unknown as the reference group",
+        "details": {
+          "key": "is 10 less than",
+          "fix": "Map 'is N less than [reference]' to a subtraction offset on a shared variable (x - N), not a standalone additive relation",
+          "problem_id": "gsm-0338",
+          "our_error": "The solver failed to decompose the group-splitting constraint into an algebraic equation with a shared unknown, returning the total instead of solving for the smallest partition",
+          "correct_steps": [
+            "step 1: Identify three groups where two are equal size (call it x) and one is (x - 10)",
+            "step 2: Set up equation: x + x + (x - 10) = 200, i.e. 3x - 10 = 200",
+            "step 3: Solve: 3x = 210, x = 70",
+            "step 4: Smallest group = x - 10 = 70 - 10 = 60"
+          ]
+        }
+      },
+      {
+        "type": "missing_value",
+        "description": "Equality constraints between partitions act as multipliers on the unknown; missing them collapses the equation and loses the partition structure",
+        "details": {
+          "key": "2 of them are equal",
+          "fix": "Extract the implicit constraint that two groups share the same size, producing a multiplier of 2 on the base variable in the sum equation",
+          "problem_id": "gsm-0338",
+          "our_error": "The solver failed to decompose the group-splitting constraint into an algebraic equation with a shared unknown, returning the total instead of solving for the smallest partition",
+          "correct_steps": [
+            "step 1: Identify three groups where two are equal size (call it x) and one is (x - 10)",
+            "step 2: Set up equation: x + x + (x - 10) = 200, i.e. 3x - 10 = 200",
+            "step 3: Solve: 3x = 210, x = 70",
+            "step 4: Smallest group = x - 10 = 70 - 10 = 60"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0624",
+    "class": "comparison",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Comparison problems with parallel entities must resolve each entity's total independently before the final subtraction; collapsing to 1 entity merges the tracks",
+        "details": {
+          "key": "how much more ... than",
+          "fix": "comparison class requires: (1) compute total for entity A, (2) compute total for entity B, (3) subtract smaller from larger",
+          "problem_id": "gsm-0624",
+          "our_error": "The solver detected only 1 entity instead of 2 parallel entities, so it failed to compute separate totals for each coach and instead produced a single malformed calculation",
+          "correct_steps": [
+            "step 1: identify baseball coach spending: 9 baseballs \u00d7 $3 each = $27",
+            "step 2: identify basketball coach spending: 8 basketballs \u00d7 $14 each = $112",
+            "step 3: compute difference: $112 - $27 = $85"
+          ]
+        }
+      },
+      {
+        "type": "missing_value",
+        "description": "When multiple actors each have their own quantity\u00d7rate pair, the entity splitter must create one entity per actor so each rate_chain resolves independently",
+        "details": {
+          "key": "8 new basketballs for $14 each",
+          "fix": "extract second entity (basketball coach) with quantity=8 and rate=14 dollars/each as a separate track",
+          "problem_id": "gsm-0624",
+          "our_error": "The solver detected only 1 entity instead of 2 parallel entities, so it failed to compute separate totals for each coach and instead produced a single malformed calculation",
+          "correct_steps": [
+            "step 1: identify baseball coach spending: 9 baseballs \u00d7 $3 each = $27",
+            "step 2: identify basketball coach spending: 8 basketballs \u00d7 $14 each = $112",
+            "step 3: compute difference: $112 - $27 = $85"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0182",
+    "class": "fraction_of_whole",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Time-shift phrases establish a temporal frame for the entire clause; all age references within that frame must be evaluated at the shifted time, not current time",
+        "details": {
+          "key": "two years ago ... half Jan's age",
+          "fix": "When a time-shift phrase ('X years ago') scopes over a comparison, apply the time shift to ALL entities in that clause before computing relationships, then shift the result back to present",
+          "problem_id": "gsm-0182",
+          "our_error": "The solver applied 'half Jan's age' to Jan's current age (30) instead of Jan's age two years ago (28), and added 5 to get Mark's current age (35) without shifting the time reference back to present",
+          "correct_steps": [
+            "step 1: Jan is 30 (given)",
+            "step 2: Two years ago, Jan was 30 - 2 = 28",
+            "step 3: Half of Jan's age two years ago: 28 / 2 = 14",
+            "step 4: Two years ago, Mark was 5 years older than that: 14 + 5 = 19",
+            "step 5: Mark's current age: 19 + 2 = 21",
+            "step 6: Jean is two years older than Mark: 21 + 2 = 23"
+          ]
+        }
+      },
+      {
+        "type": "operation_fix",
+        "description": "Comparative age statements within a past-tense frame describe relationships at that past time; the result must be projected forward to get current age",
+        "details": {
+          "key": "was 5 years older than half Jan's age",
+          "fix": "Compute: (Jan_age - time_shift) / 2 + 5 = Mark_age_at_shifted_time, then Mark_current = Mark_age_at_shifted_time + time_shift",
+          "problem_id": "gsm-0182",
+          "our_error": "The solver applied 'half Jan's age' to Jan's current age (30) instead of Jan's age two years ago (28), and added 5 to get Mark's current age (35) without shifting the time reference back to present",
+          "correct_steps": [
+            "step 1: Jan is 30 (given)",
+            "step 2: Two years ago, Jan was 30 - 2 = 28",
+            "step 3: Half of Jan's age two years ago: 28 / 2 = 14",
+            "step 4: Two years ago, Mark was 5 years older than that: 14 + 5 = 19",
+            "step 5: Mark's current age: 19 + 2 = 21",
+            "step 6: Jean is two years older than Mark: 21 + 2 = 23"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0182",
+    "class": "multi_entity",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Temporal modifiers set the reference frame for all values in the clause; fractional operations on another entity's age must use that entity's age at the stated time, not their current age",
+        "details": {
+          "key": "two years ago ... half Jan's age",
+          "fix": "When a time-shift modifier ('X years ago') scopes over a fractional reference ('half of Y's age'), apply the time shift to Y's age BEFORE computing the fraction, not after",
+          "problem_id": "gsm-0182",
+          "our_error": "The solver applied 'half Jan's age' to Jan's current age (30) instead of first shifting Jan's age back two years to match the 'two years ago' time frame, then halving",
+          "correct_steps": [
+            "step 1: Jan is 30 (given)",
+            "step 2: Two years ago, Jan was 30 - 2 = 28",
+            "step 3: Half of Jan's age two years ago: 28 / 2 = 14",
+            "step 4: Two years ago, Mark was 5 years older than that: 14 + 5 = 19",
+            "step 5: Mark's current age: 19 + 2 = 21",
+            "step 6: Jean is two years older than Mark: 21 + 2 = 23"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0182",
+    "class": "multiplicative_rel",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Temporal shifts ('two years ago') apply to the subject's age, not to every entity mentioned in the comparison. 'Half Jan's age' is a reference value, not a shifted value.",
+        "details": {
+          "key": "half Jan's age",
+          "fix": "When a fraction-of-age appears inside a temporal clause ('two years ago X was Y older than half Z's age'), compute the fraction on Z's CURRENT age, not Z's shifted age. The fraction refers to a static reference point unless explicitly modified by the temporal phrase.",
+          "problem_id": "gsm-0182",
+          "our_error": "The solver applied 'half Jan's age' to Jan's age two years ago (28/2=14) or misapplied the temporal shift, computing Mark_two_years_ago = half_jan_age + 5 using the wrong base, yielding Mark=35 instead of 22",
+          "correct_steps": [
+            "step 1: Jan is 30 (given)",
+            "step 2: Half Jan's age = 30 / 2 = 15",
+            "step 3: Two years ago, Mark was 5 years older than half Jan's age \u2192 Mark_two_years_ago = 15 + 5 = 20",
+            "step 4: Mark's current age = 20 + 2 = 22 (undo the 'two years ago' shift)",
+            "step 5: Jean is two years older than Mark \u2192 Jean = 22 + 1 = 23... wait",
+            "step 5: Jean is two years older than Mark \u2192 Jean = 22 + 1 = 23"
+          ]
+        }
+      },
+      {
+        "type": "operation_fix",
+        "description": "Past-tense age relations require solving in the past frame then adding the time offset to recover present age. Mixing the offset into the relational equation produces incorrect results.",
+        "details": {
+          "key": "two years ago",
+          "fix": "The temporal shift 'two years ago' must be inverted (+2) when solving forward from the past-tense equation to get current age. Ensure the +2 is applied to Mark's solved past age, not compounded into the comparison expression.",
+          "problem_id": "gsm-0182",
+          "our_error": "The solver applied 'half Jan's age' to Jan's age two years ago (28/2=14) or misapplied the temporal shift, computing Mark_two_years_ago = half_jan_age + 5 using the wrong base, yielding Mark=35 instead of 22",
+          "correct_steps": [
+            "step 1: Jan is 30 (given)",
+            "step 2: Half Jan's age = 30 / 2 = 15",
+            "step 3: Two years ago, Mark was 5 years older than half Jan's age \u2192 Mark_two_years_ago = 15 + 5 = 20",
+            "step 4: Mark's current age = 20 + 2 = 22 (undo the 'two years ago' shift)",
+            "step 5: Jean is two years older than Mark \u2192 Jean = 22 + 1 = 23... wait",
+            "step 5: Jean is two years older than Mark \u2192 Jean = 22 + 1 = 23"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0650",
+    "class": "percentage",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Comparison problems require completing all steps for each entity before differencing; short-circuiting to a single entity's per-unit calculation skips both the quantity multiplication and the other entity's pipeline",
+        "details": {
+          "key": "multi_entity comparison",
+          "fix": "For multi-entity comparison problems, compute each entity's full pipeline (quantity \u00d7 rate \u00b1 adjustments) independently, then subtract the two final totals",
+          "problem_id": "gsm-0650",
+          "our_error": "The solver computed each entity's total independently using only the percentage path for Sheila (30 \u00d7 0.9 = 27) without multiplying by quantity, and failed to compute Clara's total (quantity \u00d7 rate - voucher) before taking the difference.",
+          "correct_steps": [
+            "step 1: Clara's total before voucher = 20 pomegranates \u00d7 $20/each = $400",
+            "step 2: Clara's final price = $400 - $2 voucher = $398",
+            "step 3: Sheila's total before discount = 20 pomegranates \u00d7 $30/each = $600",
+            "step 4: Sheila's discount = 10% \u00d7 $600 = $60",
+            "step 5: Sheila's final price = $600 - $60 = $540",
+            "step 6: Difference = $540 - $398 = $142"
+          ]
+        }
+      },
+      {
+        "type": "operation_fix",
+        "description": "When text says 'discount on the total cost', the percentage operand is the aggregate, not the per-unit rate; the solver must resolve the multiplication before applying the percentage",
+        "details": {
+          "key": "percentage discount on total cost",
+          "fix": "Percentage discount applies to (quantity \u00d7 unit_price), not to unit_price alone; compute total first, then apply percentage",
+          "problem_id": "gsm-0650",
+          "our_error": "The solver computed each entity's total independently using only the percentage path for Sheila (30 \u00d7 0.9 = 27) without multiplying by quantity, and failed to compute Clara's total (quantity \u00d7 rate - voucher) before taking the difference.",
+          "correct_steps": [
+            "step 1: Clara's total before voucher = 20 pomegranates \u00d7 $20/each = $400",
+            "step 2: Clara's final price = $400 - $2 voucher = $398",
+            "step 3: Sheila's total before discount = 20 pomegranates \u00d7 $30/each = $600",
+            "step 4: Sheila's discount = 10% \u00d7 $600 = $60",
+            "step 5: Sheila's final price = $600 - $60 = $540",
+            "step 6: Difference = $540 - $398 = $142"
+          ]
+        }
+      },
+      {
+        "type": "missing_value",
+        "description": "Flat adjustments (vouchers, fees, tips) that are not rates or percentages must be captured as additive offsets in the entity's pipeline; the solver dropped this value entirely",
+        "details": {
+          "key": "$2 off because she had a voucher",
+          "fix": "Extract the $2 voucher as a flat subtraction applied after computing Clara's total (20 \u00d7 $20 = $400 \u2192 $400 - $2 = $398)",
+          "problem_id": "gsm-0650",
+          "our_error": "The solver computed each entity's total independently using only the percentage path for Sheila (30 \u00d7 0.9 = 27) without multiplying by quantity, and failed to compute Clara's total (quantity \u00d7 rate - voucher) before taking the difference.",
+          "correct_steps": [
+            "step 1: Clara's total before voucher = 20 pomegranates \u00d7 $20/each = $400",
+            "step 2: Clara's final price = $400 - $2 voucher = $398",
+            "step 3: Sheila's total before discount = 20 pomegranates \u00d7 $30/each = $600",
+            "step 4: Sheila's discount = 10% \u00d7 $600 = $60",
+            "step 5: Sheila's final price = $600 - $60 = $540",
+            "step 6: Difference = $540 - $398 = $142"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0234",
+    "class": "rate_chain",
+    "corrections": [
+      {
+        "type": "missing_value",
+        "description": "Relational comparisons ('twice as much as', 'three times more than') imply a second entity whose derived quantity must be included in any aggregation over the group",
+        "details": {
+          "key": "his girlfriend",
+          "fix": "When a multiplicative_rel compares two entities ('twice as much as X'), both entities are consumers and must be summed for total demand",
+          "problem_id": "gsm-0234",
+          "our_error": "Failed to identify the girlfriend as a second consumer entity, so only computed vines for Steve's consumption (6*7/3=14... or 6*3=18 via wrong path) instead of total household consumption",
+          "correct_steps": [
+            "step 1: Steve eats 6 tomatoes per day",
+            "step 2: His girlfriend eats half as much: 6 / 2 = 3 tomatoes per day",
+            "step 3: Total consumption: 6 + 3 = 9 tomatoes per day",
+            "step 4: Weekly consumption: 9 * 7 = 63 tomatoes per week",
+            "step 5: Vines needed: 63 / 3 = 21 vines"
+          ]
+        }
+      },
+      {
+        "type": "step_sequence",
+        "description": "When multiplicative_rel establishes a relationship between entities, the rate_chain must operate on the aggregated total across all entities, not just the named one",
+        "details": {
+          "key": "multiplicative_rel + rate_chain with multiple consumers",
+          "fix": "1) extract named rate, 2) derive related entity rate via multiplier, 3) SUM all consumer rates, 4) unit-convert total rate to match supply rate period, 5) divide total demand by per-unit supply",
+          "problem_id": "gsm-0234",
+          "our_error": "Failed to identify the girlfriend as a second consumer entity, so only computed vines for Steve's consumption (6*7/3=14... or 6*3=18 via wrong path) instead of total household consumption",
+          "correct_steps": [
+            "step 1: Steve eats 6 tomatoes per day",
+            "step 2: His girlfriend eats half as much: 6 / 2 = 3 tomatoes per day",
+            "step 3: Total consumption: 6 + 3 = 9 tomatoes per day",
+            "step 4: Weekly consumption: 9 * 7 = 63 tomatoes per week",
+            "step 5: Vines needed: 63 / 3 = 21 vines"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-0522",
+    "class": "system_of_equations",
+    "corrections": [
+      {
+        "type": "missing_value",
+        "description": "Entity extraction must find all named subjects, not stop at 3; missing an entity causes wrong aggregation count and drops a term from the sum",
+        "details": {
+          "key": "Ricky",
+          "fix": "Extract all 4 named entities (Tony, Bobby, Kathy, Ricky) from the problem text",
+          "problem_id": "gsm-0522",
+          "our_error": "The solver detected only 3 entities instead of 4, and divided the base value by entity count instead of resolving each entity's rate through the relational chain and summing",
+          "correct_steps": [
+            "step 1: Extract Tony's rate = 6 quarts/hour",
+            "step 2: Compute Bobby's rate = Tony - 1 = 6 - 1 = 5 quarts/hour",
+            "step 3: Compute Kathy's rate = 2 \u00d7 Bobby = 2 \u00d7 5 = 10 quarts/hour",
+            "step 4: Compute Ricky's rate = Kathy - 2 = 10 - 2 = 8 quarts/hour",
+            "step 5: Sum all rates = 6 + 5 + 10 + 8 = 29 quarts/hour"
+          ]
+        }
+      },
+      {
+        "type": "step_sequence",
+        "description": "Rate chains require sequential resolution where each entity depends on a prior entity's resolved value; dividing a base by count is wrong when entities have different derived rates",
+        "details": {
+          "key": "rate_chain",
+          "fix": "For rate_chain problems: resolve each entity's value by walking the dependency chain (base \u2192 derived \u2192 derived), then sum all resolved values",
+          "problem_id": "gsm-0522",
+          "our_error": "The solver detected only 3 entities instead of 4, and divided the base value by entity count instead of resolving each entity's rate through the relational chain and summing",
+          "correct_steps": [
+            "step 1: Extract Tony's rate = 6 quarts/hour",
+            "step 2: Compute Bobby's rate = Tony - 1 = 6 - 1 = 5 quarts/hour",
+            "step 3: Compute Kathy's rate = 2 \u00d7 Bobby = 2 \u00d7 5 = 10 quarts/hour",
+            "step 4: Compute Ricky's rate = Kathy - 2 = 10 - 2 = 8 quarts/hour",
+            "step 5: Sum all rates = 6 + 5 + 10 + 8 = 29 quarts/hour"
+          ]
+        }
+      },
+      {
+        "type": "operation_fix",
+        "description": "Division by entity count assumes equal distribution; relational chains (less than, twice as many, fewer than) define distinct per-entity values that must be individually computed and then aggregated",
+        "details": {
+          "key": "entity-props: 6 / sum(3)",
+          "fix": "Do not divide the base rate by entity count; instead compute each entity's rate independently via relational operators (minus, times) then sum",
+          "problem_id": "gsm-0522",
+          "our_error": "The solver detected only 3 entities instead of 4, and divided the base value by entity count instead of resolving each entity's rate through the relational chain and summing",
+          "correct_steps": [
+            "step 1: Extract Tony's rate = 6 quarts/hour",
+            "step 2: Compute Bobby's rate = Tony - 1 = 6 - 1 = 5 quarts/hour",
+            "step 3: Compute Kathy's rate = 2 \u00d7 Bobby = 2 \u00d7 5 = 10 quarts/hour",
+            "step 4: Compute Ricky's rate = Kathy - 2 = 10 - 2 = 8 quarts/hour",
+            "step 5: Sum all rates = 6 + 5 + 10 + 8 = 29 quarts/hour"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "problem_id": "gsm-1092",
+    "class": "working_backwards",
+    "corrections": [
+      {
+        "type": "step_sequence",
+        "description": "Any problem with chained fractional consumption (A eats fraction, then B eats fraction of remainder) requires one inversion node per consumer; collapsing them loses intermediate quantities",
+        "details": {
+          "key": "half of what was left",
+          "fix": "Each 'fraction of remainder' phrase must create a new node in the chain; working_backwards must invert each step sequentially from the known remainder back to the original, not collapse multiple remainder steps",
+          "problem_id": "gsm-1092",
+          "our_error": "The solver built only 1 node instead of chaining two working_backwards steps, collapsing the two sequential 'half of remainder' operations into a single pass that returned the final remainder (270) as the answer",
+          "correct_steps": [
+            "step 1: Allosaurus ate the last 270 kg, which is what remained after velociraptors scavenged",
+            "step 2: Velociraptors ate half of what was left, so 270 kg is the other half \u2192 before velociraptors: 270 * 2 = 540 kg",
+            "step 3: T-Rex ate half the triceratops, so 540 kg is the other half \u2192 before T-Rex: 540 * 2 = 1080 kg"
+          ]
+        }
+      },
+      {
+        "type": "operation_fix",
+        "description": "Working backwards through a fractional consumption requires dividing by the remaining fraction (or equivalently multiplying by its reciprocal), not treating the known value as the answer",
+        "details": {
+          "key": "working_backwards with fraction_of_whole",
+          "fix": "When working backwards from a remainder after someone took half, multiply by 2 (invert the fraction), not pass through unchanged; each 'ate half' leaving a remainder means remainder = original * 0.5, so original = remainder / 0.5 = remainder * 2",
+          "problem_id": "gsm-1092",
+          "our_error": "The solver built only 1 node instead of chaining two working_backwards steps, collapsing the two sequential 'half of remainder' operations into a single pass that returned the final remainder (270) as the answer",
+          "correct_steps": [
+            "step 1: Allosaurus ate the last 270 kg, which is what remained after velociraptors scavenged",
+            "step 2: Velociraptors ate half of what was left, so 270 kg is the other half \u2192 before velociraptors: 270 * 2 = 540 kg",
+            "step 3: T-Rex ate half the triceratops, so 540 kg is the other half \u2192 before T-Rex: 540 * 2 = 1080 kg"
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "hours worked per week",
+    "operation": "multiply",
+    "operands": [
+      10,
+      5
+    ],
+    "result": 50,
+    "variable": "weekly_hours"
+  },
+  {
+    "step": 2,
+    "description": "base weekly earnings",
+    "operation": "multiply",
+    "operands": [
+      50,
+      10
+    ],
+    "result": 500,
+    "variable": "weekly_base_pay"
+  },
+  {
+    "step": 3,
+    "description": "weekly earnings with bonus",
+    "operation": "add",
+    "operands": [
+      500,
+      300
+    ],
+    "result": 800,
+    "variable": "weekly_total"
+  },
+  {
+    "step": 4,
+    "description": "total earnings for April (4 weeks)",
+    "operation": "multiply",
+    "operands": [
+      800,
+      4
+    ],
+    "result": 3200,
+    "variable": "april_total"
+  }
+]

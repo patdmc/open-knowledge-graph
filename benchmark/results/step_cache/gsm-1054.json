@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of tiles needed to cover floor area",
+    "operation": "divide",
+    "operands": [
+      200,
+      1
+    ],
+    "result": 200,
+    "variable": "tiles_needed"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total cost of all tiles",
+    "operation": "multiply",
+    "operands": [
+      200,
+      12
+    ],
+    "result": 2400.0,
+    "variable": "total_cost"
+  }
+]

@@ -1,0 +1,286 @@
+id: A03-graph-theory
+type: knowledge
+domain: algebra
+name: "Graph Theory"
+
+concepts:
+  - id: graph
+    name: "Graph"
+    latex: "G = (V, E)"
+    meaning: "set of vertices V and edges E"
+    action:
+      networkx: "nx.Graph()"
+    curried: "lambda edges: nx.Graph(edges)"
+
+  - id: directed_graph
+    name: "Directed Graph"
+    latex: "G = (V, A)"
+    meaning: "graph with ordered pairs (arcs) instead of unordered edges"
+    action:
+      networkx: "nx.DiGraph()"
+    curried: "lambda edges: nx.DiGraph(edges)"
+
+  - id: weighted_graph
+    name: "Weighted Graph"
+    latex: "G = (V, E, w)"
+    meaning: "graph with weight function w: E -> R"
+    action:
+      networkx: "nx.Graph(); G.add_weighted_edges_from([(u, v, w), ...])"
+
+  - id: adjacency_matrix
+    name: "Adjacency Matrix"
+    latex: "A_{ij} = \\begin{cases} 1 & \\text{if } (i,j) \\in E \\\\ 0 & \\text{otherwise} \\end{cases}"
+    action:
+      networkx: "nx.adjacency_matrix(G).toarray()"
+      numpy: "np.array(nx.adjacency_matrix(G).todense())"
+    curried: "lambda G: nx.adjacency_matrix(G).toarray()"
+
+  - id: degree
+    name: "Degree"
+    latex: "\\deg(v) = |\\{u : (v,u) \\in E\\}|"
+    meaning: "number of edges incident to vertex"
+    action:
+      networkx: "G.degree(v)"
+    curried: "lambda G: lambda v: G.degree(v)"
+
+  - id: degree_sequence
+    name: "Degree Sequence"
+    latex: "(d_1, d_2, \\ldots, d_n)"
+    action:
+      networkx: "sorted([d for n, d in G.degree()], reverse=True)"
+    curried: "lambda G: sorted([d for n, d in G.degree()], reverse=True)"
+
+  - id: in_degree
+    name: "In-Degree"
+    latex: "\\deg^-(v)"
+    meaning: "number of edges directed into v"
+    action:
+      networkx: "G.in_degree(v)"
+    constraint: "directed graphs only"
+
+  - id: out_degree
+    name: "Out-Degree"
+    latex: "\\deg^+(v)"
+    meaning: "number of edges directed out of v"
+    action:
+      networkx: "G.out_degree(v)"
+    constraint: "directed graphs only"
+
+  - id: path
+    name: "Path"
+    latex: "P = (v_0, v_1, \\ldots, v_k)"
+    meaning: "sequence of vertices connected by edges, no repeated vertices"
+    action:
+      networkx: "nx.shortest_path(G, source, target)"
+    curried: "lambda G: lambda s: lambda t: nx.shortest_path(G, s, t)"
+
+  - id: shortest_path
+    name: "Shortest Path"
+    latex: "d(u, v) = \\min_{P: u \\to v} |P|"
+    action:
+      networkx: "nx.shortest_path_length(G, source, target)"
+      networkx_weighted: "nx.dijkstra_path_length(G, source, target)"
+    curried: "lambda G: lambda s: lambda t: nx.shortest_path_length(G, s, t)"
+
+  - id: all_pairs_shortest
+    name: "All-Pairs Shortest Path"
+    latex: "D_{ij} = d(v_i, v_j)"
+    action:
+      networkx: "dict(nx.all_pairs_shortest_path_length(G))"
+      scipy: "scipy.sparse.csgraph.shortest_path(adj_matrix)"
+
+  - id: diameter
+    name: "Diameter"
+    latex: "\\text{diam}(G) = \\max_{u,v} d(u,v)"
+    action:
+      networkx: "nx.diameter(G)"
+    curried: "lambda G: nx.diameter(G)"
+
+  - id: cycle
+    name: "Cycle"
+    latex: "C = (v_0, v_1, \\ldots, v_k, v_0)"
+    meaning: "closed path — first and last vertex are the same"
+    action:
+      networkx: "nx.cycle_basis(G)"
+
+  - id: connected_components
+    name: "Connected Components"
+    action:
+      networkx: "list(nx.connected_components(G))"
+    curried: "lambda G: list(nx.connected_components(G))"
+
+  - id: strongly_connected
+    name: "Strongly Connected Components"
+    meaning: "maximal subgraph where every vertex is reachable from every other (directed)"
+    action:
+      networkx: "list(nx.strongly_connected_components(G))"
+
+  - id: tree
+    name: "Tree"
+    latex: "T"
+    meaning: "connected acyclic graph; |E| = |V| - 1"
+    action:
+      networkx_check: "nx.is_tree(G)"
+      networkx_spanning: "nx.minimum_spanning_tree(G)"
+
+  - id: spanning_tree
+    name: "Minimum Spanning Tree"
+    action:
+      networkx: "nx.minimum_spanning_tree(G, weight='weight')"
+      scipy: "scipy.sparse.csgraph.minimum_spanning_tree(adj_matrix)"
+    curried: "lambda G: nx.minimum_spanning_tree(G)"
+
+  - id: bipartite
+    name: "Bipartite Graph"
+    latex: "G = (U, V, E)"
+    meaning: "vertices partitionable into two sets with edges only between sets"
+    action:
+      networkx_check: "nx.is_bipartite(G)"
+      networkx_sets: "nx.bipartite.sets(G)"
+
+  - id: clique
+    name: "Clique"
+    meaning: "complete subgraph — every pair of vertices is connected"
+    action:
+      networkx_max: "max(nx.find_cliques(G), key=len)"
+      networkx_all: "list(nx.find_cliques(G))"
+    curried: "lambda G: max(nx.find_cliques(G), key=len)"
+
+  - id: chromatic_number
+    name: "Graph Coloring"
+    latex: "\\chi(G)"
+    meaning: "minimum colors to color vertices so no adjacent vertices share a color"
+    action:
+      networkx_greedy: "nx.coloring.greedy_color(G, strategy='largest_first')"
+
+  - id: planarity
+    name: "Planarity"
+    meaning: "graph can be drawn in the plane with no edge crossings"
+    action:
+      networkx: "nx.check_planarity(G)[0]"
+    theorems:
+      - "Kuratowski: G is planar iff it has no K5 or K3,3 subdivision"
+      - "Euler: V - E + F = 2 for connected planar graphs"
+
+  - id: betweenness_centrality
+    name: "Betweenness Centrality"
+    latex: "c_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}"
+    meaning: "fraction of shortest paths through vertex v"
+    action:
+      networkx: "nx.betweenness_centrality(G)"
+    curried: "lambda G: nx.betweenness_centrality(G)"
+
+  - id: closeness_centrality
+    name: "Closeness Centrality"
+    latex: "c_C(v) = \\frac{n-1}{\\sum_u d(v,u)}"
+    action:
+      networkx: "nx.closeness_centrality(G)"
+    curried: "lambda G: nx.closeness_centrality(G)"
+
+  - id: eigenvector_centrality
+    name: "Eigenvector Centrality"
+    meaning: "centrality proportional to sum of centralities of neighbors"
+    action:
+      networkx: "nx.eigenvector_centrality(G)"
+    curried: "lambda G: nx.eigenvector_centrality(G)"
+    links: [eigenvalues]
+
+  - id: pagerank
+    name: "PageRank"
+    latex: "PR(v) = \\frac{1-d}{N} + d \\sum_{u \\to v} \\frac{PR(u)}{\\deg^+(u)}"
+    meaning: "random walk stationary distribution with damping"
+    action:
+      networkx: "nx.pagerank(G, alpha=0.85)"
+    curried: "lambda alpha=0.85: lambda G: nx.pagerank(G, alpha=alpha)"
+
+  - id: laplacian
+    name: "Graph Laplacian"
+    latex: "L = D - A"
+    meaning: "degree matrix minus adjacency matrix"
+    action:
+      networkx: "nx.laplacian_matrix(G).toarray()"
+      scipy: "scipy.sparse.csgraph.laplacian(adj_matrix)"
+    curried: "lambda G: nx.laplacian_matrix(G).toarray()"
+    properties:
+      - "L is positive semi-definite"
+      - "number of zero eigenvalues = number of connected components"
+      - "second smallest eigenvalue = algebraic connectivity (Fiedler value)"
+
+  - id: normalized_laplacian
+    name: "Normalized Laplacian"
+    latex: "\\mathcal{L} = D^{-1/2} L D^{-1/2}"
+    action:
+      networkx: "nx.normalized_laplacian_matrix(G).toarray()"
+    curried: "lambda G: nx.normalized_laplacian_matrix(G).toarray()"
+
+  - id: random_walk
+    name: "Random Walk"
+    latex: "P = D^{-1}A"
+    meaning: "transition matrix — probability of moving from i to j"
+    action:
+      numpy: "np.diag(1/A.sum(axis=1)) @ A"
+    curried: "lambda A: np.diag(1/A.sum(axis=1)) @ A"
+
+  - id: graph_isomorphism
+    name: "Graph Isomorphism"
+    latex: "G_1 \\cong G_2"
+    meaning: "bijection between vertices preserving adjacency"
+    action:
+      networkx: "nx.is_isomorphic(G1, G2)"
+    curried: "lambda G1: lambda G2: nx.is_isomorphic(G1, G2)"
+
+  - id: topological_sort
+    name: "Topological Sort"
+    meaning: "linear ordering of DAG vertices so every edge goes forward"
+    action:
+      networkx: "list(nx.topological_sort(G))"
+    constraint: "directed acyclic graphs only"
+
+  - id: max_flow
+    name: "Maximum Flow"
+    action:
+      networkx: "nx.maximum_flow(G, source, sink)"
+    curried: "lambda G: lambda s: lambda t: nx.maximum_flow(G, s, t)"
+    theorem: "max-flow min-cut theorem"
+
+  - id: community_detection
+    name: "Community Detection"
+    meaning: "partition vertices into densely connected groups"
+    action:
+      networkx_louvain: "nx.community.louvain_communities(G)"
+      networkx_modularity: "nx.community.greedy_modularity_communities(G)"
+
+  - id: graph_density
+    name: "Graph Density"
+    latex: "\\rho = \\frac{2|E|}{|V|(|V|-1)}"
+    action:
+      networkx: "nx.density(G)"
+    curried: "lambda G: nx.density(G)"
+
+theorems:
+  - name: "Handshaking Lemma"
+    latex: "\\sum_{v \\in V} \\deg(v) = 2|E|"
+
+  - name: "Euler's Formula (Planar)"
+    latex: "V - E + F = 2"
+    meaning: "for connected planar graphs"
+
+  - name: "Cayley's Formula"
+    latex: "\\tau(K_n) = n^{n-2}"
+    meaning: "number of labeled trees on n vertices"
+
+  - name: "Four Color Theorem"
+    statement: "every planar graph is 4-colorable"
+
+  - name: "Max-Flow Min-Cut"
+    statement: "maximum flow = minimum cut capacity"
+
+edges:
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "adjacency matrices, Laplacians, spectral methods"
+  - to: N04-aggregation-notation
+    relation: REQUIRES
+  - to: NT01-number-theory
+    relation: USES
+    note: "chromatic polynomials, counting arguments"

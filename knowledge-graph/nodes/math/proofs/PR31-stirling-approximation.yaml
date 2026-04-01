@@ -1,0 +1,93 @@
+id: PR31-stirling-approximation
+type: proof
+domain: analysis
+name: "Stirling's Approximation"
+target:
+  statement: "n! \\sim \\sqrt{2\\pi n} \\left(\\frac{n}{e}\\right)^n \\quad \\text{as } n \\to \\infty"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: gamma-integral
+    type: lemma
+    statement: "n! = \\Gamma(n+1) = \\int_0^{\\infty} t^n e^{-t}\\, dt"
+    justification: "the Gamma function extends the factorial; Gamma(n+1) = n! for non-negative integers by integration by parts"
+    depends_on: []
+    references: [definite_integral, integration_by_parts]
+
+  - step: 2
+    id: substitute
+    type: claim
+    statement: "\\text{Let } t = n + s\\sqrt{n}. \\text{ Then } n! = \\int_{-\\sqrt{n}}^{\\infty} (n + s\\sqrt{n})^n e^{-(n + s\\sqrt{n})} \\sqrt{n}\\, ds"
+    justification: "change of variables t = n + s*sqrt(n), dt = sqrt(n) ds, with s ranging from -sqrt(n) to infinity"
+    depends_on: [gamma-integral]
+    references: [change_of_variables]
+
+  - step: 3
+    id: log-integrand
+    type: claim
+    statement: "\\ln\\left[(n + s\\sqrt{n})^n e^{-(n + s\\sqrt{n})}\\right] = n \\ln n + n \\ln\\left(1 + \\frac{s}{\\sqrt{n}}\\right) - n - s\\sqrt{n}"
+    justification: "expand the logarithm of the integrand"
+    depends_on: [substitute]
+
+  - step: 4
+    id: taylor-expand
+    type: lemma
+    statement: "n \\ln\\left(1 + \\frac{s}{\\sqrt{n}}\\right) = s\\sqrt{n} - \\frac{s^2}{2} + O\\left(\\frac{s^3}{\\sqrt{n}}\\right)"
+    justification: "Taylor expand ln(1 + x) = x - x^2/2 + x^3/3 - ... with x = s/sqrt(n), then multiply by n"
+    depends_on: [log-integrand]
+    references: [taylor_series]
+
+  - step: 5
+    id: gaussian-form
+    type: claim
+    statement: "(n + s\\sqrt{n})^n e^{-(n + s\\sqrt{n})} = n^n e^{-n} \\exp\\left(-\\frac{s^2}{2} + O\\left(\\frac{s^3}{\\sqrt{n}}\\right)\\right)"
+    justification: "exponentiate the Taylor expansion from step 4; the s*sqrt(n) terms cancel"
+    depends_on: [taylor-expand, log-integrand]
+
+  - step: 6
+    id: integral-becomes-gaussian
+    type: claim
+    statement: "n! = n^n e^{-n} \\sqrt{n} \\int_{-\\sqrt{n}}^{\\infty} \\exp\\left(-\\frac{s^2}{2} + O\\left(\\frac{s^3}{\\sqrt{n}}\\right)\\right) ds"
+    justification: "substitute the approximation from step 5 back into the integral"
+    depends_on: [gaussian-form, substitute]
+
+  - step: 7
+    id: laplace-limit
+    type: lemma
+    statement: "\\int_{-\\sqrt{n}}^{\\infty} \\exp\\left(-\\frac{s^2}{2} + O\\left(\\frac{s^3}{\\sqrt{n}}\\right)\\right) ds \\to \\int_{-\\infty}^{\\infty} e^{-s^2/2}\\, ds = \\sqrt{2\\pi} \\quad \\text{as } n \\to \\infty"
+    justification: "Laplace's method: as n -> infinity, the error term O(s^3/sqrt(n)) vanishes, the lower limit -> -infinity, and the remaining Gaussian integral evaluates to sqrt(2*pi)"
+    depends_on: [integral-becomes-gaussian]
+    references: [normal, definite_integral]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "n! \\sim \\sqrt{2\\pi n} \\left(\\frac{n}{e}\\right)^n"
+    justification: "combining steps 6 and 7: n! ~ n^n e^{-n} sqrt(n) * sqrt(2*pi) = sqrt(2*pi*n) * (n/e)^n"
+    depends_on: [integral-becomes-gaussian, laplace-limit]
+
+qed: true
+
+corollaries:
+  - id: log-factorial
+    statement: "\\ln(n!) = n \\ln n - n + \\tfrac{1}{2} \\ln(2\\pi n) + O(1/n)"
+    justification: "take logarithm of Stirling's approximation"
+    depends_on: [conclusion]
+
+  - id: binomial-approx
+    statement: "\\binom{2n}{n} \\sim \\frac{4^n}{\\sqrt{\\pi n}}"
+    justification: "apply Stirling to (2n)!, (n!)^2 and simplify"
+    depends_on: [conclusion]
+    references: [binomial_coefficient]
+
+edges:
+  - to: AN01-complex-analysis
+    relation: PROVES_FROM
+    note: "Laplace method is an analytic technique; Gamma function connects to complex analysis"
+  - to: C02-integral-calculus
+    relation: USES
+  - to: P01-probability-statistics
+    relation: USES
+    note: "the Gaussian integral sqrt(2*pi) connects directly to normal distribution"

@@ -1,0 +1,29 @@
+id: PW-Reproduction
+type: knowledge
+domain: biology
+name: Reproduction
+reactome_id: R-HSA-1474165
+
+description: Human reproduction mixes the genomes of two individuals, creating a new organism. The offspring individuals produced by sexual reproduction differ from their parents and from their siblings. Reproduction includes the reproductive system, sperm and egg production (haploid cells), fertilization, and the early stages embryo development.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Specification of primordial germ cells
+    reactome_id: R-HSA-9827857
+    type: Pathway
+  - name: Meiosis
+    reactome_id: R-HSA-1500620
+    type: Pathway
+  - name: Fertilization
+    reactome_id: R-HSA-1187000
+    type: Pathway
+
+edges:

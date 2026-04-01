@@ -1,0 +1,13 @@
+[
+  {
+    "step": 1,
+    "description": "Add westward and northward distances",
+    "operation": "add",
+    "operands": [
+      80,
+      150
+    ],
+    "result": 230.0,
+    "variable": "total distance per train"
+  }
+]

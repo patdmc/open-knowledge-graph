@@ -1,0 +1,117 @@
+id: C01-differential-calculus
+type: knowledge
+domain: calculus
+name: "Differential Calculus"
+
+concepts:
+  - id: limit
+    name: "Limit"
+    latex: "\\lim_{x \\to a} f(x)"
+    action:
+      sympy: "limit(f(x), x, a)"
+      scipy: "N/A — numerical only via evaluation"
+    curried: "lambda f: lambda x: lambda a: sympy.limit(f, x, a)"
+
+  - id: derivative
+    name: "Derivative"
+    latex: "\\frac{d}{dx} f(x) = f'(x)"
+    meaning: "instantaneous rate of change"
+    action:
+      sympy: "diff(f, x)"
+      scipy: "scipy.misc.derivative(f, x0, dx=1e-8)"
+    curried: "lambda f: lambda x: sympy.diff(f, x)"
+    variants:
+      - latex: "f'(x)"
+        name: "Lagrange notation"
+      - latex: "\\dot{x}"
+        name: "Newton notation (time derivative)"
+      - latex: "Df"
+        name: "Operator notation"
+
+  - id: partial_derivative
+    name: "Partial Derivative"
+    latex: "\\frac{\\partial f}{\\partial x}"
+    meaning: "derivative with respect to one variable, others held constant"
+    action:
+      sympy: "diff(f, x)"
+    curried: "lambda f: lambda x: sympy.diff(f, x)"
+
+  - id: gradient
+    name: "Gradient"
+    latex: "\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_n}\\right)"
+    meaning: "vector of all partial derivatives"
+    action:
+      sympy: "Matrix([diff(f, xi) for xi in vars])"
+      jax: "jax.grad(f)"
+      torch: "torch.autograd.grad(f, x)"
+    curried: "lambda f: lambda vars: [sympy.diff(f, v) for v in vars]"
+
+  - id: jacobian
+    name: "Jacobian"
+    latex: "J_{ij} = \\frac{\\partial f_i}{\\partial x_j}"
+    meaning: "matrix of all first-order partial derivatives of vector function"
+    action:
+      sympy: "Matrix(f).jacobian(vars)"
+      jax: "jax.jacobian(f)(x)"
+    curried: "lambda f: lambda vars: sympy.Matrix(f).jacobian(vars)"
+
+  - id: hessian
+    name: "Hessian"
+    latex: "H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}"
+    meaning: "matrix of second-order partial derivatives"
+    action:
+      sympy: "hessian(f, vars)"
+      jax: "jax.hessian(f)(x)"
+    curried: "lambda f: lambda vars: sympy.hessian(f, vars)"
+
+  - id: chain_rule
+    name: "Chain Rule"
+    latex: "\\frac{d}{dx} f(g(x)) = f'(g(x)) \\cdot g'(x)"
+    meaning: "derivative of composition = outer derivative * inner derivative"
+    action:
+      sympy: "diff(f.subs(x, g), x)"
+    composes: [derivative, compose]
+
+  - id: product_rule
+    name: "Product Rule"
+    latex: "(fg)' = f'g + fg'"
+    action:
+      sympy: "diff(f*g, x)"
+
+  - id: quotient_rule
+    name: "Quotient Rule"
+    latex: "\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}"
+
+  - id: higher_derivative
+    name: "nth Derivative"
+    latex: "f^{(n)}(x) = \\frac{d^n f}{dx^n}"
+    action:
+      sympy: "diff(f, x, n)"
+    curried: "lambda f: lambda x: lambda n: sympy.diff(f, x, n)"
+
+  - id: taylor_series
+    name: "Taylor Series"
+    latex: "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n"
+    action:
+      sympy: "series(f, x, a, n=order)"
+    curried: "lambda f: lambda x: lambda a: lambda n: sympy.series(f, x, a, n=n)"
+
+rules:
+  - name: "Power rule"
+    latex: "\\frac{d}{dx} x^n = nx^{n-1}"
+  - name: "Exponential"
+    latex: "\\frac{d}{dx} e^x = e^x"
+  - name: "Logarithm"
+    latex: "\\frac{d}{dx} \\ln x = \\frac{1}{x}"
+  - name: "Sine"
+    latex: "\\frac{d}{dx} \\sin x = \\cos x"
+  - name: "Cosine"
+    latex: "\\frac{d}{dx} \\cos x = -\\sin x"
+
+edges:
+  - to: C02-integral-calculus
+    relation: INVERSE_OF
+  - to: A01-algebra-fundamentals
+    relation: REQUIRES
+  - to: N04-aggregation-notation
+    relation: REQUIRES

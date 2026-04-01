@@ -1,0 +1,99 @@
+id: PR15-cayley-hamilton
+type: proof
+domain: algebra
+name: "Cayley-Hamilton Theorem"
+target:
+  statement: "\\text{Every square matrix satisfies its own characteristic polynomial: } p_A(A) = 0"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: def-char-poly
+    type: definition
+    statement: "p_A(\\lambda) = \\det(\\lambda I - A) = \\lambda^n - c_1 \\lambda^{n-1} - \\cdots - c_n"
+    justification: "characteristic polynomial of n×n matrix A"
+    depends_on: []
+    references: [determinant, eigenvalues]
+
+  - step: 2
+    id: adjugate
+    type: definition
+    statement: "\\text{adj}(\\lambda I - A) = B(\\lambda) = B_0 + B_1 \\lambda + \\cdots + B_{n-1} \\lambda^{n-1}"
+    justification: "adjugate (classical adjoint) is matrix of cofactors; polynomial in lambda with matrix coefficients"
+    depends_on: [def-char-poly]
+
+  - step: 3
+    id: adj-identity
+    type: claim
+    statement: "(\\lambda I - A) \\cdot B(\\lambda) = \\det(\\lambda I - A) \\cdot I = p_A(\\lambda) \\cdot I"
+    justification: "fundamental property of adjugate: M * adj(M) = det(M) * I"
+    depends_on: [adjugate, def-char-poly]
+    references: [inverse]
+
+  - step: 4
+    id: expand-lhs
+    type: claim
+    statement: "(\\lambda I - A)(B_0 + B_1 \\lambda + \\cdots + B_{n-1} \\lambda^{n-1})"
+    justification: "expand the matrix product as polynomial in lambda"
+    depends_on: [adj-identity]
+
+  - step: 5
+    id: match-coefficients
+    type: claim
+    statement: >
+      Matching coefficients of lambda^k on both sides:
+      lambda^n: B_{n-1} = I.
+      lambda^{n-1}: B_{n-2} - A B_{n-1} = -c_1 I.
+      ...
+      lambda^0: -A B_0 = -c_n I.
+    justification: "polynomial identity implies coefficient-by-coefficient equality"
+    depends_on: [expand-lhs, adj-identity]
+
+  - step: 6
+    id: multiply-and-sum
+    type: claim
+    statement: >
+      Multiply the lambda^k equation by A^k and sum:
+      A^n B_{n-1} + A^{n-1}(B_{n-2} - AB_{n-1}) + ... + A^0(-AB_0) = A^n I - c_1 A^{n-1} I - ... - c_n I
+    justification: >
+      left side: multiply k-th equation by A^k. The B terms telescope:
+      A^k B_{k-1} - A^{k+1} B_{k-1} from adjacent equations cancel pairwise.
+      Left side telescopes to 0. Right side is p_A(A).
+    depends_on: [match-coefficients]
+
+  - step: 7
+    id: telescope
+    type: claim
+    statement: "\\text{LHS telescopes: all } B_k \\text{ terms cancel pairwise} \\implies 0 = p_A(A)"
+    justification: >
+      term A^k B_{k-1} appears with + sign from equation k and with - sign (as A^k * A * B_{k-1})
+      from equation k+1. Every B_j cancels.
+    depends_on: [multiply-and-sum]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "p_A(A) = A^n - c_1 A^{n-1} - \\cdots - c_n I = 0"
+    justification: "telescoping sum proves the matrix satisfies its characteristic polynomial"
+    depends_on: [telescope]
+
+qed: true
+
+corollaries:
+  - id: inverse-from-char-poly
+    statement: "\\text{If } c_n \\neq 0: A^{-1} = \\frac{1}{c_n}(A^{n-1} - c_1 A^{n-2} - \\cdots - c_{n-1} I)"
+    justification: "rearrange p_A(A) = 0 and divide by c_n = (-1)^n det(A)"
+    depends_on: [conclusion]
+    references: [inverse, determinant]
+
+  - id: minimal-polynomial-divides
+    statement: "m_A(\\lambda) \\mid p_A(\\lambda)"
+    justification: "minimal polynomial divides any annihilating polynomial; p_A is annihilating by Cayley-Hamilton"
+    depends_on: [conclusion]
+
+edges:
+  - to: A02-linear-algebra
+    relation: PROVES_FROM
+  - to: A04-linear-algebra-advanced
+    relation: PROVES_FROM

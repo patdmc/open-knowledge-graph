@@ -1,0 +1,47 @@
+id: PW-RORA,B,CandNR1D1REVERBAregulat
+type: knowledge
+domain: biology
+name: "RORA,B,C and NR1D1 (REV-ERBA) regulate gene expression"
+reactome_id: R-HSA-9933387
+
+description: "Both Retinoid-related orphan receptors (RORA, RORB, RORC) and the heme-binding nuclear receptor NR1D1 (REV-ERBA) bind ROR response elements (RREs, ROREs) in DNA (reviewed in Duez and Staels 2008, Cox and Takahashi 2019, Laothamatas et al. 2023). RORs and NR1D1 produce opposite effects, however: RORs recruit coactivators such as EP300 (p300) and PPARGC1A to activate transcription; NR1D1 recruits the corepressor NCOR1 and the histone deacetylase HDAC3 to repress transcription."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "RORA,C and coactivators bind the NR1D1 (REV-ERBA) gene"
+    reactome_id: R-HSA-9931531
+    type: Reaction
+  - name: "NR1D1 (REV-ERBA) binds heme, the NR1D1 gene, and recruits corepressors"
+    reactome_id: R-HSA-5663265
+    type: Reaction
+  - name: "RORA,C positively regulate expression and NR1D1 negatively regulates expression of NR1D1 (REV-ERBA)"
+    reactome_id: R-HSA-9934780
+    type: BlackBoxEvent
+  - name: "RORA and EP300 bind the Carnitine O-palmitoyltransferase 1 (CPT1A) gene"
+    reactome_id: R-HSA-5663264
+    type: Reaction
+  - name: "Expression of Carnitine O-palmitoyltransferase 1 CPT1A"
+    reactome_id: R-HSA-1801587
+    type: BlackBoxEvent
+  - name: RORA and EP300 bind the SREBF1 (SREBP1) gene
+    reactome_id: R-HSA-5663293
+    type: Reaction
+  - name: Expression of SREBF1 (SREBP1)
+    reactome_id: R-HSA-1368081
+    type: BlackBoxEvent
+  - name: "NR1D1 (REV-ERBA) binds heme, the ELOVL3 gene, and recruits corepressors"
+    reactome_id: R-HSA-5663252
+    type: Reaction
+  - name: "NR1D1 (REV-ERBA) binds heme, the PPARGC1A gene, and recruits corepressors"
+    reactome_id: R-HSA-5663258
+    type: Reaction
+
+edges:

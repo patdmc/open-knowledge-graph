@@ -1,0 +1,130 @@
+id: A02-linear-algebra
+type: knowledge
+domain: algebra
+name: "Linear Algebra"
+
+concepts:
+  - id: vector
+    name: "Vector"
+    latex: "\\vec{v} = \\begin{pmatrix} v_1 \\\\ \\vdots \\\\ v_n \\end{pmatrix}"
+    action:
+      numpy: "np.array([v1, v2, ..., vn])"
+    curried: "lambda *components: np.array(components)"
+
+  - id: matrix
+    name: "Matrix"
+    latex: "A \\in \\mathbb{R}^{m \\times n}"
+    action:
+      numpy: "np.array([[a11, a12], [a21, a22]])"
+      sympy: "Matrix([[a11, a12], [a21, a22]])"
+
+  - id: dot_product
+    name: "Dot Product"
+    latex: "\\vec{a} \\cdot \\vec{b} = \\sum_i a_i b_i"
+    action:
+      numpy: "np.dot(a, b)"
+      python: "sum(ai*bi for ai, bi in zip(a, b))"
+    curried: "lambda a: lambda b: np.dot(a, b)"
+    returns: scalar
+
+  - id: cross_product
+    name: "Cross Product"
+    latex: "\\vec{a} \\times \\vec{b}"
+    action:
+      numpy: "np.cross(a, b)"
+    curried: "lambda a: lambda b: np.cross(a, b)"
+    constraint: "3D vectors only"
+    returns: vector
+
+  - id: matrix_multiply
+    name: "Matrix Multiplication"
+    latex: "AB"
+    action:
+      numpy: "A @ B"
+      sympy: "A * B"
+    curried: "lambda A: lambda B: A @ B"
+    constraint: "A.shape[1] == B.shape[0]"
+
+  - id: transpose
+    name: "Transpose"
+    latex: "A^T"
+    action:
+      numpy: "A.T"
+      sympy: "A.T"
+    curried: "lambda A: A.T"
+    property: "(AB)^T = B^T A^T"
+
+  - id: inverse
+    name: "Matrix Inverse"
+    latex: "A^{-1}"
+    action:
+      numpy: "np.linalg.inv(A)"
+      sympy: "A.inv()"
+    curried: "lambda A: np.linalg.inv(A)"
+    constraint: "A is square and det(A) != 0"
+
+  - id: determinant
+    name: "Determinant"
+    latex: "\\det(A)"
+    action:
+      numpy: "np.linalg.det(A)"
+      sympy: "A.det()"
+    curried: "lambda A: np.linalg.det(A)"
+
+  - id: eigenvalues
+    name: "Eigenvalues"
+    latex: "A\\vec{v} = \\lambda\\vec{v}"
+    meaning: "scalars lambda where Av = lambda*v for nonzero v"
+    action:
+      numpy: "np.linalg.eig(A)[0]"
+      scipy: "scipy.linalg.eigvals(A)"
+      sympy: "A.eigenvals()"
+    curried: "lambda A: np.linalg.eig(A)[0]"
+
+  - id: eigenvectors
+    name: "Eigenvectors"
+    action:
+      numpy: "np.linalg.eig(A)[1]"
+      sympy: "A.eigenvects()"
+    curried: "lambda A: np.linalg.eig(A)[1]"
+
+  - id: svd
+    name: "Singular Value Decomposition"
+    latex: "A = U\\Sigma V^T"
+    action:
+      numpy: "np.linalg.svd(A)"
+      scipy: "scipy.linalg.svd(A)"
+    curried: "lambda A: np.linalg.svd(A)"
+
+  - id: norm
+    name: "Norm"
+    latex: "\\|\\vec{v}\\|"
+    action:
+      numpy: "np.linalg.norm(v)"
+      numpy_p: "np.linalg.norm(v, ord=p)"
+    curried: "lambda p=2: lambda v: np.linalg.norm(v, ord=p)"
+
+  - id: solve_linear
+    name: "Solve Linear System"
+    latex: "Ax = b"
+    action:
+      numpy: "np.linalg.solve(A, b)"
+      scipy: "scipy.linalg.solve(A, b)"
+      sympy: "linsolve(system, vars)"
+    curried: "lambda A: lambda b: np.linalg.solve(A, b)"
+
+  - id: rank
+    name: "Matrix Rank"
+    latex: "\\text{rank}(A)"
+    action:
+      numpy: "np.linalg.matrix_rank(A)"
+      sympy: "A.rank()"
+    curried: "lambda A: np.linalg.matrix_rank(A)"
+
+  - id: trace
+    name: "Trace"
+    latex: "\\text{tr}(A) = \\sum_i a_{ii}"
+    action:
+      numpy: "np.trace(A)"
+      sympy: "A.trace()"
+    curried: "lambda A: np.trace(A)"

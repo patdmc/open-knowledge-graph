@@ -1,0 +1,26 @@
+id: PW-ChromosomeMaintenance
+type: knowledge
+domain: biology
+name: Chromosome Maintenance
+reactome_id: R-HSA-73886
+
+description: "Maintenance of chromosomal organization is critical for stable chromosome function. Two aspects of maintenance annotated in Reactome are centromeric chromatin assembly outside the context of DNA replication, involving nucleosome assembly with the histone H3 variant CenH3 (also called CENP-A), and the maintenance of telomeres, protein-DNA complexes at the ends of linear chromosomes that are important for genome stability."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Nucleosome assembly
+    reactome_id: R-HSA-774815
+    type: Pathway
+  - name: Telomere Maintenance
+    reactome_id: R-HSA-157579
+    type: Pathway
+
+edges:

@@ -1,0 +1,56 @@
+id: EMP03-escalation-pairs
+type: knowledge
+domain: cancer_biology
+name: Escalation Gene Pairs
+
+claim: >
+  Certain cross-channel co-mutations are synergistically harmful (interaction HR > 1.5).
+  These represent escalation: disruption in two domains simultaneously produces worse
+  outcomes than the sum of individual effects. The top pairs involve known oncogenic
+  drivers hitting different functional channels.
+
+key_pairs:
+  - from: CDKN2A
+    to: KRAS
+    interaction_hr: 1.85
+    interaction_p: 2.3e-08
+    channels: CellCycle-PI3K_Growth
+    n_both: 892
+    interpretation: "Cell cycle brake loss + growth signal constitutive activation"
+  - from: TP53
+    to: PTEN
+    interaction_hr: 1.62
+    interaction_p: 4.1e-06
+    channels: CellCycle-PI3K_Growth
+    n_both: 1203
+    interpretation: "Apoptosis escape + PI3K pathway derepression"
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Co-mutation Shift Analysis (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Cox interaction models with Bonferroni correction across MSK-IMPACT cohorts"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: validates
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Escalation predicted by bounded-context theory: multi-domain disruption exceeds additive risk"
+  - to: EMP01-tmb-paradox-resolution
+    relation: contrasts
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Escalation pairs are the harmful counterpart to compensatory pairs — both explain why channel count matters more than mutation count"

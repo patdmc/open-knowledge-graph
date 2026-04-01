@@ -1,0 +1,168 @@
+id: TOP01-topology
+type: knowledge
+domain: topology
+name: "Topology"
+
+concepts:
+  # === Point-Set Topology ===
+  - id: topological_space
+    name: "Topological Space"
+    latex: "(X, \\tau)"
+    meaning: "set X with collection tau of open sets closed under finite intersection and arbitrary union"
+
+  - id: open_set
+    name: "Open Set"
+    meaning: "member of the topology; every point has a neighborhood contained in the set"
+
+  - id: closed_set
+    name: "Closed Set"
+    meaning: "complement of an open set; contains all its limit points"
+
+  - id: neighborhood
+    name: "Neighborhood"
+    meaning: "open set containing a given point"
+
+  - id: closure
+    name: "Closure"
+    latex: "\\overline{A}"
+    meaning: "smallest closed set containing A; A union its limit points"
+
+  - id: interior
+    name: "Interior"
+    latex: "A^\\circ"
+    meaning: "largest open set contained in A"
+
+  - id: boundary
+    name: "Boundary"
+    latex: "\\partial A = \\overline{A} \\setminus A^\\circ"
+
+  - id: continuous_map
+    name: "Continuous Map"
+    meaning: "preimage of every open set is open; generalizes epsilon-delta continuity"
+
+  - id: homeomorphism
+    name: "Homeomorphism"
+    latex: "X \\cong Y"
+    meaning: "continuous bijection with continuous inverse; spaces are topologically identical"
+
+  - id: compactness
+    name: "Compactness"
+    meaning: "every open cover has a finite subcover"
+    equivalent_in_metric: "sequentially compact (every sequence has convergent subsequence)"
+    theorem: "Heine-Borel: subset of R^n is compact iff closed and bounded"
+
+  - id: connectedness
+    name: "Connectedness"
+    meaning: "cannot be partitioned into two disjoint nonempty open sets"
+
+  - id: path_connectedness
+    name: "Path Connectedness"
+    meaning: "any two points can be joined by a continuous path"
+    implies: connectedness
+
+  - id: hausdorff
+    name: "Hausdorff Space"
+    meaning: "any two distinct points have disjoint neighborhoods"
+    note: "most spaces in analysis and geometry are Hausdorff"
+
+  - id: metric_space
+    name: "Metric Space"
+    latex: "(X, d)"
+    meaning: "set with distance function satisfying positivity, symmetry, triangle inequality"
+    action:
+      scipy: "scipy.spatial.distance.pdist(X, metric)"
+
+  # === Algebraic Topology ===
+  - id: fundamental_group
+    name: "Fundamental Group"
+    latex: "\\pi_1(X, x_0)"
+    meaning: "group of loops up to homotopy; measures 1-dimensional holes"
+    examples:
+      - "pi_1(R^n) = 0 (trivial)"
+      - "pi_1(S^1) = Z"
+      - "pi_1(torus) = Z x Z"
+
+  - id: homotopy
+    name: "Homotopy"
+    meaning: "continuous deformation of one map into another"
+    latex: "f \\simeq g"
+
+  - id: homotopy_equivalence
+    name: "Homotopy Equivalence"
+    meaning: "spaces are homotopy equivalent if they can be continuously deformed into each other"
+
+  - id: euler_characteristic
+    name: "Euler Characteristic"
+    latex: "\\chi = V - E + F"
+    meaning: "topological invariant; alternating sum of Betti numbers"
+    values:
+      sphere: 2
+      torus: 0
+      genus_g: "2 - 2g"
+    links: [gaussian_curvature]
+
+  - id: betti_numbers
+    name: "Betti Numbers"
+    latex: "\\beta_k = \\text{rank}(H_k(X))"
+    meaning: "b0 = components, b1 = loops, b2 = voids, ..."
+
+  - id: homology
+    name: "Homology Groups"
+    latex: "H_n(X)"
+    meaning: "algebraic invariants detecting n-dimensional holes"
+
+  - id: cohomology
+    name: "Cohomology"
+    latex: "H^n(X)"
+    meaning: "dual of homology; supports cup product giving ring structure"
+
+  - id: covering_space
+    name: "Covering Space"
+    meaning: "space that maps onto X with each point evenly covered"
+    example: "R covers S^1 via t -> exp(2*pi*i*t)"
+
+  - id: simplicial_complex
+    name: "Simplicial Complex"
+    meaning: "space built from simplices (points, edges, triangles, tetrahedra, ...)"
+    action:
+      gudhi: "gudhi.SimplexTree()"
+
+  - id: persistent_homology
+    name: "Persistent Homology"
+    meaning: "track birth/death of topological features across filtration parameter"
+    action:
+      gudhi: "gudhi.RipsComplex(points).create_simplex_tree(); st.persistence()"
+      ripser: "ripser.ripser(X, maxdim=2)"
+    output: "persistence diagram / barcode"
+
+theorems:
+  - name: "Heine-Borel"
+    statement: "subset of R^n is compact iff closed and bounded"
+
+  - name: "Brouwer Fixed Point"
+    statement: "every continuous map from closed ball to itself has a fixed point"
+
+  - name: "Borsuk-Ulam"
+    statement: "every continuous map from S^n to R^n maps some pair of antipodal points to the same point"
+
+  - name: "Classification of Surfaces"
+    statement: "every closed surface is homeomorphic to sphere, connected sum of tori, or connected sum of projective planes"
+
+  - name: "Seifert-van Kampen"
+    statement: "fundamental group of union computed from fundamental groups of overlapping pieces"
+
+  - name: "Mayer-Vietoris"
+    statement: "long exact sequence relating homology of union to homology of parts and intersection"
+
+edges:
+  - to: AA01-abstract-algebra
+    relation: REQUIRES
+    note: "groups for fundamental group, rings for cohomology"
+  - to: N03-set-logic-notation
+    relation: REQUIRES
+  - to: G02-differential-geometry
+    relation: EXTENDS
+    note: "manifolds are topological spaces with smooth structure"
+  - to: A03-graph-theory
+    relation: USES
+    note: "simplicial complexes generalize graphs"

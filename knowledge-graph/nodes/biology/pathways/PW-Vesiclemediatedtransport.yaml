@@ -1,0 +1,26 @@
+id: PW-Vesiclemediatedtransport
+type: knowledge
+domain: biology
+name: "Vesicle-mediated transport"
+reactome_id: R-HSA-5653656
+
+description: "The transit of proteins and other cargo through the cell requires a cellular transport process in which transported substances are moved in membrane-bounded vesicles. Transported substances are enclosed in the vesicle lumen or located in the vesicle membrane. The transport process begins with the formation of the vesicle itself, often triggered by the interaction of the cargo with the vesicle formation machinery."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Membrane Trafficking
+    reactome_id: R-HSA-199991
+    type: Pathway
+  - name: Binding and Uptake of Ligands by Scavenger Receptors
+    reactome_id: R-HSA-2173782
+    type: Pathway
+
+edges:

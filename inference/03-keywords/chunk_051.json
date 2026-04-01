@@ -1,0 +1,53 @@
+{
+  "chunk_index": 51,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "5. Results > 5.1 Equivalency Classes > [part 3/3]",
+  "section_path": [
+    "5. Results",
+    "5.1 Equivalency Classes",
+    "[part 3/3]"
+  ],
+  "char_count": 4959,
+  "keyphrases": [
+    {
+      "phrase": "theory confidence profiletheory",
+      "score": 0.5099
+    },
+    {
+      "phrase": "projections generates new",
+      "score": 0.4645
+    },
+    {
+      "phrase": "primary basis minipage",
+      "score": 0.439
+    },
+    {
+      "phrase": "constraints prediction non",
+      "score": 0.3983
+    },
+    {
+      "phrase": "nv05 longtable contradictions",
+      "score": 0.3612
+    },
+    {
+      "phrase": "theorem section ub",
+      "score": 0.3597
+    },
+    {
+      "phrase": "prior framework t6",
+      "score": 0.3595
+    },
+    {
+      "phrase": "contradict results frameworks",
+      "score": 0.3547
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

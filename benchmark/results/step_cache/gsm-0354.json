@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Earnings from first job",
+    "operation": "multiply",
+    "operands": [
+      10,
+      20
+    ],
+    "result": 200,
+    "variable": "job1_earnings"
+  },
+  {
+    "step": 2,
+    "description": "Earnings from second job",
+    "operation": "multiply",
+    "operands": [
+      5,
+      15
+    ],
+    "result": 75,
+    "variable": "job2_earnings"
+  },
+  {
+    "step": 3,
+    "description": "Total earned from both jobs",
+    "operation": "add",
+    "operands": [
+      200,
+      75
+    ],
+    "result": 275,
+    "variable": "total_earned"
+  },
+  {
+    "step": 4,
+    "description": "Total money available including savings",
+    "operation": "add",
+    "operands": [
+      80,
+      275
+    ],
+    "result": 355,
+    "variable": "total_available"
+  },
+  {
+    "step": 5,
+    "description": "Amount still needed to reach phone cost",
+    "operation": "subtract",
+    "operands": [
+      400,
+      355
+    ],
+    "result": 45,
+    "variable": "still_needed"
+  }
+]

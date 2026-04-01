@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Half of expected guests who could get a second hotdog",
+    "operation": "divide",
+    "operands": [
+      36,
+      2
+    ],
+    "result": 18,
+    "variable": "extra_hotdogs_prepared"
+  },
+  {
+    "step": 2,
+    "description": "Total hotdogs prepared (one per guest + extras for half)",
+    "operation": "add",
+    "operands": [
+      36,
+      18
+    ],
+    "result": 54,
+    "variable": "total_hotdogs"
+  },
+  {
+    "step": 3,
+    "description": "Hotdogs left after every guest gets their first one",
+    "operation": "subtract",
+    "operands": [
+      54,
+      40
+    ],
+    "result": 14,
+    "variable": "hotdogs_available_for_seconds"
+  },
+  {
+    "step": 4,
+    "description": "Guests who did not get a second hotdog",
+    "operation": "subtract",
+    "operands": [
+      40,
+      14
+    ],
+    "result": 26,
+    "variable": "guests_without_second_hotdog"
+  }
+]

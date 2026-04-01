@@ -1,0 +1,23 @@
+id: PW-ActivationofHOXgenesduringdiff
+type: knowledge
+domain: biology
+name: Activation of HOX genes during differentiation
+reactome_id: R-HSA-5619507
+
+description: "Hox genes encode proteins that contain the DNA-binding homeobox motif and control early patterning of segments in the embryo as well as later events in development (reviewed in Rezsohazy et al. 2015). Mammals have 39 Hox genes arrayed in 4 linear clusters, with each cluster containing 9 to 11 genes."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Activation of anterior HOX genes in hindbrain development during early embryogenesis
+    reactome_id: R-HSA-5617472
+    type: Pathway
+
+edges:

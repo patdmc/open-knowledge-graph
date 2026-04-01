@@ -1,0 +1,99 @@
+id: PR23-singular-value-decomposition
+type: proof
+domain: algebra
+name: "Singular Value Decomposition (Existence)"
+target:
+  statement: "\\text{Every } A \\in \\mathbb{R}^{m \\times n} \\text{ has a decomposition } A = U \\Sigma V^T \\text{ with } U, V \\text{ orthogonal and } \\Sigma \\text{ diagonal nonneg.}"
+  type: theorem
+method: construction
+
+note: >
+  Proof via the spectral theorem applied to A^T A, which is real symmetric positive semidefinite.
+
+assertions:
+  - step: 1
+    id: form-ata
+    type: claim
+    statement: "B = A^T A \\in \\mathbb{R}^{n \\times n} \\text{ is symmetric and positive semidefinite}"
+    justification: "B^T = (A^T A)^T = A^T A = B (symmetric); x^T B x = ||Ax||^2 >= 0 (PSD)"
+    depends_on: []
+    references: [transpose, positive_definite]
+
+  - step: 2
+    id: apply-spectral
+    type: claim
+    statement: "B = V \\Lambda V^T \\text{ where } V \\text{ orthogonal}, \\; \\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_n), \\; \\lambda_i \\geq 0"
+    justification: "spectral theorem for real symmetric matrices; eigenvalues are nonneg because B is PSD"
+    depends_on: [form-ata]
+    references: [spectral_theorem, eigenvalues, eigenvectors]
+
+  - step: 3
+    id: define-sigmas
+    type: definition
+    statement: "\\sigma_i = \\sqrt{\\lambda_i} \\geq 0, \\quad r = \\text{rank}(A) = |\\{i : \\sigma_i > 0\\}|"
+    justification: "singular values are square roots of eigenvalues of A^T A; rank equals number of positive singular values"
+    depends_on: [apply-spectral]
+    references: [rank]
+
+  - step: 4
+    id: construct-u-columns
+    type: claim
+    statement: "u_i = \\frac{1}{\\sigma_i} A v_i \\quad \\text{for } i = 1, \\ldots, r \\text{ are orthonormal in } \\mathbb{R}^m"
+    justification: >
+      u_i^T u_j = (Av_i)^T (Av_j) / (sigma_i sigma_j) = v_i^T A^T A v_j / (sigma_i sigma_j)
+      = v_i^T (lambda_j v_j) / (sigma_i sigma_j) = lambda_j delta_{ij} / (sigma_i sigma_j) = delta_{ij}
+    depends_on: [define-sigmas, apply-spectral]
+    references: [orthogonal, norm]
+
+  - step: 5
+    id: extend-u
+    type: claim
+    statement: "\\text{Extend } \\{u_1, \\ldots, u_r\\} \\text{ to an orthonormal basis } \\{u_1, \\ldots, u_m\\} \\text{ of } \\mathbb{R}^m"
+    justification: "Gram-Schmidt or any ONB extension; the additional vectors span the left null space of A"
+    depends_on: [construct-u-columns]
+    references: [basis, null_space]
+
+  - step: 6
+    id: form-matrices
+    type: definition
+    statement: "U = [u_1 | \\cdots | u_m], \\quad \\Sigma = \\text{diag}(\\sigma_1, \\ldots, \\sigma_{\\min(m,n)}) \\in \\mathbb{R}^{m \\times n}"
+    justification: "U is m x m orthogonal; Sigma is m x n with singular values on the diagonal"
+    depends_on: [extend-u, define-sigmas]
+
+  - step: 7
+    id: verify-product
+    type: claim
+    statement: "A v_i = \\sigma_i u_i \\text{ for } i \\leq r, \\quad A v_i = 0 \\text{ for } i > r"
+    justification: "for i <= r: by construction of u_i; for i > r: sigma_i = 0 so A^T A v_i = 0, hence ||Av_i||^2 = v_i^T A^T A v_i = 0"
+    depends_on: [construct-u-columns, define-sigmas]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "A = U \\Sigma V^T"
+    justification: "AV = U Sigma (column by column from verify-product), so A = U Sigma V^T since V is orthogonal"
+    depends_on: [verify-product, form-matrices]
+    references: [svd]
+
+qed: true
+
+corollaries:
+  - id: svd-rank
+    statement: "\\text{rank}(A) = |\\{i : \\sigma_i > 0\\}|"
+    justification: "rank equals number of nonzero singular values by construction"
+    depends_on: [conclusion]
+    references: [rank]
+
+  - id: svd-best-rank-k
+    statement: "\\min_{\\text{rank}(B) = k} \\|A - B\\|_F = \\sqrt{\\sigma_{k+1}^2 + \\cdots + \\sigma_r^2}"
+    justification: "Eckart-Young theorem: truncated SVD gives best rank-k approximation"
+    depends_on: [conclusion]
+
+edges:
+  - to: A04-linear-algebra-advanced
+    relation: PROVES_FROM
+  - to: A02-linear-algebra
+    relation: PROVES_FROM
+  - to: PR08-spectral-theorem
+    relation: USES
+    note: "spectral decomposition of A^T A"

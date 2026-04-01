@@ -1,0 +1,97 @@
+id: N02-relational-operators
+type: notation
+domain: arithmetic
+name: "Relational Operators"
+
+symbols:
+  - symbol: "="
+    latex: "="
+    name: equality
+    arity: 2
+    returns: bool
+    action:
+      python: "a == b"
+      numpy: "np.equal(a, b)"
+      sympy: "Eq(a, b)"
+    properties: [reflexive, symmetric, transitive]
+
+  - symbol: "!="
+    latex: "\\neq"
+    name: inequality
+    arity: 2
+    returns: bool
+    action:
+      python: "a != b"
+      numpy: "np.not_equal(a, b)"
+      sympy: "Ne(a, b)"
+
+  - symbol: "<"
+    latex: "<"
+    name: less_than
+    arity: 2
+    returns: bool
+    action:
+      python: "a < b"
+      numpy: "np.less(a, b)"
+      sympy: "Lt(a, b)"
+    properties: [transitive, irreflexive, asymmetric]
+
+  - symbol: ">"
+    latex: ">"
+    name: greater_than
+    arity: 2
+    returns: bool
+    action:
+      python: "a > b"
+      numpy: "np.greater(a, b)"
+      sympy: "Gt(a, b)"
+    inverse_of: less_than
+
+  - symbol: "<="
+    latex: "\\leq"
+    name: less_than_or_equal
+    arity: 2
+    returns: bool
+    action:
+      python: "a <= b"
+      numpy: "np.less_equal(a, b)"
+      sympy: "Le(a, b)"
+
+  - symbol: ">="
+    latex: "\\geq"
+    name: greater_than_or_equal
+    arity: 2
+    returns: bool
+    action:
+      python: "a >= b"
+      numpy: "np.greater_equal(a, b)"
+      sympy: "Ge(a, b)"
+
+  - symbol: "approx"
+    latex: "\\approx"
+    name: approximately_equal
+    arity: 2
+    returns: bool
+    action:
+      python: "abs(a - b) < tol"
+      numpy: "np.isclose(a, b)"
+      sympy: "N/A"
+
+  - symbol: "proportional"
+    latex: "\\propto"
+    name: proportional_to
+    arity: 2
+    meaning: "a = k*b for some constant k"
+
+  - symbol: "equiv"
+    latex: "\\equiv"
+    name: identically_equal
+    meaning: "equal by definition or for all values"
+
+  - symbol: ":="
+    latex: ":="
+    name: defined_as
+    meaning: "left side is defined to be right side"
+    variants:
+      - "\\triangleq"
+      - "\\stackrel{\\mathrm{def}}{=}"

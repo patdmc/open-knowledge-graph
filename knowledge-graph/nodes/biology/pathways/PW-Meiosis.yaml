@@ -1,0 +1,26 @@
+id: PW-Meiosis
+type: knowledge
+domain: biology
+name: Meiosis
+reactome_id: R-HSA-1500620
+
+description: During meiosis the replicated chromosomes of a single diploid cell are segregated into 4 haploid daughter cells by two successive divisions, meiosis I and meiosis II. In meiosis I, the distinguishing event of meiosis, pairs (bivalents) of homologous chromosomes in the form of sister chromatids are paired by synapsis along their regions of homologous DNA (Yang and Wang 2009), and then segregated, resulting in haploid daughters containing sister chromatids paired at their centromeres (Cohen et al. 2006, Handel and Schimenti 2010).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Meiotic recombination
+    reactome_id: R-HSA-912446
+    type: Pathway
+  - name: Meiotic synapsis
+    reactome_id: R-HSA-1221632
+    type: Pathway
+
+edges:

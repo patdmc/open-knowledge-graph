@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "weight of 30 comic books",
+    "operation": "multiply",
+    "operands": [
+      30,
+      0.25
+    ],
+    "result": 7.5,
+    "variable": "comic_book_weight"
+  },
+  {
+    "step": 2,
+    "description": "remaining weight to remove after comic books",
+    "operation": "subtract",
+    "operands": [
+      15,
+      7.5
+    ],
+    "result": 7.5,
+    "variable": "remaining_weight"
+  },
+  {
+    "step": 3,
+    "description": "number of toys to remove",
+    "operation": "divide",
+    "operands": [
+      7.5,
+      0.5
+    ],
+    "result": 15.0,
+    "variable": "toys_to_remove"
+  }
+]

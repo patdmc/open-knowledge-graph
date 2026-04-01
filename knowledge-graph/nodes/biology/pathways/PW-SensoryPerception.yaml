@@ -1,0 +1,32 @@
+id: PW-SensoryPerception
+type: knowledge
+domain: biology
+name: Sensory Perception
+reactome_id: R-HSA-9709957
+
+description: Sensory perception includes the reactions and physical events that are required to receive a stimulus, convert the stimulus to a molecular signal, and sense the signal. This module includes pathways describing the sensory perception of light (visual transduction, reviewed in Grossniklaus et al. 2015, Molday and Moritz 2015, Lankford et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Olfactory Signaling Pathway
+    reactome_id: R-HSA-381753
+    type: Pathway
+  - name: Visual phototransduction
+    reactome_id: R-HSA-2187338
+    type: Pathway
+  - name: Sensory processing of sound
+    reactome_id: R-HSA-9659379
+    type: Pathway
+  - name: Sensory perception of taste
+    reactome_id: R-HSA-9717189
+    type: Pathway
+
+edges:

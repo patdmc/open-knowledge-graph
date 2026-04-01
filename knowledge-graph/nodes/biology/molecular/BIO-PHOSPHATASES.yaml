@@ -1,0 +1,15 @@
+id: BIO-PHOSPHATASES
+type: knowledge
+domain: biology
+name: Phosphoprotein Phosphatases
+
+description: "A group of enzymes removing the SERINE- or THREONINE-bound phosphate groups from a wide range of phosphoproteins, including a number of enzymes which have been phosphorylated under the action of a kinase. (Enzyme Nomenclature, 1992)."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

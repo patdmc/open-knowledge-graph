@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total eggs consumed (breakfast + muffins)",
+    "operation": "add",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 7,
+    "variable": "eggs_consumed"
+  },
+  {
+    "step": 2,
+    "description": "Eggs remaining to sell",
+    "operation": "subtract",
+    "operands": [
+      16,
+      7
+    ],
+    "result": 9,
+    "variable": "eggs_to_sell"
+  },
+  {
+    "step": 3,
+    "description": "Daily earnings at farmers' market",
+    "operation": "multiply",
+    "operands": [
+      9,
+      2
+    ],
+    "result": 18.0,
+    "variable": "daily_earnings"
+  }
+]

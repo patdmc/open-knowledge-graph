@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Sapphires remaining after trade",
+    "operation": "subtract",
+    "operands": [
+      8,
+      3
+    ],
+    "result": 5,
+    "variable": "sapphires_remaining"
+  },
+  {
+    "step": 2,
+    "description": "Value of remaining sapphires",
+    "operation": "multiply",
+    "operands": [
+      5,
+      800
+    ],
+    "result": 4000,
+    "variable": "sapphire_value"
+  },
+  {
+    "step": 3,
+    "description": "Value of rubies received",
+    "operation": "multiply",
+    "operands": [
+      2,
+      1200
+    ],
+    "result": 2400,
+    "variable": "ruby_value"
+  },
+  {
+    "step": 4,
+    "description": "Total value of all jewels",
+    "operation": "add",
+    "operands": [
+      4000,
+      2400
+    ],
+    "result": 6400,
+    "variable": "total_value"
+  }
+]

@@ -1,0 +1,41 @@
+id: PW-Epigeneticregulationofgeneexpr
+type: knowledge
+domain: biology
+name: Epigenetic regulation of gene expression
+reactome_id: R-HSA-212165
+
+description: Epigenetic processes regulate gene expression by modulating the frequency, rate, or extent of gene expression in a mitotically or meiotically heritable way that does not entail a change in the DNA sequence. Originally the definition applied only to heritability across generations but later also encompassed the heritable changes that occur during cellular differentiation within one organism. Molecular analysis shows epigenetic changes comprise covalent modifications, such as methylation and acetylation, to DNA and histones.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PRC2 methylates histones and DNA
+    reactome_id: R-HSA-212300
+    type: Pathway
+  - name: TET1,2,3 and TDG demethylate DNA
+    reactome_id: R-HSA-5221030
+    type: Pathway
+  - name: Positive epigenetic regulation of rRNA expression
+    reactome_id: R-HSA-5250913
+    type: Pathway
+  - name: Negative epigenetic regulation of rRNA expression
+    reactome_id: R-HSA-5250941
+    type: Pathway
+  - name: DNA methylation
+    reactome_id: R-HSA-5334118
+    type: Pathway
+  - name: "Epigenetic regulation by WDR5-containing histone modifying complexes"
+    reactome_id: R-HSA-9917777
+    type: Pathway
+  - name: Regulation of endogenous retroelements
+    reactome_id: R-HSA-9842860
+    type: Pathway
+
+edges:

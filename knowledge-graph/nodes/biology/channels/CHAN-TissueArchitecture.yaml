@@ -1,0 +1,776 @@
+id: CHAN-TissueArchitecture
+type: knowledge
+domain: cancer_biology
+name: Tissue Architecture
+gene_count: 18
+hub_genes: [CTNNB1, SMAD3, SMAD4]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: APC
+    string_ppi_degree: 0
+    position: leaf
+    full_name: APC regulator of Wnt signaling pathway
+    chromosome: 5
+    ncbi_summary: This gene encodes a tumor suppressor protein that acts as an antagonist of the Wnt signaling pathway. It is also involved in other processes including cell migration and adhesion, transcriptional activation, and apoptosis.
+    protein_name: Adenomatous polyposis coli protein
+    uniprot_function: Tumor suppressor. Promotes rapid degradation of CTNNB1 and participates in Wnt signaling as a negative regulator. APC activity is correlated with its phosphorylation state. Activates the GEF activity ...
+    subcellular_location: [Cell junction, adherens junction, Cytoplasm, cytoskeleton, Cell projection, lamellipodium]
+    diseases:
+      - Familial adenomatous polyposis 1
+      - Desmoid disease, hereditary
+      - Medulloblastoma
+      - Gastric cancer
+      - Hepatocellular carcinoma
+    go_biological_process:
+      - bicellular tight junction assembly
+      - cell adhesion
+      - cell fate specification
+      - cell migration
+      - DNA damage response
+      - endocardial cushion morphogenesis
+      - heart valve development
+      - insulin receptor signaling pathway
+    mutations:
+      - change: "R216*"
+        cancer_type: Colorectal Cancer
+        hr: 0.6596
+        p: 0.0202
+        direction: protective
+        n: 132
+      - change: "R805*"
+        cancer_type: Colorectal Cancer
+        hr: 0.5368
+        p: 0.0255
+        direction: protective
+        n: 62
+    cross_edges:
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.6910
+        p: 2.55e-13
+        n: 3484
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.6580
+        p: 1.05e-07
+        n: 807
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.6110
+        p: 1.13e-07
+        n: 622
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.6050
+        p: 3.60e-06
+        n: 348
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.6550
+        p: 3.64e-06
+        n: 550
+  - id: AXIN1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: axin 1
+    chromosome: 16
+    ncbi_summary: "This gene encodes a cytoplasmic protein which contains a regulation of G-protein signaling (RGS) domain and a dishevelled and axin (DIX) domain. The encoded protein interacts with adenomatosis polyposis coli, catenin beta-1, glycogen synthase kinase 3 beta, protein phosphate 2, and itself."
+    protein_name: "Axin-1"
+    uniprot_function: "Component of the beta-catenin destruction complex required for regulating CTNNB1 levels through phosphorylation and ubiquitination, and modulating Wnt-signaling (PubMed:12192039, PubMed:27098453, PubM..."
+    subcellular_location: [Cytoplasm, Nucleus, Membrane]
+    diseases:
+      - Hepatocellular carcinoma
+      - Caudal duplication anomaly
+      - Craniometadiaphyseal osteosclerosis with hip dysplasia
+    go_biological_process:
+      - apoptotic process
+      - axial mesoderm formation
+      - "beta-catenin destruction complex assembly"
+      - canonical Wnt signaling pathway
+      - cell development
+      - cytoplasmic microtubule organization
+      - dorsal/ventral axis specification
+      - epigenetic programming in the zygotic pronuclei
+    kegg_pathways:
+      - Wnt signaling pathway
+      - Hippo signaling pathway
+      - Cadherin signaling
+      - Signaling pathways regulating pluripotency of stem cells
+      - Cushing syndrome
+      - Alzheimer disease
+      - "Pathways of neurodegeneration - multiple diseases"
+      - Human papillomavirus infection
+  - id: AXIN2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: axin 2
+    chromosome: 17
+    ncbi_summary: "The Axin-related protein, Axin2, presumably plays an important role in the regulation of the stability of beta-catenin in the Wnt signaling pathway, like its rodent homologs, mouse conductin/rat axil. In mouse, conductin organizes a multiprotein complex of APC (adenomatous polyposis of the colon), beta-catenin, glycogen synthase kinase 3-beta, and conductin, which leads to the degradation of beta-catenin."
+    protein_name: "Axin-2"
+    uniprot_function: "Inhibitor of the Wnt signaling pathway. Down-regulates beta-catenin. Probably facilitate the phosphorylation of beta-catenin and APC by GSK3B"
+    subcellular_location: [Cytoplasm]
+    diseases:
+      - Colorectal cancer
+      - "Oligodontia-colorectal cancer syndrome"
+    go_biological_process:
+      - aortic valve morphogenesis
+      - bone mineralization
+      - canonical Wnt signaling pathway
+      - cell development
+      - cellular response to dexamethasone stimulus
+      - chondrocyte differentiation involved in endochondral bone morphogenesis
+      - dorsal/ventral axis specification
+      - intracellular protein localization
+    kegg_pathways:
+      - Wnt signaling pathway
+      - Hippo signaling pathway
+      - Cadherin signaling
+      - Signaling pathways regulating pluripotency of stem cells
+      - Cushing syndrome
+      - Alzheimer disease
+      - "Pathways of neurodegeneration - multiple diseases"
+      - Human papillomavirus infection
+    mutations:
+      - change: "G665Afs*24"
+        cancer_type: Colorectal Cancer
+        hr: 0.2218
+        p: 0.0028
+        direction: protective
+        n: 38
+  - id: CDH1
+    string_ppi_degree: 25
+    position: leaf
+    full_name: cadherin 1
+    chromosome: 16
+    ncbi_summary: This gene encodes a classical cadherin of the cadherin superfamily. Alternative splicing results in multiple transcript variants, at least one of which encodes a preproprotein that is proteolytically processed to generate the mature glycoprotein.
+    protein_name: "Cadherin-1"
+    uniprot_function: "Cadherins are calcium-dependent cell adhesion proteins (PubMed:11976333). They preferentially interact with themselves in a homophilic manner in connecting cells; cadherins may thus contribute to the ..."
+    subcellular_location: [Cell junction, adherens junction, Cell membrane, Endosome]
+    diseases:
+      - Diffuse gastric and lobular breast cancer syndrome
+      - Endometrial cancer
+      - Ovarian cancer
+      - Breast cancer, lobular
+      - Blepharocheilodontic syndrome 1
+    go_biological_process:
+      - adherens junction organization
+      - "calcium-dependent cell-cell adhesion via plasma membrane cell adhesion molecules"
+      - cell migration
+      - cell morphogenesis
+      - "cell-cell adhesion"
+      - "cell-cell adhesion mediated by cadherin"
+      - "cell-cell junction assembly"
+      - "cellular response to indole-3-methanol"
+    kegg_pathways:
+      - Cadherin signaling
+    cross_edges:
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5380
+        p: 4.80e-04
+        n: 125
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.6600
+        p: 0.0078
+        n: 190
+  - id: CDH2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: cadherin 2
+    chromosome: 18
+    ncbi_summary: "This gene encodes a classical cadherin and member of the cadherin superfamily. Alternative splicing results in multiple transcript variants, at least one of which encodes a preproprotein is proteolytically processed to generate a calcium-dependent cell adhesion molecule and glycoprotein."
+    protein_name: "Cadherin-2"
+    uniprot_function: "Calcium-dependent cell adhesion protein; preferentially mediates homotypic cell-cell adhesion by dimerization with a CDH2 chain from another cell. Cadherins may thus contribute to the sorting of heter..."
+    subcellular_location: [Cell membrane, Cell membrane, sarcolemma, Cell junction]
+    diseases:
+      - Arrhythmogenic right ventricular dysplasia, familial, 14
+      - Agenesis of corpus callosum, cardiac, ocular, and genital syndrome
+      - "Attention deficit-hyperactivity disorder 8"
+    go_biological_process:
+      - adherens junction organization
+      - blood vessel morphogenesis
+      - brain morphogenesis
+      - "calcium-dependent cell-cell adhesion via plasma membrane cell adhesion molecules"
+      - cell adhesion
+      - cell migration
+      - cell morphogenesis
+      - "cell-cell adhesion"
+  - id: CTNNB1
+    string_ppi_degree: 43
+    position: hub
+    full_name: catenin beta 1
+    chromosome: 3
+    ncbi_summary: The protein encoded by this gene is part of a complex of proteins that constitute adherens junctions (AJs). AJs are necessary for the creation and maintenance of epithelial cell layers by regulating cell growth and adhesion between cells.
+    protein_name: "Catenin beta-1"
+    uniprot_function: "Key downstream component of the canonical Wnt signaling pathway (PubMed:17524503, PubMed:18077326, PubMed:18086858, PubMed:18957423, PubMed:21262353, PubMed:22155184, PubMed:22647378, PubMed:22699938)..."
+    subcellular_location: [Cytoplasm, Nucleus, Cytoplasm, cytoskeleton]
+    diseases:
+      - Colorectal cancer
+      - Pilomatrixoma
+      - Medulloblastoma
+      - Ovarian cancer
+      - Mesothelioma, malignant
+    go_biological_process:
+      - acinar cell differentiation
+      - adherens junction assembly
+      - anterior/posterior axis specification
+      - apoptotic signaling pathway
+      - "astrocyte-dopaminergic neuron signaling"
+      - bone resorption
+      - branching involved in blood vessel morphogenesis
+      - branching involved in ureteric bud morphogenesis
+    kegg_pathways:
+      - Rap1 signaling pathway
+      - Wnt signaling pathway
+      - Hippo signaling pathway
+      - Focal adhesion
+      - IgSF CAM signaling
+      - Integrin signaling
+      - Cadherin signaling
+      - Adherens junction
+    cross_edges:
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.5650
+        p: 1.26e-06
+        n: 439
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.4770
+        p: 3.79e-05
+        n: 206
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.6780
+        p: 8.88e-04
+        n: 314
+      - to: EGFR
+        relation: BUFFERS
+        hr: 0.6120
+        p: 0.0052
+        n: 146
+      - to: PIK3CA
+        relation: BUFFERS
+        hr: 0.7430
+        p: 0.0070
+        n: 468
+      - to: MSH2
+        relation: COMPENSATES
+        hr: 0.2930
+        p: 1.18e-04
+        n: 152
+  - id: FBXW7
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "F-box and WD repeat domain containing 7"
+    chromosome: 4
+    ncbi_summary: "This gene encodes a member of the F-box protein family which is characterized by an approximately 40 amino acid motif, the F-box. The F-box proteins constitute one of the four subunits of ubiquitin protein ligase complex called SCFs (SKP1-cullin-F-box), which function in phosphorylation-dependent ubiquitination."
+    protein_name: "F-box/WD repeat-containing protein 7"
+    uniprot_function: "Substrate recognition component of a SCF (SKP1-CUL1-F-box protein) E3 ubiquitin-protein ligase complex which mediates the ubiquitination and subsequent proteasomal degradation of target proteins (PubM..."
+    subcellular_location: [Nucleus, nucleoplasm, Chromosome, Cytoplasm]
+    diseases:
+      - Developmental delay, hypotonia, and impaired language
+    go_biological_process:
+      - cellular response to UV
+      - DNA damage response
+      - DNA repair
+      - lipid homeostasis
+      - negative regulation of gene expression
+      - negative regulation of hepatocyte proliferation
+      - negative regulation of Notch signaling pathway
+      - negative regulation of osteoclast development
+    kegg_pathways:
+      - Ubiquitin mediated proteolysis
+    mutations:
+      - change: R465H
+        cancer_type: Colorectal Cancer
+        hr: 0.5880
+        p: 0.0475
+        direction: protective
+        n: 70
+      - change: R465C
+        cancer_type: Endometrial Cancer
+        hr: 0.4547
+        p: 0.0422
+        direction: protective
+        n: 41
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5070
+        p: 1.66e-10
+        n: 544
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.4260
+        p: 4.23e-10
+        n: 359
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5710
+        p: 1.67e-09
+        n: 575
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.4420
+        p: 5.63e-08
+        n: 303
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.4970
+        p: 2.09e-07
+        n: 313
+      - to: FANCC
+        relation: COMPENSATES
+        hr: 0.2020
+        p: 9.63e-05
+        n: 122
+      - to: FGFR1
+        relation: COMPENSATES
+        hr: 0.2680
+        p: 3.59e-05
+        n: 159
+      - to: CHEK1
+        relation: COMPENSATES
+        hr: 0.2690
+        p: 5.58e-04
+        n: 115
+  - id: GJA1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: gap junction protein alpha 1
+    chromosome: 6
+    ncbi_summary: This gene is a member of the connexin gene family. The encoded protein is a component of gap junctions, which are composed of arrays of intercellular channels that provide a route for the diffusion of low molecular weight materials from cell to cell.
+    protein_name: "Gap junction alpha-1 protein"
+    uniprot_function: Structural component of the gap junction, a specialized intercellular structure consisting of a cluster of closely packed pairs of transmembrane channels, the connexons, that allow passage of small mo...
+    subcellular_location: [Cell membrane, Cell junction, gap junction, Endoplasmic reticulum]
+    diseases:
+      - Oculodentodigital dysplasia
+      - Oculodentodigital dysplasia, autosomal recessive
+      - Syndactyly 3
+      - Hypoplastic left heart syndrome 1
+      - "Hallermann-Streiff syndrome"
+    go_biological_process:
+      - atrial cardiac muscle cell action potential
+      - bone development
+      - bone remodeling
+      - cardiac conduction system development
+      - cell communication by electrical coupling
+      - cell communication by electrical coupling involved in cardiac conduction
+      - "cell-cell signaling"
+      - "cellular response to amyloid-beta"
+  - id: GJB2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: gap junction protein beta 2
+    chromosome: 13
+    ncbi_summary: This gene encodes a member of the gap junction protein family (gap junction beta 2) but is more commonly known as connexin 26. The gap junctions were first characterized by electron microscopy as regionally specialized structures on plasma membranes of contacting adherent cells.
+    protein_name: "Gap junction beta-2 protein"
+    uniprot_function: "Structural component of gap junctions (PubMed:16849369, PubMed:17551008, PubMed:19340074, PubMed:19384972, PubMed:21094651, PubMed:26753910). Gap junctions are dodecameric channels that connect the cy..."
+    subcellular_location: [Cell membrane, Cell junction, gap junction]
+    diseases:
+      - Deafness, autosomal recessive, 1A
+      - Deafness, autosomal dominant, 3A
+      - Vohwinkel syndrome
+      - Keratoderma, palmoplantar, with deafness
+      - "Keratitis-ichthyosis-deafness syndrome, autosomal dominant"
+    go_biological_process:
+      - "cell-cell signaling"
+      - gap junction assembly
+      - "gap junction-mediated intercellular transport"
+      - sensory perception of sound
+      - transmembrane transport
+  - id: NOTCH1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: notch receptor 1
+    chromosome: 9
+    ncbi_summary: "This gene encodes a member of the NOTCH family of proteins. Members of this Type I transmembrane protein family share structural characteristics including an extracellular domain consisting of multiple epidermal growth factor-like (EGF) repeats, and an intracellular domain consisting of multiple different domain types."
+    protein_name: Neurogenic locus notch homolog protein 1
+    uniprot_function: "Functions as a receptor for membrane-bound ligands Jagged-1 (JAG1), Jagged-2 (JAG2) and Delta-1 (DLL1) to regulate cell-fate determination. Upon ligand activation through the released notch intracellu..."
+    subcellular_location: [Cell membrane, Late endosome membrane, Nucleus]
+    diseases:
+      - Aortic valve disease 1
+      - "Adams-Oliver syndrome 5"
+    go_biological_process:
+      - animal organ regeneration
+      - aortic valve morphogenesis
+      - apoptotic process involved in embryonic digit morphogenesis
+      - arterial endothelial cell differentiation
+      - astrocyte differentiation
+      - atrioventricular node development
+      - atrioventricular valve morphogenesis
+      - auditory receptor cell fate commitment
+    kegg_pathways:
+      - Endocrine resistance
+      - Notch signaling pathway
+      - Th1 and Th2 cell differentiation
+      - Thyroid hormone signaling pathway
+      - Prion disease
+      - Human papillomavirus infection
+      - Pathways in cancer
+      - MicroRNAs in cancer
+    cross_edges:
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.4600
+        p: 1.05e-11
+        n: 376
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.4820
+        p: 1.31e-09
+        n: 347
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5710
+        p: 2.02e-09
+        n: 566
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5690
+        p: 2.61e-07
+        n: 283
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.5970
+        p: 1.53e-05
+        n: 347
+  - id: NOTCH2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: notch receptor 2
+    chromosome: 1
+    ncbi_summary: "This gene encodes a member of the Notch family. Members of this Type 1 transmembrane protein family share structural characteristics including an extracellular domain consisting of multiple epidermal growth factor-like (EGF) repeats, and an intracellular domain consisting of multiple, different domain types."
+    protein_name: Neurogenic locus notch homolog protein 2
+    uniprot_function: "Functions as a receptor for membrane-bound ligands Jagged-1 (JAG1), Jagged-2 (JAG2) and Delta-1 (DLL1) to regulate cell-fate determination. Upon ligand activation through the released notch intracellu..."
+    subcellular_location: [Cell membrane, Nucleus, Cytoplasm]
+    diseases:
+      - Alagille syndrome 2
+      - "Hajdu-Cheney syndrome"
+    go_biological_process:
+      - animal organ morphogenesis
+      - apoptotic process
+      - atrial septum morphogenesis
+      - atrioventricular node development
+      - axon guidance
+      - BMP signaling pathway
+      - bone remodeling
+      - cell fate determination
+    kegg_pathways:
+      - Endocrine resistance
+      - Notch signaling pathway
+      - Th1 and Th2 cell differentiation
+      - Thyroid hormone signaling pathway
+      - Human papillomavirus infection
+      - Pathways in cancer
+      - MicroRNAs in cancer
+      - "Chemical carcinogenesis - receptor activation"
+  - id: NOTCH3
+    string_ppi_degree: 0
+    position: leaf
+    full_name: notch receptor 3
+    chromosome: 19
+    ncbi_summary: "This gene encodes the third discovered human homologue of the Drosophilia melanogaster type I membrane protein notch. In Drosophilia, notch interaction with its cell-bound ligands (delta, serrate) establishes an intercellular signalling pathway that plays a key role in neural development."
+    protein_name: Neurogenic locus notch homolog protein 3
+    uniprot_function: "Functions as a receptor for membrane-bound ligands Jagged1, Jagged2 and Delta1 to regulate cell-fate determination (PubMed:15350543, PubMed:14714274). Upon ligand activation through the released notch..."
+    subcellular_location: [Cell membrane, Nucleus]
+    diseases:
+      - Cerebral arteriopathy, autosomal dominant, with subcortical infarcts and leukoencephalopathy, 1
+      - Cerebral arteriopathy, autosomal recessive, with subcortical infarcts and leukoencephalopathy 1
+      - Myofibromatosis, infantile 2
+      - Lateral meningocele syndrome
+      - Lipodystrophy, familial partial, 1
+    go_biological_process:
+      - artery morphogenesis
+      - axon guidance
+      - forebrain development
+      - glomerular capillary formation
+      - negative regulation of neuron differentiation
+      - negative regulation of transcription by RNA polymerase II
+      - neuroblast differentiation
+      - neuron fate commitment
+    kegg_pathways:
+      - Endocrine resistance
+      - Notch signaling pathway
+      - Apelin signaling pathway
+      - Th1 and Th2 cell differentiation
+      - Thyroid hormone signaling pathway
+      - Human papillomavirus infection
+      - Pathways in cancer
+      - MicroRNAs in cancer
+  - id: NOTCH4
+    string_ppi_degree: 0
+    position: leaf
+    full_name: notch receptor 4
+    chromosome: 6
+    ncbi_summary: "This gene encodes a member of the NOTCH family of proteins. Members of this Type I transmembrane protein family share structural characteristics including an extracellular domain consisting of multiple epidermal growth factor-like (EGF) repeats, and an intracellular domain consisting of multiple different domain types."
+    protein_name: Neurogenic locus notch homolog protein 4
+    uniprot_function: "Functions as a receptor for membrane-bound ligands Jagged1, Jagged2 and Delta1 to regulate cell-fate determination. Upon ligand activation through the released notch intracellular domain (NICD) it for..."
+    subcellular_location: [Cell membrane, Nucleus]
+    go_biological_process:
+      - branching involved in blood vessel morphogenesis
+      - cell differentiation
+      - cell fate determination
+      - endothelial cell morphogenesis
+      - epithelial to mesenchymal transition
+      - hemopoiesis
+      - luteolysis
+      - mammary gland development
+    kegg_pathways:
+      - Endocrine resistance
+      - Notch signaling pathway
+      - Thyroid hormone signaling pathway
+      - Human papillomavirus infection
+      - Pathways in cancer
+      - MicroRNAs in cancer
+      - Breast cancer
+  - id: SMAD2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: SMAD family member 2
+    chromosome: 18
+    ncbi_summary: "The protein encoded by this gene belongs to the SMAD, a family of proteins similar to the gene products of the Drosophila gene 'mothers against decapentaplegic' (Mad) and the C. elegans gene Sma."
+    protein_name: SMAD family member 2
+    uniprot_function: "Receptor-regulated SMAD (R-SMAD) that is an intracellular signal transducer and transcriptional modulator activated by TGF-beta (transforming growth factor) and activin type 1 receptor kinases. Binds ..."
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - Congenital heart defects, multiple types, 8, with or without heterotaxy
+      - "Loeys-Dietz syndrome 6"
+    go_biological_process:
+      - activin receptor signaling pathway
+      - anatomical structure morphogenesis
+      - anterior/posterior pattern specification
+      - aortic valve morphogenesis
+      - cell differentiation
+      - cell fate commitment
+      - cell population proliferation
+      - determination of left/right asymmetry in lateral mesoderm
+    kegg_pathways:
+      - Cell cycle
+      - Oocyte meiosis
+      - "Progesterone-mediated oocyte maturation"
+      - "Human T-cell leukemia virus 1 infection"
+  - id: SMAD3
+    string_ppi_degree: 0
+    position: hub
+    full_name: SMAD family member 3
+    chromosome: 15
+    ncbi_summary: "The SMAD family of proteins are a group of intracellular signal transducer proteins similar to the gene products of the Drosophila gene 'mothers against decapentaplegic' (Mad) and the C. elegans gene Sma."
+    protein_name: SMAD family member 3
+    uniprot_function: "Receptor-regulated SMAD (R-SMAD) that is an intracellular signal transducer and transcriptional modulator activated by TGF-beta (transforming growth factor) and activin type 1 receptor kinases. Binds ..."
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - Colorectal cancer
+      - "Loeys-Dietz syndrome 3"
+    go_biological_process:
+      - activin receptor signaling pathway
+      - adrenal gland development
+      - anatomical structure morphogenesis
+      - apoptotic signaling pathway
+      - cell differentiation
+      - cell population proliferation
+      - "cell-cell junction organization"
+      - cellular response to glucose stimulus
+    kegg_pathways:
+      - FoxO signaling pathway
+      - Cell cycle
+      - Endocytosis
+      - Cellular senescence
+      - Wnt signaling pathway
+      - "TGF-beta signaling pathway"
+      - Apelin signaling pathway
+      - Hippo signaling pathway
+  - id: SMAD4
+    string_ppi_degree: 25
+    position: hub
+    full_name: SMAD family member 4
+    chromosome: 18
+    ncbi_summary: "This gene encodes a member of the Smad family of signal transduction proteins. Smad proteins are phosphorylated and activated by transmembrane serine-threonine receptor kinases in response to transforming growth factor (TGF)-beta signaling."
+    protein_name: SMAD family member 4
+    uniprot_function: In muscle physiology, plays a central role in the balance between atrophy and hypertrophy. When recruited by MSTN, promotes atrophy response via phosphorylated SMAD2/4. MSTN decrease causes SMAD4 rele...
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - Pancreatic cancer
+      - Juvenile polyposis syndrome
+      - Juvenile polyposis/hereditary hemorrhagic telangiectasia syndrome
+      - Colorectal cancer
+      - Myhre syndrome
+    go_biological_process:
+      - activin receptor signaling pathway
+      - adrenal gland development
+      - anatomical structure morphogenesis
+      - atrioventricular canal development
+      - atrioventricular valve formation
+      - axon guidance
+      - BMP signaling pathway
+      - brainstem development
+    kegg_pathways:
+      - RNA degradation
+    mutations:
+      - change: R361H
+        cancer_type: Colorectal Cancer
+        hr: 1.4875
+        p: 0.0194
+        direction: harmful
+        n: 87
+      - change: R361C
+        cancer_type: Colorectal Cancer
+        hr: 2.0102
+        p: 4.06e-04
+        direction: harmful
+        n: 51
+    cross_edges:
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.3690
+        p: 2.34e-08
+        n: 123
+      - to: EGFR
+        relation: BUFFERS
+        hr: 0.4420
+        p: 6.35e-06
+        n: 105
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5440
+        p: 6.98e-06
+        n: 191
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.5840
+        p: 5.73e-05
+        n: 194
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.5720
+        p: 1.11e-04
+        n: 164
+      - to: JAK1
+        relation: COMPENSATES
+        hr: 0.2620
+        p: 3.78e-06
+        n: 149
+      - to: PIK3R1
+        relation: COMPENSATES
+        hr: 0.2810
+        p: 5.15e-06
+        n: 135
+      - to: BRCA1
+        relation: COMPENSATES
+        hr: 0.2820
+        p: 1.12e-06
+        n: 141
+  - id: TGFBR1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: transforming growth factor beta receptor 1
+    chromosome: 9
+    ncbi_summary: "The protein encoded by this gene forms a heteromeric complex with type II TGF-beta receptors when bound to TGF-beta, transducing the TGF-beta signal from the cell surface to the cytoplasm. The encoded protein is a serine/threonine protein kinase."
+    protein_name: "TGF-beta receptor type-1"
+    uniprot_function: "Transmembrane serine/threonine kinase forming with the TGF-beta type II serine/threonine kinase receptor, TGFBR2, the non-promiscuous receptor for the TGF-beta cytokines TGFB1, TGFB2 and TGFB3. Transd..."
+    subcellular_location: [Cell membrane, Cell junction, tight junction, Cell surface]
+    diseases:
+      - "Loeys-Dietz syndrome 1"
+      - "Multiple self-healing squamous epithelioma"
+    go_biological_process:
+      - activin receptor signaling pathway
+      - angiogenesis involved in coronary vascular morphogenesis
+      - anterior/posterior pattern specification
+      - apoptotic process
+      - artery morphogenesis
+      - blastocyst development
+      - cardiac epithelial to mesenchymal transition
+      - cell motility
+    kegg_pathways:
+      - MAPK signaling pathway
+      - "Cytokine-cytokine receptor interaction"
+      - FoxO signaling pathway
+      - Endocytosis
+      - Cellular senescence
+      - "TGF-beta signaling pathway"
+      - Apelin signaling pathway
+      - Osteoclast differentiation
+    cross_edges:
+      - to: PALB2
+        relation: COMPENSATES
+        hr: 0.0680
+        p: 1.50e-04
+        n: 100
+      - to: RB1
+        relation: COMPENSATES
+        hr: 0.2960
+        p: 2.76e-05
+        n: 125
+  - id: TGFBR2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: transforming growth factor beta receptor 2
+    chromosome: 3
+    ncbi_summary: "The protein encoded by this gene is a transmembrane protein that has a protein kinase domain, forms a heterodimeric complex with TGF-beta receptor type-1, and binds TGF-beta. This receptor/ligand complex phosphorylates proteins, which then enter the nucleus and regulate the transcription of genes related to cell proliferation, cell cycle arrest, wound healing, immunosuppression, and tumorigenesis."
+    protein_name: "TGF-beta receptor type-2"
+    uniprot_function: "Transmembrane serine/threonine kinase forming with the TGF-beta type I serine/threonine kinase receptor, TGFBR1, the non-promiscuous receptor for the TGF-beta cytokines TGFB1, TGFB2 and TGFB3. Transdu..."
+    subcellular_location: [Cell membrane, Membrane raft, Secreted]
+    diseases:
+      - "Hereditary non-polyposis colorectal cancer 6"
+      - Esophageal cancer
+      - "Loeys-Dietz syndrome 2"
+    go_biological_process:
+      - activin receptor signaling pathway
+      - aorta morphogenesis
+      - aortic valve morphogenesis
+      - apoptotic process
+      - artery morphogenesis
+      - atrioventricular valve morphogenesis
+      - blood vessel development
+      - brain development
+    kegg_pathways:
+      - MAPK signaling pathway
+      - "Cytokine-cytokine receptor interaction"
+      - FoxO signaling pathway
+      - Endocytosis
+      - Cellular senescence
+      - "TGF-beta signaling pathway"
+      - Osteoclast differentiation
+      - Hippo signaling pathway
+    mutations:
+      - change: "K128Afs*3"
+        cancer_type: Colorectal Cancer
+        hr: 0.5001
+        p: 0.0159
+        direction: protective
+        n: 73
+    cross_edges:
+      - to: PALB2
+        relation: COMPENSATES
+        hr: 0.2740
+        p: 2.21e-05
+        n: 134
+      - to: NRAS
+        relation: COMPENSATES
+        hr: 0.2830
+        p: 0.0021
+        n: 74
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

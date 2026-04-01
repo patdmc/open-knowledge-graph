@@ -1,0 +1,88 @@
+id: PR13-residue-theorem
+type: proof
+domain: analysis
+name: "Residue Theorem"
+target:
+  statement: "\\oint_C f(z)\\,dz = 2\\pi i \\sum_{k=1}^n \\text{Res}(f, z_k)"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: setup
+    type: hypothesis
+    statement: "f \\text{ holomorphic on and inside } C \\text{ except at isolated singularities } z_1, \\ldots, z_n"
+    justification: "theorem hypotheses"
+    depends_on: []
+    references: [holomorphic, singularity]
+
+  - step: 2
+    id: small-circles
+    type: definition
+    statement: "C_k = \\text{circle of radius } \\epsilon_k \\text{ around } z_k, \\text{ oriented counterclockwise}"
+    justification: "surround each singularity with a small circle inside C"
+    depends_on: [setup]
+
+  - step: 3
+    id: deform-contour
+    type: claim
+    statement: "\\oint_C f\\,dz = \\sum_{k=1}^n \\oint_{C_k} f\\,dz"
+    justification: >
+      f is holomorphic in the multiply-connected region between C and the C_k.
+      By Cauchy's theorem for multiply-connected domains, the integral over C
+      equals the sum of integrals over the small circles.
+    depends_on: [setup, small-circles]
+
+  - step: 4
+    id: laurent-at-zk
+    type: claim
+    statement: "f(z) = \\sum_{m=-\\infty}^{\\infty} a_m^{(k)} (z - z_k)^m \\text{ near } z_k"
+    justification: "Laurent series expansion around isolated singularity"
+    depends_on: [setup]
+    references: [laurent_series]
+
+  - step: 5
+    id: integrate-laurent
+    type: claim
+    statement: "\\oint_{C_k} (z - z_k)^m \\, dz = \\begin{cases} 2\\pi i & m = -1 \\\\ 0 & m \\neq -1 \\end{cases}"
+    justification: >
+      for m != -1: antiderivative (z-z_k)^{m+1}/(m+1) is single-valued, integral around closed curve is 0.
+      For m = -1: parametrize z = z_k + epsilon*e^{it}, dz = i*epsilon*e^{it} dt,
+      integral = int_0^{2pi} (1/(epsilon*e^{it})) * i*epsilon*e^{it} dt = 2*pi*i.
+    depends_on: [small-circles]
+    references: [contour_integral, euler_formula]
+
+  - step: 6
+    id: only-residue-survives
+    type: claim
+    statement: "\\oint_{C_k} f\\,dz = \\oint_{C_k} \\sum_m a_m^{(k)} (z-z_k)^m \\, dz = 2\\pi i \\cdot a_{-1}^{(k)} = 2\\pi i \\cdot \\text{Res}(f, z_k)"
+    justification: "integrate Laurent term by term; only m=-1 contributes"
+    depends_on: [laurent-at-zk, integrate-laurent]
+    references: [residue]
+
+  - step: 7
+    id: conclusion
+    type: theorem
+    statement: "\\oint_C f(z)\\,dz = \\sum_{k=1}^n 2\\pi i \\cdot \\text{Res}(f, z_k) = 2\\pi i \\sum_{k=1}^n \\text{Res}(f, z_k)"
+    justification: "substitute step 6 into step 3"
+    depends_on: [deform-contour, only-residue-survives]
+
+qed: true
+
+corollaries:
+  - id: cauchy-integral-formula-from-residue
+    statement: "f(a) = \\frac{1}{2\\pi i} \\oint_C \\frac{f(z)}{z-a}\\,dz"
+    justification: "f(z)/(z-a) has a simple pole at z=a with residue f(a)"
+    depends_on: [conclusion]
+    references: [cauchy_integral_formula]
+
+  - id: argument-principle
+    statement: "\\frac{1}{2\\pi i} \\oint_C \\frac{f'(z)}{f(z)}\\,dz = Z - P"
+    justification: "f'/f has simple poles at zeros and poles of f; residues are +1 and -1"
+    depends_on: [conclusion]
+
+edges:
+  - to: AN01-complex-analysis
+    relation: PROVES_FROM
+  - to: C02-integral-calculus
+    relation: USES

@@ -1,0 +1,29 @@
+id: PW-Musclecontraction
+type: knowledge
+domain: biology
+name: Muscle contraction
+reactome_id: R-HSA-397014
+
+description: "In this module, the processes by which calcium binding triggers actin - myosin interactions and force generation in smooth and striated muscle tissues are annotated."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Striated Muscle Contraction
+    reactome_id: R-HSA-390522
+    type: Pathway
+  - name: Smooth Muscle Contraction
+    reactome_id: R-HSA-445355
+    type: Pathway
+  - name: Cardiac conduction
+    reactome_id: R-HSA-5576891
+    type: Pathway
+
+edges:

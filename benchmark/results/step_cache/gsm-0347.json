@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total cost of 2 shirts at full price",
+    "operation": "multiply",
+    "operands": [
+      2,
+      30
+    ],
+    "result": 60,
+    "variable": "full_price_total"
+  },
+  {
+    "step": 2,
+    "description": "Calculate discount amount (40% of full price)",
+    "operation": "multiply",
+    "operands": [
+      60,
+      0.4
+    ],
+    "result": 24,
+    "variable": "discount_amount"
+  },
+  {
+    "step": 3,
+    "description": "Subtract discount from full price",
+    "operation": "subtract",
+    "operands": [
+      60,
+      24
+    ],
+    "result": 36.0,
+    "variable": "final_price"
+  }
+]

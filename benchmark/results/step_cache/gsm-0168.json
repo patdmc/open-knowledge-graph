@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "twice the money Ethel has",
+    "operation": "multiply",
+    "operands": [
+      2,
+      8
+    ],
+    "result": 16,
+    "variable": "twice Ethel's money"
+  },
+  {
+    "step": 2,
+    "description": "add $2 more than twice Ethel's money",
+    "operation": "add",
+    "operands": [
+      16,
+      2
+    ],
+    "result": 18,
+    "variable": "Jimmy's money"
+  }
+]

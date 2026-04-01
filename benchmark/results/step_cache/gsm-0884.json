@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract toys given to Alyssa",
+    "operation": "subtract",
+    "operands": [
+      200,
+      40
+    ],
+    "result": 160,
+    "variable": "toys_after_alyssa"
+  },
+  {
+    "step": 2,
+    "description": "Subtract toys given to Bonnie",
+    "operation": "subtract",
+    "operands": [
+      160,
+      80
+    ],
+    "result": 80,
+    "variable": "toys_after_bonnie"
+  },
+  {
+    "step": 3,
+    "description": "Subtract toys given to Nicky",
+    "operation": "subtract",
+    "operands": [
+      80,
+      30
+    ],
+    "result": 50,
+    "variable": "toys_remaining"
+  }
+]

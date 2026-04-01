@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract venue 1 per-person food cost from venue 2 per-person cost to get net cost difference per guest",
+    "operation": "subtract",
+    "operands": [
+      25,
+      5
+    ],
+    "result": 20,
+    "variable": "cost_difference_per_guest"
+  },
+  {
+    "step": 2,
+    "description": "Divide venue 1 flat fee by cost difference per guest to find break-even number of guests",
+    "operation": "divide",
+    "operands": [
+      200,
+      20
+    ],
+    "result": 10.0,
+    "variable": "guests_for_equal_cost"
+  }
+]

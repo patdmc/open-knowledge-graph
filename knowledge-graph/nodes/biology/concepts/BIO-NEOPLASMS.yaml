@@ -1,0 +1,19 @@
+id: BIO-NEOPLASMS
+type: knowledge
+domain: cancer_biology
+name: Neoplasms
+
+description: New abnormal growth of tissue. Malignant neoplasms show a greater degree of anaplasia and have the properties of invasion and metastasis, compared to benign neoplasms.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in

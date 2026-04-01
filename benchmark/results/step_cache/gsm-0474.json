@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "fraction of students without desktop computers",
+    "operation": "subtract",
+    "operands": [
+      1,
+      0.75
+    ],
+    "result": 0.25,
+    "variable": "fraction_without_computer"
+  },
+  {
+    "step": 2,
+    "description": "total number of students",
+    "operation": "divide",
+    "operands": [
+      20,
+      0.25
+    ],
+    "result": 80.0,
+    "variable": "total_students"
+  }
+]

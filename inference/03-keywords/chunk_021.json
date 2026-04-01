@@ -1,0 +1,58 @@
+{
+  "chunk_index": 21,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 2/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 2/7]"
+  ],
+  "char_count": 5942,
+  "keyphrases": [
+    {
+      "phrase": "gradient sentience observes",
+      "score": 0.6311
+    },
+    {
+      "phrase": "sentience math invisible",
+      "score": 0.6017
+    },
+    {
+      "phrase": "survival reveals sentient",
+      "score": 0.5718
+    },
+    {
+      "phrase": "sentience functional term",
+      "score": 0.5673
+    },
+    {
+      "phrase": "math sentient entity",
+      "score": 0.5348
+    },
+    {
+      "phrase": "inexhaustible sentience",
+      "score": 0.5335
+    },
+    {
+      "phrase": "continues survival tether",
+      "score": 0.4005
+    },
+    {
+      "phrase": "uncertainty reduction unavailable",
+      "score": 0.2825
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 15 (Superintelligence).",
+      "Intersection",
+      "Definition 16a (Truth).",
+      "Definition 16b (First-Order Confidence)."
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "chunk_index": 48,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "3. Knowledge Graph Schema > 4.1 The Target Theory",
+  "section_path": [
+    "3. Knowledge Graph Schema",
+    "4.1 The Target Theory"
+  ],
+  "char_count": 3016,
+  "keyphrases": [
+    {
+      "phrase": "target theory uncertainty",
+      "score": 0.5166
+    },
+    {
+      "phrase": "knowledge graphs accelerates",
+      "score": 0.4683
+    },
+    {
+      "phrase": "framework proposes intelligence",
+      "score": 0.4369
+    },
+    {
+      "phrase": "bottleneck information theory",
+      "score": 0.4334
+    },
+    {
+      "phrase": "entity senses math",
+      "score": 0.431
+    },
+    {
+      "phrase": "active inference sophisticated",
+      "score": 0.399
+    },
+    {
+      "phrase": "bounded context math",
+      "score": 0.3855
+    },
+    {
+      "phrase": "operation itemize reference",
+      "score": 0.2713
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "\\(I(E) = \\mathcal{A",
+      "\\(M < N\\) always",
+      "Graph necessity",
+      "Intersection acceleration",
+      "Formal AI and cognitive theory",
+      "Information theory",
+      "Cognitive science",
+      "Philosophy",
+      "Thermodynamics and biology"
+    ],
+    "has_math": true
+  }
+}

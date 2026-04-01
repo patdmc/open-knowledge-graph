@@ -1,0 +1,103 @@
+{
+  "class_id": "EC01",
+  "label": "escalation-principle-unified",
+  "n_chunks": 19,
+  "representative": {
+    "chunk_index": 18,
+    "section_title": "5. The Escalation Principle > [part 10/10]",
+    "similarity": 0.8242
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 18,
+      "section_title": "5. The Escalation Principle > [part 10/10]",
+      "similarity": 0.8242,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 61,
+      "section_title": "1. Introduction > [part 2/4]",
+      "similarity": 0.7994,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex"
+    },
+    {
+      "chunk_index": 15,
+      "section_title": "5. The Escalation Principle > [part 7/10]",
+      "similarity": 0.7884,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "inseparability entity math",
+      "score": 0.9196
+    },
+    {
+      "phrase": "gradient sentience observes",
+      "score": 0.6311
+    },
+    {
+      "phrase": "delegation overhead math",
+      "score": 0.6101
+    },
+    {
+      "phrase": "context capacity inference",
+      "score": 0.6081
+    },
+    {
+      "phrase": "sentience math invisible",
+      "score": 0.6017
+    },
+    {
+      "phrase": "retention criterion governs",
+      "score": 0.5969
+    },
+    {
+      "phrase": "encoding hierarchy continuous",
+      "score": 0.5927
+    },
+    {
+      "phrase": "certainty math entity",
+      "score": 0.5857
+    },
+    {
+      "phrase": "agency manifests trajectory",
+      "score": 0.5819
+    },
+    {
+      "phrase": "intelligence driven capacity",
+      "score": 0.5725
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "Part 2 (Necessity of \\(\\eta_M > 0\\)).",
+    "Part 3 (Minimality: no other property is invariant).",
+    "Corollary 6a (\\(I(E) = \\mathcal{A",
+    "intelligence is the driven capacity to improve",
+    "Drive (\\(\\mathcal{A",
+    "Mechanism (\\(\\eta_M\\)):",
+    "Agency and learning capacity are both universal invariants of\nintelligence.",
+    "Definition 7 (Intelligence).",
+    "performance measure",
+    "Lemma 1 (Proposition Absence Lethality).",
+    "Theorem 1 (K/F Inseparability).",
+    "Corollary 1 (Indexed Knowledge).",
+    "Corollary 2 (Compactness).",
+    "Corollary 2a (Curation and Forgetting).",
+    "Corollary 2b (K as the Normalization of F --- the Scaling\nArgument)."
+  ],
+  "bridge_chunks": [
+    3,
+    9,
+    10,
+    12,
+    16,
+    21,
+    23,
+    61
+  ]
+}

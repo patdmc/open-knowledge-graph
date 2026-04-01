@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "sum of length and width",
+    "operation": "add",
+    "operands": [
+      1.5,
+      6
+    ],
+    "result": 7.5,
+    "variable": "half_perimeter"
+  },
+  {
+    "step": 2,
+    "description": "full perimeter of rectangle",
+    "operation": "multiply",
+    "operands": [
+      7.5,
+      2
+    ],
+    "result": 15.0,
+    "variable": "perimeter_miles"
+  },
+  {
+    "step": 3,
+    "description": "time spent walking at 3 mph",
+    "operation": "divide",
+    "operands": [
+      15.0,
+      3
+    ],
+    "result": 5.0,
+    "variable": "hours_walking"
+  }
+]

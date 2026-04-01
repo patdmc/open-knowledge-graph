@@ -1,0 +1,93 @@
+id: PR28-open-mapping
+type: proof
+domain: analysis
+name: "Open Mapping Theorem (Complex Analysis)"
+target:
+  statement: "\\text{If } f: U \\to \\mathbb{C} \\text{ is holomorphic and non-constant on a connected open set } U, \\text{ then } f \\text{ is an open map}"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: setup
+    type: hypothesis
+    statement: "f: U \\to \\mathbb{C} \\text{ is holomorphic and non-constant on connected open } U \\subseteq \\mathbb{C}"
+    justification: "given hypotheses of the theorem"
+    depends_on: []
+    references: [holomorphic]
+
+  - step: 2
+    id: pick-point
+    type: claim
+    statement: "\\text{Let } z_0 \\in U \\text{ and } w_0 = f(z_0). \\text{ It suffices to show } w_0 \\in \\text{int}(f(V)) \\text{ for every open } V \\ni z_0"
+    justification: "a map is open iff the image of every open set is open; this reduces to showing each image point is interior"
+    depends_on: [setup]
+
+  - step: 3
+    id: local-form
+    type: lemma
+    statement: "f(z) - w_0 = (z - z_0)^m g(z) \\text{ where } m \\geq 1, \\; g \\text{ is holomorphic, and } g(z_0) \\neq 0"
+    justification: "since f is non-constant, z_0 is a zero of f - w_0 of finite order m; factor out (z - z_0)^m"
+    depends_on: [pick-point]
+    references: [holomorphic, laurent_series]
+
+  - step: 4
+    id: choose-disk
+    type: claim
+    statement: "\\exists\\, r > 0 \\text{ s.t. } \\overline{D(z_0, r)} \\subseteq V \\text{ and } g(z) \\neq 0 \\text{ on } \\overline{D(z_0, r)}"
+    justification: "g(z_0) != 0 and g is continuous, so g is nonzero on a small closed disk; shrink r so disk lies in V"
+    depends_on: [local-form]
+
+  - step: 5
+    id: min-on-circle
+    type: claim
+    statement: "\\delta = \\min_{|z - z_0| = r} |f(z) - w_0| > 0"
+    justification: "|f(z) - w_0| = |z - z_0|^m |g(z)| = r^m |g(z)| > 0 on the circle, and the circle is compact so the minimum is attained and positive"
+    depends_on: [choose-disk, local-form]
+    references: [compactness]
+
+  - step: 6
+    id: argument-principle-count
+    type: lemma
+    statement: "\\text{For } |w - w_0| < \\delta, \\text{ the number of zeros of } f(z) - w \\text{ in } D(z_0, r) \\text{ equals } \\frac{1}{2\\pi i} \\oint_{|z-z_0|=r} \\frac{f'(z)}{f(z) - w}\\,dz"
+    justification: "argument principle: the contour integral counts zeros minus poles of f(z) - w inside the contour; f(z) - w is holomorphic so there are no poles"
+    depends_on: [min-on-circle]
+    references: [contour_integral, residue]
+
+  - step: 7
+    id: count-is-integer-continuous
+    type: claim
+    statement: "w \\mapsto \\frac{1}{2\\pi i} \\oint_{|z-z_0|=r} \\frac{f'(z)}{f(z) - w}\\,dz \\text{ is continuous and integer-valued on } D(w_0, \\delta)"
+    justification: "the integrand depends continuously on w (denominator stays nonzero on the contour when |w - w_0| < delta), and the integral counts zeros so it is always a non-negative integer"
+    depends_on: [argument-principle-count, min-on-circle]
+
+  - step: 8
+    id: count-constant
+    type: claim
+    statement: "\\text{The zero count equals } m \\geq 1 \\text{ for all } |w - w_0| < \\delta"
+    justification: "a continuous integer-valued function on a connected set is constant; at w = w_0 the count is m (the order of the zero), so it equals m everywhere on D(w_0, delta)"
+    depends_on: [count-is-integer-continuous, local-form, connectedness]
+    references: [connectedness]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "D(w_0, \\delta) \\subseteq f(D(z_0, r)) \\subseteq f(V), \\text{ so } f(V) \\text{ is open}"
+    justification: "every w in D(w_0, delta) has at least one preimage in D(z_0, r), so w_0 is an interior point of f(V); since z_0 and V were arbitrary, f is an open map"
+    depends_on: [count-constant, choose-disk]
+
+qed: true
+
+corollaries:
+  - id: inverse-function-holomorphic
+    statement: "\\text{If } f \\text{ is holomorphic and injective, then } f^{-1} \\text{ is holomorphic}"
+    justification: "f is open by the open mapping theorem, so f^{-1} is continuous; then holomorphicity of f^{-1} follows from the inverse function theorem for holomorphic maps"
+    depends_on: [conclusion]
+    references: [holomorphic]
+
+edges:
+  - to: AN01-complex-analysis
+    relation: PROVES_FROM
+  - to: PR13-residue-theorem
+    relation: USES
+    note: "argument principle is a consequence of the residue theorem"

@@ -1,0 +1,32 @@
+id: PW-StriatedMuscleContraction
+type: knowledge
+domain: biology
+name: Striated Muscle Contraction
+reactome_id: R-HSA-390522
+
+description: "Striated muscle contraction is a process whereby force is generated within striated muscle tissue, resulting in a change in muscle geometry, or in short, increased force being exerted on the tendons. Force generation involves a chemo-mechanical energy conversion step that is carried out by the actin/myosin complex activity, which generates force through ATP hydrolysis. Striated muscle is a type of muscle composed of myofibrils, containing repeating units called sarcomeres, in which the contractile myofibrils are arranged in parallel to the axis of the cell, resulting in transverse or oblique striations observable at the level of the light microscope.Here striated muscle contraction is represented on the basis of calcium binding to the troponin complex, which exposes the active sites of actin."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Calcium Binds Troponin-C"
+    reactome_id: R-HSA-390595
+    type: Reaction
+  - name: Myosin Binds ATP
+    reactome_id: R-HSA-390598
+    type: Reaction
+  - name: ATP Hydrolysis By Myosin
+    reactome_id: R-HSA-390593
+    type: Reaction
+  - name: Release Of ADP From Myosin
+    reactome_id: R-HSA-390597
+    type: Reaction
+
+edges:

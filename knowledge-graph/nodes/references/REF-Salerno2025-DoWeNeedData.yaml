@@ -1,0 +1,151 @@
+id: REF-Salerno2025-DoWeNeedData
+type: reference
+domain: statistical_inference
+name: "Salerno, Howell, Awan, Nomura, McCormick, Leek (2025) — Do We Really Even Need Data?"
+
+provenance:
+  attribution:
+    authors: ["Stephen Salerno", "Kentaro Howell", "Austen Awan", "Awan Nomura", "Tyler H. McCormick", "Jeffrey T. Leek"]
+    source: "arXiv"
+    date: "2025"
+    arxiv_id: "2512.05456"
+  evidence:
+    type: review_paper
+    description: "Comprehensive review of inference with predicted data (IPD) — when ML predictions substitute for observations, what breaks and what can be recovered"
+
+# === THE WHY ===
+# This paper asks: when you replace observation with prediction, what happens to truth?
+# The Greek answer: prediction is a lossy projection. It preserves some structure and destroys the rest.
+# The mathematical answer: Bias(naive) = (a1 - 1)*beta + E[g(Z_{-1})*Z1], where a1 is the
+#   projection coefficient and g captures nonlinear leakage.
+# The philosophical answer: Dürer's rhinoceros. You can infer from descriptions, but inference
+#   from inference compounds error. The question is whether you can bound the compounding.
+
+# === CLAIM CHAIN (assertion DAG) ===
+claims:
+  - id: durer-principle
+    statement: "Inference from descriptions (predictions) rather than direct observation is ancient and ubiquitous — the question is not whether to do it, but how to bound the error"
+    type: framing
+    justification: "Dürer's 1515 rhinoceros woodcut: inferred from second-hand descriptions, remained prevailing European understanding for 250 years despite inaccuracies"
+    why: "establishes that prediction-as-data is not new — what is new is the scale and the opacity of ML predictions"
+
+  - id: kosemen-explosion
+    statement: "AI/ML predictions are replacing observed data across virtually all scientific fields — voter turnout, medical diagnosis, satellite imaging, genomics"
+    type: empirical_observation
+    justification: "survey of literature showing prediction-as-data in political science, public health, ecology, social science"
+    depends_on: [durer-principle]
+    why: "the problem has become universal because ML has become universal"
+
+  - id: two-mechanisms
+    statement: "Errors from prediction-as-data enter through exactly two mechanisms: bias and variance underestimation"
+    type: theoretical_framework
+    justification: "bias from shifting inference target from theta to eta; variance from treating hat{Y} as fixed"
+    depends_on: [kosemen-explosion]
+    why: "this is not a new taxonomy — it is the fundamental decomposition of estimation error. What IS new is that both mechanisms operate simultaneously and in opposite directions from what researchers expect."
+
+  - id: bias-decomposition
+    statement: "Bias = (a_1 - 1)*beta_1, where a_1 is the projection coefficient of hat{f}(Z) onto Z_1"
+    type: theorem
+    latex: "\\text{Bias}(\\hat{\\eta}_1, \\beta_1) = (a_1 - 1)\\beta_1"
+    justification: "L2 projection of prediction onto inferential covariate: hat{f}(Z) = a_0 + a_1*Z_1 + g(Z_{-1})"
+    depends_on: [two-mechanisms]
+    why: "a_1 measures how much of the true Z_1 effect survives the prediction. If a_1 < 1 (typical for regularized models), the effect is attenuated. If a_1 > 1 (possible with correlated predictors), the effect is amplified. The prediction does not preserve the causal structure."
+
+  - id: variance-underestimation
+    statement: "Naive SE uses Var[g(Z_{-1})]/n instead of Var[epsilon + sum_{j>=2} Z_j]/n — the prediction absorbs noise into signal, making uncertainty look smaller than it is"
+    type: theorem
+    latex: "SE_{\\text{naive}} \\asymp \\sqrt{\\frac{\\text{Var}[g(Z_{-1})]}{n}} \\ll \\sqrt{\\frac{\\sigma^2_{\\varepsilon} + \\text{Var}[\\sum_{j\\geq 2} Z_j]}{n}} = SE_{\\text{oracle}}"
+    justification: "residual variance of naive regression strips out true noise, leaving only prediction-model residual"
+    depends_on: [two-mechanisms]
+    why: "this is the dangerous one. Bias shifts your answer; variance underestimation makes you confident in the wrong answer. The prediction function acts as a filter that removes real uncertainty."
+
+  - id: finite-sample-leakage
+    statement: "Random forests induce weak correlation between Z_1 and g(Z_{-1}) through finite sample splitting, creating additional bias term ell = E[Z_1 * g(Z_{-1})]"
+    type: empirical_finding
+    justification: "tree splits on Z_j for j != 1 can weakly depend on Z_1 through shared samples"
+    depends_on: [bias-decomposition]
+    why: "even with population-level independence, finite samples leak information across predictors. The prediction model's internal structure becomes a confounder."
+
+  - id: ipd-calibration
+    statement: "Valid inference recoverable using small labeled calibration set — the relationship model Y = gamma_0 + gamma_1*hat{Y} + eta separates what the prediction preserves from what it destroys"
+    type: theoretical_framework
+    justification: "core insight of Wang et al. (2020), extended by Angelopoulos et al. (2023), Motwani et al. (2023), and this review"
+    depends_on: [bias-decomposition, variance-underestimation]
+    why: "the relationship model is the provenance correction. gamma_1 measures prediction fidelity, eta measures what was lost. You need ground truth (labeled data) to estimate the loss."
+
+  - id: double-sampling-connection
+    statement: "IPD is a modern instance of Neyman's 1938 double sampling theory — the labeled set is the expensive first-phase sample, the predicted set is the cheap second phase"
+    type: historical_connection
+    justification: "Bose (1943) described identical setup for agricultural measurements; two-phase sampling theory provides asymptotic framework"
+    depends_on: [ipd-calibration]
+    why: "the problem is not new. What is new is that the 'prediction function' is now a black box neural network rather than a simple regression. The theory still applies, but practitioners have forgotten it."
+
+  - id: no-free-lunch
+    statement: "Predictions can improve efficiency only when labeled set is informative about prediction quality — there is a fundamental tradeoff between data savings and inferential validity"
+    type: theorem
+    justification: "semiparametric efficiency bounds show when predictions help and when they cannot"
+    depends_on: [ipd-calibration]
+    why: "you cannot escape the ground truth. You can borrow strength from predictions, but the loan has a rate, and the rate is measurable."
+
+# === CROSS-DOMAIN CONNECTIONS ===
+cross_domain_edges:
+  - target: D13-provenance
+    relation: INSTANTIATES
+    note: "The entire paper is about what happens when provenance degrades — when prediction replaces observation, the (attribution, evidence, derivation) triple weakens by a quantifiable amount"
+
+  - target: EC08-compression-factoring
+    relation: PROVES
+    note: "The bias decomposition Bias = (a_1 - 1)*beta is literally the compression loss. The prediction hat{f} compresses Y into a lower-dimensional representation. The residual g(Z_{-1}) is the information destroyed by compression. This is Theorem 7 (compression-factoring equivalence) instantiated in statistical inference."
+
+  - target: EM07-action-accuracy-bound
+    relation: PROVES
+    note: "The variance inflation N/n in the corrected estimator IS the action accuracy bound — inference quality (action accuracy) is bounded by the ratio of predicted to observed data, exactly as the framework predicts"
+
+  - target: NV01-graph-necessity
+    relation: SUPPORTS
+    note: "Naive inference fails because it treats a projection as the full object. The correction requires the full relationship graph (Y, hat{Y}, eta, X). Graph structure is necessary to preserve inference quality under lossy transformation."
+
+  - target: EC05-incompleteness
+    relation: SUPPORTS
+    note: "Section 'Some Limitations and Open Problems': no single IPD method covers all practical scenarios — the correction framework is necessarily incomplete for any fixed method"
+
+  - target: REF-Salerno2025-PostPI
+    relation: REVIEWS
+    note: "This review paper contextualizes the moment-based generalization (2507.09119) within the broader IPD literature"
+
+  - target: REF-Shannon1948
+    relation: EXTENDS
+    note: "Shannon's channel capacity C = max I(X;Y) bounds reliable transmission. The IPD labeled-set requirement is the statistical analog: you need a 'clean channel' (labeled data) to calibrate the noisy channel (predictions)."
+
+concepts:
+  - id: inference_with_predicted_data
+    name: "Inference with Predicted Data (IPD)"
+    meaning: "the field studying valid statistical inference when ML predictions substitute for observations"
+    why: "this is the confidence chain problem made empirical"
+
+  - id: prediction_as_projection
+    name: "Prediction as Lossy Projection"
+    meaning: "any prediction function hat{f}(Z) is an L2 projection of Y onto a function class — it preserves some variance and destroys the rest"
+    latex: "\\hat{f}(Z) = a_0 + a_1 Z_1 + g(Z_{-1})"
+    why: "the projection framing makes the bias and variance consequences derivable rather than empirical"
+
+  - id: kosemen_rhinoceros
+    name: "Kösemen's Rhinoceros"
+    meaning: "systematic distortion from inference-on-inference — named for the artist who drew animals from descriptions of descriptions, producing beautiful but wrong creatures"
+    why: "the metaphor for what happens when ML predictions are treated as data and then used to train more ML models"
+
+symbols:
+  - { sym: "hat{Y}", meaning: "ML prediction of outcome Y" }
+  - { sym: "gamma_1", meaning: "prediction fidelity — slope of Y on hat{Y}" }
+  - { sym: "eta", meaning: "prediction residual — what the prediction misses" }
+  - { sym: "a_1", meaning: "projection coefficient — how much of Z_1's effect survives prediction" }
+
+edges:
+  - from: REF-Salerno2025-DoWeNeedData
+    to: REF-Salerno2025-PostPI
+    type: REVIEWS
+    note: "review paper contextualizes the technical contribution"
+  - from: REF-Salerno2025-DoWeNeedData
+    to: IT01-information-theory
+    type: USES
+    note: "prediction-as-projection is an information-theoretic operation — hat{f} is a channel with capacity < C"

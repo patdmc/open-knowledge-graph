@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "glasses of water per weekday (breakfast + lunch + dinner + bedtime)",
+    "operation": "add",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 4,
+    "variable": "weekday_glasses"
+  },
+  {
+    "step": 2,
+    "description": "total glasses over 5 weekdays",
+    "operation": "multiply",
+    "operands": [
+      4,
+      5
+    ],
+    "result": 20,
+    "variable": "weekday_total"
+  },
+  {
+    "step": 3,
+    "description": "glasses per weekend day (no water at dinner, soda instead)",
+    "operation": "subtract",
+    "operands": [
+      4,
+      1
+    ],
+    "result": 3,
+    "variable": "weekend_glasses"
+  },
+  {
+    "step": 4,
+    "description": "total glasses over 2 weekend days",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "weekend_total"
+  },
+  {
+    "step": 5,
+    "description": "total glasses of water in a week",
+    "operation": "add",
+    "operands": [
+      20,
+      6
+    ],
+    "result": 26.0,
+    "variable": "weekly_total"
+  }
+]

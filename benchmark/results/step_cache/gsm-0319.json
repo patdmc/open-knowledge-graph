@@ -1,0 +1,13 @@
+[
+  {
+    "step": 1,
+    "description": "divide total wires by ratio factor to get poles",
+    "operation": "divide",
+    "operands": [
+      45,
+      3
+    ],
+    "result": 15.0,
+    "variable": "total electric poles required"
+  }
+]

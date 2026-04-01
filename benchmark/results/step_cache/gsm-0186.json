@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "straw given to hamsters",
+    "operation": "multiply",
+    "operands": [
+      10,
+      5
+    ],
+    "result": 50,
+    "variable": "hamster_straw"
+  },
+  {
+    "step": 2,
+    "description": "straw remaining after hamsters and rabbits (subtract hamster straw)",
+    "operation": "subtract",
+    "operands": [
+      160,
+      50
+    ],
+    "result": 110,
+    "variable": "straw_after_hamsters"
+  },
+  {
+    "step": 3,
+    "description": "straw used by rats (subtract rabbit straw)",
+    "operation": "subtract",
+    "operands": [
+      110,
+      20
+    ],
+    "result": 90,
+    "variable": "rat_straw"
+  },
+  {
+    "step": 4,
+    "description": "total number of rats",
+    "operation": "divide",
+    "operands": [
+      90,
+      6
+    ],
+    "result": 15,
+    "variable": "total_rats"
+  },
+  {
+    "step": 5,
+    "description": "rats per cage",
+    "operation": "divide",
+    "operands": [
+      15,
+      3
+    ],
+    "result": 5.0,
+    "variable": "rats_per_cage"
+  }
+]

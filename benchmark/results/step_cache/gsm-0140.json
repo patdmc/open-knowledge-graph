@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Add automatic and manual cars",
+    "operation": "add",
+    "operands": [
+      12,
+      4
+    ],
+    "result": 16,
+    "variable": "non_semi_automatic_count"
+  },
+  {
+    "step": 2,
+    "description": "Subtract to find semi-automatic count",
+    "operation": "subtract",
+    "operands": [
+      20,
+      16
+    ],
+    "result": 4,
+    "variable": "semi_automatic_count"
+  },
+  {
+    "step": 3,
+    "description": "Divide semi-automatic by total to get fraction",
+    "operation": "divide",
+    "operands": [
+      4,
+      20
+    ],
+    "result": 0.2,
+    "variable": "semi_automatic_fraction"
+  },
+  {
+    "step": 4,
+    "description": "Multiply fraction by 100 to get percentage",
+    "operation": "multiply",
+    "operands": [
+      0.2,
+      100
+    ],
+    "result": 20.0,
+    "variable": "semi_automatic_percentage"
+  }
+]

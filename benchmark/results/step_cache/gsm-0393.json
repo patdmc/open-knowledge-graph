@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "convert writing time to minutes",
+    "operation": "multiply",
+    "operands": [
+      4,
+      60
+    ],
+    "result": 240,
+    "variable": "writing_minutes"
+  },
+  {
+    "step": 2,
+    "description": "calculate recording time as half of writing time",
+    "operation": "divide",
+    "operands": [
+      240,
+      2
+    ],
+    "result": 120,
+    "variable": "recording_minutes"
+  },
+  {
+    "step": 3,
+    "description": "add writing and recording minutes",
+    "operation": "add",
+    "operands": [
+      240,
+      120
+    ],
+    "result": 360,
+    "variable": "writing_plus_recording"
+  },
+  {
+    "step": 4,
+    "description": "add editing time to get total minutes",
+    "operation": "add",
+    "operands": [
+      360,
+      90
+    ],
+    "result": 450,
+    "variable": "total_minutes"
+  },
+  {
+    "step": 5,
+    "description": "divide editing time by total time",
+    "operation": "divide",
+    "operands": [
+      90,
+      450
+    ],
+    "result": 0.2,
+    "variable": "editing_fraction"
+  },
+  {
+    "step": 6,
+    "description": "convert fraction to percentage",
+    "operation": "multiply",
+    "operands": [
+      0.2,
+      100
+    ],
+    "result": 20.0,
+    "variable": "editing_percentage"
+  }
+]

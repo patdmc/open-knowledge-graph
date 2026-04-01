@@ -1,0 +1,58 @@
+{
+  "chunk_index": 17,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 9/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 9/10]"
+  ],
+  "char_count": 5865,
+  "keyphrases": [
+    {
+      "phrase": "escape local optimum",
+      "score": 0.5461
+    },
+    {
+      "phrase": "strictly capable exploration",
+      "score": 0.4805
+    },
+    {
+      "phrase": "optimal action entity",
+      "score": 0.4481
+    },
+    {
+      "phrase": "does minimization imperative",
+      "score": 0.4463
+    },
+    {
+      "phrase": "math grows action",
+      "score": 0.4025
+    },
+    {
+      "phrase": "math sophisticated optimize",
+      "score": 0.4008
+    },
+    {
+      "phrase": "step characterization driven",
+      "score": 0.3691
+    },
+    {
+      "phrase": "ent follower converges",
+      "score": 0.3561
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 5 (Type Irreducibility).",
+      "Corollary 5a (Distinct Roles).",
+      "Theorem 6 (Necessity of \\(\\mathcal{A",
+      "Part 1 (Necessity of \\(\\mathcal{A",
+      "Part 2 (Necessity of \\(\\eta_M > 0\\))."
+    ],
+    "has_math": true
+  }
+}

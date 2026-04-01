@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Sugar for 8 batches of suckers",
+    "operation": "multiply",
+    "operands": [
+      30,
+      8
+    ],
+    "result": 240,
+    "variable": "sucker_sugar"
+  },
+  {
+    "step": 2,
+    "description": "Total sugar for suckers and fudge",
+    "operation": "add",
+    "operands": [
+      240,
+      70
+    ],
+    "result": 310,
+    "variable": "total_sugar"
+  }
+]

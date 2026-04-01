@@ -1,0 +1,50 @@
+id: PW-Metabolismofcarbohydratesandca
+type: knowledge
+domain: biology
+name: Metabolism of carbohydrates and carbohydrate derivatives
+reactome_id: R-HSA-71387
+
+description: Starches and sugars are major constituents of the human diet and the catabolism of monosaccharides, notably glucose, derived from them is an essential part of human energy metabolism (Dashty 2013). Glucose can be catabolized to pyruvate (glycolysis) and pyruvate synthesized from diverse sources can be metabolized to form glucose (gluconeogenesis). Glucose can be polymerized to form glycogen under conditions of glucose excess (glycogen synthesis), and glycogen can be broken down to glucose in response to stress or starvation (glycogenolysis).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Glycogen metabolism
+    reactome_id: R-HSA-8982491
+    type: Pathway
+  - name: Glucose metabolism
+    reactome_id: R-HSA-70326
+    type: Pathway
+  - name: Fructose metabolism
+    reactome_id: R-HSA-5652084
+    type: Pathway
+  - name: Lactose synthesis
+    reactome_id: R-HSA-5653890
+    type: Pathway
+  - name: Galactose catabolism
+    reactome_id: R-HSA-70370
+    type: Pathway
+  - name: Pentose phosphate pathway
+    reactome_id: R-HSA-71336
+    type: Pathway
+  - name: Glycosaminoglycan metabolism
+    reactome_id: R-HSA-1630316
+    type: Pathway
+  - name: "Formation of xylulose-5-phosphate"
+    reactome_id: R-HSA-5661270
+    type: Pathway
+  - name: Lysosomal oligosaccharide catabolism
+    reactome_id: R-HSA-8853383
+    type: Pathway
+  - name: Blood group systems biosynthesis
+    reactome_id: R-HSA-9033658
+    type: Pathway
+
+edges:

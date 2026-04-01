@@ -1,0 +1,54 @@
+id: EMP01-tmb-paradox-resolution
+type: knowledge
+domain: cancer_biology
+name: TMB Paradox Resolution
+
+claim: >
+  Tumor mutation burden (TMB) conflates two opposing signals.
+  Channel count (structural diversity of disruption) is harmful (HR=1.22, p<10^-10).
+  Mutation count within channels is protective (HR=0.90, p<10^-105) once channel count
+  is controlled. The raw TMB signal is an artifact of their mixture.
+
+key_statistics:
+  channel_count_univariate_hr: 1.2161
+  channel_count_univariate_p: 1.23e-10
+  mutation_count_univariate_hr: 1.1624
+  mutation_count_univariate_p: 2.17e-11
+  mutation_count_multivariate_hr: 0.90
+  mutation_count_multivariate_p: 1.0e-105
+  channel_count_multivariate_hr: 1.12
+  channel_count_multivariate_p: 3.8e-03
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Cox proportional hazards on MSK-IMPACT 2017 (n=7,574), replicated MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: validates
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "TMB paradox predicted by bounded-context theory: breadth of disruption is harmful, depth is redundancy"
+  - to: CHAN-DDR
+    relation: exemplified_by
+  - to: CHAN-CellCycle
+    relation: exemplified_by
+  - to: CHAN-PI3K_Growth
+    relation: exemplified_by
+  - to: CHAN-Endocrine
+    relation: exemplified_by
+  - to: CHAN-Immune
+    relation: exemplified_by
+  - to: CHAN-TissueArchitecture
+    relation: exemplified_by

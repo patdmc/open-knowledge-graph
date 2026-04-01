@@ -1,0 +1,62 @@
+id: PW-Transcriptionalregulationofplu
+type: knowledge
+domain: biology
+name: Transcriptional regulation of pluripotent stem cells
+reactome_id: R-HSA-452723
+
+description: Pluripotent stem cells are undifferentiated cells posessing an abbreviated cell cycle (reviewed in Stein et al. 2012), a characteristic profile of gene expression (Rao et al. 2004, Kim et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Expression of EPAS1 (HIF2A)
+    reactome_id: R-HSA-480301
+    type: BlackBoxEvent
+  - name: Transcription of POU5F1 (OCT4)
+    reactome_id: R-HSA-452392
+    type: BlackBoxEvent
+  - name: LIN28 binds POU5F1 (OCT4) mRNA
+    reactome_id: R-HSA-500366
+    type: Reaction
+  - name: Translation of OCT4 mRNA
+    reactome_id: R-HSA-2889036
+    type: BlackBoxEvent
+  - name: Expression of SOX2
+    reactome_id: R-HSA-452894
+    type: BlackBoxEvent
+  - name: Expression of NANOG
+    reactome_id: R-HSA-452838
+    type: BlackBoxEvent
+  - name: POU5F1 (OCT4), SOX2, NANOG bind the SOX2 promoter
+    reactome_id: R-HSA-480685
+    type: Reaction
+  - name: "POU5F1 (OCT4), SOX2, NANOG, ZSCAN10, PRDM14, SMAD2, FOXP1-ES bind the POU5F1 (OCT4) promoter"
+    reactome_id: R-HSA-1112609
+    type: Reaction
+  - name: POU5F1 (OCT4), SOX2, NANOG, KLF4, PBX1, SMAD2 bind the NANOG promoter
+    reactome_id: R-HSA-480204
+    type: Reaction
+  - name: POU5F1 (OCT4), STAT3 bind the SALL4 promoter
+    reactome_id: R-HSA-2895778
+    type: Reaction
+  - name: Expression of SALL4
+    reactome_id: R-HSA-480520
+    type: BlackBoxEvent
+  - name: SALL4 binds the SALL4 promoter
+    reactome_id: R-HSA-2972968
+    type: Reaction
+  - name: POU5F1 (OCT4), SOX2, NANOG activate genes related to proliferation
+    reactome_id: R-HSA-2892247
+    type: Pathway
+  - name: POU5F1 (OCT4), SOX2, NANOG repress genes related to differentiation
+    reactome_id: R-HSA-2892245
+    type: Pathway
+
+edges:

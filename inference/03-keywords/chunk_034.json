@@ -1,0 +1,53 @@
+{
+  "chunk_index": 34,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "11. Related Work",
+  "section_path": [
+    "11. Related Work"
+  ],
+  "char_count": 4816,
+  "keyphrases": [
+    {
+      "phrase": "fep agents instantiate",
+      "score": 0.5523
+    },
+    {
+      "phrase": "inferencefree energy principle",
+      "score": 0.5265
+    },
+    {
+      "phrase": "fep derives minimization",
+      "score": 0.4938
+    },
+    {
+      "phrase": "state critique fep",
+      "score": 0.4504
+    },
+    {
+      "phrase": "principle active",
+      "score": 0.3997
+    },
+    {
+      "phrase": "formal theory intrinsic",
+      "score": 0.3842
+    },
+    {
+      "phrase": "goal proximity containment",
+      "score": 0.3672
+    },
+    {
+      "phrase": "entity persist structural",
+      "score": 0.316
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Containment, not contradiction."
+    ],
+    "has_math": true
+  }
+}

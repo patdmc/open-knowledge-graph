@@ -1,0 +1,52 @@
+{
+  "chunk_index": 46,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "3. Knowledge Graph Schema > 3.1 Node Types",
+  "section_path": [
+    "3. Knowledge Graph Schema",
+    "3.1 Node Types"
+  ],
+  "char_count": 1317,
+  "keyphrases": [
+    {
+      "phrase": "base assumption frameworks",
+      "score": 0.4901
+    },
+    {
+      "phrase": "node typesnode types",
+      "score": 0.4131
+    },
+    {
+      "phrase": "frameworks independently multiple",
+      "score": 0.4045
+    },
+    {
+      "phrase": "independent groundings longtable",
+      "score": 0.3995
+    },
+    {
+      "phrase": "overlap proposition grounded",
+      "score": 0.396
+    },
+    {
+      "phrase": "minipage definition formal",
+      "score": 0.366
+    },
+    {
+      "phrase": "derivations novel proposition",
+      "score": 0.3412
+    },
+    {
+      "phrase": "equivalency class",
+      "score": 0.3176
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

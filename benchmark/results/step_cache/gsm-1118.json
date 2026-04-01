@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Add male guppies after purchase",
+    "operation": "add",
+    "operands": [
+      4,
+      2
+    ],
+    "result": 6,
+    "variable": "total_male_guppies"
+  },
+  {
+    "step": 2,
+    "description": "Add female guppies after purchase",
+    "operation": "add",
+    "operands": [
+      7,
+      1
+    ],
+    "result": 8,
+    "variable": "total_female_guppies"
+  },
+  {
+    "step": 3,
+    "description": "Add male goldfishes after purchase",
+    "operation": "add",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 5,
+    "variable": "total_male_goldfishes"
+  },
+  {
+    "step": 4,
+    "description": "Add female goldfishes after purchase",
+    "operation": "add",
+    "operands": [
+      5,
+      3
+    ],
+    "result": 8,
+    "variable": "total_female_goldfishes"
+  },
+  {
+    "step": 5,
+    "description": "Total male fishes",
+    "operation": "add",
+    "operands": [
+      6,
+      5
+    ],
+    "result": 11,
+    "variable": "total_male"
+  },
+  {
+    "step": 6,
+    "description": "Total female fishes",
+    "operation": "add",
+    "operands": [
+      8,
+      8
+    ],
+    "result": 16,
+    "variable": "total_female"
+  },
+  {
+    "step": 7,
+    "description": "Difference: female minus male",
+    "operation": "subtract",
+    "operands": [
+      16,
+      11
+    ],
+    "result": 5,
+    "variable": "female_minus_male"
+  }
+]

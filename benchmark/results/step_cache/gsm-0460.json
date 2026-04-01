@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "weekly earnings from aluminum cans",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "can_cents_per_week"
+  },
+  {
+    "step": 2,
+    "description": "weekly earnings from plastic bottles",
+    "operation": "multiply",
+    "operands": [
+      5,
+      3
+    ],
+    "result": 15,
+    "variable": "bottle_cents_per_week"
+  },
+  {
+    "step": 3,
+    "description": "total weekly earnings from both",
+    "operation": "add",
+    "operands": [
+      6,
+      15
+    ],
+    "result": 21,
+    "variable": "total_cents_per_week"
+  },
+  {
+    "step": 4,
+    "description": "total earnings over four weeks",
+    "operation": "multiply",
+    "operands": [
+      21,
+      4
+    ],
+    "result": 84,
+    "variable": "total_cents_per_month"
+  }
+]

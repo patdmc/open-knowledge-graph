@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Colors in the six packets of eight",
+    "operation": "multiply",
+    "operands": [
+      6,
+      8
+    ],
+    "result": 48,
+    "variable": "colors_in_small_packets"
+  },
+  {
+    "step": 2,
+    "description": "Colors in the four packets of sixteen",
+    "operation": "multiply",
+    "operands": [
+      4,
+      16
+    ],
+    "result": 64,
+    "variable": "colors_in_large_packets"
+  },
+  {
+    "step": 3,
+    "description": "Total colors bought",
+    "operation": "add",
+    "operands": [
+      48,
+      64
+    ],
+    "result": 112,
+    "variable": "total_colors"
+  }
+]

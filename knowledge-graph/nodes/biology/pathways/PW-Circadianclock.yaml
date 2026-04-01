@@ -1,0 +1,47 @@
+id: PW-Circadianclock
+type: knowledge
+domain: biology
+name: Circadian clock
+reactome_id: R-HSA-9909396
+
+description: "At the center of the mammalian circadian clock is a negative transcription-translation feedback loop (TTFL) (reviewed in Albrecht 2012, Gustafson and Partch 2015, Cox and Takahashi 2019). In the morning, the BMAL1:CLOCK/NPAS2 heterodimer activates transcription of CRY1, CRY2, PER1, PER2, PER3 and many other circadian-regulated genes. Levels of PER and CRY proteins rise during the day and inhibit their own expression and the expression of other BMAL1:CLOCK/NPAS2-activated genes in the afternoon and evening (inferred from mouse homologs in Cao et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Expression of BMAL (ARNTL), CLOCK, and NPAS2
+    reactome_id: R-HSA-9931509
+    type: Pathway
+  - name: Phosphorylation and nuclear translocation of BMAL1 (ARNTL) and CLOCK
+    reactome_id: R-HSA-9931529
+    type: Pathway
+  - name: "Phosphorylated BMAL1:CLOCK (ARNTL:CLOCK) activates expression of core clock genes"
+    reactome_id: R-HSA-9931510
+    type: Pathway
+  - name: "BMAL1:CLOCK,NPAS2 activates circadian expression"
+    reactome_id: R-HSA-1368108
+    type: Pathway
+  - name: Phosphorylation of CLOCK, acetylation of BMAL1 (ARNTL) at target gene promoters
+    reactome_id: R-HSA-9931512
+    type: Pathway
+  - name: "Phosphorylation and nuclear translocation of the CRY:PER:kinase complex"
+    reactome_id: R-HSA-9931530
+    type: Pathway
+  - name: "The CRY:PER:kinase complex represses transactivation by the BMAL:CLOCK (ARNTL:CLOCK) complex"
+    reactome_id: R-HSA-9931521
+    type: Pathway
+  - name: Degradation of CRY and PER proteins
+    reactome_id: R-HSA-9932298
+    type: Pathway
+  - name: "RORA,B,C and NR1D1 (REV-ERBA) regulate gene expression"
+    reactome_id: R-HSA-9933387
+    type: Pathway
+
+edges:

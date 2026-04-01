@@ -1,0 +1,14 @@
+id: SL06-euclids-lemma
+type: shared_lemma
+domain: number_theory
+name: "Euclid's Lemma"
+statement: "p \\text{ prime}, \\; p \\mid ab \\implies p \\mid a \\text{ or } p \\mid b"
+justification: "if p does not divide a, then gcd(a,p) = 1; by Bezout, ax + py = 1; multiply by b: abx + pby = b; p divides left side, so p divides b"
+references: [prime, divisibility, gcd, extended_euclidean]
+used_by:
+  - proof: PR01-sqrt2-irrational
+    step: a-even
+  - proof: PR01-sqrt2-irrational
+    step: b-even
+  - proof: PR02-infinitely-many-primes
+    step: remainder-is-1

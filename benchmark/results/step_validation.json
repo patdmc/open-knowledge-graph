@@ -1,0 +1,222 @@
+[
+  {
+    "problem_id": "gsm-0156",
+    "solver": "graph_walk",
+    "answer": 100.0,
+    "expected": 1400.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0156",
+    "solver": "question_driven",
+    "answer": 400.0,
+    "expected": 1400.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0156",
+    "solver": "sequential",
+    "answer": 16000000.0,
+    "expected": 1400.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0156",
+    "solver": "entity_props",
+    "answer": 1400.0,
+    "expected": 1400.0,
+    "correct": true,
+    "steps_matched": 1,
+    "steps_total": 3,
+    "step_score": 0.3333333333333333
+  },
+  {
+    "problem_id": "gsm-0520",
+    "solver": "sequential",
+    "answer": 24.0,
+    "expected": 63.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 5,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0520",
+    "solver": "entity_props",
+    "answer": 63.0,
+    "expected": 63.0,
+    "correct": true,
+    "steps_matched": 1,
+    "steps_total": 5,
+    "step_score": 0.2
+  },
+  {
+    "problem_id": "gsm-0520",
+    "solver": "graph_walk",
+    "answer": 2.0,
+    "expected": 63.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 5,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0520",
+    "solver": "question_driven",
+    "answer": 3.0,
+    "expected": 63.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 5,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0624",
+    "solver": "graph_walk",
+    "answer": 57.0,
+    "expected": 85.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0624",
+    "solver": "parallel_tracks",
+    "answer": 85.0,
+    "expected": 85.0,
+    "correct": true,
+    "steps_matched": 3,
+    "steps_total": 3,
+    "step_score": 1.0
+  },
+  {
+    "problem_id": "gsm-0624",
+    "solver": "sequential",
+    "answer": 6048.0,
+    "expected": 85.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0624",
+    "solver": "question_driven",
+    "answer": 72.0,
+    "expected": 85.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0702",
+    "solver": "sequential",
+    "answer": 5414.0,
+    "expected": 2800.0,
+    "correct": false,
+    "steps_matched": 1,
+    "steps_total": 3,
+    "step_score": 0.3333333333333333
+  },
+  {
+    "problem_id": "gsm-0702",
+    "solver": "question_driven",
+    "answer": 818.0,
+    "expected": 2800.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0702",
+    "solver": "algebra",
+    "answer": 2800.0,
+    "expected": 2800.0,
+    "correct": true,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "parallel_tracks",
+    "answer": 1200.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "graph_walk",
+    "answer": 30.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 1,
+    "steps_total": 3,
+    "step_score": 0.3333333333333333
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "sequential",
+    "answer": 70.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "percentage",
+    "answer": 28.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "reference_chain",
+    "answer": 40.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "question_driven",
+    "answer": 50.0,
+    "expected": 42.0,
+    "correct": false,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  },
+  {
+    "problem_id": "gsm-0832",
+    "solver": "algebra",
+    "answer": 42.0,
+    "expected": 42.0,
+    "correct": true,
+    "steps_matched": 0,
+    "steps_total": 3,
+    "step_score": 0.0
+  }
+]

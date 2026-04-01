@@ -1,0 +1,56 @@
+{
+  "chunk_index": 24,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 5/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 5/7]"
+  ],
+  "char_count": 5517,
+  "keyphrases": [
+    {
+      "phrase": "intersection math provenance",
+      "score": 0.5311
+    },
+    {
+      "phrase": "identifies normalization occurring",
+      "score": 0.521
+    },
+    {
+      "phrase": "lization occurring",
+      "score": 0.3843
+    },
+    {
+      "phrase": "independent executions converging",
+      "score": 0.3747
+    },
+    {
+      "phrase": "algorithm certainty",
+      "score": 0.3669
+    },
+    {
+      "phrase": "precipitation higher rank",
+      "score": 0.3607
+    },
+    {
+      "phrase": "dominates solo search",
+      "score": 0.3396
+    },
+    {
+      "phrase": "independent projections confirmed",
+      "score": 0.3364
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Overlapping dimensions",
+      "Distinct dimensions"
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,35 @@
+id: PW-ProcessingofCappedIntronContai
+type: knowledge
+domain: biology
+name: "Processing of Capped Intron-Containing Pre-mRNA"
+reactome_id: R-HSA-72203
+
+description: "Co-transcriptional pre-mRNA splicing is not obligatory. Pre-mRNA splicing begins co-transcriptionally and often continues post-transcriptionally. Human genes contain an average of nine introns per gene, which cannot serve as splicing substrates until both 5' and 3' ends of each intron are synthesized."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Internal Methylation of mRNA
+    reactome_id: R-HSA-72095
+    type: Reaction
+  - name: "Formation of pre-mRNPs"
+    reactome_id: R-HSA-72103
+    type: Reaction
+  - name: mRNA Splicing
+    reactome_id: R-HSA-72172
+    type: Pathway
+  - name: "mRNA 3'-end processing"
+    reactome_id: R-HSA-72187
+    type: Pathway
+  - name: Transport of Mature Transcript to Cytoplasm
+    reactome_id: R-HSA-72202
+    type: Pathway
+
+edges:

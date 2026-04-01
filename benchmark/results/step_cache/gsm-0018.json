@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "days in 4 weeks",
+    "operation": "multiply",
+    "operands": [
+      4,
+      7
+    ],
+    "result": 28,
+    "variable": "total_days"
+  },
+  {
+    "step": 2,
+    "description": "total eggs eaten",
+    "operation": "multiply",
+    "operands": [
+      28,
+      3
+    ],
+    "result": 84,
+    "variable": "total_eggs"
+  },
+  {
+    "step": 3,
+    "description": "convert eggs to dozens",
+    "operation": "divide",
+    "operands": [
+      84,
+      12
+    ],
+    "result": 7.0,
+    "variable": "dozens_of_eggs"
+  }
+]

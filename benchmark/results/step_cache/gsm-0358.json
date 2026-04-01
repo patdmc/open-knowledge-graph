@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "cost of 4 lollipops",
+    "operation": "multiply",
+    "operands": [
+      4,
+      0.25
+    ],
+    "result": 1.0,
+    "variable": "daily_lollipop_cost"
+  },
+  {
+    "step": 2,
+    "description": "daily savings after buying lollipops",
+    "operation": "subtract",
+    "operands": [
+      5.0,
+      1.0
+    ],
+    "result": 4.0,
+    "variable": "daily_savings"
+  },
+  {
+    "step": 3,
+    "description": "total savings after 5 days",
+    "operation": "multiply",
+    "operands": [
+      4.0,
+      5
+    ],
+    "result": 20.0,
+    "variable": "total_savings"
+  }
+]

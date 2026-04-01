@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Revenue from milkshakes",
+    "operation": "multiply",
+    "operands": [
+      6,
+      5.5
+    ],
+    "result": 33.0,
+    "variable": "milkshake_total"
+  },
+  {
+    "step": 2,
+    "description": "Revenue from burger platters",
+    "operation": "multiply",
+    "operands": [
+      9,
+      11
+    ],
+    "result": 99.0,
+    "variable": "burger_total"
+  },
+  {
+    "step": 3,
+    "description": "Revenue from sodas",
+    "operation": "multiply",
+    "operands": [
+      20,
+      1.5
+    ],
+    "result": 30.0,
+    "variable": "soda_total"
+  },
+  {
+    "step": 4,
+    "description": "Milkshakes plus burgers",
+    "operation": "add",
+    "operands": [
+      33.0,
+      99.0
+    ],
+    "result": 132.0,
+    "variable": "subtotal"
+  },
+  {
+    "step": 5,
+    "description": "Subtotal plus sodas",
+    "operation": "add",
+    "operands": [
+      132.0,
+      30.0
+    ],
+    "result": 162.0,
+    "variable": "grand_total"
+  }
+]

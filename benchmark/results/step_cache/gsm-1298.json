@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Convert quarters to dollars",
+    "operation": "multiply",
+    "operands": [
+      32,
+      0.25
+    ],
+    "result": 8.0,
+    "variable": "quarters_value"
+  },
+  {
+    "step": 2,
+    "description": "Convert dimes to dollars",
+    "operation": "multiply",
+    "operands": [
+      95,
+      0.1
+    ],
+    "result": 9.5,
+    "variable": "dimes_value"
+  },
+  {
+    "step": 3,
+    "description": "Convert nickels to dollars",
+    "operation": "multiply",
+    "operands": [
+      120,
+      0.05
+    ],
+    "result": 6.0,
+    "variable": "nickels_value"
+  },
+  {
+    "step": 4,
+    "description": "Convert pennies to dollars",
+    "operation": "multiply",
+    "operands": [
+      750,
+      0.01
+    ],
+    "result": 7.5,
+    "variable": "pennies_value"
+  },
+  {
+    "step": 5,
+    "description": "Add quarters and dimes",
+    "operation": "add",
+    "operands": [
+      8.0,
+      9.5
+    ],
+    "result": 17.5,
+    "variable": "quarters_plus_dimes"
+  },
+  {
+    "step": 6,
+    "description": "Add nickels to running total",
+    "operation": "add",
+    "operands": [
+      17.5,
+      6.0
+    ],
+    "result": 23.5,
+    "variable": "running_total"
+  },
+  {
+    "step": 7,
+    "description": "Add pennies to get final total",
+    "operation": "add",
+    "operands": [
+      23.5,
+      7.5
+    ],
+    "result": 31.0,
+    "variable": "total_dollars"
+  }
+]

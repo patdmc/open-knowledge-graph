@@ -1,0 +1,75 @@
+id: PR05-lagrange-theorem
+type: proof
+domain: algebra
+name: "Lagrange's Theorem (Group Theory)"
+target:
+  statement: "H \\leq G \\implies |H| \\mid |G|"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: def-coset
+    type: definition
+    statement: "gH = \\{gh : h \\in H\\} \\text{ is the left coset of } H \\text{ containing } g"
+    justification: "standard definition of left coset"
+    depends_on: []
+    references: [coset]
+
+  - step: 2
+    id: coset-same-size
+    type: lemma
+    statement: "|gH| = |H| \\text{ for all } g \\in G"
+    justification: "the map h -> gh is a bijection from H to gH (left multiplication is injective in a group)"
+    depends_on: [def-coset]
+
+  - step: 3
+    id: cosets-partition
+    type: lemma
+    statement: "\\text{distinct left cosets of } H \\text{ partition } G"
+    justification: >
+      define g1 ~ g2 iff g1^{-1}g2 in H; this is an equivalence relation
+      (reflexive: e in H; symmetric: if g1^{-1}g2 in H then g2^{-1}g1 = (g1^{-1}g2)^{-1} in H;
+      transitive: g1^{-1}g2 and g2^{-1}g3 in H implies g1^{-1}g3 in H by closure).
+      Equivalence classes are exactly the left cosets.
+    depends_on: [def-coset]
+    references: [subgroup]
+
+  - step: 4
+    id: count-cosets
+    type: claim
+    statement: "G = g_1 H \\sqcup g_2 H \\sqcup \\cdots \\sqcup g_k H \\quad (\\text{disjoint union})"
+    justification: "follows from cosets-partition; k = [G:H] is the index"
+    depends_on: [cosets-partition]
+
+  - step: 5
+    id: count-elements
+    type: claim
+    statement: "|G| = k \\cdot |H| = [G:H] \\cdot |H|"
+    justification: "G is disjoint union of k cosets, each of size |H|"
+    depends_on: [count-cosets, coset-same-size]
+
+  - step: 6
+    id: conclusion
+    type: theorem
+    statement: "|H| \\mid |G| \\quad \\text{and} \\quad [G:H] = |G|/|H|"
+    justification: "|G| = [G:H] * |H| implies |H| divides |G|"
+    depends_on: [count-elements]
+
+qed: true
+
+corollaries:
+  - id: order-divides
+    statement: "\\text{ord}(g) \\mid |G| \\text{ for all } g \\in G"
+    justification: "apply Lagrange to H = <g>"
+    depends_on: [conclusion]
+    references: [element_order, cyclic_group]
+
+  - id: prime-order-cyclic
+    statement: "|G| = p \\text{ prime} \\implies G \\cong \\mathbb{Z}/p\\mathbb{Z}"
+    justification: "only subgroups have order 1 or p; any non-identity element generates G"
+    depends_on: [conclusion]
+
+edges:
+  - to: AA01-abstract-algebra
+    relation: PROVES_FROM

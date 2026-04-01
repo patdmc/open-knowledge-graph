@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Erin starts with 7 lollipops and receives 10 more from her mother",
+    "operation": "add",
+    "operands": [
+      7,
+      10
+    ],
+    "result": 17,
+    "variable": "lollipops_after_mother_gives"
+  },
+  {
+    "step": 2,
+    "description": "Erin gives 3 lollipops to Ella",
+    "operation": "subtract",
+    "operands": [
+      17,
+      3
+    ],
+    "result": 14,
+    "variable": "lollipops_remaining"
+  }
+]

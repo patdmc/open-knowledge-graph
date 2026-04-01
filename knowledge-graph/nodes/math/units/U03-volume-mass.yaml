@@ -1,0 +1,59 @@
+id: math:units:volume_mass
+type: knowledge
+domain: units
+name: "Volume and Mass Units"
+
+units:
+  - id: milliliter
+    name: "Milliliter"
+    symbol: "mL"
+
+  - id: liter
+    name: "Liter"
+    symbol: "L"
+
+  - id: gram
+    name: "Gram"
+    symbol: "g"
+    si: true
+
+  - id: kilogram
+    name: "Kilogram"
+    symbol: "kg"
+
+  - id: ounce
+    name: "Ounce"
+    symbol: "oz"
+
+  - id: pound
+    name: "Pound"
+    symbol: "lb"
+
+  - id: cup
+    name: "Cup"
+    symbol: "cup"
+
+  - id: gallon
+    name: "Gallon"
+    symbol: "gal"
+
+conversions:
+  - from: milliliter
+    to: liter
+    factor: 1000
+    exact: true
+
+  - from: gram
+    to: kilogram
+    factor: 1000
+    exact: true
+
+  - from: ounce
+    to: pound
+    factor: 16
+    exact: true
+
+  - from: cup
+    to: gallon
+    factor: 16
+    exact: true

@@ -1,0 +1,52 @@
+{
+  "chunk_index": 41,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "13. Open Questions > [part 4/4]",
+  "section_path": [
+    "13. Open Questions",
+    "[part 4/4]"
+  ],
+  "char_count": 2421,
+  "keyphrases": [
+    {
+      "phrase": "daptive evolution",
+      "score": 0.6068
+    },
+    {
+      "phrase": "definition evolutionary gradient",
+      "score": 0.5004
+    },
+    {
+      "phrase": "genetic encoding cost",
+      "score": 0.4372
+    },
+    {
+      "phrase": "developmental generality",
+      "score": 0.4088
+    },
+    {
+      "phrase": "conjectures selection pressure",
+      "score": 0.3871
+    },
+    {
+      "phrase": "random mutation radiation",
+      "score": 0.3747
+    },
+    {
+      "phrase": "germline channel sufficient",
+      "score": 0.3727
+    },
+    {
+      "phrase": "learning slower",
+      "score": 0.3405
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

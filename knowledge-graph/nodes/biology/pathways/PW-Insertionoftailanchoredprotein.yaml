@@ -1,0 +1,41 @@
+id: PW-Insertionoftailanchoredprotein
+type: knowledge
+domain: biology
+name: "Insertion of tail-anchored proteins into the endoplasmic reticulum membrane"
+reactome_id: R-HSA-9609523
+
+description: "Tail-anchored (TA) proteins have a hydrophobic transmembrane domain (TMD) located near the C-terminus (\"tail\") of the protein. Depending on the nature of the TMD, TA proteins can be inserted into the endoplasmic reticulum (ER) membrane by at least 4 mechanisms: cotranslational insertion by the signal recognition particle (SRP), post-translational insertion by ASNA1 (TRC40), post-translational insertion by the SRP, and post-translational insertion by a SRP-independent mechanism (SND) (Casson et al. 2017, reviewed in Borgese and Fasana 2011, Casson et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "SGTA binds Tail-anchored protein"
+    reactome_id: R-HSA-9609921
+    type: Reaction
+  - name: "Tail-anchored protein:SGTA dimer binds BAG6:GET4:UBL4A and ASNA1:ATP"
+    reactome_id: R-HSA-9610442
+    type: Reaction
+  - name: "Tail-anchored protein:SGTA:BAG6:GET4:UBL4A:ASNA1:ATP dissociates and ASNA1 hydrolyzes ATP yielding Tail-anchored protein:ASNA1:ADP"
+    reactome_id: R-HSA-9609860
+    type: BlackBoxEvent
+  - name: "Tail-anchored protein:ASNA1:ADP binds WRB:CAMLG at the endoplasmic reticulum membrane"
+    reactome_id: R-HSA-9609899
+    type: Reaction
+  - name: "Tail-anchored protein:ASNA1:ADP:WRB:CAMLG dissociates yielding Tail-anchored protein in the endoplasmic reticulum membrane"
+    reactome_id: R-HSA-9609917
+    type: Reaction
+  - name: SGTA binds mislocalized membrane protein
+    reactome_id: R-HSA-9617595
+    type: Reaction
+  - name: "BAG6:GET4:UBL4A binds mislocalized membrane protein:SGTA and ASNA1:ATP"
+    reactome_id: R-HSA-9617596
+    type: Reaction
+
+edges:

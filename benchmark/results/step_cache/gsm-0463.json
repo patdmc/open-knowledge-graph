@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate the tip amount as 1/5 of the order",
+    "operation": "divide",
+    "operands": [
+      15,
+      5
+    ],
+    "result": 3,
+    "variable": "tip_amount"
+  },
+  {
+    "step": 2,
+    "description": "Add tip to the order total",
+    "operation": "add",
+    "operands": [
+      15,
+      3
+    ],
+    "result": 18.0,
+    "variable": "total_amount"
+  }
+]

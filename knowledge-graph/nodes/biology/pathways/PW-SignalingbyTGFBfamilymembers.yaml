@@ -1,0 +1,32 @@
+id: PW-SignalingbyTGFBfamilymembers
+type: knowledge
+domain: biology
+name: Signaling by TGFB family members
+reactome_id: R-HSA-9006936
+
+description: "The human genome encodes 33 TGF-beta family members, including TGF-beta itself, as well as bone morphogenetic protein (BMP), activin, nodal and growth and differentiation factors (GDFs). This superfamily of ligands generally binds as dimers to hetero-tetrameric cell-surface receptor serine/threonine kinases to activate SMAD-dependent and SMAD-independent signaling (reviewed in Morikawa et al, 2016; Budi et al, 2017).Signaling by the TGF-beta receptor complex is initiated by TGF-beta. TGF-beta (TGFB1), secreted as a homodimer, binds to TGF-beta receptor II (TGFBR2), inducing its dimerization and formation of a stable hetero-tetrameric complex with TGF-beta receptor I homodimer (TGFBR1)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Signaling by TGF-beta Receptor Complex"
+    reactome_id: R-HSA-170834
+    type: Pathway
+  - name: Signaling by BMP
+    reactome_id: R-HSA-201451
+    type: Pathway
+  - name: Signaling by Activin
+    reactome_id: R-HSA-1502540
+    type: Pathway
+  - name: Signaling by TGFBR3
+    reactome_id: R-HSA-9839373
+    type: Pathway
+
+edges:

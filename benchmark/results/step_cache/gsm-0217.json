@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of dahlias by adding 7 more than roses",
+    "operation": "add",
+    "operands": [
+      4,
+      7
+    ],
+    "result": 11,
+    "variable": "dahlias"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total flowers by adding roses and dahlias",
+    "operation": "add",
+    "operands": [
+      4,
+      11
+    ],
+    "result": 15,
+    "variable": "total_flowers"
+  }
+]

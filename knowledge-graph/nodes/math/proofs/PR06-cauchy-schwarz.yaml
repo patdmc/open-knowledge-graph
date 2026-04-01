@@ -1,0 +1,89 @@
+id: PR06-cauchy-schwarz
+type: proof
+domain: algebra
+name: "Cauchy-Schwarz Inequality"
+target:
+  statement: "|\\langle u, v \\rangle|^2 \\leq \\langle u, u \\rangle \\cdot \\langle v, v \\rangle"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: trivial-case
+    type: claim
+    statement: "\\text{If } v = 0, \\text{ both sides are } 0 \\text{ and the inequality holds.}"
+    justification: "inner product with zero vector is zero"
+    depends_on: []
+    references: [inner_product]
+
+  - step: 2
+    id: assume-v-nonzero
+    type: hypothesis
+    statement: "v \\neq 0, \\text{ so } \\langle v, v \\rangle > 0"
+    justification: "positive definiteness of inner product"
+    depends_on: [trivial-case]
+
+  - step: 3
+    id: define-t
+    type: definition
+    statement: "t = \\frac{\\langle u, v \\rangle}{\\langle v, v \\rangle}"
+    justification: "choose scalar t to minimize ||u - tv||^2"
+    depends_on: [assume-v-nonzero]
+
+  - step: 4
+    id: norm-nonneg
+    type: claim
+    statement: "0 \\leq \\langle u - tv, u - tv \\rangle"
+    justification: "inner product of any vector with itself is non-negative"
+    depends_on: [define-t]
+
+  - step: 5
+    id: expand
+    type: claim
+    statement: "0 \\leq \\langle u, u \\rangle - 2t\\langle u, v \\rangle + t^2 \\langle v, v \\rangle"
+    justification: "expand inner product by bilinearity"
+    depends_on: [norm-nonneg]
+
+  - step: 6
+    id: substitute-t
+    type: claim
+    statement: "0 \\leq \\langle u, u \\rangle - 2 \\cdot \\frac{\\langle u,v \\rangle}{\\langle v,v \\rangle} \\cdot \\langle u,v \\rangle + \\frac{\\langle u,v \\rangle^2}{\\langle v,v \\rangle^2} \\cdot \\langle v,v \\rangle"
+    justification: "substitute t = <u,v>/<v,v>"
+    depends_on: [expand, define-t]
+
+  - step: 7
+    id: simplify
+    type: claim
+    statement: "0 \\leq \\langle u, u \\rangle - \\frac{\\langle u, v \\rangle^2}{\\langle v, v \\rangle}"
+    justification: "simplify: -2A^2/B + A^2/B = -A^2/B where A = <u,v>, B = <v,v>"
+    depends_on: [substitute-t]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "\\langle u, v \\rangle^2 \\leq \\langle u, u \\rangle \\cdot \\langle v, v \\rangle"
+    justification: "multiply both sides of simplify by <v,v> > 0"
+    depends_on: [simplify, assume-v-nonzero]
+    references: [inner_product, norm]
+
+qed: true
+
+corollaries:
+  - id: triangle-inequality
+    statement: "\\|u + v\\| \\leq \\|u\\| + \\|v\\|"
+    justification: "||u+v||^2 = ||u||^2 + 2<u,v> + ||v||^2 <= ||u||^2 + 2||u||||v|| + ||v||^2 by C-S"
+    depends_on: [conclusion]
+
+  - id: finite-dim
+    statement: "\\left(\\sum_i a_i b_i\\right)^2 \\leq \\left(\\sum_i a_i^2\\right)\\left(\\sum_i b_i^2\\right)"
+    justification: "Cauchy-Schwarz in R^n with standard dot product"
+
+  - id: integral-form
+    statement: "\\left(\\int fg\\right)^2 \\leq \\int f^2 \\cdot \\int g^2"
+    justification: "Cauchy-Schwarz in L^2"
+
+edges:
+  - to: A04-linear-algebra-advanced
+    relation: PROVES_FROM
+  - to: A02-linear-algebra
+    relation: PROVES_FROM

@@ -1,0 +1,23 @@
+id: PW-ATPdependentchromatinremodeler
+type: knowledge
+domain: biology
+name: "ATP-dependent chromatin remodelers"
+reactome_id: R-HSA-9932444
+
+description: "ATP-dependent chromatin remodelers use the energy from ATP hydrolysis to organize or rearrange nucleosomes by altering histone-DNA contacts (reviewed in de la Serna et al, 2006; Hargreaves and Crabtree, 2011; Narlikar et al, 2013; Clapier et al, 2017; Eustermann et al, 2024). There are four main classes of mammalian ATP-dependent chromatin remodellers: SWI/SNF (for switch/sucrose non-fermenting, initially characterized in S. cerevisiae); ISWI (imitation switch), chromodomain helicase DNA-binding (CHD) and INO80 (inositol requiring mutant 80)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: SWI/SNF chromatin remodelers
+    reactome_id: R-HSA-9932451
+    type: Pathway
+
+edges:

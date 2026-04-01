@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "skeins for one hat plus one scarf",
+    "operation": "add",
+    "operands": [
+      2,
+      4
+    ],
+    "result": 6,
+    "variable": "hat_scarf"
+  },
+  {
+    "step": 2,
+    "description": "add sweater skeins",
+    "operation": "add",
+    "operands": [
+      6,
+      12
+    ],
+    "result": 18,
+    "variable": "hat_scarf_sweater"
+  },
+  {
+    "step": 3,
+    "description": "add mittens skeins",
+    "operation": "add",
+    "operands": [
+      18,
+      1
+    ],
+    "result": 19,
+    "variable": "hat_scarf_sweater_mittens"
+  },
+  {
+    "step": 4,
+    "description": "add socks skeins \u2014 total per grandchild",
+    "operation": "add",
+    "operands": [
+      19,
+      2
+    ],
+    "result": 21,
+    "variable": "skeins_per_child"
+  },
+  {
+    "step": 5,
+    "description": "multiply by 3 grandchildren for total skeins",
+    "operation": "multiply",
+    "operands": [
+      21,
+      3
+    ],
+    "result": 63,
+    "variable": "total_skeins"
+  }
+]

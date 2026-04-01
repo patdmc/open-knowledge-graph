@@ -1,0 +1,35 @@
+id: PW-SignalingbyNOTCH
+type: knowledge
+domain: biology
+name: Signaling by NOTCH
+reactome_id: R-HSA-157118
+
+description: "The Notch Signaling Pathway (NSP) is a highly conserved pathway  for cell-cell communication. NSP is involved in the regulation of cellular differentiation, proliferation, and specification. For example, it is utilised by continually renewing adult tissues such as blood, skin, and gut epithelium not only to maintain stem cells in a proliferative, pluripotent, and undifferentiated state but also to direct the cellular progeny to adopt different developmental cell fates."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Pre-NOTCH Expression and Processing"
+    reactome_id: R-HSA-1912422
+    type: Pathway
+  - name: Signaling by NOTCH1
+    reactome_id: R-HSA-1980143
+    type: Pathway
+  - name: Signaling by NOTCH2
+    reactome_id: R-HSA-1980145
+    type: Pathway
+  - name: Signaling by NOTCH3
+    reactome_id: R-HSA-9012852
+    type: Pathway
+  - name: Signaling by NOTCH4
+    reactome_id: R-HSA-9013694
+    type: Pathway
+
+edges:

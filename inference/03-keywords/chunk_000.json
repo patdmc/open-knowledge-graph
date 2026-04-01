@@ -1,0 +1,53 @@
+{
+  "chunk_index": 0,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "Abstract",
+  "section_path": [
+    "Abstract"
+  ],
+  "char_count": 3413,
+  "keyphrases": [
+    {
+      "phrase": "structured knowledge efficient",
+      "score": 0.5226
+    },
+    {
+      "phrase": "storage behavioral breadth",
+      "score": 0.4909
+    },
+    {
+      "phrase": "graph math informed",
+      "score": 0.4896
+    },
+    {
+      "phrase": "knowledge graph fills",
+      "score": 0.4809
+    },
+    {
+      "phrase": "intelligence computational capacity",
+      "score": 0.4805
+    },
+    {
+      "phrase": "informed action space",
+      "score": 0.4247
+    },
+    {
+      "phrase": "math intrinsic drive",
+      "score": 0.4045
+    },
+    {
+      "phrase": "delegation overhead math",
+      "score": 0.3765
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "driven capacity to\nimprove"
+    ],
+    "has_math": true
+  }
+}

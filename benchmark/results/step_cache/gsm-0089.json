@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "calculate number of gift bags needed",
+    "operation": "multiply",
+    "operands": [
+      16,
+      0.75
+    ],
+    "result": 12.0,
+    "variable": "gift_bags"
+  },
+  {
+    "step": 2,
+    "description": "calculate total cost of gift bags",
+    "operation": "multiply",
+    "operands": [
+      12.0,
+      2
+    ],
+    "result": 24.0,
+    "variable": "total_cost"
+  }
+]

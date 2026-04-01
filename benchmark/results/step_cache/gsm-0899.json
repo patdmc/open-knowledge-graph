@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract cookies husband took from total",
+    "operation": "subtract",
+    "operands": [
+      100,
+      4
+    ],
+    "result": 96,
+    "variable": "remaining_cookies"
+  },
+  {
+    "step": 2,
+    "description": "Divide remaining cookies equally among nephews",
+    "operation": "divide",
+    "operands": [
+      96,
+      6
+    ],
+    "result": 16.0,
+    "variable": "cookies_per_nephew"
+  }
+]

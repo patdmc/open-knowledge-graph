@@ -1,0 +1,80 @@
+id: PW-SignalingbyHippo
+type: knowledge
+domain: biology
+name: Signaling by Hippo
+reactome_id: R-HSA-2028269
+
+description: "Human Hippo signaling is a network of reactions that regulates cell proliferation and apoptosis, centered on a three-step kinase cascade. The cascade was discovered by analysis of Drosophila mutations that lead to tissue overgrowth, and human homologues of its components have since been identified and characterized at a molecular level. Data from studies of mice carrying knockout mutant alleles of the genes as well as from studies of somatic mutations in these genes in human tumors are consistent with the conclusion that in mammals, as in flies, the Hippo cascade is required for normal regulation of cell proliferation and defects in the pathway are associated with cell overgrowth and tumorigenesis (Oh and Irvine 2010; Pan 2010; Zhao et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Phosphorylation of STK3 (MST2) and SAV1 by STK3
+    reactome_id: R-HSA-2028591
+    type: Reaction
+  - name: Phosphorylation of STK4 (MST1) and SAV1 by STK4
+    reactome_id: R-HSA-2028284
+    type: Reaction
+  - name: "Cleavage of p-STK3 (p-MST2) by caspase 3"
+    reactome_id: R-HSA-2028697
+    type: Reaction
+  - name: "Cleavage of p-STK4 (p-MST1) by caspase 3"
+    reactome_id: R-HSA-2028692
+    type: Reaction
+  - name: KIBRA (WWC1) binds LATS proteins
+    reactome_id: R-HSA-2038398
+    type: Reaction
+  - name: NPHP4 protein binds LATS proteins
+    reactome_id: R-HSA-2059926
+    type: Reaction
+  - name: "Phosphorylation of LATS1 and 2 by p-STK3 (p-MST2)"
+    reactome_id: R-HSA-2028589
+    type: Reaction
+  - name: "Phosphorylation of LATS1 and 2 by p-STK3 (MST2)/N"
+    reactome_id: R-HSA-2028673
+    type: Reaction
+  - name: "Phosphorylation of LATS1 and 2 by p-STK4 (p-MST1)"
+    reactome_id: R-HSA-2028555
+    type: Reaction
+  - name: "Phosphorylation of LATS1 and 2 by p-STK4(MST1)/N"
+    reactome_id: R-HSA-2028679
+    type: Reaction
+  - name: "Phosphorylation of MOB1A and B by p-STK3 (p-MST2)"
+    reactome_id: R-HSA-2028635
+    type: Reaction
+  - name: "Phosphorylation of MOB1A and B by p-STK3(MST2)/N"
+    reactome_id: R-HSA-2028675
+    type: Reaction
+  - name: "Phosphorylation of MOB1A and B by p-STK4 (p-MST1)"
+    reactome_id: R-HSA-2028629
+    type: Reaction
+  - name: "Phosphorylation of MOB1A and B by p-STK4(MST1)/N"
+    reactome_id: R-HSA-2028670
+    type: Reaction
+  - name: Phosphorylated MOB1A proteins associate with LATS proteins
+    reactome_id: R-HSA-2028626
+    type: Reaction
+  - name: Translocation of YAP1 to the nucleus
+    reactome_id: R-HSA-2032770
+    type: Reaction
+  - name: "YAP1 binds ZO-2 (TJP2)"
+    reactome_id: R-HSA-2064421
+    type: Reaction
+  - name: "Translocation of YAP1:ZO-2 (TJP2) to the nucleus"
+    reactome_id: R-HSA-2064406
+    type: Reaction
+  - name: AMOT proteins bind YAP1
+    reactome_id: R-HSA-2028724
+    type: Reaction
+  - name: Phosphorylation of YAP by LATS1
+    reactome_id: R-HSA-2028598
+    type: Reaction
+
+edges:

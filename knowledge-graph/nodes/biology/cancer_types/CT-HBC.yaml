@@ -1,0 +1,61 @@
+id: CT-HBC
+type: knowledge
+domain: cancer_biology
+name: "Hepatobiliary Cancer"
+
+n_patients: 1222
+n_mutated: 1013
+mutation_rate: 0.8290
+channel_entropy: 2.1189
+hub_fraction: 0.4304
+median_os_months: 9.6990
+event_rate: 0.6097
+survival_36m: 0.1211
+mean_channels_per_patient: 1.8134
+top_gene: TP53
+top_gene_frequency: 0.1643
+n_harmful_mutations: 3
+n_protective_mutations: 3
+dominant_channels: [CHAN-PI3K_Growth, CHAN-CellCycle]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=1222)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Hepatobiliary Cancer"
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Hepatobiliary Cancer"
+  - to: GENE-TP53
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "TP53 mutated in 0.1643 of Hepatobiliary Cancer patients"
+

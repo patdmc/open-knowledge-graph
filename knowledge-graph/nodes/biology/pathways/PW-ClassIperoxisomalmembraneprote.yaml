@@ -1,0 +1,38 @@
+id: PW-ClassIperoxisomalmembraneprote
+type: knowledge
+domain: biology
+name: Class I peroxisomal membrane protein import
+reactome_id: R-HSA-9603798
+
+description: "Most peroxisomal membrane proteins (PMPs) are inserted into the peroxisomal membrane by the receptor-chaperone PEX19 and the docking receptor PEX3 (Soukupova et al. 1999, Muntau et al. 2003, Fang et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PEX19 binds class I peroxisomal membrane proteins
+    reactome_id: R-HSA-9603804
+    type: Reaction
+  - name: "PEX19:class I PMP binds PEX3"
+    reactome_id: R-HSA-9603784
+    type: Reaction
+  - name: "PEX3:PEX19:class I PMP dissociates"
+    reactome_id: R-HSA-9603775
+    type: Reaction
+  - name: PEX19 binds PEX3
+    reactome_id: R-HSA-9603801
+    type: Reaction
+  - name: "PEX19:PEX3 binds PEX16"
+    reactome_id: R-HSA-9603797
+    type: Reaction
+  - name: "PEX16:PEX19:PEX3 dissociates"
+    reactome_id: R-HSA-9603791
+    type: Reaction
+
+edges:

@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "description": "Convert Jon's bike time to minutes",
+    "operation": "add",
+    "operands": [
+      60,
+      20
+    ],
+    "result": 80,
+    "variable": "jon_bike_minutes"
+  },
+  {
+    "step": 2,
+    "description": "Jon's swim + bike time",
+    "operation": "add",
+    "operands": [
+      40,
+      80
+    ],
+    "result": 120,
+    "variable": "jon_swim_plus_bike"
+  },
+  {
+    "step": 3,
+    "description": "Jon's total race time",
+    "operation": "add",
+    "operands": [
+      120,
+      50
+    ],
+    "result": 170,
+    "variable": "jon_total"
+  },
+  {
+    "step": 4,
+    "description": "James's total time (Jon won by 10 so James took 10 more)",
+    "operation": "add",
+    "operands": [
+      170,
+      10
+    ],
+    "result": 180,
+    "variable": "james_total"
+  },
+  {
+    "step": 5,
+    "description": "10% of Jon's swim time",
+    "operation": "multiply",
+    "operands": [
+      40,
+      0.1
+    ],
+    "result": 4,
+    "variable": "swim_reduction"
+  },
+  {
+    "step": 6,
+    "description": "James's swim time (10% faster)",
+    "operation": "subtract",
+    "operands": [
+      40,
+      4
+    ],
+    "result": 36,
+    "variable": "james_swim"
+  },
+  {
+    "step": 7,
+    "description": "James's bike time (5 minutes longer)",
+    "operation": "add",
+    "operands": [
+      80,
+      5
+    ],
+    "result": 85,
+    "variable": "james_bike"
+  },
+  {
+    "step": 8,
+    "description": "James's swim + bike combined",
+    "operation": "add",
+    "operands": [
+      36,
+      85
+    ],
+    "result": 121,
+    "variable": "james_swim_plus_bike"
+  },
+  {
+    "step": 9,
+    "description": "James's run time",
+    "operation": "subtract",
+    "operands": [
+      180,
+      121
+    ],
+    "result": 59,
+    "variable": "james_run"
+  }
+]

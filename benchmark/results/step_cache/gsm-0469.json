@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Total cupcakes from all jars",
+    "operation": "multiply",
+    "operands": [
+      6,
+      8
+    ],
+    "result": 48,
+    "variable": "total_cupcakes"
+  },
+  {
+    "step": 2,
+    "description": "Number of pans needed",
+    "operation": "divide",
+    "operands": [
+      48,
+      12
+    ],
+    "result": 4.0,
+    "variable": "pans_needed"
+  }
+]

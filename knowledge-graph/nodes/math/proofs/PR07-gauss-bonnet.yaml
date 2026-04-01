@@ -1,0 +1,97 @@
+id: PR07-gauss-bonnet
+type: proof
+domain: geometry
+name: "Gauss-Bonnet Theorem (sketch)"
+target:
+  statement: "\\int_M K \\, dA + \\int_{\\partial M} \\kappa_g \\, ds = 2\\pi \\chi(M)"
+  type: theorem
+method: direct
+
+note: >
+  Full proof requires machinery from differential geometry and algebraic topology.
+  This is a structured outline showing the logical chain.
+
+assertions:
+  - step: 1
+    id: local-gauss-bonnet
+    type: lemma
+    statement: "\\text{For a geodesic triangle } \\Delta \\text{ on surface: } \\int_\\Delta K\\,dA = (\\alpha + \\beta + \\gamma) - \\pi"
+    justification: "angle excess of geodesic triangle equals integral of Gaussian curvature over the triangle"
+    depends_on: []
+    references: [gaussian_curvature, geodesic]
+
+  - step: 2
+    id: triangulate
+    type: claim
+    statement: "\\text{Triangulate } M \\text{ into geodesic triangles } \\Delta_1, \\ldots, \\Delta_F"
+    justification: "every compact surface admits a geodesic triangulation"
+    depends_on: []
+    references: [simplicial_complex]
+
+  - step: 3
+    id: sum-over-triangles
+    type: claim
+    statement: "\\int_M K\\,dA = \\sum_{i=1}^F \\int_{\\Delta_i} K\\,dA = \\sum_{i=1}^F \\left[(\\text{angle sum of } \\Delta_i) - \\pi\\right]"
+    justification: "apply local-gauss-bonnet to each triangle and sum"
+    depends_on: [local-gauss-bonnet, triangulate]
+
+  - step: 4
+    id: angle-sum
+    type: claim
+    statement: "\\sum_{\\text{all angles}} = 2\\pi V_{\\text{int}} + \\pi V_{\\text{bdy}} + \\int_{\\partial M} \\kappa_g \\, ds"
+    justification: "interior vertices contribute 2π each; boundary angles relate to geodesic curvature"
+    depends_on: [triangulate]
+
+  - step: 5
+    id: euler-relation
+    type: claim
+    statement: "V - E + F = \\chi(M)"
+    justification: "Euler characteristic is a topological invariant computed from any triangulation"
+    depends_on: [triangulate]
+    references: [euler_characteristic]
+
+  - step: 6
+    id: combine
+    type: claim
+    statement: "\\int_M K\\,dA = (2\\pi V_{\\text{int}} + \\pi V_{\\text{bdy}} + \\int_{\\partial M} \\kappa_g\\,ds) - \\pi F"
+    justification: "substitute angle-sum into sum-over-triangles"
+    depends_on: [sum-over-triangles, angle-sum]
+
+  - step: 7
+    id: edge-counting
+    type: claim
+    statement: "3F = 2E_{\\text{int}} + E_{\\text{bdy}}, \\quad E_{\\text{bdy}} = V_{\\text{bdy}}"
+    justification: "each triangle has 3 edges; interior edges shared by 2 triangles; boundary edges and vertices match"
+    depends_on: [triangulate]
+
+  - step: 8
+    id: simplify-to-euler
+    type: claim
+    statement: "\\int_M K\\,dA + \\int_{\\partial M} \\kappa_g\\,ds = 2\\pi(V - E + F) = 2\\pi\\chi(M)"
+    justification: "substitute edge-counting relations into combine; terms simplify to 2π times Euler characteristic"
+    depends_on: [combine, edge-counting, euler-relation]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "\\int_M K\\,dA + \\int_{\\partial M} \\kappa_g\\,ds = 2\\pi\\chi(M)"
+    justification: "Gauss-Bonnet theorem established"
+    depends_on: [simplify-to-euler]
+
+qed: true
+
+special_cases:
+  - name: "closed surface (no boundary)"
+    statement: "\\int_M K\\,dA = 2\\pi\\chi(M)"
+    examples:
+      - "sphere: K = 1/r^2, area = 4πr^2, integral = 4π = 2π(2) = 2πχ(S^2)"
+      - "torus: integral = 0 = 2π(0) = 2πχ(T^2)"
+
+edges:
+  - to: G02-differential-geometry
+    relation: PROVES_FROM
+  - to: TOP01-topology
+    relation: USES
+    note: "Euler characteristic, triangulation"
+  - to: C02-integral-calculus
+    relation: USES

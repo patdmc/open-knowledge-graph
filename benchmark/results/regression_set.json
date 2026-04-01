@@ -1,0 +1,224 @@
+{
+  "description": "Problems we solve correctly as of 2026-03-30. These MUST NOT regress.",
+  "count": 36,
+  "ids": [
+    "gsm-0000",
+    "gsm-0026",
+    "gsm-0052",
+    "gsm-0104",
+    "gsm-0130",
+    "gsm-0156",
+    "gsm-0208",
+    "gsm-0286",
+    "gsm-0312",
+    "gsm-0390",
+    "gsm-0520",
+    "gsm-0598",
+    "gsm-0624",
+    "gsm-0702",
+    "gsm-0832",
+    "gsm-0884",
+    "gsm-0910",
+    "gsm-0962",
+    "gsm-0592",
+    "gsm-0765",
+    "gsm-0899",
+    "gsm-0900",
+    "gsm-0978",
+    "gsm-0262",
+    "gsm-0268",
+    "gsm-0309",
+    "gsm-0748",
+    "gsm-0917",
+    "gsm-1043",
+    "gsm-1054",
+    "gsm-1111",
+    "gsm-1113",
+    "gsm-1116",
+    "gsm-1234",
+    "gsm-1285",
+    "gsm-1298"
+  ],
+  "details": [
+    {
+      "id": "gsm-0000",
+      "answer": 18.0,
+      "solver": "question_driven"
+    },
+    {
+      "id": "gsm-0026",
+      "answer": 243.0,
+      "solver": "parallel_tracks"
+    },
+    {
+      "id": "gsm-0052",
+      "answer": 15.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0104",
+      "answer": 500.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0130",
+      "answer": 30.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0156",
+      "answer": 1400.0,
+      "solver": "entity_props"
+    },
+    {
+      "id": "gsm-0208",
+      "answer": 76.0,
+      "solver": "reference_chain"
+    },
+    {
+      "id": "gsm-0286",
+      "answer": 90.0,
+      "solver": "unit_conversion"
+    },
+    {
+      "id": "gsm-0312",
+      "answer": 32.0,
+      "solver": "algebra"
+    },
+    {
+      "id": "gsm-0390",
+      "answer": 12.0,
+      "solver": "entity_props"
+    },
+    {
+      "id": "gsm-0520",
+      "answer": 63.0,
+      "solver": "entity_props"
+    },
+    {
+      "id": "gsm-0598",
+      "answer": 69.0,
+      "solver": "unit_conversion"
+    },
+    {
+      "id": "gsm-0624",
+      "answer": 85.0,
+      "solver": "parallel_tracks"
+    },
+    {
+      "id": "gsm-0702",
+      "answer": 2800.0,
+      "solver": "algebra"
+    },
+    {
+      "id": "gsm-0832",
+      "answer": 42.0,
+      "solver": "algebra"
+    },
+    {
+      "id": "gsm-0884",
+      "answer": 50.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0910",
+      "answer": 700.0,
+      "solver": "algebra"
+    },
+    {
+      "id": "gsm-0962",
+      "answer": 1000.0,
+      "solver": "percentage"
+    },
+    {
+      "id": "gsm-0592",
+      "answer": 1.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0765",
+      "answer": 490.0,
+      "solver": "percentage"
+    },
+    {
+      "id": "gsm-0899",
+      "answer": 16.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0900",
+      "answer": 15.0,
+      "solver": "reference_chain"
+    },
+    {
+      "id": "gsm-0978",
+      "answer": 160.0,
+      "solver": "percentage"
+    },
+    {
+      "id": "gsm-0262",
+      "answer": 270.0,
+      "solver": "rate_groups"
+    },
+    {
+      "id": "gsm-0268",
+      "answer": 1375.0,
+      "solver": "parallel_tracks"
+    },
+    {
+      "id": "gsm-0309",
+      "answer": 8,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-0748",
+      "answer": 336.0,
+      "solver": "reference_chain"
+    },
+    {
+      "id": "gsm-0917",
+      "answer": 12.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-1043",
+      "answer": 130000.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-1054",
+      "answer": 2400.0,
+      "solver": "question_driven"
+    },
+    {
+      "id": "gsm-1111",
+      "answer": 157.0,
+      "solver": "parallel_tracks"
+    },
+    {
+      "id": "gsm-1113",
+      "answer": -3.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-1116",
+      "answer": 60.0,
+      "solver": "percentage"
+    },
+    {
+      "id": "gsm-1234",
+      "answer": 12.0,
+      "solver": "reference_chain"
+    },
+    {
+      "id": "gsm-1285",
+      "answer": 1218.0,
+      "solver": "sequential"
+    },
+    {
+      "id": "gsm-1298",
+      "answer": 31.0,
+      "solver": "unit_conversion"
+    }
+  ]
+}

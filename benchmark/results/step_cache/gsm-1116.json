@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate the number of new students from 20% increase",
+    "operation": "multiply",
+    "operands": [
+      50,
+      0.2
+    ],
+    "result": 10.0,
+    "variable": "new_students"
+  },
+  {
+    "step": 2,
+    "description": "Add new students to original enrollment",
+    "operation": "add",
+    "operands": [
+      50,
+      10.0
+    ],
+    "result": 60.0,
+    "variable": "total_enrollment"
+  }
+]

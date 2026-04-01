@@ -1,0 +1,29 @@
+id: PW-SynthesisofDNA
+type: knowledge
+domain: biology
+name: Synthesis of DNA
+reactome_id: R-HSA-69239
+
+description: The actual synthesis of DNA occurs in the S phase of the cell cycle. This includes the initiation of DNA replication, when the first nucleotide of the new strand is laid down during the synthesis of the primer. The DNA replication preinitiation events begin in late M or early G1 phase.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: DNA replication initiation
+    reactome_id: R-HSA-68952
+    type: Pathway
+  - name: "Switching of origins to a post-replicative state"
+    reactome_id: R-HSA-69052
+    type: Pathway
+  - name: DNA strand elongation
+    reactome_id: R-HSA-69190
+    type: Pathway
+
+edges:

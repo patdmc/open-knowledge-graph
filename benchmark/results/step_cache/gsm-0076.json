@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "days remaining in year after first 180",
+    "operation": "subtract",
+    "operands": [
+      365,
+      180
+    ],
+    "result": 185,
+    "variable": "remaining_days"
+  },
+  {
+    "step": 2,
+    "description": "cups in first 180 days at 1 cup/day",
+    "operation": "multiply",
+    "operands": [
+      180,
+      1
+    ],
+    "result": 180,
+    "variable": "cups_phase1"
+  },
+  {
+    "step": 3,
+    "description": "cups in remaining 185 days at 2 cups/day",
+    "operation": "multiply",
+    "operands": [
+      185,
+      2
+    ],
+    "result": 370,
+    "variable": "cups_phase2"
+  },
+  {
+    "step": 4,
+    "description": "total cups in first year",
+    "operation": "add",
+    "operands": [
+      180,
+      370
+    ],
+    "result": 550,
+    "variable": "total_cups"
+  },
+  {
+    "step": 5,
+    "description": "bags of dog food needed",
+    "operation": "divide",
+    "operands": [
+      550,
+      110
+    ],
+    "result": 5.0,
+    "variable": "bags_needed"
+  }
+]

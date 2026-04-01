@@ -1,0 +1,75 @@
+id: PROC-PROLIFERATION
+type: knowledge
+domain: biology
+name: cell population proliferation
+go_id: GO:0008283
+
+definition: The multiplication or reproduction of cells, resulting in the expansion of a cell population.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0003419
+    name: growth plate cartilage chondrocyte proliferation
+    relation: is_a
+  - id: GO:0071335
+    name: hair follicle cell proliferation
+    relation: is_a
+  - id: GO:2000793
+    name: cell proliferation involved in heart valve development
+    relation: is_a
+  - id: GO:0061323
+    name: cell proliferation involved in heart morphogenesis
+    relation: is_a
+  - id: GO:0061351
+    name: neural precursor cell proliferation
+    relation: is_a
+  - id: GO:0097360
+    name: chorionic trophoblast cell proliferation
+    relation: is_a
+  - id: GO:0036093
+    name: germ cell proliferation
+    relation: is_a
+  - id: GO:0002174
+    name: mammary stem cell proliferation
+    relation: is_a
+  - id: GO:0038091
+    name: "positive regulation of cell proliferation by VEGF-activated platelet derived growth factor receptor signaling pathway"
+    relation: positively_regulates
+  - id: GO:0051450
+    name: myoblast proliferation
+    relation: is_a
+  - id: GO:0090255
+    name: "cell proliferation involved in imaginal disc-derived wing morphogenesis"
+    relation: is_a
+  - id: GO:0072111
+    name: cell proliferation involved in kidney development
+    relation: is_a
+  - id: GO:0035172
+    name: hemocyte proliferation
+    relation: is_a
+  - id: GO:0048134
+    name: "germ-line cyst formation"
+    relation: is_a
+  - id: GO:0048144
+    name: fibroblast proliferation
+    relation: is_a
+
+edges:
+  - to: CHAN-CellCycle
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-CellCycle encode components of cell population proliferation"

@@ -1,0 +1,15 @@
+id: BIO-PROTEINFOLDING
+type: knowledge
+domain: biology
+name: Protein Folding
+
+description: Processes involved in the formation of TERTIARY PROTEIN STRUCTURE.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

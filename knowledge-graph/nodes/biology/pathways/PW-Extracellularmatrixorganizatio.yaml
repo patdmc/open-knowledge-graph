@@ -1,0 +1,57 @@
+id: PW-Extracellularmatrixorganizatio
+type: knowledge
+domain: biology
+name: Extracellular matrix organization
+reactome_id: R-HSA-1474244
+
+description: "The extracellular matrix is a component of all mammalian tissues, a network consisting largely of the fibrous proteins collagen, elastin and associated-microfibrils, fibronectin and laminins embedded in a viscoelastic gel of anionic proteoglycan polymers. It performs many functions in addition to its structural role; as a major component of the cellular microenvironment it influences cell behaviours such as proliferation, adhesion and migration, and regulates cell differentiation and death (Hynes 2009). ECM composition is highly heterogeneous and dynamic, being constantly remodeled (Frantz et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Collagen formation
+    reactome_id: R-HSA-1474290
+    type: Pathway
+  - name: Fibronectin matrix formation
+    reactome_id: R-HSA-1566977
+    type: Pathway
+  - name: Elastic fibre formation
+    reactome_id: R-HSA-1566948
+    type: Pathway
+  - name: Laminin interactions
+    reactome_id: R-HSA-3000157
+    type: Pathway
+  - name: "Non-integrin membrane-ECM interactions"
+    reactome_id: R-HSA-3000171
+    type: Pathway
+  - name: ECM proteoglycans
+    reactome_id: R-HSA-3000178
+    type: Pathway
+  - name: Degradation of the extracellular matrix
+    reactome_id: R-HSA-1474228
+    type: Pathway
+  - name: Integrin cell surface interactions
+    reactome_id: R-HSA-216083
+    type: Pathway
+  - name: Invadopodia formation
+    reactome_id: R-HSA-8941237
+    type: Pathway
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Extracellular matrix organization pathway components are encoded by CHAN-TissueArchitecture genes"

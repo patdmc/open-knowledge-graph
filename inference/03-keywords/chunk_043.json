@@ -1,0 +1,56 @@
+{
+  "chunk_index": 43,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "2. The Formal Framework > 2.1 Provenance Triples",
+  "section_path": [
+    "2. The Formal Framework",
+    "2.1 Provenance Triples"
+  ],
+  "char_count": 2576,
+  "keyphrases": [
+    {
+      "phrase": "definition provenance triple",
+      "score": 0.729
+    },
+    {
+      "phrase": "provenance triplesprovenance triples",
+      "score": 0.6958
+    },
+    {
+      "phrase": "triplesprovenance triples definition",
+      "score": 0.6419
+    },
+    {
+      "phrase": "proposition math knowledge",
+      "score": 0.4624
+    },
+    {
+      "phrase": "confidence base propositions",
+      "score": 0.4173
+    },
+    {
+      "phrase": "claim epistemically tractable",
+      "score": 0.3864
+    },
+    {
+      "phrase": "conceptual strength references",
+      "score": 0.3492
+    },
+    {
+      "phrase": "math derived formally",
+      "score": 0.3209
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 1 (Proposition).",
+      "Definition 2 (Provenance Triple).",
+      "Definition 3 (Confidence Score)."
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,26 @@
+id: PW-Diseasesofhemostasis
+type: knowledge
+domain: biology
+name: Diseases of hemostasis
+reactome_id: R-HSA-9671793
+
+description: "Hemostasis is a complex process that leads to the formation of a blood clot at the site of vessel injury. Three phases can be distinguished: primary hemostasis or formation of a platelet plug, secondary hemostasis, or coagulation and fibrinolysis (Kriz N et al. 2009)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Defects of contact activation system (CAS) and kallikrein/kinin system (KKS)
+    reactome_id: R-HSA-9651496
+    type: Pathway
+  - name: Defects of platelet adhesion to exposed collagen
+    reactome_id: R-HSA-9823587
+    type: Pathway
+
+edges:

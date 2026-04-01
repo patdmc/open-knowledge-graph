@@ -1,0 +1,59 @@
+{
+  "chunk_index": 61,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "1. Introduction > [part 2/4]",
+  "section_path": [
+    "1. Introduction",
+    "[part 2/4]"
+  ],
+  "char_count": 6208,
+  "keyphrases": [
+    {
+      "phrase": "organism minimizes definitionally",
+      "score": 0.4792
+    },
+    {
+      "phrase": "agency math intrinsic",
+      "score": 0.4018
+    },
+    {
+      "phrase": "free energy objective",
+      "score": 0.4001
+    },
+    {
+      "phrase": "definitionally self organizing",
+      "score": 0.3896
+    },
+    {
+      "phrase": "makes predictions fep",
+      "score": 0.3834
+    },
+    {
+      "phrase": "critical domain selection",
+      "score": 0.3793
+    },
+    {
+      "phrase": "entity persists necessarily",
+      "score": 0.3428
+    },
+    {
+      "phrase": "descent compulsion survival",
+      "score": 0.326
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The derivation.",
+      "Correspondence to FEP.",
+      "What this adds.",
+      "The constraint.",
+      "Testable predictions.",
+      "The allocation tax."
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Balls after week 1",
+    "operation": "add",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 4,
+    "variable": "balls_week1"
+  },
+  {
+    "step": 2,
+    "description": "Balls after week 2",
+    "operation": "add",
+    "operands": [
+      4,
+      1
+    ],
+    "result": 5,
+    "variable": "balls_week2"
+  },
+  {
+    "step": 3,
+    "description": "Balls after week 3",
+    "operation": "add",
+    "operands": [
+      5,
+      1
+    ],
+    "result": 6,
+    "variable": "balls_week3"
+  },
+  {
+    "step": 4,
+    "description": "Balls after week 4",
+    "operation": "add",
+    "operands": [
+      6,
+      1
+    ],
+    "result": 7,
+    "variable": "balls_week4"
+  },
+  {
+    "step": 5,
+    "description": "Balls remaining after slipping and dropping 3",
+    "operation": "subtract",
+    "operands": [
+      7,
+      3
+    ],
+    "result": 4,
+    "variable": "balls_juggling_on_stage"
+  }
+]

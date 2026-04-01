@@ -1,0 +1,41 @@
+id: PW-Hemostasis
+type: knowledge
+domain: biology
+name: Hemostasis
+reactome_id: R-HSA-109582
+
+description: "Hemostasis is a physiological response that culminates in the arrest of bleeding from an injured vessel. Under normal conditions the vascular endothelium supports vasodilation, inhibits platelet adhesion and activation, suppresses coagulation, enhances fibrin cleavage and is anti-inflammatory in character. Under acute vascular trauma, vasoconstrictor mechanisms predominate and the endothelium becomes prothrombotic, procoagulatory and proinflammatory in nature."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Platelet homeostasis
+    reactome_id: R-HSA-418346
+    type: Pathway
+  - name: Platelet Adhesion to exposed collagen
+    reactome_id: R-HSA-75892
+    type: Pathway
+  - name: Platelet activation, signaling and aggregation
+    reactome_id: R-HSA-76002
+    type: Pathway
+  - name: Formation of Fibrin Clot (Clotting Cascade)
+    reactome_id: R-HSA-140877
+    type: Pathway
+  - name: Dissolution of Fibrin Clot
+    reactome_id: R-HSA-75205
+    type: Pathway
+  - name: Cell surface interactions at the vascular wall
+    reactome_id: R-HSA-202733
+    type: Pathway
+  - name: Factors involved in megakaryocyte development and platelet production
+    reactome_id: R-HSA-983231
+    type: Pathway
+
+edges:

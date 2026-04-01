@@ -1,0 +1,74 @@
+id: PW-Transcriptionalregulationoftes
+type: knowledge
+domain: biology
+name: Transcriptional regulation of testis differentiation
+reactome_id: R-HSA-9690406
+
+description: In humans, primordial germ cells (PGCs) are specified about 2 weeks after fertilization, a time before gastrulation (reviewed in Svingen and Koopman 2013, Mäkelä et al. 2019). PGCs are initially located extraembryonically and then migrate to colonize the gonadal ridges (genital ridges) of the embryo during the fifth week after fertilization.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: WT1, NR5A1 (SF1), GATA4, ZFPM2 bind the SRY gene
+    reactome_id: R-HSA-9692250
+    type: Reaction
+  - name: Expression of SRY in testis differentiation
+    reactome_id: R-HSA-9692241
+    type: BlackBoxEvent
+  - name: SRY and NR5A1 (SF1) bind SOX9 gene
+    reactome_id: R-HSA-9690414
+    type: Reaction
+  - name: Expression of SOX9 in testis differentiation
+    reactome_id: R-HSA-9690404
+    type: BlackBoxEvent
+  - name: SOX9 binds the SOX9 gene
+    reactome_id: R-HSA-9690395
+    type: BlackBoxEvent
+  - name: SOX9 and GATA4 bind the DMRT1 gene
+    reactome_id: R-HSA-9690896
+    type: Reaction
+  - name: Expression of DMRT1 in testis differentiation
+    reactome_id: R-HSA-9690877
+    type: BlackBoxEvent
+  - name: SOX9 binds the FGF9 gene
+    reactome_id: R-HSA-9692131
+    type: Reaction
+  - name: Expression of FGF9 in testis differentiation
+    reactome_id: R-HSA-9692134
+    type: BlackBoxEvent
+  - name: SOX9 binds the PTGDS gene
+    reactome_id: R-HSA-9692154
+    type: Reaction
+  - name: Expression of PTGDS in testis differentiation
+    reactome_id: R-HSA-9692129
+    type: BlackBoxEvent
+  - name: SOX9, NR5A1 (SF1), and GATA4 bind the AMH gene
+    reactome_id: R-HSA-9692135
+    type: Reaction
+  - name: Expression of AMH in testis differentiation
+    reactome_id: R-HSA-9693009
+    type: BlackBoxEvent
+  - name: SOX9 binds the DHH gene
+    reactome_id: R-HSA-9692150
+    type: Reaction
+  - name: Expression of DHH in testis differentiation
+    reactome_id: R-HSA-9692146
+    type: BlackBoxEvent
+  - name: DMRT1 binds the SOX9 gene
+    reactome_id: R-HSA-9692228
+    type: Reaction
+  - name: DMRT1 binds the FOXL2 gene
+    reactome_id: R-HSA-9692236
+    type: Reaction
+  - name: DMRT1 binds the WNT4 gene
+    reactome_id: R-HSA-9692297
+    type: Reaction
+
+edges:

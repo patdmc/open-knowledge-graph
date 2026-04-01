@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "One-fifth of Monday's letters",
+    "operation": "divide",
+    "operands": [
+      425,
+      5
+    ],
+    "result": 85,
+    "variable": "tuesday_base"
+  },
+  {
+    "step": 2,
+    "description": "Tuesday's delivery (base + 17)",
+    "operation": "add",
+    "operands": [
+      85,
+      17
+    ],
+    "result": 102,
+    "variable": "tuesday"
+  },
+  {
+    "step": 3,
+    "description": "Twice Tuesday's letters",
+    "operation": "multiply",
+    "operands": [
+      102,
+      2
+    ],
+    "result": 204,
+    "variable": "wednesday_base"
+  },
+  {
+    "step": 4,
+    "description": "Wednesday's delivery (base + 5)",
+    "operation": "add",
+    "operands": [
+      204,
+      5
+    ],
+    "result": 209,
+    "variable": "wednesday"
+  },
+  {
+    "step": 5,
+    "description": "Monday + Tuesday total",
+    "operation": "add",
+    "operands": [
+      425,
+      102
+    ],
+    "result": 527,
+    "variable": "mon_tue_total"
+  },
+  {
+    "step": 6,
+    "description": "Monday + Tuesday + Wednesday total",
+    "operation": "add",
+    "operands": [
+      527,
+      209
+    ],
+    "result": 736,
+    "variable": "total_letters"
+  }
+]

@@ -1,0 +1,61 @@
+id: CT-CESC
+type: knowledge
+domain: cancer_biology
+name: "Cervical Cancer"
+
+n_patients: 284
+n_mutated: 238
+mutation_rate: 0.8380
+channel_entropy: 2.0812
+hub_fraction: 0.4447
+median_os_months: 15.4355
+event_rate: 0.3627
+survival_36m: 0.1303
+mean_channels_per_patient: 1.9454
+top_gene: PIK3CA
+top_gene_frequency: 0.1496
+n_harmful_mutations: 0
+n_protective_mutations: 0
+dominant_channels: [CHAN-PI3K_Growth, CHAN-TissueArchitecture]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=284)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Cervical Cancer"
+  - to: CHAN-TissueArchitecture
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Cervical Cancer"
+  - to: GENE-PIK3CA
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "PIK3CA mutated in 0.1496 of Cervical Cancer patients"
+

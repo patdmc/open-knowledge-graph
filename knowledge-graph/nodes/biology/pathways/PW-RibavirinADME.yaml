@@ -1,0 +1,56 @@
+id: PW-RibavirinADME
+type: knowledge
+domain: biology
+name: Ribavirin ADME
+reactome_id: R-HSA-9755088
+
+description: Ribavirin (RBV) is a synthetic nucleoside analog structurally related to guanine. It is given orally as part of the treatment of HCV infection, and by inhalation for the treatment of RSV infection. According to the WHO, ribavirin can also be used for the treatment of viral hemorrhagic fevers (WHO 2015).RBV is administered orally in doses of 400 to 600 mg.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: SLC28C2,3 cotransports RBV, Na+ from extracellular region to cytosol
+    reactome_id: R-HSA-9754934
+    type: Reaction
+  - name: SLC29A1 transports RBV from extracellular region to cytosol
+    reactome_id: R-HSA-9755015
+    type: Reaction
+  - name: ADK phosphorylates RBV
+    reactome_id: R-HSA-9754974
+    type: Reaction
+  - name: NT5C2 tetramer phosphorylates RBV
+    reactome_id: R-HSA-9754916
+    type: Reaction
+  - name: "Unknown kinase phosphorylates RBV-MP"
+    reactome_id: R-HSA-9754978
+    type: BlackBoxEvent
+  - name: "NME1,2 hexamers phosphorylate RBV-DP"
+    reactome_id: R-HSA-9755013
+    type: Reaction
+  - name: SLC29A1 transports RBV from cytosol to extracellular region
+    reactome_id: R-HSA-9755035
+    type: Reaction
+  - name: "ITPA dimer dephosphorylates RBV-TP to RBV-MP"
+    reactome_id: R-HSA-9755030
+    type: Reaction
+  - name: "NT5C2 tetramer dephosphorylates RBV-MP"
+    reactome_id: R-HSA-9755078
+    type: BlackBoxEvent
+  - name: "PNP trimer transforms RBV to T-CONH2"
+    reactome_id: R-HSA-9755044
+    type: Reaction
+  - name: ADA deamidates RBV
+    reactome_id: R-HSA-9754964
+    type: Reaction
+  - name: "SLC29A3 transports RBV,RBV-TP from cytosol to mitochondrial matrix"
+    reactome_id: R-HSA-9754929
+    type: Reaction
+
+edges:

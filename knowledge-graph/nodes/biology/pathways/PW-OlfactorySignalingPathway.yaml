@@ -1,0 +1,50 @@
+id: PW-OlfactorySignalingPathway
+type: knowledge
+domain: biology
+name: Olfactory Signaling Pathway
+reactome_id: R-HSA-381753
+
+description: "Mammalian Olfactory Receptor (OR, also called odorant receptor) genes were discovered in rats by Linda Buck and Richard Axel, who predicted that odorants would be detected by a large family of G protein-coupled receptors (GPCRs) that are selectively expressed in the olfactory epithelium. This prediction was based on previous biochemical evidence that cAMP levels increased in olfactory neurons upon odor stimulation. These predictions proved to be accurate, and Buck and Axel received a Nobel Prize for this and subsequent work (reviewed in Keller & Vosshall 2008).Subsequent work in mice and other vertebrates has confirmed that OR genes are comprised of a very large family of G Protein-Coupled Receptors (GPCRs) that are selectively-expressed in olfactory epithelium."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Expression and translocation of olfactory receptors
+    reactome_id: R-HSA-9752946
+    type: Pathway
+  - name: "odorant binds Odorant Receptor:GNAL:GDP:GNB1:GNGT1"
+    reactome_id: R-HSA-9712210
+    type: Reaction
+  - name: "GNAL exchanges GDP for GTP in odorant:Olfactory Receptor:GNAL:GDP:GNB1:GNG13"
+    reactome_id: R-HSA-9712201
+    type: Reaction
+  - name: "odorant:Olfactory Receptor:GNAL:GTP:GNB1:GNG13 dissociates yielding GNAL:GTP (G alpha-olf:GTP), odorant:OlfactoryReceptor, and GNB1:GNG13"
+    reactome_id: R-HSA-9712208
+    type: Reaction
+  - name: "GNAL:GTP (G alpha-olf) binds ADCY3"
+    reactome_id: R-HSA-9712187
+    type: Reaction
+  - name: "ADCY3:GNAL:GTP converts ATP to cAMP"
+    reactome_id: R-HSA-9712183
+    type: Reaction
+  - name: cAMP binds the olfactory CNG channel
+    reactome_id: R-HSA-9712199
+    type: Reaction
+  - name: "cAMP:olfactory CNG channel translocates Na+ and Ca2+ from the extracellular region to the cytosol"
+    reactome_id: R-HSA-9712190
+    type: Reaction
+  - name: ANO2 dimer binds Ca2+
+    reactome_id: R-HSA-9712195
+    type: Reaction
+  - name: "ANO2:Ca2+ translocates Cl- from the cytosol to the extracellular region"
+    reactome_id: R-HSA-9712204
+    type: Reaction
+
+edges:

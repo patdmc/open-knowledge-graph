@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Dylan's investment (2/5 of total)",
+    "operation": "multiply",
+    "operands": [
+      1200,
+      0.4
+    ],
+    "result": 480.0,
+    "variable": "dylan_investment"
+  },
+  {
+    "step": 2,
+    "description": "Remaining after Dylan",
+    "operation": "subtract",
+    "operands": [
+      1200,
+      480.0
+    ],
+    "result": 720.0,
+    "variable": "after_dylan"
+  },
+  {
+    "step": 3,
+    "description": "Frances's investment (2/3 of remaining)",
+    "operation": "multiply",
+    "operands": [
+      720.0,
+      0.6667
+    ],
+    "result": 480.0,
+    "variable": "frances_investment"
+  },
+  {
+    "step": 4,
+    "description": "Skyler's investment (rest)",
+    "operation": "subtract",
+    "operands": [
+      720.0,
+      480.0
+    ],
+    "result": 240.0,
+    "variable": "skyler_investment"
+  }
+]

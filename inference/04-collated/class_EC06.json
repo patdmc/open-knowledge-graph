@@ -1,0 +1,180 @@
+{
+  "class_id": "EC06",
+  "label": "knowledge-graph-schema",
+  "n_chunks": 3,
+  "n_missing": 0,
+  "representative_title": "3. Knowledge Graph Schema",
+  "chunks": [
+    {
+      "chunk_index": 45,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "3. Knowledge Graph Schema",
+      "section_path": [
+        "3. Knowledge Graph Schema"
+      ],
+      "char_count": 166,
+      "keyphrases": [
+        {
+          "phrase": "knowledge graph schemaknowledge",
+          "score": 0.8305
+        },
+        {
+          "phrase": "schemaknowledge graph schema",
+          "score": 0.7606
+        },
+        {
+          "phrase": "graph schema framework",
+          "score": 0.7239
+        },
+        {
+          "phrase": "typed nodes provenance",
+          "score": 0.6414
+        },
+        {
+          "phrase": "schema framework implemented",
+          "score": 0.6152
+        },
+        {
+          "phrase": "provenance carrying edges",
+          "score": 0.6121
+        },
+        {
+          "phrase": "directed graph typed",
+          "score": 0.5162
+        },
+        {
+          "phrase": "framework implemented directed",
+          "score": 0.3986
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": false
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC06"
+      ],
+      "other_classes": [],
+      "is_representative": true
+    },
+    {
+      "chunk_index": 54,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "9. Discussion",
+      "section_path": [
+        "9. Discussion"
+      ],
+      "char_count": 1510,
+      "keyphrases": [
+        {
+          "phrase": "scientometrics bibliometric analysis",
+          "score": 0.6377
+        },
+        {
+          "phrase": "hirsch2005 citation networks",
+          "score": 0.5749
+        },
+        {
+          "phrase": "biomedical knowledge graphs",
+          "score": 0.5674
+        },
+        {
+          "phrase": "research owl rdf",
+          "score": 0.5148
+        },
+        {
+          "phrase": "cited strong evidence",
+          "score": 0.457
+        },
+        {
+          "phrase": "contribution provenance design",
+          "score": 0.4491
+        },
+        {
+          "phrase": "scientific frameworks relate",
+          "score": 0.3932
+        },
+        {
+          "phrase": "discussiondiscussion relation existing",
+          "score": 0.3178
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": false
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC06"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 57,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "Acknowledgments",
+      "section_path": [
+        "Acknowledgments"
+      ],
+      "char_count": 339,
+      "keyphrases": [
+        {
+          "phrase": "knowledge graph implementation",
+          "score": 0.681
+        },
+        {
+          "phrase": "knowledge graph center0",
+          "score": 0.6652
+        },
+        {
+          "phrase": "acknowledgmentsacknowledgments formal theory",
+          "score": 0.6609
+        },
+        {
+          "phrase": "open knowledge graph",
+          "score": 0.6391
+        },
+        {
+          "phrase": "patdmc open knowledge",
+          "score": 0.5218
+        },
+        {
+          "phrase": "prior work knowledge",
+          "score": 0.4192
+        },
+        {
+          "phrase": "implementation cross framework",
+          "score": 0.3464
+        },
+        {
+          "phrase": "graph center0 linewidth",
+          "score": 0.2663
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": false
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC06"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    }
+  ]
+}

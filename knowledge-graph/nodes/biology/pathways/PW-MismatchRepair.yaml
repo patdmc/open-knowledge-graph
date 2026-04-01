@@ -1,0 +1,26 @@
+id: PW-MismatchRepair
+type: knowledge
+domain: biology
+name: Mismatch Repair
+reactome_id: R-HSA-5358508
+
+description: "The mismatch repair (MMR) system corrects single base mismatches and small insertion and deletion loops (IDLs) of unpaired bases. MMR is primarily associated with DNA replication and is highly conserved across prokaryotes and eukaryotes. MMR consists of the following basic steps: a sensor (MutS homologue) detects a mismatch or IDL, the sensor activates a set of proteins (a MutL homologue and an exonuclease) that select the nascent DNA strand to be repaired, nick the strand, exonucleolytically remove  a region of nucleotides containing the mismatch, and finally a DNA polymerase resynthesizes the strand and a ligase seals the remaining nick (reviewed in Kolodner and Marsischkny 1999, Iyer et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Mismatch repair (MMR) directed by MSH2:MSH6 (MutSalpha)"
+    reactome_id: R-HSA-5358565
+    type: Pathway
+  - name: "Mismatch repair (MMR) directed by MSH2:MSH3 (MutSbeta)"
+    reactome_id: R-HSA-5358606
+    type: Pathway
+
+edges:

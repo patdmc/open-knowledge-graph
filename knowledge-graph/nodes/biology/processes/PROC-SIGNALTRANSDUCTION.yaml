@@ -1,0 +1,75 @@
+id: PROC-SIGNALTRANSDUCTION
+type: knowledge
+domain: biology
+name: signal transduction
+go_id: GO:0007165
+
+definition: "The cellular process in which a signal is conveyed to trigger a change in the activity or state of a cell. Signal transduction begins with reception of a signal (e.g. a ligand binding to a receptor or receptor activation by a stimulus such as light), or for signal transduction in the absence of ligand, signal-withdrawal or the activity of a constitutively active receptor."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0001402
+    name: signal transduction involved in filamentous growth
+    relation: is_a
+  - id: GO:0010017
+    name: "red or far-red light signaling pathway"
+    relation: is_a
+  - id: GO:0097527
+    name: necroptotic signaling pathway
+    relation: is_a
+  - id: GO:0097190
+    name: apoptotic signaling pathway
+    relation: is_a
+  - id: GO:1990806
+    name: "ligand-gated ion channel signaling pathway"
+    relation: is_a
+  - id: GO:0048018
+    name: receptor ligand activity
+    relation: part_of
+  - id: GO:0090520
+    name: sphingolipid mediated signaling pathway
+    relation: is_a
+  - id: GO:0038183
+    name: bile acid signaling pathway
+    relation: is_a
+  - id: GO:1903831
+    name: signal transduction involved in cellular response to ammonium ion
+    relation: is_a
+  - id: GO:0002764
+    name: "immune response-regulating signaling pathway"
+    relation: is_a
+  - id: GO:0038034
+    name: signal transduction in absence of ligand
+    relation: is_a
+  - id: GO:0038011
+    name: negative regulation of signal transduction by receptor internalization
+    relation: negatively_regulates
+  - id: GO:0038010
+    name: positive regulation of signal transduction by receptor internalization
+    relation: positively_regulates
+  - id: GO:0038009
+    name: regulation of signal transduction by receptor internalization
+    relation: regulates
+  - id: GO:0140507
+    name: "granzyme-mediated programmed cell death signaling pathway"
+    relation: is_a
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-PI3K_Growth encode components of signal transduction"

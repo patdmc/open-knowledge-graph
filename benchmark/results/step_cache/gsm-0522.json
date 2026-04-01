@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Bobby's rate: one less than Tony",
+    "operation": "subtract",
+    "operands": [
+      6,
+      1
+    ],
+    "result": 5,
+    "variable": "Bobby_rate"
+  },
+  {
+    "step": 2,
+    "description": "Kathy's rate: twice Bobby's rate",
+    "operation": "multiply",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 10,
+    "variable": "Kathy_rate"
+  },
+  {
+    "step": 3,
+    "description": "Ricky's rate: two fewer than Kathy",
+    "operation": "subtract",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 8,
+    "variable": "Ricky_rate"
+  },
+  {
+    "step": 4,
+    "description": "Tony + Bobby combined rate",
+    "operation": "add",
+    "operands": [
+      6,
+      5
+    ],
+    "result": 11,
+    "variable": "Tony_Bobby_total"
+  },
+  {
+    "step": 5,
+    "description": "Add Kathy's rate",
+    "operation": "add",
+    "operands": [
+      11,
+      10
+    ],
+    "result": 21,
+    "variable": "Tony_Bobby_Kathy_total"
+  },
+  {
+    "step": 6,
+    "description": "Add Ricky's rate for grand total",
+    "operation": "add",
+    "operands": [
+      21,
+      8
+    ],
+    "result": 29,
+    "variable": "total_quarts_per_hour"
+  }
+]

@@ -1,0 +1,92 @@
+id: PR25-law-large-numbers
+type: proof
+domain: probability
+name: "Weak Law of Large Numbers"
+target:
+  statement: "\\bar{X}_n \\xrightarrow{P} \\mu \\quad \\text{i.e., } \\forall \\epsilon > 0: \\; P(|\\bar{X}_n - \\mu| \\geq \\epsilon) \\to 0"
+  type: theorem
+method: direct
+
+note: >
+  Proof via Chebyshev's inequality. Requires only finite variance.
+
+assertions:
+  - step: 1
+    id: setup
+    type: hypothesis
+    statement: "X_1, X_2, \\ldots \\text{ are iid with } E[X_i] = \\mu, \\; \\text{Var}(X_i) = \\sigma^2 < \\infty"
+    justification: "hypotheses of the weak law of large numbers"
+    depends_on: []
+    references: [expected_value, variance]
+
+  - step: 2
+    id: sample-mean-def
+    type: definition
+    statement: "\\bar{X}_n = \\frac{1}{n} \\sum_{i=1}^n X_i"
+    justification: "definition of the sample mean"
+    depends_on: [setup]
+
+  - step: 3
+    id: mean-of-xbar
+    type: claim
+    statement: "E[\\bar{X}_n] = \\mu"
+    justification: "E[X_bar] = (1/n) * sum E[X_i] = (1/n) * n * mu = mu, by linearity of expectation"
+    depends_on: [sample-mean-def, setup]
+    references: [expected_value]
+
+  - step: 4
+    id: variance-of-xbar
+    type: claim
+    statement: "\\text{Var}(\\bar{X}_n) = \\frac{\\sigma^2}{n}"
+    justification: "Var(X_bar) = (1/n^2) * sum Var(X_i) = (1/n^2) * n * sigma^2 = sigma^2/n, using independence"
+    depends_on: [sample-mean-def, setup]
+    references: [variance]
+
+  - step: 5
+    id: state-chebyshev
+    type: lemma
+    statement: "P(|Y - E[Y]| \\geq \\epsilon) \\leq \\frac{\\text{Var}(Y)}{\\epsilon^2} \\quad \\text{(Chebyshev's inequality)}"
+    justification: >
+      by Markov's inequality applied to (Y - E[Y])^2:
+      P(|Y - E[Y]| >= epsilon) = P((Y - E[Y])^2 >= epsilon^2) <= E[(Y - E[Y])^2] / epsilon^2 = Var(Y) / epsilon^2
+    depends_on: []
+
+  - step: 6
+    id: apply-chebyshev
+    type: claim
+    statement: "P(|\\bar{X}_n - \\mu| \\geq \\epsilon) \\leq \\frac{\\sigma^2}{n \\epsilon^2}"
+    justification: "apply Chebyshev's inequality to Y = X_bar with E[Y] = mu and Var(Y) = sigma^2/n"
+    depends_on: [state-chebyshev, mean-of-xbar, variance-of-xbar]
+
+  - step: 7
+    id: take-limit
+    type: claim
+    statement: "\\frac{\\sigma^2}{n \\epsilon^2} \\to 0 \\text{ as } n \\to \\infty"
+    justification: "sigma^2 and epsilon are fixed positive constants; numerator is fixed, denominator grows"
+    depends_on: [apply-chebyshev]
+    references: [limit]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "\\forall \\epsilon > 0: \\; P(|\\bar{X}_n - \\mu| \\geq \\epsilon) \\to 0 \\text{ as } n \\to \\infty"
+    justification: "the probability is squeezed between 0 and sigma^2/(n*epsilon^2), which tends to 0"
+    depends_on: [apply-chebyshev, take-limit]
+    references: [probability]
+
+qed: true
+
+corollaries:
+  - id: frequency-to-probability
+    statement: "\\frac{\\#\\{X_i = 1\\}}{n} \\xrightarrow{P} p \\quad \\text{for Bernoulli}(p) \\text{ trials}"
+    justification: "special case with mu = p, sigma^2 = p(1-p)"
+    depends_on: [conclusion]
+
+  - id: strong-law
+    statement: "\\bar{X}_n \\xrightarrow{a.s.} \\mu \\quad \\text{(strong law of large numbers)}"
+    justification: "stronger result (almost sure convergence) holds under the same finite-variance assumption; requires more advanced tools (e.g., Borel-Cantelli)"
+    depends_on: [conclusion]
+
+edges:
+  - to: P01-probability-statistics
+    relation: PROVES_FROM

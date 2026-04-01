@@ -1,0 +1,29 @@
+id: PW-Fertilization
+type: knowledge
+domain: biology
+name: Fertilization
+reactome_id: R-HSA-1187000
+
+description: "Mammalian fertilization comprises sperm migration through the female reproductive tract, biochemical and morphological changes to sperm, and sperm-egg interaction in the oviduct. Although the broad concepts of fertilization are well defined, our understanding of the biochemical mechanisms underlying sperm-egg binding is limited."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Sperm Motility And Taxes
+    reactome_id: R-HSA-1300642
+    type: Pathway
+  - name: Interaction With Cumulus Cells And The Zona Pellucida
+    reactome_id: R-HSA-2534343
+    type: Pathway
+  - name: "Acrosome Reaction and Sperm:Oocyte Membrane Binding"
+    reactome_id: R-HSA-1300645
+    type: Pathway
+
+edges:

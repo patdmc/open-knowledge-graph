@@ -1,0 +1,99 @@
+{
+  "class_id": "EC07",
+  "label": "social-imperative-introduction",
+  "n_chunks": 8,
+  "representative": {
+    "chunk_index": 63,
+    "section_title": "1. Introduction > [part 4/4]",
+    "similarity": 0.841
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 63,
+      "section_title": "1. Introduction > [part 4/4]",
+      "similarity": 0.841,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex"
+    },
+    {
+      "chunk_index": 3,
+      "section_title": "2. The Central Claims",
+      "similarity": 0.7856,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 61,
+      "section_title": "1. Introduction > [part 2/4]",
+      "similarity": 0.7697,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "transmission fidelity knowledge",
+      "score": 0.6367
+    },
+    {
+      "phrase": "knowledge transfer inherently",
+      "score": 0.5765
+    },
+    {
+      "phrase": "intelligence driven capacity",
+      "score": 0.5725
+    },
+    {
+      "phrase": "existing named factors",
+      "score": 0.5518
+    },
+    {
+      "phrase": "collective reduces uncertainty",
+      "score": 0.547
+    },
+    {
+      "phrase": "size accumulated knowledge",
+      "score": 0.5462
+    },
+    {
+      "phrase": "intelligence math measures",
+      "score": 0.5447
+    },
+    {
+      "phrase": "information gain",
+      "score": 0.538
+    },
+    {
+      "phrase": "inherently socialagency",
+      "score": 0.5293
+    },
+    {
+      "phrase": "knowledge noise",
+      "score": 0.5211
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "Provenance as the fidelity mechanism.",
+    "Truth as a formal limit.",
+    "Self-assembly.",
+    "intelligence is the driven capacity to improve",
+    "Drive (\\(\\mathcal{A",
+    "Mechanism (\\(\\eta_M\\)):",
+    "Agency and learning capacity are both universal invariants of\nintelligence.",
+    "Definition 3b (Information Gain).",
+    "Definition 4 (Entity).",
+    "Definition 5 (Uncertainty).",
+    "Definition 6 (Agency).",
+    "Formulation 3 (primary formal definition,\nCorollary 6a):",
+    "Formulation 1\n(informal description):",
+    "Formulation 2 (empirical\noperationalization):",
+    "Part 4 (\\(C_n\\) stays bounded)."
+  ],
+  "bridge_chunks": [
+    3,
+    12,
+    27,
+    61
+  ]
+}

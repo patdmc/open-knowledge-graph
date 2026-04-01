@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total cups from all pitchers",
+    "operation": "multiply",
+    "operands": [
+      3,
+      12
+    ],
+    "result": 36,
+    "variable": "total_cups"
+  },
+  {
+    "step": 2,
+    "description": "Total revenue from selling all cups",
+    "operation": "multiply",
+    "operands": [
+      36,
+      1
+    ],
+    "result": 36,
+    "variable": "total_revenue"
+  },
+  {
+    "step": 3,
+    "description": "Total profit after subtracting supply cost",
+    "operation": "subtract",
+    "operands": [
+      36,
+      18
+    ],
+    "result": 18,
+    "variable": "total_profit"
+  },
+  {
+    "step": 4,
+    "description": "Hours needed to sell all cups at 4 per hour",
+    "operation": "divide",
+    "operands": [
+      36,
+      4
+    ],
+    "result": 9,
+    "variable": "total_hours"
+  },
+  {
+    "step": 5,
+    "description": "Profit per hour",
+    "operation": "divide",
+    "operands": [
+      18,
+      9
+    ],
+    "result": 2.0,
+    "variable": "profit_per_hour"
+  }
+]

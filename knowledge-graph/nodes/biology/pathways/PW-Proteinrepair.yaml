@@ -1,0 +1,41 @@
+id: PW-Proteinrepair
+type: knowledge
+domain: biology
+name: Protein repair
+reactome_id: R-HSA-5676934
+
+description: "Reactive oxygen species (ROS) such as H2O2, superoxide anions and hydroxyl radicals interact with molecules in the cell causing damage that impairs cellular functions. Although cells have mechanisms to destroy ROS and repair the damage caused by ROS, it is considered to be a major factor in age-related diseases and the ageing process (Zhang & Weissbach 2008, Kim et al. 2014)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Methionine is oxidised to methionine sulfoxide
+    reactome_id: R-HSA-5676912
+    type: Reaction
+  - name: "MSRA reduces L-methyl-(S)-S-oxide to L-Methionine"
+    reactome_id: R-HSA-5676940
+    type: Reaction
+  - name: "MRSBs reduce L-methyl-(R)-S-oxide to L-methionine"
+    reactome_id: R-HSA-5676917
+    type: Reaction
+  - name: Methionine sulfoxide is oxidised to methionine sulfone
+    reactome_id: R-HSA-5676926
+    type: Reaction
+  - name: Formation of isoAsp
+    reactome_id: R-HSA-5685345
+    type: Reaction
+  - name: PCMT1 transfers CH3 from AdoMet to isoAsp to form MetAsp
+    reactome_id: R-HSA-5676966
+    type: Reaction
+  - name: "MetAsp transforms to L-Asp,isoAsp"
+    reactome_id: R-HSA-5687520
+    type: Reaction
+
+edges:

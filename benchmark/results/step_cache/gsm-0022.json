@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "DVDs sold by first 3 customers",
+    "operation": "multiply",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 3,
+    "variable": "first_group_dvds"
+  },
+  {
+    "step": 2,
+    "description": "DVDs sold by next 2 customers",
+    "operation": "multiply",
+    "operands": [
+      2,
+      2
+    ],
+    "result": 4,
+    "variable": "second_group_dvds"
+  },
+  {
+    "step": 3,
+    "description": "Total DVDs sold",
+    "operation": "add",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 7,
+    "variable": "total_dvds_sold"
+  }
+]

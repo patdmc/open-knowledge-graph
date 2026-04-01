@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate yellow paint (half the mural)",
+    "operation": "divide",
+    "operands": [
+      12,
+      2
+    ],
+    "result": 6,
+    "variable": "yellow_pints"
+  },
+  {
+    "step": 2,
+    "description": "Calculate remaining paint after yellow",
+    "operation": "subtract",
+    "operands": [
+      12,
+      6
+    ],
+    "result": 6,
+    "variable": "remaining_pints"
+  },
+  {
+    "step": 3,
+    "description": "Divide remaining equally among red, white, purple",
+    "operation": "divide",
+    "operands": [
+      6,
+      3
+    ],
+    "result": 2.0,
+    "variable": "red_pints"
+  }
+]

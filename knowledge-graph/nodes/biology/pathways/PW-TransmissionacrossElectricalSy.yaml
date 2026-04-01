@@ -1,0 +1,23 @@
+id: PW-TransmissionacrossElectricalSy
+type: knowledge
+domain: biology
+name: Transmission across Electrical Synapses 
+reactome_id: R-HSA-112307
+
+description: Electrical transmission across nerve cells is accomplished when the current generated in the upstream neuron spreads to the downstream neuron through a path of low electrical resistance. In neurons this is accomplished at gap junctions. Electrical synapses are found in neuronal tissue where the activity of neurons must be highly synchronized.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Electric Transmission Across Gap Junctions
+    reactome_id: R-HSA-112303
+    type: Pathway
+
+edges:

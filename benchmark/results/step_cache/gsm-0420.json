@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate how much the second bank gave",
+    "operation": "multiply",
+    "operands": [
+      4000,
+      2
+    ],
+    "result": 8000,
+    "variable": "second_bank_amount"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total borrowed from both banks",
+    "operation": "add",
+    "operands": [
+      4000,
+      8000
+    ],
+    "result": 12000,
+    "variable": "total_borrowed"
+  },
+  {
+    "step": 3,
+    "description": "Add initial capital to total borrowed",
+    "operation": "add",
+    "operands": [
+      5000,
+      12000
+    ],
+    "result": 17000,
+    "variable": "total_capital"
+  }
+]

@@ -1,0 +1,239 @@
+id: P01-probability-statistics
+type: knowledge
+domain: probability
+name: "Probability and Statistics"
+
+concepts:
+  # === Probability Foundations ===
+  - id: probability
+    name: "Probability"
+    latex: "P(A) \\in [0, 1]"
+    axioms:
+      - "P(Omega) = 1"
+      - "P(A) >= 0"
+      - "P(A ∪ B) = P(A) + P(B) if A ∩ B = ∅"
+
+  - id: conditional_probability
+    name: "Conditional Probability"
+    latex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}"
+    curried: "lambda p_ab: lambda p_b: p_ab / p_b"
+
+  - id: bayes_theorem
+    name: "Bayes' Theorem"
+    latex: "P(A|B) = \\frac{P(B|A)P(A)}{P(B)}"
+    meaning: "update prior belief P(A) with evidence P(B|A)"
+    curried: "lambda p_ba: lambda p_a: lambda p_b: p_ba * p_a / p_b"
+
+  - id: independence
+    name: "Independence"
+    latex: "P(A \\cap B) = P(A)P(B)"
+
+  - id: expected_value
+    name: "Expected Value"
+    latex: "E[X] = \\sum_x x P(X=x) = \\int x f(x) \\, dx"
+    meaning: "probability-weighted average"
+    action:
+      numpy: "np.mean(samples)"
+      scipy: "dist.mean()"
+    curried: "lambda samples: np.mean(samples)"
+
+  - id: variance
+    name: "Variance"
+    latex: "\\text{Var}(X) = E[(X - \\mu)^2] = E[X^2] - (E[X])^2"
+    action:
+      numpy: "np.var(samples)"
+      scipy: "dist.var()"
+    curried: "lambda samples: np.var(samples)"
+
+  - id: standard_deviation
+    name: "Standard Deviation"
+    latex: "\\sigma = \\sqrt{\\text{Var}(X)}"
+    action:
+      numpy: "np.std(samples)"
+    curried: "lambda samples: np.std(samples)"
+
+  - id: covariance
+    name: "Covariance"
+    latex: "\\text{Cov}(X,Y) = E[(X-\\mu_X)(Y-\\mu_Y)]"
+    action:
+      numpy: "np.cov(X, Y)[0,1]"
+    curried: "lambda X: lambda Y: np.cov(X, Y)[0,1]"
+
+  - id: correlation
+    name: "Correlation (Pearson)"
+    latex: "\\rho_{XY} = \\frac{\\text{Cov}(X,Y)}{\\sigma_X \\sigma_Y}"
+    action:
+      numpy: "np.corrcoef(X, Y)[0,1]"
+      scipy: "scipy.stats.pearsonr(X, Y)"
+    curried: "lambda X: lambda Y: np.corrcoef(X, Y)[0,1]"
+
+  - id: covariance_matrix
+    name: "Covariance Matrix"
+    latex: "\\Sigma_{ij} = \\text{Cov}(X_i, X_j)"
+    action:
+      numpy: "np.cov(X.T)"
+    curried: "lambda X: np.cov(X.T)"
+    links: [positive_definite]
+
+  # === Distributions ===
+  - id: normal
+    name: "Normal (Gaussian)"
+    latex: "f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}"
+    action:
+      scipy: "scipy.stats.norm(loc=mu, scale=sigma)"
+      numpy_sample: "np.random.normal(mu, sigma, size)"
+    curried: "lambda mu: lambda sigma: scipy.stats.norm(loc=mu, scale=sigma)"
+
+  - id: multivariate_normal
+    name: "Multivariate Normal"
+    latex: "f(x) = \\frac{1}{\\sqrt{(2\\pi)^k |\\Sigma|}} \\exp\\left(-\\frac{1}{2}(x-\\mu)^T \\Sigma^{-1}(x-\\mu)\\right)"
+    action:
+      scipy: "scipy.stats.multivariate_normal(mean=mu, cov=Sigma)"
+      numpy_sample: "np.random.multivariate_normal(mu, Sigma, size)"
+    links: [covariance_matrix, cholesky]
+
+  - id: binomial
+    name: "Binomial"
+    latex: "P(X=k) = \\binom{n}{k} p^k (1-p)^{n-k}"
+    action:
+      scipy: "scipy.stats.binom(n=n, p=p)"
+      numpy_sample: "np.random.binomial(n, p, size)"
+    curried: "lambda n: lambda p: scipy.stats.binom(n=n, p=p)"
+
+  - id: poisson
+    name: "Poisson"
+    latex: "P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}"
+    action:
+      scipy: "scipy.stats.poisson(mu=lam)"
+      numpy_sample: "np.random.poisson(lam, size)"
+    curried: "lambda lam: scipy.stats.poisson(mu=lam)"
+
+  - id: exponential
+    name: "Exponential"
+    latex: "f(x) = \\lambda e^{-\\lambda x}"
+    meaning: "time between Poisson events; memoryless"
+    action:
+      scipy: "scipy.stats.expon(scale=1/lam)"
+
+  - id: uniform
+    name: "Uniform"
+    latex: "f(x) = \\frac{1}{b-a}, \\quad x \\in [a,b]"
+    action:
+      scipy: "scipy.stats.uniform(loc=a, scale=b-a)"
+      numpy_sample: "np.random.uniform(a, b, size)"
+
+  - id: beta_dist
+    name: "Beta"
+    latex: "f(x) = \\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha, \\beta)}"
+    meaning: "distribution on [0,1]; conjugate prior for binomial"
+    action:
+      scipy: "scipy.stats.beta(a=alpha, b=beta)"
+
+  - id: gamma_dist
+    name: "Gamma"
+    latex: "f(x) = \\frac{x^{k-1} e^{-x/\\theta}}{\\theta^k \\Gamma(k)}"
+    action:
+      scipy: "scipy.stats.gamma(a=k, scale=theta)"
+
+  - id: chi_squared
+    name: "Chi-Squared"
+    latex: "\\chi^2_k = \\sum_{i=1}^k Z_i^2, \\quad Z_i \\sim N(0,1)"
+    action:
+      scipy: "scipy.stats.chi2(df=k)"
+
+  - id: student_t
+    name: "Student's t"
+    latex: "t = \\frac{\\bar{X} - \\mu}{S / \\sqrt{n}}"
+    action:
+      scipy: "scipy.stats.t(df=n-1)"
+
+  # === Estimation and Testing ===
+  - id: mle
+    name: "Maximum Likelihood Estimation"
+    latex: "\\hat{\\theta} = \\arg\\max_\\theta \\prod_i f(x_i | \\theta)"
+    meaning: "find parameters that maximize probability of observed data"
+    action:
+      scipy: "scipy.optimize.minimize(neg_log_likelihood, theta0)"
+    links: [O01-numerical-optimization]
+
+  - id: confidence_interval
+    name: "Confidence Interval"
+    latex: "\\bar{x} \\pm z_{\\alpha/2} \\frac{\\sigma}{\\sqrt{n}}"
+    action:
+      scipy: "scipy.stats.norm.interval(confidence, loc=mean, scale=se)"
+
+  - id: hypothesis_test
+    name: "Hypothesis Test"
+    meaning: "reject H0 if test statistic falls in rejection region (p-value < alpha)"
+    action:
+      scipy_t: "scipy.stats.ttest_ind(X, Y)"
+      scipy_ks: "scipy.stats.ks_2samp(X, Y)"
+
+  - id: p_value
+    name: "p-value"
+    meaning: "probability of observing result at least as extreme as data, assuming H0 is true"
+
+  # === Information Theory ===
+  - id: entropy
+    name: "Shannon Entropy"
+    latex: "H(X) = -\\sum_x P(x) \\log P(x)"
+    meaning: "expected information content; measure of uncertainty"
+    action:
+      scipy: "scipy.stats.entropy(pk)"
+    curried: "lambda pk: scipy.stats.entropy(pk)"
+
+  - id: cross_entropy
+    name: "Cross Entropy"
+    latex: "H(P, Q) = -\\sum_x P(x) \\log Q(x)"
+    meaning: "expected bits to encode P using code optimized for Q"
+    curried: "lambda p: lambda q: -np.sum(p * np.log(q + 1e-12))"
+
+  - id: kl_divergence
+    name: "KL Divergence"
+    latex: "D_{KL}(P \\| Q) = \\sum_x P(x) \\log \\frac{P(x)}{Q(x)}"
+    meaning: "information lost when Q approximates P; not symmetric"
+    action:
+      scipy: "scipy.stats.entropy(pk, qk)"
+    curried: "lambda p: lambda q: scipy.stats.entropy(p, q)"
+
+  - id: mutual_information
+    name: "Mutual Information"
+    latex: "I(X;Y) = H(X) + H(Y) - H(X,Y)"
+    meaning: "information shared between X and Y"
+    action:
+      sklearn: "sklearn.metrics.mutual_info_score(X, Y)"
+
+theorems:
+  - name: "Law of Large Numbers"
+    latex: "\\bar{X}_n \\xrightarrow{a.s.} \\mu"
+    meaning: "sample mean converges to population mean"
+
+  - name: "Central Limit Theorem"
+    latex: "\\sqrt{n}(\\bar{X}_n - \\mu) \\xrightarrow{d} N(0, \\sigma^2)"
+    meaning: "sample mean is approximately normal for large n"
+
+  - name: "Law of Total Probability"
+    latex: "P(A) = \\sum_i P(A|B_i)P(B_i)"
+
+  - name: "Jensen's Inequality"
+    latex: "f(E[X]) \\leq E[f(X)] \\text{ for convex } f"
+
+  - name: "Cramer-Rao Bound"
+    latex: "\\text{Var}(\\hat{\\theta}) \\geq \\frac{1}{I(\\theta)}"
+    meaning: "no unbiased estimator can have variance below inverse Fisher information"
+
+edges:
+  - to: C02-integral-calculus
+    relation: REQUIRES
+    note: "continuous distributions, expectations as integrals"
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "covariance matrices, multivariate distributions"
+  - to: N04-aggregation-notation
+    relation: REQUIRES
+  - to: NT01-number-theory
+    relation: USES
+    note: "combinatorics for discrete distributions"
+  - to: O01-numerical-optimization
+    relation: USED_BY
+    note: "MLE, EM algorithm, variational inference"

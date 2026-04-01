@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Add Science and Social Studies pages",
+    "operation": "add",
+    "operands": [
+      4,
+      20
+    ],
+    "result": 24,
+    "variable": "science_plus_social"
+  },
+  {
+    "step": 2,
+    "description": "Add History pages",
+    "operation": "add",
+    "operands": [
+      24,
+      7
+    ],
+    "result": 31,
+    "variable": "plus_history"
+  },
+  {
+    "step": 3,
+    "description": "Add Geography pages to get total",
+    "operation": "add",
+    "operands": [
+      31,
+      8
+    ],
+    "result": 39,
+    "variable": "total_pages"
+  },
+  {
+    "step": 4,
+    "description": "Subtract pages already read on Monday",
+    "operation": "subtract",
+    "operands": [
+      39,
+      15
+    ],
+    "result": 24,
+    "variable": "remaining_pages"
+  },
+  {
+    "step": 5,
+    "description": "Divide remaining pages by days left",
+    "operation": "divide",
+    "operands": [
+      24,
+      4
+    ],
+    "result": 6.0,
+    "variable": "pages_per_day"
+  }
+]

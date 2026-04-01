@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "sum of ratio parts",
+    "operation": "add",
+    "operands": [
+      7,
+      11
+    ],
+    "result": 18,
+    "variable": "total_ratio_parts"
+  },
+  {
+    "step": 2,
+    "description": "value of one ratio part",
+    "operation": "divide",
+    "operands": [
+      162,
+      18
+    ],
+    "result": 9,
+    "variable": "one_part"
+  },
+  {
+    "step": 3,
+    "description": "Allen's current age",
+    "operation": "multiply",
+    "operands": [
+      11,
+      9
+    ],
+    "result": 99,
+    "variable": "allen_current_age"
+  },
+  {
+    "step": 4,
+    "description": "Allen's age 10 years from now",
+    "operation": "add",
+    "operands": [
+      99,
+      10
+    ],
+    "result": 109,
+    "variable": "allen_future_age"
+  }
+]

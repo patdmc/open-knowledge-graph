@@ -1,0 +1,74 @@
+id: PW-AzathioprineADME
+type: knowledge
+domain: biology
+name: Azathioprine ADME
+reactome_id: R-HSA-9748787
+
+description: "Thiopurines were originally developed for cancer treatment in the early 1950s, with 6-mercaptopurine (6MP) being the first thiopurine approved by the FDA for the treatment of leukaemia, just two years after its discovery. Azathioprine (AZA), a prodrug of 6MP, was developed by the addition of a nitroimidazol group a few years later to bypass the high first-pass metabolism of 6MP due to oxidation in intestinal cells by xanthine oxidase (XDH). AZA is a thiopurine prodrug, and its pharmacological action is based on the release of the active metabolite 6-mercaptopurine (6MP) which is further metabolised to pharmacoligically active 6-thioguanine nucleotides (6-TGNs)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: GSH cleaves AZA to 6MP
+    reactome_id: R-HSA-9751051
+    type: BlackBoxEvent
+  - name: SLC28A2,3 cotransport 6MP and Na+ from extracellular region to cytosol
+    reactome_id: R-HSA-9751037
+    type: Reaction
+  - name: SLC29A1,2 transport 6MP from extracellular region to cytosol
+    reactome_id: R-HSA-9751024
+    type: Reaction
+  - name: GST dimers cleave AZA to 6MP
+    reactome_id: R-HSA-9748996
+    type: Reaction
+  - name: TPMT transfers methyl group to 6MP, forming 6MeMP
+    reactome_id: R-HSA-9748983
+    type: Reaction
+  - name: XDH oxidises 6MP to 6TU
+    reactome_id: R-HSA-9748991
+    type: Reaction
+  - name: HPRT1 tetramer transfers phosphoribosyl group to 6MP to form 6TIMP
+    reactome_id: R-HSA-9748951
+    type: Reaction
+  - name: TPMT transfers methyl group to 6TIMP, forming 6MeTIMP
+    reactome_id: R-HSA-9748979
+    type: Reaction
+  - name: IMPDH tetramers dehydrogenate 6TIMP to 6TXMP
+    reactome_id: R-HSA-9748945
+    type: Reaction
+  - name: ABCC4 transports TPMP substrates from cytosol to extracellular region
+    reactome_id: R-HSA-9750546
+    type: Reaction
+  - name: ABCC5 transports TPMP substrates from cytosol to extracellular region
+    reactome_id: R-HSA-9750617
+    type: Reaction
+  - name: GMPS dimer transforms 6TXMP to 6TGMP
+    reactome_id: R-HSA-9748957
+    type: Reaction
+  - name: GUK1 phosphorylates 6TGMP to 6TGDP
+    reactome_id: R-HSA-9748949
+    type: Reaction
+  - name: "NME1:2 hexamer phosphorylates 6TGDP to 6TGTP"
+    reactome_id: R-HSA-9748999
+    type: Reaction
+  - name: GUK1 phosphorylates 6TdGMP to 6TdGDP
+    reactome_id: R-HSA-9748963
+    type: Reaction
+  - name: "NME1:2 hexamer phosphorylates 6TdGDP to 6TdGTP"
+    reactome_id: R-HSA-9748969
+    type: Reaction
+  - name: NUDT15 dimer dephosphorylates 6TdGTP to 6TdGMP
+    reactome_id: R-HSA-9750555
+    type: Reaction
+  - name: "p-VAV1,2,3 exchange 6TGTP for GDP on RAC1"
+    reactome_id: R-HSA-9751201
+    type: Reaction
+
+edges:

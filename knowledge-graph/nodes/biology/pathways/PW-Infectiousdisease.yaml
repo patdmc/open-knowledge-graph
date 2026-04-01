@@ -1,0 +1,29 @@
+id: PW-Infectiousdisease
+type: knowledge
+domain: biology
+name: Infectious disease
+reactome_id: R-HSA-5663205
+
+description: "Infectious diseases are ones due to the presence of pathogenic microbial agents in human host cells. Processes annotated in this category include bacterial, viral and parasitic infection pathways.Bacterial infection pathways currently include some metabolic processes mediated by intracellular Mycobacterium tuberculosis, the actions of clostridial, anthrax, and diphtheria toxins, and the entry of Listeria monocytogenes into human cells.Viral infection pathways currently include the life cycles of SARS-CoV viruses, influenza virus, HIV (human immunodeficiency virus), and human cytomegalovirus (HCMV).Parasitic infection pathways currently include Leishmania infection-related pathways.Fungal infection pathways and prion diseases have not been annotated."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Bacterial Infection Pathways
+    reactome_id: R-HSA-9824439
+    type: Pathway
+  - name: Viral Infection Pathways
+    reactome_id: R-HSA-9824446
+    type: Pathway
+  - name: Parasitic Infection Pathways
+    reactome_id: R-HSA-9824443
+    type: Pathway
+
+edges:

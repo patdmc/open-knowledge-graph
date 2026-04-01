@@ -1,0 +1,65 @@
+id: PW-Laminininteractions
+type: knowledge
+domain: biology
+name: Laminin interactions
+reactome_id: R-HSA-3000157
+
+description: Laminins are a large family of conserved, multidomain trimeric basement membrane proteins. There are many theoretical trimer combinations but only 18 have been described (Domogatskaya et al. 2012, Miner 2008, Macdonald et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Formation of laminin networks
+    reactome_id: R-HSA-2426676
+    type: Polymerisation
+  - name: "Integrins alpha3beta1, alpha6beta4 bind laminin-332, 511, 521, (211, 221)"
+    reactome_id: R-HSA-216048
+    type: Reaction
+  - name: "Integrin alpha6beta1 binds laminin-322, 512, 521, 211, 221, 411"
+    reactome_id: R-HSA-3907292
+    type: Reaction
+  - name: "Integrin alpha7beta1 binds Laminin-211, 221, 411, 512, 521"
+    reactome_id: R-HSA-216058
+    type: Reaction
+  - name: "Integrin alpha6beta1, alpha7beta1, alpha1beta1, alpha2beta1 bind laminin-111"
+    reactome_id: R-HSA-216051
+    type: Reaction
+  - name: "Integrin alpha2beta1 binds laminin-332"
+    reactome_id: R-HSA-349626
+    type: Reaction
+  - name: Laminins bind Nidogens 1, 2
+    reactome_id: R-HSA-2327803
+    type: Reaction
+  - name: Laminins bind HSPG2
+    reactome_id: R-HSA-4084505
+    type: Reaction
+  - name: "Laminins:Nidogens binds HSPG2"
+    reactome_id: R-HSA-2426530
+    type: Reaction
+  - name: Laminins bind galactosyl sulfatide and related sulfated glycolipids
+    reactome_id: R-HSA-2396083
+    type: Reaction
+  - name: "Laminins:Nidogens binds collagen type IV networks"
+    reactome_id: R-HSA-2426450
+    type: Reaction
+  - name: "Laminin-111 binds collagen type IV"
+    reactome_id: R-HSA-2328145
+    type: Reaction
+  - name: "Laminin-332 binds collagen type VII"
+    reactome_id: R-HSA-3787997
+    type: Reaction
+  - name: Collagen type VII binds collagen type IV
+    reactome_id: R-HSA-4084501
+    type: Reaction
+  - name: "Laminin-111 binds endostatin dimer"
+    reactome_id: R-HSA-4084507
+    type: Reaction
+
+edges:

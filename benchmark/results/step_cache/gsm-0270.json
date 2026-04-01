@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate second bag M&Ms",
+    "operation": "add",
+    "operands": [
+      300,
+      12
+    ],
+    "result": 312,
+    "variable": "second_bag"
+  },
+  {
+    "step": 2,
+    "description": "Calculate third bag M&Ms (half of first)",
+    "operation": "divide",
+    "operands": [
+      300,
+      2
+    ],
+    "result": 150,
+    "variable": "third_bag"
+  },
+  {
+    "step": 3,
+    "description": "Add first and second bag",
+    "operation": "add",
+    "operands": [
+      300,
+      312
+    ],
+    "result": 612,
+    "variable": "first_plus_second"
+  },
+  {
+    "step": 4,
+    "description": "Add third bag to get total",
+    "operation": "add",
+    "operands": [
+      612,
+      150
+    ],
+    "result": 762,
+    "variable": "total_mms"
+  }
+]

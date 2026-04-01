@@ -1,0 +1,44 @@
+id: PW-Reversiblehydrationofcarbondio
+type: knowledge
+domain: biology
+name: Reversible hydration of carbon dioxide
+reactome_id: R-HSA-1475029
+
+description: "Carbonic anhydrases reversibly catalyze the hydration of carbon dioxide and directly produce bicarbonate and protons, bypassing the formation of carbonic acid (reviewed in Lindskog 1997, Breton 2001, Esbaugh and Tufts 2006, Boron 2010, Gilmour 2010). Carbonic anhydrase deprotonates water to yield a zinc-hydroxyl group and a proton which is transferred to external buffer molecules via histidine or glutamate residues in carbonic anhydrase. The hydroxyl group reacts with carbon dioxide in the active site to yield bicarbonate."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Carbonic anhydrase hydrates carbon dioxide (cytosol)
+    reactome_id: R-HSA-1475026
+    type: Reaction
+  - name: Carbonic anhydrase dehydrates bicarbonate (cytosol)
+    reactome_id: R-HSA-1475022
+    type: Reaction
+  - name: Carbonic anhydrase hydrates carbon dioxide (plasma membrane)
+    reactome_id: R-HSA-1475025
+    type: Reaction
+  - name: Carbonic anhydrase dehydrates bicarbonate (plasma membrane)
+    reactome_id: R-HSA-1475017
+    type: Reaction
+  - name: Carbonic anhydrase hydrates carbon dioxide (mitochondria)
+    reactome_id: R-HSA-1475032
+    type: Reaction
+  - name: Carbonic anhydrase dehydrates bicarbonate (mitochondria)
+    reactome_id: R-HSA-1475028
+    type: Reaction
+  - name: Carbonic Anhydrase VI hydrates carbon dioxide to bicarbonate and a proton
+    reactome_id: R-HSA-1237045
+    type: Reaction
+  - name: Carbonic anhydrase VI dehydrates bicarbonate to water and carbon dioxide
+    reactome_id: R-HSA-1237081
+    type: Reaction
+
+edges:

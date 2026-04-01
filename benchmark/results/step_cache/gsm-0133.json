@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Miles walked on Tuesday (6 times Monday)",
+    "operation": "multiply",
+    "operands": [
+      4,
+      6
+    ],
+    "result": 24,
+    "variable": "tuesday_miles"
+  },
+  {
+    "step": 2,
+    "description": "Miles walked Monday and Tuesday combined",
+    "operation": "add",
+    "operands": [
+      4,
+      24
+    ],
+    "result": 28,
+    "variable": "mon_tue_total"
+  },
+  {
+    "step": 3,
+    "description": "Miles walked on Wednesday",
+    "operation": "subtract",
+    "operands": [
+      41,
+      28
+    ],
+    "result": 13.0,
+    "variable": "wednesday_miles"
+  }
+]

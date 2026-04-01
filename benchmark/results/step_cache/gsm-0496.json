@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate three times Brett's current age",
+    "operation": "multiply",
+    "operands": [
+      3,
+      14
+    ],
+    "result": 42,
+    "variable": "Angela's age in four years"
+  },
+  {
+    "step": 2,
+    "description": "Subtract four years to find Angela's current age",
+    "operation": "subtract",
+    "operands": [
+      42,
+      4
+    ],
+    "result": 38,
+    "variable": "Angela's current age"
+  }
+]

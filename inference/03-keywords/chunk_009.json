@@ -1,0 +1,60 @@
+{
+  "chunk_index": 9,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 1/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 1/10]"
+  ],
+  "char_count": 5657,
+  "keyphrases": [
+    {
+      "phrase": "encoding hierarchy continuous",
+      "score": 0.5927
+    },
+    {
+      "phrase": "principle definition encoding",
+      "score": 0.5461
+    },
+    {
+      "phrase": "escalation principle definition",
+      "score": 0.5091
+    },
+    {
+      "phrase": "qualitative boundaries",
+      "score": 0.4491
+    },
+    {
+      "phrase": "levels math interfaces",
+      "score": 0.4478
+    },
+    {
+      "phrase": "reasoning represented vocabulary",
+      "score": 0.4428
+    },
+    {
+      "phrase": "continuous moves",
+      "score": 0.3801
+    },
+    {
+      "phrase": "crosses action encoding",
+      "score": 0.3614
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 8 (Encoding Hierarchy).",
+      "interfaces",
+      "upward interface protocol",
+      "downward interface protocol",
+      "Theorem 2 (Escalation).",
+      "Corollary 3 (Context Window as Frontier).",
+      "Corollary 4 (Simultaneous Multi-Level Activity)."
+    ],
+    "has_math": true
+  }
+}

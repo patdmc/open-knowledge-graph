@@ -1,0 +1,51 @@
+id: PW-DNARepair
+type: knowledge
+domain: biology
+name: DNA Repair
+reactome_id: R-HSA-73894
+
+description: "DNA repair is a phenomenal multi-enzyme, multi-pathway system required to ensure the integrity of the cellular genome. Living organisms are constantly exposed to harmful metabolic by-products, environmental chemicals and radiation that damage their DNA, thus corrupting genetic information. In addition, normal cellular pH and temperature create conditions that are hostile to the integrity of DNA and its nucleotide components."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Base Excision Repair
+    reactome_id: R-HSA-73884
+    type: Pathway
+  - name: DNA Damage Bypass
+    reactome_id: R-HSA-73893
+    type: Pathway
+  - name: DNA Damage Reversal
+    reactome_id: R-HSA-73942
+    type: Pathway
+  - name: "DNA Double-Strand Break Repair"
+    reactome_id: R-HSA-5693532
+    type: Pathway
+  - name: Nucleotide Excision Repair
+    reactome_id: R-HSA-5696398
+    type: Pathway
+  - name: Mismatch Repair
+    reactome_id: R-HSA-5358508
+    type: Pathway
+  - name: Fanconi Anemia Pathway
+    reactome_id: R-HSA-6783310
+    type: Pathway
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "DNA Repair pathway components are encoded by CHAN-DDR genes"

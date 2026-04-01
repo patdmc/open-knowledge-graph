@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Jim's points after 3 rounds",
+    "operation": "subtract",
+    "operands": [
+      21,
+      3
+    ],
+    "result": 18,
+    "variable": "jim_points"
+  },
+  {
+    "step": 2,
+    "description": "Tony's points after 3 rounds",
+    "operation": "multiply",
+    "operands": [
+      21,
+      2
+    ],
+    "result": 42,
+    "variable": "tony_points"
+  },
+  {
+    "step": 3,
+    "description": "Mike's points after extra point (21 > 20)",
+    "operation": "add",
+    "operands": [
+      21,
+      1
+    ],
+    "result": 22,
+    "variable": "mike_final"
+  },
+  {
+    "step": 4,
+    "description": "Tony's points after extra point (42 > 20)",
+    "operation": "add",
+    "operands": [
+      42,
+      1
+    ],
+    "result": 43,
+    "variable": "tony_final"
+  },
+  {
+    "step": 5,
+    "description": "Mike + Jim totals (Jim has 18, no extra point)",
+    "operation": "add",
+    "operands": [
+      22,
+      18
+    ],
+    "result": 40,
+    "variable": "mike_plus_jim"
+  },
+  {
+    "step": 6,
+    "description": "Total points for all three players",
+    "operation": "add",
+    "operands": [
+      40,
+      43
+    ],
+    "result": 83,
+    "variable": "total_points"
+  }
+]

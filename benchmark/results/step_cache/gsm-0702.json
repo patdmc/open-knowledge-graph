@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Gordy's truck capacity",
+    "operation": "add",
+    "operands": [
+      4000,
+      800
+    ],
+    "result": 4800,
+    "variable": "gordy_capacity"
+  },
+  {
+    "step": 2,
+    "description": "Calculate combined capacity of Gissela and Gordy",
+    "operation": "add",
+    "operands": [
+      4000,
+      4800
+    ],
+    "result": 8800,
+    "variable": "gissela_gordy_combined"
+  },
+  {
+    "step": 3,
+    "description": "Calculate Gary's truck capacity by subtracting known capacities from total",
+    "operation": "subtract",
+    "operands": [
+      11600,
+      8800
+    ],
+    "result": 2800,
+    "variable": "gary_capacity"
+  }
+]

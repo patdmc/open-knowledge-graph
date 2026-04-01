@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Find Corey's age from James's age",
+    "operation": "add",
+    "operands": [
+      10,
+      1
+    ],
+    "result": 11,
+    "variable": "corey_age"
+  },
+  {
+    "step": 2,
+    "description": "Find Amy's age from Corey's age",
+    "operation": "subtract",
+    "operands": [
+      11,
+      2
+    ],
+    "result": 9,
+    "variable": "amy_age"
+  },
+  {
+    "step": 3,
+    "description": "Find Jackson's age from Amy's age",
+    "operation": "subtract",
+    "operands": [
+      9,
+      5
+    ],
+    "result": 4,
+    "variable": "jackson_age"
+  }
+]

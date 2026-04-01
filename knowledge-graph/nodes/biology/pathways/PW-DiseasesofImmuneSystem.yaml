@@ -1,0 +1,23 @@
+id: PW-DiseasesofImmuneSystem
+type: knowledge
+domain: biology
+name: Diseases of Immune System
+reactome_id: R-HSA-5260271
+
+description: "The immune system is a complex network of the biological processes that provide defense mechanisms during infection or in response to an intrinsic danger signal. Compromised immune response may present itself as either overactivity or underactivity of the immune system leading to a broad spectrum of clinical phenotypes that can be categorized into four main groups - autoimmunity, immunodeficiency (ID) with a greater susceptibility to infectious diseases, hypersensitivity to compounds that are usually not harmful, and malignancy. Several host conditions may cause dysfunctional immunity."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases associated with the TLR signaling cascade
+    reactome_id: R-HSA-5602358
+    type: Pathway
+
+edges:

@@ -1,0 +1,51 @@
+{
+  "chunk_index": 59,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "Abstract",
+  "section_path": [
+    "Abstract"
+  ],
+  "char_count": 2962,
+  "keyphrases": [
+    {
+      "phrase": "constraint knowledge",
+      "score": 0.5032
+    },
+    {
+      "phrase": "predictions fep generative",
+      "score": 0.4277
+    },
+    {
+      "phrase": "variational free energy",
+      "score": 0.4144
+    },
+    {
+      "phrase": "non continuous decisions",
+      "score": 0.3634
+    },
+    {
+      "phrase": "intrinsic drive uncertainty",
+      "score": 0.3634
+    },
+    {
+      "phrase": "living systems minimize",
+      "score": 0.3614
+    },
+    {
+      "phrase": "action validation independent",
+      "score": 0.315
+    },
+    {
+      "phrase": "domain specific lethality",
+      "score": 0.2913
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

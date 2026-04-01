@@ -1,0 +1,35 @@
+id: PW-BindingandUptakeofLigandsbySca
+type: knowledge
+domain: biology
+name: Binding and Uptake of Ligands by Scavenger Receptors
+reactome_id: R-HSA-2173782
+
+description: Scavenger receptors bind free extracellular ligands as the initial step in clearance of the ligands from the body (reviewed in Ascenzi et al. 2005, Areschoug and Gordon 2009, Nielsen et al. 2010).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Scavenging of heme from plasma
+    reactome_id: R-HSA-2168880
+    type: Pathway
+  - name: Scavenging by Class A Receptors
+    reactome_id: R-HSA-3000480
+    type: Pathway
+  - name: Scavenging by Class B Receptors
+    reactome_id: R-HSA-3000471
+    type: Pathway
+  - name: Scavenging by Class F Receptors
+    reactome_id: R-HSA-3000484
+    type: Pathway
+  - name: Scavenging by Class H Receptors
+    reactome_id: R-HSA-3000497
+    type: Pathway
+
+edges:

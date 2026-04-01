@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate monthly shoe budget",
+    "operation": "multiply",
+    "operands": [
+      2000,
+      0.25
+    ],
+    "result": 500,
+    "variable": "monthly_savings"
+  },
+  {
+    "step": 2,
+    "description": "Calculate annual shoe budget",
+    "operation": "multiply",
+    "operands": [
+      500,
+      12
+    ],
+    "result": 6000,
+    "variable": "annual_savings"
+  },
+  {
+    "step": 3,
+    "description": "Calculate number of shoes purchasable",
+    "operation": "divide",
+    "operands": [
+      6000,
+      1000
+    ],
+    "result": 6.0,
+    "variable": "num_shoes"
+  }
+]

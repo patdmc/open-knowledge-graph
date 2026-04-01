@@ -1,0 +1,56 @@
+{
+  "chunk_index": 18,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 10/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 10/10]"
+  ],
+  "char_count": 6244,
+  "keyphrases": [
+    {
+      "phrase": "specific math necessity",
+      "score": 0.5299
+    },
+    {
+      "phrase": "relieved math inference",
+      "score": 0.525
+    },
+    {
+      "phrase": "certainty math action",
+      "score": 0.4727
+    },
+    {
+      "phrase": "math bounded definition",
+      "score": 0.439
+    },
+    {
+      "phrase": "persistently math degrades",
+      "score": 0.4384
+    },
+    {
+      "phrase": "learning capacity minimum",
+      "score": 0.4305
+    },
+    {
+      "phrase": "inference quality",
+      "score": 0.4239
+    },
+    {
+      "phrase": "enforcement mechanism timescale",
+      "score": 0.3449
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Part 2 (Necessity of \\(\\eta_M > 0\\)).",
+      "Part 3 (Minimality: no other property is invariant).",
+      "Corollary 6a (\\(I(E) = \\mathcal{A"
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,65 @@
+id: PROC-TRANSLATION
+type: knowledge
+domain: biology
+name: translation
+go_id: GO:0006412
+
+definition: The cellular metabolic process in which a protein is formed, using the sequence of a mature mRNA or circRNA molecule to specify the sequence of amino acids in a polypeptide chain. Translation is mediated by the ribosome, and begins with the formation of a ternary complex between aminoacylated initiator methionine tRNA, GTP, and initiation factor 2, which subsequently associates with the small subunit of the ribosome and an mRNA or circRNA. Translation ends with the release of a polypeptide chain from the ribosome.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0043556
+    name: regulation of translation in response to oxidative stress
+    relation: negatively_regulates
+  - id: GO:0043555
+    name: regulation of translation in response to stress
+    relation: regulates
+  - id: GO:0043557
+    name: regulation of translation in response to osmotic stress
+    relation: regulates
+  - id: GO:1902010
+    name: negative regulation of translation in response to endoplasmic reticulum stress
+    relation: negatively_regulates
+  - id: GO:0036493
+    name: positive regulation of translation in response to endoplasmic reticulum stress
+    relation: positively_regulates
+  - id: GO:0036490
+    name: regulation of translation in response to endoplasmic reticulum stress
+    relation: regulates
+  - id: GO:0099577
+    name: regulation of translation at presynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099578
+    name: regulation of translation at postsynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0006413
+    name: translational initiation
+    relation: part_of
+  - id: GO:0006414
+    name: translational elongation
+    relation: part_of
+  - id: GO:0006417
+    name: regulation of translation
+    relation: regulates
+  - id: GO:0006418
+    name: tRNA aminoacylation for protein translation
+    relation: part_of
+  - id: GO:0006415
+    name: translational termination
+    relation: part_of
+  - id: GO:0002181
+    name: cytoplasmic translation
+    relation: is_a
+  - id: GO:0099547
+    name: regulation of translation at synapse, modulating synaptic transmission
+    relation: regulates
+
+edges:

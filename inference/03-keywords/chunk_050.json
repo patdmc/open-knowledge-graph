@@ -1,0 +1,62 @@
+{
+  "chunk_index": 50,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "5. Results > 5.1 Equivalency Classes > [part 2/3]",
+  "section_path": [
+    "5. Results",
+    "5.1 Equivalency Classes",
+    "[part 2/3]"
+  ],
+  "char_count": 5427,
+  "keyphrases": [
+    {
+      "phrase": "establishes structured compression",
+      "score": 0.4657
+    },
+    {
+      "phrase": "math information preservation",
+      "score": 0.463
+    },
+    {
+      "phrase": "graph form necessity",
+      "score": 0.4601
+    },
+    {
+      "phrase": "frameworks implicitly",
+      "score": 0.4148
+    },
+    {
+      "phrase": "nv nodes propositions",
+      "score": 0.4035
+    },
+    {
+      "phrase": "factor math graph",
+      "score": 0.3947
+    },
+    {
+      "phrase": "incompleteness ec05 math",
+      "score": 0.3836
+    },
+    {
+      "phrase": "grounded ub derives",
+      "score": 0.3832
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "NV01 (Graph structure is necessary, not sufficient)",
+      "NV02 (\\(M < N\\) formal mechanical derivation)",
+      "NV03 (Agency as engagement probability; the \\(\\mathcal{A",
+      "NV04 (Intersection formally accelerates \\(M \\to N\\))",
+      "NV05 (Higher-order sentience is derived, not axiomatic)",
+      "EM01: Schmidhuber's formal agent is UB with\n\\(\\mathcal{A",
+      "EM02: FEP's equilibrium claim requires the \\(M < N\\)\nstationarity qualification",
+      "Confirmation of the intersection prediction"
+    ],
+    "has_math": true
+  }
+}

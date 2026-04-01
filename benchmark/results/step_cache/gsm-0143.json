@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Sum food items: milk + eggs",
+    "operation": "add",
+    "operands": [
+      2,
+      3
+    ],
+    "result": 5,
+    "variable": "food_subtotal"
+  },
+  {
+    "step": 2,
+    "description": "Sum non-food items: light bulbs + cups",
+    "operation": "add",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 6,
+    "variable": "nonfood_partial"
+  },
+  {
+    "step": 3,
+    "description": "Add roach traps to non-food subtotal",
+    "operation": "add",
+    "operands": [
+      6,
+      4
+    ],
+    "result": 10,
+    "variable": "nonfood_subtotal"
+  },
+  {
+    "step": 4,
+    "description": "Calculate 10% tax on non-food items",
+    "operation": "multiply",
+    "operands": [
+      10,
+      0.1
+    ],
+    "result": 1,
+    "variable": "tax"
+  },
+  {
+    "step": 5,
+    "description": "Add food and non-food subtotals",
+    "operation": "add",
+    "operands": [
+      5,
+      10
+    ],
+    "result": 15,
+    "variable": "pretax_total"
+  },
+  {
+    "step": 6,
+    "description": "Add tax to get final total",
+    "operation": "add",
+    "operands": [
+      15,
+      1
+    ],
+    "result": 16.0,
+    "variable": "total"
+  }
+]

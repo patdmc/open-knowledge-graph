@@ -1,0 +1,54 @@
+id: PROC-CELLCYCLE
+type: knowledge
+domain: biology
+name: cell cycle
+go_id: GO:0007049
+
+definition: The progression of biochemical and morphological phases and events that occur in a cell during successive cell replication or nuclear replication events. Canonically, the cell cycle comprises the replication and segregation of genetic material followed by the division of the cell, but in endocycles or syncytial cells nuclear replication or nuclear division may not be followed by cell division.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0000278
+    name: mitotic cell cycle
+    relation: is_a
+  - id: GO:0051726
+    name: regulation of cell cycle
+    relation: regulates
+  - id: GO:0051321
+    name: meiotic cell cycle
+    relation: is_a
+  - id: GO:0044786
+    name: cell cycle DNA replication
+    relation: part_of
+  - id: GO:0045786
+    name: negative regulation of cell cycle
+    relation: negatively_regulates
+  - id: GO:0045787
+    name: positive regulation of cell cycle
+    relation: positively_regulates
+  - id: GO:0033260
+    name: nuclear DNA replication
+    relation: part_of
+  - id: GO:0022402
+    name: cell cycle process
+    relation: part_of
+
+edges:
+  - to: CHAN-CellCycle
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-CellCycle encode components of cell cycle"

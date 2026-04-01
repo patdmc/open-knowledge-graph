@@ -1,0 +1,29 @@
+id: PW-Diseasesofprogrammedcelldeath
+type: knowledge
+domain: biology
+name: Diseases of programmed cell death
+reactome_id: R-HSA-9645723
+
+description: "Programmed cell death is frequently impaired in cancer and is thought to significantly contribute to resistance to chemotherapy. Mutations and perturbations in expression of different proteins involved in programmed cell death, such as TP53 (p53), BH3-only family proteins, caspases and their regulators enable malignant cells to evade apoptosis (Ghavami et al. 2009, Chao et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Defective RIPK1-mediated regulated necrosis"
+    reactome_id: R-HSA-9693928
+    type: Pathway
+  - name: Defective pyroptosis
+    reactome_id: R-HSA-9710421
+    type: Pathway
+  - name: Defective Intrinsic Pathway for Apoptosis
+    reactome_id: R-HSA-9734009
+    type: Pathway
+
+edges:

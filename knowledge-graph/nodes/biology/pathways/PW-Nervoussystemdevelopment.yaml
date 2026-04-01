@@ -1,0 +1,26 @@
+id: PW-Nervoussystemdevelopment
+type: knowledge
+domain: biology
+name: Nervous system development
+reactome_id: R-HSA-9675108
+
+description: "Neurogenesis is the process by which neural stem cells give rise to neurons, and occurs both during embryonic and perinatal development as well as in specific brain lineages during adult life (reviewed in Gotz and Huttner, 2005; Yao et al, 2016; Kriegstein and Alvarez-Buylla, 2009)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Axon guidance
+    reactome_id: R-HSA-422475
+    type: Pathway
+  - name: "EGR2 and SOX10-mediated initiation of Schwann cell myelination"
+    reactome_id: R-HSA-9619665
+    type: Pathway
+
+edges:

@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Joan's age (5 years older than Jessa)",
+    "operation": "add",
+    "operands": [
+      20,
+      5
+    ],
+    "result": 25,
+    "variable": "Joan's age"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Mary's age (2 years younger than Joan)",
+    "operation": "subtract",
+    "operands": [
+      25,
+      2
+    ],
+    "result": 23,
+    "variable": "Mary's age"
+  },
+  {
+    "step": 3,
+    "description": "Sum Jessa's and Joan's ages",
+    "operation": "add",
+    "operands": [
+      20,
+      25
+    ],
+    "result": 45,
+    "variable": "Jessa + Joan"
+  },
+  {
+    "step": 4,
+    "description": "Add Mary's age to get total sum",
+    "operation": "add",
+    "operands": [
+      45,
+      23
+    ],
+    "result": 68,
+    "variable": "sum of all three ages"
+  }
+]

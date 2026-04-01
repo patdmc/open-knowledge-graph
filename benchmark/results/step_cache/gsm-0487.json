@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "pounds of oats consumed per meal by all horses",
+    "operation": "multiply",
+    "operands": [
+      4,
+      5
+    ],
+    "result": 20,
+    "variable": "pounds_per_meal"
+  },
+  {
+    "step": 2,
+    "description": "pounds of oats consumed per day",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "pounds_per_day"
+  },
+  {
+    "step": 3,
+    "description": "total pounds of oats needed for five days",
+    "operation": "multiply",
+    "operands": [
+      40,
+      5
+    ],
+    "result": 200,
+    "variable": "total_pounds"
+  },
+  {
+    "step": 4,
+    "description": "number of 50-pound bags needed",
+    "operation": "divide",
+    "operands": [
+      200,
+      50
+    ],
+    "result": 4.0,
+    "variable": "bags_needed"
+  }
+]

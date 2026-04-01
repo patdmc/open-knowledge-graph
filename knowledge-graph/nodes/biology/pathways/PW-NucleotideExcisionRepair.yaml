@@ -1,0 +1,26 @@
+id: PW-NucleotideExcisionRepair
+type: knowledge
+domain: biology
+name: Nucleotide Excision Repair
+reactome_id: R-HSA-5696398
+
+description: "Nucleotide excision repair (NER) was first described in the model organism E. coli in the early 1960s as a process whereby bulky base damage is enzymatically removed from DNA, facilitating the recovery of DNA synthesis and cell survival. Deficient NER processes have been identified from the cells of cancer-prone patients with different variants of xeroderma pigmentosum (XP), trichothiodystrophy (TTD), and Cockayne's syndrome."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Global Genome Nucleotide Excision Repair (GG-NER)"
+    reactome_id: R-HSA-5696399
+    type: Pathway
+  - name: "Transcription-Coupled Nucleotide Excision Repair (TC-NER)"
+    reactome_id: R-HSA-6781827
+    type: Pathway
+
+edges:

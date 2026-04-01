@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Poppy places a quarter of the pieces",
+    "operation": "divide",
+    "operands": [
+      1000,
+      4
+    ],
+    "result": 250,
+    "variable": "pieces_poppy_places"
+  },
+  {
+    "step": 2,
+    "description": "Pieces remaining after Poppy",
+    "operation": "subtract",
+    "operands": [
+      1000,
+      250
+    ],
+    "result": 750,
+    "variable": "pieces_after_poppy"
+  },
+  {
+    "step": 3,
+    "description": "Mom places a third of the remaining pieces",
+    "operation": "divide",
+    "operands": [
+      750,
+      3
+    ],
+    "result": 250,
+    "variable": "pieces_mom_places"
+  },
+  {
+    "step": 4,
+    "description": "Pieces left to be placed",
+    "operation": "subtract",
+    "operands": [
+      750,
+      250
+    ],
+    "result": 500,
+    "variable": "pieces_remaining"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Zoo has twice as many cows as the farm",
+    "operation": "multiply",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 60,
+    "variable": "zoo_cows"
+  },
+  {
+    "step": 2,
+    "description": "Farm has half as many sheep as the zoo",
+    "operation": "divide",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 10,
+    "variable": "farm_sheep"
+  },
+  {
+    "step": 3,
+    "description": "Total animals at the farm",
+    "operation": "add",
+    "operands": [
+      30,
+      10
+    ],
+    "result": 40,
+    "variable": "farm_total"
+  },
+  {
+    "step": 4,
+    "description": "Total animals at the zoo",
+    "operation": "add",
+    "operands": [
+      60,
+      20
+    ],
+    "result": 80,
+    "variable": "zoo_total"
+  },
+  {
+    "step": 5,
+    "description": "Combined total animals at farm and zoo",
+    "operation": "add",
+    "operands": [
+      40,
+      80
+    ],
+    "result": 120,
+    "variable": "combined_total"
+  }
+]

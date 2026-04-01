@@ -1,0 +1,55 @@
+{
+  "chunk_index": 16,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 8/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 8/10]"
+  ],
+  "char_count": 5963,
+  "keyphrases": [
+    {
+      "phrase": "action space knowledge",
+      "score": 0.5219
+    },
+    {
+      "phrase": "math function space",
+      "score": 0.5092
+    },
+    {
+      "phrase": "acts math information",
+      "score": 0.4354
+    },
+    {
+      "phrase": "mechanism math changes",
+      "score": 0.4347
+    },
+    {
+      "phrase": "higher order",
+      "score": 0.4213
+    },
+    {
+      "phrase": "math type signature",
+      "score": 0.3727
+    },
+    {
+      "phrase": "internal structure math",
+      "score": 0.3691
+    },
+    {
+      "phrase": "new dimension hierarchy",
+      "score": 0.3537
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 11 (Higher-Order Function Space).",
+      "Definition 11a (M Efficiency)."
+    ],
+    "has_math": true
+  }
+}

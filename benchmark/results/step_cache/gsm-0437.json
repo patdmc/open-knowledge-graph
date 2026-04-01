@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total oranges bought",
+    "operation": "add",
+    "operands": [
+      34,
+      22
+    ],
+    "result": 56,
+    "variable": "total_oranges"
+  },
+  {
+    "step": 2,
+    "description": "Total people sharing (Sitti + Juris + 6 friends)",
+    "operation": "add",
+    "operands": [
+      2,
+      6
+    ],
+    "result": 8,
+    "variable": "total_people"
+  },
+  {
+    "step": 3,
+    "description": "Oranges each person gets",
+    "operation": "divide",
+    "operands": [
+      56,
+      8
+    ],
+    "result": 7.0,
+    "variable": "oranges_per_person"
+  }
+]

@@ -1,0 +1,46 @@
+id: BIO-ENDOCRINE
+type: knowledge
+domain: biology
+name: Endocrine System
+
+description: The system of glands that release their secretions (hormones) directly into the circulatory system. In addition to the ENDOCRINE GLANDS, included are the CHROMAFFIN SYSTEM and the NEUROSECRETORY SYSTEMS.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+components:
+  - name: Hormones
+  - name: Receptors, Estrogen
+    description: Cytoplasmic proteins that bind estrogens and migrate to the nucleus where they regulate DNA transcription. Evaluation of the state of estrogen receptors in breast cancer patients has become clinically
+  - name: Receptors, Androgen
+    description: Proteins, generally found in the CYTOPLASM, that specifically bind ANDROGENS and mediate their cellular actions. The complex of the androgen and receptor migrates to the CELL NUCLEUS where it induces 
+  - name: Thyroid Gland
+    description: A highly vascularized endocrine gland consisting of two lobes joined by a thin band of tissue with one lobe on each side of the TRACHEA. It secretes THYROID HORMONES from the follicular cells and CALC
+  - name: Pituitary Gland
+    description: A small, unpaired gland situated in the SELLA TURCICA. It is connected to the HYPOTHALAMUS by a short stalk which is called the INFUNDIBULUM.
+  - name: Adrenal Glands
+    description: A pair of glands located at the cranial pole of each of the two KIDNEYS. Each adrenal gland is composed of two distinct endocrine tissues with separate embryonic origins, the ADRENAL CORTEX producing 
+  - name: Insulin
+    description: "A 51-amino acid pancreatic hormone that plays a major role in the regulation of glucose metabolism, directly by suppressing endogenous glucose production (GLYCOGENOLYSIS; GLUCONEOGENESIS) and indirect"
+
+edges:
+  - to: CHAN-Endocrine
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Endocrine System biology grounds the CHAN-Endocrine coupling channel"
+  - to: BIO-NERVOUS
+    relation: interacts_with
+  - to: BIO-IMMUNE
+    relation: interacts_with

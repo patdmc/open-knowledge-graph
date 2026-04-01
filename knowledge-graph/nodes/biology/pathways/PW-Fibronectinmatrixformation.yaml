@@ -1,0 +1,32 @@
+id: PW-Fibronectinmatrixformation
+type: knowledge
+domain: biology
+name: Fibronectin matrix formation
+reactome_id: R-HSA-1566977
+
+description: Fibronectin (FN1) is found in the extracellular matrix (ECM) of all cells as linear and branched networks that surround and connect neighbouring cells (Singh et al. 2010). Prior to matrix formation FN1 exists as a protein dimer.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: FN1 dimerizes
+    reactome_id: R-HSA-2545196
+    type: Reaction
+  - name: Integrin alpha5beta1 binds FN1 dimer
+    reactome_id: R-HSA-202723
+    type: Reaction
+  - name: FN1 aggregation
+    reactome_id: R-HSA-2327746
+    type: BlackBoxEvent
+  - name: "FN1 binds Collagen types I-V, VII"
+    reactome_id: R-HSA-2327733
+    type: Reaction
+
+edges:

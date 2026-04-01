@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Jan's age two years ago",
+    "operation": "subtract",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 28,
+    "variable": "jan_age_two_years_ago"
+  },
+  {
+    "step": 2,
+    "description": "Half of Jan's age two years ago",
+    "operation": "divide",
+    "operands": [
+      28,
+      2
+    ],
+    "result": 14,
+    "variable": "half_jan_age_two_years_ago"
+  },
+  {
+    "step": 3,
+    "description": "Mark's age two years ago (5 older than half Jan's age)",
+    "operation": "add",
+    "operands": [
+      14,
+      5
+    ],
+    "result": 19,
+    "variable": "mark_age_two_years_ago"
+  },
+  {
+    "step": 4,
+    "description": "Mark's current age",
+    "operation": "add",
+    "operands": [
+      19,
+      2
+    ],
+    "result": 21,
+    "variable": "mark_current_age"
+  },
+  {
+    "step": 5,
+    "description": "Jean's current age (two years older than Mark)",
+    "operation": "add",
+    "operands": [
+      21,
+      2
+    ],
+    "result": 23,
+    "variable": "jean_current_age"
+  }
+]

@@ -1,0 +1,15 @@
+id: BIO-EPIGENETICS
+type: knowledge
+domain: biology
+name: Epigenomics
+
+description: The systematic study of the global gene expression changes due to EPIGENETIC PROCESSES and not due to DNA base sequence changes.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

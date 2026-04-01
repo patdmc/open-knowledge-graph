@@ -1,0 +1,57 @@
+id: PROC-ANGIOGENESIS
+type: knowledge
+domain: biology
+name: angiogenesis
+go_id: GO:0001525
+
+definition: "Blood vessel formation when new vessels emerge from the proliferation of pre-existing blood vessels."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0016525
+    name: negative regulation of angiogenesis
+    relation: negatively_regulates
+  - id: GO:0072104
+    name: glomerular capillary formation
+    relation: is_a
+  - id: GO:0002040
+    name: sprouting angiogenesis
+    relation: is_a
+  - id: GO:0002041
+    name: intussusceptive angiogenesis
+    relation: is_a
+  - id: GO:0060978
+    name: angiogenesis involved in coronary vascular morphogenesis
+    relation: is_a
+  - id: GO:0045765
+    name: regulation of angiogenesis
+    relation: regulates
+  - id: GO:0045766
+    name: positive regulation of angiogenesis
+    relation: positively_regulates
+  - id: GO:0060055
+    name: angiogenesis involved in wound healing
+    relation: is_a
+  - id: GO:0001569
+    name: branching involved in blood vessel morphogenesis
+    relation: part_of
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-TissueArchitecture encode components of angiogenesis"

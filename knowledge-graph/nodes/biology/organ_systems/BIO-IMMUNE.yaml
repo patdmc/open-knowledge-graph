@@ -1,0 +1,43 @@
+id: BIO-IMMUNE
+type: knowledge
+domain: biology
+name: Immune System
+
+description: "The body's defense mechanism against foreign organisms or substances and deviant native cells. It includes the humoral immune response and the cell-mediated response and consists of a complex of interrelated cellular, molecular, and genetic components."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+components:
+  - name: "T-Lymphocytes"
+    description: "Lymphocytes responsible for cell-mediated immunity. Two types have been identified - cytotoxic (T-LYMPHOCYTES, CYTOTOXIC) and helper T-lymphocytes (T-LYMPHOCYTES, HELPER-INDUCER). They are formed when"
+  - name: "B-Lymphocytes"
+    description: "Lymphoid cells concerned with humoral immunity. They are short-lived cells resembling bursa-derived lymphocytes of birds in their production of immunoglobulin upon appropriate stimulation."
+  - name: Cytokines
+    description: "Non-antibody proteins secreted by inflammatory leukocytes and some non-leukocytic cells, that act as intercellular mediators. They differ from classical hormones in that they are produced by a number "
+  - name: Immune Checkpoint Proteins
+    description: Immunomodulators that regulate immune system either in stimulatory or inhibitory fashion allowing IMMUNE TOLERANCE. Activation of suppressed immune system (IMMUNOSUPPRESSION (PHYSIOLOGY)) in immunothe
+  - name: Inflammation
+    description: A pathological process characterized by injury or destruction of tissues caused by a variety of cytologic and chemical reactions. It is usually manifested by typical signs of pain, heat, redness, swel
+
+edges:
+  - to: CHAN-Immune
+    relation: grounds
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Immune System biology grounds the CHAN-Immune coupling channel"
+  - to: BIO-NERVOUS
+    relation: interacts_with
+  - to: BIO-ENDOCRINE
+    relation: interacts_with

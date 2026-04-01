@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate interest on the borrowed amount",
+    "operation": "multiply",
+    "operands": [
+      3650,
+      0.1
+    ],
+    "result": 365.0,
+    "variable": "total_interest"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total amount owed (principal + interest)",
+    "operation": "add",
+    "operands": [
+      3650,
+      365.0
+    ],
+    "result": 4015.0,
+    "variable": "total_amount"
+  },
+  {
+    "step": 3,
+    "description": "Divide total amount by number of months to get monthly payment",
+    "operation": "divide",
+    "operands": [
+      4015.0,
+      5
+    ],
+    "result": 803.0,
+    "variable": "monthly_payment"
+  }
+]

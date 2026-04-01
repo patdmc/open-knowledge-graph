@@ -1,0 +1,50 @@
+id: PW-Gastrulation
+type: knowledge
+domain: biology
+name: Gastrulation
+reactome_id: R-HSA-9758941
+
+description: "Gastrulation is the reorganization of the blastula to form the multilayered gastrula. During gastrulation, a portion of cells from the exterior of the epithelial epiblast layer migrate to the interior, where they form mesoderm and endoderm which, together with the outer layer of ectoderm (arising from epiblast cells that have not migrated), comprise the three cell layers that are characteristic of triploblastic metazoans (reviewed in Technau and Scholz 2003). In the human peri-implantation embryo, epiblast cells ingress through the primitive streak located in the posterior region of the embryonic disc to form the mesoderm and endoderm of the embryo proper (reviewed in Bardot and Hadjantonakis 2020, Ghimire et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Germ layer formation at gastrulation
+    reactome_id: R-HSA-9754189
+    type: Pathway
+  - name: "Epithelial-Mesenchymal Transition (EMT) during gastrulation"
+    reactome_id: R-HSA-9758919
+    type: Pathway
+  - name: Formation of lateral plate mesoderm
+    reactome_id: R-HSA-9758920
+    type: Pathway
+  - name: Formation of intermediate mesoderm
+    reactome_id: R-HSA-9761174
+    type: Pathway
+  - name: Formation of paraxial mesoderm
+    reactome_id: R-HSA-9793380
+    type: Pathway
+  - name: Formation of axial mesoderm
+    reactome_id: R-HSA-9796292
+    type: Pathway
+  - name: Formation of definitive endoderm
+    reactome_id: R-HSA-9823730
+    type: Pathway
+  - name: Formation of the anterior neural plate
+    reactome_id: R-HSA-9823739
+    type: Pathway
+  - name: Formation of the posterior neural plate
+    reactome_id: R-HSA-9832991
+    type: Pathway
+  - name: Specification of the neural plate border
+    reactome_id: R-HSA-9834899
+    type: Pathway
+
+edges:

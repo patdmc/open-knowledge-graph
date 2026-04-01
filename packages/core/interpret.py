@@ -1452,6 +1452,78 @@ def _try_chains(clauses: list[Clause],
         if op == "divide": return a / b if b != 0 else None
         return None
 
+    # --- Provenance-aware operation validity ---
+    # Each value is (value, unit, per_unit, clause_idx, token_idx).
+    # The provenance constrains which operations make sense.
+
+    def _units_compatible(ui, uj):
+        """Check if two unit strings refer to the same thing."""
+        if not ui or not uj:
+            return False
+        # Exact match
+        if ui == uj:
+            return True
+        # Singular/plural: strip trailing 's'
+        a = ui.rstrip('s')
+        b = uj.rstrip('s')
+        return a == b or a.startswith(b) or b.startswith(a)
+
+    def valid_ops_for_pair(i, j):
+        """
+        Return list of valid operations for combining values[i] and values[j],
+        based on their provenance (unit, per_unit, clause_idx).
+
+        Axioms:
+        1. Same unit → add/subtract (5 cookies + 3 cookies)
+        2. Rate relationship → multiply/divide
+           (value has per_unit matching other's unit, or vice versa)
+        3. Same clause → any op plausible (numbers mentioned together
+           are likely related)
+        4. Dimensionless (no unit) → any op (we can't constrain)
+
+        Returns all 4 ops if we can't determine constraints (no info).
+        """
+        vi = values[i]
+        vj = values[j]
+        unit_i, per_unit_i, clause_i = vi[1], vi[2], vi[3]
+        unit_j, per_unit_j, clause_j = vj[1], vj[2], vj[3]
+
+        # If either has no unit info, we can't constrain — allow all
+        if not unit_i and not unit_j:
+            return ops
+
+        valid = set()
+
+        # Axiom 1: Same unit → add/subtract
+        if _units_compatible(unit_i, unit_j):
+            valid.add("add")
+            valid.add("subtract")
+
+        # Axiom 2: Rate relationship → multiply/divide
+        # "2 cups per dozen" (per_unit=cookies) + "36 cookies" → divide
+        if per_unit_i and _units_compatible(per_unit_i, unit_j):
+            valid.add("multiply")
+            valid.add("divide")
+        if per_unit_j and _units_compatible(per_unit_j, unit_i):
+            valid.add("multiply")
+            valid.add("divide")
+
+        # Axiom 2b: Different units, no rate → multiply/divide
+        # (price * quantity, dimensions, etc.)
+        if unit_i and unit_j and not _units_compatible(unit_i, unit_j):
+            valid.add("multiply")
+            valid.add("divide")
+
+        # Axiom 3: Same clause → allow all ops as plausible
+        if clause_i == clause_j:
+            return ops
+
+        # If nothing matched, allow all (safety net)
+        if not valid:
+            return ops
+
+        return list(valid)
+
     results = []
     seen_values = set()
 
@@ -1459,12 +1531,13 @@ def _try_chains(clauses: list[Clause],
         v = values[idx]
         return Lit(v[0], v[1])
 
-    def add_result(ast, res):
+    def add_result(ast, res, provenance_score=0.0):
         rkey = round(res, 4)
         if rkey in seen_values:
             return
         seen_values.add(rkey)
-        results.append((ast, f"chain→{res}"))
+        # Encode provenance score in description for downstream ranking
+        results.append((ast, f"chain→{res}|p={provenance_score:.1f}"))
 
     n = len(values)
 
@@ -1474,21 +1547,24 @@ def _try_chains(clauses: list[Clause],
             for j in range(n):
                 if i == j:
                     continue
-                for op in ops:
+                valid = valid_ops_for_pair(i, j)
+                prov = 1.0 if len(valid) < 4 else 0.0
+                for op in valid:
                     res = apply_op(op, nums[i], nums[j])
                     if res is not None and _is_finite(res):
                         ast = BinOp(op, make_lit(i), make_lit(j))
-                        add_result(ast, res)
+                        add_result(ast, res, prov)
 
     # 2-step: combine pair → intermediate, then intermediate + any value
     # Allow reuse: step 2 can use a value already used in step 1
-    # (e.g., "4 roses + 7 more = 11 dahlias; 4 + 11 = 15 total")
     if n >= 2:
         for i in range(n):
             for j in range(n):
                 if i == j:
                     continue
-                for op1 in ops:
+                valid1 = valid_ops_for_pair(i, j)
+                prov1 = 1.0 if len(valid1) < 4 else 0.0
+                for op1 in valid1:
                     inter = apply_op(op1, nums[i], nums[j])
                     if inter is None or not _is_finite(inter):
                         continue
@@ -1496,7 +1572,6 @@ def _try_chains(clauses: list[Clause],
 
                     for k in range(n):
                         for op2 in ops:
-                            # Try both orderings for non-commutative ops
                             for left, right, left_ast, right_ast in [
                                 (inter, nums[k], step1, make_lit(k)),
                                 (nums[k], inter, make_lit(k), step1),
@@ -1504,7 +1579,7 @@ def _try_chains(clauses: list[Clause],
                                 res = apply_op(op2, left, right)
                                 if res is not None and _is_finite(res):
                                     ast = BinOp(op2, left_ast, right_ast)
-                                    add_result(ast, res)
+                                    add_result(ast, res, prov1)
 
     # 3-step chains: step1 → step2 → step3
     # Allow reuse when n ≤ 4 values (tractable), require distinct for n > 4
@@ -1513,7 +1588,9 @@ def _try_chains(clauses: list[Clause],
             for j in range(n):
                 if i == j:
                     continue
-                for op1 in ops:
+                valid1 = valid_ops_for_pair(i, j)
+                prov1 = 1.0 if len(valid1) < 4 else 0.0
+                for op1 in valid1:
                     inter1 = apply_op(op1, nums[i], nums[j])
                     if inter1 is None or not _is_finite(inter1):
                         continue
@@ -1539,7 +1616,7 @@ def _try_chains(clauses: list[Clause],
                                             res = apply_op(op3, l2, r2)
                                             if res is not None and _is_finite(res):
                                                 ast = BinOp(op3, l2a, r2a)
-                                                add_result(ast, res)
+                                                add_result(ast, res, prov1)
 
     # 3-step chains for 5-6 values: require distinct indices to stay tractable
     if 5 <= n <= 6:
@@ -1547,7 +1624,9 @@ def _try_chains(clauses: list[Clause],
             for j in range(n):
                 if i == j:
                     continue
-                for op1 in ops:
+                valid1 = valid_ops_for_pair(i, j)
+                prov1 = 1.0 if len(valid1) < 4 else 0.0
+                for op1 in valid1:
                     inter1 = apply_op(op1, nums[i], nums[j])
                     if inter1 is None or not _is_finite(inter1):
                         continue
@@ -1577,7 +1656,7 @@ def _try_chains(clauses: list[Clause],
                                             res = apply_op(op3, l2, r2)
                                             if res is not None and _is_finite(res):
                                                 ast = BinOp(op3, l2a, r2a)
-                                                add_result(ast, res)
+                                                add_result(ast, res, prov1)
 
     # Also try parallel structure: (a op b) op3 (c op d)
     # Two independent pairs combined at the end
@@ -1586,7 +1665,9 @@ def _try_chains(clauses: list[Clause],
             for j in range(n):
                 if i == j:
                     continue
-                for op1 in ops:
+                valid1 = valid_ops_for_pair(i, j)
+                prov1 = 1.0 if len(valid1) < 4 else 0.0
+                for op1 in valid1:
                     left_val = apply_op(op1, nums[i], nums[j])
                     if left_val is None or not _is_finite(left_val):
                         continue
@@ -1598,7 +1679,9 @@ def _try_chains(clauses: list[Clause],
                         for m in range(k + 1, n):
                             if m in (i, j):
                                 continue
-                            for op2 in ops:
+                            valid2 = valid_ops_for_pair(k, m)
+                            prov2 = prov1 + (1.0 if len(valid2) < 4 else 0.0)
+                            for op2 in valid2:
                                 right_val = apply_op(op2, nums[k], nums[m])
                                 if right_val is None or not _is_finite(right_val):
                                     continue
@@ -1608,7 +1691,7 @@ def _try_chains(clauses: list[Clause],
                                     res = apply_op(op3, left_val, right_val)
                                     if res is not None and _is_finite(res):
                                         ast = BinOp(op3, left_ast, right_ast)
-                                        add_result(ast, res)
+                                        add_result(ast, res, prov2)
 
     return results
 
@@ -2412,6 +2495,37 @@ def build_ast(clauses: list[Clause], ctx: CompileContext) -> Optional[ASTNode]:
         walk_priority = int(walk_result.confidence * 10)
         candidates.append((walk_result.ast, "graph_walk", walk_priority))
 
+    # --- Schema-driven candidates: provenance-aware interpretations ---
+    # Classify the problem into schema types, then generate candidates
+    # by filling schema slots with numbers. Far fewer candidates than
+    # brute-force chains, each one semantically meaningful.
+    try:
+        from packages.core.word_schema import generate_interpretations
+        # Collect numbers with provenance
+        schema_numbers = []
+        for ci, clause in enumerate(clauses):
+            for ti, t in enumerate(clause.tokens):
+                if t.type in ("number", "money", "fraction", "multiplier"):
+                    schema_numbers.append((t.value, t.unit, t.per_unit, ci, ti))
+        # Add implicit numbers
+        full_text = " ".join(c.text.lower() for c in clauses)
+        implicit = _get_implicit_numbers(full_text, schema_numbers)
+        schema_numbers.extend(implicit)
+
+        schema_results = generate_interpretations(full_text, schema_numbers)
+        if schema_results:
+            for val, schema_type, conf, desc in schema_results:
+                # Create a Lit AST for the computed value
+                # (the schema already did the computation)
+                s_ast = Lit(val, "")
+                # Priority encodes schema confidence (0-10 scale)
+                # conf is 0-1 from classify(); scale to 5-10
+                s_pri = int(5 + conf * 5)
+                candidates.append((s_ast, f"schema:{schema_type}", s_pri))
+            ctx.debug.append(f"schema: {len(schema_results)} interpretations")
+    except Exception as e:
+        ctx.debug.append(f"schema error: {e}")
+
     # --- Bottom-up chain solver: exhaustive search over all chains ---
     # Every possible computation graph over the problem's numbers.
     # ALL results go into the candidate pool — this is the real solver.
@@ -2426,12 +2540,17 @@ def build_ast(clauses: list[Clause], ctx: CompileContext) -> Optional[ASTNode]:
         ctx.unsolved_reason = "no pattern matched"
         return None
 
-    # Score each candidate by STRATEGY confidence, not static priority
+    # Score each candidate.
     scored = []
     for c_ast, name, pri in candidates:
-        strat_score = score_strategy(c_ast, clauses, ctx)
-        # Blend: 70% strategy score, 30% solver prior (normalized 0-1)
-        blended = strat_score * 0.7 + (pri / 10.0) * 0.3
+        if name.startswith("schema:"):
+            # Schema candidates: use schema confidence directly.
+            strat_score = score_strategy(c_ast, clauses, ctx,
+                                         schema_pri=pri)
+            blended = strat_score
+        else:
+            strat_score = score_strategy(c_ast, clauses, ctx)
+            blended = strat_score * 0.7 + (pri / 10.0) * 0.3
         scored.append((c_ast, name, pri, strat_score, blended))
 
     scored.sort(key=lambda x: -x[4])
@@ -3011,7 +3130,7 @@ def _ast_ops(node: ASTNode) -> list[str]:
 
 
 def score_strategy(ast: ASTNode, clauses: list[Clause],
-                   ctx: CompileContext) -> float:
+                   ctx: CompileContext, schema_pri: int = 0) -> float:
     """
     Score confidence in the STRATEGY, not the answer.
 
@@ -3020,6 +3139,11 @@ def score_strategy(ast: ASTNode, clauses: list[Clause],
     2. Operation alignment: does the op count match the clause structure?
     3. Structural sanity: no degenerate trees (single lit, div by 0)
     4. Completeness: did we use information from most clauses?
+    5. Schema alignment: does the op pattern match the classified schema?
+
+    For schema candidates (schema_pri > 0), the AST is a collapsed
+    Lit(val) — skip AST-structural checks and use the schema's own
+    confidence as the number coverage + op alignment signal.
 
     Score is 0-1, where 1 means "this interpretation used the right
     pieces from the problem in a structurally sound way."
@@ -3028,6 +3152,23 @@ def score_strategy(ast: ASTNode, clauses: list[Clause],
         return 0.0
 
     score = 0.0
+
+    # --- Schema candidates: use schema confidence directly ---
+    # Schema candidates already did the computation (the AST is Lit(val)).
+    # Their pri encodes classification confidence × number coverage.
+    # Use that instead of inspecting the collapsed AST.
+    if schema_pri > 0:
+        # pri is 5-10 scale. Convert to 0-1.
+        schema_conf = schema_pri / 10.0
+        # Sanity check the result value
+        result = execute(ast)
+        sanity = 1.0
+        if result is None:
+            sanity = 0.0
+        elif result < 0:
+            sanity = 0.6
+        # Schema score = schema confidence weighted by sanity
+        return schema_conf * sanity
 
     # --- 1. Number coverage (0.4 weight) ---
     # How many of the problem's numbers did this AST use?
@@ -3124,9 +3265,53 @@ def score_strategy(ast: ASTNode, clauses: list[Clause],
                     break  # one match per clause is enough
         completeness = clause_nums_used / clauses_with_nums if clauses_with_nums else 0.5
 
+    # --- 5. Schema alignment (0.2 weight) ---
+    # Does this chain's operation pattern match the classified schema?
+    schema_score = 0.5  # neutral default
+    try:
+        from packages.core.word_schema import classify as classify_schema
+        full_text = " ".join(c.text for c in clauses)
+        schema_matches = classify_schema(full_text)
+        if schema_matches:
+            top_schema = schema_matches[0][0]
+            # What operations does the schema expect?
+            _schema_ops = {
+                "join_result": ["add"],
+                "join_change": ["subtract"],
+                "join_start": ["subtract"],
+                "separate_result": ["subtract"],
+                "separate_change": ["subtract"],
+                "ppw_whole": ["add"],
+                "ppw_part": ["subtract"],
+                "compare_diff": ["subtract"],
+                "compare_bigger": ["add"],
+                "compare_smaller": ["subtract"],
+                "equal_groups_total": ["multiply"],
+                "equal_groups_size": ["divide"],
+                "equal_groups_count": ["divide"],
+                "rate_total": ["multiply"],
+                "rate_quantity": ["divide"],
+                "mult_compare": ["multiply"],
+                "rate_compare": ["multiply", "subtract"],
+                "percent_of": ["multiply"],
+                "percent_change": ["multiply"],
+                "proportion": ["multiply", "divide"],
+                "rate_chain": ["multiply"],
+            }
+            expected_ops = _schema_ops.get(top_schema, [])
+            if expected_ops and ast_op_list:
+                # How many of the schema's expected ops appear in the chain?
+                chain_ops_set = set(ast_op_list)
+                matched_schema_ops = sum(1 for op in expected_ops
+                                          if op in chain_ops_set)
+                schema_score = matched_schema_ops / len(expected_ops)
+    except Exception:
+        pass
+
     # All components are [0,1], weighted sum stays [0,1]
-    score = (num_score * 0.4 + op_score * 0.3 +
-             sanity * 0.2 + completeness * 0.1)
+    # Rebalance: reduce op_score weight (it's noisy) and add schema
+    score = (num_score * 0.35 + op_score * 0.15 +
+             sanity * 0.2 + completeness * 0.1 + schema_score * 0.2)
     return max(0.0, min(1.0, score))
 
 

@@ -1,0 +1,71 @@
+id: PW-CiprofloxacinADME
+type: knowledge
+domain: biology
+name: Ciprofloxacin ADME
+reactome_id: R-HSA-9793528
+
+description: Ciprofloxacin (Cipro) is a widely used broad spectrum bacterial antibiotic. Due to its association with disabling and potentially persistent adverse reactions and current high levels of resistance its use is now recommended in patients who have no alternative treatment option for respiratory and urinary tract infections, skin and soft tissue infections, bone and joint infections, infectious diarrhea, typhoid fever and gonorrhea with susceptible strains. Adverse reactions include tendinitis, tendon rupture, peripheral neuropathy, and CNS effects.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Cipro HCl dissolves
+    reactome_id: R-HSA-9793564
+    type: BlackBoxEvent
+  - name: SLCO1A2 transports Cipro(1+) into the cytosol
+    reactome_id: R-HSA-9794270
+    type: Reaction
+  - name: Cipro is imported by organic cation transporters
+    reactome_id: R-HSA-9793628
+    type: BlackBoxEvent
+  - name: Basolateral transport of Cipro to extracellular space
+    reactome_id: R-HSA-9794414
+    type: BlackBoxEvent
+  - name: ALB binds Cipro
+    reactome_id: R-HSA-9794444
+    type: Reaction
+  - name: "Cipro:ALB dissociates"
+    reactome_id: R-HSA-9794475
+    type: Reaction
+  - name: SLC22A1 transports Cipro into renal cell
+    reactome_id: R-HSA-9794523
+    type: Reaction
+  - name: SLC22A8 transports Cipro into renal cell
+    reactome_id: R-HSA-9794830
+    type: Reaction
+  - name: Apical transport of Cipro to extracellular space
+    reactome_id: R-HSA-9794569
+    type: BlackBoxEvent
+  - name: SLC22A1 transports Cipro into hepatic cell
+    reactome_id: R-HSA-9795207
+    type: Reaction
+  - name: "Cipro is oxidized to oxo-Cipro"
+    reactome_id: R-HSA-9794840
+    type: BlackBoxEvent
+  - name: "Basolateral excretion of oxo-Cipro"
+    reactome_id: R-HSA-9795153
+    type: BlackBoxEvent
+  - name: "Cipro is sulfonated to sulfo-Cipro"
+    reactome_id: R-HSA-9795134
+    type: BlackBoxEvent
+  - name: "Apical excretion of sulfo-Cipro"
+    reactome_id: R-HSA-9795147
+    type: BlackBoxEvent
+  - name: ABCG2 transports Cipro from hepatic cell to extracellular space
+    reactome_id: R-HSA-9794572
+    type: Reaction
+  - name: Basolateral transport of Cipro into intestinal cell
+    reactome_id: R-HSA-9794352
+    type: BlackBoxEvent
+  - name: ABCG2 transports Cipro from intestinal cell to extracellular space
+    reactome_id: R-HSA-9794120
+    type: Reaction
+
+edges:

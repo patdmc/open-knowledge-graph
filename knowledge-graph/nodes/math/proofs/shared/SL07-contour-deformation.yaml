@@ -1,0 +1,12 @@
+id: SL07-contour-deformation
+type: shared_lemma
+domain: analysis
+name: "Contour Deformation (Cauchy)"
+statement: "\\text{If } f \\text{ is holomorphic between contours } C_1, C_2, \\text{ then } \\oint_{C_1} f\\,dz = \\oint_{C_2} f\\,dz"
+justification: "Cauchy's theorem: integral over closed contour in simply connected domain is zero; deform without crossing singularities"
+references: [holomorphic, contour_integral]
+used_by:
+  - proof: PR13-residue-theorem
+    step: deform-contour
+  - proof: PR28-open-mapping
+    step: local-analysis

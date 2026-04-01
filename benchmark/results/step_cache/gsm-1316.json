@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate discount amount (80% of $400)",
+    "operation": "multiply",
+    "operands": [
+      400,
+      0.8
+    ],
+    "result": 320,
+    "variable": "discount_amount"
+  },
+  {
+    "step": 2,
+    "description": "Calculate radiator price after discount",
+    "operation": "subtract",
+    "operands": [
+      400,
+      320
+    ],
+    "result": 80,
+    "variable": "radiator_cost"
+  },
+  {
+    "step": 3,
+    "description": "Calculate mechanic labor cost (3 hours at $50/hour)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      50
+    ],
+    "result": 150,
+    "variable": "labor_cost"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total cost (radiator + labor)",
+    "operation": "add",
+    "operands": [
+      80,
+      150
+    ],
+    "result": 230,
+    "variable": "total_cost"
+  }
+]

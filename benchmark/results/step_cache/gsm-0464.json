@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Finley starts in 1st place, falls back 5 spots",
+    "operation": "add",
+    "operands": [
+      1,
+      5
+    ],
+    "result": 6,
+    "variable": "position_after_falling_back"
+  },
+  {
+    "step": 2,
+    "description": "Moves ahead 2 spots",
+    "operation": "subtract",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 4,
+    "variable": "position_after_moving_ahead"
+  },
+  {
+    "step": 3,
+    "description": "Falls behind 3 spots",
+    "operation": "add",
+    "operands": [
+      4,
+      3
+    ],
+    "result": 7,
+    "variable": "position_after_falling_behind"
+  },
+  {
+    "step": 4,
+    "description": "Jumps ahead 1 spot to finish",
+    "operation": "subtract",
+    "operands": [
+      7,
+      1
+    ],
+    "result": 6,
+    "variable": "final_position"
+  }
+]

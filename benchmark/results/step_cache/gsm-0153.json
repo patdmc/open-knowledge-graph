@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Seagull ate half of what Dave ate",
+    "operation": "divide",
+    "operands": [
+      14,
+      2
+    ],
+    "result": 7,
+    "variable": "seagull_ate"
+  },
+  {
+    "step": 2,
+    "description": "Three pigeons each ate three fries",
+    "operation": "multiply",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 9,
+    "variable": "pigeons_ate"
+  },
+  {
+    "step": 3,
+    "description": "Fries before ants (5 left + 1 ant took)",
+    "operation": "add",
+    "operands": [
+      5,
+      1
+    ],
+    "result": 6,
+    "variable": "before_ants"
+  },
+  {
+    "step": 4,
+    "description": "Fries before raccoon (raccoon took 2/3, leaving 1/3 = 6)",
+    "operation": "multiply",
+    "operands": [
+      6,
+      3
+    ],
+    "result": 18,
+    "variable": "before_raccoon"
+  },
+  {
+    "step": 5,
+    "description": "Fries before pigeons ate",
+    "operation": "add",
+    "operands": [
+      18,
+      9
+    ],
+    "result": 27,
+    "variable": "before_pigeons"
+  },
+  {
+    "step": 6,
+    "description": "Fries before seagull ate",
+    "operation": "add",
+    "operands": [
+      27,
+      7
+    ],
+    "result": 34,
+    "variable": "before_seagull"
+  },
+  {
+    "step": 7,
+    "description": "Original pack size before Dave ate",
+    "operation": "add",
+    "operands": [
+      34,
+      14
+    ],
+    "result": 48,
+    "variable": "original_pack"
+  }
+]

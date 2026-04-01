@@ -1,0 +1,29 @@
+id: PW-SignalingbyHedgehog
+type: knowledge
+domain: biology
+name: Signaling by Hedgehog
+reactome_id: R-HSA-5358351
+
+description: "Hedgehog (Hh) is a secreted morphogen that regulates developmental processes in vertebrates including limb bud formation, neural tube patterning, cell growth and differentiation (reviewed in Hui and Angers, 2011).  Hh signaling also contributes to stem cell homeostasis in adult tissues.  Downregulation of Hh signaling can lead to neonatal abnormalities, while upregulation of signaling is associated with the development of various cancers (Beachy et al, 2004; Jiang and Hui, 2008; Hui and Angers, 2011).Hh signaling is switched between 'off' and an 'on' states to differentially regulate an intracellular signaling cascade that targets the Gli transcription factors."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Hedgehog ligand biogenesis
+    reactome_id: R-HSA-5358346
+    type: Pathway
+  - name: "Hedgehog 'off' state"
+    reactome_id: R-HSA-5610787
+    type: Pathway
+  - name: "Hedgehog 'on' state"
+    reactome_id: R-HSA-5632684
+    type: Pathway
+
+edges:

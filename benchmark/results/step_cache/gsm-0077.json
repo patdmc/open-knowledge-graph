@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Raymond's laundry as half of Sarah's",
+    "operation": "divide",
+    "operands": [
+      400,
+      2
+    ],
+    "result": 200,
+    "variable": "Raymond's laundry in pounds"
+  },
+  {
+    "step": 2,
+    "description": "Calculate David's laundry as Sarah's divided by 4",
+    "operation": "divide",
+    "operands": [
+      400,
+      4
+    ],
+    "result": 100,
+    "variable": "David's laundry in pounds"
+  },
+  {
+    "step": 3,
+    "description": "Calculate the difference between Raymond's and David's laundry",
+    "operation": "subtract",
+    "operands": [
+      200,
+      100
+    ],
+    "result": 100.0,
+    "variable": "Difference in laundry between Raymond and David"
+  }
+]

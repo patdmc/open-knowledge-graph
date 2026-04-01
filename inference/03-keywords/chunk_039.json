@@ -1,0 +1,55 @@
+{
+  "chunk_index": 39,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "13. Open Questions > [part 2/4]",
+  "section_path": [
+    "13. Open Questions",
+    "[part 2/4]"
+  ],
+  "char_count": 5941,
+  "keyphrases": [
+    {
+      "phrase": "evolutionary rigor threshold",
+      "score": 0.5952
+    },
+    {
+      "phrase": "structure math evolutionary",
+      "score": 0.5622
+    },
+    {
+      "phrase": "function genetic encoding",
+      "score": 0.5428
+    },
+    {
+      "phrase": "developmental constraint",
+      "score": 0.4904
+    },
+    {
+      "phrase": "sufficient bootstrap organism",
+      "score": 0.4065
+    },
+    {
+      "phrase": "math math developmental",
+      "score": 0.3902
+    },
+    {
+      "phrase": "programs architectures gradient",
+      "score": 0.3709
+    },
+    {
+      "phrase": "finition describes ratchet",
+      "score": 0.3147
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The AGI condition.",
+      "The next precipitation: normal form priority and extraction\n  protocol."
+    ],
+    "has_math": true
+  }
+}

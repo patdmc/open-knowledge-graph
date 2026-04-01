@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total allowance earned over 8 weeks",
+    "operation": "multiply",
+    "operands": [
+      5,
+      8
+    ],
+    "result": 40,
+    "variable": "total_allowance"
+  },
+  {
+    "step": 2,
+    "description": "Subtract total allowance from final amount to find starting amount",
+    "operation": "subtract",
+    "operands": [
+      100,
+      40
+    ],
+    "result": 60.0,
+    "variable": "starting_amount"
+  }
+]

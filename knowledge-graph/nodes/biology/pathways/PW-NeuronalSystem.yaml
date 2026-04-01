@@ -1,0 +1,32 @@
+id: PW-NeuronalSystem
+type: knowledge
+domain: biology
+name: Neuronal System
+reactome_id: R-HSA-112316
+
+description: The human brain contains at least 100 billion neurons, each with the ability to influence many other cells. Clearly, highly sophisticated and efficient mechanisms are needed to enable communication among this astronomical number of elements. This communication occurs across synapses, the functional connection between neurons.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Transmission across Electrical Synapses 
+    reactome_id: R-HSA-112307
+    type: Pathway
+  - name: Transmission across Chemical Synapses
+    reactome_id: R-HSA-112315
+    type: Pathway
+  - name: Potassium Channels
+    reactome_id: R-HSA-1296071
+    type: Pathway
+  - name: "Protein-protein interactions at synapses"
+    reactome_id: R-HSA-6794362
+    type: Pathway
+
+edges:

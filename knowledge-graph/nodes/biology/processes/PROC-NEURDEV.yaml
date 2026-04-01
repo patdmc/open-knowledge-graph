@@ -1,0 +1,65 @@
+id: PROC-NEURDEV
+type: knowledge
+domain: biology
+name: nervous system development
+go_id: GO:0007399
+
+definition: The process whose specific outcome is the progression of nervous tissue over time, from its formation to its mature state.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0022008
+    name: neurogenesis
+    relation: part_of
+  - id: GO:0048483
+    name: autonomic nervous system development
+    relation: part_of
+  - id: GO:0061548
+    name: ganglion development
+    relation: part_of
+  - id: GO:0051961
+    name: negative regulation of nervous system development
+    relation: negatively_regulates
+  - id: GO:0051962
+    name: positive regulation of nervous system development
+    relation: positively_regulates
+  - id: GO:0051960
+    name: regulation of nervous system development
+    relation: regulates
+  - id: GO:0014028
+    name: notochord formation
+    relation: part_of
+  - id: GO:0021675
+    name: nerve development
+    relation: part_of
+  - id: GO:0021915
+    name: neural tube development
+    relation: part_of
+  - id: GO:0035545
+    name: determination of left/right asymmetry in nervous system
+    relation: part_of
+  - id: GO:0060074
+    name: synapse maturation
+    relation: part_of
+  - id: GO:0021501
+    name: prechordal plate formation
+    relation: part_of
+  - id: GO:0048755
+    name: branching morphogenesis of a nerve
+    relation: part_of
+  - id: GO:0007272
+    name: ensheathment of neurons
+    relation: part_of
+  - id: GO:0007421
+    name: stomatogastric nervous system development
+    relation: part_of
+
+edges:

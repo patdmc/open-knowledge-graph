@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total vanilla scents sold",
+    "operation": "multiply",
+    "operands": [
+      4,
+      5
+    ],
+    "result": 20,
+    "variable": "total_vanilla_sales"
+  },
+  {
+    "step": 2,
+    "description": "Total fruity scents sold",
+    "operation": "multiply",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 16,
+    "variable": "total_fruity_sales"
+  },
+  {
+    "step": 3,
+    "description": "How many more vanilla sold than fruity",
+    "operation": "subtract",
+    "operands": [
+      20,
+      16
+    ],
+    "result": 4.0,
+    "variable": "vanilla_minus_fruity"
+  }
+]

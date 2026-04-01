@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of fish sausages by adding 6 more than chicken sausages",
+    "operation": "add",
+    "operands": [
+      38,
+      6
+    ],
+    "result": 44,
+    "variable": "fish_sausages"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total sausages by adding chicken and fish sausages",
+    "operation": "add",
+    "operands": [
+      38,
+      44
+    ],
+    "result": 82,
+    "variable": "total_sausages"
+  }
+]

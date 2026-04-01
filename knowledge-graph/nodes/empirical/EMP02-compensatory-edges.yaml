@@ -1,0 +1,79 @@
+id: EMP02-compensatory-edges
+type: knowledge
+domain: cancer_biology
+name: Compensatory Gene Pair Edges
+
+claim: >
+  30 cross-channel gene pairs show strongly protective co-mutation (HR < 0.35, p < 0.001).
+  These represent biological compensation: when both genes are mutated together, the
+  combined disruption is less lethal than either alone. All 30 pairs are cross-channel,
+  consistent with redundancy operating between functional domains.
+
+n_edges: 30
+selection_criteria:
+  hr_threshold: 0.35
+  p_threshold: 0.001
+  min_datasets: 2
+  all_cross_channel: true
+
+top_pairs:
+  - from: PALB2
+    to: TGFBR1
+    hr: 0.068
+    p: 0.00015
+    channels: DDR-TissueArchitecture
+    n: 100
+  - from: ARID2
+    to: RAD51C
+    hr: 0.079
+    p: 0.000236
+    channels: TissueArchitecture-DDR
+    n: 113
+  - from: CDK12
+    to: FOXL2
+    hr: 0.109
+    p: 0.000339
+    channels: CellCycle-Endocrine
+    n: 103
+  - from: PALB2
+    to: FAT1
+    hr: 0.127
+    p: 0.000179
+    channels: DDR-TissueArchitecture
+    n: 116
+  - from: EPCAM
+    to: RAD51C
+    hr: 0.143
+    p: 0.000256
+    channels: Immune-DDR
+    n: 109
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Co-mutation Compensation Screen (Paper 5 supplement)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Cox interaction models on MSK-IMPACT 50K + MSK-MetTropism, cross-validated across both datasets"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: validates
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Cross-channel compensation predicted by bounded-context theory: redundant coverage across domains buffers system failure"
+  - to: EMP01-tmb-paradox-resolution
+    relation: explains
+    provenance:
+      attribution:
+        source: "Paper 5"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Compensatory pairs are one mechanism by which high mutation count becomes protective"

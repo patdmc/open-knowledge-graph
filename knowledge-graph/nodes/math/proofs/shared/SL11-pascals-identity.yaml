@@ -1,0 +1,10 @@
+id: SL11-pascals-identity
+type: shared_lemma
+domain: combinatorics
+name: "Pascal's Identity"
+statement: "\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}"
+justification: "count subsets of size k from n: element n is either included (choose k-1 from n-1) or excluded (choose k from n-1)"
+references: [binomial_coefficient, combination_count]
+used_by:
+  - proof: PR27-binomial-theorem
+    step: pascal-identity

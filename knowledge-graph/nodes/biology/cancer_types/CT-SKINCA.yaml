@@ -1,0 +1,61 @@
+id: CT-SKINCA
+type: knowledge
+domain: cancer_biology
+name: "Skin Cancer, Non-Melanoma"
+
+n_patients: 370
+n_mutated: 261
+mutation_rate: 0.7054
+channel_entropy: 2.2405
+hub_fraction: 0.3447
+median_os_months: 21.3535
+event_rate: 0.3216
+survival_36m: 0.2622
+mean_channels_per_patient: 3.1762
+top_gene: TP53
+top_gene_frequency: 0.1196
+n_harmful_mutations: 4
+n_protective_mutations: 0
+dominant_channels: [CHAN-PI3K_Growth, CHAN-TissueArchitecture]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=370)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Skin Cancer, Non-Melanoma"
+  - to: CHAN-TissueArchitecture
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Skin Cancer, Non-Melanoma"
+  - to: GENE-TP53
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "TP53 mutated in 0.1196 of Skin Cancer, Non-Melanoma patients"
+

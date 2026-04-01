@@ -1,0 +1,44 @@
+id: PW-AdaptiveImmuneSystem
+type: knowledge
+domain: biology
+name: Adaptive Immune System
+reactome_id: R-HSA-1280218
+
+description: "Adaptive immunity refers to antigen-specific immune response efficiently involved in clearing the pathogens. The adaptive immune system is comprised of B and T lymphocytes that express receptors with remarkable diversity tailored to recognize aspects of particular pathogens or antigens. During infection, dendritic cells (DC) which act as sentinels in the peripheral tissues recognize and pick up the pathogen in the form of antigenic determinants and then process these antigens and present them to T cells."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: TCR signaling
+    reactome_id: R-HSA-202403
+    type: Pathway
+  - name: Regulation of T cell activation by CD28 family
+    reactome_id: R-HSA-388841
+    type: Pathway
+  - name: Signaling by the B Cell Receptor (BCR)
+    reactome_id: R-HSA-983705
+    type: Pathway
+  - name: "Class I MHC mediated antigen processing & presentation"
+    reactome_id: R-HSA-983169
+    type: Pathway
+  - name: MHC class II antigen presentation
+    reactome_id: R-HSA-2132295
+    type: Pathway
+  - name: "Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell"
+    reactome_id: R-HSA-198933
+    type: Pathway
+  - name: Rap1 signalling
+    reactome_id: R-HSA-392517
+    type: Pathway
+  - name: Butyrophilin (BTN) family interactions
+    reactome_id: R-HSA-8851680
+    type: Pathway
+
+edges:

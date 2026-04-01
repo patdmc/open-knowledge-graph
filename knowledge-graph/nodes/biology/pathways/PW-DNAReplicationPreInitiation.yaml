@@ -1,0 +1,26 @@
+id: PW-DNAReplicationPreInitiation
+type: knowledge
+domain: biology
+name: "DNA Replication Pre-Initiation"
+reactome_id: R-HSA-69002
+
+description: "Although, DNA replication occurs in the S phase of the cell cycle, the formation of the DNA replication pre-initiation complex begins during  G1 phase."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Assembly of the pre-replicative complex"
+    reactome_id: R-HSA-68867
+    type: Pathway
+  - name: "Activation of the pre-replicative complex"
+    reactome_id: R-HSA-68962
+    type: Pathway
+
+edges:

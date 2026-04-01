@@ -1,0 +1,26 @@
+id: PW-O2CO2exchangeinerythrocytes
+type: knowledge
+domain: biology
+name: O2/CO2 exchange in erythrocytes
+reactome_id: R-HSA-1480926
+
+description: "In capillaries of the lungs Erythrocytes take up oxygen and release carbon dioxide. In other tissues of the body the reverse reaction occurs: Erythrocytes take up carbon dioxide and release oxygen (reviewed in Nikinmaa 1997, Jensen 2004).In the lungs, carbon dioxide (CO2) bound as carbamate to the N-terminus of hemoglobin (HbA) and protons bound to histidine residues in HbA are released as HbA binds oxygen (O2). Bicarbonate (HCO3-) present in plasma is taken up by erythrocytes via the band3 anion exchanger (AE1, SLC4A1) and combined with protons by carbonic anhydrases I and II (CA1, CA2) to yield water and CO2 (reviewed by Esbaugh & Tufts 2006, De Rosa et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Erythrocytes take up carbon dioxide and release oxygen
+    reactome_id: R-HSA-1237044
+    type: Pathway
+  - name: Erythrocytes take up oxygen and release carbon dioxide
+    reactome_id: R-HSA-1247673
+    type: Pathway
+
+edges:

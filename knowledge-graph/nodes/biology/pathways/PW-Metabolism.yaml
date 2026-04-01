@@ -1,0 +1,65 @@
+id: PW-Metabolism
+type: knowledge
+domain: biology
+name: Metabolism
+reactome_id: R-HSA-1430728
+
+description: "Metabolic processes in human cells generate energy through the oxidation of molecules consumed in the diet and mediate the synthesis of diverse essential molecules not taken in the diet as well as the inactivation and elimination of toxic ones generated endogenously or present in the extracellular environment. The processes of energy metabolism can be classified into two groups according to whether they involve carbohydrate-derived or lipid-derived molecules, and within each group it is useful to distinguish processes that mediate the breakdown and oxidation of these molecules to yield energy from ones that mediate their synthesis and storage as internal energy reserves. Synthetic reactions are conveniently grouped by the chemical nature of the end products, such as nucleotides, amino acids and related molecules, and porphyrins."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Metabolism of carbohydrates and carbohydrate derivatives
+    reactome_id: R-HSA-71387
+    type: Pathway
+  - name: Inositol phosphate metabolism
+    reactome_id: R-HSA-1483249
+    type: Pathway
+  - name: Metabolism of lipids
+    reactome_id: R-HSA-556833
+    type: Pathway
+  - name: Integration of energy metabolism
+    reactome_id: R-HSA-163685
+    type: Pathway
+  - name: "Metabolism of nitric oxide: NOS3 activation and regulation"
+    reactome_id: R-HSA-202131
+    type: Pathway
+  - name: Aerobic respiration and respiratory electron transport
+    reactome_id: R-HSA-1428517
+    type: Pathway
+  - name: Metabolism of nucleotides
+    reactome_id: R-HSA-15869
+    type: Pathway
+  - name: Metabolism of vitamins and cofactors
+    reactome_id: R-HSA-196854
+    type: Pathway
+  - name: Metabolism of amino acids and derivatives
+    reactome_id: R-HSA-71291
+    type: Pathway
+  - name: Metabolism of porphyrins
+    reactome_id: R-HSA-189445
+    type: Pathway
+  - name: Biological oxidations
+    reactome_id: R-HSA-211859
+    type: Pathway
+  - name: "Mitochondrial iron-sulfur cluster biogenesis"
+    reactome_id: R-HSA-1362409
+    type: Pathway
+  - name: Reversible hydration of carbon dioxide
+    reactome_id: R-HSA-1475029
+    type: Pathway
+  - name: "Cytosolic iron-sulfur cluster assembly"
+    reactome_id: R-HSA-2564830
+    type: Pathway
+  - name: Pyrophosphate hydrolysis
+    reactome_id: R-HSA-71737
+    type: Pathway
+
+edges:

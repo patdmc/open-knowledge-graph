@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "total height from 4-inch heels",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "sum_4inch"
+  },
+  {
+    "step": 2,
+    "description": "total height from 2-inch heels",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "sum_2inch"
+  },
+  {
+    "step": 3,
+    "description": "total heel height for all women",
+    "operation": "add",
+    "operands": [
+      12,
+      6
+    ],
+    "result": 18,
+    "variable": "total_height"
+  },
+  {
+    "step": 4,
+    "description": "total number of women",
+    "operation": "add",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 6,
+    "variable": "total_women"
+  },
+  {
+    "step": 5,
+    "description": "average heel height",
+    "operation": "divide",
+    "operands": [
+      18,
+      6
+    ],
+    "result": 3.0,
+    "variable": "average_heel_height"
+  }
+]

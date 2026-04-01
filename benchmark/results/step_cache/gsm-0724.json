@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Total slices for all 5 people",
+    "operation": "multiply",
+    "operands": [
+      5,
+      12
+    ],
+    "result": 60,
+    "variable": "total_slices"
+  },
+  {
+    "step": 2,
+    "description": "Slices each person in group 1 ate (2/3 of 12)",
+    "operation": "multiply",
+    "operands": [
+      12,
+      0.6667
+    ],
+    "result": 8,
+    "variable": "slices_per_group1_person"
+  },
+  {
+    "step": 3,
+    "description": "Total slices eaten by group 1 (Bryce + 2 friends)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      8
+    ],
+    "result": 24,
+    "variable": "group1_eaten"
+  },
+  {
+    "step": 4,
+    "description": "Slices each person in group 2 ate (3/4 of 12)",
+    "operation": "multiply",
+    "operands": [
+      12,
+      0.75
+    ],
+    "result": 9,
+    "variable": "slices_per_group2_person"
+  },
+  {
+    "step": 5,
+    "description": "Total slices eaten by group 2 (2 remaining friends)",
+    "operation": "multiply",
+    "operands": [
+      2,
+      9
+    ],
+    "result": 18,
+    "variable": "group2_eaten"
+  },
+  {
+    "step": 6,
+    "description": "Total slices eaten by everyone",
+    "operation": "add",
+    "operands": [
+      24,
+      18
+    ],
+    "result": 42,
+    "variable": "total_eaten"
+  },
+  {
+    "step": 7,
+    "description": "Slices of pizza left",
+    "operation": "subtract",
+    "operands": [
+      60,
+      42
+    ],
+    "result": 18,
+    "variable": "slices_left"
+  }
+]

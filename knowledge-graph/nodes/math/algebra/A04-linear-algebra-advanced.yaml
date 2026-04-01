@@ -1,0 +1,240 @@
+id: A04-linear-algebra-advanced
+type: knowledge
+domain: algebra
+name: "Linear Algebra — Advanced"
+
+concepts:
+  # === Decompositions ===
+  - id: lu_decomposition
+    name: "LU Decomposition"
+    latex: "A = LU"
+    meaning: "lower triangular L times upper triangular U"
+    action:
+      scipy: "scipy.linalg.lu(A)"
+      numpy: "scipy.linalg.lu_factor(A)"
+    curried: "lambda A: scipy.linalg.lu(A)"
+
+  - id: qr_decomposition
+    name: "QR Decomposition"
+    latex: "A = QR"
+    meaning: "orthogonal Q times upper triangular R"
+    action:
+      numpy: "np.linalg.qr(A)"
+      scipy: "scipy.linalg.qr(A)"
+    curried: "lambda A: np.linalg.qr(A)"
+
+  - id: cholesky
+    name: "Cholesky Decomposition"
+    latex: "A = LL^T"
+    meaning: "for symmetric positive definite A; L is lower triangular"
+    action:
+      numpy: "np.linalg.cholesky(A)"
+      scipy: "scipy.linalg.cholesky(A, lower=True)"
+    curried: "lambda A: np.linalg.cholesky(A)"
+    constraint: "A must be symmetric positive definite"
+
+  - id: schur_decomposition
+    name: "Schur Decomposition"
+    latex: "A = QTQ^*"
+    meaning: "unitary Q, upper triangular T; eigenvalues on diagonal of T"
+    action:
+      scipy: "scipy.linalg.schur(A)"
+    curried: "lambda A: scipy.linalg.schur(A)"
+
+  - id: polar_decomposition
+    name: "Polar Decomposition"
+    latex: "A = UP"
+    meaning: "unitary U times positive semi-definite P"
+    action:
+      scipy: "scipy.linalg.polar(A)"
+    curried: "lambda A: scipy.linalg.polar(A)"
+
+  - id: jordan_normal_form
+    name: "Jordan Normal Form"
+    latex: "A = PJP^{-1}"
+    meaning: "block diagonal with Jordan blocks; generalizes diagonalization"
+    action:
+      sympy: "Matrix(A).jordan_form()"
+    curried: "lambda A: sympy.Matrix(A).jordan_form()"
+
+  # === Vector Spaces ===
+  - id: linear_independence
+    name: "Linear Independence"
+    latex: "\\sum_i c_i \\vec{v}_i = 0 \\implies c_i = 0 \\text{ for all } i"
+    meaning: "no vector in the set is a linear combination of the others"
+    test: "rank of matrix formed by vectors equals number of vectors"
+
+  - id: basis
+    name: "Basis"
+    latex: "\\{\\vec{v}_1, \\ldots, \\vec{v}_n\\}"
+    meaning: "linearly independent spanning set; dimension = number of basis vectors"
+
+  - id: dimension
+    name: "Dimension"
+    latex: "\\dim(V)"
+    meaning: "number of vectors in any basis"
+    action:
+      numpy: "np.linalg.matrix_rank(basis_matrix)"
+
+  - id: null_space
+    name: "Null Space (Kernel)"
+    latex: "\\text{null}(A) = \\{x : Ax = 0\\}"
+    action:
+      scipy: "scipy.linalg.null_space(A)"
+      sympy: "A.nullspace()"
+    curried: "lambda A: scipy.linalg.null_space(A)"
+
+  - id: column_space
+    name: "Column Space (Range)"
+    latex: "\\text{col}(A) = \\{Ax : x \\in \\mathbb{R}^n\\}"
+    action:
+      scipy: "scipy.linalg.orth(A)"
+      sympy: "A.columnspace()"
+    curried: "lambda A: scipy.linalg.orth(A)"
+
+  - id: row_space
+    name: "Row Space"
+    latex: "\\text{row}(A) = \\text{col}(A^T)"
+    action:
+      sympy: "A.rowspace()"
+
+  - id: rank_nullity
+    name: "Rank-Nullity Theorem"
+    latex: "\\text{rank}(A) + \\text{nullity}(A) = n"
+    meaning: "dimension of column space + dimension of null space = number of columns"
+
+  # === Inner Products and Orthogonality ===
+  - id: inner_product
+    name: "Inner Product"
+    latex: "\\langle u, v \\rangle"
+    meaning: "generalization of dot product; induces norm and angle"
+    action:
+      numpy: "np.inner(u, v)"
+      numpy_complex: "np.vdot(u, v)"
+    curried: "lambda u: lambda v: np.inner(u, v)"
+
+  - id: orthogonal
+    name: "Orthogonality"
+    latex: "\\langle u, v \\rangle = 0"
+    meaning: "vectors are perpendicular"
+    test: "np.isclose(np.dot(u, v), 0)"
+
+  - id: orthonormal_basis
+    name: "Orthonormal Basis"
+    meaning: "basis where all vectors are unit length and mutually orthogonal"
+    action:
+      gram_schmidt: "scipy.linalg.orth(A)"
+
+  - id: projection
+    name: "Orthogonal Projection"
+    latex: "\\text{proj}_u v = \\frac{\\langle v, u \\rangle}{\\langle u, u \\rangle} u"
+    action:
+      numpy: "(np.dot(v, u) / np.dot(u, u)) * u"
+    curried: "lambda u: lambda v: (np.dot(v, u) / np.dot(u, u)) * u"
+
+  - id: least_squares
+    name: "Least Squares"
+    latex: "\\hat{x} = \\arg\\min_x \\|Ax - b\\|^2 = (A^T A)^{-1} A^T b"
+    action:
+      numpy: "np.linalg.lstsq(A, b, rcond=None)[0]"
+      scipy: "scipy.linalg.lstsq(A, b)[0]"
+    curried: "lambda A: lambda b: np.linalg.lstsq(A, b, rcond=None)[0]"
+
+  - id: pseudoinverse
+    name: "Moore-Penrose Pseudoinverse"
+    latex: "A^+ = (A^T A)^{-1} A^T"
+    action:
+      numpy: "np.linalg.pinv(A)"
+    curried: "lambda A: np.linalg.pinv(A)"
+
+  # === Eigenvalue Theory ===
+  - id: spectral_theorem
+    name: "Spectral Theorem"
+    latex: "A = Q \\Lambda Q^T"
+    meaning: "symmetric/Hermitian matrix is diagonalizable by orthonormal eigenvectors"
+    action:
+      numpy: "np.linalg.eigh(A)"
+    curried: "lambda A: np.linalg.eigh(A)"
+
+  - id: positive_definite
+    name: "Positive Definiteness"
+    latex: "x^T A x > 0 \\text{ for all } x \\neq 0"
+    meaning: "all eigenvalues positive"
+    tests:
+      eigenvalue: "np.all(np.linalg.eigvalsh(A) > 0)"
+      cholesky: "try np.linalg.cholesky(A)"
+    curried: "lambda A: np.all(np.linalg.eigvalsh(A) > 0)"
+
+  - id: condition_number
+    name: "Condition Number"
+    latex: "\\kappa(A) = \\|A\\| \\cdot \\|A^{-1}\\| = \\frac{\\sigma_{\\max}}{\\sigma_{\\min}}"
+    meaning: "sensitivity of solution to perturbation; large = ill-conditioned"
+    action:
+      numpy: "np.linalg.cond(A)"
+    curried: "lambda A: np.linalg.cond(A)"
+
+  - id: matrix_exponential
+    name: "Matrix Exponential"
+    latex: "e^A = \\sum_{k=0}^{\\infty} \\frac{A^k}{k!}"
+    action:
+      scipy: "scipy.linalg.expm(A)"
+    curried: "lambda A: scipy.linalg.expm(A)"
+
+  - id: matrix_logarithm
+    name: "Matrix Logarithm"
+    latex: "\\log(A)"
+    action:
+      scipy: "scipy.linalg.logm(A)"
+    curried: "lambda A: scipy.linalg.logm(A)"
+
+  - id: kronecker_product
+    name: "Kronecker Product"
+    latex: "A \\otimes B"
+    action:
+      numpy: "np.kron(A, B)"
+    curried: "lambda A: lambda B: np.kron(A, B)"
+
+  - id: hadamard_product
+    name: "Hadamard (Elementwise) Product"
+    latex: "A \\circ B"
+    action:
+      numpy: "A * B"
+    curried: "lambda A: lambda B: A * B"
+
+  - id: low_rank_approx
+    name: "Low-Rank Approximation"
+    latex: "A_k = U_k \\Sigma_k V_k^T"
+    meaning: "best rank-k approximation via truncated SVD (Eckart-Young theorem)"
+    action:
+      scipy: "scipy.linalg.svd(A); U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]"
+      sklearn: "TruncatedSVD(n_components=k).fit_transform(A)"
+    curried: "lambda k: lambda A: (lambda U,S,Vt: U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:])(*np.linalg.svd(A, full_matrices=False))"
+
+theorems:
+  - name: "Rank-Nullity"
+    latex: "\\dim(\\text{col}(A)) + \\dim(\\text{null}(A)) = n"
+
+  - name: "Cayley-Hamilton"
+    statement: "every square matrix satisfies its own characteristic polynomial"
+
+  - name: "Spectral Theorem"
+    statement: "real symmetric matrices are orthogonally diagonalizable"
+
+  - name: "Eckart-Young-Mirsky"
+    statement: "truncated SVD gives best rank-k approximation in Frobenius and operator norm"
+
+  - name: "Sylvester's Law of Inertia"
+    statement: "congruent real symmetric matrices have same number of positive, negative, and zero eigenvalues"
+
+edges:
+  - to: A02-linear-algebra
+    relation: EXTENDS
+  - to: C01-differential-calculus
+    relation: USED_BY
+    note: "Jacobians, Hessians are matrix calculus"
+  - to: O01-numerical-optimization
+    relation: REQUIRED_BY
+    note: "positive definiteness, condition numbers, decompositions"
+  - to: AA01-abstract-algebra
+    relation: INSTANCE_OF
+    note: "vector spaces are modules over fields"

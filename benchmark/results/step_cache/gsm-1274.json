@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 2 adult tickets",
+    "operation": "multiply",
+    "operands": [
+      2,
+      12
+    ],
+    "result": 24,
+    "variable": "adult_tickets_total"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 1 child ticket",
+    "operation": "multiply",
+    "operands": [
+      1,
+      8
+    ],
+    "result": 8,
+    "variable": "child_ticket_total"
+  },
+  {
+    "step": 3,
+    "description": "Cost of 2 popcorns",
+    "operation": "multiply",
+    "operands": [
+      2,
+      3
+    ],
+    "result": 6,
+    "variable": "popcorn_total"
+  },
+  {
+    "step": 4,
+    "description": "Add adult and child ticket costs",
+    "operation": "add",
+    "operands": [
+      24,
+      8
+    ],
+    "result": 32,
+    "variable": "tickets_subtotal"
+  },
+  {
+    "step": 5,
+    "description": "Add popcorn cost to ticket subtotal",
+    "operation": "add",
+    "operands": [
+      32,
+      6
+    ],
+    "result": 38,
+    "variable": "total_cost"
+  }
+]

@@ -1,0 +1,75 @@
+id: PROC-DNAREPAIR
+type: knowledge
+domain: biology
+name: DNA repair
+go_id: GO:0006281
+
+definition: The process of restoring DNA after damage. Genomes are subject to damage by chemical and physical agents in the environment (e.g. UV and ionizing radiations, chemical mutagens, fungal and bacterial toxins, etc.) and by free radicals or alkylating agents endogenously generated in metabolism.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1990391
+    name: DNA repair complex
+    relation: capable_of_part_of
+  - id: GO:0010213
+    name: "non-photoreactive DNA repair"
+    relation: is_a
+  - id: GO:0036297
+    name: "interstrand cross-link repair"
+    relation: is_a
+  - id: GO:0009380
+    name: excinuclease repair complex
+    relation: capable_of_part_of
+  - id: GO:0097196
+    name: Shu complex
+    relation: capable_of_part_of
+  - id: GO:0043504
+    name: mitochondrial DNA repair
+    relation: is_a
+  - id: GO:0000012
+    name: single strand break repair
+    relation: is_a
+  - id: GO:0070914
+    name: "UV-damage excision repair"
+    relation: is_a
+  - id: GO:0106044
+    name: guanine deglycation
+    relation: is_a
+  - id: GO:0006302
+    name: "double-strand break repair"
+    relation: is_a
+  - id: GO:0006307
+    name: DNA alkylation repair
+    relation: is_a
+  - id: GO:0006284
+    name: "base-excision repair"
+    relation: is_a
+  - id: GO:0006282
+    name: regulation of DNA repair
+    relation: regulates
+  - id: GO:0006289
+    name: "nucleotide-excision repair"
+    relation: is_a
+  - id: GO:0006290
+    name: pyrimidine dimer repair
+    relation: is_a
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-DDR encode components of DNA repair"

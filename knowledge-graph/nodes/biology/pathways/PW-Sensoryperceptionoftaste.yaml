@@ -1,0 +1,29 @@
+id: PW-Sensoryperceptionoftaste
+type: knowledge
+domain: biology
+name: Sensory perception of taste
+reactome_id: R-HSA-9717189
+
+description: "Taste buds contain at least 3 types of cells: type I cells appear to have a support (glial-like) function; type II cells are responsible for tasting sweet compounds, bitter compounds, and umami (savoury, amino acid) compounds; and type III cells are responsible for tasting sour (acidic) compounds (reviewed in Liman et al. 2014, Roper and Chaudhari 2017, Kinnamon and Finger 2019, Taruno et al. 2021)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Sensory perception of sweet, bitter, and umami (glutamate) taste
+    reactome_id: R-HSA-9717207
+    type: Pathway
+  - name: Sensory perception of sour taste
+    reactome_id: R-HSA-9729555
+    type: Pathway
+  - name: Sensory perception of salty taste
+    reactome_id: R-HSA-9730628
+    type: Pathway
+
+edges:

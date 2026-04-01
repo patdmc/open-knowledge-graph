@@ -1,0 +1,61 @@
+id: CT-PNS
+type: knowledge
+domain: cancer_biology
+name: Peripheral Nervous System
+
+n_patients: 305
+n_mutated: 88
+mutation_rate: 0.2885
+channel_entropy: 2.0511
+hub_fraction: 0.2550
+median_os_months: 20.1530
+event_rate: 0.2361
+survival_36m: 0.2393
+mean_channels_per_patient: 1.2500
+top_gene: BRAF
+top_gene_frequency: 0.1007
+n_harmful_mutations: 1
+n_protective_mutations: 0
+dominant_channels: [CHAN-PI3K_Growth, CHAN-DDR]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=305)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Peripheral Nervous System"
+  - to: CHAN-DDR
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Peripheral Nervous System"
+  - to: GENE-BRAF
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "BRAF mutated in 0.1007 of Peripheral Nervous System patients"
+

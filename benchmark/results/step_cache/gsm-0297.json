@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Add Tuesday and Wednesday sales",
+    "operation": "add",
+    "operands": [
+      15,
+      12
+    ],
+    "result": 27,
+    "variable": "tue_wed_total"
+  },
+  {
+    "step": 2,
+    "description": "Add Thursday sales to tue_wed_total",
+    "operation": "add",
+    "operands": [
+      27,
+      18
+    ],
+    "result": 45,
+    "variable": "weekday_total"
+  },
+  {
+    "step": 3,
+    "description": "Add weekend sales to weekday_total",
+    "operation": "add",
+    "operands": [
+      45,
+      20
+    ],
+    "result": 65,
+    "variable": "total_sold"
+  },
+  {
+    "step": 4,
+    "description": "Subtract total sold from target to find shortfall",
+    "operation": "subtract",
+    "operands": [
+      120,
+      65
+    ],
+    "result": 55,
+    "variable": "crates_off_target"
+  }
+]

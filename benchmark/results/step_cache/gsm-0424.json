@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total capacity of buses",
+    "operation": "multiply",
+    "operands": [
+      4,
+      60
+    ],
+    "result": 240,
+    "variable": "bus_capacity"
+  },
+  {
+    "step": 2,
+    "description": "Total capacity of minibusses",
+    "operation": "multiply",
+    "operands": [
+      6,
+      30
+    ],
+    "result": 180,
+    "variable": "minibus_capacity"
+  },
+  {
+    "step": 3,
+    "description": "Total capacity of minivans",
+    "operation": "multiply",
+    "operands": [
+      10,
+      15
+    ],
+    "result": 150,
+    "variable": "minivan_capacity"
+  },
+  {
+    "step": 4,
+    "description": "Combined bus and minibus capacity",
+    "operation": "add",
+    "operands": [
+      240,
+      180
+    ],
+    "result": 420,
+    "variable": "bus_plus_minibus"
+  },
+  {
+    "step": 5,
+    "description": "Total capacity of all vehicles",
+    "operation": "add",
+    "operands": [
+      420,
+      150
+    ],
+    "result": 570,
+    "variable": "total_employees"
+  }
+]

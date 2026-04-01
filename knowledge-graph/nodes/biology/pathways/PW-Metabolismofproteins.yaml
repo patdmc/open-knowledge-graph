@@ -1,0 +1,47 @@
+id: PW-Metabolismofproteins
+type: knowledge
+domain: biology
+name: Metabolism of proteins
+reactome_id: R-HSA-392499
+
+description: "Metabolism of proteins, as annotated here, covers the full life cycle of a protein from its synthesis to its posttranslational modification and degradation, at various levels of specificity. Protein synthesis is accomplished through the process of Translation of an mRNA sequence into a polypeptide chain. Protein folding is achieved through the function of molecular chaperones which recognize and associate with proteins in their non-native state and facilitate their folding by stabilizing the conformation of productive folding intermediates (Young et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Translation
+    reactome_id: R-HSA-72766
+    type: Pathway
+  - name: Protein folding
+    reactome_id: R-HSA-391251
+    type: Pathway
+  - name: "Post-translational protein modification"
+    reactome_id: R-HSA-597592
+    type: Pathway
+  - name: Peptide hormone metabolism
+    reactome_id: R-HSA-2980736
+    type: Pathway
+  - name: "Regulation of Insulin-like Growth Factor (IGF) transport and uptake by Insulin-like Growth Factor Binding Proteins (IGFBPs)"
+    reactome_id: R-HSA-381426
+    type: Pathway
+  - name: Protein repair
+    reactome_id: R-HSA-5676934
+    type: Pathway
+  - name: Surfactant metabolism
+    reactome_id: R-HSA-5683826
+    type: Pathway
+  - name: Amyloid fiber formation
+    reactome_id: R-HSA-977225
+    type: Pathway
+  - name: Mitochondrial protein degradation
+    reactome_id: R-HSA-9837999
+    type: Pathway
+
+edges:

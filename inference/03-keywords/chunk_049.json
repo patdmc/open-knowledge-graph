@@ -1,0 +1,64 @@
+{
+  "chunk_index": 49,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "5. Results > 5.1 Equivalency Classes > [part 1/3]",
+  "section_path": [
+    "5. Results",
+    "5.1 Equivalency Classes",
+    "[part 1/3]"
+  ],
+  "char_count": 5480,
+  "keyphrases": [
+    {
+      "phrase": "friston active inference",
+      "score": 0.4474
+    },
+    {
+      "phrase": "meta learning rate",
+      "score": 0.4414
+    },
+    {
+      "phrase": "internal representation capacity",
+      "score": 0.4387
+    },
+    {
+      "phrase": "equivalency classesequivalency",
+      "score": 0.4278
+    },
+    {
+      "phrase": "model quality absolute",
+      "score": 0.4113
+    },
+    {
+      "phrase": "formal ai neuroscience",
+      "score": 0.3983
+    },
+    {
+      "phrase": "measure intelligence distinct",
+      "score": 0.3852
+    },
+    {
+      "phrase": "frameworks converge ec01",
+      "score": 0.3422
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "EC01 (Bounded context, \\(C_1 = 0.92\\))",
+      "EC02 (Rate of model improvement, \\(C_1 = 0.88\\))",
+      "EC03 (Structured representation, \\(C_1 = 0.85\\))",
+      "EC04 (Survival threshold, \\(C_1 = 0.94\\))",
+      "EC05 (Epistemic incompleteness, \\(C_1 = 0.97\\))",
+      "EC06 (Belief as action disposition, \\(C_1 = 0.95\\))",
+      "EC07 (Collective knowledge integration, \\(C_1 = 0.83\\))",
+      "EC08 (Compression through factoring, \\(C_1 = 0.91\\))",
+      "EC09 (Hierarchical cost triage, \\(C_1 = 0.90\\))",
+      "EC10 (Uncertainty as inquiry driver, \\(C_1 = 0.93\\))"
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "chunk_index": 8,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "3. Formal Definitions > [part 5/5]",
+  "section_path": [
+    "3. Formal Definitions",
+    "[part 5/5]"
+  ],
+  "char_count": 5587,
+  "keyphrases": [
+    {
+      "phrase": "retention criterion formalizes",
+      "score": 0.4975
+    },
+    {
+      "phrase": "behavior bounded knowledge",
+      "score": 0.4851
+    },
+    {
+      "phrase": "entity math evolves",
+      "score": 0.4389
+    },
+    {
+      "phrase": "regime ensures math",
+      "score": 0.4368
+    },
+    {
+      "phrase": "math comparative displacement",
+      "score": 0.3985
+    },
+    {
+      "phrase": "theorem benefit uncertain",
+      "score": 0.3919
+    },
+    {
+      "phrase": "potential value epistemically",
+      "score": 0.3905
+    },
+    {
+      "phrase": "ly narrow domain",
+      "score": 0.3354
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Corollary 1 (Indexed Knowledge).",
+      "Corollary 2 (Compactness).",
+      "Corollary 2a (Curation and Forgetting).",
+      "Corollary 2b (K as the Normalization of F --- the Scaling\nArgument)."
+    ],
+    "has_math": true
+  }
+}

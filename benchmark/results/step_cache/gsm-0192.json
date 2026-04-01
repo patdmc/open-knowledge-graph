@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Trees planted over 10 years",
+    "operation": "multiply",
+    "operands": [
+      10,
+      10
+    ],
+    "result": 100,
+    "variable": "trees_planted"
+  },
+  {
+    "step": 2,
+    "description": "Trees chopped down over 10 years",
+    "operation": "multiply",
+    "operands": [
+      2,
+      10
+    ],
+    "result": 20,
+    "variable": "trees_chopped"
+  },
+  {
+    "step": 3,
+    "description": "Net trees added after planting and chopping",
+    "operation": "subtract",
+    "operands": [
+      100,
+      20
+    ],
+    "result": 80,
+    "variable": "net_trees_added"
+  },
+  {
+    "step": 4,
+    "description": "Total trees before die-off",
+    "operation": "add",
+    "operands": [
+      50,
+      80
+    ],
+    "result": 130,
+    "variable": "total_before_dieoff"
+  },
+  {
+    "step": 5,
+    "description": "Number of trees that die (30% of total)",
+    "operation": "multiply",
+    "operands": [
+      130,
+      0.3
+    ],
+    "result": 39,
+    "variable": "trees_died"
+  },
+  {
+    "step": 6,
+    "description": "Trees remaining after die-off",
+    "operation": "subtract",
+    "operands": [
+      130,
+      39
+    ],
+    "result": 91,
+    "variable": "trees_remaining"
+  }
+]

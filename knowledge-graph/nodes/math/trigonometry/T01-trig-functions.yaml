@@ -1,0 +1,146 @@
+id: T01-trig-functions
+type: knowledge
+domain: trigonometry
+name: "Trigonometric Functions"
+
+concepts:
+  - id: sin
+    name: "Sine"
+    latex: "\\sin(\\theta)"
+    meaning: "opposite / hypotenuse; y-coordinate on unit circle"
+    domain: "R"
+    range: "[-1, 1]"
+    period: "2*pi"
+    action:
+      math: "math.sin(theta)"
+      numpy: "np.sin(theta)"
+      sympy: "sin(theta)"
+    curried: "lambda theta: np.sin(theta)"
+    inverse: arcsin
+
+  - id: cos
+    name: "Cosine"
+    latex: "\\cos(\\theta)"
+    meaning: "adjacent / hypotenuse; x-coordinate on unit circle"
+    domain: "R"
+    range: "[-1, 1]"
+    period: "2*pi"
+    action:
+      math: "math.cos(theta)"
+      numpy: "np.cos(theta)"
+      sympy: "cos(theta)"
+    curried: "lambda theta: np.cos(theta)"
+    inverse: arccos
+
+  - id: tan
+    name: "Tangent"
+    latex: "\\tan(\\theta) = \\frac{\\sin\\theta}{\\cos\\theta}"
+    domain: "R \\ {pi/2 + n*pi}"
+    range: "R"
+    period: "pi"
+    action:
+      math: "math.tan(theta)"
+      numpy: "np.tan(theta)"
+      sympy: "tan(theta)"
+    curried: "lambda theta: np.tan(theta)"
+    composes: "lambda theta: np.sin(theta) / np.cos(theta)"
+    inverse: arctan
+
+  - id: arcsin
+    name: "Inverse Sine"
+    latex: "\\arcsin(x) = \\sin^{-1}(x)"
+    domain: "[-1, 1]"
+    range: "[-pi/2, pi/2]"
+    action:
+      math: "math.asin(x)"
+      numpy: "np.arcsin(x)"
+      sympy: "asin(x)"
+    curried: "lambda x: np.arcsin(x)"
+
+  - id: arccos
+    name: "Inverse Cosine"
+    latex: "\\arccos(x)"
+    domain: "[-1, 1]"
+    range: "[0, pi]"
+    action:
+      math: "math.acos(x)"
+      numpy: "np.arccos(x)"
+      sympy: "acos(x)"
+    curried: "lambda x: np.arccos(x)"
+
+  - id: arctan
+    name: "Inverse Tangent"
+    latex: "\\arctan(x)"
+    domain: "R"
+    range: "(-pi/2, pi/2)"
+    action:
+      math: "math.atan(x)"
+      numpy: "np.arctan(x)"
+      sympy: "atan(x)"
+    curried: "lambda x: np.arctan(x)"
+
+  - id: atan2
+    name: "Two-argument Arctangent"
+    latex: "\\text{atan2}(y, x)"
+    meaning: "angle of point (x,y) from positive x-axis, full circle"
+    range: "(-pi, pi]"
+    action:
+      math: "math.atan2(y, x)"
+      numpy: "np.arctan2(y, x)"
+    curried: "lambda y: lambda x: np.arctan2(y, x)"
+
+  - id: sinh
+    name: "Hyperbolic Sine"
+    latex: "\\sinh(x) = \\frac{e^x - e^{-x}}{2}"
+    action:
+      math: "math.sinh(x)"
+      numpy: "np.sinh(x)"
+      sympy: "sinh(x)"
+    curried: "lambda x: np.sinh(x)"
+
+  - id: cosh
+    name: "Hyperbolic Cosine"
+    latex: "\\cosh(x) = \\frac{e^x + e^{-x}}{2}"
+    action:
+      math: "math.cosh(x)"
+      numpy: "np.cosh(x)"
+      sympy: "cosh(x)"
+    curried: "lambda x: np.cosh(x)"
+
+  - id: tanh
+    name: "Hyperbolic Tangent"
+    latex: "\\tanh(x)"
+    range: "(-1, 1)"
+    action:
+      math: "math.tanh(x)"
+      numpy: "np.tanh(x)"
+      sympy: "tanh(x)"
+    curried: "lambda x: np.tanh(x)"
+    note: "common activation function in neural networks"
+
+identities:
+  - name: "Pythagorean"
+    latex: "\\sin^2\\theta + \\cos^2\\theta = 1"
+    verify: "lambda theta: np.isclose(np.sin(theta)**2 + np.cos(theta)**2, 1)"
+
+  - name: "Double angle (sin)"
+    latex: "\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta"
+    verify: "lambda theta: np.isclose(np.sin(2*theta), 2*np.sin(theta)*np.cos(theta))"
+
+  - name: "Double angle (cos)"
+    latex: "\\cos(2\\theta) = \\cos^2\\theta - \\sin^2\\theta"
+
+  - name: "Sum of angles"
+    latex: "\\sin(\\alpha + \\beta) = \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta"
+
+  - name: "Euler's formula"
+    latex: "e^{i\\theta} = \\cos\\theta + i\\sin\\theta"
+    action:
+      numpy: "np.exp(1j * theta)"
+      sympy: "exp(I * theta)"
+
+edges:
+  - to: N01-arithmetic-operators
+    relation: REQUIRES
+  - to: G01-geometry-fundamentals
+    relation: REQUIRES

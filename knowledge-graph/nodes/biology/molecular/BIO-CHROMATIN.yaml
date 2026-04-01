@@ -1,0 +1,15 @@
+id: BIO-CHROMATIN
+type: knowledge
+domain: biology
+name: Chromatin
+
+description: "The material of CHROMOSOMES. It is a complex of DNA; HISTONES; and nonhistone proteins (CHROMOSOMAL PROTEINS, NON-HISTONE) found within the nucleus of a cell."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

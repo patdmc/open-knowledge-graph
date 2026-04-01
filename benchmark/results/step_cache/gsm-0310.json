@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 6 business suits",
+    "operation": "multiply",
+    "operands": [
+      6,
+      100
+    ],
+    "result": 600,
+    "variable": "suits_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 3 suitcases",
+    "operation": "multiply",
+    "operands": [
+      3,
+      50
+    ],
+    "result": 150,
+    "variable": "suitcases_cost"
+  },
+  {
+    "step": 3,
+    "description": "5 times the cost of one business suit",
+    "operation": "multiply",
+    "operands": [
+      5,
+      100
+    ],
+    "result": 500,
+    "variable": "flight_base"
+  },
+  {
+    "step": 4,
+    "description": "Flight ticket cost (base plus $700)",
+    "operation": "add",
+    "operands": [
+      500,
+      700
+    ],
+    "result": 1200,
+    "variable": "flight_cost"
+  },
+  {
+    "step": 5,
+    "description": "Suits plus suitcases",
+    "operation": "add",
+    "operands": [
+      600,
+      150
+    ],
+    "result": 750,
+    "variable": "luggage_and_suits"
+  },
+  {
+    "step": 6,
+    "description": "Total spent on suits, suitcases, and flight",
+    "operation": "add",
+    "operands": [
+      750,
+      1200
+    ],
+    "result": 1950,
+    "variable": "total_spent"
+  },
+  {
+    "step": 7,
+    "description": "Total committed (spent plus savings)",
+    "operation": "add",
+    "operands": [
+      1950,
+      2000
+    ],
+    "result": 3950,
+    "variable": "total_committed"
+  },
+  {
+    "step": 8,
+    "description": "Money left for gifts",
+    "operation": "subtract",
+    "operands": [
+      6000,
+      3950
+    ],
+    "result": 2050,
+    "variable": "gifts_budget"
+  }
+]

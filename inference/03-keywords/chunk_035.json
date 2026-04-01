@@ -1,0 +1,52 @@
+{
+  "chunk_index": 35,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "11. Related Work > Cognitive Architectures",
+  "section_path": [
+    "11. Related Work",
+    "Cognitive Architectures"
+  ],
+  "char_count": 1031,
+  "keyphrases": [
+    {
+      "phrase": "cognitive architecturescognitive",
+      "score": 0.594
+    },
+    {
+      "phrase": "workspace inefficient kahneman",
+      "score": 0.5393
+    },
+    {
+      "phrase": "architecturally hierarchy continuous",
+      "score": 0.457
+    },
+    {
+      "phrase": "architectures global workspace",
+      "score": 0.4484
+    },
+    {
+      "phrase": "organism capacities math",
+      "score": 0.4433
+    },
+    {
+      "phrase": "routine computation global",
+      "score": 0.3853
+    },
+    {
+      "phrase": "definition gibson affordances",
+      "score": 0.3401
+    },
+    {
+      "phrase": "escalation criterion",
+      "score": 0.3057
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of two go-kart rides per person",
+    "operation": "multiply",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 20,
+    "variable": "go_kart_cost_per_person"
+  },
+  {
+    "step": 2,
+    "description": "Cost of mini-golf plus arcade tokens per person",
+    "operation": "add",
+    "operands": [
+      5,
+      5
+    ],
+    "result": 10,
+    "variable": "golf_and_arcade_per_person"
+  },
+  {
+    "step": 3,
+    "description": "Total cost per person",
+    "operation": "add",
+    "operands": [
+      20,
+      10
+    ],
+    "result": 30,
+    "variable": "cost_per_person"
+  },
+  {
+    "step": 4,
+    "description": "Total number of people the budget covers",
+    "operation": "divide",
+    "operands": [
+      90,
+      30
+    ],
+    "result": 3,
+    "variable": "total_people"
+  },
+  {
+    "step": 5,
+    "description": "Number of friends (subtract Morgan herself)",
+    "operation": "subtract",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 2.0,
+    "variable": "num_friends"
+  }
+]

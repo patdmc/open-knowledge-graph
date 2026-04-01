@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate cakes bought on Tuesday",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "tuesday_cakes"
+  },
+  {
+    "step": 2,
+    "description": "Calculate cakes bought on Wednesday",
+    "operation": "multiply",
+    "operands": [
+      5,
+      12
+    ],
+    "result": 60,
+    "variable": "wednesday_cakes"
+  },
+  {
+    "step": 3,
+    "description": "Add Monday and Tuesday cakes",
+    "operation": "add",
+    "operands": [
+      4,
+      12
+    ],
+    "result": 16,
+    "variable": "mon_tue_total"
+  },
+  {
+    "step": 4,
+    "description": "Add Monday+Tuesday total to Wednesday cakes",
+    "operation": "add",
+    "operands": [
+      16,
+      60
+    ],
+    "result": 76,
+    "variable": "total_cakes"
+  }
+]

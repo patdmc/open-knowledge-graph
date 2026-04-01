@@ -1,0 +1,57 @@
+{
+  "chunk_index": 31,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 4/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 4/6]"
+  ],
+  "char_count": 5819,
+  "keyphrases": [
+    {
+      "phrase": "merging diffs provenance",
+      "score": 0.6395
+    },
+    {
+      "phrase": "transposability guaranteed diff",
+      "score": 0.6296
+    },
+    {
+      "phrase": "provenance math transferable",
+      "score": 0.5577
+    },
+    {
+      "phrase": "diff implementation artifact",
+      "score": 0.5556
+    },
+    {
+      "phrase": "math diff evidences",
+      "score": 0.5347
+    },
+    {
+      "phrase": "theorem protocol preserves",
+      "score": 0.452
+    },
+    {
+      "phrase": "math retains propositions",
+      "score": 0.4206
+    },
+    {
+      "phrase": "implementation delta",
+      "score": 0.4154
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 19 (Collective General Intelligence).",
+      "Corollary 14 (Non-Termination of Collective Gradient Descent).",
+      "Corollary 15 (Self-Assembly of Graph-Structured Collective\nKnowledge)."
+    ],
+    "has_math": true
+  }
+}

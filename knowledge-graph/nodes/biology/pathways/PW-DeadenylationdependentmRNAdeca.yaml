@@ -1,0 +1,29 @@
+id: PW-DeadenylationdependentmRNAdeca
+type: knowledge
+domain: biology
+name: "Deadenylation-dependent mRNA decay"
+reactome_id: R-HSA-429914
+
+description: "After undergoing rounds of translation, mRNA is normally  destroyed by the deadenylation-dependent pathway. Though the trigger is unclear, deadenylation likely proceeds in two steps: one catalyzed by the PAN2-PAN3 complex that shortens the poly(A) tail from about 200 adenosine residues to about 80 residues and one catalyzed by the CCR4-NOT complex or by the PARN enzyme that shortens the tail to about 10-15 residues.After deadenylation the mRNA is then hydrolyzed by either the 5' to 3' pathway or the 3' to 5' pathway. It is unknown what determinants target a mRNA to one pathway or the other.The 5' to 3' pathway is initiated by binding of the Lsm1-7 complex to the 3' oligoadenylate tail followed by decapping by the DCP1-DCP2 complex."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Deadenylation of mRNA
+    reactome_id: R-HSA-429947
+    type: Pathway
+  - name: "mRNA decay by 3' to 5' exoribonuclease"
+    reactome_id: R-HSA-429958
+    type: Pathway
+  - name: "mRNA decay by 5' to 3' exoribonuclease"
+    reactome_id: R-HSA-430039
+    type: Pathway
+
+edges:

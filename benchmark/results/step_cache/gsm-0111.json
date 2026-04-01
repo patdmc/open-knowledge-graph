@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "feet rowed per second",
+    "operation": "divide",
+    "operands": [
+      20,
+      16
+    ],
+    "result": 1.25,
+    "variable": "speed_fps"
+  },
+  {
+    "step": 2,
+    "description": "total feet to shore",
+    "operation": "multiply",
+    "operands": [
+      1.25,
+      64
+    ],
+    "result": 80.0,
+    "variable": "total_feet"
+  },
+  {
+    "step": 3,
+    "description": "liters taken on per foot",
+    "operation": "divide",
+    "operands": [
+      2,
+      10
+    ],
+    "result": 0.2,
+    "variable": "liters_per_foot"
+  },
+  {
+    "step": 4,
+    "description": "total liters taken on",
+    "operation": "multiply",
+    "operands": [
+      0.2,
+      80.0
+    ],
+    "result": 16.0,
+    "variable": "total_liters"
+  }
+]

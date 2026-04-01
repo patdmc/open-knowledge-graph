@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total cost of super ticket with popcorn and soda add-on",
+    "operation": "add",
+    "operands": [
+      20,
+      1
+    ],
+    "result": 21,
+    "variable": "super_ticket_total"
+  },
+  {
+    "step": 2,
+    "description": "Cost of regular option after saving $2 vs super ticket",
+    "operation": "subtract",
+    "operands": [
+      21,
+      2
+    ],
+    "result": 19,
+    "variable": "regular_option_total"
+  },
+  {
+    "step": 3,
+    "description": "Regular ticket plus soda cost",
+    "operation": "add",
+    "operands": [
+      12,
+      3
+    ],
+    "result": 15,
+    "variable": "ticket_plus_soda"
+  },
+  {
+    "step": 4,
+    "description": "Popcorn price: remaining cost after ticket and soda",
+    "operation": "subtract",
+    "operands": [
+      19,
+      15
+    ],
+    "result": 4.0,
+    "variable": "popcorn_price"
+  }
+]

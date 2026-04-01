@@ -1,0 +1,50 @@
+id: PW-Signalregulatoryproteinfamilyi
+type: knowledge
+domain: biology
+name: Signal regulatory protein family interactions
+reactome_id: R-HSA-391160
+
+description: "Signal regulatory protein alpha (SIRPA, SHPS1, CD172a) is a transmembrane protein expressed mostly on myeloid cells. CD47, a widely expressed transmembrane protein, is a ligand for SIRP alpha, with the two proteins constituting a cell-cell communication system. The interaction of SIRPA with CD47 is important for the regulation of migration and phagocytosis."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: SIRP alpha binds CD47
+    reactome_id: R-HSA-391158
+    type: Reaction
+  - name: Phosphorylation of ITIM motif in SIRP alpha
+    reactome_id: R-HSA-391156
+    type: Reaction
+  - name: "p-4Y-SIRPA:CD47 binds PTPN6,PTPN11"
+    reactome_id: R-HSA-391150
+    type: Reaction
+  - name: "p-4Y-SIRPA:CD47 binds SKAP2"
+    reactome_id: R-HSA-391157
+    type: Reaction
+  - name: "p-4Y-SIRPA:CD47:SKAP2 binds FYB"
+    reactome_id: R-HSA-391151
+    type: Reaction
+  - name: "p-4Y-SIRPA:CD47 binds PTK2B"
+    reactome_id: R-HSA-391152
+    type: Reaction
+  - name: "p-4Y-SIRPA:CD47 binds GRB2-1"
+    reactome_id: R-HSA-391153
+    type: Reaction
+  - name: SIRPA binds SFTPA oligomer, SFTPD oligomer
+    reactome_id: R-HSA-391155
+    type: Reaction
+  - name: SIRP beta binds TYROBP
+    reactome_id: R-HSA-210274
+    type: Reaction
+  - name: SIRP gamma binds CD47
+    reactome_id: R-HSA-391168
+    type: Reaction
+
+edges:

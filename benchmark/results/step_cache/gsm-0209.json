@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "number of plates in half a dozen",
+    "operation": "divide",
+    "operands": [
+      12,
+      2
+    ],
+    "result": 6,
+    "variable": "plates_count"
+  },
+  {
+    "step": 2,
+    "description": "total cost of plates",
+    "operation": "multiply",
+    "operands": [
+      6,
+      6000
+    ],
+    "result": 36000,
+    "variable": "total_plates_cost"
+  },
+  {
+    "step": 3,
+    "description": "total cost of twenty dozen cups",
+    "operation": "subtract",
+    "operands": [
+      36000,
+      1200
+    ],
+    "result": 34800,
+    "variable": "total_cups_cost"
+  },
+  {
+    "step": 4,
+    "description": "number of cups in twenty dozen",
+    "operation": "multiply",
+    "operands": [
+      20,
+      12
+    ],
+    "result": 240,
+    "variable": "cups_count"
+  },
+  {
+    "step": 5,
+    "description": "cost per cup",
+    "operation": "divide",
+    "operands": [
+      34800,
+      240
+    ],
+    "result": 145.0,
+    "variable": "cost_per_cup"
+  }
+]

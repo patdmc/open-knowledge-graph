@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Half of 10,000 steps from school walks",
+    "operation": "divide",
+    "operands": [
+      10000,
+      2
+    ],
+    "result": 5000,
+    "variable": "steps_from_school"
+  },
+  {
+    "step": 2,
+    "description": "Steps after school walks and friend walk",
+    "operation": "add",
+    "operands": [
+      5000,
+      1000
+    ],
+    "result": 6000,
+    "variable": "steps_before_jog"
+  },
+  {
+    "step": 3,
+    "description": "Steps taken before the 2,000 remaining",
+    "operation": "subtract",
+    "operands": [
+      10000,
+      2000
+    ],
+    "result": 8000,
+    "variable": "steps_needed_before_end"
+  },
+  {
+    "step": 4,
+    "description": "Steps taken during jog",
+    "operation": "subtract",
+    "operands": [
+      8000,
+      6000
+    ],
+    "result": 2000,
+    "variable": "jog_steps"
+  }
+]

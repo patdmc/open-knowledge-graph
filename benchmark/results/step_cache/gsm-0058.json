@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate 25% vendor fee on original bill",
+    "operation": "multiply",
+    "operands": [
+      40.0,
+      0.25
+    ],
+    "result": 10.0,
+    "variable": "vendor_fee"
+  },
+  {
+    "step": 2,
+    "description": "Add vendor fee to original bill",
+    "operation": "add",
+    "operands": [
+      40.0,
+      10.0
+    ],
+    "result": 50.0,
+    "variable": "bill_after_vendor_fee"
+  },
+  {
+    "step": 3,
+    "description": "Add delivery fee",
+    "operation": "add",
+    "operands": [
+      50.0,
+      3.0
+    ],
+    "result": 53.0,
+    "variable": "bill_after_delivery"
+  },
+  {
+    "step": 4,
+    "description": "Add tip to get final total",
+    "operation": "add",
+    "operands": [
+      53.0,
+      4.0
+    ],
+    "result": 57.0,
+    "variable": "final_total"
+  }
+]

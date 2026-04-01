@@ -1,0 +1,62 @@
+id: PW-Myogenesis
+type: knowledge
+domain: biology
+name: Myogenesis
+reactome_id: R-HSA-525793
+
+description: "Myogenesis, the formation of muscle tissue, is a complex process involving steps of cell proliferation mediated by growth factor signaling, cell differentiation, reorganization of cells to form myotubes, and cell fusion. Here, one regulatory feature of this process has been annotated, the signaling cascade initiated by CDO (cell-adhesion-molecule-related/downregulated by oncogenes) and associated co-receptors.CDO/Cdon is a type I transmembrane multifunctional co-receptor consisting of five immunoglobulin and three fibronectin type III (FNIII) repeats in the extracellular domain, and an intracellular domain with no identifiable motifs. It has been implicated in enhancing muscle differentiation in promyogenic cells."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: CDO binds BOC
+    reactome_id: R-HSA-375138
+    type: Reaction
+  - name: CDO binds promyogenic cadherins
+    reactome_id: R-HSA-375140
+    type: Reaction
+  - name: Bnip2 interacts with CDO complex
+    reactome_id: R-HSA-376121
+    type: Reaction
+  - name: "Interaction of Bnip-2 with Cdc42"
+    reactome_id: R-HSA-376119
+    type: Reaction
+  - name: JLP interacts with CDO complex
+    reactome_id: R-HSA-376117
+    type: Reaction
+  - name: Interaction of ABL1 with CDO complex
+    reactome_id: R-HSA-449200
+    type: Reaction
+  - name: Interaction of p38 MAPK with JLP
+    reactome_id: R-HSA-448957
+    type: Reaction
+  - name: Activation of p38 alpha/beta MAPK
+    reactome_id: R-HSA-448951
+    type: BlackBoxEvent
+  - name: Nuclear translocation of p38 MAPK
+    reactome_id: R-HSA-448958
+    type: BlackBoxEvent
+  - name: Phosphorylation of E proteins by p38 MAPK
+    reactome_id: R-HSA-448948
+    type: Reaction
+  - name: Heterodimerization of E proteins with Myod
+    reactome_id: R-HSA-448962
+    type: Reaction
+  - name: Phosphorylation of MEF2 proteins by p38
+    reactome_id: R-HSA-448955
+    type: Reaction
+  - name: "Interaction of MyoD:E protein with MEF2"
+    reactome_id: R-HSA-448963
+    type: Reaction
+  - name: "Neogenin:Netrin-3 binds CDO complex"
+    reactome_id: R-HSA-375141
+    type: Reaction
+
+edges:

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total number of legs",
+    "operation": "multiply",
+    "operands": [
+      4,
+      4
+    ],
+    "result": 16,
+    "variable": "total_legs"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total screws needed",
+    "operation": "multiply",
+    "operands": [
+      16,
+      2
+    ],
+    "result": 32,
+    "variable": "screws_needed"
+  },
+  {
+    "step": 3,
+    "description": "Calculate screws left over",
+    "operation": "subtract",
+    "operands": [
+      40,
+      32
+    ],
+    "result": 8,
+    "variable": "screws_remaining"
+  }
+]

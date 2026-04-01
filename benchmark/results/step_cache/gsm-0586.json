@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "calories burned doing aerobics",
+    "operation": "multiply",
+    "operands": [
+      500,
+      2
+    ],
+    "result": 1000,
+    "variable": "aerobics_calories"
+  },
+  {
+    "step": 2,
+    "description": "calories burned running",
+    "operation": "multiply",
+    "operands": [
+      600,
+      1
+    ],
+    "result": 600,
+    "variable": "running_calories"
+  },
+  {
+    "step": 3,
+    "description": "total calories burned",
+    "operation": "add",
+    "operands": [
+      1000,
+      600
+    ],
+    "result": 1600,
+    "variable": "total_calories"
+  },
+  {
+    "step": 4,
+    "description": "number of 200-calorie units burned",
+    "operation": "divide",
+    "operands": [
+      1600,
+      200
+    ],
+    "result": 8,
+    "variable": "calorie_units"
+  },
+  {
+    "step": 5,
+    "description": "total ml of water needed",
+    "operation": "multiply",
+    "operands": [
+      8,
+      100
+    ],
+    "result": 800.0,
+    "variable": "total_water_ml"
+  }
+]

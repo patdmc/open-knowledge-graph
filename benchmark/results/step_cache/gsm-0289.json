@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate slow lane speed as half of fast lane speed",
+    "operation": "divide",
+    "operands": [
+      60,
+      2
+    ],
+    "result": 30,
+    "variable": "slow_lane_speed_mph"
+  },
+  {
+    "step": 2,
+    "description": "Calculate time for slow lane car to cover 480 miles",
+    "operation": "divide",
+    "operands": [
+      480,
+      30
+    ],
+    "result": 16.0,
+    "variable": "slow_lane_time_hours"
+  }
+]

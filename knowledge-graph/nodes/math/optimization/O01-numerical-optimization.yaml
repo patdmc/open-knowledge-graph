@@ -1,0 +1,217 @@
+id: O01-numerical-optimization
+type: knowledge
+domain: optimization
+name: "Numerical Optimization"
+
+concepts:
+  # === Problem Formulation ===
+  - id: optimization_problem
+    name: "Optimization Problem"
+    latex: "\\min_{x \\in \\mathcal{X}} f(x) \\quad \\text{s.t.} \\quad g_i(x) \\leq 0, \\; h_j(x) = 0"
+    meaning: "minimize objective f over feasible set defined by inequality and equality constraints"
+
+  - id: convex_function
+    name: "Convex Function"
+    latex: "f(\\lambda x + (1-\\lambda)y) \\leq \\lambda f(x) + (1-\\lambda)f(y)"
+    meaning: "line segment between any two points on graph lies above the function"
+    test: "Hessian is positive semi-definite everywhere"
+    links: [hessian, positive_definite]
+
+  - id: convex_set
+    name: "Convex Set"
+    latex: "\\lambda x + (1-\\lambda)y \\in \\mathcal{X} \\quad \\forall x,y \\in \\mathcal{X}, \\; \\lambda \\in [0,1]"
+
+  # === Unconstrained ===
+  - id: gradient_descent
+    name: "Gradient Descent"
+    latex: "x_{k+1} = x_k - \\alpha_k \\nabla f(x_k)"
+    meaning: "step in negative gradient direction; alpha is learning rate"
+    convergence: "O(1/k) for convex, linear for strongly convex with optimal step"
+    action:
+      numpy: "x = x - lr * grad_f(x)"
+      jax: "optax.sgd(learning_rate)"
+      torch: "torch.optim.SGD(params, lr)"
+    curried: "lambda lr: lambda grad_f: lambda x: x - lr * grad_f(x)"
+
+  - id: stochastic_gradient_descent
+    name: "Stochastic Gradient Descent"
+    latex: "x_{k+1} = x_k - \\alpha_k \\nabla f_i(x_k)"
+    meaning: "use gradient of random sample instead of full batch"
+    action:
+      torch: "torch.optim.SGD(params, lr)"
+
+  - id: momentum
+    name: "Momentum (Heavy Ball)"
+    latex: "v_{k+1} = \\beta v_k + \\nabla f(x_k), \\quad x_{k+1} = x_k - \\alpha v_{k+1}"
+    meaning: "accumulate velocity to escape local minima and smooth oscillations"
+    action:
+      torch: "torch.optim.SGD(params, lr, momentum=beta)"
+
+  - id: adam
+    name: "Adam"
+    latex: "m_t = \\beta_1 m_{t-1} + (1-\\beta_1) g_t, \\quad v_t = \\beta_2 v_{t-1} + (1-\\beta_2) g_t^2"
+    meaning: "adaptive learning rate with first and second moment estimates"
+    action:
+      torch: "torch.optim.Adam(params, lr, betas=(0.9, 0.999))"
+      jax: "optax.adam(learning_rate)"
+
+  - id: newtons_method
+    name: "Newton's Method"
+    latex: "x_{k+1} = x_k - [H_f(x_k)]^{-1} \\nabla f(x_k)"
+    meaning: "use curvature (Hessian) for quadratic convergence near optimum"
+    action:
+      scipy: "scipy.optimize.minimize(f, x0, method='Newton-CG', jac=grad_f, hess=hess_f)"
+    convergence: "quadratic near optimum"
+    links: [hessian, inverse]
+
+  - id: quasi_newton
+    name: "Quasi-Newton (BFGS)"
+    meaning: "approximate Hessian inverse from gradient history; superlinear convergence"
+    action:
+      scipy: "scipy.optimize.minimize(f, x0, method='BFGS', jac=grad_f)"
+    curried: "lambda f: lambda x0: scipy.optimize.minimize(f, x0, method='BFGS')"
+
+  - id: lbfgs
+    name: "L-BFGS"
+    meaning: "limited-memory BFGS; stores only last m gradient pairs instead of full n×n matrix"
+    action:
+      scipy: "scipy.optimize.minimize(f, x0, method='L-BFGS-B', jac=grad_f)"
+      torch: "torch.optim.LBFGS(params)"
+
+  - id: conjugate_gradient
+    name: "Conjugate Gradient"
+    meaning: "solve Ax=b in n steps for n×n positive definite A; also nonlinear variant"
+    action:
+      scipy_linear: "scipy.sparse.linalg.cg(A, b)"
+      scipy_nonlinear: "scipy.optimize.minimize(f, x0, method='CG', jac=grad_f)"
+    links: [positive_definite, solve_linear]
+
+  - id: line_search
+    name: "Line Search"
+    meaning: "choose step size alpha along descent direction"
+    variants:
+      - "exact: minimize f(x + alpha*d)"
+      - "Armijo (sufficient decrease)"
+      - "Wolfe conditions"
+    action:
+      scipy: "scipy.optimize.line_search(f, grad_f, xk, pk)"
+
+  # === Constrained ===
+  - id: kkt_conditions
+    name: "KKT Conditions"
+    latex: |
+      \nabla f + \sum_i \mu_i \nabla g_i + \sum_j \lambda_j \nabla h_j = 0
+      \mu_i g_i(x) = 0, \quad \mu_i \geq 0
+    meaning: "necessary conditions for constrained optimality; sufficient if convex"
+    links: [lagrange_multipliers]
+
+  - id: linear_programming
+    name: "Linear Programming"
+    latex: "\\min c^T x \\quad \\text{s.t.} \\quad Ax \\leq b, \\; x \\geq 0"
+    action:
+      scipy: "scipy.optimize.linprog(c, A_ub=A, b_ub=b)"
+    curried: "lambda c: lambda A: lambda b: scipy.optimize.linprog(c, A_ub=A, b_ub=b)"
+
+  - id: quadratic_programming
+    name: "Quadratic Programming"
+    latex: "\\min \\frac{1}{2} x^T Q x + c^T x \\quad \\text{s.t.} \\quad Ax \\leq b"
+    action:
+      scipy: "scipy.optimize.minimize(lambda x: 0.5*x@Q@x + c@x, x0, constraints=...)"
+      cvxpy: "cp.Problem(cp.Minimize(cp.quad_form(x, Q) + c @ x), [A @ x <= b]).solve()"
+
+  - id: convex_optimization
+    name: "Convex Optimization"
+    meaning: "convex objective + convex feasible set => global optimum guaranteed"
+    action:
+      cvxpy: "cp.Problem(objective, constraints).solve()"
+
+  - id: interior_point
+    name: "Interior Point Method"
+    meaning: "approach boundary of feasible region from interior using barrier functions"
+    action:
+      scipy: "scipy.optimize.linprog(c, method='interior-point')"
+
+  # === Global / Derivative-Free ===
+  - id: nelder_mead
+    name: "Nelder-Mead (Simplex)"
+    meaning: "derivative-free method using simplex of n+1 points"
+    action:
+      scipy: "scipy.optimize.minimize(f, x0, method='Nelder-Mead')"
+    curried: "lambda f: lambda x0: scipy.optimize.minimize(f, x0, method='Nelder-Mead')"
+
+  - id: simulated_annealing
+    name: "Simulated Annealing"
+    meaning: "probabilistic global search; accepts uphill moves with decreasing probability"
+    action:
+      scipy: "scipy.optimize.dual_annealing(f, bounds)"
+
+  - id: differential_evolution
+    name: "Differential Evolution"
+    meaning: "population-based global optimizer"
+    action:
+      scipy: "scipy.optimize.differential_evolution(f, bounds)"
+    curried: "lambda f: lambda bounds: scipy.optimize.differential_evolution(f, bounds)"
+
+  - id: bayesian_optimization
+    name: "Bayesian Optimization"
+    meaning: "surrogate model (GP) + acquisition function for expensive black-box optimization"
+    action:
+      sklearn: "from skopt import gp_minimize; gp_minimize(f, dimensions)"
+
+  # === Regularization ===
+  - id: l1_regularization
+    name: "L1 Regularization (Lasso)"
+    latex: "\\min_x f(x) + \\lambda \\|x\\|_1"
+    meaning: "promotes sparsity — drives coefficients exactly to zero"
+    action:
+      sklearn: "Lasso(alpha=lam)"
+
+  - id: l2_regularization
+    name: "L2 Regularization (Ridge)"
+    latex: "\\min_x f(x) + \\lambda \\|x\\|_2^2"
+    meaning: "shrinks coefficients toward zero without sparsity"
+    action:
+      sklearn: "Ridge(alpha=lam)"
+
+  - id: elastic_net
+    name: "Elastic Net"
+    latex: "\\min_x f(x) + \\lambda_1 \\|x\\|_1 + \\lambda_2 \\|x\\|_2^2"
+    action:
+      sklearn: "ElasticNet(alpha, l1_ratio)"
+
+  # === Convergence ===
+  - id: convergence_rate
+    name: "Convergence Rate"
+    variants:
+      - name: "sublinear"
+        latex: "\\|x_k - x^*\\| = O(1/k)"
+      - name: "linear"
+        latex: "\\|x_{k+1} - x^*\\| \\leq c \\|x_k - x^*\\|, \\; c < 1"
+      - name: "superlinear"
+        latex: "\\lim_{k \\to \\infty} \\frac{\\|x_{k+1} - x^*\\|}{\\|x_k - x^*\\|} = 0"
+      - name: "quadratic"
+        latex: "\\|x_{k+1} - x^*\\| \\leq C \\|x_k - x^*\\|^2"
+
+theorems:
+  - name: "Strong Duality (Slater)"
+    statement: "for convex problems with strictly feasible point, primal optimum = dual optimum"
+
+  - name: "No Free Lunch"
+    statement: "no optimizer uniformly dominates all others across all possible objectives"
+
+  - name: "Wolfe Duality"
+    statement: "min of primal >= max of dual; equality under strong duality"
+
+edges:
+  - to: A04-linear-algebra-advanced
+    relation: REQUIRES
+    note: "positive definiteness, condition numbers, decompositions"
+  - to: C03-multivariable-calculus
+    relation: REQUIRES
+    note: "gradients, Hessians, Lagrange multipliers"
+  - to: C01-differential-calculus
+    relation: REQUIRES
+    note: "derivatives for gradient computation"
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "matrix operations, norms, solving linear systems"

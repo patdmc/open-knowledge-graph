@@ -1,0 +1,41 @@
+id: PW-Plateletactivation,signalingan
+type: knowledge
+domain: biology
+name: Platelet activation, signaling and aggregation
+reactome_id: R-HSA-76002
+
+description: Platelet activation begins with the initial binding of adhesive ligands and of the excitatory platelet agonists (released or generated at the sites of vascular trauma) to cognate receptors on the platelet membrane (Ruggeri 2002). Intracellular signaling reactions then enhance the adhesive and procoagulant properties of tethered platelets or of platelets circulating in the proximity. Once platelets have adhered they degranulate, releasing stored secondary agents such as ADP, ATP, and synthesize thromboxane A2.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "GP1b-IX-V activation signalling"
+    reactome_id: R-HSA-430116
+    type: Pathway
+  - name: Signal amplification
+    reactome_id: R-HSA-392518
+    type: Pathway
+  - name: Thrombin signalling through proteinase activated receptors (PARs)
+    reactome_id: R-HSA-456926
+    type: Pathway
+  - name: "GPVI-mediated activation cascade"
+    reactome_id: R-HSA-114604
+    type: Pathway
+  - name: Platelet Aggregation (Plug Formation)
+    reactome_id: R-HSA-76009
+    type: Pathway
+  - name: Effects of PIP2 hydrolysis
+    reactome_id: R-HSA-114508
+    type: Pathway
+  - name: Response to elevated platelet cytosolic Ca2+
+    reactome_id: R-HSA-76005
+    type: Pathway
+
+edges:

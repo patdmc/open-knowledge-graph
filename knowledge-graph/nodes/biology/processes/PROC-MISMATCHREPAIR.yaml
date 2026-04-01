@@ -1,0 +1,48 @@
+id: PROC-MISMATCHREPAIR
+type: knowledge
+domain: biology
+name: mismatch repair
+go_id: GO:0006298
+
+definition: "A system for the correction of errors in which an incorrect base, which cannot form hydrogen bonds with the corresponding base in the parent strand, is incorporated into the daughter strand. The mismatch repair system promotes genomic fidelity by repairing base-base mismatches, insertion-deletion loops and heterologies generated during DNA replication and recombination."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0070716
+    name: "mismatch repair involved in maintenance of fidelity involved in DNA-dependent DNA replication"
+    relation: is_a
+  - id: GO:0000710
+    name: meiotic mismatch repair
+    relation: is_a
+  - id: GO:0032425
+    name: positive regulation of mismatch repair
+    relation: positively_regulates
+  - id: GO:0032423
+    name: regulation of mismatch repair
+    relation: regulates
+  - id: GO:0032424
+    name: negative regulation of mismatch repair
+    relation: negatively_regulates
+  - id: GO:0032300
+    name: mismatch repair complex
+    relation: capable_of_part_of
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-DDR encode components of mismatch repair"

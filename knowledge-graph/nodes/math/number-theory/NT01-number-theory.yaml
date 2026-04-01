@@ -1,0 +1,222 @@
+id: NT01-number-theory
+type: knowledge
+domain: number_theory
+name: "Number Theory"
+
+concepts:
+  - id: divisibility
+    name: "Divisibility"
+    latex: "a \\mid b \\iff \\exists k : b = ak"
+    meaning: "a divides b if b is an integer multiple of a"
+    action:
+      python: "b % a == 0"
+    curried: "lambda a: lambda b: b % a == 0"
+
+  - id: prime
+    name: "Prime Number"
+    latex: "p \\in \\mathbb{P}"
+    meaning: "integer > 1 with no divisors other than 1 and itself"
+    action:
+      sympy: "isprime(n)"
+      sympy_gen: "nextprime(n)"
+      sympy_list: "list(primerange(a, b))"
+    curried: "lambda n: sympy.isprime(n)"
+
+  - id: prime_factorization
+    name: "Prime Factorization"
+    latex: "n = p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k}"
+    meaning: "unique representation as product of primes (Fundamental Theorem of Arithmetic)"
+    action:
+      sympy: "factorint(n)"
+    curried: "lambda n: sympy.factorint(n)"
+
+  - id: gcd
+    name: "Greatest Common Divisor"
+    latex: "\\gcd(a, b)"
+    meaning: "largest integer dividing both a and b"
+    action:
+      math: "math.gcd(a, b)"
+      sympy: "gcd(a, b)"
+      numpy: "np.gcd(a, b)"
+    curried: "lambda a: lambda b: math.gcd(a, b)"
+
+  - id: lcm
+    name: "Least Common Multiple"
+    latex: "\\text{lcm}(a, b) = \\frac{|ab|}{\\gcd(a,b)}"
+    action:
+      math: "math.lcm(a, b)"
+      sympy: "lcm(a, b)"
+      numpy: "np.lcm(a, b)"
+    curried: "lambda a: lambda b: math.lcm(a, b)"
+
+  - id: euclidean_algorithm
+    name: "Euclidean Algorithm"
+    latex: "\\gcd(a, b) = \\gcd(b, a \\bmod b)"
+    meaning: "iteratively replace (a,b) with (b, a mod b) until remainder is 0"
+    action:
+      sympy: "gcd(a, b)"
+      python: "math.gcd(a, b)"
+
+  - id: extended_euclidean
+    name: "Extended Euclidean Algorithm"
+    latex: "\\gcd(a,b) = ax + by"
+    meaning: "finds x, y such that ax + by = gcd(a,b)"
+    action:
+      sympy: "gcdex(a, b)"
+    curried: "lambda a: lambda b: sympy.gcdex(a, b)"
+
+  - id: modular_arithmetic
+    name: "Modular Arithmetic"
+    latex: "a \\equiv b \\pmod{n}"
+    meaning: "a and b have the same remainder when divided by n"
+    action:
+      python: "a % n"
+      sympy: "Mod(a, n)"
+    curried: "lambda n: lambda a: a % n"
+
+  - id: modular_exponentiation
+    name: "Modular Exponentiation"
+    latex: "a^b \\bmod n"
+    action:
+      python: "pow(a, b, n)"
+    curried: "lambda a: lambda b: lambda n: pow(a, b, n)"
+
+  - id: modular_inverse
+    name: "Modular Inverse"
+    latex: "a^{-1} \\pmod{n}"
+    meaning: "x such that ax ≡ 1 (mod n); exists iff gcd(a,n) = 1"
+    action:
+      python: "pow(a, -1, n)"
+      sympy: "mod_inverse(a, n)"
+    curried: "lambda a: lambda n: pow(a, -1, n)"
+
+  - id: euler_totient
+    name: "Euler's Totient Function"
+    latex: "\\phi(n) = n \\prod_{p | n} \\left(1 - \\frac{1}{p}\\right)"
+    meaning: "count of integers 1..n coprime to n"
+    action:
+      sympy: "totient(n)"
+    curried: "lambda n: sympy.totient(n)"
+
+  - id: chinese_remainder
+    name: "Chinese Remainder Theorem"
+    latex: "x \\equiv a_i \\pmod{n_i} \\text{ for all } i"
+    meaning: "system of congruences has unique solution mod product when moduli are coprime"
+    action:
+      sympy: "crt(moduli, remainders)"
+    curried: "lambda moduli: lambda remainders: sympy.ntheory.modular.crt(moduli, remainders)"
+
+  - id: fermats_little
+    name: "Fermat's Little Theorem"
+    latex: "a^{p-1} \\equiv 1 \\pmod{p}"
+    meaning: "for prime p and a not divisible by p"
+    corollary: "a^p ≡ a (mod p)"
+
+  - id: euler_theorem
+    name: "Euler's Theorem"
+    latex: "a^{\\phi(n)} \\equiv 1 \\pmod{n}"
+    meaning: "generalization of Fermat's little theorem; requires gcd(a,n) = 1"
+
+  - id: wilson_theorem
+    name: "Wilson's Theorem"
+    latex: "(p-1)! \\equiv -1 \\pmod{p}"
+    meaning: "p is prime iff this holds"
+
+  - id: quadratic_residue
+    name: "Quadratic Residue"
+    latex: "a \\text{ is a QR mod } n \\iff \\exists x : x^2 \\equiv a \\pmod{n}"
+    action:
+      sympy: "is_quad_residue(a, n)"
+    curried: "lambda a: lambda n: sympy.is_quad_residue(a, n)"
+
+  - id: legendre_symbol
+    name: "Legendre Symbol"
+    latex: "\\left(\\frac{a}{p}\\right) = a^{(p-1)/2} \\bmod p"
+    action:
+      sympy: "legendre_symbol(a, p)"
+    curried: "lambda a: lambda p: sympy.legendre_symbol(a, p)"
+
+  - id: jacobi_symbol
+    name: "Jacobi Symbol"
+    latex: "\\left(\\frac{a}{n}\\right) = \\prod_i \\left(\\frac{a}{p_i}\\right)^{e_i}"
+    action:
+      sympy: "jacobi_symbol(a, n)"
+    curried: "lambda a: lambda n: sympy.jacobi_symbol(a, n)"
+
+  - id: mobius_function
+    name: "Mobius Function"
+    latex: "\\mu(n) = \\begin{cases} (-1)^k & n = p_1 p_2 \\cdots p_k \\\\ 0 & \\text{otherwise} \\end{cases}"
+    meaning: "(-1)^k if n is product of k distinct primes, 0 if has squared factor"
+    action:
+      sympy: "mobius(n)"
+    curried: "lambda n: sympy.mobius(n)"
+
+  - id: diophantine
+    name: "Diophantine Equation"
+    latex: "f(x_1, \\ldots, x_n) = 0, \\quad x_i \\in \\mathbb{Z}"
+    meaning: "polynomial equation where only integer solutions are sought"
+    action:
+      sympy: "diophantine(eq)"
+
+  - id: continued_fraction
+    name: "Continued Fraction"
+    latex: "a_0 + \\cfrac{1}{a_1 + \\cfrac{1}{a_2 + \\cdots}}"
+    action:
+      sympy: "continued_fraction(x)"
+    curried: "lambda x: list(sympy.continued_fraction_iterator(x))"
+
+  - id: fibonacci
+    name: "Fibonacci Numbers"
+    latex: "F_n = F_{n-1} + F_{n-2}, \\quad F_0 = 0, F_1 = 1"
+    action:
+      sympy: "fibonacci(n)"
+    curried: "lambda n: sympy.fibonacci(n)"
+
+  - id: binomial_coefficient
+    name: "Binomial Coefficient"
+    latex: "\\binom{n}{k} = \\frac{n!}{k!(n-k)!}"
+    action:
+      math: "math.comb(n, k)"
+      sympy: "binomial(n, k)"
+      scipy: "scipy.special.comb(n, k, exact=True)"
+    curried: "lambda n: lambda k: math.comb(n, k)"
+
+  - id: partition_function
+    name: "Partition Function"
+    latex: "p(n)"
+    meaning: "number of ways to write n as sum of positive integers"
+    action:
+      sympy: "npartitions(n)"
+    curried: "lambda n: sympy.npartitions(n)"
+
+  - id: discrete_log
+    name: "Discrete Logarithm"
+    latex: "\\log_g a \\pmod{n}"
+    meaning: "find x such that g^x ≡ a (mod n)"
+    action:
+      sympy: "discrete_log(n, a, g)"
+    curried: "lambda n: lambda a: lambda g: sympy.discrete_log(n, a, g)"
+
+theorems:
+  - name: "Fundamental Theorem of Arithmetic"
+    statement: "every integer > 1 has a unique prime factorization"
+
+  - name: "Prime Number Theorem"
+    latex: "\\pi(x) \\sim \\frac{x}{\\ln x}"
+    meaning: "number of primes up to x is asymptotically x/ln(x)"
+
+  - name: "Bezout's Identity"
+    latex: "\\gcd(a,b) = ax + by \\text{ for some } x, y \\in \\mathbb{Z}"
+
+  - name: "Quadratic Reciprocity"
+    latex: "\\left(\\frac{p}{q}\\right)\\left(\\frac{q}{p}\\right) = (-1)^{\\frac{p-1}{2} \\cdot \\frac{q-1}{2}}"
+    meaning: "for odd primes p, q"
+
+edges:
+  - to: A01-algebra-fundamentals
+    relation: REQUIRES
+  - to: N04-aggregation-notation
+    relation: REQUIRES
+  - to: AA01-abstract-algebra
+    relation: EXTENDS_TO
+    note: "groups Z/nZ, rings of integers"

@@ -1,0 +1,122 @@
+id: G01-geometry-fundamentals
+type: knowledge
+domain: geometry
+name: "Geometry Fundamentals"
+
+constants:
+  - id: pi
+    name: "Pi"
+    latex: "\\pi"
+    value: 3.14159265358979
+    action:
+      math: "math.pi"
+      numpy: "np.pi"
+      sympy: "pi"
+
+  - id: e
+    name: "Euler's Number"
+    latex: "e"
+    value: 2.71828182845905
+    action:
+      math: "math.e"
+      numpy: "np.e"
+      sympy: "E"
+
+  - id: tau
+    name: "Tau"
+    latex: "\\tau = 2\\pi"
+    value: 6.28318530717959
+    action:
+      math: "math.tau"
+      numpy: "2 * np.pi"
+
+concepts:
+  - id: distance
+    name: "Euclidean Distance"
+    latex: "d = \\sqrt{\\sum_i (x_i - y_i)^2}"
+    action:
+      numpy: "np.linalg.norm(x - y)"
+      scipy: "scipy.spatial.distance.euclidean(x, y)"
+    curried: "lambda x: lambda y: np.linalg.norm(np.array(x) - np.array(y))"
+
+  - id: midpoint
+    name: "Midpoint"
+    latex: "M = \\frac{A + B}{2}"
+    action:
+      numpy: "(a + b) / 2"
+    curried: "lambda a: lambda b: (np.array(a) + np.array(b)) / 2"
+
+  - id: slope
+    name: "Slope"
+    latex: "m = \\frac{y_2 - y_1}{x_2 - x_1}"
+    curried: "lambda p1: lambda p2: (p2[1]-p1[1]) / (p2[0]-p1[0])"
+
+  - id: area_triangle
+    name: "Triangle Area"
+    latex: "A = \\frac{1}{2} b h"
+    variants:
+      - latex: "A = \\frac{1}{2} |x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|"
+        name: "coordinate formula"
+      - latex: "A = \\sqrt{s(s-a)(s-b)(s-c)}"
+        name: "Heron's formula"
+        action: "lambda a, b, c: (lambda s: (s*(s-a)*(s-b)*(s-c))**0.5)((a+b+c)/2)"
+    curried: "lambda b: lambda h: 0.5 * b * h"
+
+  - id: area_circle
+    name: "Circle Area"
+    latex: "A = \\pi r^2"
+    action:
+      python: "math.pi * r**2"
+    curried: "lambda r: np.pi * r**2"
+
+  - id: circumference
+    name: "Circumference"
+    latex: "C = 2\\pi r"
+    curried: "lambda r: 2 * np.pi * r"
+
+  - id: volume_sphere
+    name: "Sphere Volume"
+    latex: "V = \\frac{4}{3}\\pi r^3"
+    curried: "lambda r: (4/3) * np.pi * r**3"
+
+  - id: surface_area_sphere
+    name: "Sphere Surface Area"
+    latex: "S = 4\\pi r^2"
+    curried: "lambda r: 4 * np.pi * r**2"
+
+  - id: pythagorean
+    name: "Pythagorean Theorem"
+    latex: "a^2 + b^2 = c^2"
+    meaning: "in a right triangle, sum of squares of legs = square of hypotenuse"
+    action:
+      hypotenuse: "lambda a, b: np.sqrt(a**2 + b**2)"
+      leg: "lambda c, a: np.sqrt(c**2 - a**2)"
+    curried: "lambda a: lambda b: np.sqrt(a**2 + b**2)"
+
+  - id: rotation_2d
+    name: "2D Rotation"
+    latex: "R(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}"
+    action:
+      numpy: "np.array([[np.cos(t), -np.sin(t)], [np.sin(t), np.cos(t)]])"
+    curried: "lambda theta: np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])"
+    compose: "R(a) @ R(b) == R(a+b)"
+
+  - id: polar_to_cartesian
+    name: "Polar to Cartesian"
+    latex: "x = r\\cos\\theta, \\quad y = r\\sin\\theta"
+    action:
+      numpy: "(r * np.cos(theta), r * np.sin(theta))"
+    curried: "lambda r: lambda theta: (r * np.cos(theta), r * np.sin(theta))"
+    inverse: cartesian_to_polar
+
+  - id: cartesian_to_polar
+    name: "Cartesian to Polar"
+    latex: "r = \\sqrt{x^2+y^2}, \\quad \\theta = \\text{atan2}(y, x)"
+    curried: "lambda x: lambda y: (np.sqrt(x**2 + y**2), np.arctan2(y, x))"
+    inverse: polar_to_cartesian
+
+edges:
+  - to: T01-trig-functions
+    relation: REQUIRES
+  - to: A02-linear-algebra
+    relation: REQUIRES

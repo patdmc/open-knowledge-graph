@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "cost of 3 pairs of shorts",
+    "operation": "multiply",
+    "operands": [
+      3,
+      16.5
+    ],
+    "result": 49.5,
+    "variable": "total_shorts"
+  },
+  {
+    "step": 2,
+    "description": "cost of 3 pairs of pants",
+    "operation": "multiply",
+    "operands": [
+      3,
+      22.5
+    ],
+    "result": 67.5,
+    "variable": "total_pants"
+  },
+  {
+    "step": 3,
+    "description": "cost of 3 pairs of shoes",
+    "operation": "multiply",
+    "operands": [
+      3,
+      42.0
+    ],
+    "result": 126.0,
+    "variable": "total_shoes"
+  },
+  {
+    "step": 4,
+    "description": "combined cost of shorts and pants",
+    "operation": "add",
+    "operands": [
+      49.5,
+      67.5
+    ],
+    "result": 117.0,
+    "variable": "shorts_plus_pants"
+  },
+  {
+    "step": 5,
+    "description": "total cost of all clothing items",
+    "operation": "add",
+    "operands": [
+      117.0,
+      126.0
+    ],
+    "result": 243.0,
+    "variable": "total_spent"
+  }
+]

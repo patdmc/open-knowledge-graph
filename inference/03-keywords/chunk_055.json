@@ -1,0 +1,52 @@
+{
+  "chunk_index": 55,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "9. Discussion > 9.2 Limitations",
+  "section_path": [
+    "9. Discussion",
+    "9.2 Limitations"
+  ],
+  "char_count": 2094,
+  "keyphrases": [
+    {
+      "phrase": "published claims framework",
+      "score": 0.5439
+    },
+    {
+      "phrase": "propositions different frameworks",
+      "score": 0.5112
+    },
+    {
+      "phrase": "limitationslimitations",
+      "score": 0.4707
+    },
+    {
+      "phrase": "math means claim",
+      "score": 0.422
+    },
+    {
+      "phrase": "conceptual equivalence carrying",
+      "score": 0.4202
+    },
+    {
+      "phrase": "proposition extraction papers",
+      "score": 0.4035
+    },
+    {
+      "phrase": "structured estimate precise",
+      "score": 0.3836
+    },
+    {
+      "phrase": "construction requires judgment",
+      "score": 0.349
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

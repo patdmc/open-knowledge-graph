@@ -1,0 +1,61 @@
+id: CT-HNSC
+type: knowledge
+domain: cancer_biology
+name: "Head and Neck Cancer"
+
+n_patients: 548
+n_mutated: 464
+mutation_rate: 0.8467
+channel_entropy: 2.1949
+hub_fraction: 0.4701
+median_os_months: 12.1805
+event_rate: 0.5949
+survival_36m: 0.1898
+mean_channels_per_patient: 2.0733
+top_gene: TP53
+top_gene_frequency: 0.2278
+n_harmful_mutations: 2
+n_protective_mutations: 3
+dominant_channels: [CHAN-CellCycle, CHAN-PI3K_Growth]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=548)"
+
+edges:
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Head and Neck Cancer"
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Head and Neck Cancer"
+  - to: GENE-TP53
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "TP53 mutated in 0.2278 of Head and Neck Cancer patients"
+

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "half the starting value",
+    "operation": "divide",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 10,
+    "variable": "half_of_number"
+  },
+  {
+    "step": 2,
+    "description": "starting value plus half the number",
+    "operation": "add",
+    "operands": [
+      20,
+      10
+    ],
+    "result": 30,
+    "variable": "numerator"
+  },
+  {
+    "step": 3,
+    "description": "divide by 5",
+    "operation": "divide",
+    "operands": [
+      30,
+      5
+    ],
+    "result": 6,
+    "variable": "divided_result"
+  },
+  {
+    "step": 4,
+    "description": "starting value minus 12",
+    "operation": "subtract",
+    "operands": [
+      20,
+      12
+    ],
+    "result": 8,
+    "variable": "multiplier"
+  },
+  {
+    "step": 5,
+    "description": "multiply divided result by multiplier",
+    "operation": "multiply",
+    "operands": [
+      6,
+      8
+    ],
+    "result": 48.0,
+    "variable": "final_value"
+  }
+]

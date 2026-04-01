@@ -1,0 +1,29 @@
+id: PW-Celljunctionorganization
+type: knowledge
+domain: biology
+name: Cell junction organization
+reactome_id: R-HSA-446728
+
+description: "Cell junction organization in Reactome currently covers aspects of cell-cell junction organization, cell-extracellular matrix interactions, and Type I hemidesmosome assembly."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Cell-cell junction organization"
+    reactome_id: R-HSA-421270
+    type: Pathway
+  - name: "Cell-extracellular matrix interactions"
+    reactome_id: R-HSA-446353
+    type: Pathway
+  - name: Type I hemidesmosome assembly
+    reactome_id: R-HSA-446107
+    type: Pathway
+
+edges:

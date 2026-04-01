@@ -1,0 +1,47 @@
+id: PW-DegradationofCRYandPERproteins
+type: knowledge
+domain: biology
+name: Degradation of CRY and PER proteins
+reactome_id: R-HSA-9932298
+
+description: "In order to initiate a new round of transcription activated by BMAL1:CLOCK in the morning, Cryptochrome proteins (CRY1, CRY2) and Period proteins (PER1, PER2, PER3), the repressors of BMAL:CLOCK, are ubiquitinylated by SCF E3 ligase complexes and then proteolyzed by the 26S proteasome during the night. The BTRC,FBXW11:CUL1:SKP1:RBX1 E3 ligase complex ubiquitinylates phosphorylated PER1, PER2, and likely PER3 in the cytosol (Shirogane et al. 2005, inferred from mouse homologs in Reischl et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "BTRC:CUL1:SKP1:RBX1 binds phosphorylated PER protein"
+    reactome_id: R-HSA-9932506
+    type: Reaction
+  - name: "BTRC:CUL1:SKP1:RBX1 (SCF-beta-TrCP1) ubiquitinylates phosphorylated PER1,2,3"
+    reactome_id: R-HSA-9932510
+    type: BlackBoxEvent
+  - name: "Proteolysis of K48polyUb-K,p-S-PER1,2,3"
+    reactome_id: R-HSA-9934893
+    type: BlackBoxEvent
+  - name: "FBXL3:CUL1:SKP1:RBX1 binds phosphorylated CRY1,2"
+    reactome_id: R-HSA-9932535
+    type: Reaction
+  - name: "FBXL3:CUL1:SKP1:RBX1 ubiquitinylates phosphorylated CRY1,2"
+    reactome_id: R-HSA-9932512
+    type: BlackBoxEvent
+  - name: "Proteolysis of K48polyUb,p-S-CRY1,2"
+    reactome_id: R-HSA-9934884
+    type: BlackBoxEvent
+  - name: "FBXL21:CUL1:SKP1:RBX1 binds phosphorylated CRY1,2"
+    reactome_id: R-HSA-9932869
+    type: Reaction
+  - name: "FBXL21:CUL1:SKP1:RBX1 ubiquitinylates phosphorylated CRY1,2"
+    reactome_id: R-HSA-9932859
+    type: BlackBoxEvent
+  - name: "Proteolysis of K48polyUb-K107,p-S-CRY1,K48polyUb-K126,p-S-CRY2"
+    reactome_id: R-HSA-9934887
+    type: BlackBoxEvent
+
+edges:

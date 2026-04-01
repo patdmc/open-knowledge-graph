@@ -1,0 +1,29 @@
+id: PW-InsulinlikeGrowthFactor2mRNABi
+type: knowledge
+domain: biology
+name: "Insulin-like Growth Factor-2 mRNA Binding Proteins (IGF2BPs/IMPs/VICKZs) bind RNA"
+reactome_id: R-HSA-428359
+
+description: "Insulin-like Growth Factor-2 mRNA Binding Proteins (IGF2BPs) bind specific sets of RNA and regulate their translation, stability, and subcellular localization. IGF2BP1, IGF2BP2, and IGF2BP3 bind about 8400 protein-coding transcripts. The target RNAs contain the sequence motif CAUH (where H is A, U, or, C) and binding of IGFBPs increases the stability of the target RNAs."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: IGF2BP1 binds specific RNAs
+    reactome_id: R-HSA-428296
+    type: Reaction
+  - name: IGF2BP2 binds specific RNAs
+    reactome_id: R-HSA-428293
+    type: Reaction
+  - name: IGF2BP3 binds specific RNAs
+    reactome_id: R-HSA-428287
+    type: Reaction
+
+edges:

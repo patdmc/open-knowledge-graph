@@ -1,0 +1,32 @@
+id: PW-Visualphototransduction
+type: knowledge
+domain: biology
+name: Visual phototransduction
+reactome_id: R-HSA-2187338
+
+description: Visual phototransduction is the process by which photon absorption by visual pigment molecules in photoreceptor cells is converted to an electrical cellular response. The events in this process are photochemical, biochemical and electrophysiological and are highly conserved across many species. This process occurs in two types of photoreceptors in the retina, rods and cones.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Retinoid metabolism and transport
+    reactome_id: R-HSA-975634
+    type: Pathway
+  - name: The canonical retinoid cycle in rods (twilight vision)
+    reactome_id: R-HSA-2453902
+    type: Pathway
+  - name: The retinoid cycle in cones (daylight vision)
+    reactome_id: R-HSA-2187335
+    type: Pathway
+  - name: The phototransduction cascade
+    reactome_id: R-HSA-2514856
+    type: Pathway
+
+edges:

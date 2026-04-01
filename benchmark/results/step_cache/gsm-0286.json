@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "value of 5 quarters in cents",
+    "operation": "multiply",
+    "operands": [
+      5,
+      25
+    ],
+    "result": 125,
+    "variable": "quarters_cents"
+  },
+  {
+    "step": 2,
+    "description": "value of 2 dimes in cents",
+    "operation": "multiply",
+    "operands": [
+      2,
+      10
+    ],
+    "result": 20,
+    "variable": "dimes_cents"
+  },
+  {
+    "step": 3,
+    "description": "total money Kelly has",
+    "operation": "add",
+    "operands": [
+      125,
+      20
+    ],
+    "result": 145,
+    "variable": "total_cents"
+  },
+  {
+    "step": 4,
+    "description": "cents remaining after buying pop",
+    "operation": "subtract",
+    "operands": [
+      145,
+      55
+    ],
+    "result": 90,
+    "variable": "cents_left"
+  }
+]

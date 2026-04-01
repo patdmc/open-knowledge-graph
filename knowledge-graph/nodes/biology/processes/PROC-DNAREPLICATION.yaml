@@ -1,0 +1,57 @@
+id: PROC-DNAREPLICATION
+type: knowledge
+domain: biology
+name: DNA replication
+go_id: GO:0006260
+
+definition: The cellular metabolic process in which a cell duplicates one or more molecules of DNA. DNA replication begins when specific sequences, known as origins of replication, are recognized and bound by the origin recognition complex, and ends when the original DNA molecule has been completely duplicated and the copies topologically separated. The unit of replication usually corresponds to the genome of the cell, an organelle, or a virus.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0090592
+    name: DNA synthesis involved in DNA replication
+    relation: part_of
+  - id: GO:0006271
+    name: DNA strand elongation involved in DNA replication
+    relation: part_of
+  - id: GO:0006275
+    name: regulation of DNA replication
+    relation: regulates
+  - id: GO:0030894
+    name: replisome
+    relation: capable_of_part_of
+  - id: GO:0045740
+    name: positive regulation of DNA replication
+    relation: positively_regulates
+  - id: GO:0006301
+    name: DNA damage tolerance
+    relation: part_of
+  - id: GO:0006261
+    name: "DNA-templated DNA replication"
+    relation: is_a
+  - id: GO:0043137
+    name: DNA replication, removal of RNA primer
+    relation: part_of
+  - id: GO:0008156
+    name: negative regulation of DNA replication
+    relation: negatively_regulates
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-DDR encode components of DNA replication"

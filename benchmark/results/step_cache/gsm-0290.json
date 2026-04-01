@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Izzy's medals (5 less than Ali's 22)",
+    "operation": "subtract",
+    "operands": [
+      22,
+      5
+    ],
+    "result": 17,
+    "variable": "izzy_medals"
+  },
+  {
+    "step": 2,
+    "description": "Combined medals for Ali and Izzy",
+    "operation": "add",
+    "operands": [
+      22,
+      17
+    ],
+    "result": 39,
+    "variable": "combined_medals"
+  },
+  {
+    "step": 3,
+    "description": "Total medals given out (10 times their combined count)",
+    "operation": "multiply",
+    "operands": [
+      39,
+      10
+    ],
+    "result": 390,
+    "variable": "total_medals_given_out"
+  }
+]

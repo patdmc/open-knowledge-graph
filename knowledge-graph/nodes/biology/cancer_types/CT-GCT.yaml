@@ -1,0 +1,61 @@
+id: CT-GCT
+type: knowledge
+domain: cancer_biology
+name: Germ Cell Tumor
+
+n_patients: 564
+n_mutated: 243
+mutation_rate: 0.4309
+channel_entropy: 1.8865
+hub_fraction: 0.5529
+median_os_months: 30.8380
+event_rate: 0.2074
+survival_36m: 0.4521
+mean_channels_per_patient: 1.3580
+top_gene: TP53
+top_gene_frequency: 0.2048
+n_harmful_mutations: 1
+n_protective_mutations: 0
+dominant_channels: [CHAN-PI3K_Growth, CHAN-CellCycle]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=564)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Germ Cell Tumor"
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Germ Cell Tumor"
+  - to: GENE-TP53
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "TP53 mutated in 0.2048 of Germ Cell Tumor patients"
+

@@ -1,0 +1,1302 @@
+id: CHAN-PI3K_Growth
+type: knowledge
+domain: cancer_biology
+name: PI3K / Growth Signaling
+gene_count: 29
+hub_genes: [KRAS, PIK3CA, PTEN]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: AKT1
+    string_ppi_degree: 43
+    position: leaf
+    full_name: AKT serine/threonine kinase 1
+    chromosome: 14
+    ncbi_summary: "This gene encodes one of the three members of the human AKT serine-threonine protein kinase family which are often referred to as protein kinase B alpha, beta, and gamma. These highly similar AKT proteins all have an N-terminal pleckstrin homology domain, a serine/threonine-specific kinase domain and a C-terminal regulatory domain."
+    protein_name: "RAC-alpha serine/threonine-protein kinase"
+    uniprot_function: "AKT1 is one of 3 closely related serine/threonine-protein kinases (AKT1, AKT2 and AKT3) called the AKT kinase, and which regulate many processes including metabolism, proliferation, cell survival, gro..."
+    subcellular_location: [Cytoplasm, Nucleus, Cell membrane]
+    diseases:
+      - Breast cancer
+      - Colorectal cancer
+      - Proteus syndrome
+      - Cowden syndrome 6
+    go_biological_process:
+      - "activation-induced cell death of T cells"
+      - anoikis
+      - apoptotic mitochondrial changes
+      - behavioral response to pain
+      - "beta-arrestin-dependent dopamine receptor signaling pathway"
+      - cell differentiation
+      - cell migration involved in sprouting angiogenesis
+      - cell population proliferation
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - Platinum drug resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - "cGMP-PKG signaling pathway"
+  - id: AKT2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: AKT serine/threonine kinase 2
+    chromosome: 19
+    ncbi_summary: "This gene is a putative oncogene encoding a protein belonging to a subfamily of serine/threonine kinases containing SH2-like (Src homology 2-like) domains, which is involved in signaling pathways. The gene serves as an oncogene in the tumorigenesis of cancer cells For example, its overexpression contributes to the malignant phenotype of a subset of human ductal pancreatic cancers."
+    protein_name: "RAC-beta serine/threonine-protein kinase"
+    uniprot_function: Serine/threonine kinase closely related to AKT1 and AKT3. All 3 enzymes, AKT1, AKT2 and AKT3, are collectively known as AKT kinase. AKT regulates many processes including metabolism, proliferation, ce...
+    subcellular_location: [Cytoplasm, Nucleus, Cell membrane]
+    diseases:
+      - Type 2 diabetes mellitus
+      - Hypoinsulinemic hypoglycemia with hemihypertrophy
+    go_biological_process:
+      - cellular response to high light intensity
+      - cellular response to insulin stimulus
+      - fat cell differentiation
+      - glucose metabolic process
+      - glycogen biosynthetic process
+      - insulin receptor signaling pathway
+      - intracellular signal transduction
+      - mammary gland epithelial cell differentiation
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - Platinum drug resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - "cGMP-PKG signaling pathway"
+  - id: AKT3
+    string_ppi_degree: 0
+    position: leaf
+    full_name: AKT serine/threonine kinase 3
+    chromosome: 1
+    ncbi_summary: The protein encoded by this gene is a member of the AKT, also called PKB,  serine/threonine protein kinase family. AKT kinases are known to be regulators of cell signaling in response to insulin and growth factors.
+    protein_name: "RAC-gamma serine/threonine-protein kinase"
+    uniprot_function: "AKT3 is one of 3 closely related serine/threonine-protein kinases (AKT1, AKT2 and AKT3) called the AKT kinase, and which regulate many processes including metabolism, proliferation, cell survival, gro..."
+    subcellular_location: [Nucleus, Cytoplasm, Membrane]
+    diseases:
+      - "Megalencephaly-polymicrogyria-polydactyly-hydrocephalus syndrome 2"
+    go_biological_process:
+      - brain morphogenesis
+      - homeostasis of number of cells within a tissue
+      - insulin receptor signaling pathway
+      - intracellular signal transduction
+      - negative regulation of apoptotic process
+      - negative regulation of cellular senescence
+      - "negative regulation of PERK-mediated unfolded protein response"
+      - positive regulation of angiogenesis
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - Platinum drug resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - "cGMP-PKG signaling pathway"
+    cross_edges:
+      - to: JAK2
+        relation: COMPENSATES
+        hr: 0.1800
+        p: 1.43e-04
+        n: 96
+      - to: PIK3R1
+        relation: COMPENSATES
+        hr: 0.1920
+        p: 6.03e-05
+        n: 122
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2840
+        p: 3.39e-05
+        n: 159
+  - id: BRAF
+    string_ppi_degree: 28
+    position: leaf
+    full_name: "B-Raf proto-oncogene, serine/threonine kinase"
+    chromosome: 7
+    ncbi_summary: This gene encodes a protein belonging to the RAF family of serine/threonine protein kinases. This protein plays a role in regulating the MAP kinase/ERK signaling pathway, which affects cell division, differentiation, and secretion.
+    protein_name: "Serine/threonine-protein kinase B-raf"
+    uniprot_function: Protein kinase involved in the transduction of mitogenic signals from the cell membrane to the nucleus (Probable). Phosphorylates MAP2K1, and thereby activates the MAP kinase signal transduction pathw...
+    subcellular_location: [Nucleus, Cytoplasm, Cell membrane]
+    diseases:
+      - Colorectal cancer
+      - Lung cancer
+      - "Familial non-Hodgkin lymphoma"
+      - Cardiofaciocutaneous syndrome 1
+      - Noonan syndrome 7
+    go_biological_process:
+      - animal organ morphogenesis
+      - "CD4-positive or CD8-positive, alpha-beta T cell lineage commitment"
+      - "CD4-positive, alpha-beta T cell differentiation"
+      - cellular response to calcium ion
+      - cellular response to xenobiotic stimulus
+      - endothelial cell apoptotic process
+      - epidermal growth factor receptor signaling pathway
+      - ERK1 and ERK2 cascade
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Rap1 signaling pathway
+      - cAMP signaling pathway
+      - Chemokine signaling pathway
+      - FoxO signaling pathway
+    mutations:
+      - change: V600E
+        cancer_type: Colorectal Cancer
+        hr: 1.3650
+        p: 6.57e-04
+        direction: harmful
+        n: 347
+      - change: V600E
+        cancer_type: Thyroid Cancer
+        hr: 0.7402
+        p: 0.0279
+        direction: protective
+        n: 304
+    cross_edges:
+      - to: CDKN2A
+        relation: BUFFERS
+        hr: 0.5670
+        p: 2.13e-05
+        n: 187
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5150
+        p: 2.69e-05
+        n: 168
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.6290
+        p: 4.81e-04
+        n: 250
+      - to: BRCA1
+        relation: BUFFERS
+        hr: 0.5860
+        p: 0.0026
+        n: 150
+  - id: EGFR
+    string_ppi_degree: 40
+    position: leaf
+    full_name: epidermal growth factor receptor
+    chromosome: 7
+    ncbi_summary: The protein encoded by this gene is a transmembrane glycoprotein that is a member of the protein kinase superfamily. This protein is a receptor for members of the epidermal growth factor family.
+    protein_name: Epidermal growth factor receptor
+    uniprot_function: "Receptor tyrosine kinase binding ligands of the EGF family and activating several signaling cascades to convert extracellular cues into appropriate cellular responses (PubMed:10805725, PubMed:27153536..."
+    subcellular_location: [Cell membrane, Endoplasmic reticulum membrane, Golgi apparatus membrane]
+    diseases:
+      - Lung cancer
+      - Neonatal nephrocutaneous inflammatory syndrome
+    go_biological_process:
+      - cell morphogenesis
+      - cell surface receptor signaling pathway
+      - "cell-cell adhesion"
+      - cellular response to amino acid stimulus
+      - cellular response to epidermal growth factor stimulus
+      - cellular response to estradiol stimulus
+      - cerebral cortex cell migration
+      - digestive tract morphogenesis
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - MAPK signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - Calcium signaling pathway
+      - "PI3K-Akt signaling pathway"
+      - VEGF signaling pathway
+      - Focal adhesion
+    mutations:
+      - change: L858R
+        cancer_type: "Non-Small Cell Lung Cancer"
+        hr: 0.7344
+        p: 4.62e-05
+        direction: protective
+        n: 476
+      - change: A289V
+        cancer_type: Glioma
+        hr: 1.4389
+        p: 0.0226
+        direction: harmful
+        n: 53
+      - change: S768I
+        cancer_type: "Non-Small Cell Lung Cancer"
+        hr: 0.4261
+        p: 0.0119
+        direction: protective
+        n: 40
+      - change: G598V
+        cancer_type: Glioma
+        hr: 1.5147
+        p: 0.0302
+        direction: harmful
+        n: 35
+    cross_edges:
+      - to: CDKN2A
+        relation: BUFFERS
+        hr: 0.4730
+        p: 3.26e-06
+        n: 126
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.7210
+        p: 4.73e-06
+        n: 945
+      - to: SMAD4
+        relation: BUFFERS
+        hr: 0.4420
+        p: 6.35e-06
+        n: 105
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.6050
+        p: 9.34e-05
+        n: 206
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.5970
+        p: 1.84e-04
+        n: 231
+      - to: B2M
+        relation: COMPENSATES
+        hr: 0.1010
+        p: 7.19e-05
+        n: 96
+  - id: ERBB2
+    string_ppi_degree: 40
+    position: leaf
+    full_name: "erb-b2 receptor tyrosine kinase 2"
+    chromosome: 17
+    ncbi_summary: This gene encodes a member of the epidermal growth factor (EGF) receptor family of receptor tyrosine kinases. This protein has no ligand binding domain of its own and therefore cannot bind growth factors.
+    protein_name: "Receptor tyrosine-protein kinase erbB-2"
+    uniprot_function: "Protein tyrosine kinase that is part of several cell surface receptor complexes, but that apparently needs a coreceptor for ligand binding. Essential component of a neuregulin-receptor complex, althou..."
+    subcellular_location: [Cell membrane, Cell projection, ruffle membrane, Early endosome]
+    diseases:
+      - Glioma
+      - Ovarian cancer
+      - Lung cancer
+      - Gastric cancer
+      - Visceral neuropathy, familial, 2, autosomal recessive
+    go_biological_process:
+      - cell population proliferation
+      - cell surface receptor protein tyrosine kinase signaling pathway
+      - cell surface receptor signaling pathway
+      - cellular response to epidermal growth factor stimulus
+      - cellular response to growth factor stimulus
+      - "enzyme-linked receptor protein signaling pathway"
+      - epidermal growth factor receptor signaling pathway
+      - "ERBB2-EGFR signaling pathway"
+    kegg_pathways:
+      - Cadherin signaling
+      - "NOD-like receptor signaling pathway"
+    cross_edges:
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.5180
+        p: 6.83e-05
+        n: 192
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5510
+        p: 8.91e-05
+        n: 201
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.5130
+        p: 1.97e-04
+        n: 196
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.5790
+        p: 7.61e-04
+        n: 222
+      - to: CDKN2A
+        relation: BUFFERS
+        hr: 0.5640
+        p: 0.0014
+        n: 107
+      - to: TSC1
+        relation: COMPENSATES
+        hr: 0.2620
+        p: 4.32e-06
+        n: 183
+  - id: ERBB3
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "erb-b2 receptor tyrosine kinase 3"
+    chromosome: 12
+    ncbi_summary: "This gene encodes a member of the epidermal growth factor receptor (EGFR) family of receptor tyrosine kinases. This membrane-bound protein has a neuregulin binding domain but not an active kinase domain."
+    protein_name: "Receptor tyrosine-protein kinase erbB-3"
+    uniprot_function: "Tyrosine-protein kinase that plays an essential role as cell surface receptor for neuregulins. Binds to neuregulin-1 (NRG1) and is activated by it; ligand-binding increases phosphorylation on tyrosine..."
+    subcellular_location: [Cell membrane, Secreted]
+    diseases:
+      - Lethal congenital contracture syndrome 2
+      - Erythroleukemia, familial
+      - Visceral neuropathy, familial, 1, autosomal recessive
+    go_biological_process:
+      - cell surface receptor protein tyrosine kinase signaling pathway
+      - cranial nerve development
+      - endocardial cushion development
+      - epidermal growth factor receptor signaling pathway
+      - "ERBB2-ERBB3 signaling pathway"
+      - extrinsic apoptotic signaling pathway in absence of ligand
+      - heart development
+      - motor neuron apoptotic process
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Calcium signaling pathway
+      - "PI3K-Akt signaling pathway"
+      - Proteoglycans in cancer
+      - MicroRNAs in cancer
+    mutations:
+      - change: E928G
+        cancer_type: Breast Cancer
+        hr: 0.3858
+        p: 0.0426
+        direction: protective
+        n: 29
+  - id: FGFR1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: fibroblast growth factor receptor 1
+    chromosome: 8
+    ncbi_summary: The protein encoded by this gene is a member of the fibroblast growth factor receptor (FGFR) family, where amino acid sequence is highly conserved between members and throughout evolution. FGFR family members differ from one another in their ligand affinities and tissue distribution.
+    protein_name: Fibroblast growth factor receptor 1
+    uniprot_function: "Tyrosine-protein kinase that acts as a cell-surface receptor for fibroblast growth factors and plays an essential role in the regulation of embryonic development, cell proliferation, differentiation a..."
+    subcellular_location: [Cell membrane, Nucleus, Cytoplasm, cytosol]
+    diseases:
+      - Pfeiffer syndrome
+      - Hypogonadotropic hypogonadism 2 with or without anosmia
+      - Osteoglophonic dysplasia
+      - Hartsfield syndrome
+      - Trigonocephaly 1
+    go_biological_process:
+      - angiogenesis
+      - auditory receptor cell development
+      - branching involved in salivary gland morphogenesis
+      - calcium ion homeostasis
+      - cardiac muscle cell proliferation
+      - cell maturation
+      - cell migration
+      - cell projection assembly
+    cross_edges:
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2680
+        p: 3.59e-05
+        n: 159
+      - to: RB1
+        relation: COMPENSATES
+        hr: 0.2800
+        p: 5.05e-06
+        n: 154
+  - id: FGFR2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: fibroblast growth factor receptor 2
+    chromosome: 10
+    ncbi_summary: The protein encoded by this gene is a member of the fibroblast growth factor receptor family, where amino acid sequence is highly conserved between members and throughout evolution. FGFR family members differ from one another in their ligand affinities and tissue distribution.
+    protein_name: Fibroblast growth factor receptor 2
+    uniprot_function: "Tyrosine-protein kinase that acts as a cell-surface receptor for fibroblast growth factors and plays an essential role in the regulation of cell proliferation, differentiation, migration and apoptosis..."
+    subcellular_location: [Cell membrane, Golgi apparatus, Cytoplasmic vesicle]
+    diseases:
+      - Crouzon syndrome
+      - "Jackson-Weiss syndrome"
+      - Apert syndrome
+      - Pfeiffer syndrome
+      - "Beare-Stevenson cutis gyrata syndrome"
+    go_biological_process:
+      - angiogenesis
+      - animal organ morphogenesis
+      - apoptotic process
+      - axonogenesis
+      - bone development
+      - bone mineralization
+      - bone morphogenesis
+      - branch elongation involved in salivary gland morphogenesis
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - MAPK signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - Calcium signaling pathway
+      - Endocytosis
+      - "PI3K-Akt signaling pathway"
+      - Signaling pathways regulating pluripotency of stem cells
+    mutations:
+      - change: S252W
+        cancer_type: Endometrial Cancer
+        hr: 0.5734
+        p: 0.0325
+        direction: protective
+        n: 81
+  - id: FGFR3
+    string_ppi_degree: 0
+    position: leaf
+    full_name: fibroblast growth factor receptor 3
+    chromosome: 4
+    ncbi_summary: This gene encodes a member of the fibroblast growth factor receptor (FGFR) family, with its amino acid sequence being highly conserved between members and among divergent species. FGFR family members differ from one another in their ligand affinities and tissue distribution.
+    protein_name: Fibroblast growth factor receptor 3
+    uniprot_function: "Tyrosine-protein kinase that acts as a cell-surface receptor for fibroblast growth factors and plays an essential role in the regulation of cell proliferation, differentiation and apoptosis. Plays an ..."
+    subcellular_location: [Cell membrane, Cytoplasmic vesicle, Endoplasmic reticulum]
+    diseases:
+      - Achondroplasia
+      - Crouzon syndrome with acanthosis nigricans
+      - Thanatophoric dysplasia 1
+      - Thanatophoric dysplasia 2
+      - Hypochondroplasia
+    go_biological_process:
+      - bone maturation
+      - bone mineralization
+      - bone morphogenesis
+      - "cell surface receptor signaling pathway via JAK-STAT"
+      - "cell-cell signaling"
+      - chondrocyte differentiation
+      - chondrocyte proliferation
+      - endochondral bone growth
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - MAPK signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - Calcium signaling pathway
+      - Endocytosis
+      - "PI3K-Akt signaling pathway"
+      - Signaling pathways regulating pluripotency of stem cells
+    mutations:
+      - change: S249C
+        cancer_type: Bladder Cancer
+        hr: 0.6315
+        p: 5.78e-04
+        direction: protective
+        n: 264
+      - change: R248C
+        cancer_type: Bladder Cancer
+        hr: 0.5137
+        p: 0.0229
+        direction: protective
+        n: 59
+    cross_edges:
+      - to: BAP1
+        relation: COMPENSATES
+        hr: 0.2720
+        p: 4.39e-05
+        n: 137
+  - id: HRAS
+    string_ppi_degree: 29
+    position: leaf
+    full_name: "HRas proto-oncogene, GTPase"
+    chromosome: 11
+    ncbi_summary: This gene belongs to the Ras oncogene family, whose members are related to the transforming genes of mammalian sarcoma retroviruses. The products encoded by these genes function in signal transduction pathways.
+    protein_name: GTPase HRas
+    uniprot_function: "Involved in the activation of Ras protein signal transduction (PubMed:22821884). Ras proteins bind GDP/GTP and possess intrinsic GTPase activity (PubMed:12740440, PubMed:14500341, PubMed:9020151)"
+    subcellular_location: [Cell membrane, Golgi apparatus, Golgi apparatus membrane]
+    diseases:
+      - Costello syndrome
+      - Congenital myopathy with excess of muscle spindles
+      - "Thyroid cancer, non-medullary, 2"
+      - Bladder cancer
+      - "Schimmelpenning-Feuerstein-Mims syndrome"
+    go_biological_process:
+      - adipose tissue development
+      - animal organ morphogenesis
+      - cell surface receptor signaling pathway
+      - cellular response to gamma radiation
+      - cellular senescence
+      - chemotaxis
+      - defense response to protozoan
+      - endocytosis
+  - id: IGF1R
+    string_ppi_degree: 0
+    position: leaf
+    full_name: insulin like growth factor 1 receptor
+    chromosome: 15
+    ncbi_summary: "This receptor binds insulin-like growth factor with a high affinity. It has tyrosine kinase activity."
+    protein_name: "Insulin-like growth factor 1 receptor"
+    uniprot_function: "Receptor tyrosine kinase which mediates actions of insulin-like growth factor 1 (IGF1). Binds IGF1 with high affinity and IGF2 and insulin (INS) with a lower affinity. The activated IGF1R is involved ..."
+    subcellular_location: [Cell membrane]
+    diseases:
+      - "Insulin-like growth factor 1 resistance"
+    go_biological_process:
+      - "amyloid-beta clearance"
+      - "cellular response to amyloid-beta"
+      - cellular response to glucose stimulus
+      - dendritic spine maintenance
+      - immune response
+      - insulin receptor signaling pathway
+      - "insulin-like growth factor receptor signaling pathway"
+      - negative regulation of apoptotic process
+  - id: KRAS
+    string_ppi_degree: 44
+    position: hub
+    full_name: "KRAS proto-oncogene, GTPase"
+    chromosome: 12
+    ncbi_summary: This gene, a Kirsten ras oncogene homolog from the mammalian ras gene family, encodes a protein that is a member of the small GTPase superfamily. A single amino acid substitution is responsible for an activating mutation.
+    protein_name: GTPase KRas
+    uniprot_function: "Ras proteins bind GDP/GTP and possess intrinsic GTPase activity (PubMed:20949621, PubMed:39809765). Plays an important role in the regulation of cell proliferation (PubMed:22711838, PubMed:23698361). ..."
+    subcellular_location: [Cell membrane, Endomembrane system, Cytoplasm, cytosol]
+    diseases:
+      - Leukemia, acute myelogenous
+      - Leukemia, juvenile myelomonocytic
+      - Noonan syndrome 3
+      - Gastric cancer
+      - Cardiofaciocutaneous syndrome 2
+    go_biological_process:
+      - actin cytoskeleton organization
+      - cardiac muscle cell proliferation
+      - "cytokine-mediated signaling pathway"
+      - epithelial tube branching involved in lung morphogenesis
+      - female pregnancy
+      - forebrain astrocyte development
+      - gene expression
+      - glial cell proliferation
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - Chemokine signaling pathway
+      - FoxO signaling pathway
+    mutations:
+      - change: G12D
+        cancer_type: Pancreatic Cancer
+        hr: 1.3854
+        p: 2.72e-09
+        direction: harmful
+        n: 838
+      - change: G12V
+        cancer_type: Pancreatic Cancer
+        hr: 1.2017
+        p: 0.0021
+        direction: harmful
+        n: 619
+      - change: G12D
+        cancer_type: Colorectal Cancer
+        hr: 1.1740
+        p: 0.0280
+        direction: harmful
+        n: 600
+      - change: G12C
+        cancer_type: Colorectal Cancer
+        hr: 1.4244
+        p: 0.0083
+        direction: harmful
+        n: 146
+      - change: G12D
+        cancer_type: Cancer of Unknown Primary
+        hr: 1.4853
+        p: 0.0051
+        direction: harmful
+        n: 85
+    cross_edges:
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.5710
+        p: 1.67e-09
+        n: 575
+      - to: JAK1
+        relation: BUFFERS
+        hr: 0.3970
+        p: 1.21e-07
+        n: 194
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.5690
+        p: 2.61e-07
+        n: 283
+      - to: BRCA1
+        relation: BUFFERS
+        hr: 0.4870
+        p: 1.09e-06
+        n: 190
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.6020
+        p: 1.39e-06
+        n: 261
+  - id: MAP2K1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "mitogen-activated protein kinase kinase 1"
+    chromosome: 15
+    ncbi_summary: "The protein encoded by this gene is a member of the dual specificity protein kinase family, which acts as a mitogen-activated protein (MAP) kinase kinase. MAP kinases, also known as extracellular signal-regulated kinases (ERKs), act as an integration point for multiple biochemical signals."
+    protein_name: "Dual specificity mitogen-activated protein kinase kinase 1"
+    uniprot_function: Dual specificity protein kinase which acts as an essential component of the MAP kinase signal transduction pathway. Binding of extracellular ligands such as growth factors, cytokines and hormones to t...
+    subcellular_location: [Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Cytoplasm, cytoskeleton, microtubule organizing center, spindle pole body, Cytoplasm]
+    diseases:
+      - Cardiofaciocutaneous syndrome 3
+      - Melorheostosis, isolated
+    go_biological_process:
+      - Bergmann glial cell differentiation
+      - cell motility
+      - cellular senescence
+      - central nervous system neuron differentiation
+      - cerebellar cortex formation
+      - chemotaxis
+      - endodermal cell differentiation
+      - epithelial cell proliferation involved in lung morphogenesis
+    kegg_pathways:
+      - MAPK signaling pathway
+      - Lysosome biogenesis
+      - mTOR signaling pathway
+  - id: MAP2K2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "mitogen-activated protein kinase kinase 2"
+    chromosome: 19
+    ncbi_summary: The protein encoded by this gene is a dual specificity protein kinase that belongs to the MAP kinase kinase family. This kinase is known to play a critical role in mitogen growth factor signal transduction.
+    protein_name: "Dual specificity mitogen-activated protein kinase kinase 2"
+    uniprot_function: "Catalyzes the concomitant phosphorylation of a threonine and a tyrosine residue in a Thr-Glu-Tyr sequence located in MAP kinases. Activates the ERK1 and ERK2 MAP kinases (By similarity). Activates BRA..."
+    subcellular_location: [Cytoplasm, Membrane]
+    diseases:
+      - Cardiofaciocutaneous syndrome 4
+    go_biological_process:
+      - epithelial cell proliferation involved in lung morphogenesis
+      - "ERBB2-ERBB3 signaling pathway"
+      - ERK1 and ERK2 cascade
+      - face development
+      - heart development
+      - "insulin-like growth factor receptor signaling pathway"
+      - MAPK cascade
+      - myelination
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - "cGMP-PKG signaling pathway"
+      - cAMP signaling pathway
+  - id: MAP3K1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "mitogen-activated protein kinase kinase kinase 1"
+    chromosome: 5
+    ncbi_summary: "The protein encoded by this gene is a serine/threonine kinase and is part of some signal transduction cascades, including the ERK and JNK kinase pathways as well as the NF-kappa-B pathway. The encoded protein is activated by autophosphorylation and requires magnesium as a cofactor in phosphorylating other proteins."
+    protein_name: "Mitogen-activated protein kinase kinase kinase 1"
+    uniprot_function: "Component of a protein kinase signal transduction cascade (PubMed:9808624). Activates the ERK and JNK kinase pathways by phosphorylation of MAP2K1 and MAP2K4 (PubMed:9808624). May phosphorylate the MA..."
+    diseases:
+      - 46,XY sex reversal 6
+    go_biological_process:
+      - cellular response to mechanical stimulus
+      - "Fc-epsilon receptor signaling pathway"
+      - protein phosphorylation
+    mutations:
+      - change: "R273Sfs*27"
+        cancer_type: Breast Cancer
+        hr: 0.3123
+        p: 0.0292
+        direction: protective
+        n: 24
+  - id: MAP3K13
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "mitogen-activated protein kinase kinase kinase 13"
+    chromosome: 3
+    ncbi_summary: "The protein encoded by this gene is a member of serine/threonine protein kinase family. This kinase contains a dual leucine-zipper motif, and has been shown to form dimers/oligomers through its leucine-zipper motif."
+    protein_name: "Mitogen-activated protein kinase kinase kinase 13"
+    uniprot_function: "Activates the JUN N-terminal pathway through activation of the MAP kinase kinase MAP2K7. Acts synergistically with PRDX3 to regulate the activation of NF-kappa-B in the cytosol. This activation is kin..."
+    subcellular_location: [Cytoplasm, Membrane]
+    go_biological_process:
+      - JNK cascade
+      - positive regulation of axon extension
+      - positive regulation of branching morphogenesis of a nerve
+      - positive regulation of neuron maturation
+      - positive regulation of neuron projection arborization
+      - "positive regulation of NF-kappaB transcription factor activity"
+      - protein autophosphorylation
+      - protein phosphorylation
+    kegg_pathways:
+      - MAPK signaling pathway
+  - id: MET
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "MET proto-oncogene, receptor tyrosine kinase"
+    chromosome: 7
+    ncbi_summary: "This gene encodes a member of the receptor tyrosine kinase family of proteins and the product of the proto-oncogene MET. The encoded preproprotein is proteolytically processed to generate alpha and beta subunits that are linked via disulfide bonds to form the mature receptor."
+    protein_name: Hepatocyte growth factor receptor
+    uniprot_function: Receptor tyrosine kinase that transduces signals from the extracellular matrix into the cytoplasm by binding to hepatocyte growth factor/HGF ligand. Regulates many physiological processes including pr...
+    subcellular_location: [Membrane, Secreted]
+    diseases:
+      - Hepatocellular carcinoma
+      - Renal cell carcinoma papillary
+      - Deafness, autosomal recessive, 97
+      - Osteofibrous dysplasia
+      - Arthrogryposis, distal, 11
+    go_biological_process:
+      - branching morphogenesis of an epithelial tube
+      - cell surface receptor protein tyrosine kinase signaling pathway
+      - cell surface receptor signaling pathway
+      - endothelial cell morphogenesis
+      - excitatory postsynaptic potential
+      - hepatocyte growth factor receptor signaling pathway
+      - liver development
+      - negative regulation of autophagy
+    cross_edges:
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5150
+        p: 1.39e-04
+        n: 156
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.5970
+        p: 0.0014
+        n: 175
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6370
+        p: 0.0016
+        n: 252
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.7360
+        p: 0.0032
+        n: 515
+      - to: CDKN2A
+        relation: BUFFERS
+        hr: 0.5880
+        p: 0.0033
+        n: 106
+  - id: MTOR
+    string_ppi_degree: 0
+    position: leaf
+    full_name: mechanistic target of rapamycin kinase
+    chromosome: 1
+    ncbi_summary: "The protein encoded by this gene belongs to a family of phosphatidylinositol kinase-related kinases. These kinases mediate cellular responses to stresses such as DNA damage and nutrient deprivation."
+    protein_name: "Serine/threonine-protein kinase mTOR"
+    uniprot_function: "Serine/threonine protein kinase which is a central regulator of cellular metabolism, growth and survival in response to hormones, growth factors, nutrients, energy and stress signals (PubMed:12087098,..."
+    subcellular_location: [Lysosome membrane, Endoplasmic reticulum membrane, Golgi apparatus membrane]
+    diseases:
+      - "Smith-Kingsmore syndrome"
+      - Focal cortical dysplasia 2
+    go_biological_process:
+      - "'de novo' pyrimidine nucleobase biosynthetic process"
+      - anoikis
+      - behavioral response to pain
+      - "calcineurin-NFAT signaling cascade"
+      - cardiac muscle cell development
+      - cardiac muscle contraction
+      - cell projection organization
+      - cellular response to amino acid starvation
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - ErbB signaling pathway
+      - "HIF-1 signaling pathway"
+      - Phospholipase D signaling pathway
+      - "Autophagy - other"
+      - "Autophagy - animal"
+      - Lysosome biogenesis
+  - id: NF1
+    string_ppi_degree: 24
+    position: leaf
+    full_name: neurofibromin 1
+    chromosome: 17
+    ncbi_summary: This gene product appears to function as a negative regulator of the ras signal transduction pathway. Mutations in this gene have been linked to neurofibromatosis type 1, juvenile myelomonocytic leukemia and Watson syndrome.
+    protein_name: Neurofibromin
+    uniprot_function: Stimulates the GTPase activity of Ras. NF1 shows greater affinity for Ras GAP, but lower specific activity. May be a regulator of Ras activity
+    subcellular_location: [Nucleus, Nucleus, nucleolus, Cell membrane]
+    diseases:
+      - Neurofibromatosis 1
+      - Leukemia, juvenile myelomonocytic
+      - Watson syndrome
+      - Familial spinal neurofibromatosis
+      - "Neurofibromatosis-Noonan syndrome"
+    go_biological_process:
+      - actin cytoskeleton organization
+      - adrenal gland development
+      - amygdala development
+      - angiogenesis
+      - artery morphogenesis
+      - brain development
+      - "camera-type eye morphogenesis"
+      - cell communication
+    cross_edges:
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.4600
+        p: 1.05e-11
+        n: 376
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5400
+        p: 3.27e-09
+        n: 374
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.4970
+        p: 2.09e-07
+        n: 313
+      - to: JAK2
+        relation: BUFFERS
+        hr: 0.4050
+        p: 8.60e-07
+        n: 180
+      - to: AR
+        relation: BUFFERS
+        hr: 0.5160
+        p: 1.38e-06
+        n: 264
+  - id: NF2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "NF2, moesin-ezrin-radixin like (MERLIN) tumor suppressor"
+    chromosome: 22
+    ncbi_summary: "This gene encodes a protein that is similar to some members of the ERM (ezrin, radixin, moesin) family of proteins that link cytoskeletal components with proteins in the cell membrane. The encoded protein is involved in regulation of contact-dependent inhibition of cell proliferation and functions in cell-cell adhesion and transmembrane signaling."
+    protein_name: Merlin
+    uniprot_function: Probable regulator of the Hippo/SWH (Sav/Wts/Hpo) signaling pathway, a signaling pathway that plays a pivotal role in tumor suppression by restricting proliferation and promoting apoptosis. Along with...
+    subcellular_location: [Cell projection, filopodium membrane, Cell projection, ruffle membrane, Nucleus]
+    diseases:
+      - Schwannomatosis, vestibular
+      - Mesothelioma, malignant
+    go_biological_process:
+      - actin cytoskeleton organization
+      - "cell-cell junction organization"
+      - ectoderm development
+      - hippo signaling
+      - hippocampus development
+      - lens fiber cell differentiation
+      - MAPK cascade
+      - mesoderm formation
+    cross_edges:
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.5670
+        p: 5.12e-07
+        n: 327
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.5570
+        p: 9.85e-04
+        n: 127
+      - to: APC
+        relation: BUFFERS
+        hr: 0.5740
+        p: 0.0012
+        n: 137
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.6120
+        p: 0.0056
+        n: 107
+  - id: NRAS
+    string_ppi_degree: 30
+    position: leaf
+    full_name: "NRAS proto-oncogene, GTPase"
+    chromosome: 1
+    ncbi_summary: "This is an N-ras oncogene encoding a membrane protein that shuttles between the Golgi apparatus and the plasma membrane. This shuttling is regulated through palmitoylation and depalmitoylation by the ZDHHC9-GOLGA7 complex."
+    protein_name: GTPase NRas
+    uniprot_function: Ras proteins bind GDP/GTP and possess intrinsic GTPase activity
+    subcellular_location: [Cell membrane, Golgi apparatus membrane]
+    diseases:
+      - Leukemia, juvenile myelomonocytic
+      - Noonan syndrome 6
+      - "RAS-associated autoimmune leukoproliferative disorder"
+      - Melanocytic nevus syndrome, congenital
+      - Melanosis, neurocutaneous
+    go_biological_process:
+      - MAPK cascade
+      - positive regulation of endothelial cell proliferation
+      - Ras protein signal transduction
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - MAPK signaling pathway
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - Chemokine signaling pathway
+      - FoxO signaling pathway
+    mutations:
+      - change: Q61K
+        cancer_type: Colorectal Cancer
+        hr: 1.8903
+        p: 0.0029
+        direction: harmful
+        n: 49
+    cross_edges:
+      - to: TGFBR2
+        relation: COMPENSATES
+        hr: 0.2830
+        p: 0.0021
+        n: 74
+  - id: PIK3CA
+    string_ppi_degree: 42
+    position: hub
+    full_name: "phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit alpha"
+    chromosome: 3
+    ncbi_summary: "Phosphatidylinositol 3-kinase is composed of an 85 kDa regulatory subunit and a 110 kDa catalytic subunit. The protein encoded by this gene represents the catalytic subunit, which uses ATP to phosphorylate PtdIns, PtdIns4P and PtdIns(4,5)P2."
+    protein_name: "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"
+    uniprot_function: "Phosphoinositide-3-kinase (PI3K) phosphorylates phosphatidylinositol (PI) and its phosphorylated derivatives at position 3 of the inositol ring to produce 3-phosphoinositides (PubMed:15135396, PubMed:..."
+    diseases:
+      - Colorectal cancer
+      - Breast cancer
+      - Ovarian cancer
+      - Hepatocellular carcinoma
+      - Keratosis, seborrheic
+    go_biological_process:
+      - actin cytoskeleton organization
+      - adipose tissue development
+      - angiogenesis
+      - anoikis
+      - autosome genomic imprinting
+      - cardiac muscle cell contraction
+      - cardiac muscle contraction
+      - cell migration
+    kegg_pathways:
+      - Inositol phosphate metabolism
+      - Metabolic pathways
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - Platinum drug resistance
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+    mutations:
+      - change: H1047R
+        cancer_type: Colorectal Cancer
+        hr: 0.6584
+        p: 0.0089
+        direction: protective
+        n: 163
+      - change: R88Q
+        cancer_type: Endometrial Cancer
+        hr: 0.4283
+        p: 2.29e-04
+        direction: protective
+        n: 147
+      - change: R88Q
+        cancer_type: Colorectal Cancer
+        hr: 0.4345
+        p: 0.0303
+        direction: protective
+        n: 43
+      - change: R108H
+        cancer_type: Colorectal Cancer
+        hr: 0.3331
+        p: 0.0411
+        direction: protective
+        n: 23
+    cross_edges:
+      - to: MSH2
+        relation: BUFFERS
+        hr: 0.4740
+        p: 1.67e-05
+        n: 273
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.7060
+        p: 1.10e-04
+        n: 636
+      - to: BAP1
+        relation: BUFFERS
+        hr: 0.5560
+        p: 1.65e-04
+        n: 175
+      - to: JAK1
+        relation: BUFFERS
+        hr: 0.6170
+        p: 2.95e-04
+        n: 383
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.7140
+        p: 4.47e-04
+        n: 468
+  - id: PIK3R1
+    string_ppi_degree: 29
+    position: leaf
+    full_name: "phosphoinositide-3-kinase regulatory subunit 1"
+    chromosome: 5
+    ncbi_summary: "Phosphatidylinositol 3-kinase phosphorylates the inositol ring of phosphatidylinositol at the 3-prime position. The enzyme comprises a 110 kD catalytic subunit and a regulatory subunit of either 85, 55, or 50 kD."
+    protein_name: "Phosphatidylinositol 3-kinase regulatory subunit alpha"
+    uniprot_function: "Binds to activated (phosphorylated) protein-Tyr kinases, through its SH2 domain, and acts as an adapter, mediating the association of the p110 catalytic unit to the plasma membrane. Necessary for the ..."
+    diseases:
+      - Agammaglobulinemia 7, autosomal recessive
+      - SHORT syndrome
+      - Immunodeficiency 36 with lymphoproliferation
+    go_biological_process:
+      - B cell differentiation
+      - cellular response to insulin stimulus
+      - cellular response to UV
+      - "cytokine-mediated signaling pathway"
+      - extrinsic apoptotic signaling pathway via death domain receptors
+      - growth hormone receptor signaling pathway
+      - immune response
+      - insulin receptor signaling pathway
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Endocrine resistance
+      - Platinum drug resistance
+      - ErbB signaling pathway
+      - Ras signaling pathway
+      - Rap1 signaling pathway
+      - cAMP signaling pathway
+      - Chemokine signaling pathway
+    cross_edges:
+      - to: RAF1
+        relation: COMPENSATES
+        hr: 0.1750
+        p: 1.05e-04
+        n: 114
+      - to: AKT3
+        relation: COMPENSATES
+        hr: 0.1920
+        p: 6.03e-05
+        n: 122
+      - to: SMAD4
+        relation: COMPENSATES
+        hr: 0.2810
+        p: 5.15e-06
+        n: 135
+  - id: PTEN
+    string_ppi_degree: 53
+    position: hub
+    full_name: phosphatase and tensin homolog
+    chromosome: 10
+    ncbi_summary: "This gene was identified as a tumor suppressor that is mutated in a large number of cancers at high frequency. The protein encoded by this gene is a phosphatidylinositol-3,4,5-trisphosphate 3-phosphatase."
+    protein_name: "Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN"
+    uniprot_function: "Dual-specificity protein phosphatase, dephosphorylating tyrosine-, serine- and threonine-phosphorylated proteins (PubMed:9187108, PubMed:9256433, PubMed:9616126). Also functions as a lipid phosphatase..."
+    subcellular_location: [Cytoplasm, Nucleus, Nucleus, PML body]
+    diseases:
+      - Cowden syndrome 1
+      - "Lhermitte-Duclos disease"
+      - Squamous cell carcinoma of the head and neck
+      - Endometrial cancer
+      - Glioma 2
+    go_biological_process:
+      - adult behavior
+      - apoptotic process
+      - cell migration
+      - cell motility
+      - cellular response to electrical stimulus
+      - central nervous system development
+      - central nervous system myelin maintenance
+      - central nervous system neuron axonogenesis
+    mutations:
+      - change: R130G
+        cancer_type: Endometrial Cancer
+        hr: 0.5542
+        p: 0.0021
+        direction: protective
+        n: 177
+      - change: R130Q
+        cancer_type: Endometrial Cancer
+        hr: 0.3309
+        p: 0.0010
+        direction: protective
+        n: 96
+      - change: "K267Rfs*9"
+        cancer_type: Endometrial Cancer
+        hr: 0.2515
+        p: 0.0015
+        direction: protective
+        n: 58
+      - change: "R233*"
+        cancer_type: Endometrial Cancer
+        hr: 0.3351
+        p: 0.0137
+        direction: protective
+        n: 56
+      - change: "T319*"
+        cancer_type: Endometrial Cancer
+        hr: 0.3756
+        p: 0.0172
+        direction: protective
+        n: 50
+    cross_edges:
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.4800
+        p: 1.95e-10
+        n: 442
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.4260
+        p: 4.23e-10
+        n: 359
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.4820
+        p: 1.31e-09
+        n: 347
+      - to: CTNNB1
+        relation: BUFFERS
+        hr: 0.5650
+        p: 1.26e-06
+        n: 439
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.5850
+        p: 6.55e-06
+        n: 375
+  - id: RAF1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "Raf-1 proto-oncogene, serine/threonine kinase"
+    chromosome: 3
+    ncbi_summary: "This gene is the cellular homolog of viral raf gene (v-raf). The encoded protein is a MAP kinase kinase kinase (MAP3K), which functions downstream of the Ras family of membrane associated GTPases to which it binds directly."
+    protein_name: "RAF proto-oncogene serine/threonine-protein kinase"
+    uniprot_function: "Serine/threonine-protein kinase that acts as a regulatory link between the membrane-associated Ras GTPases and the MAPK/ERK cascade, and this critical regulatory link functions as a switch determining..."
+    subcellular_location: [Cytoplasm, Cell membrane, Mitochondrion]
+    diseases:
+      - Noonan syndrome 5
+      - LEOPARD syndrome 2
+      - Cardiomyopathy, dilated, 1NN
+    go_biological_process:
+      - apoptotic process
+      - "death-inducing signaling complex assembly"
+      - "ERBB2-ERBB3 signaling pathway"
+      - extrinsic apoptotic signaling pathway via death domain receptors
+      - face development
+      - insulin receptor signaling pathway
+      - insulin secretion involved in cellular response to glucose stimulus
+      - "insulin-like growth factor receptor signaling pathway"
+    cross_edges:
+      - to: PIK3R1
+        relation: COMPENSATES
+        hr: 0.1750
+        p: 1.05e-04
+        n: 114
+      - to: TSC2
+        relation: COMPENSATES
+        hr: 0.2730
+        p: 1.12e-04
+        n: 121
+  - id: STK11
+    string_ppi_degree: 0
+    position: leaf
+    full_name: serine/threonine kinase 11
+    chromosome: 19
+    ncbi_summary: "The protein encoded by this gene is a serine/threonine kinase that regulates cell polarity and energy metabolism and functions as a tumor suppressor. Mutations in this gene have been associated with the autosomal dominant Peutz-Jeghers syndrome, as well as with skin, pancreatic, and testicular cancers."
+    protein_name: "Serine/threonine-protein kinase STK11"
+    uniprot_function: "Tumor suppressor serine/threonine-protein kinase that controls the activity of AMP-activated protein kinase (AMPK) family members, thereby playing a role in various processes such as cell metabolism, ..."
+    subcellular_location: [Nucleus, Cytoplasm, Membrane]
+    diseases:
+      - "Peutz-Jeghers syndrome"
+      - Testicular germ cell tumor
+    go_biological_process:
+      - activation of protein kinase activity
+      - anoikis
+      - autophagy
+      - axonogenesis
+      - "cellular response to UV-B"
+      - dendrite extension
+      - DNA damage response
+      - epithelial cell proliferation involved in prostate gland development
+    cross_edges:
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.6220
+        p: 5.41e-10
+        n: 604
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5590
+        p: 1.64e-04
+        n: 119
+      - to: CDKN2A
+        relation: BUFFERS
+        hr: 0.6240
+        p: 8.90e-04
+        n: 117
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.5940
+        p: 0.0012
+        n: 133
+  - id: TSC1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: TSC complex subunit 1
+    chromosome: 9
+    ncbi_summary: This gene is a tumor suppressor gene that encodes the growth inhibitory protein hamartin. The encoded protein interacts with and stabilizes the GTPase activating protein tuberin.
+    protein_name: Hamartin
+    uniprot_function: "Non-catalytic component of the TSC-TBC complex, a multiprotein complex that acts as a negative regulator of the canonical mTORC1 complex, an evolutionarily conserved central nutrient sensor that stimu..."
+    subcellular_location: [Lysosome membrane, Cytoplasm, cytosol]
+    diseases:
+      - Tuberous sclerosis 1
+      - Lymphangioleiomyomatosis
+      - Focal cortical dysplasia 2
+    go_biological_process:
+      - activation of GTPase activity
+      - adaptive immune response
+      - adult locomotory behavior
+      - associative learning
+      - cardiac muscle cell differentiation
+      - cell population proliferation
+      - cell projection organization
+      - "cell-matrix adhesion"
+    kegg_pathways:
+      - Endocytosis
+    cross_edges:
+      - to: B2M
+        relation: COMPENSATES
+        hr: 0.2470
+        p: 6.63e-04
+        n: 105
+      - to: ERBB2
+        relation: COMPENSATES
+        hr: 0.2620
+        p: 4.32e-06
+        n: 183
+  - id: TSC2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: TSC complex subunit 2
+    chromosome: 16
+    ncbi_summary: This gene is a tumor suppressor gene that encodes the growth inhibitory protein tuberin. Tuberin interacts with hamartin to form the TSC protein complex which functions in the control of cell growth.
+    protein_name: Tuberin
+    uniprot_function: "Catalytic component of the TSC-TBC complex, a multiprotein complex that acts as a negative regulator of the canonical mTORC1 complex, an evolutionarily conserved central nutrient sensor that stimulate..."
+    subcellular_location: [Lysosome membrane, Cytoplasm, cytosol]
+    diseases:
+      - Tuberous sclerosis 2
+      - Lymphangioleiomyomatosis
+      - Focal cortical dysplasia 2
+    go_biological_process:
+      - anoikis
+      - cellular response to starvation
+      - endocytosis
+      - heart development
+      - intracellular protein localization
+      - negative regulation of cell population proliferation
+      - negative regulation of insulin receptor signaling pathway
+      - negative regulation of mitophagy
+    cross_edges:
+      - to: RAF1
+        relation: COMPENSATES
+        hr: 0.2730
+        p: 1.12e-04
+        n: 121
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

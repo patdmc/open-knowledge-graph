@@ -1,0 +1,26 @@
+id: PW-Collagenformation
+type: knowledge
+domain: biology
+name: Collagen formation
+reactome_id: R-HSA-1474290
+
+description: "Collagen is a family of at least 29 structural proteins derived from over 40 human genes (Myllyharju & Kivirikko 2004). It is the main component of connective tissue, and the most abundant protein in mammals making up about 25% to 35% of whole-body protein content. A defining feature of collagens is the formation of trimeric left-handed polyproline II-type helical collagenous regions."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Collagen biosynthesis and modifying enzymes
+    reactome_id: R-HSA-1650814
+    type: Pathway
+  - name: Assembly of collagen fibrils and other multimeric structures
+    reactome_id: R-HSA-2022090
+    type: Pathway
+
+edges:

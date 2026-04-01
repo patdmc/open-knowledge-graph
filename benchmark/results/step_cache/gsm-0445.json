@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Convert 30 minutes to hours",
+    "operation": "divide",
+    "operands": [
+      30,
+      60
+    ],
+    "result": 0.5,
+    "variable": "hours_run"
+  },
+  {
+    "step": 2,
+    "description": "Calculate miles run at 32 MPH for 0.5 hours",
+    "operation": "multiply",
+    "operands": [
+      32,
+      0.5
+    ],
+    "result": 16,
+    "variable": "miles_run"
+  },
+  {
+    "step": 3,
+    "description": "Calculate bails of hay needed at 0.5 bails per mile",
+    "operation": "multiply",
+    "operands": [
+      16,
+      0.5
+    ],
+    "result": 8,
+    "variable": "bails_needed"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total cost of hay at $3 per bail",
+    "operation": "multiply",
+    "operands": [
+      8,
+      3
+    ],
+    "result": 24,
+    "variable": "hay_cost"
+  },
+  {
+    "step": 5,
+    "description": "Calculate total money from six $5 bills",
+    "operation": "multiply",
+    "operands": [
+      6,
+      5
+    ],
+    "result": 30,
+    "variable": "total_money"
+  },
+  {
+    "step": 6,
+    "description": "Calculate change after buying hay",
+    "operation": "subtract",
+    "operands": [
+      30,
+      24
+    ],
+    "result": 6.0,
+    "variable": "change"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "cost per month",
+    "operation": "multiply",
+    "operands": [
+      4,
+      15
+    ],
+    "result": 60,
+    "variable": "monthly_cost"
+  },
+  {
+    "step": 2,
+    "description": "cost per year",
+    "operation": "multiply",
+    "operands": [
+      60,
+      12
+    ],
+    "result": 720.0,
+    "variable": "annual_cost"
+  }
+]

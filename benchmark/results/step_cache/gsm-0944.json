@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Revenue from yams",
+    "operation": "multiply",
+    "operands": [
+      6,
+      1.5
+    ],
+    "result": 9.0,
+    "variable": "yam_revenue"
+  },
+  {
+    "step": 2,
+    "description": "Revenue from sweet potatoes",
+    "operation": "multiply",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 20.0,
+    "variable": "sweet_potato_revenue"
+  },
+  {
+    "step": 3,
+    "description": "Revenue from carrots",
+    "operation": "multiply",
+    "operands": [
+      4,
+      1.25
+    ],
+    "result": 5.0,
+    "variable": "carrot_revenue"
+  },
+  {
+    "step": 4,
+    "description": "Total of yams and sweet potatoes",
+    "operation": "add",
+    "operands": [
+      9.0,
+      20.0
+    ],
+    "result": 29.0,
+    "variable": "partial_total"
+  },
+  {
+    "step": 5,
+    "description": "Total earnings",
+    "operation": "add",
+    "operands": [
+      29.0,
+      5.0
+    ],
+    "result": 34.0,
+    "variable": "total_earnings"
+  }
+]

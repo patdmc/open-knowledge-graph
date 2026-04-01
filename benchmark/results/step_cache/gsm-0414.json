@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "calculate discount amount per blouse",
+    "operation": "multiply",
+    "operands": [
+      20,
+      0.3
+    ],
+    "result": 6.0,
+    "variable": "discount_per_blouse"
+  },
+  {
+    "step": 2,
+    "description": "calculate discounted price per blouse",
+    "operation": "subtract",
+    "operands": [
+      20,
+      6.0
+    ],
+    "result": 14.0,
+    "variable": "price_per_blouse"
+  },
+  {
+    "step": 3,
+    "description": "calculate total cost for 4 blouses",
+    "operation": "multiply",
+    "operands": [
+      14.0,
+      4
+    ],
+    "result": 56.0,
+    "variable": "total_cost"
+  }
+]

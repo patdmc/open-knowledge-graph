@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Joey's weekly weight loss rate",
+    "operation": "divide",
+    "operands": [
+      8,
+      4
+    ],
+    "result": 2,
+    "variable": "joey_weekly_loss"
+  },
+  {
+    "step": 2,
+    "description": "Sandy's weekly weight loss rate (takes 4x longer per unit)",
+    "operation": "divide",
+    "operands": [
+      2,
+      4
+    ],
+    "result": 0.5,
+    "variable": "sandy_weekly_loss"
+  },
+  {
+    "step": 3,
+    "description": "Weeks for Sandy to lose same total as Joey",
+    "operation": "divide",
+    "operands": [
+      8,
+      0.5
+    ],
+    "result": 16.0,
+    "variable": "sandy_weeks"
+  }
+]

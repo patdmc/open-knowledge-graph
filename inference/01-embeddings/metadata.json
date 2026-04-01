@@ -1,0 +1,740 @@
+{
+  "model": "all-MiniLM-L6-v2",
+  "n_chunks": 66,
+  "shape": [
+    66,
+    384
+  ],
+  "chunks_file": "/Users/patdmccarthy/open-knowledge-graph/inference/00-chunks/chunks.jsonl",
+  "chunks": [
+    {
+      "index": 0,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "Abstract",
+      "section_path": [
+        "Abstract"
+      ],
+      "char_count": 3413,
+      "token_estimate": 853
+    },
+    {
+      "index": 1,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "1. Introduction > [part 1/2]",
+      "section_path": [
+        "1. Introduction",
+        "[part 1/2]"
+      ],
+      "char_count": 5661,
+      "token_estimate": 1415
+    },
+    {
+      "index": 2,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "1. Introduction > [part 2/2]",
+      "section_path": [
+        "1. Introduction",
+        "[part 2/2]"
+      ],
+      "char_count": 2813,
+      "token_estimate": 703
+    },
+    {
+      "index": 3,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "2. The Central Claims",
+      "section_path": [
+        "2. The Central Claims"
+      ],
+      "char_count": 2172,
+      "token_estimate": 543
+    },
+    {
+      "index": 4,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 1/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 1/5]"
+      ],
+      "char_count": 5844,
+      "token_estimate": 1461
+    },
+    {
+      "index": 5,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 2/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 2/5]"
+      ],
+      "char_count": 6249,
+      "token_estimate": 1562
+    },
+    {
+      "index": 6,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 3/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 3/5]"
+      ],
+      "char_count": 5894,
+      "token_estimate": 1473
+    },
+    {
+      "index": 7,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 4/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 4/5]"
+      ],
+      "char_count": 6042,
+      "token_estimate": 1510
+    },
+    {
+      "index": 8,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 5/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 5/5]"
+      ],
+      "char_count": 5587,
+      "token_estimate": 1396
+    },
+    {
+      "index": 9,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 1/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 1/10]"
+      ],
+      "char_count": 5657,
+      "token_estimate": 1414
+    },
+    {
+      "index": 10,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 2/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 2/10]"
+      ],
+      "char_count": 6223,
+      "token_estimate": 1555
+    },
+    {
+      "index": 11,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 3/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 3/10]"
+      ],
+      "char_count": 6217,
+      "token_estimate": 1554
+    },
+    {
+      "index": 12,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 4/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 4/10]"
+      ],
+      "char_count": 6289,
+      "token_estimate": 1572
+    },
+    {
+      "index": 13,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 5/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 5/10]"
+      ],
+      "char_count": 5538,
+      "token_estimate": 1384
+    },
+    {
+      "index": 14,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 6/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 6/10]"
+      ],
+      "char_count": 6248,
+      "token_estimate": 1562
+    },
+    {
+      "index": 15,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 7/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 7/10]"
+      ],
+      "char_count": 5834,
+      "token_estimate": 1458
+    },
+    {
+      "index": 16,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 8/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 8/10]"
+      ],
+      "char_count": 5963,
+      "token_estimate": 1490
+    },
+    {
+      "index": 17,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 9/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 9/10]"
+      ],
+      "char_count": 5865,
+      "token_estimate": 1466
+    },
+    {
+      "index": 18,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 10/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 10/10]"
+      ],
+      "char_count": 6244,
+      "token_estimate": 1561
+    },
+    {
+      "index": 19,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model",
+      "section_path": [
+        "8. The Unified Model"
+      ],
+      "char_count": 3661,
+      "token_estimate": 915
+    },
+    {
+      "index": 20,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 1/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 1/7]"
+      ],
+      "char_count": 5859,
+      "token_estimate": 1464
+    },
+    {
+      "index": 21,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 2/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 2/7]"
+      ],
+      "char_count": 5942,
+      "token_estimate": 1485
+    },
+    {
+      "index": 22,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 3/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 3/7]"
+      ],
+      "char_count": 5668,
+      "token_estimate": 1417
+    },
+    {
+      "index": 23,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 4/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 4/7]"
+      ],
+      "char_count": 6268,
+      "token_estimate": 1567
+    },
+    {
+      "index": 24,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 5/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 5/7]"
+      ],
+      "char_count": 5517,
+      "token_estimate": 1379
+    },
+    {
+      "index": 25,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 6/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 6/7]"
+      ],
+      "char_count": 5817,
+      "token_estimate": 1454
+    },
+    {
+      "index": 26,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 7/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 7/7]"
+      ],
+      "char_count": 940,
+      "token_estimate": 235
+    },
+    {
+      "index": 27,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative",
+      "section_path": [
+        "10. The Social Imperative"
+      ],
+      "char_count": 4226,
+      "token_estimate": 1056
+    },
+    {
+      "index": 28,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 1/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 1/6]"
+      ],
+      "char_count": 5690,
+      "token_estimate": 1422
+    },
+    {
+      "index": 29,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 2/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 2/6]"
+      ],
+      "char_count": 5333,
+      "token_estimate": 1333
+    },
+    {
+      "index": 30,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 3/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 3/6]"
+      ],
+      "char_count": 6211,
+      "token_estimate": 1552
+    },
+    {
+      "index": 31,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 4/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 4/6]"
+      ],
+      "char_count": 5819,
+      "token_estimate": 1454
+    },
+    {
+      "index": 32,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 5/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 5/6]"
+      ],
+      "char_count": 5593,
+      "token_estimate": 1398
+    },
+    {
+      "index": 33,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 6/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 6/6]"
+      ],
+      "char_count": 1902,
+      "token_estimate": 475
+    },
+    {
+      "index": 34,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "11. Related Work",
+      "section_path": [
+        "11. Related Work"
+      ],
+      "char_count": 4816,
+      "token_estimate": 1204
+    },
+    {
+      "index": 35,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "11. Related Work > Cognitive Architectures",
+      "section_path": [
+        "11. Related Work",
+        "Cognitive Architectures"
+      ],
+      "char_count": 1031,
+      "token_estimate": 257
+    },
+    {
+      "index": 36,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "11. Related Work > Collective Intelligence",
+      "section_path": [
+        "11. Related Work",
+        "Collective Intelligence"
+      ],
+      "char_count": 3155,
+      "token_estimate": 788
+    },
+    {
+      "index": 37,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "12. Discussion",
+      "section_path": [
+        "12. Discussion"
+      ],
+      "char_count": 5936,
+      "token_estimate": 1484
+    },
+    {
+      "index": 38,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 1/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 1/4]"
+      ],
+      "char_count": 5861,
+      "token_estimate": 1465
+    },
+    {
+      "index": 39,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 2/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 2/4]"
+      ],
+      "char_count": 5941,
+      "token_estimate": 1485
+    },
+    {
+      "index": 40,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 3/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 3/4]"
+      ],
+      "char_count": 5960,
+      "token_estimate": 1490
+    },
+    {
+      "index": 41,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 4/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 4/4]"
+      ],
+      "char_count": 2421,
+      "token_estimate": 605
+    },
+    {
+      "index": 42,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "1. Introduction",
+      "section_path": [
+        "1. Introduction"
+      ],
+      "char_count": 3548,
+      "token_estimate": 887
+    },
+    {
+      "index": 43,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "2. The Formal Framework > 2.1 Provenance Triples",
+      "section_path": [
+        "2. The Formal Framework",
+        "2.1 Provenance Triples"
+      ],
+      "char_count": 2576,
+      "token_estimate": 644
+    },
+    {
+      "index": 44,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "2. The Formal Framework > 2.2 Equivalency Classes",
+      "section_path": [
+        "2. The Formal Framework",
+        "2.2 Equivalency Classes"
+      ],
+      "char_count": 4490,
+      "token_estimate": 1122
+    },
+    {
+      "index": 45,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "3. Knowledge Graph Schema",
+      "section_path": [
+        "3. Knowledge Graph Schema"
+      ],
+      "char_count": 166,
+      "token_estimate": 41
+    },
+    {
+      "index": 46,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "3. Knowledge Graph Schema > 3.1 Node Types",
+      "section_path": [
+        "3. Knowledge Graph Schema",
+        "3.1 Node Types"
+      ],
+      "char_count": 1317,
+      "token_estimate": 329
+    },
+    {
+      "index": 47,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "3. Knowledge Graph Schema > 3.2 Edge Types",
+      "section_path": [
+        "3. Knowledge Graph Schema",
+        "3.2 Edge Types"
+      ],
+      "char_count": 2340,
+      "token_estimate": 585
+    },
+    {
+      "index": 48,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "3. Knowledge Graph Schema > 4.1 The Target Theory",
+      "section_path": [
+        "3. Knowledge Graph Schema",
+        "4.1 The Target Theory"
+      ],
+      "char_count": 3016,
+      "token_estimate": 754
+    },
+    {
+      "index": 49,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 5.1 Equivalency Classes > [part 1/3]",
+      "section_path": [
+        "5. Results",
+        "5.1 Equivalency Classes",
+        "[part 1/3]"
+      ],
+      "char_count": 5480,
+      "token_estimate": 1370
+    },
+    {
+      "index": 50,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 5.1 Equivalency Classes > [part 2/3]",
+      "section_path": [
+        "5. Results",
+        "5.1 Equivalency Classes",
+        "[part 2/3]"
+      ],
+      "char_count": 5427,
+      "token_estimate": 1356
+    },
+    {
+      "index": 51,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 5.1 Equivalency Classes > [part 3/3]",
+      "section_path": [
+        "5. Results",
+        "5.1 Equivalency Classes",
+        "[part 3/3]"
+      ],
+      "char_count": 4959,
+      "token_estimate": 1239
+    },
+    {
+      "index": 52,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+      "section_path": [
+        "5. Results",
+        "7.2 The Proposed Standard",
+        "[part 1/2]"
+      ],
+      "char_count": 5820,
+      "token_estimate": 1455
+    },
+    {
+      "index": 53,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 7.2 The Proposed Standard > [part 2/2]",
+      "section_path": [
+        "5. Results",
+        "7.2 The Proposed Standard",
+        "[part 2/2]"
+      ],
+      "char_count": 797,
+      "token_estimate": 199
+    },
+    {
+      "index": 54,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "9. Discussion",
+      "section_path": [
+        "9. Discussion"
+      ],
+      "char_count": 1510,
+      "token_estimate": 377
+    },
+    {
+      "index": 55,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "9. Discussion > 9.2 Limitations",
+      "section_path": [
+        "9. Discussion",
+        "9.2 Limitations"
+      ],
+      "char_count": 2094,
+      "token_estimate": 523
+    },
+    {
+      "index": 56,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "10. Conclusion",
+      "section_path": [
+        "10. Conclusion"
+      ],
+      "char_count": 2012,
+      "token_estimate": 503
+    },
+    {
+      "index": 57,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "Acknowledgments",
+      "section_path": [
+        "Acknowledgments"
+      ],
+      "char_count": 339,
+      "token_estimate": 84
+    },
+    {
+      "index": 58,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "References",
+      "section_path": [
+        "References"
+      ],
+      "char_count": 1493,
+      "token_estimate": 373
+    },
+    {
+      "index": 59,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "Abstract",
+      "section_path": [
+        "Abstract"
+      ],
+      "char_count": 2962,
+      "token_estimate": 740
+    },
+    {
+      "index": 60,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 1/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 1/4]"
+      ],
+      "char_count": 5731,
+      "token_estimate": 1432
+    },
+    {
+      "index": 61,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 2/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 2/4]"
+      ],
+      "char_count": 6208,
+      "token_estimate": 1552
+    },
+    {
+      "index": 62,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 3/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 3/4]"
+      ],
+      "char_count": 5554,
+      "token_estimate": 1388
+    },
+    {
+      "index": 63,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 4/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 4/4]"
+      ],
+      "char_count": 3022,
+      "token_estimate": 755
+    },
+    {
+      "index": 64,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "7. Discussion",
+      "section_path": [
+        "7. Discussion"
+      ],
+      "char_count": 3436,
+      "token_estimate": 859
+    },
+    {
+      "index": 65,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "8. Conclusion",
+      "section_path": [
+        "8. Conclusion"
+      ],
+      "char_count": 1475,
+      "token_estimate": 368
+    }
+  ]
+}

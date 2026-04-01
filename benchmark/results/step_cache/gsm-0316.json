@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate marbles father gave (2/5 of 20)",
+    "operation": "multiply",
+    "operands": [
+      0.4,
+      20
+    ],
+    "result": 8,
+    "variable": "marbles_from_father"
+  },
+  {
+    "step": 2,
+    "description": "Add purchased marbles to existing store stock",
+    "operation": "add",
+    "operands": [
+      50,
+      20
+    ],
+    "result": 70,
+    "variable": "marbles_after_purchase"
+  },
+  {
+    "step": 3,
+    "description": "Add father's marbles to total in store",
+    "operation": "add",
+    "operands": [
+      70,
+      8
+    ],
+    "result": 78,
+    "variable": "total_marbles"
+  },
+  {
+    "step": 4,
+    "description": "Multiply total marbles by weight per marble",
+    "operation": "multiply",
+    "operands": [
+      78,
+      2
+    ],
+    "result": 156.0,
+    "variable": "total_weight_kgs"
+  }
+]

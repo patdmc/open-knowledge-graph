@@ -1,0 +1,80 @@
+id: PW-Integrincellsurfaceinteraction
+type: knowledge
+domain: biology
+name: Integrin cell surface interactions
+reactome_id: R-HSA-216083
+
+description: "The extracellular matrix (ECM) is a network of macro-molecules that underlies all epithelia and endothelia and that surrounds all connective tissue cells. This matrix provides the mechanical strength and also influences the behavior and differentiation state of cells in contact with it. The ECM are diverse in composition, but they generally comprise a mixture of fibrillar proteins, polysaccharides synthesized, secreted and organized by neighboring cells."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Collagen types III, IV, V, VI, VIII, IX, XVI bind integrins alpha1beta1 and alpha2beta1
+    reactome_id: R-HSA-2327695
+    type: Reaction
+  - name: Collagen type I binds integrin alpha1beta1, alpha2beta1, alpha10beta1
+    reactome_id: R-HSA-114563
+    type: Reaction
+  - name: Collagen type I binds integrin alpha11beta1
+    reactome_id: R-HSA-216045
+    type: Reaction
+  - name: Collagen type II binds integrin alpha2beta1, alpha1beta1, alpha11beta1
+    reactome_id: R-HSA-4084910
+    type: Reaction
+  - name: Collagen type II binds integrin alpha10beta1
+    reactome_id: R-HSA-216043
+    type: Reaction
+  - name: Collagen type IV networks bind integrins alpha1beta1, alpha2beta1
+    reactome_id: R-HSA-216040
+    type: Reaction
+  - name: Collagen type VII binds integrin alpha2beta1
+    reactome_id: R-HSA-4086216
+    type: Reaction
+  - name: Collagen type X binds Integrin alpha2beta1
+    reactome_id: R-HSA-2470555
+    type: Reaction
+  - name: Collagen type XIII binds Integrin alpha1beta1
+    reactome_id: R-HSA-2484965
+    type: Reaction
+  - name: Collagen type XXIII binds Integrin alpha2beta1
+    reactome_id: R-HSA-2473511
+    type: Reaction
+  - name: Collagen types VI, IX bind integrin alpha10beta1
+    reactome_id: R-HSA-4084903
+    type: Reaction
+  - name: Collagen type IV binds integrin alpha10beta1
+    reactome_id: R-HSA-4539779
+    type: Reaction
+  - name: Collagen type IX binds integrin alpha11beta1
+    reactome_id: R-HSA-4086223
+    type: Reaction
+  - name: Arresten binds integrin alpha1beta1
+    reactome_id: R-HSA-4084912
+    type: Reaction
+  - name: Endostatin binds integrin alphaVbeta3, alphaVbeta5, alpha3beta1, alpha5beta1
+    reactome_id: R-HSA-4088264
+    type: Reaction
+  - name: Tumstatin binds integrin alphaVbeta 3, alpha3beta1
+    reactome_id: R-HSA-4085083
+    type: Reaction
+  - name: Canstatin binds integrins alphaVbeta3, alphaVbeta5
+    reactome_id: R-HSA-4085087
+    type: Reaction
+  - name: Tetrastatin binds integrin alphaVbeta3
+    reactome_id: R-HSA-4088218
+    type: Reaction
+  - name: "THBS1 (Thrombospondin-1) binds Integrin alpha3beta1, alpha4beta1"
+    reactome_id: R-HSA-265429
+    type: Reaction
+  - name: Integrins alpha4beta1, alpha8beta1, alphaVbeta1, alphaVbeta3, alphaVbeta6 bind Fibronectin matrix
+    reactome_id: R-HSA-216050
+    type: Reaction
+
+edges:

@@ -1,0 +1,26 @@
+id: PW-RegulatedNecrosis
+type: knowledge
+domain: biology
+name: Regulated Necrosis
+reactome_id: R-HSA-5218859
+
+description: Necrosis has traditionally been considered as a passive, unregulated cell death. However, accumulating evidence suggests that necrosis, like apoptosis, can be executed by genetically controlled and highly regulated cellular process that is morphologically characterized by a loss of cell membrane integrity, intracellular organelles and/or the entire cell swelling (oncosis) (Rello S et al. 2005; Galluzzi L et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "RIPK1-mediated regulated necrosis"
+    reactome_id: R-HSA-5213460
+    type: Pathway
+  - name: Pyroptosis
+    reactome_id: R-HSA-5620971
+    type: Pathway
+
+edges:

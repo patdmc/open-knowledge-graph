@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate jacket cost (3x hat)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      25
+    ],
+    "result": 75,
+    "variable": "jacket_cost"
+  },
+  {
+    "step": 2,
+    "description": "Sum hat and jacket for average calculation",
+    "operation": "add",
+    "operands": [
+      25,
+      75
+    ],
+    "result": 100,
+    "variable": "hat_plus_jacket"
+  },
+  {
+    "step": 3,
+    "description": "Calculate pants cost (average of hat and jacket)",
+    "operation": "divide",
+    "operands": [
+      100,
+      2
+    ],
+    "result": 50,
+    "variable": "pants_cost"
+  },
+  {
+    "step": 4,
+    "description": "Add hat and jacket costs",
+    "operation": "add",
+    "operands": [
+      25,
+      75
+    ],
+    "result": 100,
+    "variable": "hat_plus_jacket_total"
+  },
+  {
+    "step": 5,
+    "description": "Add pants to get total uniform cost",
+    "operation": "add",
+    "operands": [
+      100,
+      50
+    ],
+    "result": 150,
+    "variable": "total_uniform_cost"
+  }
+]

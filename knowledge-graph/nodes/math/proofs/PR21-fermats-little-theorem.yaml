@@ -1,0 +1,91 @@
+id: PR21-fermats-little-theorem
+type: proof
+domain: number_theory
+name: "Fermat's Little Theorem"
+target:
+  statement: "p \\text{ prime}, \\; \\gcd(a,p) = 1 \\implies a^{p-1} \\equiv 1 \\pmod{p}"
+  type: theorem
+method: direct
+
+note: >
+  Proof via group theory: the multiplicative group (Z/pZ)* has order p-1,
+  and Lagrange's theorem implies the order of every element divides the group order.
+
+assertions:
+  - step: 1
+    id: def-mult-group
+    type: definition
+    statement: "G = (\\mathbb{Z}/p\\mathbb{Z})^* = \\{1, 2, \\ldots, p-1\\} \\text{ under multiplication mod } p"
+    justification: "since p is prime, every nonzero residue has a multiplicative inverse mod p"
+    depends_on: []
+    references: [modular_arithmetic, group]
+
+  - step: 2
+    id: group-order
+    type: claim
+    statement: "|G| = p - 1"
+    justification: "G consists of the p-1 nonzero residues modulo p"
+    depends_on: [def-mult-group]
+
+  - step: 3
+    id: a-in-group
+    type: claim
+    statement: "\\gcd(a, p) = 1 \\implies \\bar{a} \\in G"
+    justification: "a coprime to p means its residue class is nonzero, hence in G"
+    depends_on: [def-mult-group]
+    references: [gcd]
+
+  - step: 4
+    id: element-order-def
+    type: definition
+    statement: "\\text{ord}(\\bar{a}) = \\min\\{k \\geq 1 : a^k \\equiv 1 \\pmod{p}\\}"
+    justification: "standard definition of order of a group element"
+    depends_on: [a-in-group]
+
+  - step: 5
+    id: apply-lagrange
+    type: claim
+    statement: "\\text{ord}(\\bar{a}) \\mid |G| = p - 1"
+    justification: "by Lagrange's theorem (corollary: order of element divides group order), applied to cyclic subgroup <a>"
+    depends_on: [element-order-def, group-order]
+    references: [cyclic_group, subgroup]
+
+  - step: 6
+    id: order-divides-exponent
+    type: claim
+    statement: "\\text{ord}(\\bar{a}) \\mid (p-1) \\implies a^{p-1} \\equiv 1 \\pmod{p}"
+    justification: "if ord(a) = d and d | (p-1), write p-1 = d*q, then a^{p-1} = (a^d)^q = 1^q = 1"
+    depends_on: [apply-lagrange]
+    references: [divisibility]
+
+  - step: 7
+    id: conclusion
+    type: theorem
+    statement: "a^{p-1} \\equiv 1 \\pmod{p} \\quad \\text{for all } a \\text{ with } \\gcd(a,p) = 1"
+    justification: "direct consequence of order dividing group size"
+    depends_on: [order-divides-exponent]
+    references: [prime]
+
+qed: true
+
+corollaries:
+  - id: fermat-variant
+    statement: "a^p \\equiv a \\pmod{p} \\quad \\text{for all } a \\in \\mathbb{Z}"
+    justification: "if p | a then both sides are 0; otherwise multiply a^{p-1} = 1 by a"
+    depends_on: [conclusion]
+
+  - id: euler-generalization
+    statement: "a^{\\varphi(n)} \\equiv 1 \\pmod{n} \\quad \\text{for } \\gcd(a,n) = 1"
+    justification: "same argument applied to (Z/nZ)* which has order phi(n); Fermat is the special case n = p"
+    depends_on: [conclusion]
+    references: [euler_totient]
+
+edges:
+  - to: NT01-number-theory
+    relation: PROVES_FROM
+  - to: AA01-abstract-algebra
+    relation: USES
+    note: "group-theoretic proof via Lagrange's theorem"
+  - to: PR05-lagrange-theorem
+    relation: USES
+    note: "corollary that element order divides group order"

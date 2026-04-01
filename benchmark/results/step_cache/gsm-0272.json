@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add cost of cocoa and laundry",
+    "operation": "add",
+    "operands": [
+      4.2,
+      9.45
+    ],
+    "result": 13.65,
+    "variable": "cocoa_plus_laundry"
+  },
+  {
+    "step": 2,
+    "description": "Add pasta to running total",
+    "operation": "add",
+    "operands": [
+      13.65,
+      1.35
+    ],
+    "result": 15.0,
+    "variable": "total_cost"
+  },
+  {
+    "step": 3,
+    "description": "Subtract total cost from amount paid",
+    "operation": "subtract",
+    "operands": [
+      20.0,
+      15.0
+    ],
+    "result": 5.0,
+    "variable": "change"
+  }
+]

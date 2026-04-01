@@ -1,0 +1,53 @@
+{
+  "chunk_index": 33,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 6/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 6/6]"
+  ],
+  "char_count": 1902,
+  "keyphrases": [
+    {
+      "phrase": "classes sample efficient",
+      "score": 0.496
+    },
+    {
+      "phrase": "action graph attractor",
+      "score": 0.3918
+    },
+    {
+      "phrase": "behavior similar entities",
+      "score": 0.3694
+    },
+    {
+      "phrase": "prediction derivable framework",
+      "score": 0.3414
+    },
+    {
+      "phrase": "factor structure efficiency",
+      "score": 0.3077
+    },
+    {
+      "phrase": "versus undifferentiated",
+      "score": 0.3068
+    },
+    {
+      "phrase": "strategies compared empirical",
+      "score": 0.2963
+    },
+    {
+      "phrase": "observation reduces uncertainty",
+      "score": 0.2844
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

@@ -1,0 +1,29 @@
+id: PW-Biologicaloxidations
+type: knowledge
+domain: biology
+name: Biological oxidations
+reactome_id: R-HSA-211859
+
+description: "All organisms are constantly exposed to foreign chemicals every day. These can be man-made (drugs, industrial chemicals) or natural (alkaloids, toxins from plants and animals). Uptake is usually via ingestion but inhalation and transdermal routes are also common.The very nature of many chemicals that make them suitable for uptake by these routes, in other words their lipophilicty (favours fat solubility) is also the main reason organisms have developed mechanisms that convert them to hydrophilic (favours water solubility) compounds which are readily excreted via bile and urine."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Phase I - Functionalization of compounds"
+    reactome_id: R-HSA-211945
+    type: Pathway
+  - name: "Phase II - Conjugation of compounds"
+    reactome_id: R-HSA-156580
+    type: Pathway
+  - name: Aflatoxin activation and detoxification
+    reactome_id: R-HSA-5423646
+    type: Pathway
+
+edges:

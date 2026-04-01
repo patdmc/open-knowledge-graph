@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Anna's silver pesos (twice Axel's)",
+    "operation": "multiply",
+    "operands": [
+      50,
+      2
+    ],
+    "result": 100,
+    "variable": "anna_silver"
+  },
+  {
+    "step": 2,
+    "description": "Anna's gold pesos (40 more than Axel's)",
+    "operation": "add",
+    "operands": [
+      80,
+      40
+    ],
+    "result": 120,
+    "variable": "anna_gold"
+  },
+  {
+    "step": 3,
+    "description": "Total silver pesos (Axel + Anna)",
+    "operation": "add",
+    "operands": [
+      50,
+      100
+    ],
+    "result": 150,
+    "variable": "total_silver"
+  },
+  {
+    "step": 4,
+    "description": "Total gold pesos (Axel + Anna)",
+    "operation": "add",
+    "operands": [
+      80,
+      120
+    ],
+    "result": 200,
+    "variable": "total_gold"
+  },
+  {
+    "step": 5,
+    "description": "Total pesos (silver + gold)",
+    "operation": "add",
+    "operands": [
+      150,
+      200
+    ],
+    "result": 350,
+    "variable": "total_pesos"
+  }
+]

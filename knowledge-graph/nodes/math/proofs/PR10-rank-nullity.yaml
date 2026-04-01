@@ -1,0 +1,96 @@
+id: PR10-rank-nullity
+type: proof
+domain: algebra
+name: "Rank-Nullity Theorem"
+target:
+  statement: "\\text{For } T: V \\to W \\text{ linear, } \\dim(V) = \\text{rank}(T) + \\text{nullity}(T)"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: def-kernel
+    type: definition
+    statement: "\\ker(T) = \\{v \\in V : T(v) = 0\\}, \\quad \\text{nullity}(T) = \\dim(\\ker(T)) = k"
+    justification: "kernel is a subspace of V"
+    depends_on: []
+    references: [null_space]
+
+  - step: 2
+    id: kernel-basis
+    type: claim
+    statement: "\\{u_1, \\ldots, u_k\\} \\text{ is a basis for } \\ker(T)"
+    justification: "every subspace of finite-dimensional V has a basis"
+    depends_on: [def-kernel]
+    references: [basis]
+
+  - step: 3
+    id: extend-basis
+    type: claim
+    statement: "\\{u_1, \\ldots, u_k, v_1, \\ldots, v_r\\} \\text{ is a basis for } V, \\text{ where } k + r = n = \\dim(V)"
+    justification: "every linearly independent set in finite-dim V can be extended to a basis"
+    depends_on: [kernel-basis]
+    references: [basis, dimension, linear_independence]
+
+  - step: 4
+    id: image-spans
+    type: claim
+    statement: "\\text{im}(T) = \\text{span}(T(v_1), \\ldots, T(v_r))"
+    justification: >
+      any w in im(T) equals T(a1*u1 + ... + ak*uk + b1*v1 + ... + br*vr)
+      = a1*T(u1) + ... + ak*T(uk) + b1*T(v1) + ... + br*T(vr)
+      = 0 + ... + 0 + b1*T(v1) + ... + br*T(vr)
+      since u_i are in ker(T)
+    depends_on: [extend-basis, def-kernel]
+    references: [column_space]
+
+  - step: 5
+    id: image-independent
+    type: claim
+    statement: "\\{T(v_1), \\ldots, T(v_r)\\} \\text{ is linearly independent}"
+    justification: >
+      suppose c1*T(v1) + ... + cr*T(vr) = 0.
+      Then T(c1*v1 + ... + cr*vr) = 0, so c1*v1 + ... + cr*vr is in ker(T).
+      Write it as d1*u1 + ... + dk*uk. Then c1*v1 + ... + cr*vr - d1*u1 - ... - dk*uk = 0.
+      Since {u1,...,uk,v1,...,vr} is a basis, all coefficients are 0. So c_i = 0.
+    depends_on: [extend-basis, def-kernel]
+    references: [linear_independence]
+
+  - step: 6
+    id: rank-equals-r
+    type: claim
+    statement: "\\text{rank}(T) = \\dim(\\text{im}(T)) = r"
+    justification: "{T(v1),...,T(vr)} is a linearly independent spanning set for im(T), so it's a basis of size r"
+    depends_on: [image-spans, image-independent]
+    references: [rank]
+
+  - step: 7
+    id: conclusion
+    type: theorem
+    statement: "\\dim(V) = n = k + r = \\text{nullity}(T) + \\text{rank}(T)"
+    justification: "basis of V has n = k + r elements, k = nullity, r = rank"
+    depends_on: [extend-basis, rank-equals-r]
+    references: [rank_nullity]
+
+qed: true
+
+corollaries:
+  - id: injective-iff-nullity-zero
+    statement: "T \\text{ is injective } \\iff \\text{nullity}(T) = 0"
+    justification: "ker(T) = {0} iff nullity = 0; then rank = dim(V)"
+    depends_on: [conclusion]
+
+  - id: surjective-iff-rank-full
+    statement: "T: V \\to W \\text{ surjective } \\iff \\text{rank}(T) = \\dim(W)"
+    depends_on: [conclusion]
+
+  - id: square-inj-iff-surj
+    statement: "\\text{For } T: V \\to V, \\; T \\text{ injective } \\iff T \\text{ surjective}"
+    justification: "rank + nullity = dim(V) = dim(V), so rank = dim(V) iff nullity = 0"
+    depends_on: [conclusion]
+
+edges:
+  - to: A04-linear-algebra-advanced
+    relation: PROVES_FROM
+  - to: A02-linear-algebra
+    relation: PROVES_FROM

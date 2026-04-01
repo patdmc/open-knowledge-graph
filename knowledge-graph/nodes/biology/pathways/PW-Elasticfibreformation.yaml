@@ -1,0 +1,44 @@
+id: PW-Elasticfibreformation
+type: knowledge
+domain: biology
+name: Elastic fibre formation
+reactome_id: R-HSA-1566948
+
+description: "Elastic fibres (EF) are a major structural constituent of dynamic connective tissues such as large arteries and lung parenchyma, where they provide essential properties of elastic recoil and resilience. EF are composed of a central cross-linked core of elastin, surrounded by a mesh of microfibrils, which are composed largely of fibrillin. In addition to elastin and fibrillin-1, over 30 ancillary proteins are involved in mediating important roles in elastic fibre assembly as well as interactions with the surrounding environment."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Fibrillin C-terminal processing"
+    reactome_id: R-HSA-2129357
+    type: Reaction
+  - name: "Fibrillin-1 binds integrins"
+    reactome_id: R-HSA-2328037
+    type: Reaction
+  - name: Fibrillin microfibril assembly
+    reactome_id: R-HSA-2129362
+    type: Polymerisation
+  - name: MFAP2, MFAP5 bind microfibrils
+    reactome_id: R-HSA-2129385
+    type: Reaction
+  - name: Tropoelastin forms aggregate globules
+    reactome_id: R-HSA-2161293
+    type: BlackBoxEvent
+  - name: Tropoelastin associates with microfibrils
+    reactome_id: R-HSA-2129353
+    type: BlackBoxEvent
+  - name: "Elastin cross-linking by lysyl oxidase"
+    reactome_id: R-HSA-2129375
+    type: Polymerisation
+  - name: Molecules associated with elastic fibres
+    reactome_id: R-HSA-2129379
+    type: Pathway
+
+edges:

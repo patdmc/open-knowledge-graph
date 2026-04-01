@@ -1,0 +1,1121 @@
+{
+  "total": 600,
+  "winner_correct": 25,
+  "any_correct": 47,
+  "none_correct": 550,
+  "missed_count": 25,
+  "solver_stats": {
+    "question_driven": {
+      "picked": 11,
+      "correct_when_picked": 2,
+      "available": 572,
+      "correct_when_available": 14
+    },
+    "graph_walk": {
+      "picked": 123,
+      "correct_when_picked": 3,
+      "available": 348,
+      "correct_when_available": 5
+    },
+    "sequential": {
+      "picked": 244,
+      "correct_when_picked": 5,
+      "available": 590,
+      "correct_when_available": 18
+    },
+    "equations": {
+      "picked": 140,
+      "correct_when_picked": 4,
+      "available": 147,
+      "correct_when_available": 5
+    },
+    "parallel_tracks": {
+      "picked": 27,
+      "correct_when_picked": 2,
+      "available": 56,
+      "correct_when_available": 4
+    },
+    "entity_props": {
+      "picked": 12,
+      "correct_when_picked": 0,
+      "available": 69,
+      "correct_when_available": 3
+    },
+    "algebra": {
+      "picked": 2,
+      "correct_when_picked": 1,
+      "available": 12,
+      "correct_when_available": 4
+    },
+    "reference_chain": {
+      "picked": 15,
+      "correct_when_picked": 2,
+      "available": 64,
+      "correct_when_available": 4
+    },
+    "unit_conversion": {
+      "picked": 5,
+      "correct_when_picked": 3,
+      "available": 0,
+      "correct_when_available": 0
+    },
+    "percentage": {
+      "picked": 14,
+      "correct_when_picked": 2,
+      "available": 68,
+      "correct_when_available": 4
+    },
+    "rate_groups": {
+      "picked": 3,
+      "correct_when_picked": 1,
+      "available": 11,
+      "correct_when_available": 1
+    }
+  },
+  "missed_winners": [
+    {
+      "id": "gsm-0026",
+      "question": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoes. One pai",
+      "expected": 243.0,
+      "winner": [
+        "equations",
+        81.0
+      ],
+      "correct_solvers": [
+        [
+          "parallel_tracks",
+          243.0,
+          0.5599999999999999
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          81.0,
+          9,
+          "s=0.59"
+        ],
+        [
+          "parallel_tracks",
+          243.0,
+          7,
+          "s=0.56"
+        ],
+        [
+          "sequential",
+          9.0,
+          2,
+          "s=0.61"
+        ],
+        [
+          "graph_walk",
+          16.5,
+          2,
+          "s=0.27"
+        ],
+        [
+          "question_driven",
+          3.0,
+          1,
+          "s=0.31"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0156",
+      "question": "The zookeeper feeds all the apes in the zoo. He orders all the bananas from a lo",
+      "expected": 1400.0,
+      "winner": [
+        "graph_walk",
+        100.0
+      ],
+      "correct_solvers": [
+        [
+          "entity_props",
+          1400.0,
+          0.5700000000000001
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          100.0,
+          5,
+          "s=0.70"
+        ],
+        [
+          "question_driven",
+          400.0,
+          4,
+          "s=0.70"
+        ],
+        [
+          "sequential",
+          16000000.0,
+          2,
+          "s=0.77"
+        ],
+        [
+          "entity_props",
+          1400.0,
+          6,
+          "s=0.57"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0520",
+      "question": "Martha is knitting winter wear for her 3 grandchildren. They're triplets, so the",
+      "expected": 63.0,
+      "winner": [
+        "sequential",
+        24.0
+      ],
+      "correct_solvers": [
+        [
+          "entity_props",
+          63.0,
+          0.5566666666666666
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          24.0,
+          2,
+          "s=0.85"
+        ],
+        [
+          "entity_props",
+          63.0,
+          6,
+          "s=0.56"
+        ],
+        [
+          "graph_walk",
+          2.0,
+          5,
+          "s=0.35"
+        ],
+        [
+          "question_driven",
+          3.0,
+          1,
+          "s=0.35"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0624",
+      "question": "Two sports coaches went shopping together. The baseball coach bought 9 new baseb",
+      "expected": 85.0,
+      "winner": [
+        "graph_walk",
+        57.0
+      ],
+      "correct_solvers": [
+        [
+          "equations",
+          85.0,
+          0.8266666666666667
+        ],
+        [
+          "parallel_tracks",
+          85.0,
+          0.8266666666666667
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          57.0,
+          9,
+          "s=0.86"
+        ],
+        [
+          "equations",
+          85.0,
+          9,
+          "s=0.83"
+        ],
+        [
+          "parallel_tracks",
+          85.0,
+          7,
+          "s=0.83"
+        ],
+        [
+          "sequential",
+          6048.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          72.0,
+          4,
+          "s=0.83"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0702",
+      "question": "Gissela, Gordy, and Gary are truck drivers.  Gissela has a truck large enough to",
+      "expected": 2800.0,
+      "winner": [
+        "sequential",
+        5414.0
+      ],
+      "correct_solvers": [
+        [
+          "algebra",
+          2800.0,
+          0.23
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          5414.0,
+          2,
+          "s=0.84"
+        ],
+        [
+          "question_driven",
+          818.0,
+          1,
+          "s=0.71"
+        ],
+        [
+          "algebra",
+          2800.0,
+          10,
+          "s=0.23"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0832",
+      "question": "Roy has saved 40% more in money earned by chores than his brother Anthony.  Anth",
+      "expected": 42.0,
+      "winner": [
+        "parallel_tracks",
+        1200.0
+      ],
+      "correct_solvers": [
+        [
+          "algebra",
+          42.0,
+          0.23
+        ]
+      ],
+      "all_candidates": [
+        [
+          "parallel_tracks",
+          1200.0,
+          7,
+          "s=0.94"
+        ],
+        [
+          "graph_walk",
+          30.0,
+          7,
+          "s=0.77"
+        ],
+        [
+          "sequential",
+          70.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "percentage",
+          28.0,
+          8,
+          "s=0.61"
+        ],
+        [
+          "reference_chain",
+          40.0,
+          5,
+          "s=0.61"
+        ],
+        [
+          "question_driven",
+          50.0,
+          1,
+          "s=0.77"
+        ],
+        [
+          "algebra",
+          42.0,
+          10,
+          "s=0.23"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0884",
+      "question": "Argo has 200 toys. He gives 40 toys to Alyssa, 80 to Bonnie, and 30 to Nicky. Ho",
+      "expected": 50.0,
+      "winner": [
+        "graph_walk",
+        240.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          50.0,
+          0.85
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          240.0,
+          6,
+          "s=0.74"
+        ],
+        [
+          "sequential",
+          50.0,
+          2,
+          "s=0.85"
+        ],
+        [
+          "question_driven",
+          160.0,
+          1,
+          "s=0.74"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0910",
+      "question": "Farmer Brown's farm is 200 acres, and Farmer Smith's farm is 100 acres more than",
+      "expected": 700.0,
+      "winner": [
+        "sequential",
+        300.0
+      ],
+      "correct_solvers": [
+        [
+          "algebra",
+          700.0,
+          0.28
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          300.0,
+          2,
+          "s=0.69"
+        ],
+        [
+          "question_driven",
+          300.0,
+          1,
+          "s=0.69"
+        ],
+        [
+          "algebra",
+          700.0,
+          10,
+          "s=0.28"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0962",
+      "question": "Jen decides to travel to 3 different countries.  He has to pay $400 for the supp",
+      "expected": 1000.0,
+      "winner": [
+        "equations",
+        453.0
+      ],
+      "correct_solvers": [
+        [
+          "percentage",
+          1000.0,
+          0.6066666666666666
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          453.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "sequential",
+          453.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "percentage",
+          1000.0,
+          8,
+          "s=0.61"
+        ],
+        [
+          "question_driven",
+          53.0,
+          1,
+          "s=0.77"
+        ],
+        [
+          "graph_walk",
+          400.0,
+          6,
+          "s=0.40"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0092",
+      "question": "Emily has 4 kids named Amy, Jackson, Corey, and James. Amy is 5 years older than",
+      "expected": 4.0,
+      "winner": [
+        "equations",
+        11.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          4.0,
+          0.36000000000000004
+        ],
+        [
+          "question_driven",
+          4.0,
+          0.36000000000000004
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          11.0,
+          9,
+          "s=0.78"
+        ],
+        [
+          "graph_walk",
+          15.0,
+          4,
+          "s=0.65"
+        ],
+        [
+          "entity_props",
+          21.0,
+          6,
+          "s=0.52"
+        ],
+        [
+          "sequential",
+          4.0,
+          2,
+          "s=0.36"
+        ],
+        [
+          "question_driven",
+          4.0,
+          1,
+          "s=0.36"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0340",
+      "question": "Josh decides to take up juggling to perform at the school talent show a month in",
+      "expected": 4.0,
+      "winner": [
+        "graph_walk",
+        9.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          4.0,
+          0.9400000000000001
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          9.0,
+          8,
+          "s=0.75"
+        ],
+        [
+          "sequential",
+          4.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          6.0,
+          4,
+          "s=0.75"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0592",
+      "question": "Marilyn wants to buy a pair of boots online. On Amazon.com, the boots cost $16 a",
+      "expected": 1.0,
+      "winner": [
+        "equations",
+        5.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          1.0,
+          0.84
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          5.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "graph_walk",
+          3.0,
+          6,
+          "s=0.74"
+        ],
+        [
+          "sequential",
+          1.0,
+          2,
+          "s=0.84"
+        ],
+        [
+          "question_driven",
+          16.0,
+          1,
+          "s=0.38"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0899",
+      "question": "Susan made 100 cookies for Christmas and was going to equally divide them betwee",
+      "expected": 16.0,
+      "winner": [
+        "equations",
+        17.333333333333332
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          16.0,
+          0.9400000000000001
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          17.333333333333332,
+          9,
+          "s=0.94"
+        ],
+        [
+          "sequential",
+          16.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          16.666666666666668,
+          1,
+          "s=0.76"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0900",
+      "question": "Denise and Daniel are reading the same book. Yesterday, Denise read 10 pages whi",
+      "expected": 15.0,
+      "winner": [
+        "equations",
+        28.0
+      ],
+      "correct_solvers": [
+        [
+          "graph_walk",
+          15.0,
+          0.8066666666666665
+        ],
+        [
+          "reference_chain",
+          15.0,
+          0.8066666666666665
+        ],
+        [
+          "sequential",
+          15.0,
+          0.8066666666666665
+        ],
+        [
+          "question_driven",
+          15.0,
+          0.8066666666666665
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          28.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "graph_walk",
+          15.0,
+          6,
+          "s=0.81"
+        ],
+        [
+          "reference_chain",
+          15.0,
+          5,
+          "s=0.81"
+        ],
+        [
+          "sequential",
+          15.0,
+          2,
+          "s=0.81"
+        ],
+        [
+          "question_driven",
+          15.0,
+          1,
+          "s=0.81"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0123",
+      "question": "Rosie can run 10 miles per hour for 3 hours. After that, she runs 5 miles per ho",
+      "expected": 50.0,
+      "winner": [
+        "equations",
+        25.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          50.0,
+          0.74
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          25.0,
+          9,
+          "s=0.84"
+        ],
+        [
+          "graph_walk",
+          30.0,
+          6,
+          "s=0.69"
+        ],
+        [
+          "sequential",
+          2.0,
+          2,
+          "s=0.84"
+        ],
+        [
+          "question_driven",
+          50.0,
+          4,
+          "s=0.74"
+        ],
+        [
+          "entity_props",
+          126.0,
+          6,
+          "s=0.54"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0140",
+      "question": "Of the 20 available cars for rent, 12 are automatic cars, 4 are manual cars, and",
+      "expected": 20.0,
+      "winner": [
+        "sequential",
+        36.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          20.0,
+          0.41333333333333333
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          36.0,
+          2,
+          "s=0.89"
+        ],
+        [
+          "question_driven",
+          20.0,
+          1,
+          "s=0.41"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0358",
+      "question": "Marisa gets $5 as pocket money every day from her parents. She buys 4 lollipops ",
+      "expected": 20.0,
+      "winner": [
+        "graph_walk",
+        170.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          20.0,
+          0.74
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          170.0,
+          9,
+          "s=0.85"
+        ],
+        [
+          "sequential",
+          34.0,
+          2,
+          "s=0.84"
+        ],
+        [
+          "question_driven",
+          20.0,
+          4,
+          "s=0.74"
+        ],
+        [
+          "entity_props",
+          145.0,
+          6,
+          "s=0.59"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0578",
+      "question": "Diane gave a number train a starting value of 20. This starting value plus half ",
+      "expected": 48.0,
+      "winner": [
+        "reference_chain",
+        4.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          48.0,
+          0.79
+        ]
+      ],
+      "all_candidates": [
+        [
+          "reference_chain",
+          4.0,
+          5,
+          "s=0.69"
+        ],
+        [
+          "sequential",
+          48.0,
+          2,
+          "s=0.79"
+        ],
+        [
+          "question_driven",
+          4.0,
+          1,
+          "s=0.69"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0628",
+      "question": "Adam really wants to ride the biggest roller coaster at the park. You have to be",
+      "expected": 4.0,
+      "winner": [
+        "sequential",
+        46.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          4.0,
+          0.41333333333333333
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          46.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          4.0,
+          1,
+          "s=0.41"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-0783",
+      "question": "Bob had 7 fish in his ornamental fish pond. 3 were orange, and 4 were white. He ",
+      "expected": 4.0,
+      "winner": [
+        "equations",
+        33.0
+      ],
+      "correct_solvers": [
+        [
+          "graph_walk",
+          4.0,
+          0.31000000000000005
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          33.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "sequential",
+          26.0,
+          2,
+          "s=0.75"
+        ],
+        [
+          "graph_walk",
+          4.0,
+          5,
+          "s=0.31"
+        ],
+        [
+          "question_driven",
+          7.0,
+          1,
+          "s=0.34"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-1043",
+      "question": "There are 26 countries in South America and, in each country, there are 5 cities",
+      "expected": 130000.0,
+      "winner": [
+        "graph_walk",
+        200.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          130000.0,
+          0.8900000000000001
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          200.0,
+          8,
+          "s=0.76"
+        ],
+        [
+          "sequential",
+          130000.0,
+          2,
+          "s=0.89"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-1054",
+      "question": "My kitchen floor has a total area of 200 SqFt. I want to install new square floo",
+      "expected": 2400.0,
+      "winner": [
+        "graph_walk",
+        2412.0
+      ],
+      "correct_solvers": [
+        [
+          "sequential",
+          2400.0,
+          0.9400000000000001
+        ],
+        [
+          "question_driven",
+          2400.0,
+          0.8066666666666665
+        ]
+      ],
+      "all_candidates": [
+        [
+          "graph_walk",
+          2412.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "sequential",
+          2400.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          2400.0,
+          4,
+          "s=0.81"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-1109",
+      "question": "Three of the women at the cocktail party are wearing 4 inch heels and three are ",
+      "expected": 3.0,
+      "winner": [
+        "sequential",
+        72.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          3,
+          0.38
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          72.0,
+          2,
+          "s=0.80"
+        ],
+        [
+          "question_driven",
+          3,
+          1,
+          "s=0.38"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-1116",
+      "question": "Last year there were 50 students enrolled in a calligraphy class. This year, the",
+      "expected": 60.0,
+      "winner": [
+        "equations",
+        70.0
+      ],
+      "correct_solvers": [
+        [
+          "percentage",
+          60.0,
+          0.6900000000000001
+        ]
+      ],
+      "all_candidates": [
+        [
+          "equations",
+          70.0,
+          9,
+          "s=0.94"
+        ],
+        [
+          "percentage",
+          60.0,
+          8,
+          "s=0.69"
+        ],
+        [
+          "sequential",
+          70.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "question_driven",
+          70.0,
+          1,
+          "s=0.94"
+        ],
+        [
+          "graph_walk",
+          50.0,
+          6,
+          "s=0.48"
+        ]
+      ]
+    },
+    {
+      "id": "gsm-1307",
+      "question": "James is putting together 4 tables.  Each table has 4 legs and each leg needs 2 ",
+      "expected": 8.0,
+      "winner": [
+        "sequential",
+        56.0
+      ],
+      "correct_solvers": [
+        [
+          "question_driven",
+          8.0,
+          0.6733333333333333
+        ]
+      ],
+      "all_candidates": [
+        [
+          "sequential",
+          56.0,
+          2,
+          "s=0.94"
+        ],
+        [
+          "graph_walk",
+          42.0,
+          6,
+          "s=0.67"
+        ],
+        [
+          "question_driven",
+          8.0,
+          1,
+          "s=0.67"
+        ]
+      ]
+    }
+  ]
+}

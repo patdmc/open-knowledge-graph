@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total basketball cards",
+    "operation": "multiply",
+    "operands": [
+      6,
+      25
+    ],
+    "result": 150,
+    "variable": "basketball_cards"
+  },
+  {
+    "step": 2,
+    "description": "Total baseball cards",
+    "operation": "multiply",
+    "operands": [
+      5,
+      40
+    ],
+    "result": 200,
+    "variable": "baseball_cards"
+  },
+  {
+    "step": 3,
+    "description": "Total cards combined",
+    "operation": "add",
+    "operands": [
+      150,
+      200
+    ],
+    "result": 350,
+    "variable": "total_cards"
+  },
+  {
+    "step": 4,
+    "description": "Cards given to students after keeping 50",
+    "operation": "subtract",
+    "operands": [
+      350,
+      50
+    ],
+    "result": 300,
+    "variable": "cards_for_students"
+  },
+  {
+    "step": 5,
+    "description": "Number of students",
+    "operation": "divide",
+    "operands": [
+      300,
+      10
+    ],
+    "result": 30.0,
+    "variable": "num_students"
+  }
+]

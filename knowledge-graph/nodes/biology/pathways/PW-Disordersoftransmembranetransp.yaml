@@ -1,0 +1,26 @@
+id: PW-Disordersoftransmembranetransp
+type: knowledge
+domain: biology
+name: Disorders of transmembrane transporters
+reactome_id: R-HSA-5619115
+
+description: "Proteins with transporting functions can be roughly classified into 3 categories: ATP hydrolysis-coupled pumps, ion channels, and transporters. Pumps utilize the energy released by ATP hydrolysis to power the movement of substrates across the membrane against their electrochemical gradient. Channels in their open state can transfer substrates (ions or water) down their electrochemical gradient at an extremely high efficiency (up to 108 s-1)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: ABC transporter disorders
+    reactome_id: R-HSA-5619084
+    type: Pathway
+  - name: SLC transporter disorders
+    reactome_id: R-HSA-5619102
+    type: Pathway
+
+edges:

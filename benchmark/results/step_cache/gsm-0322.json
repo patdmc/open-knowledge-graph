@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "subtract loose pencils to find pencils in boxes",
+    "operation": "subtract",
+    "operands": [
+      26,
+      2
+    ],
+    "result": 24,
+    "variable": "pencils_in_boxes"
+  },
+  {
+    "step": 2,
+    "description": "divide by number of boxes to find pencils per box",
+    "operation": "divide",
+    "operands": [
+      24,
+      3
+    ],
+    "result": 8,
+    "variable": "pencils_per_box"
+  },
+  {
+    "step": 3,
+    "description": "add Jam and Meg's pencils for total",
+    "operation": "add",
+    "operands": [
+      26,
+      46
+    ],
+    "result": 72,
+    "variable": "total_pencils"
+  },
+  {
+    "step": 4,
+    "description": "divide total pencils by pencils per box to find boxes needed",
+    "operation": "divide",
+    "operands": [
+      72,
+      8
+    ],
+    "result": 9.0,
+    "variable": "boxes_needed"
+  }
+]

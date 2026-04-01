@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Griffin loses fries to Kyle",
+    "operation": "subtract",
+    "operands": [
+      24,
+      5
+    ],
+    "result": 19,
+    "variable": "Griffin's fries after Kyle"
+  },
+  {
+    "step": 2,
+    "description": "Billy takes twice what Kyle took",
+    "operation": "multiply",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 10,
+    "variable": "fries Billy took"
+  },
+  {
+    "step": 3,
+    "description": "Griffin loses fries to Billy",
+    "operation": "subtract",
+    "operands": [
+      19,
+      10
+    ],
+    "result": 9,
+    "variable": "Griffin's fries after Billy"
+  },
+  {
+    "step": 4,
+    "description": "Colby takes 3 less than Kyle's 5",
+    "operation": "subtract",
+    "operands": [
+      5,
+      3
+    ],
+    "result": 2,
+    "variable": "fries Colby took"
+  },
+  {
+    "step": 5,
+    "description": "Griffin loses fries to Colby",
+    "operation": "subtract",
+    "operands": [
+      9,
+      2
+    ],
+    "result": 7,
+    "variable": "Griffin's fries after Colby (before Ginger)"
+  },
+  {
+    "step": 6,
+    "description": "Solve for Ginger's fries: final 27 minus Griffin's count before Ginger",
+    "operation": "subtract",
+    "operands": [
+      27,
+      7
+    ],
+    "result": 20,
+    "variable": "fries Ginger gave Griffin"
+  }
+]

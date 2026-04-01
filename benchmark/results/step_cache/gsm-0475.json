@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "total days available in three weeks",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "total_days"
+  },
+  {
+    "step": 2,
+    "description": "minutes per day of walking",
+    "operation": "divide",
+    "operands": [
+      240,
+      12
+    ],
+    "result": 20.0,
+    "variable": "minutes_per_day"
+  }
+]

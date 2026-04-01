@@ -1,0 +1,39 @@
+id: PW-CellCellcommunication
+type: knowledge
+domain: biology
+name: "Cell-Cell communication"
+reactome_id: R-HSA-1500931
+
+description: "Cell-to-Cell communication is crucial for multicellular organisms because it allows organisms to coordinate the activity of their cells. Some cell-to-cell communication requires direct cell-cell contacts mediated by receptors on their cell surfaces. Members of the immunoglobulin superfamily (IgSF) proteins are some of the cell surface receptors involved in cell-cell recognition, communication and many aspects of the axon guidance and synapse formation-the crucial processes during embryonal development (Rougon & Hobert 2003).Processes annotated here as aspects of cell junction organization mediate the formation and maintenance of adherens junctions, tight junctions, and gap junctions, as well as aspects of cellular interactions with extracellular matrix and hemidesmosome assembly."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Cell junction organization
+    reactome_id: R-HSA-446728
+    type: Pathway
+  - name: Signal regulatory protein family interactions
+    reactome_id: R-HSA-391160
+    type: Pathway
+  - name: Nephrin family interactions
+    reactome_id: R-HSA-373753
+    type: Pathway
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Cell-Cell communication pathway components are encoded by CHAN-TissueArchitecture genes"

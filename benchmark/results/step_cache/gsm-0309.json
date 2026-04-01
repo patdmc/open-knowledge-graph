@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "number of new arms grown in 15 days",
+    "operation": "divide",
+    "operands": [
+      15,
+      3
+    ],
+    "result": 5,
+    "variable": "new_arms"
+  },
+  {
+    "step": 2,
+    "description": "number of new legs grown in 15 days",
+    "operation": "divide",
+    "operands": [
+      15,
+      5
+    ],
+    "result": 3,
+    "variable": "new_legs"
+  },
+  {
+    "step": 3,
+    "description": "total new limbs",
+    "operation": "add",
+    "operands": [
+      5,
+      3
+    ],
+    "result": 8.0,
+    "variable": "total_new_limbs"
+  }
+]

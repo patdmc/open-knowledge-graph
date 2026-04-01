@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of boys",
+    "operation": "multiply",
+    "operands": [
+      2,
+      60
+    ],
+    "result": 120,
+    "variable": "boys"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total students",
+    "operation": "add",
+    "operands": [
+      60,
+      120
+    ],
+    "result": 180,
+    "variable": "total_students"
+  },
+  {
+    "step": 3,
+    "description": "Calculate number of teachers",
+    "operation": "divide",
+    "operands": [
+      180,
+      5
+    ],
+    "result": 36.0,
+    "variable": "teachers"
+  }
+]

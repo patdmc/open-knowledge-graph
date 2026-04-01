@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "three times the price of the pen",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "three_times_pen"
+  },
+  {
+    "step": 2,
+    "description": "price of paper (three times pen minus $1)",
+    "operation": "subtract",
+    "operands": [
+      6,
+      1
+    ],
+    "result": 5,
+    "variable": "paper_cost"
+  },
+  {
+    "step": 3,
+    "description": "total cost of pen and paper",
+    "operation": "add",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 7,
+    "variable": "total_cost"
+  },
+  {
+    "step": 4,
+    "description": "change received from $10",
+    "operation": "subtract",
+    "operands": [
+      10,
+      7
+    ],
+    "result": 3.0,
+    "variable": "change"
+  }
+]

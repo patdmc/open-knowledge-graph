@@ -1,0 +1,26 @@
+id: PW-Intracellularsignalingbysecond
+type: knowledge
+domain: biology
+name: Intracellular signaling by second messengers
+reactome_id: R-HSA-9006925
+
+description: Second messengers are generated within the cell as a downstream step in signal transduction cascades initiated by the interaction of an external stimulus with a  cell surface receptor.  Common second messengers include DAG,  cAMP, cGMP, IP3, Ca2+ and phosphatidylinositols (reviewed in Kang et al, 2015; Raker et al, 2016; Li and Marshall, 2015; Pinto et al, 2015; Ahmad et al, 2015).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PIP3 activates AKT signaling
+    reactome_id: R-HSA-1257604
+    type: Pathway
+  - name: DAG and IP3 signaling
+    reactome_id: R-HSA-1489509
+    type: Pathway
+
+edges:

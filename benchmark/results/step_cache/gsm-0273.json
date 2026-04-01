@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "collar stitches (tenth of body)",
+    "operation": "divide",
+    "operands": [
+      900,
+      10
+    ],
+    "result": 90,
+    "variable": "collar"
+  },
+  {
+    "step": 2,
+    "description": "rosette stitches (twice the collar)",
+    "operation": "multiply",
+    "operands": [
+      90,
+      2
+    ],
+    "result": 180,
+    "variable": "rosette"
+  },
+  {
+    "step": 3,
+    "description": "body + collar",
+    "operation": "add",
+    "operands": [
+      900,
+      90
+    ],
+    "result": 990,
+    "variable": "body_plus_collar"
+  },
+  {
+    "step": 4,
+    "description": "body + collar + rosette",
+    "operation": "add",
+    "operands": [
+      990,
+      180
+    ],
+    "result": 1170,
+    "variable": "known_stitches"
+  },
+  {
+    "step": 5,
+    "description": "stitches for both sleeves",
+    "operation": "subtract",
+    "operands": [
+      1800,
+      1170
+    ],
+    "result": 630,
+    "variable": "both_sleeves"
+  },
+  {
+    "step": 6,
+    "description": "stitches per sleeve",
+    "operation": "divide",
+    "operands": [
+      630,
+      2
+    ],
+    "result": 315.0,
+    "variable": "each_sleeve"
+  }
+]

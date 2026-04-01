@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total hours from 5 pm to 10 am next day",
+    "operation": "add",
+    "operands": [
+      12,
+      5
+    ],
+    "result": 17,
+    "variable": "total_hours"
+  },
+  {
+    "step": 2,
+    "description": "Extra hours beyond the 12-hour base",
+    "operation": "subtract",
+    "operands": [
+      17,
+      12
+    ],
+    "result": 5,
+    "variable": "extra_hours"
+  },
+  {
+    "step": 3,
+    "description": "Cost of extra hours at 70 pesos each",
+    "operation": "multiply",
+    "operands": [
+      5,
+      70
+    ],
+    "result": 350,
+    "variable": "extra_cost"
+  },
+  {
+    "step": 4,
+    "description": "Total cost with 12-hour rate plus extra hours",
+    "operation": "add",
+    "operands": [
+      1000,
+      350
+    ],
+    "result": 1350,
+    "variable": "cameron_total"
+  },
+  {
+    "step": 5,
+    "description": "Savings vs 24-hour rate",
+    "operation": "subtract",
+    "operands": [
+      1600,
+      1350
+    ],
+    "result": 250,
+    "variable": "savings"
+  }
+]

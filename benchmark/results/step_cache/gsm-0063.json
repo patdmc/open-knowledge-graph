@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total cost for first 6 months at full price",
+    "operation": "multiply",
+    "operands": [
+      140,
+      6
+    ],
+    "result": 840,
+    "variable": "first_half_total"
+  },
+  {
+    "step": 2,
+    "description": "Calculate 10% discount amount on monthly charge",
+    "operation": "multiply",
+    "operands": [
+      140,
+      0.1
+    ],
+    "result": 14,
+    "variable": "monthly_discount"
+  },
+  {
+    "step": 3,
+    "description": "Calculate discounted monthly charge for second half",
+    "operation": "subtract",
+    "operands": [
+      140,
+      14
+    ],
+    "result": 126,
+    "variable": "discounted_monthly_rate"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total cost for second 6 months at discounted price",
+    "operation": "multiply",
+    "operands": [
+      126,
+      6
+    ],
+    "result": 756,
+    "variable": "second_half_total"
+  },
+  {
+    "step": 5,
+    "description": "Calculate total annual cost",
+    "operation": "add",
+    "operands": [
+      840,
+      756
+    ],
+    "result": 1596,
+    "variable": "annual_total"
+  }
+]

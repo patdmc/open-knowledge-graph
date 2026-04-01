@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "total ounces of milk John drinks",
+    "operation": "multiply",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 16,
+    "variable": "total_ounces"
+  },
+  {
+    "step": 2,
+    "description": "total calories consumed",
+    "operation": "multiply",
+    "operands": [
+      16,
+      3
+    ],
+    "result": 48.0,
+    "variable": "total_calories"
+  }
+]

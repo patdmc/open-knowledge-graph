@@ -1,0 +1,50 @@
+id: PW-ExpressionofBMALARNTL,CLOCK,an
+type: knowledge
+domain: biology
+name: Expression of BMAL (ARNTL), CLOCK, and NPAS2
+reactome_id: R-HSA-9931509
+
+description: "BMAL1 (ARNTL), CLOCK, and NPAS2, which acts redundantly with CLOCK, are key activators of diurnal circadian gene expression (reviewed in Cox and Takahashi 2019). Their expression is positively regulated by the Retinoid-related orphan receptors RORA, RORB, and RORC and negatively regulated by the nuclear receptor NR1D1 (REV-ERBA), all of which complete for the same ROR responsive elements (RRE, RORE) (inferred from mouse homologs in Ueda et al. 2002, Guilaumond et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Expression of PPARGC1A (PGC-1alpha)"
+    reactome_id: R-HSA-1368140
+    type: BlackBoxEvent
+  - name: RORA,B,C, EP300, PPARGC1A, NRIP1 bind BMAL1 (ARNTL) gene
+    reactome_id: R-HSA-9911560
+    type: Reaction
+  - name: "NR1D1 (REV-ERBA) binds heme, the BMAL1 (ARNTL) gene, and recruits corepressors"
+    reactome_id: R-HSA-1368069
+    type: Reaction
+  - name: "RORA,B,C positively regulates expression and NR1D1 (REV-ERBA) negatively regulates expression of BMAL1 (ARNTL)"
+    reactome_id: R-HSA-9911580
+    type: BlackBoxEvent
+  - name: RORA,C and coactivators bind the CLOCK gene
+    reactome_id: R-HSA-9932081
+    type: Reaction
+  - name: "NR1D1 (REV-ERBA) binds heme, the CLOCK gene, and recruits corepressors"
+    reactome_id: R-HSA-5663271
+    type: Reaction
+  - name: "RORA,C and coactivators positively regulate and NR1D1 (REV-ERBA) negatively regulates expression of CLOCK"
+    reactome_id: R-HSA-9932070
+    type: BlackBoxEvent
+  - name: RORA and EP300 bind NPAS2 gene
+    reactome_id: R-HSA-5663246
+    type: Reaction
+  - name: "NR1D1 (REV-ERBA) binds heme, the NPAS2 gene, and recruits corepressors"
+    reactome_id: R-HSA-5663245
+    type: Reaction
+  - name: RORA and PPARA positively regulate and NR1D1 negatively regulates expression of NPAS2
+    reactome_id: R-HSA-1368065
+    type: BlackBoxEvent
+
+edges:

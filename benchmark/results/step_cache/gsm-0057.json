@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "subtract truck and driver weight from bridge limit to find available weight for boxes",
+    "operation": "subtract",
+    "operands": [
+      5000,
+      3755
+    ],
+    "result": 1245,
+    "variable": "available_weight"
+  },
+  {
+    "step": 2,
+    "description": "divide available weight by weight per box to find maximum number of boxes",
+    "operation": "divide",
+    "operands": [
+      1245,
+      15
+    ],
+    "result": 83.0,
+    "variable": "max_boxes"
+  }
+]

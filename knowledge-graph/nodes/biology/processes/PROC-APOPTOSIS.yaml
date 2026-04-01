@@ -1,0 +1,75 @@
+id: PROC-APOPTOSIS
+type: knowledge
+domain: biology
+name: apoptotic process
+go_id: GO:0006915
+
+definition: A programmed cell death process which begins when a cell receives an internal (e.g. DNA damage) or external signal (e.g. an extracellular death ligand), and proceeds through a series of biochemical events (signaling pathway phase) which trigger an execution phase.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1902109
+    name: negative regulation of mitochondrial membrane permeability involved in apoptotic process
+    relation: part_of
+  - id: GO:1902108
+    name: regulation of mitochondrial membrane permeability involved in apoptotic process
+    relation: part_of
+  - id: GO:1902110
+    name: positive regulation of mitochondrial membrane permeability involved in apoptotic process
+    relation: part_of
+  - id: GO:1904606
+    name: fat cell apoptotic process
+    relation: is_a
+  - id: GO:1904516
+    name: myofibroblast cell apoptotic process
+    relation: is_a
+  - id: GO:1902742
+    name: apoptotic process involved in development
+    relation: is_a
+  - id: GO:1902489
+    name: hepatoblast apoptotic process
+    relation: is_a
+  - id: GO:1902362
+    name: melanocyte apoptotic process
+    relation: is_a
+  - id: GO:0034349
+    name: glial cell apoptotic process
+    relation: is_a
+  - id: GO:0097190
+    name: apoptotic signaling pathway
+    relation: part_of
+  - id: GO:0097194
+    name: execution phase of apoptosis
+    relation: part_of
+  - id: GO:0097152
+    name: mesenchymal cell apoptotic process
+    relation: is_a
+  - id: GO:0016505
+    name: peptidase activator activity involved in apoptotic process
+    relation: part_of
+  - id: GO:0006925
+    name: inflammatory cell apoptotic process
+    relation: is_a
+  - id: GO:0051402
+    name: neuron apoptotic process
+    relation: is_a
+
+edges:
+  - to: CHAN-CellCycle
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-CellCycle encode components of apoptotic process"

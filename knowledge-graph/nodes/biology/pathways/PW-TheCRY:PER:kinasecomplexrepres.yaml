@@ -1,0 +1,32 @@
+id: PW-TheCRY:PER:kinasecomplexrepres
+type: knowledge
+domain: biology
+name: "The CRY:PER:kinase complex represses transactivation by the BMAL:CLOCK (ARNTL:CLOCK) complex"
+reactome_id: R-HSA-9931521
+
+description: "A complex containing Cryptochrome proteins CRY1, CRY2, Period proteins PER1, PER2, PER3, and kinases CSNK1D and/or CSNK1E binds a heterodimer containing phosphorylated CLOCK and phosphorylated, acetylated BMAL1 bound to E-boxes in the promoters of target genes (inferred from mouse homologs in Griffin et al. 1999, Langmesser et al. 2008, Ye et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "p-S-CRY:p-S-PER:CSNK1D,E binds p-S90,Ac-K538-BMAL1:p-2T,3S-CLOCK:target gene"
+    reactome_id: R-HSA-9922269
+    type: Reaction
+  - name: "CSNK1D,E phosphorylates CLOCK in p-S-CRY:p-S-PER:CSNK1D,E:p-S90,Ac-538-BMAL:p-2T,3S-CLOCK:target gene"
+    reactome_id: R-HSA-9922273
+    type: Reaction
+  - name: "p-S-CRY:p-S-PER:CSNK1D,E:p-S90,Ac-538-BMAL1:p-4S,2T-CLOCK dissociates from target gene"
+    reactome_id: R-HSA-9923005
+    type: BlackBoxEvent
+  - name: "CRY proteins stabilize unphosphorylated BMAL1:CLOCK,NPAS2"
+    reactome_id: R-HSA-549355
+    type: Reaction
+
+edges:

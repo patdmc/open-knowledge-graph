@@ -1,0 +1,32 @@
+id: PW-Metabolismofnucleotides
+type: knowledge
+domain: biology
+name: Metabolism of nucleotides
+reactome_id: R-HSA-15869
+
+description: "Nucleotides and their derivatives are used for short-term energy storage (ATP, GTP), for intra- and extra-cellular signaling (cAMP; adenosine), as enzyme cofactors (NAD, FAD), and for the synthesis of DNA and RNA. Most dietary nucleotides are consumed by gut flora; the human body's own supply of these molecules is synthesized de novo. Additional metabolic pathways allow the interconversion of nucleotides, the salvage and reutilization of nucleotides released by degradation of DNA and RNA, the catabolism of excess nucleotides, and the transport of these molecules between the cytosol and the nucleus (Rudolph 1994)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Nucleotide biosynthesis
+    reactome_id: R-HSA-8956320
+    type: Pathway
+  - name: "Interconversion of nucleotide di- and triphosphates"
+    reactome_id: R-HSA-499943
+    type: Pathway
+  - name: Nucleotide salvage
+    reactome_id: R-HSA-8956321
+    type: Pathway
+  - name: Nucleotide catabolism
+    reactome_id: R-HSA-8956319
+    type: Pathway
+
+edges:

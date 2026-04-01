@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "fraction of land remaining after selling 3/5",
+    "operation": "subtract",
+    "operands": [
+      1,
+      0.6
+    ],
+    "result": 0.4,
+    "variable": "remaining fraction"
+  },
+  {
+    "step": 2,
+    "description": "original total land by dividing remaining hectares by remaining fraction",
+    "operation": "divide",
+    "operands": [
+      12.8,
+      0.4
+    ],
+    "result": 32.0,
+    "variable": "original land in hectares"
+  }
+]

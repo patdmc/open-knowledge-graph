@@ -1,0 +1,26 @@
+id: PW-Cellularresponsestomechanicals
+type: knowledge
+domain: biology
+name: Cellular responses to mechanical stimuli
+reactome_id: R-HSA-9855142
+
+description: Molecular mechanosensors are biomolecules that convert a physical force into an intracellular chemical signal (reviewed in Martino et al. 2018, Li et al. 2022).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Response of endothelial cells to shear stress
+    reactome_id: R-HSA-9860931
+    type: Pathway
+  - name: Mechanical load activates signaling by PIEZO1 and integrins in osteocytes
+    reactome_id: R-HSA-9856532
+    type: Pathway
+
+edges:

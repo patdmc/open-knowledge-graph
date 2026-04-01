@@ -1,0 +1,80 @@
+id: PW-AspirinADME
+type: knowledge
+domain: biology
+name: Aspirin ADME
+reactome_id: R-HSA-9749641
+
+description: "In water aspirin (acetylsalicylic acid, ASA) dissolves, dissociating into the acetylsalicylate ion (ASA-). ASA- is an anti-clotting agent and nonsteroidal anti-inflammatory drug (NSAID); the therapeutic effects are mediated through its interaction with PTGS enzymes. On a molar basis ASA- (a) is more potent as an analgesic/anti-inflammatory agent, (b) has greater gastric ulcerogenic activity, and (c) is much more effective as an inhibitor of prostaglandin biosynthesis and platelet aggregation than salicylate (ST) (Flower 1974; Mills et al, 1974; Rainsford 1975; Rainsford 1977).Acetylsalicylic acid is only slightly soluble in conditions being found in the stomach mucosa, mostly because of unavailability of sufficient amount of solvent."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Acetylsalicylic acid dissolves
+    reactome_id: R-HSA-9757434
+    type: Reaction
+  - name: "SLC16A1:BSG cotransports monocarboxylates, H+ from extracellular region to cytosol"
+    reactome_id: R-HSA-9645220
+    type: Reaction
+  - name: "SLCO2B1-1 transports ASA- from extracellular region to cytosol of GI cells"
+    reactome_id: R-HSA-9749607
+    type: Reaction
+  - name: "ASA- translocates from cytosol to ER lumen of GI cells"
+    reactome_id: R-HSA-9757438
+    type: BlackBoxEvent
+  - name: "CES2 hydrolyzes ASA-"
+    reactome_id: R-HSA-9749647
+    type: Reaction
+  - name: ST translocates from ER lumen to cytosol of GI cells
+    reactome_id: R-HSA-9757445
+    type: BlackBoxEvent
+  - name: "ASA- (GI) translocates from cytosol to extracellular region"
+    reactome_id: R-HSA-9757441
+    type: BlackBoxEvent
+  - name: ST translocates from cytosol to extracellular region
+    reactome_id: R-HSA-9757448
+    type: BlackBoxEvent
+  - name: "BCHE hydrolyzes ASA-"
+    reactome_id: R-HSA-9749609
+    type: Reaction
+  - name: "ASA- acetylates ALB"
+    reactome_id: R-HSA-9749590
+    type: Reaction
+  - name: "SLC22A7 transports ASA-,ST from extracellular region to cytosol of hepatocytes"
+    reactome_id: R-HSA-9749583
+    type: Reaction
+  - name: "ASA-,ST translocate from cytosol to ER lumen of hepatocytes"
+    reactome_id: R-HSA-9757451
+    type: BlackBoxEvent
+  - name: "CES1,CES2 hydrolyze ASA- to ST"
+    reactome_id: R-HSA-9749792
+    type: Reaction
+  - name: "UGTs transfer GlcA from UDP-GlcA to O-centre substrates"
+    reactome_id: R-HSA-174931
+    type: Reaction
+  - name: UGT1A6 glucuronates ST
+    reactome_id: R-HSA-9749977
+    type: Reaction
+  - name: "CYP2,3 cytochromes hydroxylate ST to 2,3-DHBA"
+    reactome_id: R-HSA-9749986
+    type: Reaction
+  - name: "Hydroxyl radicals oxidize ST to 2,3-DHBA"
+    reactome_id: R-HSA-9757462
+    type: Reaction
+  - name: "CYP2,3 cytochromes hydroxylate ST to 2,5-DHBA"
+    reactome_id: R-HSA-9750016
+    type: Reaction
+  - name: ST translocates from cytosol to mitochondrial matrix of hepatocytes
+    reactome_id: R-HSA-9757454
+    type: BlackBoxEvent
+  - name: "2,5-DHBA translocates from ER lumen to mitochondrial matrix"
+    reactome_id: R-HSA-9757456
+    type: BlackBoxEvent
+
+edges:

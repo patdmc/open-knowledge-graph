@@ -1,0 +1,51 @@
+{
+  "chunk_index": 56,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "10. Conclusion",
+  "section_path": [
+    "10. Conclusion"
+  ],
+  "char_count": 2012,
+  "keyphrases": [
+    {
+      "phrase": "conclusionconclusion confidence",
+      "score": 0.5275
+    },
+    {
+      "phrase": "cross framework consistency",
+      "score": 0.4974
+    },
+    {
+      "phrase": "intelligence confirms equivalency",
+      "score": 0.4845
+    },
+    {
+      "phrase": "confirmed overlap propositions",
+      "score": 0.4771
+    },
+    {
+      "phrase": "explicit provenance triples",
+      "score": 0.4763
+    },
+    {
+      "phrase": "formal theory intelligence",
+      "score": 0.4759
+    },
+    {
+      "phrase": "novel contradiction classification",
+      "score": 0.4063
+    },
+    {
+      "phrase": "structural scientific citation",
+      "score": 0.3842
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

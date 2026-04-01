@@ -1,0 +1,35 @@
+id: PW-MaternaltozygotictransitionMZT
+type: knowledge
+domain: biology
+name: Maternal to zygotic transition (MZT)
+reactome_id: R-HSA-9816359
+
+description: "Fertilization of the oocyte triggers the maternal-to-zygotic transition (MZT, reviewed in Vastenhous et al. 2019), a series of events that degrades maternal mRNAs (reviewed in Sha et al. 2019), alters chromatin to allow widespread transcription (reviewed in Eckersley-Maslin et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "M-decay: degradation of maternal mRNAs by maternally stored factors"
+    reactome_id: R-HSA-9820841
+    type: Pathway
+  - name: Replacement of protamines by nucleosomes in the male pronucleus
+    reactome_id: R-HSA-9821993
+    type: Pathway
+  - name: Chromatin modifications during the maternal to zygotic transition (MZT)
+    reactome_id: R-HSA-9821002
+    type: Pathway
+  - name: Zygotic genome activation (ZGA)
+    reactome_id: R-HSA-9819196
+    type: Pathway
+  - name: "Z-decay: degradation of maternal mRNAs by zygotically expressed factors"
+    reactome_id: R-HSA-9820865
+    type: Pathway
+
+edges:

@@ -1,0 +1,26 @@
+id: PW-rRNAprocessing
+type: knowledge
+domain: biology
+name: rRNA processing
+reactome_id: R-HSA-72312
+
+description: "Each eukaryotic cytosolic ribosome contains 4 molecules of RNA: 28S rRNA (25S rRNA in yeast), 5.8S rRNA, and 5S rRNA in the 60S subunit and 18S rRNA in the 40S subunit. The 18S rRNA, 5.8S rRNA, and 28S rRNA are produced by endonucleolytic and exonucleolytic processing of a single 47S precursor (pre-rRNA) (reviewed in Henras et al. 2015)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: rRNA processing in the nucleus and cytosol
+    reactome_id: R-HSA-8868773
+    type: Pathway
+  - name: rRNA processing in the mitochondrion
+    reactome_id: R-HSA-8868766
+    type: Pathway
+
+edges:

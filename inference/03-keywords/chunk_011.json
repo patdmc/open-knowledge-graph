@@ -1,0 +1,57 @@
+{
+  "chunk_index": 11,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 3/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 3/10]"
+  ],
+  "char_count": 6217,
+  "keyphrases": [
+    {
+      "phrase": "delegation overhead math",
+      "score": 0.6101
+    },
+    {
+      "phrase": "propositions graph traversal",
+      "score": 0.4764
+    },
+    {
+      "phrase": "causal escalation",
+      "score": 0.4729
+    },
+    {
+      "phrase": "degrades inference",
+      "score": 0.3845
+    },
+    {
+      "phrase": "inferentially connected math",
+      "score": 0.37
+    },
+    {
+      "phrase": "grows math reaches",
+      "score": 0.3194
+    },
+    {
+      "phrase": "edges cause",
+      "score": 0.2976
+    },
+    {
+      "phrase": "context subproblems progress",
+      "score": 0.2732
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Part 1 (No delegation overhead).",
+      "Part 2 (\\(\\rho = 1\\) conditional on edge fidelity).",
+      "Part 3 (Graph is the necessary structure under joint\nconstraints).",
+      "Option A: Discard an existing proposition."
+    ],
+    "has_math": true
+  }
+}

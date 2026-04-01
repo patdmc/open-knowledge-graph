@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "calculate white fiber as half of blue fiber",
+    "operation": "divide",
+    "operands": [
+      2,
+      2
+    ],
+    "result": 1,
+    "variable": "white_fiber_bolts"
+  },
+  {
+    "step": 2,
+    "description": "add blue and white fiber for total",
+    "operation": "add",
+    "operands": [
+      2,
+      1
+    ],
+    "result": 3.0,
+    "variable": "total_bolts"
+  }
+]

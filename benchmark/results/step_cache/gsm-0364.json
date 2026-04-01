@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Find number of boys in fourth grade",
+    "operation": "subtract",
+    "operands": [
+      96,
+      43
+    ],
+    "result": 53,
+    "variable": "total_boys"
+  },
+  {
+    "step": 2,
+    "description": "Find number of boys present on Friday",
+    "operation": "subtract",
+    "operands": [
+      53,
+      4
+    ],
+    "result": 49,
+    "variable": "boys_present_friday"
+  }
+]

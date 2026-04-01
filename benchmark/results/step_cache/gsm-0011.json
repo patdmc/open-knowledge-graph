@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 3 dozen donuts",
+    "operation": "multiply",
+    "operands": [
+      3,
+      68
+    ],
+    "result": 204,
+    "variable": "donut_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 2 dozen mini cupcakes",
+    "operation": "multiply",
+    "operands": [
+      2,
+      80
+    ],
+    "result": 160,
+    "variable": "cupcake_cost"
+  },
+  {
+    "step": 3,
+    "description": "Cost of 6 dozen mini cheesecakes",
+    "operation": "multiply",
+    "operands": [
+      6,
+      55
+    ],
+    "result": 330,
+    "variable": "cheesecake_cost"
+  },
+  {
+    "step": 4,
+    "description": "Sum of donuts and cupcakes",
+    "operation": "add",
+    "operands": [
+      204,
+      160
+    ],
+    "result": 364,
+    "variable": "partial_total"
+  },
+  {
+    "step": 5,
+    "description": "Total cost of all pastries",
+    "operation": "add",
+    "operands": [
+      364,
+      330
+    ],
+    "result": 694,
+    "variable": "total_cost"
+  }
+]

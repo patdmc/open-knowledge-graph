@@ -1,0 +1,51 @@
+{
+  "chunk_index": 57,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "Acknowledgments",
+  "section_path": [
+    "Acknowledgments"
+  ],
+  "char_count": 339,
+  "keyphrases": [
+    {
+      "phrase": "knowledge graph implementation",
+      "score": 0.681
+    },
+    {
+      "phrase": "knowledge graph center0",
+      "score": 0.6652
+    },
+    {
+      "phrase": "acknowledgmentsacknowledgments formal theory",
+      "score": 0.6609
+    },
+    {
+      "phrase": "open knowledge graph",
+      "score": 0.6391
+    },
+    {
+      "phrase": "patdmc open knowledge",
+      "score": 0.5218
+    },
+    {
+      "phrase": "prior work knowledge",
+      "score": 0.4192
+    },
+    {
+      "phrase": "implementation cross framework",
+      "score": 0.3464
+    },
+    {
+      "phrase": "graph center0 linewidth",
+      "score": 0.2663
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

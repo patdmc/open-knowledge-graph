@@ -1,0 +1,65 @@
+id: PW-NuclearRNAdecay
+type: knowledge
+domain: biology
+name: Nuclear RNA decay
+reactome_id: R-HSA-9930044
+
+description: "In addition to protein coding mRNAs and stable RNAs such as rRNAs, tRNAs, snoRNAs, and snRNAs, the human genome is pervasively transcribed (Clark et al. 2011) to yield other non-coding RNAs such as enhancer transcripts, promoter upstream transcripts (PROMPTs, Preker et al. 2008), long non-coding RNAs (lncRNAs), and apparently non-functional transcripts (reviewed in Ogami and Suzuki 2021)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "The NEXT complex and ZC3H18 bind CBCA:m7GpppN-RNA"
+    reactome_id: R-HSA-9930056
+    type: Reaction
+  - name: "NEXT:ZC3H18:CBCA:m7GpppN-RNA binds the RNA exosome"
+    reactome_id: R-HSA-9934522
+    type: Reaction
+  - name: "The RNA exosome in RNA exosome:NEXT:ZC3H18:CBCA:m7GpppN-RNA hydrolyzes RNA"
+    reactome_id: R-HSA-9934763
+    type: BlackBoxEvent
+  - name: "The NEXT complex binds ZC3H4:WDR82:CBCA:m7GpppN-RNA"
+    reactome_id: R-HSA-9930059
+    type: Reaction
+  - name: "NEXT:ZC3H4:CBCA:m7GpppN-RNA binds the RNA exosome"
+    reactome_id: R-HSA-9935282
+    type: Reaction
+  - name: "The RNA exosome in RNA exosome:NEXT:ZC3H4:WDR82:CBCA:capped RNA hydrolyzes capped RNA"
+    reactome_id: R-HSA-9935290
+    type: BlackBoxEvent
+  - name: "The PAXT connection (ZFC3H1:MTREX, ZFC3H1:MTR4), RBM26, RBM27, PAPOLG, YTHDC1, and YTHDC2 bind CBCA:polyadenylated m7GpppN-RNA:PABPN1"
+    reactome_id: R-HSA-9933559
+    type: Reaction
+  - name: "MTREX (MTR4, SKIV2L2) in PAXT:RBM26:RBM27:ZC3H3:YTHDC1:YTHDC2:CBCA:polyadenylated m7GpppN-RNA:PABPN1 binds the RNA exosome"
+    reactome_id: R-HSA-9933575
+    type: Reaction
+  - name: "RNA exosome in PAXT:PAPOLG:TENT4A,B:ZC3H3:CBCA:polyadenylated m7GpppN-RNA:PABPN1 hydrolyzes RNA"
+    reactome_id: R-HSA-9933585
+    type: BlackBoxEvent
+  - name: "DXO decaps incompletely capped RNA (GpppN-RNA)"
+    reactome_id: R-HSA-9935319
+    type: Reaction
+  - name: "DXO decaps NAD-capped RNA (NAD-RNA)"
+    reactome_id: R-HSA-9935300
+    type: Reaction
+  - name: DXO hydrolyzes uncapped RNA
+    reactome_id: R-HSA-9935265
+    type: BlackBoxEvent
+  - name: "XRN2 5'-3' exonucleolytically hydrolyzes uncapped RNA"
+    reactome_id: R-HSA-9935299
+    type: BlackBoxEvent
+  - name: "The TRAMP:RNA exosome oligoadenylates pre-rRNA 5' external transcribed spacer (5'ETS) fragment"
+    reactome_id: R-HSA-9935837
+    type: BlackBoxEvent
+  - name: "TRAMP:RNA exosome hydrolyzes oligoadenylated pre-rRNA 5' external transcribed spacer (5'ETS)"
+    reactome_id: R-HSA-9935824
+    type: BlackBoxEvent
+
+edges:

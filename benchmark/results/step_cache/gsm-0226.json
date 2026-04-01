@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract lost water cards",
+    "operation": "subtract",
+    "operands": [
+      40,
+      8
+    ],
+    "result": 32,
+    "variable": "water_final"
+  },
+  {
+    "step": 2,
+    "description": "Add purchased grass cards",
+    "operation": "add",
+    "operands": [
+      20,
+      14
+    ],
+    "result": 34,
+    "variable": "grass_final"
+  },
+  {
+    "step": 3,
+    "description": "Add fire and grass totals",
+    "operation": "add",
+    "operands": [
+      30,
+      34
+    ],
+    "result": 64,
+    "variable": "fire_plus_grass"
+  },
+  {
+    "step": 4,
+    "description": "Add water to get total cards",
+    "operation": "add",
+    "operands": [
+      64,
+      32
+    ],
+    "result": 96,
+    "variable": "total_cards"
+  },
+  {
+    "step": 5,
+    "description": "Divide water cards by total",
+    "operation": "divide",
+    "operands": [
+      32,
+      96
+    ],
+    "result": 0.3333333333333333,
+    "variable": "water_fraction"
+  },
+  {
+    "step": 6,
+    "description": "Multiply by 100 to get percentage, rounded to nearest integer",
+    "operation": "multiply",
+    "operands": [
+      0.3333333333333333,
+      100
+    ],
+    "result": 33.0,
+    "variable": "water_percentage"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "chunk_index": 42,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "1. Introduction",
+  "section_path": [
+    "1. Introduction"
+  ],
+  "char_count": 3548,
+  "keyphrases": [
+    {
+      "phrase": "cited confidence propagates",
+      "score": 0.7112
+    },
+    {
+      "phrase": "introductionintroduction citation implicit",
+      "score": 0.4609
+    },
+    {
+      "phrase": "assigns attribution claim",
+      "score": 0.4364
+    },
+    {
+      "phrase": "independent verification derives",
+      "score": 0.4154
+    },
+    {
+      "phrase": "original evidence step",
+      "score": 0.4106
+    },
+    {
+      "phrase": "chain inference chain",
+      "score": 0.3931
+    },
+    {
+      "phrase": "explicit peer review",
+      "score": 0.3873
+    },
+    {
+      "phrase": "epistemic judgment current",
+      "score": 0.3518
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The attribution-confidence conflation.",
+      "The revalidation gap.",
+      "The cross-framework blindness."
+    ],
+    "has_math": false
+  }
+}

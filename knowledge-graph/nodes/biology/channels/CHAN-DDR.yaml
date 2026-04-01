@@ -1,0 +1,773 @@
+id: CHAN-DDR
+type: knowledge
+domain: cancer_biology
+name: DNA Damage Response
+gene_count: 21
+hub_genes: [BARD1, BRCA1, RAD51C]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: ATM
+    string_ppi_degree: 38
+    position: leaf
+    full_name: ATM serine/threonine kinase
+    chromosome: 11
+    ncbi_summary: "The protein encoded by this gene belongs to the PI3/PI4-kinase family. This protein is an important cell cycle checkpoint kinase that phosphorylates; thus, it functions as a regulator of a wide variety of downstream proteins, including tumor suppressor proteins p53 and BRCA1, checkpoint kinase CHK2, checkpoint proteins RAD17 and RAD9, and DNA repair protein NBS1."
+    protein_name: "Serine-protein kinase ATM"
+    uniprot_function: Serine/threonine protein kinase which activates checkpoint signaling upon double strand breaks (DSBs), apoptosis and genotoxic stresses such as ionizing ultraviolet A light (UVA), thereby acting as a ...
+    subcellular_location: [Nucleus, Cytoplasmic vesicle, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome]
+    diseases:
+      - Ataxia telangiectasia
+    go_biological_process:
+      - brain development
+      - cellular response to gamma radiation
+      - cellular response to nitrosative stress
+      - cellular response to reactive oxygen species
+      - cellular response to retinoic acid
+      - cellular response to stress
+      - "cellular response to X-ray"
+      - cellular senescence
+    kegg_pathways:
+      - Platinum drug resistance
+      - Homologous recombination
+      - "NF-kappa B signaling pathway"
+      - FoxO signaling pathway
+      - Cell cycle
+      - p53 signaling pathway
+      - Apoptosis
+      - Cellular senescence
+    cross_edges:
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.4800
+        p: 1.95e-10
+        n: 442
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6110
+        p: 1.13e-07
+        n: 622
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5570
+        p: 7.24e-07
+        n: 306
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.6150
+        p: 2.38e-06
+        n: 451
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.7460
+        p: 2.00e-05
+        n: 1009
+  - id: ATR
+    string_ppi_degree: 0
+    position: leaf
+    full_name: ATR checkpoint kinase
+    chromosome: 3
+    ncbi_summary: The protein encoded by this gene is a serine/threonine kinase and DNA damage sensor, activating cell cycle checkpoint signaling upon DNA stress. The encoded protein can phosphorylate and activate several proteins involved in the inhibition of DNA replication and mitosis, and can promote DNA repair, recombination, and apoptosis.
+    protein_name: "Alpha-1-antitrypsin-related protein"
+    uniprot_function: Putative serine protease inhibitor
+    subcellular_location: [Endoplasmic reticulum]
+    kegg_pathways:
+      - "Virion - Flavivirus and Alphavirus"
+    cross_edges:
+      - to: B2M
+        relation: COMPENSATES
+        hr: 0.2460
+        p: 3.04e-05
+        n: 151
+  - id: BAP1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: BRCA1 associated deubiquitinase 1
+    chromosome: 3
+    ncbi_summary: "This gene belongs to the ubiquitin C-terminal hydrolase subfamily of deubiquitinating enzymes that are involved in the removal of ubiquitin from proteins. The encoded enzyme binds to the breast cancer type 1 susceptibility protein (BRCA1) via the RING finger domain of the latter and acts as a tumor suppressor."
+    protein_name: "Membrane-associated guanylate kinase, WW and PDZ domain-containing protein 1"
+    uniprot_function: "Plays a role in coupling actin fibers to cell junctions in endothelial cells, via its interaction with AMOTL2 and CDH5 (By similarity). May regulate acid-induced ASIC3 currents by modulating its expre..."
+    subcellular_location: [Cell junction, tight junction, Cell membrane]
+    go_biological_process:
+      - cell adhesion
+      - cell surface receptor signaling pathway
+      - endothelial cell morphogenesis
+      - "positive regulation of cell-cell adhesion"
+      - "protein-containing complex assembly"
+      - signal transduction
+    kegg_pathways:
+      - Polycomb repressive complex
+    cross_edges:
+      - to: TP53
+        relation: BUFFERS
+        hr: 0.5870
+        p: 3.51e-07
+        n: 315
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5170
+        p: 4.82e-06
+        n: 204
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5030
+        p: 6.85e-05
+        n: 111
+      - to: APC
+        relation: BUFFERS
+        hr: 0.4940
+        p: 9.75e-05
+        n: 143
+      - to: PIK3CA
+        relation: BUFFERS
+        hr: 0.5560
+        p: 1.65e-04
+        n: 175
+      - to: FGFR3
+        relation: COMPENSATES
+        hr: 0.2720
+        p: 4.39e-05
+        n: 137
+  - id: BARD1
+    string_ppi_degree: 0
+    position: hub
+    full_name: BRCA1 associated RING domain 1
+    chromosome: 2
+    ncbi_summary: "This gene encodes a protein which interacts with the N-terminal region of BRCA1. In addition to its ability to bind BRCA1 in vivo and in vitro, it shares homology with the 2 most conserved regions of BRCA1: the N-terminal RING motif and the C-terminal BRCT domain."
+    protein_name: "BRCA1-associated RING domain protein 1"
+    uniprot_function: "E3 ubiquitin-protein ligase. The BRCA1-BARD1 heterodimer specifically mediates the formation of 'Lys-6'-linked polyubiquitin chains and coordinates a diverse range of cellular pathways such as DNA dam..."
+    subcellular_location: [Nucleus]
+    go_biological_process:
+      - cellular response to ionizing radiation
+      - chromatin remodeling
+      - DNA damage response
+      - DNA repair
+      - DNA strand resection involved in replication fork processing
+      - homologous recombination
+      - mitotic G2/M transition checkpoint
+      - negative regulation of apoptotic process
+    kegg_pathways:
+      - Homologous recombination
+    cross_edges:
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2940
+        p: 1.24e-05
+        n: 173
+  - id: BRCA1
+    string_ppi_degree: 51
+    position: hub
+    full_name: BRCA1 DNA repair associated
+    chromosome: 17
+    ncbi_summary: This gene encodes a 190 kD nuclear phosphoprotein that plays a role in maintaining genomic stability, and it also acts as a tumor suppressor. The BRCA1 gene contains 22 exons spanning about 110 kb of DNA.
+    protein_name: Breast cancer type 1 susceptibility protein
+    uniprot_function: "E3 ubiquitin-protein ligase that specifically mediates the formation of 'Lys-6'-linked polyubiquitin chains and plays a central role in DNA repair by facilitating cellular responses to DNA damage (Pub..."
+    subcellular_location: [Nucleus, Chromosome, Cytoplasm]
+    diseases:
+      - Breast cancer
+      - "Breast-ovarian cancer, familial, 1"
+      - Ovarian cancer
+      - Pancreatic cancer 4
+      - Fanconi anemia, complementation group S
+    go_biological_process:
+      - "cellular response to indole-3-methanol"
+      - cellular response to ionizing radiation
+      - cellular response to tumor necrosis factor
+      - centrosome cycle
+      - chordate embryonic development
+      - chromatin remodeling
+      - chromosome segregation
+      - DNA damage response
+    kegg_pathways:
+      - Homologous recombination
+    cross_edges:
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.4870
+        p: 1.09e-06
+        n: 190
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5900
+        p: 3.80e-05
+        n: 322
+      - to: APC
+        relation: BUFFERS
+        hr: 0.5790
+        p: 8.99e-05
+        n: 272
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.5040
+        p: 1.11e-04
+        n: 176
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5510
+        p: 1.34e-04
+        n: 183
+      - to: SMAD4
+        relation: COMPENSATES
+        hr: 0.2820
+        p: 1.12e-06
+        n: 141
+  - id: BRCA2
+    string_ppi_degree: 34
+    position: leaf
+    full_name: BRCA2 DNA repair associated
+    chromosome: 13
+    ncbi_summary: "Inherited mutations in BRCA1 and this gene, BRCA2, confer increased lifetime risk of developing breast or ovarian cancer. Both BRCA1 and BRCA2 are involved in maintenance of genome stability, specifically the homologous recombination pathway for double-strand DNA repair."
+    protein_name: Breast cancer type 2 susceptibility protein
+    uniprot_function: "Involved in double-strand break repair and/or homologous recombination. Binds RAD51 and potentiates recombinational DNA repair by promoting assembly of RAD51 onto single-stranded DNA (ssDNA). Acts by ..."
+    subcellular_location: [Nucleus, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome]
+    diseases:
+      - Breast cancer
+      - Pancreatic cancer 2
+      - "Breast-ovarian cancer, familial, 2"
+      - Fanconi anemia complementation group D1
+      - Glioma 3
+    go_biological_process:
+      - brain development
+      - cellular response to ionizing radiation
+      - cellular senescence
+      - centrosome duplication
+      - DNA damage response, signal transduction by p53 class mediator
+      - "double-strand break repair"
+      - "double-strand break repair via homologous recombination"
+      - establishment of protein localization to telomere
+    cross_edges:
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.4340
+        p: 6.40e-10
+        n: 283
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.4420
+        p: 5.63e-08
+        n: 303
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.6330
+        p: 1.75e-06
+        n: 589
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.6000
+        p: 2.85e-06
+        n: 433
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.5850
+        p: 6.55e-06
+        n: 375
+      - to: MDM2
+        relation: COMPENSATES
+        hr: 0.2640
+        p: 4.52e-04
+        n: 106
+  - id: CHEK1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: checkpoint kinase 1
+    chromosome: 11
+    ncbi_summary: The protein encoded by this gene belongs to the Ser/Thr protein kinase family. It is required for checkpoint mediated cell cycle arrest in response to DNA damage or the presence of unreplicated DNA.
+    protein_name: "Serine/threonine-protein kinase Chk1"
+    uniprot_function: "Serine/threonine-protein kinase which is required for checkpoint-mediated cell cycle arrest and activation of DNA repair in response to the presence of DNA damage or unreplicated DNA (PubMed:11535615,..."
+    subcellular_location: [Nucleus, Chromosome, Cytoplasm]
+    diseases:
+      - Oocyte/zygote/embryo maturation arrest 21
+    go_biological_process:
+      - apoptotic process
+      - apoptotic process involved in development
+      - cellular response to mechanical stimulus
+      - chromatin remodeling
+      - DNA damage checkpoint signaling
+      - DNA damage response
+      - DNA repair
+      - DNA replication
+    kegg_pathways:
+      - Cell cycle
+      - p53 signaling pathway
+      - Cellular senescence
+      - "Human T-cell leukemia virus 1 infection"
+      - Human immunodeficiency virus 1 infection
+      - Viral carcinogenesis
+    cross_edges:
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2690
+        p: 5.58e-04
+        n: 115
+  - id: CHEK2
+    string_ppi_degree: 24
+    position: leaf
+    full_name: checkpoint kinase 2
+    chromosome: 22
+    ncbi_summary: In response to DNA damage and replication blocks, cell cycle progression is halted through the control of critical cell cycle regulators. The protein encoded by this gene is a cell cycle checkpoint regulator and putative tumor suppressor.
+    protein_name: "Serine/threonine-protein kinase Chk2"
+    uniprot_function: "Serine/threonine-protein kinase which is required for checkpoint-mediated cell cycle arrest, activation of DNA repair and apoptosis in response to the presence of DNA double-strand breaks. May also ne..."
+    subcellular_location: [Nucleus, Nucleus, PML body, Nucleus, nucleoplasm]
+    diseases:
+      - Tumor predisposition syndrome 4
+      - Prostate cancer
+      - Osteogenic sarcoma
+      - Breast cancer
+    go_biological_process:
+      - cell division
+      - cellular response to bisphenol A
+      - cellular response to gamma radiation
+      - cellular response to stress
+      - cellular response to xenobiotic stimulus
+      - DNA damage checkpoint signaling
+      - DNA damage response
+      - DNA damage response, signal transduction by p53 class mediator
+    kegg_pathways:
+      - Cell cycle
+      - p53 signaling pathway
+      - Cellular senescence
+      - "Human T-cell leukemia virus 1 infection"
+    cross_edges:
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2960
+        p: 2.97e-05
+        n: 164
+  - id: FANCA
+    string_ppi_degree: 0
+    position: leaf
+    full_name: FA complementation group A
+    chromosome: 16
+    ncbi_summary: The Fanconi anemia complementation group (FANC) currently includes FANCA, FANCB, FANCC, FANCD1 (also called BRCA2), FANCD2, FANCE, FANCF, FANCG, FANCI, FANCJ (also called BRIP1), FANCL, FANCM and FANCN (also called PALB2). The previously defined group FANCH is the same as FANCA.
+    protein_name: Fanconi anemia group A protein
+    uniprot_function: "DNA repair protein that may operate in a postreplication repair or a cell cycle checkpoint function. May be involved in interstrand DNA cross-link repair and in the maintenance of normal chromosome st..."
+    subcellular_location: [Nucleus, Cytoplasm]
+    diseases:
+      - Fanconi anemia, complementation group A
+    go_biological_process:
+      - DNA repair
+      - female gonad development
+      - "interstrand cross-link repair"
+      - male gonad development
+      - male meiotic nuclear division
+      - "protein-containing complex assembly"
+      - regulation of CD40 signaling pathway
+      - regulation of germ cell proliferation
+    kegg_pathways:
+      - Fanconi anemia pathway
+    cross_edges:
+      - to: B2M
+        relation: COMPENSATES
+        hr: 0.2770
+        p: 7.73e-04
+        n: 104
+  - id: FANCC
+    string_ppi_degree: 0
+    position: leaf
+    full_name: FA complementation group C
+    chromosome: 9
+    ncbi_summary: The Fanconi anemia complementation group (FANC) currently includes FANCA, FANCB, FANCC, FANCD1 (also called BRCA2), FANCD2, FANCE, FANCF, FANCG, FANCI, FANCJ (also called BRIP1), FANCL, FANCM and FANCN (also called PALB2). The previously defined group FANCH is the same as FANCA.
+    protein_name: Fanconi anemia group C protein
+    uniprot_function: "DNA repair protein that may operate in a postreplication repair or a cell cycle checkpoint function. May be implicated in interstrand DNA cross-link repair and in the maintenance of normal chromosome ..."
+    subcellular_location: [Nucleus, Cytoplasm]
+    diseases:
+      - Fanconi anemia complementation group C
+    go_biological_process:
+      - cellular response to oxidative stress
+      - DNA repair
+      - "interstrand cross-link repair"
+      - "nucleotide-excision repair"
+      - "protein-containing complex assembly"
+    kegg_pathways:
+      - Fanconi anemia pathway
+    cross_edges:
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2020
+        p: 9.63e-05
+        n: 122
+  - id: FANCD2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: FA complementation group D2
+    chromosome: 3
+    ncbi_summary: The Fanconi anemia complementation group (FANC) currently includes FANCA, FANCB, FANCC, FANCD1 (also called BRCA2), FANCD2, FANCE, FANCF, FANCG, FANCI, FANCJ (also called BRIP1), FANCL, FANCM and FANCN (also called PALB2). The previously defined group FANCH is the same as FANCA.
+    protein_name: Fanconi anemia group D2 protein
+    uniprot_function: "Required for maintenance of chromosomal stability (PubMed:11239453, PubMed:14517836). Promotes accurate and efficient pairing of homologs during meiosis (PubMed:14517836). Involved in the repair of DN..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Fanconi anemia complementation group D2
+    go_biological_process:
+      - brain morphogenesis
+      - cellular response to oxidative stress
+      - "double-strand break repair involved in meiotic recombination"
+      - gamete generation
+      - homologous chromosome pairing at meiosis
+      - "interstrand cross-link repair"
+      - "mitotic intra-S DNA damage checkpoint signaling"
+      - neuronal stem cell population maintenance
+    kegg_pathways:
+      - Fanconi anemia pathway
+  - id: MLH1
+    string_ppi_degree: 24
+    position: leaf
+    full_name: mutL homolog 1
+    chromosome: 3
+    ncbi_summary: "The protein encoded by this gene can heterodimerize with mismatch repair endonuclease PMS2 to form MutL alpha, part of the DNA mismatch repair system. When MutL alpha is bound by MutS beta and some accessory proteins, the PMS2 subunit of MutL alpha introduces a single-strand break near DNA mismatches, providing an entry point for exonuclease degradation."
+    protein_name: DNA mismatch repair protein Mlh1
+    uniprot_function: "Heterodimerizes with PMS2 to form MutL alpha, a component of the post-replicative DNA mismatch repair system (MMR). DNA repair is initiated by MutS alpha (MSH2-MSH6) or MutS beta (MSH2-MSH3) binding t..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Lynch syndrome 2
+      - Mismatch repair cancer syndrome 1
+      - "Muir-Torre syndrome"
+      - Endometrial cancer
+      - Colorectal cancer
+    go_biological_process:
+      - "double-strand break repair via nonhomologous end joining"
+      - female meiosis chromosome segregation
+      - homologous chromosome pairing at meiosis
+      - intrinsic apoptotic signaling pathway in response to DNA damage
+      - isotype switching
+      - male meiosis chromosome segregation
+      - meiotic metaphase I homologous chromosome alignment
+      - meiotic spindle midzone assembly
+    kegg_pathways:
+      - Platinum drug resistance
+      - Mismatch repair
+      - Fanconi anemia pathway
+      - Pathways in cancer
+      - Colorectal cancer
+      - Endometrial cancer
+      - Gastric cancer
+  - id: MSH2
+    string_ppi_degree: 25
+    position: leaf
+    full_name: mutS homolog 2
+    chromosome: 2
+    ncbi_summary: This locus is frequently mutated in hereditary nonpolyposis colon cancer (HNPCC). When cloned, it was discovered to be a human homolog of the E.
+    protein_name: DNA mismatch repair protein Msh2
+    uniprot_function: "Component of the post-replicative DNA mismatch repair system (MMR). Forms two different heterodimers: MutS alpha (MSH2-MSH6 heterodimer) and MutS beta (MSH2-MSH3 heterodimer) which binds to DNA mismat..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Lynch syndrome 1
+      - "Muir-Torre syndrome"
+      - Endometrial cancer
+      - Mismatch repair cancer syndrome 2
+      - Colorectal cancer
+    go_biological_process:
+      - B cell differentiation
+      - B cell mediated immunity
+      - determination of adult lifespan
+      - DNA damage tolerance
+      - DNA repair
+      - "double-strand break repair"
+      - germ cell development
+      - in utero embryonic development
+    kegg_pathways:
+      - Platinum drug resistance
+      - Mismatch repair
+      - Pathways in cancer
+      - Colorectal cancer
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5010
+        p: 3.17e-06
+        n: 349
+      - to: PIK3CA
+        relation: BUFFERS
+        hr: 0.4740
+        p: 1.67e-05
+        n: 273
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.5520
+        p: 7.69e-04
+        n: 221
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5680
+        p: 8.62e-04
+        n: 231
+      - to: APC
+        relation: BUFFERS
+        hr: 0.5960
+        p: 0.0018
+        n: 253
+      - to: CTNNB1
+        relation: COMPENSATES
+        hr: 0.2930
+        p: 1.18e-04
+        n: 152
+  - id: MSH6
+    string_ppi_degree: 25
+    position: leaf
+    full_name: mutS homolog 6
+    chromosome: 2
+    ncbi_summary: This gene encodes a member of the DNA mismatch repair MutS family. In E.
+    protein_name: DNA mismatch repair protein Msh6
+    uniprot_function: "Component of the post-replicative DNA mismatch repair system (MMR). Heterodimerizes with MSH2 to form MutS alpha, which binds to DNA mismatches thereby initiating DNA repair. When bound, MutS alpha be..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Lynch syndrome 5
+      - Endometrial cancer
+      - Mismatch repair cancer syndrome 3
+      - Colorectal cancer
+    go_biological_process:
+      - determination of adult lifespan
+      - DNA repair
+      - intrinsic apoptotic signaling pathway
+      - intrinsic apoptotic signaling pathway in response to DNA damage
+      - isotype switching
+      - meiotic mismatch repair
+      - mismatch repair
+      - negative regulation of DNA recombination
+    kegg_pathways:
+      - Platinum drug resistance
+      - Mismatch repair
+      - Pathways in cancer
+      - Colorectal cancer
+    mutations:
+      - change: "F1088Lfs*5"
+        cancer_type: Colorectal Cancer
+        hr: 0.4113
+        p: 0.0029
+        direction: protective
+        n: 71
+    cross_edges:
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5150
+        p: 4.96e-05
+        n: 183
+      - to: APC
+        relation: BUFFERS
+        hr: 0.5910
+        p: 2.19e-04
+        n: 326
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.6370
+        p: 3.56e-04
+        n: 436
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5400
+        p: 3.81e-04
+        n: 183
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.6100
+        p: 8.77e-04
+        n: 285
+      - to: AKT3
+        relation: COMPENSATES
+        hr: 0.3000
+        p: 3.62e-04
+        n: 131
+  - id: PALB2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: partner and localizer of BRCA2
+    chromosome: 16
+    ncbi_summary: This gene encodes a protein that may function in tumor suppression. This protein binds to and colocalizes with the breast cancer 2 early onset protein (BRCA2) in nuclear foci and likely permits the stable intranuclear localization and accumulation of BRCA2.
+    protein_name: Partner and localizer of BRCA2
+    uniprot_function: "Plays a critical role in homologous recombination repair (HRR) through its ability to recruit BRCA2 and RAD51 to DNA breaks (PubMed:16793542, PubMed:19369211, PubMed:19423707, PubMed:22941656, PubMed:..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Breast cancer
+      - Fanconi anemia complementation group N
+      - Pancreatic cancer 3
+      - "Breast-ovarian cancer, familial, 5"
+    go_biological_process:
+      - animal organ morphogenesis
+      - apoptotic process
+      - "double-strand break repair via homologous recombination"
+      - embryonic organ development
+      - inner cell mass cell proliferation
+      - mesoderm development
+      - multicellular organism growth
+      - negative regulation of apoptotic process
+    kegg_pathways:
+      - Homologous recombination
+      - Fanconi anemia pathway
+    cross_edges:
+      - to: TGFBR1
+        relation: COMPENSATES
+        hr: 0.0680
+        p: 1.50e-04
+        n: 100
+      - to: TGFBR2
+        relation: COMPENSATES
+        hr: 0.2740
+        p: 2.21e-05
+        n: 134
+      - to: PIK3R1
+        relation: COMPENSATES
+        hr: 0.2830
+        p: 3.46e-05
+        n: 148
+  - id: PMS2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: PMS1 homolog 2, mismatch repair system component
+    chromosome: 7
+    ncbi_summary: "The protein encoded by this gene is a key component of the mismatch repair system that functions to correct DNA mismatches and small insertions and deletions that can occur during DNA replication and homologous recombination. This protein forms heterodimers with the gene product of the mutL homolog 1 (MLH1) gene to form the MutL-alpha heterodimer."
+    protein_name: Mismatch repair endonuclease PMS2
+    uniprot_function: "Component of the post-replicative DNA mismatch repair system (MMR) (PubMed:30653781, PubMed:35189042). Heterodimerizes with MLH1 to form MutL alpha. DNA repair is initiated by MutS alpha (MSH2-MSH6) o..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Lynch syndrome 4
+      - Mismatch repair cancer syndrome 4
+    go_biological_process:
+      - mismatch repair
+      - positive regulation of isotype switching to IgA isotypes
+      - positive regulation of isotype switching to IgG isotypes
+      - response to xenobiotic stimulus
+      - somatic hypermutation of immunoglobulin genes
+      - somatic recombination of immunoglobulin gene segments
+    kegg_pathways:
+      - Ribosome
+  - id: POLD1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: DNA polymerase delta 1, catalytic subunit
+    chromosome: 19
+    ncbi_summary: "This gene encodes the 125-kDa catalytic subunit of DNA polymerase delta. DNA polymerase delta possesses both polymerase and 3' to 5' exonuclease activity and plays a critical role in DNA replication and repair."
+    protein_name: DNA polymerase delta catalytic subunit
+    uniprot_function: "As the catalytic component of the trimeric (Pol-delta3 complex) and tetrameric DNA polymerase delta complexes (Pol-delta4 complex), plays a crucial role in high fidelity genome replication, including ..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Colorectal cancer 10
+      - Mandibular hypoplasia, deafness, progeroid features, and lipodystrophy syndrome
+      - Immunodeficiency 120
+    go_biological_process:
+      - "base-excision repair, gap-filling"
+      - cellular response to UV
+      - DNA biosynthetic process
+      - DNA repair
+      - DNA replication
+      - DNA replication proofreading
+      - DNA synthesis involved in DNA repair
+      - "DNA-templated DNA replication"
+    mutations:
+      - change: X987_splice
+        cancer_type: Colorectal Cancer
+        hr: 0.3449
+        p: 0.0438
+        direction: protective
+        n: 29
+  - id: POLE
+    string_ppi_degree: 0
+    position: leaf
+    full_name: DNA polymerase epsilon, catalytic subunit
+    chromosome: 12
+    ncbi_summary: This gene encodes the catalytic subunit of DNA polymerase epsilon. The enzyme is involved in DNA repair and chromosomal DNA replication.
+    protein_name: DNA polymerase epsilon catalytic subunit A
+    uniprot_function: "Catalytic component of the DNA polymerase epsilon complex (PubMed:10801849). Participates in chromosomal DNA replication (By similarity). Required during synthesis of the leading DNA strands at the re..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Colorectal cancer 12
+      - Facial dysmorphism, immunodeficiency, livedo, and short stature
+      - Intrauterine growth retardation, metaphyseal dysplasia, adrenal hypoplasia congenita, genital anomalies, and immunodeficiency
+    go_biological_process:
+      - "base-excision repair, gap-filling"
+      - DNA replication
+      - DNA replication proofreading
+      - DNA synthesis involved in DNA repair
+      - "DNA-templated DNA replication"
+      - embryonic organ development
+      - G1/S transition of mitotic cell cycle
+      - leading strand elongation
+    kegg_pathways:
+      - DNA replication
+      - Base excision repair
+      - Nucleotide excision repair
+  - id: RAD51B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: RAD51 paralog B
+    chromosome: 14
+    ncbi_summary: The protein encoded by this gene is a member of the RAD51 protein family. RAD51 family members are evolutionarily conserved proteins essential for DNA repair by homologous recombination.
+    protein_name: DNA repair protein RAD51 homolog 2
+    uniprot_function: "Involved in the homologous recombination repair (HRR) pathway of double-stranded DNA breaks arising during DNA replication or induced by DNA-damaging agents. May promote the assembly of presynaptic RA..."
+    subcellular_location: [Nucleus]
+    go_biological_process:
+      - blastocyst growth
+      - DNA recombination
+      - DNA repair
+      - "double-strand break repair via homologous recombination"
+      - positive regulation of cell population proliferation
+      - positive regulation of G2/M transition of mitotic cell cycle
+      - reciprocal meiotic recombination
+      - somite development
+    kegg_pathways:
+      - Homologous recombination
+  - id: RAD51C
+    string_ppi_degree: 0
+    position: hub
+    full_name: RAD51 paralog C
+    chromosome: 17
+    ncbi_summary: This gene is a member of the RAD51 family. RAD51 family members are highly similar to bacterial RecA and Saccharomyces cerevisiae Rad51 and are known to be involved in the homologous recombination and repair of DNA.
+    protein_name: DNA repair protein RAD51 homolog 3
+    uniprot_function: "Essential for the homologous recombination (HR) pathway of DNA repair. Involved in the homologous recombination repair (HRR) pathway of double-stranded DNA breaks arising during DNA replication or ind..."
+    subcellular_location: [Nucleus, Cytoplasm, Cytoplasm, perinuclear region]
+    diseases:
+      - Fanconi anemia complementation group O
+      - "Breast-ovarian cancer, familial, 3"
+    go_biological_process:
+      - DNA recombination
+      - DNA repair
+      - "double-strand break repair via homologous recombination"
+      - female meiosis sister chromatid cohesion
+      - male meiosis I
+      - meiotic DNA recombinase assembly
+      - positive regulation of G2/M transition of mitotic cell cycle
+      - reciprocal meiotic recombination
+    kegg_pathways:
+      - Homologous recombination
+      - Fanconi anemia pathway
+  - id: RAD51D
+    string_ppi_degree: 0
+    position: leaf
+    full_name: RAD51 paralog D
+    chromosome: 17
+    ncbi_summary: The protein encoded by this gene is a member of the RAD51 protein family. RAD51 family members are highly similar to bacterial RecA and Saccharomyces cerevisiae Rad51, which are known to be involved in the homologous recombination and repair of DNA.
+    protein_name: DNA repair protein RAD51 homolog 4
+    uniprot_function: "Involved in the homologous recombination repair (HRR) pathway of double-stranded DNA breaks arising during DNA replication or induced by DNA-damaging agents. Bind to single-stranded DNA (ssDNA) and ha..."
+    subcellular_location: [Nucleus, Cytoplasm, cytoskeleton, microtubule organizing center, centrosome, Chromosome, telomere]
+    diseases:
+      - "Breast-ovarian cancer, familial, 4"
+    go_biological_process:
+      - DNA repair
+      - DNA strand invasion
+      - "double-strand break repair via homologous recombination"
+      - "interstrand cross-link repair"
+      - reciprocal meiotic recombination
+      - regulation of cell cycle
+      - telomere maintenance
+      - telomere maintenance via recombination
+    kegg_pathways:
+      - Homologous recombination
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

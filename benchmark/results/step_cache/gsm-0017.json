@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Weekly teaching earnings",
+    "operation": "multiply",
+    "operands": [
+      35,
+      20
+    ],
+    "result": 700,
+    "variable": "weekly_teaching_pay"
+  },
+  {
+    "step": 2,
+    "description": "Weekly coaching earnings",
+    "operation": "multiply",
+    "operands": [
+      15,
+      30
+    ],
+    "result": 450,
+    "variable": "weekly_coaching_pay"
+  },
+  {
+    "step": 3,
+    "description": "Total weekly earnings",
+    "operation": "add",
+    "operands": [
+      700,
+      450
+    ],
+    "result": 1150,
+    "variable": "weekly_total_pay"
+  },
+  {
+    "step": 4,
+    "description": "Annual salary",
+    "operation": "multiply",
+    "operands": [
+      1150,
+      50
+    ],
+    "result": 57500.0,
+    "variable": "annual_salary"
+  }
+]

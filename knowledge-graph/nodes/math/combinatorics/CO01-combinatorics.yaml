@@ -1,0 +1,173 @@
+id: CO01-combinatorics
+type: knowledge
+domain: combinatorics
+name: "Combinatorics"
+
+concepts:
+  # === Counting ===
+  - id: counting_principle
+    name: "Multiplication Principle"
+    latex: "|A \\times B| = |A| \\cdot |B|"
+    meaning: "if task has m choices then n choices, total = m*n"
+
+  - id: permutation_count
+    name: "Permutations"
+    latex: "P(n, k) = \\frac{n!}{(n-k)!}"
+    meaning: "ordered selections of k from n"
+    action:
+      math: "math.perm(n, k)"
+    curried: "lambda n: lambda k: math.perm(n, k)"
+
+  - id: combination_count
+    name: "Combinations"
+    latex: "\\binom{n}{k} = \\frac{n!}{k!(n-k)!}"
+    meaning: "unordered selections of k from n"
+    action:
+      math: "math.comb(n, k)"
+      scipy: "scipy.special.comb(n, k, exact=True)"
+    curried: "lambda n: lambda k: math.comb(n, k)"
+
+  - id: multiset_coefficient
+    name: "Multiset Coefficient"
+    latex: "\\binom{n+k-1}{k} = \\left(\\!\\!\\binom{n}{k}\\!\\!\\right)"
+    meaning: "combinations with repetition; stars and bars"
+    curried: "lambda n: lambda k: math.comb(n + k - 1, k)"
+
+  - id: multinomial_coefficient
+    name: "Multinomial Coefficient"
+    latex: "\\binom{n}{k_1, k_2, \\ldots, k_m} = \\frac{n!}{k_1! k_2! \\cdots k_m!}"
+    action:
+      python: "math.factorial(n) // prod(math.factorial(k) for k in ks)"
+
+  - id: inclusion_exclusion
+    name: "Inclusion-Exclusion"
+    latex: "|A_1 \\cup \\cdots \\cup A_n| = \\sum |A_i| - \\sum |A_i \\cap A_j| + \\cdots"
+    meaning: "count union by alternating sums of intersection sizes"
+
+  - id: pigeonhole
+    name: "Pigeonhole Principle"
+    statement: "if n items in m containers and n > m, at least one container has > 1 item"
+    generalized: "at least ceil(n/m) items in some container"
+
+  - id: derangement
+    name: "Derangement"
+    latex: "D_n = n! \\sum_{k=0}^{n} \\frac{(-1)^k}{k!}"
+    meaning: "permutations with no fixed points"
+    action:
+      sympy: "subfactorial(n)"
+    curried: "lambda n: sympy.subfactorial(n)"
+
+  # === Generating Functions ===
+  - id: ordinary_gf
+    name: "Ordinary Generating Function"
+    latex: "F(x) = \\sum_{n=0}^{\\infty} a_n x^n"
+    meaning: "encode sequence as power series; multiply for convolution"
+
+  - id: exponential_gf
+    name: "Exponential Generating Function"
+    latex: "\\hat{F}(x) = \\sum_{n=0}^{\\infty} a_n \\frac{x^n}{n!}"
+    meaning: "encode labeled structures; multiply for labeled products"
+
+  - id: catalan_numbers
+    name: "Catalan Numbers"
+    latex: "C_n = \\frac{1}{n+1}\\binom{2n}{n}"
+    meaning: "counts: balanced parentheses, binary trees, triangulations, Dyck paths"
+    action:
+      sympy: "catalan(n)"
+    curried: "lambda n: sympy.catalan(n)"
+
+  - id: stirling_first
+    name: "Stirling Numbers (First Kind)"
+    latex: "\\left[\\begin{matrix} n \\\\ k \\end{matrix}\\right]"
+    meaning: "number of permutations of n with exactly k cycles"
+    action:
+      sympy: "stirling(n, k, kind=1)"
+
+  - id: stirling_second
+    name: "Stirling Numbers (Second Kind)"
+    latex: "\\left\\{\\begin{matrix} n \\\\ k \\end{matrix}\\right\\}"
+    meaning: "number of ways to partition n elements into k nonempty subsets"
+    action:
+      sympy: "stirling(n, k, kind=2)"
+
+  - id: bell_numbers
+    name: "Bell Numbers"
+    latex: "B_n = \\sum_{k=0}^n S(n,k)"
+    meaning: "total number of partitions of n elements"
+    action:
+      sympy: "bell(n)"
+
+  # === Recurrences ===
+  - id: recurrence_relation
+    name: "Recurrence Relation"
+    latex: "a_n = f(a_{n-1}, a_{n-2}, \\ldots)"
+    meaning: "sequence defined in terms of previous terms"
+
+  - id: linear_recurrence
+    name: "Linear Recurrence"
+    latex: "a_n = c_1 a_{n-1} + c_2 a_{n-2} + \\cdots + c_k a_{n-k}"
+    method: "characteristic equation; matrix exponentiation for fast computation"
+    action:
+      sympy: "rsolve(f(n) - c1*f(n-1) - c2*f(n-2), f(n))"
+      numpy_matrix: "np.linalg.matrix_power(companion_matrix, n) @ initial"
+
+  - id: master_theorem
+    name: "Master Theorem"
+    latex: "T(n) = aT(n/b) + f(n)"
+    meaning: "solve divide-and-conquer recurrences"
+    cases:
+      - "f = O(n^{log_b(a)-eps}): T = Theta(n^{log_b(a)})"
+      - "f = Theta(n^{log_b(a)}): T = Theta(n^{log_b(a)} log n)"
+      - "f = Omega(n^{log_b(a)+eps}): T = Theta(f(n))"
+
+  # === Designs and Codes ===
+  - id: latin_square
+    name: "Latin Square"
+    meaning: "n×n array with n symbols, each appearing exactly once per row and column"
+
+  - id: ramsey_number
+    name: "Ramsey Number"
+    latex: "R(r, s)"
+    meaning: "minimum n such that any 2-coloring of K_n contains monochromatic K_r or K_s"
+
+  - id: partition_of_integer
+    name: "Integer Partition"
+    latex: "p(n)"
+    meaning: "number of ways to write n as sum of positive integers (order irrelevant)"
+    action:
+      sympy: "npartitions(n)"
+    curried: "lambda n: sympy.npartitions(n)"
+    links: [partition_function]
+
+theorems:
+  - name: "Binomial Theorem"
+    latex: "(x+y)^n = \\sum_{k=0}^n \\binom{n}{k} x^k y^{n-k}"
+
+  - name: "Vandermonde's Identity"
+    latex: "\\binom{m+n}{r} = \\sum_{k=0}^r \\binom{m}{k}\\binom{n}{r-k}"
+
+  - name: "Burnside's Lemma"
+    latex: "|X/G| = \\frac{1}{|G|} \\sum_{g \\in G} |X^g|"
+    meaning: "count orbits = average number of fixed points"
+
+  - name: "Polya Enumeration"
+    statement: "counts distinct objects under group symmetry via cycle index"
+
+  - name: "Ramsey's Theorem"
+    statement: "for any r,s there exists R(r,s) such that complete graphs large enough must contain monochromatic cliques"
+
+edges:
+  - to: NT01-number-theory
+    relation: REQUIRES
+    note: "factorials, binomials, number-theoretic functions"
+  - to: AA01-abstract-algebra
+    relation: USES
+    note: "group actions (Burnside, Polya), symmetric group"
+  - to: A03-graph-theory
+    relation: USES
+    note: "Ramsey theory, graph coloring"
+  - to: P01-probability-statistics
+    relation: USED_BY
+    note: "counting for discrete probability"
+  - to: N04-aggregation-notation
+    relation: REQUIRES

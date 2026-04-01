@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Old daily revenue from tractors",
+    "operation": "multiply",
+    "operands": [
+      10,
+      100
+    ],
+    "result": 1000,
+    "variable": "old_daily_revenue"
+  },
+  {
+    "step": 2,
+    "description": "New daily revenue from silos",
+    "operation": "multiply",
+    "operands": [
+      5,
+      220
+    ],
+    "result": 1100,
+    "variable": "new_daily_revenue"
+  },
+  {
+    "step": 3,
+    "description": "Difference in daily revenue",
+    "operation": "subtract",
+    "operands": [
+      1100,
+      1000
+    ],
+    "result": 100,
+    "variable": "revenue_difference"
+  },
+  {
+    "step": 4,
+    "description": "Percentage increase over old revenue",
+    "operation": "divide",
+    "operands": [
+      100,
+      1000
+    ],
+    "result": 0.1,
+    "variable": "percentage_decimal"
+  },
+  {
+    "step": 5,
+    "description": "Convert to percentage",
+    "operation": "multiply",
+    "operands": [
+      0.1,
+      100
+    ],
+    "result": 10.0,
+    "variable": "percentage_increase"
+  }
+]

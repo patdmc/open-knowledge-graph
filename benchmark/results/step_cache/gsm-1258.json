@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "cost of each additional phone",
+    "operation": "divide",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 10,
+    "variable": "additional_phone_cost"
+  },
+  {
+    "step": 2,
+    "description": "number of additional phones",
+    "operation": "subtract",
+    "operands": [
+      5,
+      1
+    ],
+    "result": 4,
+    "variable": "additional_phone_count"
+  },
+  {
+    "step": 3,
+    "description": "total cost of additional phones",
+    "operation": "multiply",
+    "operands": [
+      10,
+      4
+    ],
+    "result": 40,
+    "variable": "additional_phones_total"
+  },
+  {
+    "step": 4,
+    "description": "total plan cost",
+    "operation": "add",
+    "operands": [
+      20,
+      40
+    ],
+    "result": 60,
+    "variable": "total_plan_cost"
+  }
+]

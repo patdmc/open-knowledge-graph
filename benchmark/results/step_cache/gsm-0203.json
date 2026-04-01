@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cheese slices per sandwich",
+    "operation": "multiply",
+    "operands": [
+      7,
+      2
+    ],
+    "result": 14,
+    "variable": "sandwich_cheese"
+  },
+  {
+    "step": 2,
+    "description": "Cheese slices per omelet (one more than sandwich)",
+    "operation": "add",
+    "operands": [
+      2,
+      1
+    ],
+    "result": 3,
+    "variable": "omelet_slices_each"
+  },
+  {
+    "step": 3,
+    "description": "Cheese slices for all omelets",
+    "operation": "multiply",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 9,
+    "variable": "omelet_cheese"
+  },
+  {
+    "step": 4,
+    "description": "Cheese slices for sandwiches plus omelets",
+    "operation": "add",
+    "operands": [
+      14,
+      9
+    ],
+    "result": 23,
+    "variable": "sandwich_plus_omelet"
+  },
+  {
+    "step": 5,
+    "description": "Total cheese slices including macaroni",
+    "operation": "add",
+    "operands": [
+      23,
+      8
+    ],
+    "result": 31,
+    "variable": "total_cheese"
+  }
+]

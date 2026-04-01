@@ -1,0 +1,23 @@
+id: PW-Invadopodiaformation
+type: knowledge
+domain: biology
+name: Invadopodia formation
+reactome_id: R-HSA-8941237
+
+description: "Podosomes and invadopodia are actin-based dynamic protrusions of the plasma membrane of metazoan cells that represent sites of attachment to and degradation of the extracellular matrix (Linder & Kopp 2005, Murphy & Courtneidge 2011). They are characteristically composed of an actin-rich core surrounded by adhesion and scaffolding proteins. Current convention is to use the term podosome for the structures found in normal cells (such as monocytic cells, endothelial cells and smooth muscle cells) and in Src-transformed fibroblasts, and invadopodium for the structures found in cancer cells."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: SH3PXD2A binds ADAM12,ADAM15,ADAM19
+    reactome_id: R-HSA-8941234
+    type: Reaction
+
+edges:

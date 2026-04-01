@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Sue's cookies on Monday",
+    "operation": "multiply",
+    "operands": [
+      4,
+      5
+    ],
+    "result": 20,
+    "variable": "sue_monday"
+  },
+  {
+    "step": 2,
+    "description": "Sue's cookies on Tuesday",
+    "operation": "multiply",
+    "operands": [
+      2,
+      13
+    ],
+    "result": 26,
+    "variable": "sue_tuesday"
+  },
+  {
+    "step": 3,
+    "description": "Sue's total cookies",
+    "operation": "add",
+    "operands": [
+      20,
+      26
+    ],
+    "result": 46,
+    "variable": "sue_total"
+  },
+  {
+    "step": 4,
+    "description": "Sister's total cookies",
+    "operation": "add",
+    "operands": [
+      5,
+      13
+    ],
+    "result": 18,
+    "variable": "sister_total"
+  },
+  {
+    "step": 5,
+    "description": "Difference in cookies",
+    "operation": "subtract",
+    "operands": [
+      46,
+      18
+    ],
+    "result": 28,
+    "variable": "cookie_difference"
+  },
+  {
+    "step": 6,
+    "description": "Calorie difference",
+    "operation": "multiply",
+    "operands": [
+      28,
+      200
+    ],
+    "result": 5600,
+    "variable": "calorie_difference"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "chunk_index": 53,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "5. Results > 7.2 The Proposed Standard > [part 2/2]",
+  "section_path": [
+    "5. Results",
+    "7.2 The Proposed Standard",
+    "[part 2/2]"
+  ],
+  "char_count": 797,
+  "keyphrases": [
+    {
+      "phrase": "knowledge graph revalidation",
+      "score": 0.617
+    },
+    {
+      "phrase": "citing weakened foundation",
+      "score": 0.4953
+    },
+    {
+      "phrase": "cited revalidation signalthe",
+      "score": 0.4935
+    },
+    {
+      "phrase": "current citation propagation",
+      "score": 0.4877
+    },
+    {
+      "phrase": "math citations trace",
+      "score": 0.4646
+    },
+    {
+      "phrase": "propagation published result",
+      "score": 0.44
+    },
+    {
+      "phrase": "nodes automatically invalidated",
+      "score": 0.4125
+    },
+    {
+      "phrase": "foundation node math",
+      "score": 0.3883
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

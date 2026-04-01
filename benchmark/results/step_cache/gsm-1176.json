@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate chalk used on Monday at 45%",
+    "operation": "multiply",
+    "operands": [
+      5,
+      0.45
+    ],
+    "result": 2.25,
+    "variable": "chalk_used_monday"
+  },
+  {
+    "step": 2,
+    "description": "Calculate remaining chalk after Monday",
+    "operation": "subtract",
+    "operands": [
+      5,
+      2.25
+    ],
+    "result": 2.75,
+    "variable": "chalk_after_monday"
+  },
+  {
+    "step": 3,
+    "description": "Calculate chalk used on day 2 at 20%",
+    "operation": "multiply",
+    "operands": [
+      2.75,
+      0.2
+    ],
+    "result": 0.55,
+    "variable": "chalk_used_day2"
+  },
+  {
+    "step": 4,
+    "description": "Calculate remaining chalk after day 2",
+    "operation": "subtract",
+    "operands": [
+      2.75,
+      0.55
+    ],
+    "result": 2.2,
+    "variable": "chalk_after_day2"
+  },
+  {
+    "step": 5,
+    "description": "Calculate chalk used on day 3 at 20%",
+    "operation": "multiply",
+    "operands": [
+      2.2,
+      0.2
+    ],
+    "result": 0.44,
+    "variable": "chalk_used_day3"
+  },
+  {
+    "step": 6,
+    "description": "Calculate remaining chalk after day 3 (below 2-inch recycle threshold)",
+    "operation": "subtract",
+    "operands": [
+      2.2,
+      0.44
+    ],
+    "result": 1.76,
+    "variable": "chalk_after_day3"
+  },
+  {
+    "step": 7,
+    "description": "Count usable days: day 2 (2.2 >= 2) plus day 3 (1.76 < 2 triggers recycle after use)",
+    "operation": "add",
+    "operands": [
+      1,
+      1
+    ],
+    "result": 2.0,
+    "variable": "days_before_recycle"
+  }
+]

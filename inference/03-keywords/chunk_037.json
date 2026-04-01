@@ -1,0 +1,57 @@
+{
+  "chunk_index": 37,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "12. Discussion",
+  "section_path": [
+    "12. Discussion"
+  ],
+  "char_count": 5936,
+  "keyphrases": [
+    {
+      "phrase": "collective intelligence growth",
+      "score": 0.5473
+    },
+    {
+      "phrase": "implies knowledge growth",
+      "score": 0.5148
+    },
+    {
+      "phrase": "economic structures encoding",
+      "score": 0.4556
+    },
+    {
+      "phrase": "driven collective uncertainty",
+      "score": 0.4496
+    },
+    {
+      "phrase": "resource accumulation",
+      "score": 0.4445
+    },
+    {
+      "phrase": "process inherently",
+      "score": 0.3573
+    },
+    {
+      "phrase": "agi treats resource",
+      "score": 0.3511
+    },
+    {
+      "phrase": "implications immediate theorems",
+      "score": 0.3375
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "A gradient account of collective intelligence growth.",
+      "The encoding principle and the future of work.",
+      "Attribution and the ownership question.",
+      "The civilization-scale knowledge system as empirical evidence.",
+      "Limits of the formal account."
+    ],
+    "has_math": true
+  }
+}

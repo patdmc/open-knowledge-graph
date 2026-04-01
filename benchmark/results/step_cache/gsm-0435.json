@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "subtract lollipops Ray kept from total",
+    "operation": "subtract",
+    "operands": [
+      25,
+      5
+    ],
+    "result": 20,
+    "variable": "lollipops to share"
+  },
+  {
+    "step": 2,
+    "description": "divide shared lollipops equally among four friends",
+    "operation": "divide",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 5.0,
+    "variable": "lollipops per friend"
+  }
+]

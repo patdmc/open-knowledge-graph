@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "total ratio parts",
+    "operation": "add",
+    "operands": [
+      7,
+      13
+    ],
+    "result": 20,
+    "variable": "total_parts"
+  },
+  {
+    "step": 2,
+    "description": "sugar fraction of total",
+    "operation": "divide",
+    "operands": [
+      7,
+      20
+    ],
+    "result": 0.35,
+    "variable": "sugar_ratio"
+  },
+  {
+    "step": 3,
+    "description": "teaspoons of sugar used",
+    "operation": "multiply",
+    "operands": [
+      0.35,
+      120
+    ],
+    "result": 42.0,
+    "variable": "sugar_teaspoons"
+  }
+]

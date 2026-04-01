@@ -1,0 +1,60 @@
+id: PROC-CELLADHESION
+type: knowledge
+domain: biology
+name: cell adhesion
+go_id: GO:0007155
+
+definition: The attachment of a cell, either to another cell or to an underlying substrate such as the extracellular matrix, via cell adhesion molecules.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0031589
+    name: "cell-substrate adhesion"
+    relation: is_a
+  - id: GO:0061343
+    name: cell adhesion involved in heart morphogenesis
+    relation: is_a
+  - id: GO:0030155
+    name: regulation of cell adhesion
+    relation: regulates
+  - id: GO:0033627
+    name: cell adhesion mediated by integrin
+    relation: is_a
+  - id: GO:0045785
+    name: positive regulation of cell adhesion
+    relation: positively_regulates
+  - id: GO:0098631
+    name: cell adhesion mediator activity
+    relation: part_of
+  - id: GO:0098636
+    name: protein complex involved in cell adhesion
+    relation: capable_of_part_of
+  - id: GO:0098609
+    name: "cell-cell adhesion"
+    relation: is_a
+  - id: GO:0120078
+    name: cell adhesion involved in sprouting angiogenesis
+    relation: is_a
+  - id: GO:0007162
+    name: negative regulation of cell adhesion
+    relation: negatively_regulates
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-TissueArchitecture encode components of cell adhesion"

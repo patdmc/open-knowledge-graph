@@ -1,0 +1,51 @@
+{
+  "chunk_index": 45,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "3. Knowledge Graph Schema",
+  "section_path": [
+    "3. Knowledge Graph Schema"
+  ],
+  "char_count": 166,
+  "keyphrases": [
+    {
+      "phrase": "knowledge graph schemaknowledge",
+      "score": 0.8305
+    },
+    {
+      "phrase": "schemaknowledge graph schema",
+      "score": 0.7606
+    },
+    {
+      "phrase": "graph schema framework",
+      "score": 0.7239
+    },
+    {
+      "phrase": "typed nodes provenance",
+      "score": 0.6414
+    },
+    {
+      "phrase": "schema framework implemented",
+      "score": 0.6152
+    },
+    {
+      "phrase": "provenance carrying edges",
+      "score": 0.6121
+    },
+    {
+      "phrase": "directed graph typed",
+      "score": 0.5162
+    },
+    {
+      "phrase": "framework implemented directed",
+      "score": 0.3986
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

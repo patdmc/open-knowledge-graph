@@ -1,0 +1,105 @@
+id: PR09-fundamental-theorem-algebra
+type: proof
+domain: analysis
+name: "Fundamental Theorem of Algebra"
+target:
+  statement: "\\text{Every non-constant polynomial } p(z) \\in \\mathbb{C}[z] \\text{ has a root in } \\mathbb{C}"
+  type: theorem
+method: contradiction
+
+assertions:
+  - step: 1
+    id: hyp-no-root
+    type: hypothesis
+    statement: "p(z) \\neq 0 \\text{ for all } z \\in \\mathbb{C}"
+    justification: "assume for contradiction"
+    depends_on: []
+
+  - step: 2
+    id: g-holomorphic
+    type: claim
+    statement: "g(z) = \\frac{1}{p(z)} \\text{ is entire (holomorphic on all of } \\mathbb{C})"
+    justification: "p has no zeros by hypothesis, so 1/p is well-defined and holomorphic everywhere"
+    depends_on: [hyp-no-root]
+    references: [holomorphic]
+
+  - step: 3
+    id: p-large-for-large-z
+    type: lemma
+    statement: "|p(z)| \\to \\infty \\text{ as } |z| \\to \\infty"
+    justification: "leading term dominates: |p(z)| >= |a_n||z|^n - |a_{n-1}||z|^{n-1} - ... -> infinity"
+    depends_on: []
+    references: [modulus]
+
+  - step: 4
+    id: g-bounded-outside
+    type: claim
+    statement: "|g(z)| = \\frac{1}{|p(z)|} \\to 0 \\text{ as } |z| \\to \\infty"
+    justification: "reciprocal of quantity going to infinity goes to zero"
+    depends_on: [p-large-for-large-z, g-holomorphic]
+
+  - step: 5
+    id: g-bounded-inside
+    type: claim
+    statement: "g \\text{ is bounded on } \\{|z| \\leq R\\} \\text{ for any } R"
+    justification: "continuous function on compact set is bounded (Heine-Borel)"
+    depends_on: [g-holomorphic]
+    references: [compactness]
+
+  - step: 6
+    id: g-bounded
+    type: claim
+    statement: "g \\text{ is bounded on all of } \\mathbb{C}"
+    justification: "bounded inside disk of radius R (step 5), bounded outside for large R (step 4)"
+    depends_on: [g-bounded-outside, g-bounded-inside]
+
+  - step: 7
+    id: apply-liouville
+    type: claim
+    statement: "g \\text{ is constant}"
+    justification: "Liouville's theorem: bounded entire function is constant"
+    depends_on: [g-bounded, g-holomorphic]
+
+  - step: 8
+    id: p-constant
+    type: claim
+    statement: "p(z) = 1/g \\text{ is constant}"
+    justification: "g = 1/p is constant implies p is constant"
+    depends_on: [apply-liouville]
+
+  - step: 9
+    id: contradiction-nonconstant
+    type: contradiction
+    statement: "p \\text{ is constant, but } p \\text{ was assumed non-constant}"
+    justification: "contradicts the premise that deg(p) >= 1"
+    depends_on: [p-constant, hyp-no-root]
+
+  - step: 10
+    id: conclusion
+    type: theorem
+    statement: "\\text{Every non-constant } p(z) \\in \\mathbb{C}[z] \\text{ has at least one root}"
+    justification: "hypothesis of no root leads to contradiction via Liouville"
+    depends_on: [contradiction-nonconstant]
+
+qed: true
+
+corollaries:
+  - id: n-roots
+    statement: "\\text{A degree-}n \\text{ polynomial over } \\mathbb{C} \\text{ has exactly } n \\text{ roots (counted with multiplicity)}"
+    justification: "factor out (z - r1), repeat; degree drops by 1 each time"
+    depends_on: [conclusion]
+
+  - id: c-algebraically-closed
+    statement: "\\mathbb{C} \\text{ is algebraically closed}"
+    justification: "definition: every non-constant polynomial has a root"
+    depends_on: [conclusion]
+
+edges:
+  - to: AN01-complex-analysis
+    relation: PROVES_FROM
+  - to: AA01-abstract-algebra
+    relation: USES
+    note: "polynomial rings, algebraically closed fields"
+  - to: TOP01-topology
+    relation: USES
+    note: "compactness for boundedness on disk"

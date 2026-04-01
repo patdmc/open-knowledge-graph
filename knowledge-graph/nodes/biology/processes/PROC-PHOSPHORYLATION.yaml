@@ -1,0 +1,75 @@
+id: PROC-PHOSPHORYLATION
+type: knowledge
+domain: biology
+name: protein phosphorylation
+go_id: GO:0006468
+
+definition: The process of introducing a phosphate group on to a protein.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1990508
+    name: CKM complex
+    relation: capable_of_part_of
+  - id: GO:0002030
+    name: "inhibitory G protein-coupled receptor phosphorylation"
+    relation: is_a
+  - id: GO:0018109
+    name: "peptidyl-arginine phosphorylation"
+    relation: is_a
+  - id: GO:0018108
+    name: "peptidyl-tyrosine phosphorylation"
+    relation: is_a
+  - id: GO:0018105
+    name: "peptidyl-serine phosphorylation"
+    relation: is_a
+  - id: GO:0018107
+    name: "peptidyl-threonine phosphorylation"
+    relation: is_a
+  - id: GO:0018106
+    name: "peptidyl-histidine phosphorylation"
+    relation: is_a
+  - id: GO:0018217
+    name: "peptidyl-aspartic acid phosphorylation"
+    relation: is_a
+  - id: GO:0001932
+    name: regulation of protein phosphorylation
+    relation: regulates
+  - id: GO:0001933
+    name: negative regulation of protein phosphorylation
+    relation: negatively_regulates
+  - id: GO:0001934
+    name: positive regulation of protein phosphorylation
+    relation: positively_regulates
+  - id: GO:0046777
+    name: protein autophosphorylation
+    relation: is_a
+  - id: GO:0007252
+    name: "I-kappaB phosphorylation"
+    relation: is_a
+  - id: GO:0007258
+    name: JUN phosphorylation
+    relation: is_a
+  - id: GO:0010998
+    name: regulation of translational initiation by eIF2 alpha phosphorylation
+    relation: is_a
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-PI3K_Growth encode components of protein phosphorylation"

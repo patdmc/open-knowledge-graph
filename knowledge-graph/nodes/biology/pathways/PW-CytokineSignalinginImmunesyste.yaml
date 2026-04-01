@@ -1,0 +1,44 @@
+id: PW-CytokineSignalinginImmunesyste
+type: knowledge
+domain: biology
+name: Cytokine Signaling in Immune system
+reactome_id: R-HSA-1280215
+
+description: Cytokines are small proteins that regulate and mediate immunity, inflammation, and hematopoiesis. They are secreted in response to immune stimuli, and usually act briefly, locally, at very low concentrations. Cytokines bind to specific membrane receptors, which then signal the cell via second messengers, to regulate cellular activity.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Interferon Signaling
+    reactome_id: R-HSA-913531
+    type: Pathway
+  - name: Signaling by Interleukins
+    reactome_id: R-HSA-449147
+    type: Pathway
+  - name: Growth hormone receptor signaling
+    reactome_id: R-HSA-982772
+    type: Pathway
+  - name: Prolactin receptor signaling
+    reactome_id: R-HSA-1170546
+    type: Pathway
+  - name: "TNFR2 non-canonical NF-kB pathway"
+    reactome_id: R-HSA-5668541
+    type: Pathway
+  - name: FLT3 Signaling
+    reactome_id: R-HSA-9607240
+    type: Pathway
+  - name: "Signaling by CSF3 (G-CSF)"
+    reactome_id: R-HSA-9674555
+    type: Pathway
+  - name: "Signaling by CSF1 (M-CSF) in myeloid cells"
+    reactome_id: R-HSA-9680350
+    type: Pathway
+
+edges:

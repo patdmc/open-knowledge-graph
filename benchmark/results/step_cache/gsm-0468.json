@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Convert Monday pairs to shoes",
+    "operation": "multiply",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 10,
+    "variable": "monday_shoes"
+  },
+  {
+    "step": 2,
+    "description": "Convert Wednesday pairs to shoes",
+    "operation": "multiply",
+    "operands": [
+      15,
+      2
+    ],
+    "result": 30,
+    "variable": "wednesday_shoes"
+  },
+  {
+    "step": 3,
+    "description": "Convert Friday pairs to shoes",
+    "operation": "multiply",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 60,
+    "variable": "friday_shoes"
+  },
+  {
+    "step": 4,
+    "description": "Add Monday shoes to starting total",
+    "operation": "add",
+    "operands": [
+      200,
+      10
+    ],
+    "result": 210,
+    "variable": "total_after_monday"
+  },
+  {
+    "step": 5,
+    "description": "Add Wednesday shoes to running total",
+    "operation": "add",
+    "operands": [
+      210,
+      30
+    ],
+    "result": 240,
+    "variable": "total_after_wednesday"
+  },
+  {
+    "step": 6,
+    "description": "Add Friday shoes to running total",
+    "operation": "add",
+    "operands": [
+      240,
+      60
+    ],
+    "result": 300,
+    "variable": "total_after_friday"
+  },
+  {
+    "step": 7,
+    "description": "Subtract shoes removed on Saturday",
+    "operation": "subtract",
+    "operands": [
+      300,
+      180
+    ],
+    "result": 120,
+    "variable": "total_on_sunday"
+  }
+]

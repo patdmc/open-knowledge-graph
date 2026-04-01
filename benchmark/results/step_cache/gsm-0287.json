@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Stars in three rows of 8",
+    "operation": "multiply",
+    "operands": [
+      3,
+      8
+    ],
+    "result": 24,
+    "variable": "stars_in_8star_rows"
+  },
+  {
+    "step": 2,
+    "description": "Stars in two rows of 6",
+    "operation": "multiply",
+    "operands": [
+      2,
+      6
+    ],
+    "result": 12,
+    "variable": "stars_in_6star_rows"
+  },
+  {
+    "step": 3,
+    "description": "Total stars in known rows",
+    "operation": "add",
+    "operands": [
+      24,
+      12
+    ],
+    "result": 36,
+    "variable": "stars_in_known_rows"
+  },
+  {
+    "step": 4,
+    "description": "Stars remaining for 5-star rows",
+    "operation": "subtract",
+    "operands": [
+      76,
+      36
+    ],
+    "result": 40,
+    "variable": "stars_in_5star_rows"
+  },
+  {
+    "step": 5,
+    "description": "Number of 5-star rows",
+    "operation": "divide",
+    "operands": [
+      40,
+      5
+    ],
+    "result": 8,
+    "variable": "num_5star_rows"
+  }
+]

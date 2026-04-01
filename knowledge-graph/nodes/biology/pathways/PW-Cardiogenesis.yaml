@@ -1,0 +1,80 @@
+id: PW-Cardiogenesis
+type: knowledge
+domain: biology
+name: Cardiogenesis
+reactome_id: R-HSA-9733709
+
+description: "Gradients of Bone Morphogenetic Protein (BMP), Wingless-related integration site (WNT), and NODAL promote the formation of cardiac progenitors anteriolateral to the primitive streak during gastrulation (reviewed in Munoz-Chapuli and Perez-Pomares 2010, Cui et al. 2018, Prummel et al. 2020, Witman et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: EOMES, WDR5, KAT2A, and TBXT bind the MESP1 gene
+    reactome_id: R-HSA-9733781
+    type: Reaction
+  - name: Expression of MESP1 in cardiogenesis
+    reactome_id: R-HSA-9733754
+    type: BlackBoxEvent
+  - name: MESP1 binds the GATA4 gene
+    reactome_id: R-HSA-9733766
+    type: Reaction
+  - name: Expression of GATA4 in cardiogenesis
+    reactome_id: R-HSA-9733705
+    type: BlackBoxEvent
+  - name: "MESP1 binds the NKX2-5 gene"
+    reactome_id: R-HSA-9733744
+    type: Reaction
+  - name: "Expression of NKX2-5 in cardiogenesis"
+    reactome_id: R-HSA-9733772
+    type: BlackBoxEvent
+  - name: "GATA4, SMAD1:SMAD4, MEF2C, TBX20, and NKX2-5 bind the NKX2-5 gene"
+    reactome_id: R-HSA-9734353
+    type: Reaction
+  - name: "NKX2-5 binds the GATA4 gene"
+    reactome_id: R-HSA-9735143
+    type: Reaction
+  - name: "NKX2-5 binds the TBX5 gene"
+    reactome_id: R-HSA-9734337
+    type: Reaction
+  - name: Expression of TBX5 in cardiogenesis
+    reactome_id: R-HSA-9734343
+    type: BlackBoxEvent
+  - name: "NKX2-5 binds the GATA6 gene"
+    reactome_id: R-HSA-9734590
+    type: Reaction
+  - name: Expression of GATA6 in cardiogenesis
+    reactome_id: R-HSA-9734573
+    type: BlackBoxEvent
+  - name: "GATA4 and LEF1:CTNNB1 bind the ISL1 gene"
+    reactome_id: R-HSA-9735179
+    type: Reaction
+  - name: Expression of ISL1 in cardiogenesis
+    reactome_id: R-HSA-9735151
+    type: BlackBoxEvent
+  - name: "GATA4, ISL1:LDB1, TBX20, and NKX2-5 bind the MEF2C gene"
+    reactome_id: R-HSA-9734578
+    type: Reaction
+  - name: Expression of MEF2C in cardiogenesis
+    reactome_id: R-HSA-9734572
+    type: BlackBoxEvent
+  - name: MEF2C binds the SMYD1 (BOP) gene
+    reactome_id: R-HSA-9734597
+    type: Reaction
+  - name: Expression of SMYD1 (BOP) in cardiogenesis
+    reactome_id: R-HSA-9734697
+    type: BlackBoxEvent
+  - name: "GATA4, GATA6, and ISL1:LDB1 bind the HAND2 gene"
+    reactome_id: R-HSA-9735302
+    type: Reaction
+  - name: Expression of HAND2 in cardiogenesis
+    reactome_id: R-HSA-9735335
+    type: BlackBoxEvent
+
+edges:

@@ -1,0 +1,12 @@
+id: SL04-intermediate-value-theorem
+type: shared_lemma
+domain: calculus
+name: "Intermediate Value Theorem"
+statement: "f: [a,b] \\to \\mathbb{R} \\text{ continuous, } f(a) < c < f(b) \\implies \\exists x^* \\in (a,b): f(x^*) = c"
+justification: "completeness of R: let x* = sup{x : f(x) < c}; continuity forces f(x*) = c"
+references: [continuous_map, compactness, limit]
+used_by:
+  - proof: PR20-brouwer-fixed-point
+    step: ivt-applies
+  - proof: PR24-mean-value-theorem
+    step: rolle-conclusion

@@ -1,0 +1,63 @@
+id: PR04-fundamental-theorem-calculus
+type: proof
+domain: calculus
+name: "Fundamental Theorem of Calculus (Part 1)"
+target:
+  statement: "\\text{If } f \\text{ is continuous on } [a,b] \\text{ and } F(x) = \\int_a^x f(t)\\,dt, \\text{ then } F'(x) = f(x)"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: def-F
+    type: definition
+    statement: "F(x) = \\int_a^x f(t) \\, dt"
+    justification: "define F as the accumulation function"
+    depends_on: []
+    references: [definite_integral]
+
+  - step: 2
+    id: diff-quotient
+    type: claim
+    statement: "\\frac{F(x+h) - F(x)}{h} = \\frac{1}{h} \\int_x^{x+h} f(t) \\, dt"
+    justification: "F(x+h) - F(x) = integral from a to x+h minus integral from a to x = integral from x to x+h"
+    depends_on: [def-F]
+    references: [definite_integral]
+
+  - step: 3
+    id: mvt-integral
+    type: claim
+    statement: "\\exists c_h \\in [x, x+h] : \\frac{1}{h}\\int_x^{x+h} f(t)\\,dt = f(c_h)"
+    justification: "Mean Value Theorem for integrals: continuous f on [x, x+h] attains its average"
+    depends_on: [diff-quotient]
+
+  - step: 4
+    id: ch-to-x
+    type: claim
+    statement: "h \\to 0 \\implies c_h \\to x"
+    justification: "c_h is squeezed between x and x+h, both approaching x"
+    depends_on: [mvt-integral]
+
+  - step: 5
+    id: continuity-of-f
+    type: claim
+    statement: "f(c_h) \\to f(x) \\text{ as } c_h \\to x"
+    justification: "f is continuous by hypothesis"
+    depends_on: [ch-to-x]
+    references: [limit]
+
+  - step: 6
+    id: conclusion
+    type: theorem
+    statement: "F'(x) = \\lim_{h \\to 0} \\frac{F(x+h)-F(x)}{h} = \\lim_{h \\to 0} f(c_h) = f(x)"
+    justification: "combining the difference quotient, MVT for integrals, and continuity"
+    depends_on: [diff-quotient, mvt-integral, continuity-of-f]
+    references: [derivative, fundamental_theorem]
+
+qed: true
+
+edges:
+  - to: C01-differential-calculus
+    relation: PROVES_FROM
+  - to: C02-integral-calculus
+    relation: PROVES_FROM

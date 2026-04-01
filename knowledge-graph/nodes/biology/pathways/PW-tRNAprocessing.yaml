@@ -1,0 +1,32 @@
+id: PW-tRNAprocessing
+type: knowledge
+domain: biology
+name: tRNA processing
+reactome_id: R-HSA-72306
+
+description: "Genes encoding transfer RNAs (tRNAs) are transcribed by RNA polymerase III in the nucleus and by mitochondrial RNA polymerase in the mitochondrion.In the nucleus transcription reactions produce precursor tRNAs (pre-tRNAs) that have extra 5' leaders, 3' trailers, and, in some cases, introns which are removed by enzymes and enzyme complexes: RNase P cleaves the 5' leader, RNase Z cleaves the 3' trailer, TRNT1 polymerizes CCA onto the resulting 3' end, the TSEN complex cleaves at each end of the intron, and the tRNA ligase complex ligates the resulting exons (reviewed in Rossmanith et al. 1995, Phizicky and Hopper 2010, Suzuki et al. 2011, Abbott et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: tRNA processing in the nucleus
+    reactome_id: R-HSA-6784531
+    type: Pathway
+  - name: tRNA modification in the nucleus and cytosol
+    reactome_id: R-HSA-6782315
+    type: Pathway
+  - name: tRNA processing in the mitochondrion
+    reactome_id: R-HSA-6785470
+    type: Pathway
+  - name: tRNA modification in the mitochondrion
+    reactome_id: R-HSA-6787450
+    type: Pathway
+
+edges:

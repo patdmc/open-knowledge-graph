@@ -1,0 +1,26 @@
+id: PW-RNAPolymeraseITranscription
+type: knowledge
+domain: biology
+name: RNA Polymerase I Transcription
+reactome_id: R-HSA-73864
+
+description: RNA polymerase (Pol) I (one of three eukaryotic nuclear RNA polymerases) is devoted to the transcription of the ribosomal DNA genes, which are found in multiple arrayed copies in every eukaryotic cell. These genes encode for the large ribosomal RNA precursor, which is then processed into the three largest subunits of the ribosomal RNA, the 18S, 28S, and 5.8S RNAs. In human cells the rDNA gene clusters are localized on the short arm of the five pairs of the acrocentric chromosomes.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: RNA Polymerase I Promoter Clearance
+    reactome_id: R-HSA-73854
+    type: Pathway
+  - name: RNA Polymerase I Transcription Termination
+    reactome_id: R-HSA-73863
+    type: Pathway
+
+edges:

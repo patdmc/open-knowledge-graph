@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "divide gas equally into containers",
+    "operation": "divide",
+    "operands": [
+      15,
+      5
+    ],
+    "result": 3,
+    "variable": "gallons_per_container"
+  },
+  {
+    "step": 2,
+    "description": "find 1/4 of one container in gallons",
+    "operation": "multiply",
+    "operands": [
+      3,
+      0.25
+    ],
+    "result": 0.75,
+    "variable": "gallons_needed"
+  },
+  {
+    "step": 3,
+    "description": "convert gallons to pints (8 pints per gallon)",
+    "operation": "multiply",
+    "operands": [
+      0.75,
+      8
+    ],
+    "result": 6.0,
+    "variable": "pints_needed"
+  }
+]

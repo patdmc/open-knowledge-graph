@@ -1,0 +1,35 @@
+id: PW-RegulationofmRNAstabilitybypro
+type: knowledge
+domain: biology
+name: "Regulation of mRNA stability by proteins that bind AU-rich elements"
+reactome_id: R-HSA-450531
+
+description: "RNA elements rich in adenine and uracil residues (AU-rich elements) bind specific proteins which either target the RNA for degradation or, more rarely, stabilize the RNA. The activity of the AU-element binding proteins is regulated, usually by phosphorylation but also by subcellular localization."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: AUF1 (hnRNP D0) binds and destabilizes mRNA
+    reactome_id: R-HSA-450408
+    type: Pathway
+  - name: Butyrate Response Factor 1 (BRF1) binds and destabilizes mRNA
+    reactome_id: R-HSA-450385
+    type: Pathway
+  - name: Tristetraprolin (TTP, ZFP36) binds and destabilizes mRNA
+    reactome_id: R-HSA-450513
+    type: Pathway
+  - name: KSRP (KHSRP) binds and destabilizes mRNA
+    reactome_id: R-HSA-450604
+    type: Pathway
+  - name: HuR (ELAVL1) binds and stabilizes mRNA
+    reactome_id: R-HSA-450520
+    type: Pathway
+
+edges:

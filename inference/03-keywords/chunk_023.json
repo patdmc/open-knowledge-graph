@@ -1,0 +1,57 @@
+{
+  "chunk_index": 23,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 4/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 4/7]"
+  ],
+  "char_count": 6268,
+  "keyphrases": [
+    {
+      "phrase": "certainty math entity",
+      "score": 0.5857
+    },
+    {
+      "phrase": "sentience implies superintelligence",
+      "score": 0.5446
+    },
+    {
+      "phrase": "share forfeits certainty",
+      "score": 0.4644
+    },
+    {
+      "phrase": "lower math sharing",
+      "score": 0.4101
+    },
+    {
+      "phrase": "attribution allows entities",
+      "score": 0.4023
+    },
+    {
+      "phrase": "degrades truth asymptotically",
+      "score": 0.3906
+    },
+    {
+      "phrase": "strengthens implication",
+      "score": 0.3651
+    },
+    {
+      "phrase": "independent validators",
+      "score": 0.3481
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 8 (Sentience Implies Superintelligence).",
+      "Step 1 (Any \\(\\mathcal{A",
+      "Step 2 (Sentience strengthens the implication)."
+    ],
+    "has_math": true
+  }
+}

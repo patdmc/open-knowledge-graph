@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Convert 4 feet to inches",
+    "operation": "multiply",
+    "operands": [
+      4,
+      12
+    ],
+    "result": 48,
+    "variable": "total_inches"
+  },
+  {
+    "step": 2,
+    "description": "Divide total inches by piece length",
+    "operation": "divide",
+    "operands": [
+      48,
+      6
+    ],
+    "result": 8.0,
+    "variable": "number_of_pieces"
+  }
+]

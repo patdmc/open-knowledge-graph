@@ -1,0 +1,268 @@
+[
+  {
+    "class_a": "EC01",
+    "class_b": "EC03",
+    "priority": "bridge",
+    "weight": 5,
+    "chunk_indices": [
+      3,
+      10,
+      12,
+      21,
+      23
+    ],
+    "label_a": "escalation-principle-unified",
+    "label_b": "social-imperative-collective"
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC03",
+    "priority": "bridge",
+    "weight": 5,
+    "chunk_indices": [
+      0,
+      10,
+      12,
+      33,
+      48
+    ],
+    "label_a": "escalation-principle-social",
+    "label_b": "social-imperative-collective"
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC02",
+    "priority": "bridge",
+    "weight": 3,
+    "chunk_indices": [
+      10,
+      12,
+      16
+    ],
+    "label_a": "escalation-principle-unified",
+    "label_b": "escalation-principle-social"
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC07",
+    "priority": "bridge",
+    "weight": 3,
+    "chunk_indices": [
+      3,
+      12,
+      61
+    ],
+    "label_a": "escalation-principle-unified",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC07",
+    "priority": "bridge",
+    "weight": 3,
+    "chunk_indices": [
+      3,
+      12,
+      27
+    ],
+    "label_a": "social-imperative-collective",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC04",
+    "priority": "bridge",
+    "weight": 2,
+    "chunk_indices": [
+      9,
+      10
+    ],
+    "label_a": "escalation-principle-unified",
+    "label_b": "introduction-escalation-principle"
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC04",
+    "priority": "bridge",
+    "weight": 1,
+    "chunk_indices": [
+      10
+    ],
+    "label_a": "escalation-principle-social",
+    "label_b": "introduction-escalation-principle"
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC07",
+    "priority": "bridge",
+    "weight": 1,
+    "chunk_indices": [
+      12
+    ],
+    "label_a": "escalation-principle-social",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC04",
+    "priority": "bridge",
+    "weight": 1,
+    "chunk_indices": [
+      10
+    ],
+    "label_a": "social-imperative-collective",
+    "label_b": "introduction-escalation-principle"
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC05",
+    "priority": "similarity",
+    "weight": 0.7034,
+    "label_a": "social-imperative-collective",
+    "label_b": "unified-model-universal"
+  },
+  {
+    "class_a": "EC04",
+    "class_b": "EC07",
+    "priority": "similarity",
+    "weight": 0.6958,
+    "label_a": "introduction-escalation-principle",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC05",
+    "priority": "similarity",
+    "weight": 0.6693,
+    "label_a": "escalation-principle-social",
+    "label_b": "unified-model-universal"
+  },
+  {
+    "class_a": "EC05",
+    "class_b": "EC07",
+    "priority": "similarity",
+    "weight": 0.6627,
+    "label_a": "unified-model-universal",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC05",
+    "priority": "similarity",
+    "weight": 0.6408,
+    "label_a": "escalation-principle-unified",
+    "label_b": "unified-model-universal"
+  },
+  {
+    "class_a": "EC05",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.5405,
+    "label_a": "unified-model-universal",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC04",
+    "class_b": "EC05",
+    "priority": "similarity",
+    "weight": 0.5237,
+    "label_a": "introduction-escalation-principle",
+    "label_b": "unified-model-universal"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC05",
+    "priority": "similarity",
+    "weight": 0.4838,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "unified-model-universal"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.4655,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.4631,
+    "label_a": "escalation-principle-social",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.4378,
+    "label_a": "social-imperative-collective",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC02",
+    "priority": "similarity",
+    "weight": 0.4248,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "escalation-principle-social"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC03",
+    "priority": "similarity",
+    "weight": 0.4219,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "social-imperative-collective"
+  },
+  {
+    "class_a": "EC06",
+    "class_b": "EC07",
+    "priority": "similarity",
+    "weight": 0.3926,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC07",
+    "priority": "similarity",
+    "weight": 0.3903,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "social-imperative-introduction"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC01",
+    "priority": "similarity",
+    "weight": 0.354,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "escalation-principle-unified"
+  },
+  {
+    "class_a": "EC04",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.276,
+    "label_a": "introduction-escalation-principle",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC06",
+    "priority": "similarity",
+    "weight": 0.27,
+    "label_a": "escalation-principle-unified",
+    "label_b": "knowledge-graph-schema"
+  },
+  {
+    "class_a": "EC00",
+    "class_b": "EC04",
+    "priority": "similarity",
+    "weight": 0.2624,
+    "label_a": "knowledge-graph-schema",
+    "label_b": "introduction-escalation-principle"
+  }
+]

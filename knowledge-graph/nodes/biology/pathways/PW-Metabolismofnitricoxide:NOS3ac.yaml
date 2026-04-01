@@ -1,0 +1,29 @@
+id: PW-Metabolismofnitricoxide:NOS3ac
+type: knowledge
+domain: biology
+name: "Metabolism of nitric oxide: NOS3 activation and regulation"
+reactome_id: R-HSA-202131
+
+description: Nitric oxide (NO), a multifunctional second messenger, is implicated in physiological processes in mammals that range from immune response and potentiation of synaptic transmission to dilation of blood vessels and muscle relaxation. NO is a highly active molecule that diffuses across cell membranes and cannot be stored inside the producing cell. Its signaling capacity is controlled at the levels of biosynthesis and local availability.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: eNOS activation
+    reactome_id: R-HSA-203615
+    type: Pathway
+  - name: NOSIP mediated eNOS trafficking
+    reactome_id: R-HSA-203754
+    type: Pathway
+  - name: NOSTRIN mediated eNOS trafficking
+    reactome_id: R-HSA-203641
+    type: Pathway
+
+edges:

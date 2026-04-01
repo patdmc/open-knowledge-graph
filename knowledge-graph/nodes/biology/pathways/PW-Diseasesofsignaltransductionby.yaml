@@ -1,0 +1,62 @@
+id: PW-Diseasesofsignaltransductionby
+type: knowledge
+domain: biology
+name: Diseases of signal transduction by growth factor receptors and second messengers
+reactome_id: R-HSA-5663202
+
+description: "Signaling processes are central to human physiology (e.g., Pires-da Silva & Sommer 2003), and their disruption by either germ-line and somatic mutation can lead to serious disease. Here, the molecular consequences of mutations affecting visual signal transduction and signaling by diverse growth factors are annotated."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by EGFR in Cancer
+    reactome_id: R-HSA-1643713
+    type: Pathway
+  - name: Signaling by FGFR in disease
+    reactome_id: R-HSA-1226099
+    type: Pathway
+  - name: Signaling by ERBB2 in Cancer
+    reactome_id: R-HSA-1227990
+    type: Pathway
+  - name: PI3K/AKT Signaling in Cancer
+    reactome_id: R-HSA-2219528
+    type: Pathway
+  - name: Signaling by NOTCH1 in Cancer
+    reactome_id: R-HSA-2644603
+    type: Pathway
+  - name: "Signaling by TGF-beta Receptor Complex in Cancer"
+    reactome_id: R-HSA-3304351
+    type: Pathway
+  - name: Signaling by WNT in cancer
+    reactome_id: R-HSA-4791275
+    type: Pathway
+  - name: Hh mutants abrogate ligand secretion
+    reactome_id: R-HSA-5387390
+    type: Pathway
+  - name: Oncogenic MAPK signaling
+    reactome_id: R-HSA-6802957
+    type: Pathway
+  - name: Signaling by KIT in disease
+    reactome_id: R-HSA-9669938
+    type: Pathway
+  - name: Signaling by PDGFR in disease
+    reactome_id: R-HSA-9671555
+    type: Pathway
+  - name: FLT3 signaling in disease
+    reactome_id: R-HSA-9682385
+    type: Pathway
+  - name: Signaling by ALK in cancer
+    reactome_id: R-HSA-9700206
+    type: Pathway
+  - name: Signaling by LTK in cancer
+    reactome_id: R-HSA-9842640
+    type: Pathway
+
+edges:

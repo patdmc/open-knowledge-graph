@@ -1,0 +1,62 @@
+id: PW-MetabolismofRNA
+type: knowledge
+domain: biology
+name: Metabolism of RNA
+reactome_id: R-HSA-8953854
+
+description: "This superpathway encompasses the processes by which RNA transcription products are further modified covalently and non-covalently to yield their mature forms, and the regulation of these processes. Annotated pathways include ones for capping, splicing, and 3'-cleavage and polyadenylation to yield mature mRNA molecules that are exported from the nucleus (Hocine et al. 2010)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: mRNA Capping
+    reactome_id: R-HSA-72086
+    type: Pathway
+  - name: "Processing of Capped Intron-Containing Pre-mRNA"
+    reactome_id: R-HSA-72203
+    type: Pathway
+  - name: "Processing of Capped Intronless Pre-mRNA"
+    reactome_id: R-HSA-75067
+    type: Pathway
+  - name: mRNA Editing
+    reactome_id: R-HSA-75072
+    type: Pathway
+  - name: "Regulation of mRNA stability by proteins that bind AU-rich elements"
+    reactome_id: R-HSA-450531
+    type: Pathway
+  - name: "Insulin-like Growth Factor-2 mRNA Binding Proteins (IGF2BPs/IMPs/VICKZs) bind RNA"
+    reactome_id: R-HSA-428359
+    type: Pathway
+  - name: "Deadenylation-dependent mRNA decay"
+    reactome_id: R-HSA-429914
+    type: Pathway
+  - name: "Nonsense-Mediated Decay (NMD)"
+    reactome_id: R-HSA-927802
+    type: Pathway
+  - name: rRNA processing
+    reactome_id: R-HSA-72312
+    type: Pathway
+  - name: tRNA processing
+    reactome_id: R-HSA-72306
+    type: Pathway
+  - name: "Metabolism of non-coding RNA"
+    reactome_id: R-HSA-194441
+    type: Pathway
+  - name: Mitochondrial RNA degradation
+    reactome_id: R-HSA-9836573
+    type: Pathway
+  - name: Nuclear RNA decay
+    reactome_id: R-HSA-9930044
+    type: Pathway
+  - name: Mitochondrial mRNA modification
+    reactome_id: R-HSA-9937008
+    type: Pathway
+
+edges:

@@ -1,0 +1,33 @@
+id: PROC-PI3K
+type: knowledge
+domain: biology
+name: "phosphatidylinositol-mediated signaling"
+go_id: GO:0048015
+
+definition: "The series of molecular signals in which a cell uses a phosphatidylinositol-mediated signaling to convert a signal into a response. Phosphatidylinositols include phosphatidylinositol (PtdIns) and its phosphorylated derivatives."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1990455
+    name: PTEN phosphatase complex
+    relation: capable_of_part_of
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-PI3K_Growth encode components of phosphatidylinositol-mediated signaling"

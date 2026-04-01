@@ -1,0 +1,105 @@
+id: PR16-first-isomorphism
+type: proof
+domain: algebra
+name: "First Isomorphism Theorem"
+target:
+  statement: "\\text{If } \\phi: G \\to H \\text{ is a homomorphism, then } G / \\ker(\\phi) \\cong \\text{im}(\\phi)"
+  type: theorem
+method: construction
+
+assertions:
+  - step: 1
+    id: def-kernel
+    type: definition
+    statement: "K = \\ker(\\phi) = \\{g \\in G : \\phi(g) = e_H\\}"
+    justification: "kernel is the set of elements mapping to identity"
+    depends_on: []
+    references: [kernel, homomorphism]
+
+  - step: 2
+    id: kernel-normal
+    type: lemma
+    statement: "K \\trianglelefteq G"
+    justification: >
+      for g in G, k in K: phi(gkg^{-1}) = phi(g)phi(k)phi(g^{-1})
+      = phi(g) e_H phi(g)^{-1} = e_H. So gKg^{-1} ⊆ K.
+    depends_on: [def-kernel]
+    references: [normal_subgroup]
+
+  - step: 3
+    id: quotient-exists
+    type: claim
+    statement: "G/K \\text{ is a well-defined group}"
+    justification: "quotient by normal subgroup always forms a group"
+    depends_on: [kernel-normal]
+    references: [quotient_group]
+
+  - step: 4
+    id: define-bar-phi
+    type: definition
+    statement: "\\bar{\\phi}: G/K \\to H \\text{ defined by } \\bar{\\phi}(gK) = \\phi(g)"
+    justification: "map from quotient group defined by choosing representative"
+    depends_on: [quotient-exists]
+
+  - step: 5
+    id: well-defined
+    type: claim
+    statement: "\\bar{\\phi} \\text{ is well-defined: } gK = g'K \\implies \\phi(g) = \\phi(g')"
+    justification: >
+      gK = g'K implies g^{-1}g' in K = ker(phi), so phi(g^{-1}g') = e_H,
+      so phi(g)^{-1}phi(g') = e_H, so phi(g) = phi(g')
+    depends_on: [define-bar-phi, def-kernel]
+
+  - step: 6
+    id: bar-phi-homomorphism
+    type: claim
+    statement: "\\bar{\\phi}(gK \\cdot g'K) = \\bar{\\phi}(gg'K) = \\phi(gg') = \\phi(g)\\phi(g') = \\bar{\\phi}(gK) \\cdot \\bar{\\phi}(g'K)"
+    justification: "bar-phi preserves the group operation"
+    depends_on: [well-defined]
+    references: [homomorphism]
+
+  - step: 7
+    id: bar-phi-injective
+    type: claim
+    statement: "\\bar{\\phi}(gK) = e_H \\implies \\phi(g) = e_H \\implies g \\in K \\implies gK = K"
+    justification: "kernel of bar-phi is trivial (just the identity coset), so bar-phi is injective"
+    depends_on: [well-defined, def-kernel]
+
+  - step: 8
+    id: bar-phi-surjective
+    type: claim
+    statement: "\\text{im}(\\bar{\\phi}) = \\text{im}(\\phi)"
+    justification: "bar-phi(gK) = phi(g) ranges over all of im(phi) as g ranges over G"
+    depends_on: [define-bar-phi]
+    references: [image]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "\\bar{\\phi}: G/\\ker(\\phi) \\xrightarrow{\\sim} \\text{im}(\\phi)"
+    justification: "bar-phi is a homomorphism (step 6) that is injective (step 7) and surjective onto im(phi) (step 8), hence an isomorphism"
+    depends_on: [bar-phi-homomorphism, bar-phi-injective, bar-phi-surjective]
+    references: [isomorphism]
+
+qed: true
+
+corollaries:
+  - id: surjective-quotient
+    statement: "\\text{If } \\phi \\text{ is surjective, } G/\\ker(\\phi) \\cong H"
+    depends_on: [conclusion]
+
+  - id: rank-nullity-as-special-case
+    statement: "\\text{Rank-Nullity is First Isomorphism for vector spaces (which are abelian groups under +)}"
+    justification: "V/ker(T) isomorphic to im(T); dim(V) = dim(ker) + dim(im)"
+    depends_on: [conclusion]
+    references: [rank_nullity]
+
+edges:
+  - to: AA01-abstract-algebra
+    relation: PROVES_FROM
+  - to: PR10-rank-nullity
+    relation: GENERALIZES
+    note: "First Isomorphism Theorem for abelian groups under + specializes to Rank-Nullity"
+  - to: PR05-lagrange-theorem
+    relation: USES
+    note: "quotient group construction uses coset structure from Lagrange"

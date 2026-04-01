@@ -1,0 +1,23 @@
+id: PW-SignalingbyNonReceptorTyrosine
+type: knowledge
+domain: biology
+name: "Signaling by Non-Receptor Tyrosine Kinases"
+reactome_id: R-HSA-9006927
+
+description: "In addition to receptor tyrosine kinases, the human genome encodes at least 32 non-receptor tyrosine kinases (non-RTKs). These cytosolic tyrosine kinases lack a transmembrane domain but are recruited into signal transduction cascades through interaction with other plasma-bound receptors, which may or may not themselves have intrinsic catalytic activity. In this way, non-RTKs essentially function as an (additional) enzymatic subunit of the signaling complex and contribute to many of the same downstream signaling pathways."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by PTK6
+    reactome_id: R-HSA-8848021
+    type: Pathway
+
+edges:

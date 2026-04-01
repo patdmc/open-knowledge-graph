@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "total pounds needed per week for the flock",
+    "operation": "multiply",
+    "operands": [
+      3.5,
+      10
+    ],
+    "result": 35.0,
+    "variable": "weekly_flock_pounds"
+  },
+  {
+    "step": 2,
+    "description": "convert weekly total to daily total",
+    "operation": "divide",
+    "operands": [
+      35.0,
+      7
+    ],
+    "result": 5.0,
+    "variable": "daily_flock_pounds"
+  }
+]

@@ -1,0 +1,69 @@
+id: PW-SmoothMuscleContraction
+type: knowledge
+domain: biology
+name: Smooth Muscle Contraction
+reactome_id: R-HSA-445355
+
+description: "Layers of smooth muscle cells can be found in the walls of numerous organs and tissues within the body. Smooth muscle tissue lacks the striated banding pattern characteristic of skeletal and cardiac muscle. Smooth muscle is triggered to contract by the autonomic nervous system, hormones, autocrine/paracrine agents, local chemical signals, and changes in load or length.
+Actin:myosin cross bridging is used to develop force with the influx of calcium ions (Ca2+) initiating contraction."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: ALDH2 transforms GTN to NO
+    reactome_id: R-HSA-9620103
+    type: BlackBoxEvent
+  - name: NO binds to Guanylate Cyclase
+    reactome_id: R-HSA-392143
+    type: Reaction
+  - name: "sGC stimulators bind sGC:NO"
+    reactome_id: R-HSA-9620456
+    type: Reaction
+  - name: "Cinaciguat binds sGC:NO"
+    reactome_id: R-HSA-9621179
+    type: Reaction
+  - name: Soluble guanylate cyclase converts GTP to cGMP
+    reactome_id: R-HSA-392152
+    type: Reaction
+  - name: PDE5A dimer binds PDE5A inhibitors
+    reactome_id: R-HSA-9708104
+    type: Reaction
+  - name: "T-type VDCC bind T-type VDCC blockers"
+    reactome_id: R-HSA-9700701
+    type: Reaction
+  - name: Calcium binds calmodulin
+    reactome_id: R-HSA-74448
+    type: Reaction
+  - name: MYLK (MLCK) Active Calmodulin Binding
+    reactome_id: R-HSA-445797
+    type: Reaction
+  - name: Phosphorylation of Smooth Muscle Myosin Light Chains
+    reactome_id: R-HSA-445813
+    type: Reaction
+  - name: Calcium Binds Caldesmon
+    reactome_id: R-HSA-445704
+    type: Reaction
+  - name: Release Of ADP From Myosin
+    reactome_id: R-HSA-445705
+    type: Reaction
+  - name: Myosin Binds ATP
+    reactome_id: R-HSA-445700
+    type: Reaction
+  - name: ATP Hydrolysis By Myosin
+    reactome_id: R-HSA-445699
+    type: Reaction
+  - name: DYSF, CAV3 and TRIM72 bind
+    reactome_id: R-HSA-5263633
+    type: Reaction
+  - name: "CAV3:TRIM72:DYSF binds ANXAs"
+    reactome_id: R-HSA-5263628
+    type: Reaction
+
+edges:

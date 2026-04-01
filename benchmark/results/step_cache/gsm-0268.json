@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of all newspaper ads",
+    "operation": "multiply",
+    "operands": [
+      5,
+      50
+    ],
+    "result": 250,
+    "variable": "newspaper_total"
+  },
+  {
+    "step": 2,
+    "description": "Cost of all television ads",
+    "operation": "multiply",
+    "operands": [
+      75,
+      15
+    ],
+    "result": 1125,
+    "variable": "television_total"
+  },
+  {
+    "step": 3,
+    "description": "Total cost of all ads",
+    "operation": "add",
+    "operands": [
+      250,
+      1125
+    ],
+    "result": 1375.0,
+    "variable": "total_cost"
+  }
+]

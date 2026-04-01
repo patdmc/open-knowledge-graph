@@ -1,0 +1,35 @@
+id: PW-TransmissionacrossChemicalSyna
+type: knowledge
+domain: biology
+name: Transmission across Chemical Synapses
+reactome_id: R-HSA-112315
+
+description: Chemical synapses are specialized junctions that are used for communication between neurons, neurons and muscle or gland cells. The synapse involves a presynaptic neuron and a postsynaptic neuron, muscle cell or glad cell. The pre and the postsynaptic cell are separated by a gap (space) of 20 to 40 nm called the synaptic cleft.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Presynaptic depolarization and calcium channel opening
+    reactome_id: R-HSA-112308
+    type: Pathway
+  - name: Neurotransmitter release cycle
+    reactome_id: R-HSA-112310
+    type: Pathway
+  - name: Neurotransmitter clearance
+    reactome_id: R-HSA-112311
+    type: Pathway
+  - name: Neurotransmitter uptake and metabolism In glial cells
+    reactome_id: R-HSA-112313
+    type: Pathway
+  - name: Neurotransmitter receptors and postsynaptic signal transmission
+    reactome_id: R-HSA-112314
+    type: Pathway
+
+edges:

@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "water fraction of orange drink",
+    "operation": "divide",
+    "operands": [
+      2,
+      3
+    ],
+    "result": 0.6666666666666666,
+    "variable": "orange_water_fraction"
+  },
+  {
+    "step": 2,
+    "description": "liters of orange drink remaining after spill",
+    "operation": "subtract",
+    "operands": [
+      10,
+      1
+    ],
+    "result": 9,
+    "variable": "remaining_orange_liters"
+  },
+  {
+    "step": 3,
+    "description": "water in remaining orange drink",
+    "operation": "multiply",
+    "operands": [
+      9,
+      0.6666666666666666
+    ],
+    "result": 6.0,
+    "variable": "orange_water_liters"
+  },
+  {
+    "step": 4,
+    "description": "water fraction of pineapple drink",
+    "operation": "divide",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 0.6,
+    "variable": "pineapple_water_fraction"
+  },
+  {
+    "step": 5,
+    "description": "water in pineapple drink",
+    "operation": "multiply",
+    "operands": [
+      15,
+      0.6
+    ],
+    "result": 9.0,
+    "variable": "pineapple_water_liters"
+  },
+  {
+    "step": 6,
+    "description": "total water in remaining 24 liters",
+    "operation": "add",
+    "operands": [
+      6.0,
+      9.0
+    ],
+    "result": 15.0,
+    "variable": "total_water_liters"
+  }
+]

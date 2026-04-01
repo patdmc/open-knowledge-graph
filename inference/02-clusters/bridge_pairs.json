@@ -1,0 +1,89 @@
+[
+  {
+    "class_a": "EC01",
+    "class_b": "EC03",
+    "weight": 5,
+    "chunk_indices": [
+      3,
+      10,
+      12,
+      21,
+      23
+    ]
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC03",
+    "weight": 5,
+    "chunk_indices": [
+      0,
+      10,
+      12,
+      33,
+      48
+    ]
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC02",
+    "weight": 3,
+    "chunk_indices": [
+      10,
+      12,
+      16
+    ]
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC07",
+    "weight": 3,
+    "chunk_indices": [
+      3,
+      12,
+      61
+    ]
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC07",
+    "weight": 3,
+    "chunk_indices": [
+      3,
+      12,
+      27
+    ]
+  },
+  {
+    "class_a": "EC01",
+    "class_b": "EC04",
+    "weight": 2,
+    "chunk_indices": [
+      9,
+      10
+    ]
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC04",
+    "weight": 1,
+    "chunk_indices": [
+      10
+    ]
+  },
+  {
+    "class_a": "EC02",
+    "class_b": "EC07",
+    "weight": 1,
+    "chunk_indices": [
+      12
+    ]
+  },
+  {
+    "class_a": "EC03",
+    "class_b": "EC04",
+    "weight": 1,
+    "chunk_indices": [
+      10
+    ]
+  }
+]

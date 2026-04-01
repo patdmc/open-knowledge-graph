@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "subtract known groups from total to find remaining plants",
+    "operation": "subtract",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 16,
+    "variable": "plants_after_removing_half_cup_group"
+  },
+  {
+    "step": 2,
+    "description": "subtract 1-cup group to find quarter-cup plants",
+    "operation": "subtract",
+    "operands": [
+      16,
+      8
+    ],
+    "result": 8,
+    "variable": "quarter_cup_plants"
+  },
+  {
+    "step": 3,
+    "description": "water for 4 plants at half cup each",
+    "operation": "multiply",
+    "operands": [
+      4,
+      0.5
+    ],
+    "result": 2,
+    "variable": "water_half_cup_group"
+  },
+  {
+    "step": 4,
+    "description": "water for 8 plants at 1 cup each",
+    "operation": "multiply",
+    "operands": [
+      8,
+      1
+    ],
+    "result": 8,
+    "variable": "water_one_cup_group"
+  },
+  {
+    "step": 5,
+    "description": "water for 8 plants at quarter cup each",
+    "operation": "multiply",
+    "operands": [
+      8,
+      0.25
+    ],
+    "result": 2,
+    "variable": "water_quarter_cup_group"
+  },
+  {
+    "step": 6,
+    "description": "add half-cup and one-cup group totals",
+    "operation": "add",
+    "operands": [
+      2,
+      8
+    ],
+    "result": 10,
+    "variable": "water_first_two_groups"
+  },
+  {
+    "step": 7,
+    "description": "add quarter-cup group to get total daily water",
+    "operation": "add",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 12.0,
+    "variable": "total_cups_per_day"
+  }
+]

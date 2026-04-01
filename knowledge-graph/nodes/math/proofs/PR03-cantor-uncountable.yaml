@@ -1,0 +1,66 @@
+id: PR03-cantor-uncountable
+type: proof
+domain: analysis
+name: "Uncountability of the Reals (Cantor)"
+target:
+  statement: "|\\mathbb{R}| > |\\mathbb{N}| \\quad (\\mathbb{R} \\text{ is uncountable})"
+  type: theorem
+method: diagonalization
+
+assertions:
+  - step: 1
+    id: hyp-countable
+    type: hypothesis
+    statement: "\\text{Suppose } f: \\mathbb{N} \\to (0,1) \\text{ is a surjection}"
+    justification: "assume for contradiction that (0,1) is countable"
+    depends_on: []
+
+  - step: 2
+    id: list-reals
+    type: claim
+    statement: "\\text{Write } f(n) = 0.d_{n1} d_{n2} d_{n3} \\ldots \\text{ in decimal}"
+    justification: "every real in (0,1) has a decimal expansion"
+    depends_on: [hyp-countable]
+
+  - step: 3
+    id: construct-x
+    type: claim
+    statement: "x = 0.c_1 c_2 c_3 \\ldots \\text{ where } c_n \\neq d_{nn} \\text{ and } c_n \\notin \\{0, 9\\}"
+    justification: "construct x by choosing each digit to differ from diagonal; avoid 0,9 to prevent ambiguous representations"
+    depends_on: [list-reals]
+
+  - step: 4
+    id: x-in-interval
+    type: observation
+    statement: "x \\in (0,1)"
+    justification: "x is a decimal between 0 and 1 with no all-0 or all-9 tail"
+    depends_on: [construct-x]
+
+  - step: 5
+    id: x-not-fn
+    type: claim
+    statement: "x \\neq f(n) \\text{ for all } n \\in \\mathbb{N}"
+    justification: "x differs from f(n) in the n-th decimal digit by construction"
+    depends_on: [construct-x, list-reals]
+
+  - step: 6
+    id: contradiction-surjection
+    type: contradiction
+    statement: "x \\in (0,1) \\text{ but } x \\notin \\text{range}(f)"
+    justification: "contradicts f being a surjection"
+    depends_on: [x-in-interval, x-not-fn, hyp-countable]
+
+  - step: 7
+    id: conclusion
+    type: theorem
+    statement: "(0,1) \\text{ is uncountable, hence } |\\mathbb{R}| > |\\mathbb{N}|"
+    justification: "no surjection from N to (0,1) exists; (0,1) bijects with R"
+    depends_on: [contradiction-surjection]
+
+qed: true
+
+edges:
+  - to: N03-set-logic-notation
+    relation: PROVES_FROM
+  - to: NT01-number-theory
+    relation: USES

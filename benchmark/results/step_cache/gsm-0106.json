@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "subtract wall thickness from both sides of length",
+    "operation": "multiply",
+    "operands": [
+      1,
+      2
+    ],
+    "result": 2,
+    "variable": "wall_deduction"
+  },
+  {
+    "step": 2,
+    "description": "inner length",
+    "operation": "subtract",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 3,
+    "variable": "inner_length"
+  },
+  {
+    "step": 3,
+    "description": "inner width",
+    "operation": "subtract",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 4,
+    "variable": "inner_width"
+  },
+  {
+    "step": 4,
+    "description": "inner height",
+    "operation": "subtract",
+    "operands": [
+      4,
+      2
+    ],
+    "result": 2,
+    "variable": "inner_height"
+  },
+  {
+    "step": 5,
+    "description": "inner base area",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "inner_base_area"
+  },
+  {
+    "step": 6,
+    "description": "inner volume of one box",
+    "operation": "multiply",
+    "operands": [
+      12,
+      2
+    ],
+    "result": 24,
+    "variable": "inner_volume_one_box"
+  },
+  {
+    "step": 7,
+    "description": "total inner volume of all 3 boxes",
+    "operation": "multiply",
+    "operands": [
+      24,
+      3
+    ],
+    "result": 72.0,
+    "variable": "total_inner_volume"
+  }
+]

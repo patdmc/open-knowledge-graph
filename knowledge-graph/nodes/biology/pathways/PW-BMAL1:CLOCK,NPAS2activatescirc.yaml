@@ -1,0 +1,74 @@
+id: PW-BMAL1:CLOCK,NPAS2activatescirc
+type: knowledge
+domain: biology
+name: "BMAL1:CLOCK,NPAS2 activates circadian expression"
+reactome_id: R-HSA-1368108
+
+description: "As inferred from mouse, BMAL1:CLOCK (ARNTL:CLOCK) and BMAL1:NPAS2 (ARNTL:NPAS2) heterodimers bind to sequence elements (E boxes) in the promoters of target genes and enhance transcription (Gekakis et al. 1998, reviewed in Munoz and Baler 2003)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds AVP gene"
+    reactome_id: R-HSA-5663165
+    type: Reaction
+  - name: Expression of AVP
+    reactome_id: R-HSA-879782
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds BHLHE40 gene"
+    reactome_id: R-HSA-5663170
+    type: Reaction
+  - name: Expression of DEC1 (BHLHE40, BHLHB2)
+    reactome_id: R-HSA-879798
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds BHLHE41 (DEC2) gene"
+    reactome_id: R-HSA-5663105
+    type: Reaction
+  - name: Expression of DEC2 (BHLHE41, BHLHB3)
+    reactome_id: R-HSA-879770
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK,NPAS2 binds F7 gene"
+    reactome_id: R-HSA-5663127
+    type: Reaction
+  - name: Expression of FACTOR VII (F7)
+    reactome_id: R-HSA-549428
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds CCRN4L (NOCTURNIN) gene"
+    reactome_id: R-HSA-5663138
+    type: Reaction
+  - name: Expression of CCRN4L (NOCTURNIN)
+    reactome_id: R-HSA-549424
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds SERPINE1 gene"
+    reactome_id: R-HSA-5663124
+    type: Reaction
+  - name: "Expression of SERPINE1 (PAI-1)"
+    reactome_id: R-HSA-549364
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds PPARA gene"
+    reactome_id: R-HSA-5663156
+    type: Reaction
+  - name: Expression of PPARA
+    reactome_id: R-HSA-879724
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds NAMPT gene"
+    reactome_id: R-HSA-5663122
+    type: Reaction
+  - name: Expression of NAMPT (NamPRT, PBEF, Visfatin)
+    reactome_id: R-HSA-1368889
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds KLF15 gene"
+    reactome_id: R-HSA-8878702
+    type: Reaction
+  - name: Expression of KLF15
+    reactome_id: R-HSA-8878679
+    type: BlackBoxEvent
+
+edges:

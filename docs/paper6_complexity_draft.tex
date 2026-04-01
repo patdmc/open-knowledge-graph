@@ -1,0 +1,155 @@
+% ------------------------------------------------------------------
+% Draft section for Paper 6: Computational Complexity
+% To be integrated after the experiment is run
+% ------------------------------------------------------------------
+
+\section{Computational Complexity of Structure}
+\label{sec:complexity}
+
+The channel-organized architecture is not only a modeling choice.
+It is a compression with quantifiable computational consequences.
+
+\subsection{The cost of the naive approach}
+
+A transformer operating on $n$ genes uses self-attention with
+$O(n^2)$ complexity per layer. For the full MSK-IMPACT panel
+($n = 509$ genes), each attention layer computes $509^2 = 259{,}081$
+pairwise interactions per patient. With $L$ layers and $H$ attention
+heads, the total attention cost per patient is $O(L \cdot H \cdot n^2)$.
+
+For $N = 43{,}872$ patients in the training set, the total
+attention budget per epoch is:
+
+\begin{equation}
+\text{Attention ops (naive)} = N \cdot L \cdot H \cdot n^2
+= 43{,}872 \cdot L \cdot H \cdot 259{,}081
+\end{equation}
+
+No published model has attempted this on MSK-IMPACT somatic
+mutation data. Gene-level transformers exist for expression data
+(GexBERT, Geneformer \cite{Geneformer2025}), where the input
+modality is continuous-valued and information-dense.
+Somatic mutation profiles are sparse and binary: most patients
+carry mutations in fewer than 20 of 509 genes. Running
+$O(n^2)$ attention over a vector that is 96\% zero is
+computationally wasteful.
+
+\subsection{The cost of the structured approach}
+
+The channel-organized architecture compresses 509 genes into
+$k = 16$ nodes (8 channels $\times$ 2 positions). Self-attention
+operates over $k$ nodes: $16^2 = 256$ pairwise interactions per
+layer per patient.
+
+\begin{equation}
+\text{Attention ops (structured)} = N \cdot L \cdot H \cdot k^2
+= 43{,}872 \cdot L \cdot H \cdot 256
+\end{equation}
+
+The ratio:
+
+\begin{equation}
+\frac{n^2}{k^2} = \frac{509^2}{16^2} = \frac{259{,}081}{256}
+\approx 1{,}012
+\end{equation}
+
+\textbf{The structured approach is $\sim$1{,}000$\times$ cheaper
+in attention computation.} Same genes. Same data. Same patients.
+The only difference is that 509 genes were organized into 16
+channel-position nodes before the model saw them.
+
+\subsection{Why this compression works}
+
+The 1{,}000$\times$ reduction is not a lossy approximation.
+It is a theory-derived factorization.
+
+Papers~1--3 of this series prove that knowledge-maintaining systems
+under bounded context organize into hierarchical coupling
+structures. The channel map assigns each gene to its coupling
+channel based on pathway membership. This is the graph structure
+that Paper~1 proves is necessary for information preservation.
+
+The naive transformer must \emph{discover} which gene--gene
+interactions matter from the survival signal alone. It has
+$n^2 = 259{,}081$ possible interactions to evaluate, of which
+the vast majority are biologically meaningless (a mutation in
+\emph{BRCA1} does not interact with a mutation in \emph{FOXA1}
+through any known pathway). The model must learn to ignore
+$>$99\% of its attention budget.
+
+The structured approach provides the answer: genes within a
+channel interact. Genes across channels interact at the channel
+level. The attention budget is spent entirely on interactions
+the theory predicts are meaningful.
+
+\begin{table}[ht]
+\centering
+\caption{Computational comparison: naive gene-level transformer
+vs.\ channel-organized transformer on MSK-IMPACT (509 genes,
+43{,}872 patients).}
+\label{tab:complexity}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+& \textbf{Naive} & \textbf{Structured} \\
+\midrule
+Input tokens per patient & 509 & 16 \\
+Attention pairs per layer & 259{,}081 & 256 \\
+Ratio & \multicolumn{2}{c}{$\sim$1{,}000$\times$} \\
+\midrule
+Parameters (embedding) & $509 \times d$ & $16 \times d$ \\
+Parameters (attention) & $O(d^2)$ & $O(d^2)$ \\
+\midrule
+Information source & Data-driven & Theory-derived \\
+Training data required & More & Less \\
+Sparsity of input & $\sim$96\% zero & Dense (aggregated) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The hierarchical extension}
+
+The channel-organized architecture admits a natural hierarchical
+extension that further exploits the coupling structure:
+
+\begin{enumerate}
+\item \textbf{Level 1: Within-channel attention.} For each
+channel, a small transformer operates over the genes in that
+channel (e.g., 21 DDR genes, 14 Cell Cycle genes). This captures
+within-channel interactions (e.g., BRCA1--BRCA2 co-mutation
+patterns) at $O(m_c^2)$ cost where $m_c$ is the channel size.
+Maximum channel size is 174 (PI3K/Growth in the expanded map).
+
+\item \textbf{Level 2: Cross-channel attention.} The 8 (or 16)
+channel-level embeddings from Level~1 are passed to a
+cross-channel transformer. This captures which channel
+combinations predict outcomes, at $O(k^2)$ cost.
+\end{enumerate}
+
+Total cost: $\sum_c m_c^2 + k^2$. For the expanded 509-gene,
+8-channel map:
+
+\begin{equation}
+\sum_c m_c^2 + k^2 = 174^2 + 95^2 + 81^2 + 53^2 + 45^2
++ 38^2 + 15^2 + 8^2 + 16^2
+= 51{,}270
+\end{equation}
+
+versus $509^2 = 259{,}081$ for the flat transformer.
+A $5\times$ reduction even with full within-channel attention,
+plus the architectural guarantee that cross-channel interactions
+are learned at the right level of abstraction.
+
+\subsection{Clinical deployment implication}
+
+MSK-IMPACT sequences $>$50{,}000 patients. Targeted panels are
+standard of care. A model that runs in $O(k^2)$ per patient can
+be deployed as a real-time annotation on every sequencing report.
+A model that runs in $O(n^2)$ cannot---not because the hardware
+doesn't exist, but because the training data requirements and
+overfitting risk scale with the parameter count.
+
+The practical claim: theory-derived structure enables clinical
+deployment that brute-force approaches do not. Not because the
+brute-force approach is wrong, but because it is unnecessarily
+expensive. The structure is free. It comes from the theory.
+The compute savings come from using it.

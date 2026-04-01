@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Furniture United monthly installments total",
+    "operation": "multiply",
+    "operands": [
+      6,
+      350
+    ],
+    "result": 2100,
+    "variable": "FU_installments"
+  },
+  {
+    "step": 2,
+    "description": "Furniture United total cost",
+    "operation": "add",
+    "operands": [
+      1350,
+      2100
+    ],
+    "result": 3450,
+    "variable": "FU_total"
+  },
+  {
+    "step": 3,
+    "description": "Cozy Homes monthly installments total",
+    "operation": "multiply",
+    "operands": [
+      9,
+      250
+    ],
+    "result": 2250,
+    "variable": "CH_installments"
+  },
+  {
+    "step": 4,
+    "description": "Cozy Homes total cost",
+    "operation": "add",
+    "operands": [
+      1100,
+      2250
+    ],
+    "result": 3350,
+    "variable": "CH_total"
+  },
+  {
+    "step": 5,
+    "description": "Cost difference between the two offers",
+    "operation": "subtract",
+    "operands": [
+      3450,
+      3350
+    ],
+    "result": 100.0,
+    "variable": "cost_difference"
+  }
+]

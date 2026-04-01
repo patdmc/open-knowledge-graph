@@ -1,0 +1,424 @@
+id: CHAN-Immune
+type: knowledge
+domain: cancer_biology
+name: Immune Surveillance
+gene_count: 10
+hub_genes: [B2M, HLA-A, STAT1]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: B2M
+    string_ppi_degree: 0
+    position: hub
+    full_name: "beta-2-microglobulin"
+    chromosome: 15
+    ncbi_summary: "This gene encodes a serum protein found in association with the major histocompatibility complex (MHC) class I heavy chain on the surface of nearly all nucleated cells. The protein has a predominantly beta-pleated sheet structure that can form amyloid fibrils in some pathological conditions."
+    protein_name: "Beta-2-microglobulin"
+    uniprot_function: "Component of the class I major histocompatibility complex (MHC). Involved in the presentation of peptide antigens to the immune system. Exogenously applied M.tuberculosis EsxA or EsxA-EsxB (or EsxA ex..."
+    subcellular_location: [Secreted, Cell surface]
+    diseases:
+      - Immunodeficiency 43
+      - Amyloidosis, hereditary systemic 6
+    go_biological_process:
+      - amyloid fibril formation
+      - antigen processing and presentation of endogenous peptide antigen via MHC class I
+      - antigen processing and presentation of exogenous peptide antigen via MHC class II
+      - "antigen processing and presentation of exogenous protein antigen via MHC class Ib, TAP-dependent"
+      - cellular response to iron ion
+      - cellular response to iron(III) ion
+      - cellular response to nicotine
+      - intracellular iron ion homeostasis
+    mutations:
+      - change: "L15Ffs*41"
+        cancer_type: Colorectal Cancer
+        hr: 0.3080
+        p: 2.95e-04
+        direction: protective
+        n: 70
+    cross_edges:
+      - to: APC
+        relation: BUFFERS
+        hr: 0.4740
+        p: 8.56e-05
+        n: 208
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.4760
+        p: 1.61e-04
+        n: 143
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5240
+        p: 1.91e-04
+        n: 243
+      - to: PIK3CA
+        relation: BUFFERS
+        hr: 0.5760
+        p: 0.0028
+        n: 197
+      - to: EGFR
+        relation: COMPENSATES
+        hr: 0.1010
+        p: 7.19e-05
+        n: 96
+      - to: ATR
+        relation: COMPENSATES
+        hr: 0.2460
+        p: 3.04e-05
+        n: 151
+      - to: TSC1
+        relation: COMPENSATES
+        hr: 0.2470
+        p: 6.63e-04
+        n: 105
+  - id: CD274
+    string_ppi_degree: 0
+    position: leaf
+    full_name: CD274 molecule
+    chromosome: 9
+    ncbi_summary: "This gene encodes an immune inhibitory receptor ligand that is expressed by hematopoietic and non-hematopoietic cells, such as T cells and B cells and various types of tumor cells. The encoded protein is a type I transmembrane protein that has immunoglobulin V-like and C-like domains."
+    protein_name: Programmed cell death 1 ligand 1
+    uniprot_function: "Plays a critical role in induction and maintenance of immune tolerance to self (PubMed:11015443, PubMed:28813410, PubMed:28813417, PubMed:31399419). As a ligand for the inhibitory receptor PDCD1/PD-1,..."
+    subcellular_location: [Cell membrane, Early endosome membrane, Recycling endosome membrane]
+    diseases:
+      - "Autoimmune disease, multisystem, infantile-onset, 5"
+    go_biological_process:
+      - adaptive immune response
+      - cell surface receptor signaling pathway
+      - cellular response to lipopolysaccharide
+      - immune response
+      - negative regulation of activated T cell proliferation
+      - "negative regulation of CD4-positive, alpha-beta T cell proliferation"
+      - "negative regulation of CD8-positive, alpha-beta T cell activation"
+      - "negative regulation of interleukin-10 production"
+    kegg_pathways:
+      - Cell adhesion molecule (CAM) interaction
+      - "PD-L1 expression and PD-1 checkpoint pathway in cancer"
+  - id: CTLA4
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "cytotoxic T-lymphocyte associated protein 4"
+    chromosome: 2
+    ncbi_summary: This gene is a member of the immunoglobulin superfamily and encodes a protein which transmits an inhibitory signal to T cells. The protein contains a V domain, a transmembrane domain, and a cytoplasmic tail.
+    protein_name: "Cytotoxic T-lymphocyte protein 4"
+    uniprot_function: "Inhibitory receptor acting as a major negative regulator of T-cell responses (PubMed:11279501, PubMed:11279502, PubMed:16551244, PubMed:1714933, PubMed:18641304, PubMed:28484017). Acts as a decoy rece..."
+    subcellular_location: [Cell membrane]
+    diseases:
+      - Systemic lupus erythematosus
+      - Type 1 diabetes mellitus 12
+      - Celiac disease 3
+      - Immune dysregulation with autoimmunity, immunodeficiency, and lymphoproliferation
+    go_biological_process:
+      - adaptive immune response
+      - B cell receptor signaling pathway
+      - DNA damage response
+      - immune response
+      - negative regulation of B cell proliferation
+      - negative regulation of regulatory T cell differentiation
+      - negative regulation of T cell activation
+      - negative regulation of T cell proliferation
+    kegg_pathways:
+      - Cell adhesion molecule (CAM) interaction
+      - T cell receptor signaling pathway
+      - Autoimmune thyroid disease
+      - Rheumatoid arthritis
+  - id: HLA-A
+    string_ppi_degree: 0
+    position: hub
+    full_name: major histocompatibility complex, class I, A
+    chromosome: 6
+    ncbi_summary: "HLA-A belongs to the HLA class I heavy chain paralogues. This class I molecule is a heterodimer consisting of a heavy chain and a light chain (beta-2 microglobulin)."
+    protein_name: HLA class I histocompatibility antigen, A alpha chain
+    uniprot_function: "Antigen-presenting major histocompatibility complex class I (MHCI) molecule. In complex with B2M/beta 2 microglobulin displays primarily viral and tumor-derived peptides on antigen-presenting cells fo..."
+    subcellular_location: [Cell membrane, Endoplasmic reticulum membrane]
+    go_biological_process:
+      - antibacterial humoral response
+      - antigen processing and presentation of endogenous peptide antigen via MHC class I
+      - "antigen processing and presentation of endogenous peptide antigen via MHC class I via ER pathway, TAP-dependent"
+      - "antigen processing and presentation of endogenous peptide antigen via MHC class I via ER pathway, TAP-independent"
+      - antigen processing and presentation of endogenous peptide antigen via MHC class Ib
+      - antigen processing and presentation of exogenous peptide antigen via MHC class I
+      - "CD8-positive, alpha-beta T cell activation"
+      - "defense response to Gram-positive bacterium"
+    kegg_pathways:
+      - Endocytosis
+      - Phagosome
+      - Cellular senescence
+      - Cell adhesion molecule (CAM) interaction
+      - Antigen processing and presentation
+      - Natural killer cell mediated cytotoxicity
+      - Type I diabetes mellitus
+      - Human cytomegalovirus infection
+  - id: HLA-B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: major histocompatibility complex, class I, B
+    chromosome: 6
+    ncbi_summary: "HLA-B belongs to the HLA class I heavy chain paralogues. This class I molecule is a heterodimer consisting of a heavy chain and a light chain (beta-2 microglobulin)."
+    protein_name: HLA class I histocompatibility antigen, B alpha chain
+    uniprot_function: "Antigen-presenting major histocompatibility complex class I (MHCI) molecule. In complex with B2M/beta 2 microglobulin displays primarily viral and tumor-derived peptides on antigen-presenting cells fo..."
+    subcellular_location: [Cell membrane, Endoplasmic reticulum membrane]
+    diseases:
+      - "Stevens-Johnson syndrome"
+      - Spondyloarthropathy 1
+    go_biological_process:
+      - adaptive immune response
+      - "antigen processing and presentation of endogenous peptide antigen via MHC class I via ER pathway, TAP-independent"
+      - antigen processing and presentation of endogenous peptide antigen via MHC class Ib
+      - defense response
+      - detection of bacterium
+      - immune response
+      - innate immune response
+      - positive regulation of T cell mediated cytotoxicity
+    kegg_pathways:
+      - Endocytosis
+      - Phagosome
+      - Cellular senescence
+      - Cell adhesion molecule (CAM) interaction
+      - Antigen processing and presentation
+      - Natural killer cell mediated cytotoxicity
+      - Type I diabetes mellitus
+      - Human cytomegalovirus infection
+    mutations:
+      - change: "P209Qfs*5"
+        cancer_type: Colorectal Cancer
+        hr: 0.3255
+        p: 0.0307
+        direction: protective
+        n: 34
+  - id: HLA-C
+    string_ppi_degree: 0
+    position: leaf
+    full_name: major histocompatibility complex, class I, C
+    chromosome: 6
+    ncbi_summary: "HLA-C belongs to the HLA class I heavy chain paralogues. This class I molecule is a heterodimer consisting of a heavy chain and a light chain (beta-2 microglobulin)."
+    protein_name: HLA class I histocompatibility antigen, C alpha chain
+    uniprot_function: "Antigen-presenting major histocompatibility complex class I (MHCI) molecule with an important role in reproduction and antiviral immunity (PubMed:11172028, PubMed:20104487, PubMed:20439706, PubMed:209..."
+    subcellular_location: [Cell membrane, Endoplasmic reticulum membrane]
+    diseases:
+      - Psoriasis 1
+    go_biological_process:
+      - adaptive immune response
+      - "antigen processing and presentation of endogenous peptide antigen via MHC class I via ER pathway, TAP-independent"
+      - antigen processing and presentation of endogenous peptide antigen via MHC class Ib
+      - immune response
+      - innate immune response
+      - positive regulation of natural killer cell mediated cytotoxicity
+      - positive regulation of T cell mediated cytotoxicity
+    kegg_pathways:
+      - Endocytosis
+      - Phagosome
+      - Cellular senescence
+      - Cell adhesion molecule (CAM) interaction
+      - Antigen processing and presentation
+      - Type I diabetes mellitus
+      - Human cytomegalovirus infection
+      - Human papillomavirus infection
+  - id: JAK1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: Janus kinase 1
+    chromosome: 1
+    ncbi_summary: "This gene encodes a membrane protein that is a member of a class of protein-tyrosine kinases (PTK) characterized by the presence of a second phosphotransferase-related domain immediately N-terminal to the PTK domain. The encoded kinase phosphorylates STAT proteins (signal transducers and activators of transcription) and plays a key role in interferon-alpha/beta, interferon-gamma, and cytokine signal transduction."
+    protein_name: "Tyrosine-protein kinase JAK1"
+    uniprot_function: "Tyrosine kinase of the non-receptor type, involved in the IFN-alpha/beta/gamma signal pathway (PubMed:16239216, PubMed:28111307, PubMed:32750333, PubMed:7615558, PubMed:8232552). Kinase partner for th..."
+    subcellular_location: [Endomembrane system]
+    diseases:
+      - Autoinflammation, immune dysregulation, and eosinophilia
+    go_biological_process:
+      - cell differentiation
+      - "cell surface receptor signaling pathway via JAK-STAT"
+      - cellular response to virus
+      - "cytokine-mediated signaling pathway"
+      - "growth hormone receptor signaling pathway via JAK-STAT"
+      - "interleukin-10-mediated signaling pathway"
+      - "interleukin-11-mediated signaling pathway"
+      - "interleukin-15-mediated signaling pathway"
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - "PI3K-Akt signaling pathway"
+      - Necroptosis
+      - Osteoclast differentiation
+      - Signaling pathways regulating pluripotency of stem cells
+      - "Toll-like receptor signaling pathway"
+      - "NOD-like receptor signaling pathway"
+      - "JAK-STAT signaling pathway"
+    mutations:
+      - change: "K860Nfs*16"
+        cancer_type: Endometrial Cancer
+        hr: 0.5390
+        p: 0.0024
+        direction: protective
+        n: 144
+    cross_edges:
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.3970
+        p: 1.21e-07
+        n: 194
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5940
+        p: 1.53e-05
+        n: 507
+      - to: PIK3CA
+        relation: BUFFERS
+        hr: 0.6170
+        p: 2.95e-04
+        n: 383
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5320
+        p: 3.28e-04
+        n: 180
+      - to: PTEN
+        relation: BUFFERS
+        hr: 0.6520
+        p: 0.0011
+        n: 385
+      - to: SMAD4
+        relation: COMPENSATES
+        hr: 0.2620
+        p: 3.78e-06
+        n: 149
+      - to: FBXW7
+        relation: COMPENSATES
+        hr: 0.2850
+        p: 2.83e-08
+        n: 312
+  - id: JAK2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: Janus kinase 2
+    chromosome: 9
+    ncbi_summary: "This gene encodes a non-receptor tyrosine kinase that plays a central role in cytokine and growth factor signalling. The primary isoform of this protein has an N-terminal FERM domain that is required for erythropoietin receptor association, an SH2 domain that binds STAT transcription factors, a pseudokinase domain and a C-terminal tyrosine kinase domain."
+    protein_name: "Tyrosine-protein kinase JAK2"
+    uniprot_function: "Non-receptor tyrosine kinase involved in various processes such as cell growth, development, differentiation or histone modifications. Mediates essential signaling events in both innate and adaptive i..."
+    subcellular_location: [Endomembrane system, Cytoplasm, Nucleus]
+    diseases:
+      - "Budd-Chiari syndrome"
+      - Polycythemia vera
+      - Thrombocythemia 3
+      - Myelofibrosis
+      - Leukemia, acute myelogenous
+    go_biological_process:
+      - actin filament polymerization
+      - activation of Janus kinase activity
+      - adaptive immune response
+      - apoptotic process
+      - axon regeneration
+      - cell adhesion
+      - cell differentiation
+      - "cell surface receptor signaling pathway via JAK-STAT"
+    kegg_pathways:
+      - EGFR tyrosine kinase inhibitor resistance
+      - Chemokine signaling pathway
+      - Hormone signaling
+      - Efferocytosis
+      - "PI3K-Akt signaling pathway"
+      - Necroptosis
+      - Signaling pathways regulating pluripotency of stem cells
+      - "JAK-STAT signaling pathway"
+    cross_edges:
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.4050
+        p: 8.60e-07
+        n: 180
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.4700
+        p: 4.44e-05
+        n: 174
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5860
+        p: 4.27e-04
+        n: 233
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.5400
+        p: 8.61e-04
+        n: 176
+      - to: APC
+        relation: BUFFERS
+        hr: 0.5870
+        p: 0.0011
+        n: 199
+      - to: AKT3
+        relation: COMPENSATES
+        hr: 0.1800
+        p: 1.43e-04
+        n: 96
+  - id: PDCD1LG2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: programmed cell death 1 ligand 2
+    chromosome: 9
+    ncbi_summary: "Involved in negative regulation of activated T cell proliferation; negative regulation of interleukin-10 production; and negative regulation of type II interferon production. Predicted to be located in plasma membrane."
+    protein_name: Programmed cell death 1 ligand 2
+    uniprot_function: "Plays a critical role in induction and maintenance of immune tolerance to self (PubMed:11224527, PubMed:12538684). Acts as a ligand for the inhibitory receptor PDCD1/PD-1, inhibiting T-cell proliferat..."
+    subcellular_location: [Secreted, Endomembrane system, Cell membrane]
+    go_biological_process:
+      - adaptive immune response
+      - cell surface receptor signaling pathway
+      - cellular response to lipopolysaccharide
+      - immune response
+      - negative regulation of activated T cell proliferation
+      - "negative regulation of interleukin-10 production"
+      - negative regulation of T cell activation
+      - negative regulation of T cell proliferation
+    kegg_pathways:
+      - Cell adhesion molecule (CAM) interaction
+  - id: STAT1
+    string_ppi_degree: 24
+    position: hub
+    full_name: signal transducer and activator of transcription 1
+    chromosome: 2
+    ncbi_summary: "The protein encoded by this gene is a member of the STAT protein family. In response to cytokines and growth factors, STAT family members are phosphorylated by the receptor associated kinases, and then form homo- or heterodimers that translocate to the cell nucleus where they act as transcription activators."
+    protein_name: "Signal transducer and activator of transcription 1-alpha/beta"
+    uniprot_function: "Signal transducer and transcription activator that mediates cellular responses to interferons (IFNs), cytokine KITLG/SCF and other cytokines and other growth factors (PubMed:12764129, PubMed:12855578,..."
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - Immunodeficiency 31B
+      - Immunodeficiency 31A
+      - Immunodeficiency 31C
+    go_biological_process:
+      - blood circulation
+      - "cell surface receptor signaling pathway via JAK-STAT"
+      - cell surface receptor signaling pathway via STAT
+      - cellular response to insulin stimulus
+      - "cellular response to interferon-beta"
+      - cellular response to type II interferon
+      - defense response
+      - defense response to virus
+    kegg_pathways:
+      - Chemokine signaling pathway
+      - Necroptosis
+      - Osteoclast differentiation
+      - "Toll-like receptor signaling pathway"
+      - "NOD-like receptor signaling pathway"
+      - "C-type lectin receptor signaling pathway"
+      - "JAK-STAT signaling pathway"
+      - Th1 and Th2 cell differentiation
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

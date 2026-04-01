@@ -1,0 +1,32 @@
+id: PW-Phosphorylationandnucleartrans
+type: knowledge
+domain: biology
+name: "Phosphorylation and nuclear translocation of the CRY:PER:kinase complex"
+reactome_id: R-HSA-9931530
+
+description: Cryptochrome proteins (CRY1, CRY2) and Period proteins (PER1, PER2, PER3) are translated in the cytosol. CDK5 phosphoryates PER2 in the cytosol and phosphorylated PER2 interacts with CRY1 (inferred from mouse homologs in Brenna et al. 2019).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "CDK5 phosphorylates PER2 on serine-396"
+    reactome_id: R-HSA-9920673
+    type: Reaction
+  - name: "Formation of CRY:PER:Kinase complex"
+    reactome_id: R-HSA-9909392
+    type: BlackBoxEvent
+  - name: CSNK1E,CSNK1D phosphorylate CRY and PER proteins
+    reactome_id: R-HSA-9909369
+    type: Reaction
+  - name: "p-S-CRY:p-S-PER:CSNK1D,E complex translocates from the cytosol to the nucleus"
+    reactome_id: R-HSA-9909565
+    type: BlackBoxEvent
+
+edges:

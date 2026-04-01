@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "candles that will explode (1% of 50000)",
+    "operation": "multiply",
+    "operands": [
+      50000,
+      0.01
+    ],
+    "result": 500,
+    "variable": "exploding_candles"
+  },
+  {
+    "step": 2,
+    "description": "candles that both explode and smell like wet dog (5% of exploding)",
+    "operation": "multiply",
+    "operands": [
+      500,
+      0.05
+    ],
+    "result": 25.0,
+    "variable": "exploding_and_smelly_candles"
+  }
+]

@@ -1,0 +1,74 @@
+id: PW-PrednisoneADME
+type: knowledge
+domain: biology
+name: Prednisone ADME
+reactome_id: R-HSA-9757110
+
+description: "Prednisone (PREDN) is a prodrug of prednisolone (PREDL), and is rapidly absorbed. To achieve high uptake of the near water-insoluble molecule the highest dose 50 mg has to be dissolved in 250 ml water. Its conversion to the highly active prednisolone (PREDL) in liver cells is reversible but represents the favored reaction direction (Pickup, 1979).Prednisone and prednisolone are considered to be fully therapeutically equivalent."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PREDN,PREDL diffuse into GI cells
+    reactome_id: R-HSA-9757540
+    type: BlackBoxEvent
+  - name: ABCB1 transports xenobiotics out of the cell
+    reactome_id: R-HSA-9659680
+    type: Reaction
+  - name: ALB binds PREDN
+    reactome_id: R-HSA-9757578
+    type: Reaction
+  - name: ALB binds PREDL
+    reactome_id: R-HSA-9757574
+    type: Reaction
+  - name: "PREDN:ALB dissociates"
+    reactome_id: R-HSA-9762345
+    type: Reaction
+  - name: "PREDL:ALB dissociates"
+    reactome_id: R-HSA-9762343
+    type: Reaction
+  - name: SERPINA6 binds PREDN
+    reactome_id: R-HSA-9757688
+    type: Reaction
+  - name: SERPINA6 binds PREDL
+    reactome_id: R-HSA-9757686
+    type: Reaction
+  - name: PREDN,PREDL diffuse into hepatic cells
+    reactome_id: R-HSA-9757698
+    type: BlackBoxEvent
+  - name: HSD11B1 hydrogenates PREDN to PREDL in hepatic cell
+    reactome_id: R-HSA-9757706
+    type: Reaction
+  - name: ABCB1 transports PREDN,PREDL out of hepatic cells
+    reactome_id: R-HSA-9759461
+    type: Reaction
+  - name: PREDN,PREDL diffuse into kidney cells
+    reactome_id: R-HSA-9759445
+    type: BlackBoxEvent
+  - name: HSD11B2 dehydrogenates PREDL to PREDN
+    reactome_id: R-HSA-9759259
+    type: Reaction
+  - name: ABCB1 transports PREDN,PREDL out of kidney cells
+    reactome_id: R-HSA-9759454
+    type: Reaction
+  - name: CYP3A4 oxidizes PREDN,PREDL
+    reactome_id: R-HSA-9758674
+    type: Reaction
+  - name: AKR1C1 hydrogenates PREDN,PREDL
+    reactome_id: R-HSA-9758682
+    type: Reaction
+  - name: UGT2B7,2B17,1A3 glucuronidates PRED metabolites
+    reactome_id: R-HSA-9758661
+    type: Reaction
+  - name: Unknown efflux pump transports glucuronidated PRED metabolite
+    reactome_id: R-HSA-9758868
+    type: BlackBoxEvent
+
+edges:

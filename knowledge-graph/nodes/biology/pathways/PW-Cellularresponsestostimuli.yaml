@@ -1,0 +1,29 @@
+id: PW-Cellularresponsestostimuli
+type: knowledge
+domain: biology
+name: Cellular responses to stimuli
+reactome_id: R-HSA-8953897
+
+description: Individual cells detect and respond to diverse external molecular and physical signals. Appropriate responses to these signals are essential for normal development, maintenance of homeostasis in mature tissues, and effective defensive responses to potentially noxious agents (Kultz 2005). It is convenient, if somewhat arbitrary, to distinguish responses to signals involved in development and homeostasis from ones involved in stress responses, and that classification is followed here, with macroautophagy and responses to metal ions classified as responses to normal external stimuli, while responses to hypoxia, reactive oxygen species, and heat, and the process of cellular senescence are classified as stress responses.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Response to metal ions
+    reactome_id: R-HSA-5660526
+    type: Pathway
+  - name: Cellular responses to stress
+    reactome_id: R-HSA-2262752
+    type: Pathway
+  - name: Cellular responses to mechanical stimuli
+    reactome_id: R-HSA-9855142
+    type: Pathway
+
+edges:

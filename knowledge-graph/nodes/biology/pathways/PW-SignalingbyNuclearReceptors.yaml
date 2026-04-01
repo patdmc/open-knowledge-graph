@@ -1,0 +1,29 @@
+id: PW-SignalingbyNuclearReceptors
+type: knowledge
+domain: biology
+name: Signaling by Nuclear Receptors
+reactome_id: R-HSA-9006931
+
+description: "Nuclear receptors (NRs) are ligand-activated transcription factors that bind to small lipid based molecules to regulate gene expression and other cellular process. This family includes receptors for steroid hormones and derivatives (such as estrogen, progesterone,  glucocorticoids, Vitamin D, oxysterols and bile acids, among others) as well as receptors for retinoic acids, thyroid hormones and fatty acids and their derivatives. These ligands are able to diffuse directly through cellular membranes as a result of their lipophilic nature (reviewed in Beato et al, 1996; Holzer et al, 2017)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by Retinoic Acid
+    reactome_id: R-HSA-5362517
+    type: Pathway
+  - name: "ESR-mediated signaling"
+    reactome_id: R-HSA-8939211
+    type: Pathway
+  - name: "NR1H2 and NR1H3-mediated signaling"
+    reactome_id: R-HSA-9024446
+    type: Pathway
+
+edges:

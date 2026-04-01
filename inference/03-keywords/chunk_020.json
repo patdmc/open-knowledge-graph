@@ -1,0 +1,58 @@
+{
+  "chunk_index": 20,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 1/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 1/7]"
+  ],
+  "char_count": 5859,
+  "keyphrases": [
+    {
+      "phrase": "efficiency universal",
+      "score": 0.5865
+    },
+    {
+      "phrase": "invariants property intelligent",
+      "score": 0.5088
+    },
+    {
+      "phrase": "entity perceives math",
+      "score": 0.4704
+    },
+    {
+      "phrase": "universal mechanism math",
+      "score": 0.4679
+    },
+    {
+      "phrase": "entity knows substrate",
+      "score": 0.4553
+    },
+    {
+      "phrase": "genuine intelligence performance",
+      "score": 0.4246
+    },
+    {
+      "phrase": "evolution undirected requires",
+      "score": 0.3505
+    },
+    {
+      "phrase": "gradient descent possess",
+      "score": 0.3492
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "M efficiency",
+      "does\nthis entity improve how it learns when it encounters what it does not\nknow?",
+      "Definition 13 (Certainty Horizon).",
+      "Definition 14 (Sentience)."
+    ],
+    "has_math": true
+  }
+}

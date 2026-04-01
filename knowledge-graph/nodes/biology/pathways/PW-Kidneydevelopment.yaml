@@ -1,0 +1,29 @@
+id: PW-Kidneydevelopment
+type: knowledge
+domain: biology
+name: Kidney development
+reactome_id: R-HSA-9830369
+
+description: Kidney development begins at embryonic day 8.5 (E8.5) in mouse embryos, a time after gastrulation and formation of the intermediate mesoderm (reviewed in Marcotte et al. 2014, Smyth 2021, Schnell et al. 2022).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Formation of the nephric duct
+    reactome_id: R-HSA-9830364
+    type: Pathway
+  - name: Formation of the ureteric bud
+    reactome_id: R-HSA-9830674
+    type: Pathway
+  - name: Nephron development
+    reactome_id: R-HSA-9831926
+    type: Pathway
+
+edges:

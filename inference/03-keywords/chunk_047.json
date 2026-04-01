@@ -1,0 +1,52 @@
+{
+  "chunk_index": 47,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "3. Knowledge Graph Schema > 3.2 Edge Types",
+  "section_path": [
+    "3. Knowledge Graph Schema",
+    "3.2 Edge Types"
+  ],
+  "char_count": 2340,
+  "keyphrases": [
+    {
+      "phrase": "edge provenance structurally",
+      "score": 0.6298
+    },
+    {
+      "phrase": "underlying claim nodes",
+      "score": 0.5016
+    },
+    {
+      "phrase": "nodes philosophical _precursor",
+      "score": 0.4692
+    },
+    {
+      "phrase": "contradicts node conflicts",
+      "score": 0.4211
+    },
+    {
+      "phrase": "premises emergent _from",
+      "score": 0.4089
+    },
+    {
+      "phrase": "qualitative predecessor formal",
+      "score": 0.3964
+    },
+    {
+      "phrase": "formal grounding target",
+      "score": 0.3329
+    },
+    {
+      "phrase": "4737 minipage relation",
+      "score": 0.3104
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

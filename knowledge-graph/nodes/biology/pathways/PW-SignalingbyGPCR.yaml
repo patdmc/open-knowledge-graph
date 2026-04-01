@@ -1,0 +1,26 @@
+id: PW-SignalingbyGPCR
+type: knowledge
+domain: biology
+name: Signaling by GPCR
+reactome_id: R-HSA-372790
+
+description: "G protein-coupled receptors (GPCRs; 7TM receptors; seven transmembrane domain receptors; heptahelical receptors; G protein-linked receptors [GPLR]) are the largest family of transmembrane receptors in humans, accounting for more than 1% of the protein-coding capacity of the human genome. All known GPCRs share a common architecture of seven membrane-spanning helices connected by intra- and extracellular loops. The extracellular loops contain two highly-conserved cysteine residues that form disulphide bonds to stabilize the structure of the receptor."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: GPCR ligand binding
+    reactome_id: R-HSA-500792
+    type: Pathway
+  - name: GPCR downstream signalling
+    reactome_id: R-HSA-388396
+    type: Pathway
+
+edges:

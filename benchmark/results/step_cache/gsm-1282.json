@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total hot dogs needed for all guests",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "total_hot_dogs_needed"
+  },
+  {
+    "step": 2,
+    "description": "Hot dogs still needed after using leftovers",
+    "operation": "subtract",
+    "operands": [
+      40,
+      4
+    ],
+    "result": 36,
+    "variable": "hot_dogs_to_buy"
+  },
+  {
+    "step": 3,
+    "description": "Number of packs needed",
+    "operation": "divide",
+    "operands": [
+      36,
+      6
+    ],
+    "result": 6,
+    "variable": "packs_needed"
+  },
+  {
+    "step": 4,
+    "description": "Total cost of packs",
+    "operation": "multiply",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 12.0,
+    "variable": "total_cost"
+  }
+]

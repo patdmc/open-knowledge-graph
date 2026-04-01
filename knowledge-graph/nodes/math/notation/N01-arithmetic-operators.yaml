@@ -1,0 +1,137 @@
+id: N01-arithmetic-operators
+type: notation
+domain: arithmetic
+name: "Arithmetic Operators"
+
+symbols:
+  - symbol: "+"
+    latex: "+"
+    name: addition
+    arity: 2
+    associativity: left
+    precedence: 1
+    identity: 0
+    action:
+      python: "a + b"
+      numpy: "np.add(a, b)"
+      sympy: "a + b"
+
+  - symbol: "-"
+    latex: "-"
+    name: subtraction
+    arity: 2
+    associativity: left
+    precedence: 1
+    identity: 0
+    action:
+      python: "a - b"
+      numpy: "np.subtract(a, b)"
+      sympy: "a - b"
+    note: "also unary negation: -a"
+
+  - symbol: "*"
+    latex: "\\times"
+    name: multiplication
+    arity: 2
+    associativity: left
+    precedence: 2
+    identity: 1
+    absorbing: 0
+    action:
+      python: "a * b"
+      numpy: "np.multiply(a, b)"
+      sympy: "a * b"
+    variants:
+      - "\\cdot"
+      - "juxtaposition (ab)"
+
+  - symbol: "/"
+    latex: "\\frac{a}{b}"
+    name: division
+    arity: 2
+    associativity: left
+    precedence: 2
+    action:
+      python: "a / b"
+      numpy: "np.divide(a, b)"
+      sympy: "Rational(a, b)"
+    constraint: "b != 0"
+    variants:
+      - "\\div"
+      - "a/b"
+
+  - symbol: "**"
+    latex: "a^{b}"
+    name: exponentiation
+    arity: 2
+    associativity: right
+    precedence: 3
+    action:
+      python: "a ** b"
+      numpy: "np.power(a, b)"
+      sympy: "a ** b"
+      math: "math.pow(a, b)"
+
+  - symbol: "sqrt"
+    latex: "\\sqrt{a}"
+    name: square_root
+    arity: 1
+    action:
+      python: "a ** 0.5"
+      numpy: "np.sqrt(a)"
+      sympy: "sqrt(a)"
+      math: "math.sqrt(a)"
+    inverse_of: "a ** 2"
+
+  - symbol: "n_root"
+    latex: "\\sqrt[n]{a}"
+    name: nth_root
+    arity: 2
+    action:
+      python: "a ** (1/n)"
+      numpy: "np.power(a, 1/n)"
+      sympy: "root(a, n)"
+    generalizes: square_root
+
+  - symbol: "!"
+    latex: "n!"
+    name: factorial
+    arity: 1
+    action:
+      python: "math.factorial(n)"
+      sympy: "factorial(n)"
+      scipy: "scipy.special.factorial(n)"
+    constraint: "n >= 0, n integer"
+
+  - symbol: "%"
+    latex: "a \\bmod b"
+    name: modulo
+    arity: 2
+    action:
+      python: "a % b"
+      numpy: "np.mod(a, b)"
+      sympy: "Mod(a, b)"
+
+  - symbol: "//"
+    latex: "\\lfloor a/b \\rfloor"
+    name: floor_division
+    arity: 2
+    action:
+      python: "a // b"
+      numpy: "np.floor_divide(a, b)"
+
+  - symbol: "abs"
+    latex: "|a|"
+    name: absolute_value
+    arity: 1
+    action:
+      python: "abs(a)"
+      numpy: "np.abs(a)"
+      sympy: "Abs(a)"
+      math: "math.fabs(a)"
+
+edges:
+  - to: N02-relational-operators
+    relation: REQUIRES
+  - to: A01-algebra-fundamentals
+    relation: BELONGS_TO

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate transfer fees (3% of selling price)",
+    "operation": "multiply",
+    "operands": [
+      400000,
+      0.03
+    ],
+    "result": 12000,
+    "variable": "transfer_fees"
+  },
+  {
+    "step": 2,
+    "description": "Calculate brokerage fee (5% of selling price)",
+    "operation": "multiply",
+    "operands": [
+      400000,
+      0.05
+    ],
+    "result": 20000,
+    "variable": "brokerage_fee"
+  },
+  {
+    "step": 3,
+    "description": "Total fees paid (transfer + brokerage)",
+    "operation": "add",
+    "operands": [
+      12000,
+      20000
+    ],
+    "result": 32000,
+    "variable": "total_fees"
+  },
+  {
+    "step": 4,
+    "description": "Total deductions (fees + loan repayment)",
+    "operation": "add",
+    "operands": [
+      32000,
+      250000
+    ],
+    "result": 282000,
+    "variable": "total_deductions"
+  },
+  {
+    "step": 5,
+    "description": "Net proceeds (selling price minus total deductions)",
+    "operation": "subtract",
+    "operands": [
+      400000,
+      282000
+    ],
+    "result": 118000,
+    "variable": "net_proceeds"
+  }
+]

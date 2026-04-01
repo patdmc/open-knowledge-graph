@@ -1,0 +1,109 @@
+id: REF-Salerno2025-PostPI
+type: reference
+domain: statistical_inference
+name: "Salerno, Howell, Awan, Nomura, Motwani, Leek (2025) — Moment-Based Generalization to Post-Prediction Inference"
+
+provenance:
+  attribution:
+    authors: ["Stephen Salerno", "Kentaro Howell", "Austen Awan", "Awan Nomura", "Tyler H. McCormick", "Jeffrey T. Leek"]
+    source: "arXiv"
+    date: "2025"
+    arxiv_id: "2507.09119"
+  evidence:
+    type: peer_reviewed_preprint
+    description: "Extends Wang et al. (2020) post-prediction inference to handle realistic settings where labeled sample is small relative to unlabeled"
+
+# === WHY this paper exists ===
+# The core problem: ML predictions are increasingly used AS data for downstream inference.
+# Treating predictions as ground truth introduces bias. The question is: can you correct for this?
+# This is the confidence chain problem: what happens to inference quality when the evidence
+# is itself a prediction rather than an observation?
+
+claims:
+  - id: claim-naive-bias
+    statement: "Naively treating ML predictions as observed outcomes leads to biased parameter estimates and incorrect inference"
+    type: empirical_finding
+    justification: "Simulation shows naive approach fails to control Type I error and has below-nominal coverage"
+    why: "The prediction function f(Z) is a lossy projection — it discards information about Y that is not captured by Z. Using f(Z) in place of Y introduces a systematic distortion."
+    references: [wang2020methods]
+
+  - id: claim-postpi-limitation
+    statement: "Original PostPI (Wang et al. 2020) requires equal-sized labeled and unlabeled sets and assumes prediction errors are well-behaved"
+    type: theoretical_observation
+    justification: "When n_labeled << N_unlabeled, PostPI standard errors underestimate true variability"
+    why: "PostPI approximates Var(Y|X) using only prediction-model error terms, missing the covariance between prediction residuals and the labeled-set correction. Small labeled sets amplify this gap."
+
+  - id: claim-moment-correction
+    statement: "Corrected estimator: beta_corr = M^{-1}(gamma_1 * Cov(X,Y_hat) + Cov(X,eta))"
+    type: theorem
+    latex: "\\hat{\\beta}_{\\rm corr} = \\hat{M}^{-1}\\left(\\hat{\\gamma}_1 \\hat{C}^{(u)}_{X\\hat{Y}} + \\hat{C}^{(l)}_{X\\eta}\\right)"
+    justification: "Decompose Cov(X,Y) = gamma_1*Cov(X,Y_hat) + Cov(X,eta) via the relationship model Y = gamma_0 + gamma_1*Y_hat + eta"
+    why: "The key insight is separating what the prediction captures (gamma_1*Cov(X,Y_hat), estimable from unlabeled data) from what it misses (Cov(X,eta), estimable only from labeled data). This is a projection decomposition."
+    depends_on: [claim-postpi-limitation]
+
+  - id: claim-unbiasedness
+    statement: "E[beta_corr] = beta under i.i.d. sampling and correct model specification"
+    type: proof
+    justification: "Direct calculation: E of each empirical moment equals its population counterpart"
+    depends_on: [claim-moment-correction]
+
+  - id: claim-asymptotic-normality
+    statement: "sqrt(N)(beta_corr - beta) converges in distribution to N(0, Sigma) where Sigma depends on both labeled and unlabeled sample sizes"
+    type: theorem
+    latex: "\\sqrt{N}(\\hat{\\beta}_{\\rm corr} - \\beta) \\xrightarrow{d} \\mathcal{N}(0, M^{-1}(\\gamma_1^2 S_1 + \\frac{N}{n} S_2) M^{-1})"
+    justification: "Delta method + CLT applied to the moment estimator"
+    why: "The N/n ratio in the variance formula is the critical term — it quantifies the cost of having a small labeled calibration set. As n shrinks relative to N, variance from the correction term dominates."
+    depends_on: [claim-unbiasedness]
+
+  - id: claim-type1-control
+    statement: "The corrected estimator controls Type I error at nominal level across all simulation settings"
+    type: empirical_finding
+    justification: "Simulation with 1000 replications across 3 settings varying n/N ratios"
+    depends_on: [claim-asymptotic-normality]
+
+  - id: claim-no-free-lunch
+    statement: "There is a classic bias/variance tradeoff — correcting for prediction error increases variance, confirming there is no free lunch when using predicted data"
+    type: theoretical_observation
+    why: "The correction uses the labeled set to estimate the relationship model, consuming degrees of freedom. More accurate correction requires more labeled data, partially defeating the purpose of using predictions."
+
+# === Connection to bounded context framework ===
+cross_domain_edges:
+  - target: D13-provenance
+    relation: INSTANTIATES
+    note: "Post-prediction inference is the statistical formalization of provenance degradation: when evidence passes through a lossy transformation (ML prediction), the confidence chain weakens by a quantifiable amount (the N/n variance inflation)"
+
+  - target: EC08-compression-factoring
+    relation: SUPPORTS
+    note: "The decomposition Cov(X,Y) = gamma_1*Cov(X,Y_hat) + Cov(X,eta) is literally factoring the inference problem into what compression preserves and what it destroys — the residual eta is the information lost to compression"
+
+  - target: EM07-action-accuracy-bound
+    relation: SUPPORTS
+    note: "The N/n variance inflation quantifies how action accuracy (inference quality) degrades as the provenance chain lengthens (prediction substituted for observation)"
+
+  - target: NV01-graph-necessity
+    relation: SUPPORTS
+    note: "The paper implicitly demonstrates that treating a lossy projection as ground truth destroys inference — you need the full relationship model (a graph with both prediction and residual edges) to recover valid inference"
+
+# === Knowledge graph concepts introduced ===
+concepts:
+  - id: post_prediction_inference
+    name: "Post-Prediction Inference"
+    meaning: "statistical framework for drawing valid inference when ML predictions replace observed outcomes"
+    latex: "\\hat{\\beta}_{\\rm corr} = M^{-1}(\\hat{\\gamma}_1 C_{X\\hat{Y}} + C_{X\\eta})"
+
+  - id: relationship_model
+    name: "Relationship Model"
+    meaning: "linear model relating true outcome to predicted outcome — captures prediction quality"
+    latex: "Y = \\gamma_0 + \\gamma_1 \\hat{Y} + \\eta"
+
+  - id: prediction_residual_decomposition
+    name: "Prediction-Residual Decomposition"
+    meaning: "any covariance with the true outcome decomposes into what the prediction captures and what it misses"
+    latex: "\\text{Cov}(X,Y) = \\gamma_1 \\text{Cov}(X,\\hat{Y}) + \\text{Cov}(X,\\eta)"
+    why: "this is the fundamental identity — it says you can recover the truth from a biased signal if you know the bias structure"
+
+  - id: labeled_unlabeled_tradeoff
+    name: "Labeled-Unlabeled Tradeoff"
+    meaning: "the variance inflation N/n quantifies the cost of using predictions instead of observations"
+    latex: "\\text{Var}(\\hat{\\beta}_{\\rm corr}) \\propto \\gamma_1^2 S_1 + \\frac{N}{n} S_2"
+    why: "more unlabeled data gives better point estimates but without proportional labeled data, the correction variance grows — you cannot escape the ground truth"

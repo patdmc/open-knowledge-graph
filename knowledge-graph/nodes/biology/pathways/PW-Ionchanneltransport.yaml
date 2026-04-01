@@ -1,0 +1,29 @@
+id: PW-Ionchanneltransport
+type: knowledge
+domain: biology
+name: Ion channel transport
+reactome_id: R-HSA-983712
+
+description: Ion channels mediate the flow of ions across the plasma membrane of cells. They are integral membrane proteins, typically a multimer of proteins, which, when arranged in the membrane, create a pore for the flow of ions. There are different types of ion channels.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Ion transport by P-type ATPases"
+    reactome_id: R-HSA-936837
+    type: Pathway
+  - name: "Stimuli-sensing channels"
+    reactome_id: R-HSA-2672351
+    type: Pathway
+  - name: "ATP6AP1 binds V-ATPase"
+    reactome_id: R-HSA-5252133
+    type: Reaction
+
+edges:

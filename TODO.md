@@ -158,6 +158,15 @@ Directory structure matches the encoding hierarchy: sub-pathway → channel → 
 - [ ] The compiler becomes a graph walker: verb resolution, unit conversion, and disambiguation all via edge lookup
 - [ ] New world knowledge = new edges, not code changes
 
+### Graph consolidation pass ("sleep")
+- [ ] Walk graph, collapse synonyms into equivalence clusters (words → cluster → concept, O(n) not O(n²))
+- [ ] Merge redundant paths (if A→B→C and A→C exist, check if they say the same thing)
+- [ ] Promote validated working memory edges to language graph (edges that "travel" — solve many problems)
+- [ ] Prune working memory edges that didn't travel (single-problem heuristics, not axioms)
+- [ ] Detect conflicts between working memory and knowledge graph — flag for teacher/expert review
+- [ ] Conflicts mean an edge or node needs to split into finer-grained subclasses (disambiguation)
+- [ ] Analogous to human sleep: consolidate free context → working memory → long-term knowledge
+
 ### Still needs discussion
 - [ ] Schema version strategy
 - [ ] How agents reference the core vocabulary (import? config?)

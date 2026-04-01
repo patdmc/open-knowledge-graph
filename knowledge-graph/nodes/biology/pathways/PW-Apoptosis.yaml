@@ -1,0 +1,32 @@
+id: PW-Apoptosis
+type: knowledge
+domain: biology
+name: Apoptosis
+reactome_id: R-HSA-109581
+
+description: Apoptosis is a distinct form of cell death that is functionally and morphologically different from necrosis. Nuclear chromatin condensation, cytoplasmic shrinking, dilated endoplasmic reticulum, and membrane blebbing characterize apoptosis in general. Mitochondria remain morphologically unchanged.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Caspase activation via extrinsic apoptotic signalling pathway
+    reactome_id: R-HSA-5357769
+    type: Pathway
+  - name: Intrinsic Pathway for Apoptosis
+    reactome_id: R-HSA-109606
+    type: Pathway
+  - name: Apoptotic execution phase
+    reactome_id: R-HSA-75153
+    type: Pathway
+  - name: Regulation of Apoptosis
+    reactome_id: R-HSA-169911
+    type: Pathway
+
+edges:

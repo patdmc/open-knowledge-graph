@@ -1,0 +1,56 @@
+id: PW-AtorvastatinADME
+type: knowledge
+domain: biology
+name: Atorvastatin ADME
+reactome_id: R-HSA-9754706
+
+description: "Atorvastatin (ATV, brand name Lipitor), is a lipid-lowering drug of the statin class of medications. It inhibits the endogenous production of cholesterol in the liver, thereby lowering abnormally high cholesterol and lipid levels, and ultimately reducing the risk of cardiovascular disease. Statins inhibit the enzyme hydroxymethylglutaryl-coenzyme A reductase (HMGCR) , which catalyzes the critical step in cholesterol biosynthesis of HMG-CoA conversion to mevalonic acid."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "SLCO1B1,1B3,2B1-3 transport ATV from extracelluar region to cytosol"
+    reactome_id: R-HSA-9757010
+    type: Reaction
+  - name: "CYP3A4 monooxygenates ATV to 2-OH-ATV"
+    reactome_id: R-HSA-9756169
+    type: Reaction
+  - name: "CYP3A4 monooxygenates ATV to 4-OH-ATV"
+    reactome_id: R-HSA-9756162
+    type: Reaction
+  - name: UGT1A3 lactonizes ATV to ATVL
+    reactome_id: R-HSA-9756156
+    type: BlackBoxEvent
+  - name: "UGT1A3 lactonizes 2-OH-ATV to 2-OH-ATVL"
+    reactome_id: R-HSA-9756134
+    type: BlackBoxEvent
+  - name: "UGT1A3 lactonizes 4-OH-ATV to 4-OH-ATVL"
+    reactome_id: R-HSA-9756183
+    type: BlackBoxEvent
+  - name: "CYP3A4 monooxygenates ATVL to 2-OH-ATVL"
+    reactome_id: R-HSA-9756138
+    type: Reaction
+  - name: "CYP3A4 monooxygenates ATVL to 4-OH-ATVL"
+    reactome_id: R-HSA-9756180
+    type: Reaction
+  - name: PON1,3 hydrolyse ATVL to ATV
+    reactome_id: R-HSA-9756177
+    type: Reaction
+  - name: "PON1,3 hydrolyse 2-OH-ATVL to 2-OH-ATV"
+    reactome_id: R-HSA-9756136
+    type: Reaction
+  - name: "PON1,3 hydrolyse 4-OH-ATVL to 4-OH-ATV"
+    reactome_id: R-HSA-9756150
+    type: Reaction
+  - name: ABCB1,ABCC2 transport ATVs from cytosol to extracellular region
+    reactome_id: R-HSA-9757139
+    type: Reaction
+
+edges:

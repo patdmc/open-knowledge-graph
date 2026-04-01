@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of Chinese participants",
+    "operation": "subtract",
+    "operands": [
+      240,
+      80
+    ],
+    "result": 160,
+    "variable": "chinese_total"
+  },
+  {
+    "step": 2,
+    "description": "Calculate number of girls on Chinese team",
+    "operation": "subtract",
+    "operands": [
+      160,
+      60
+    ],
+    "result": 100,
+    "variable": "chinese_girls"
+  }
+]

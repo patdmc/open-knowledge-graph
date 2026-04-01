@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "hours per dog per day times number of dogs",
+    "operation": "multiply",
+    "operands": [
+      0.5,
+      10
+    ],
+    "result": 5.0,
+    "variable": "hours_per_day"
+  },
+  {
+    "step": 2,
+    "description": "hours per day times days in a week",
+    "operation": "multiply",
+    "operands": [
+      5.0,
+      7
+    ],
+    "result": 35.0,
+    "variable": "hours_per_week"
+  }
+]

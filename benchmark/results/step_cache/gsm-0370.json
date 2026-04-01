@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate the savings from DIY (20% of market price)",
+    "operation": "multiply",
+    "operands": [
+      400,
+      0.2
+    ],
+    "result": 80.0,
+    "variable": "savings"
+  },
+  {
+    "step": 2,
+    "description": "Subtract savings from market price to get DIY cost",
+    "operation": "subtract",
+    "operands": [
+      400,
+      80.0
+    ],
+    "result": 320.0,
+    "variable": "total_cost"
+  }
+]

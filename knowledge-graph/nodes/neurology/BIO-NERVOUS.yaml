@@ -1,0 +1,32 @@
+id: BIO-NERVOUS
+type: knowledge
+domain: biology
+name: Nervous System
+
+description: The entire nerve apparatus, composed of a central part, the brain and spinal cord, and a peripheral part, the cranial and spinal nerves, autonomic ganglia, and plexuses. (Stedman, 26th ed).
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+components:
+  - name: Neurotransmitter Agents
+  - name: Synaptic Transmission
+    description: The communication from a NEURON to a target (neuron, muscle, or secretory cell) across a SYNAPSE. In chemical synaptic transmission, the presynaptic neuron releases a NEUROTRANSMITTER that diffuses ac
+  - name: Neuronal Plasticity
+    description: The capacity of the NERVOUS SYSTEM to change its reactivity as the result of successive activations.
+  - name: Neuroglia
+    description: "The non-neuronal cells of the nervous system. They not only provide physical support, but also respond to injury, regulate the ionic and chemical composition of the extracellular milieu, participate i"
+  - name: "Blood-Brain Barrier"
+    description: "Specialized non-fenestrated tightly-joined ENDOTHELIAL CELLS with TIGHT JUNCTIONS that form a transport barrier for certain substances between the cerebral capillaries and the BRAIN tissue."
+
+edges:
+  - to: BIO-ENDOCRINE
+    relation: interacts_with
+  - to: BIO-IMMUNE
+    relation: interacts_with

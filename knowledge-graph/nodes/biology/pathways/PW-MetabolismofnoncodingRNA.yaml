@@ -1,0 +1,23 @@
+id: PW-MetabolismofnoncodingRNA
+type: knowledge
+domain: biology
+name: "Metabolism of non-coding RNA"
+reactome_id: R-HSA-194441
+
+description: "The term non-coding is commonly employed for RNA that does not encode a protein, but this does not mean that such RNAs do not contain information nor have function. There is considerable evidence that the majority of mammalian and other complex organism's genomes is transcribed into non-coding RNAs, many of which are alternatively spliced and/or processed into smaller products. Around 98% of all transcriptional output in humans is non-coding RNA."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: snRNP Assembly
+    reactome_id: R-HSA-191859
+    type: Pathway
+
+edges:

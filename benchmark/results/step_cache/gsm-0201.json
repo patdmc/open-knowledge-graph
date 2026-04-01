@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate weekly raise amount",
+    "operation": "multiply",
+    "operands": [
+      2000,
+      0.05
+    ],
+    "result": 100.0,
+    "variable": "weekly_raise"
+  },
+  {
+    "step": 2,
+    "description": "Calculate new weekly salary after raise",
+    "operation": "add",
+    "operands": [
+      2000,
+      100.0
+    ],
+    "result": 2100.0,
+    "variable": "new_weekly_salary"
+  },
+  {
+    "step": 3,
+    "description": "Calculate annual salary for 52 weeks",
+    "operation": "multiply",
+    "operands": [
+      2100.0,
+      52
+    ],
+    "result": 109200.0,
+    "variable": "annual_salary"
+  },
+  {
+    "step": 4,
+    "description": "Add one-time monetary award",
+    "operation": "add",
+    "operands": [
+      109200.0,
+      5000
+    ],
+    "result": 114200.0,
+    "variable": "total_earnings"
+  }
+]

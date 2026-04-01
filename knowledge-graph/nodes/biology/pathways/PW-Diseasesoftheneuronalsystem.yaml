@@ -1,0 +1,23 @@
+id: PW-Diseasesoftheneuronalsystem
+type: knowledge
+domain: biology
+name: Diseases of the neuronal system
+reactome_id: R-HSA-9675143
+
+description: Diseases of the neuronal system can affect sensory cells and transmission of signals between sensory cells and sensory neurons (Martemyanov and Sampath 2017), transmission of signals across electrical and chemical synapses in the nervous system (Picconi et al. 2012, Yin et al. 2012, Kida and Kato 2015), and transmission of signals between motor neurons and muscle cells (Sine 2012, Engel et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases associated with visual transduction
+    reactome_id: R-HSA-2474795
+    type: Pathway
+
+edges:

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Multiply target average by number of scores counted (6 tests minus 1 lowest)",
+    "operation": "multiply",
+    "operands": [
+      93,
+      5
+    ],
+    "result": 465,
+    "variable": "total_points_needed"
+  },
+  {
+    "step": 2,
+    "description": "Add first two kept scores (excluding lowest 71)",
+    "operation": "add",
+    "operands": [
+      89,
+      92
+    ],
+    "result": 181,
+    "variable": "sum_partial"
+  },
+  {
+    "step": 3,
+    "description": "Add next kept score",
+    "operation": "add",
+    "operands": [
+      181,
+      100
+    ],
+    "result": 281,
+    "variable": "sum_partial"
+  },
+  {
+    "step": 4,
+    "description": "Add last kept score from first five tests",
+    "operation": "add",
+    "operands": [
+      281,
+      86
+    ],
+    "result": 367,
+    "variable": "sum_of_four_kept_scores"
+  },
+  {
+    "step": 5,
+    "description": "Subtract sum of four kept scores from total needed to find required sixth test score",
+    "operation": "subtract",
+    "operands": [
+      465,
+      367
+    ],
+    "result": 98.0,
+    "variable": "required_sixth_score"
+  }
+]

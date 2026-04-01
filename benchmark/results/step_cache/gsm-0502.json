@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Gifts for the 2 friends who want 5 each",
+    "operation": "multiply",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 10,
+    "variable": "gifts_for_first_group"
+  },
+  {
+    "step": 2,
+    "description": "Gifts for the 3 friends who want 2 each",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "gifts_for_second_group"
+  },
+  {
+    "step": 3,
+    "description": "Total gifts for all 5 friends",
+    "operation": "add",
+    "operands": [
+      10,
+      6
+    ],
+    "result": 16,
+    "variable": "gifts_for_friends"
+  },
+  {
+    "step": 4,
+    "description": "Add the 10 random surprise gifts",
+    "operation": "add",
+    "operands": [
+      16,
+      10
+    ],
+    "result": 26,
+    "variable": "total_gifts"
+  }
+]

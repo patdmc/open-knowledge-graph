@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Students at end of January",
+    "operation": "multiply",
+    "operands": [
+      10,
+      2
+    ],
+    "result": 20,
+    "variable": "jan_end"
+  },
+  {
+    "step": 2,
+    "description": "Students at end of February",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "feb_end"
+  },
+  {
+    "step": 3,
+    "description": "Students at end of March",
+    "operation": "multiply",
+    "operands": [
+      40,
+      2
+    ],
+    "result": 80,
+    "variable": "mar_end"
+  },
+  {
+    "step": 4,
+    "description": "Students at end of April",
+    "operation": "multiply",
+    "operands": [
+      80,
+      2
+    ],
+    "result": 160,
+    "variable": "apr_end"
+  },
+  {
+    "step": 5,
+    "description": "Students at end of May",
+    "operation": "multiply",
+    "operands": [
+      160,
+      2
+    ],
+    "result": 320,
+    "variable": "may_end"
+  },
+  {
+    "step": 6,
+    "description": "Additional students above starting count",
+    "operation": "subtract",
+    "operands": [
+      320,
+      10
+    ],
+    "result": 310,
+    "variable": "additional_students"
+  }
+]

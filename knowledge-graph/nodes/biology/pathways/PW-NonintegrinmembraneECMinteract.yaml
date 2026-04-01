@@ -1,0 +1,47 @@
+id: PW-NonintegrinmembraneECMinteract
+type: knowledge
+domain: biology
+name: "Non-integrin membrane-ECM interactions"
+reactome_id: R-HSA-3000171
+
+description: "Several non-integrin membrane proteins interact with extracellular matrix proteins. Transmembrane proteoglycans may associate with integrins and growth factor receptors to influence their function, or they can signal independently, often influencing the actin cytoskeleton. ."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "HSPG2 binds FGF2(10-155), Fibronectn matrix, Transthyretin tetramer, PDGFA homodimer, PDGFB homodimer"
+    reactome_id: R-HSA-2396337
+    type: Reaction
+  - name: Dystroglycan binds Laminins and Dystrophin
+    reactome_id: R-HSA-2328129
+    type: Reaction
+  - name: Dystroglycan binds AGRN and HSPG2
+    reactome_id: R-HSA-2396113
+    type: Reaction
+  - name: Dystroglycan binds NRXN1
+    reactome_id: R-HSA-2426263
+    type: Reaction
+  - name: "NTN4 binds laminins with gamma-1, gamma-3"
+    reactome_id: R-HSA-2426355
+    type: Reaction
+  - name: DDR1 binds collagen type I, II, III, IV, V, XI fibrils
+    reactome_id: R-HSA-2327738
+    type: Reaction
+  - name: DDR2 binds collagen type I, II, III, V, X fibrils
+    reactome_id: R-HSA-2465890
+    type: Reaction
+  - name: Syndecan interactions
+    reactome_id: R-HSA-3000170
+    type: Pathway
+  - name: "Formation of the dystrophin-glycoprotein complex (DGC)"
+    reactome_id: R-HSA-9913351
+    type: Pathway
+
+edges:

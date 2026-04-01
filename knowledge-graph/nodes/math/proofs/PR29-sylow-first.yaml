@@ -1,0 +1,118 @@
+id: PR29-sylow-first
+type: proof
+domain: algebra
+name: "First Sylow Theorem"
+target:
+  statement: "\\text{If } p^k \\mid |G| \\text{ for prime } p, \\text{ then } G \\text{ has a subgroup of order } p^k"
+  type: theorem
+method: induction
+
+assertions:
+  - step: 1
+    id: base-case
+    type: claim
+    statement: "\\text{If } |G| = 1 \\text{ then } p^k \\mid 1 \\implies k = 0, \\text{ and } \\{e\\} \\text{ has order } p^0 = 1"
+    justification: "trivial base case"
+    depends_on: []
+    references: [group]
+
+  - step: 2
+    id: inductive-hypothesis
+    type: hypothesis
+    statement: "\\text{Assume the theorem holds for all groups of order less than } |G|"
+    justification: "strong induction on |G|"
+    depends_on: [base-case]
+
+  - step: 3
+    id: class-equation
+    type: lemma
+    statement: "|G| = |Z(G)| + \\sum_{i} [G : C_G(g_i)]"
+    justification: "class equation: G decomposes into conjugacy classes; Z(G) consists of singleton classes, the rest have size [G : C_G(g_i)] > 1"
+    depends_on: []
+    references: [group, coset]
+
+  - step: 4
+    id: case-p-divides-center
+    type: claim
+    statement: "\\text{If } p \\mid |Z(G)|, \\text{ then } Z(G) \\text{ has an element } z \\text{ of order } p \\text{ (by Cauchy's theorem for abelian groups)}"
+    justification: "Z(G) is abelian; Cauchy's theorem gives an element of prime order p"
+    depends_on: [class-equation]
+    references: [abelian_group]
+
+  - step: 5
+    id: quotient-by-z
+    type: claim
+    statement: "N = \\langle z \\rangle \\trianglelefteq G \\text{ and } |G/N| = |G|/p"
+    justification: "z is in the center so <z> is normal; quotient has order |G|/p"
+    depends_on: [case-p-divides-center]
+    references: [normal_subgroup, quotient_group]
+
+  - step: 6
+    id: induction-on-quotient
+    type: claim
+    statement: "p^{k-1} \\mid |G/N|, \\text{ so by induction } G/N \\text{ has a subgroup } \\bar{H} \\text{ of order } p^{k-1}"
+    justification: "apply the inductive hypothesis to G/N which has smaller order"
+    depends_on: [quotient-by-z, inductive-hypothesis]
+
+  - step: 7
+    id: lift-subgroup
+    type: claim
+    statement: "H = \\pi^{-1}(\\bar{H}) \\leq G \\text{ has order } |\\bar{H}| \\cdot |N| = p^{k-1} \\cdot p = p^k"
+    justification: "preimage of a subgroup under the canonical projection pi: G -> G/N is a subgroup, with |pi^{-1}(bar{H})| = |bar{H}| * |N|"
+    depends_on: [induction-on-quotient, quotient-by-z]
+    references: [subgroup, homomorphism]
+
+  - step: 8
+    id: case-p-not-divide-center
+    type: claim
+    statement: "\\text{If } p \\nmid |Z(G)|, \\text{ then } \\exists\\, g_i \\text{ with } p \\nmid [G : C_G(g_i)]"
+    justification: "from the class equation: p | |G| and p does not divide |Z(G)|, so p cannot divide every conjugacy class size [G : C_G(g_i)]; at least one centralizer index is coprime to p"
+    depends_on: [class-equation]
+    references: [divisibility]
+
+  - step: 9
+    id: centralizer-has-pk
+    type: claim
+    statement: "p^k \\mid |C_G(g_i)| \\text{ and } |C_G(g_i)| < |G|"
+    justification: "|G| = [G : C_G(g_i)] * |C_G(g_i)| by Lagrange; since p^k | |G| and p does not divide [G : C_G(g_i)], we get p^k | |C_G(g_i)|; the centralizer is proper since g_i is not in Z(G)"
+    depends_on: [case-p-not-divide-center]
+    references: [subgroup]
+
+  - step: 10
+    id: induction-on-centralizer
+    type: claim
+    statement: "\\text{By induction, } C_G(g_i) \\text{ has a subgroup of order } p^k, \\text{ which is also a subgroup of } G"
+    justification: "apply the inductive hypothesis to C_G(g_i), which has order less than |G|"
+    depends_on: [centralizer-has-pk, inductive-hypothesis]
+
+  - step: 11
+    id: conclusion
+    type: theorem
+    statement: "\\text{If } p^k \\mid |G|, \\text{ then } G \\text{ has a subgroup of order } p^k"
+    justification: "in both cases (p | |Z(G)| and p does not divide |Z(G)|), we obtain a subgroup of order p^k; the induction is complete"
+    depends_on: [lift-subgroup, induction-on-centralizer]
+
+qed: true
+
+corollaries:
+  - id: sylow-p-subgroup-exists
+    statement: "\\text{If } |G| = p^a m \\text{ with } \\gcd(p, m) = 1, \\text{ then } G \\text{ has a subgroup of order } p^a \\text{ (a Sylow } p\\text{-subgroup)}"
+    justification: "take k = a in the first Sylow theorem"
+    depends_on: [conclusion]
+    references: [group, prime]
+
+  - id: cauchy-theorem
+    statement: "\\text{If } p \\mid |G|, \\text{ then } G \\text{ has an element of order } p"
+    justification: "take k = 1; the subgroup of order p is cyclic, so its generator has order p"
+    depends_on: [conclusion]
+    references: [cyclic_group]
+
+edges:
+  - to: AA01-abstract-algebra
+    relation: PROVES_FROM
+  - to: PR05-lagrange-theorem
+    relation: USES
+    note: "class equation and centralizer index both rely on Lagrange's theorem"
+  - to: PR16-first-isomorphism
+    relation: USES
+    note: "quotient group construction uses the canonical projection"

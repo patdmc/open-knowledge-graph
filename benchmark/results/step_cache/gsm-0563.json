@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Age of second son",
+    "operation": "subtract",
+    "operands": [
+      12,
+      4
+    ],
+    "result": 8,
+    "variable": "son2_age"
+  },
+  {
+    "step": 2,
+    "description": "Total candles needed",
+    "operation": "add",
+    "operands": [
+      12,
+      8
+    ],
+    "result": 20,
+    "variable": "total_candles"
+  },
+  {
+    "step": 3,
+    "description": "Number of packs needed",
+    "operation": "divide",
+    "operands": [
+      20,
+      5
+    ],
+    "result": 4,
+    "variable": "num_packs"
+  },
+  {
+    "step": 4,
+    "description": "Total cost of candles",
+    "operation": "multiply",
+    "operands": [
+      4,
+      3
+    ],
+    "result": 12.0,
+    "variable": "total_cost"
+  }
+]

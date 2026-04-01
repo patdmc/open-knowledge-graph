@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Convert Movie C from hours to minutes",
+    "operation": "multiply",
+    "operands": [
+      1.25,
+      60
+    ],
+    "result": 75.0,
+    "variable": "Movie C in minutes"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Movie B length",
+    "operation": "add",
+    "operands": [
+      75.0,
+      5
+    ],
+    "result": 80.0,
+    "variable": "Movie B in minutes"
+  },
+  {
+    "step": 3,
+    "description": "Calculate Movie A as one-fourth of Movie B",
+    "operation": "divide",
+    "operands": [
+      80.0,
+      4
+    ],
+    "result": 20.0,
+    "variable": "Movie A in minutes"
+  }
+]

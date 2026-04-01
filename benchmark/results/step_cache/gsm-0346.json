@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Cookies in son's lunch per week",
+    "operation": "multiply",
+    "operands": [
+      4,
+      5
+    ],
+    "result": 20,
+    "variable": "son_cookies"
+  },
+  {
+    "step": 2,
+    "description": "Cookies husband eats per week",
+    "operation": "multiply",
+    "operands": [
+      1,
+      7
+    ],
+    "result": 7,
+    "variable": "husband_cookies"
+  },
+  {
+    "step": 3,
+    "description": "Total cookies eaten by son and husband",
+    "operation": "add",
+    "operands": [
+      20,
+      7
+    ],
+    "result": 27,
+    "variable": "others_cookies"
+  },
+  {
+    "step": 4,
+    "description": "Cookies Jenny eats",
+    "operation": "subtract",
+    "operands": [
+      36,
+      27
+    ],
+    "result": 9,
+    "variable": "jenny_cookies"
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "chunk_index": 5,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "3. Formal Definitions > [part 2/5]",
+  "section_path": [
+    "3. Formal Definitions",
+    "[part 2/5]"
+  ],
+  "char_count": 6249,
+  "keyphrases": [
+    {
+      "phrase": "information gain",
+      "score": 0.538
+    },
+    {
+      "phrase": "uncertainty entity math",
+      "score": 0.5164
+    },
+    {
+      "phrase": "definition 3b information",
+      "score": 0.5007
+    },
+    {
+      "phrase": "feedback math conditioning",
+      "score": 0.4757
+    },
+    {
+      "phrase": "definition entity",
+      "score": 0.4584
+    },
+    {
+      "phrase": "entropy",
+      "score": 0.4
+    },
+    {
+      "phrase": "phenomenological description gate",
+      "score": 0.3449
+    },
+    {
+      "phrase": "definition definition",
+      "score": 0.3178
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 3b (Information Gain).",
+      "Definition 4 (Entity).",
+      "Definition 5 (Uncertainty).",
+      "Definition 6 (Agency).",
+      "Formulation 3 (primary formal definition,\nCorollary 6a):",
+      "Formulation 1\n(informal description):",
+      "Formulation 2 (empirical\noperationalization):"
+    ],
+    "has_math": true
+  }
+}

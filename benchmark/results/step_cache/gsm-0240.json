@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Find Robert's candies (John has twice Robert's)",
+    "operation": "divide",
+    "operands": [
+      54,
+      2
+    ],
+    "result": 27,
+    "variable": "robert_candies"
+  },
+  {
+    "step": 2,
+    "description": "Find James's candies (Robert plus 6)",
+    "operation": "add",
+    "operands": [
+      27,
+      6
+    ],
+    "result": 33,
+    "variable": "james_candies"
+  },
+  {
+    "step": 3,
+    "description": "Find how many more John has than James",
+    "operation": "subtract",
+    "operands": [
+      54,
+      33
+    ],
+    "result": 21,
+    "variable": "john_minus_james"
+  }
+]

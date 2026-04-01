@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "calculate votes the winner received",
+    "operation": "multiply",
+    "operands": [
+      80,
+      0.75
+    ],
+    "result": 60.0,
+    "variable": "winner_votes"
+  },
+  {
+    "step": 2,
+    "description": "calculate votes the loser received",
+    "operation": "subtract",
+    "operands": [
+      80,
+      60.0
+    ],
+    "result": 20.0,
+    "variable": "loser_votes"
+  }
+]

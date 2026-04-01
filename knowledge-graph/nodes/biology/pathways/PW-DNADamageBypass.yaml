@@ -1,0 +1,26 @@
+id: PW-DNADamageBypass
+type: knowledge
+domain: biology
+name: DNA Damage Bypass
+reactome_id: R-HSA-73893
+
+description: In addition to various processes for removing lesions from the DNA, cells have developed specific mechanisms for tolerating unrepaired damage during the replication of the genome. These mechanisms are collectively called DNA damage bypass pathways. The Y family of DNA polymerases plays a key role in DNA damage bypass.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Recognition of DNA damage by PCNA-containing replication complex"
+    reactome_id: R-HSA-110314
+    type: Pathway
+  - name: Translesion synthesis by Y family DNA polymerases bypasses lesions on DNA template
+    reactome_id: R-HSA-110313
+    type: Pathway
+
+edges:

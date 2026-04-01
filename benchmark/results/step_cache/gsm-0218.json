@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Adrian's current age",
+    "operation": "multiply",
+    "operands": [
+      3,
+      21
+    ],
+    "result": 63,
+    "variable": "Adrian_now"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Zack's current age",
+    "operation": "multiply",
+    "operands": [
+      2,
+      21
+    ],
+    "result": 42,
+    "variable": "Zack_now"
+  },
+  {
+    "step": 3,
+    "description": "Calculate Harriet's age in 3 years",
+    "operation": "add",
+    "operands": [
+      21,
+      3
+    ],
+    "result": 24,
+    "variable": "Harriet_future"
+  },
+  {
+    "step": 4,
+    "description": "Calculate Adrian's age in 3 years",
+    "operation": "add",
+    "operands": [
+      63,
+      3
+    ],
+    "result": 66,
+    "variable": "Adrian_future"
+  },
+  {
+    "step": 5,
+    "description": "Calculate Zack's age in 3 years",
+    "operation": "add",
+    "operands": [
+      42,
+      3
+    ],
+    "result": 45,
+    "variable": "Zack_future"
+  },
+  {
+    "step": 6,
+    "description": "Sum Harriet and Adrian future ages",
+    "operation": "add",
+    "operands": [
+      24,
+      66
+    ],
+    "result": 90,
+    "variable": "sum_partial"
+  },
+  {
+    "step": 7,
+    "description": "Sum all three future ages",
+    "operation": "add",
+    "operands": [
+      90,
+      45
+    ],
+    "result": 135,
+    "variable": "sum_total"
+  },
+  {
+    "step": 8,
+    "description": "Calculate average of three future ages",
+    "operation": "divide",
+    "operands": [
+      135,
+      3
+    ],
+    "result": 45.0,
+    "variable": "average_age"
+  }
+]

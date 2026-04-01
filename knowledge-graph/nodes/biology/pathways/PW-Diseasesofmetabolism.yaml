@@ -1,0 +1,56 @@
+id: PW-Diseasesofmetabolism
+type: knowledge
+domain: biology
+name: Diseases of metabolism
+reactome_id: R-HSA-5668914
+
+description: Metabolic processes in human cells generate energy through the oxidation of molecules consumed in the diet and mediate the synthesis of diverse essential molecules not taken in the diet as well as the inactivation and elimination of toxic ones generated endogenously or present in the extracellular environment. Mutations that disrupt these processes by inactivating a required enzyme or regulatory protein, or more rarely by changing its specificity can lead to severe diseases. Metabolic diseases annotated here involve aspects of carbohydrate, glycosylation, amino acid (phenylketonuria), surfactant and vitamin metabolism, and biological oxidations.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases of carbohydrate metabolism
+    reactome_id: R-HSA-5663084
+    type: Pathway
+  - name: Phenylketonuria
+    reactome_id: R-HSA-2160456
+    type: Pathway
+  - name: Defects in vitamin and cofactor metabolism
+    reactome_id: R-HSA-3296482
+    type: Pathway
+  - name: Metabolic disorders of biological oxidation enzymes
+    reactome_id: R-HSA-5579029
+    type: Pathway
+  - name: "Abnormal conversion of 2-oxoglutarate to 2-hydroxyglutarate"
+    reactome_id: R-HSA-2978092
+    type: Pathway
+  - name: Diseases associated with surfactant metabolism
+    reactome_id: R-HSA-5687613
+    type: Pathway
+  - name: Diseases of glycosylation
+    reactome_id: R-HSA-3781865
+    type: Pathway
+  - name: Defective ACTH causes obesity and POMCD
+    reactome_id: R-HSA-5579031
+    type: Pathway
+  - name: Diseases of nucleotide metabolism
+    reactome_id: R-HSA-9735804
+    type: Pathway
+  - name: Diseases of mitochondrial beta oxidation
+    reactome_id: R-HSA-9759774
+    type: Pathway
+  - name: "Diseases of branched-chain amino acid catabolism"
+    reactome_id: R-HSA-9865118
+    type: Pathway
+  - name: Diseases of the urea cycle
+    reactome_id: R-HSA-9955698
+    type: Pathway
+
+edges:

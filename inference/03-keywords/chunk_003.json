@@ -1,0 +1,56 @@
+{
+  "chunk_index": 3,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "2. The Central Claims",
+  "section_path": [
+    "2. The Central Claims"
+  ],
+  "char_count": 2172,
+  "keyphrases": [
+    {
+      "phrase": "intelligence driven capacity",
+      "score": 0.5725
+    },
+    {
+      "phrase": "size accumulated knowledge",
+      "score": 0.5462
+    },
+    {
+      "phrase": "intelligence math measures",
+      "score": 0.5447
+    },
+    {
+      "phrase": "drive math intrinsic",
+      "score": 0.4966
+    },
+    {
+      "phrase": "math informed action",
+      "score": 0.4756
+    },
+    {
+      "phrase": "invariants intelligence aspect",
+      "score": 0.4663
+    },
+    {
+      "phrase": "bounding uncertainty knowledge",
+      "score": 0.4212
+    },
+    {
+      "phrase": "behavioral breadth",
+      "score": 0.3833
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "intelligence is the driven capacity to improve",
+      "Drive (\\(\\mathcal{A",
+      "Mechanism (\\(\\eta_M\\)):",
+      "Agency and learning capacity are both universal invariants of\nintelligence."
+    ],
+    "has_math": true
+  }
+}

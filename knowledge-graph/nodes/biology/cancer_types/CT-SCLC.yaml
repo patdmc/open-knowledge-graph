@@ -1,0 +1,61 @@
+id: CT-SCLC
+type: knowledge
+domain: cancer_biology
+name: "Small Cell Lung Cancer"
+
+n_patients: 386
+n_mutated: 378
+mutation_rate: 0.9793
+channel_entropy: 2.1119
+hub_fraction: 0.6173
+median_os_months: 9.9620
+event_rate: 0.6425
+survival_36m: 0.1088
+mean_channels_per_patient: 2.4021
+top_gene: TP53
+top_gene_frequency: 0.2449
+n_harmful_mutations: 0
+n_protective_mutations: 1
+dominant_channels: [CHAN-CellCycle, CHAN-PI3K_Growth]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=386)"
+
+edges:
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Small Cell Lung Cancer"
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Small Cell Lung Cancer"
+  - to: GENE-TP53
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "TP53 mutated in 0.2449 of Small Cell Lung Cancer patients"
+

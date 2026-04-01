@@ -1,0 +1,104 @@
+{
+  "class_id": "EC03",
+  "label": "social-imperative-collective",
+  "n_chunks": 19,
+  "representative": {
+    "chunk_index": 3,
+    "section_title": "2. The Central Claims",
+    "similarity": 0.8216
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 3,
+      "section_title": "2. The Central Claims",
+      "similarity": 0.8216,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 10,
+      "section_title": "5. The Escalation Principle > [part 2/10]",
+      "similarity": 0.8058,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 48,
+      "section_title": "3. Knowledge Graph Schema > 4.1 The Target Theory",
+      "similarity": 0.7858,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "informed action space",
+      "score": 0.9066
+    },
+    {
+      "phrase": "gradient sentience observes",
+      "score": 0.6311
+    },
+    {
+      "phrase": "delegation precision allocation",
+      "score": 0.6241
+    },
+    {
+      "phrase": "context capacity inference",
+      "score": 0.6081
+    },
+    {
+      "phrase": "sentience math invisible",
+      "score": 0.6017
+    },
+    {
+      "phrase": "efficiency universal",
+      "score": 0.5865
+    },
+    {
+      "phrase": "certainty math entity",
+      "score": 0.5857
+    },
+    {
+      "phrase": "definition knowledge graph",
+      "score": 0.5809
+    },
+    {
+      "phrase": "intelligence driven capacity",
+      "score": 0.5725
+    },
+    {
+      "phrase": "survival reveals sentient",
+      "score": 0.5718
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "intelligence is the driven capacity to improve",
+    "Drive (\\(\\mathcal{A",
+    "Mechanism (\\(\\eta_M\\)):",
+    "Agency and learning capacity are both universal invariants of\nintelligence.",
+    "driven capacity to\nimprove",
+    "Definition 1 (World State Space).",
+    "Definition 2 (Knowledge Graph).",
+    "Definition 2a (Bounded Knowledge Graph).",
+    "growth regime",
+    "curation regime",
+    "Definition 3 (Informed Action Space).",
+    "informed action",
+    "Definition 3a (Action Feedback).",
+    "Definition 3b (Information Gain).",
+    "Definition 8a (Active Context Capacity and Inference Quality)."
+  ],
+  "bridge_chunks": [
+    3,
+    0,
+    10,
+    12,
+    21,
+    23,
+    27,
+    33,
+    48
+  ]
+}

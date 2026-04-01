@@ -1,0 +1,59 @@
+{
+  "chunk_index": 15,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 7/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 7/10]"
+  ],
+  "char_count": 5834,
+  "keyphrases": [
+    {
+      "phrase": "math survive evolutionary",
+      "score": 0.5079
+    },
+    {
+      "phrase": "threshold ensures math",
+      "score": 0.4985
+    },
+    {
+      "phrase": "learning rate difference",
+      "score": 0.4278
+    },
+    {
+      "phrase": "cost math definition",
+      "score": 0.4123
+    },
+    {
+      "phrase": "filters robustness analogy",
+      "score": 0.3502
+    },
+    {
+      "phrase": "informed action reduces",
+      "score": 0.2994
+    },
+    {
+      "phrase": "permanence scales rigor",
+      "score": 0.2781
+    },
+    {
+      "phrase": "failure difference",
+      "score": 0.277
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 4 (Encoding Permanence Scales with Rigor).",
+      "handled errors",
+      "unhandled exceptions",
+      "Definition 10 (Certain).",
+      "Corollary 6 (Bounded Adaptation).",
+      "Definition 11 (Higher-Order Function Space)."
+    ],
+    "has_math": true
+  }
+}

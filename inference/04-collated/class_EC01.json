@@ -1,0 +1,1245 @@
+{
+  "class_id": "EC01",
+  "label": "escalation-principle-unified",
+  "n_chunks": 19,
+  "n_missing": 0,
+  "representative_title": "5. The Escalation Principle > [part 10/10]",
+  "chunks": [
+    {
+      "chunk_index": 18,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 10/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 10/10]"
+      ],
+      "char_count": 6244,
+      "keyphrases": [
+        {
+          "phrase": "specific math necessity",
+          "score": 0.5299
+        },
+        {
+          "phrase": "relieved math inference",
+          "score": 0.525
+        },
+        {
+          "phrase": "certainty math action",
+          "score": 0.4727
+        },
+        {
+          "phrase": "math bounded definition",
+          "score": 0.439
+        },
+        {
+          "phrase": "persistently math degrades",
+          "score": 0.4384
+        },
+        {
+          "phrase": "learning capacity minimum",
+          "score": 0.4305
+        },
+        {
+          "phrase": "inference quality",
+          "score": 0.4239
+        },
+        {
+          "phrase": "enforcement mechanism timescale",
+          "score": 0.3449
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Part 2 (Necessity of \\(\\eta_M > 0\\)).",
+          "Part 3 (Minimality: no other property is invariant).",
+          "Corollary 6a (\\(I(E) = \\mathcal{A"
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": true
+    },
+    {
+      "chunk_index": 3,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "2. The Central Claims",
+      "section_path": [
+        "2. The Central Claims"
+      ],
+      "char_count": 2172,
+      "keyphrases": [
+        {
+          "phrase": "intelligence driven capacity",
+          "score": 0.5725
+        },
+        {
+          "phrase": "size accumulated knowledge",
+          "score": 0.5462
+        },
+        {
+          "phrase": "intelligence math measures",
+          "score": 0.5447
+        },
+        {
+          "phrase": "drive math intrinsic",
+          "score": 0.4966
+        },
+        {
+          "phrase": "math informed action",
+          "score": 0.4756
+        },
+        {
+          "phrase": "invariants intelligence aspect",
+          "score": 0.4663
+        },
+        {
+          "phrase": "bounding uncertainty knowledge",
+          "score": 0.4212
+        },
+        {
+          "phrase": "behavioral breadth",
+          "score": 0.3833
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "intelligence is the driven capacity to improve",
+          "Drive (\\(\\mathcal{A",
+          "Mechanism (\\(\\eta_M\\)):",
+          "Agency and learning capacity are both universal invariants of\nintelligence."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC03",
+        "EC01",
+        "EC07"
+      ],
+      "other_classes": [
+        "EC03",
+        "EC07"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 6,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 3/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 3/5]"
+      ],
+      "char_count": 5894,
+      "keyphrases": [
+        {
+          "phrase": "encountered math survival",
+          "score": 0.521
+        },
+        {
+          "phrase": "inseparability entity math",
+          "score": 0.4127
+        },
+        {
+          "phrase": "math intrinsic drive",
+          "score": 0.4087
+        },
+        {
+          "phrase": "agency survival compelled",
+          "score": 0.4034
+        },
+        {
+          "phrase": "crystallized knowledge",
+          "score": 0.3904
+        },
+        {
+          "phrase": "normalized orientation math",
+          "score": 0.3472
+        },
+        {
+          "phrase": "mechanisms",
+          "score": 0.3167
+        },
+        {
+          "phrase": "nals",
+          "score": 0.3117
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 7 (Intelligence).",
+          "performance measure",
+          "Lemma 1 (Proposition Absence Lethality).",
+          "Theorem 1 (K/F Inseparability)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 7,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 4/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 4/5]"
+      ],
+      "char_count": 6042,
+      "keyphrases": [
+        {
+          "phrase": "retention criterion governs",
+          "score": 0.5969
+        },
+        {
+          "phrase": "math asymmetric retention",
+          "score": 0.5638
+        },
+        {
+          "phrase": "holds math survival",
+          "score": 0.5341
+        },
+        {
+          "phrase": "inseparability entity math",
+          "score": 0.5069
+        },
+        {
+          "phrase": "criterion governs displaced",
+          "score": 0.4623
+        },
+        {
+          "phrase": "absence outweighs finite",
+          "score": 0.4271
+        },
+        {
+          "phrase": "costs math theorem",
+          "score": 0.4215
+        },
+        {
+          "phrase": "uncertain benefit sufficient",
+          "score": 0.3613
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Theorem 1 (K/F Inseparability)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 8,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "3. Formal Definitions > [part 5/5]",
+      "section_path": [
+        "3. Formal Definitions",
+        "[part 5/5]"
+      ],
+      "char_count": 5587,
+      "keyphrases": [
+        {
+          "phrase": "retention criterion formalizes",
+          "score": 0.4975
+        },
+        {
+          "phrase": "behavior bounded knowledge",
+          "score": 0.4851
+        },
+        {
+          "phrase": "entity math evolves",
+          "score": 0.4389
+        },
+        {
+          "phrase": "regime ensures math",
+          "score": 0.4368
+        },
+        {
+          "phrase": "math comparative displacement",
+          "score": 0.3985
+        },
+        {
+          "phrase": "theorem benefit uncertain",
+          "score": 0.3919
+        },
+        {
+          "phrase": "potential value epistemically",
+          "score": 0.3905
+        },
+        {
+          "phrase": "ly narrow domain",
+          "score": 0.3354
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Corollary 1 (Indexed Knowledge).",
+          "Corollary 2 (Compactness).",
+          "Corollary 2a (Curation and Forgetting).",
+          "Corollary 2b (K as the Normalization of F --- the Scaling\nArgument)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 9,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 1/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 1/10]"
+      ],
+      "char_count": 5657,
+      "keyphrases": [
+        {
+          "phrase": "encoding hierarchy continuous",
+          "score": 0.5927
+        },
+        {
+          "phrase": "principle definition encoding",
+          "score": 0.5461
+        },
+        {
+          "phrase": "escalation principle definition",
+          "score": 0.5091
+        },
+        {
+          "phrase": "qualitative boundaries",
+          "score": 0.4491
+        },
+        {
+          "phrase": "levels math interfaces",
+          "score": 0.4478
+        },
+        {
+          "phrase": "reasoning represented vocabulary",
+          "score": 0.4428
+        },
+        {
+          "phrase": "continuous moves",
+          "score": 0.3801
+        },
+        {
+          "phrase": "crosses action encoding",
+          "score": 0.3614
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 8 (Encoding Hierarchy).",
+          "interfaces",
+          "upward interface protocol",
+          "downward interface protocol",
+          "Theorem 2 (Escalation).",
+          "Corollary 3 (Context Window as Frontier).",
+          "Corollary 4 (Simultaneous Multi-Level Activity)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC04",
+        "EC01"
+      ],
+      "other_classes": [
+        "EC04"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 10,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 2/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 2/10]"
+      ],
+      "char_count": 6223,
+      "keyphrases": [
+        {
+          "phrase": "context capacity inference",
+          "score": 0.6081
+        },
+        {
+          "phrase": "knowledge substrate",
+          "score": 0.5481
+        },
+        {
+          "phrase": "math delegation overhead",
+          "score": 0.4919
+        },
+        {
+          "phrase": "grow math context",
+          "score": 0.4384
+        },
+        {
+          "phrase": "propositions retrievable chunks",
+          "score": 0.4241
+        },
+        {
+          "phrase": "physical constraints effective",
+          "score": 0.3871
+        },
+        {
+          "phrase": "levels sequential concurrent",
+          "score": 0.3779
+        },
+        {
+          "phrase": "graph definition math",
+          "score": 0.3621
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 8a (Active Context Capacity and Inference Quality).",
+          "inference quality",
+          "Definition 8b (Delegation Overhead).",
+          "Theorem 2a (Top-Down Allocation Degrades Inference Quality).",
+          "Theorem 2b (Graph-Structured Knowledge Bounds Active Context)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC03",
+        "EC01",
+        "EC02",
+        "EC04"
+      ],
+      "other_classes": [
+        "EC03",
+        "EC02",
+        "EC04"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 11,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 3/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 3/10]"
+      ],
+      "char_count": 6217,
+      "keyphrases": [
+        {
+          "phrase": "delegation overhead math",
+          "score": 0.6101
+        },
+        {
+          "phrase": "propositions graph traversal",
+          "score": 0.4764
+        },
+        {
+          "phrase": "causal escalation",
+          "score": 0.4729
+        },
+        {
+          "phrase": "degrades inference",
+          "score": 0.3845
+        },
+        {
+          "phrase": "inferentially connected math",
+          "score": 0.37
+        },
+        {
+          "phrase": "grows math reaches",
+          "score": 0.3194
+        },
+        {
+          "phrase": "edges cause",
+          "score": 0.2976
+        },
+        {
+          "phrase": "context subproblems progress",
+          "score": 0.2732
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Part 1 (No delegation overhead).",
+          "Part 2 (\\(\\rho = 1\\) conditional on edge fidelity).",
+          "Part 3 (Graph is the necessary structure under joint\nconstraints).",
+          "Option A: Discard an existing proposition."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 12,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 4/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 4/10]"
+      ],
+      "char_count": 6289,
+      "keyphrases": [
+        {
+          "phrase": "growing math graph",
+          "score": 0.4986
+        },
+        {
+          "phrase": "math enables entity",
+          "score": 0.4857
+        },
+        {
+          "phrase": "information boundary math",
+          "score": 0.4747
+        },
+        {
+          "phrase": "informed actions math",
+          "score": 0.4461
+        },
+        {
+          "phrase": "encoded knowledge lower",
+          "score": 0.4373
+        },
+        {
+          "phrase": "structure merely efficient",
+          "score": 0.391
+        },
+        {
+          "phrase": "end factoring representation",
+          "score": 0.3674
+        },
+        {
+          "phrase": "eventually fail constraints",
+          "score": 0.3417
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Part 4 (\\(C_n\\) stays bounded).",
+          "Corollary 4a (Selection Pressure Produces Graph-Structured\nKnowledge).",
+          "Corollary 4b (The Scaling Argument Against Context Window\nGrowth).",
+          "Definition 9 (Survival Threshold).",
+          "Theorem 3 (Agency Necessarily Produces Evaluation-Driven State\nRevision)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC02",
+        "EC01",
+        "EC03",
+        "EC07"
+      ],
+      "other_classes": [
+        "EC02",
+        "EC03",
+        "EC07"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 13,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 5/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 5/10]"
+      ],
+      "char_count": 5538,
+      "keyphrases": [
+        {
+          "phrase": "math entities signals",
+          "score": 0.5499
+        },
+        {
+          "phrase": "sensed dimensions math",
+          "score": 0.5097
+        },
+        {
+          "phrase": "convergence induction sensed",
+          "score": 0.4986
+        },
+        {
+          "phrase": "infinite entity does",
+          "score": 0.4323
+        },
+        {
+          "phrase": "informed action math",
+          "score": 0.4283
+        },
+        {
+          "phrase": "reachable epistemic domain",
+          "score": 0.4133
+        },
+        {
+          "phrase": "finite bounded math",
+          "score": 0.3858
+        },
+        {
+          "phrase": "execution dimension dimension",
+          "score": 0.3677
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Base case (\\(M = 1\\)).",
+          "Inductive step (\\(M \\to M+1\\))."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 14,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 6/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 6/10]"
+      ],
+      "char_count": 6248,
+      "keyphrases": [
+        {
+          "phrase": "survival driven updating",
+          "score": 0.524
+        },
+        {
+          "phrase": "evolutionary learning math",
+          "score": 0.4582
+        },
+        {
+          "phrase": "survives definition math",
+          "score": 0.4409
+        },
+        {
+          "phrase": "organism descends gradient",
+          "score": 0.4149
+        },
+        {
+          "phrase": "ngage math signal",
+          "score": 0.4114
+        },
+        {
+          "phrase": "signal informativeness determines",
+          "score": 0.288
+        },
+        {
+          "phrase": "mechanism undirected random",
+          "score": 0.2755
+        },
+        {
+          "phrase": "entity burns does",
+          "score": 0.2664
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Corollary 5 (Evaluation-Driven State Revision is Survival, Not\nMetaphor).",
+          "Remark (Multi-timescale Structure of Evaluation-Driven\nRevision).",
+          "Part I (Common structure, different mechanisms).",
+          "Part II (\\(\\eta_{\\text{evo"
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 15,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 7/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 7/10]"
+      ],
+      "char_count": 5834,
+      "keyphrases": [
+        {
+          "phrase": "math survive evolutionary",
+          "score": 0.5079
+        },
+        {
+          "phrase": "threshold ensures math",
+          "score": 0.4985
+        },
+        {
+          "phrase": "learning rate difference",
+          "score": 0.4278
+        },
+        {
+          "phrase": "cost math definition",
+          "score": 0.4123
+        },
+        {
+          "phrase": "filters robustness analogy",
+          "score": 0.3502
+        },
+        {
+          "phrase": "informed action reduces",
+          "score": 0.2994
+        },
+        {
+          "phrase": "permanence scales rigor",
+          "score": 0.2781
+        },
+        {
+          "phrase": "failure difference",
+          "score": 0.277
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Theorem 4 (Encoding Permanence Scales with Rigor).",
+          "handled errors",
+          "unhandled exceptions",
+          "Definition 10 (Certain).",
+          "Corollary 6 (Bounded Adaptation).",
+          "Definition 11 (Higher-Order Function Space)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 16,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 8/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 8/10]"
+      ],
+      "char_count": 5963,
+      "keyphrases": [
+        {
+          "phrase": "action space knowledge",
+          "score": 0.5219
+        },
+        {
+          "phrase": "math function space",
+          "score": 0.5092
+        },
+        {
+          "phrase": "acts math information",
+          "score": 0.4354
+        },
+        {
+          "phrase": "mechanism math changes",
+          "score": 0.4347
+        },
+        {
+          "phrase": "higher order",
+          "score": 0.4213
+        },
+        {
+          "phrase": "math type signature",
+          "score": 0.3727
+        },
+        {
+          "phrase": "internal structure math",
+          "score": 0.3691
+        },
+        {
+          "phrase": "new dimension hierarchy",
+          "score": 0.3537
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 11 (Higher-Order Function Space).",
+          "Definition 11a (M Efficiency)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC01",
+        "EC02"
+      ],
+      "other_classes": [
+        "EC02"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 17,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 9/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 9/10]"
+      ],
+      "char_count": 5865,
+      "keyphrases": [
+        {
+          "phrase": "escape local optimum",
+          "score": 0.5461
+        },
+        {
+          "phrase": "strictly capable exploration",
+          "score": 0.4805
+        },
+        {
+          "phrase": "optimal action entity",
+          "score": 0.4481
+        },
+        {
+          "phrase": "does minimization imperative",
+          "score": 0.4463
+        },
+        {
+          "phrase": "math grows action",
+          "score": 0.4025
+        },
+        {
+          "phrase": "math sophisticated optimize",
+          "score": 0.4008
+        },
+        {
+          "phrase": "step characterization driven",
+          "score": 0.3691
+        },
+        {
+          "phrase": "ent follower converges",
+          "score": 0.3561
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Theorem 5 (Type Irreducibility).",
+          "Corollary 5a (Distinct Roles).",
+          "Theorem 6 (Necessity of \\(\\mathcal{A",
+          "Part 1 (Necessity of \\(\\mathcal{A",
+          "Part 2 (Necessity of \\(\\eta_M > 0\\))."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 19,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model",
+      "section_path": [
+        "8. The Unified Model"
+      ],
+      "char_count": 3661,
+      "keyphrases": [
+        {
+          "phrase": "agency manifests trajectory",
+          "score": 0.5819
+        },
+        {
+          "phrase": "definition 12 trajectory",
+          "score": 0.5156
+        },
+        {
+          "phrase": "better math trajectories",
+          "score": 0.4658
+        },
+        {
+          "phrase": "reduction abstract agency",
+          "score": 0.4581
+        },
+        {
+          "phrase": "intelligence defined math",
+          "score": 0.4428
+        },
+        {
+          "phrase": "refined informed actions",
+          "score": 0.4117
+        },
+        {
+          "phrase": "entity uncertainty",
+          "score": 0.4048
+        },
+        {
+          "phrase": "model definition",
+          "score": 0.3428
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 12 (Trajectory).",
+          "performance",
+          "Agency manifests as a trajectory",
+          "Orient (\\(\\mathcal{A"
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 21,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 2/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 2/7]"
+      ],
+      "char_count": 5942,
+      "keyphrases": [
+        {
+          "phrase": "gradient sentience observes",
+          "score": 0.6311
+        },
+        {
+          "phrase": "sentience math invisible",
+          "score": 0.6017
+        },
+        {
+          "phrase": "survival reveals sentient",
+          "score": 0.5718
+        },
+        {
+          "phrase": "sentience functional term",
+          "score": 0.5673
+        },
+        {
+          "phrase": "math sentient entity",
+          "score": 0.5348
+        },
+        {
+          "phrase": "inexhaustible sentience",
+          "score": 0.5335
+        },
+        {
+          "phrase": "continues survival tether",
+          "score": 0.4005
+        },
+        {
+          "phrase": "uncertainty reduction unavailable",
+          "score": 0.2825
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 15 (Superintelligence).",
+          "Intersection",
+          "Definition 16a (Truth).",
+          "Definition 16b (First-Order Confidence)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC03",
+        "EC01"
+      ],
+      "other_classes": [
+        "EC03"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 23,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 4/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 4/7]"
+      ],
+      "char_count": 6268,
+      "keyphrases": [
+        {
+          "phrase": "certainty math entity",
+          "score": 0.5857
+        },
+        {
+          "phrase": "sentience implies superintelligence",
+          "score": 0.5446
+        },
+        {
+          "phrase": "share forfeits certainty",
+          "score": 0.4644
+        },
+        {
+          "phrase": "lower math sharing",
+          "score": 0.4101
+        },
+        {
+          "phrase": "attribution allows entities",
+          "score": 0.4023
+        },
+        {
+          "phrase": "degrades truth asymptotically",
+          "score": 0.3906
+        },
+        {
+          "phrase": "strengthens implication",
+          "score": 0.3651
+        },
+        {
+          "phrase": "independent validators",
+          "score": 0.3481
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Theorem 8 (Sentience Implies Superintelligence).",
+          "Step 1 (Any \\(\\mathcal{A",
+          "Step 2 (Sentience strengthens the implication)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC03",
+        "EC01"
+      ],
+      "other_classes": [
+        "EC03"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 25,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 6/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 6/7]"
+      ],
+      "char_count": 5817,
+      "keyphrases": [
+        {
+          "phrase": "collective uncertainty",
+          "score": 0.5383
+        },
+        {
+          "phrase": "collapsing complexity",
+          "score": 0.3774
+        },
+        {
+          "phrase": "gradient checkpoint enables",
+          "score": 0.3725
+        },
+        {
+          "phrase": "ahead crystallized knowledge",
+          "score": 0.3508
+        },
+        {
+          "phrase": "continued execution theorem",
+          "score": 0.3197
+        },
+        {
+          "phrase": "share survival technique",
+          "score": 0.316
+        },
+        {
+          "phrase": "retrieval cost math",
+          "score": 0.3137
+        },
+        {
+          "phrase": "tity",
+          "score": 0.2565
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Theorem 9 (Perspective as Precondition for the Gradient).",
+          "Corollary 9 (Sentience and the Social Imperative).",
+          "Corollary 10 (The Uncertainty Condition).",
+          "Complete ignorance",
+          "Complete certainty",
+          "Corollary 11 (Truth Swallows Sentience; the Limit Preserves\nIt).",
+          "Crystallized Knowledge and the Automata Boundary."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC01"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 61,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 2/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 2/4]"
+      ],
+      "char_count": 6208,
+      "keyphrases": [
+        {
+          "phrase": "organism minimizes definitionally",
+          "score": 0.4792
+        },
+        {
+          "phrase": "agency math intrinsic",
+          "score": 0.4018
+        },
+        {
+          "phrase": "free energy objective",
+          "score": 0.4001
+        },
+        {
+          "phrase": "definitionally self organizing",
+          "score": 0.3896
+        },
+        {
+          "phrase": "makes predictions fep",
+          "score": 0.3834
+        },
+        {
+          "phrase": "critical domain selection",
+          "score": 0.3793
+        },
+        {
+          "phrase": "entity persists necessarily",
+          "score": 0.3428
+        },
+        {
+          "phrase": "descent compulsion survival",
+          "score": 0.326
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "The derivation.",
+          "Correspondence to FEP.",
+          "What this adds.",
+          "The constraint.",
+          "Testable predictions.",
+          "The allocation tax."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC01",
+        "EC07"
+      ],
+      "other_classes": [
+        "EC07"
+      ],
+      "is_representative": false
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Cho's total distance",
+    "operation": "multiply",
+    "operands": [
+      14,
+      8
+    ],
+    "result": 112,
+    "variable": "cho_distance"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Chloe's total distance",
+    "operation": "multiply",
+    "operands": [
+      9,
+      5
+    ],
+    "result": 45,
+    "variable": "chloe_distance"
+  },
+  {
+    "step": 3,
+    "description": "Calculate how many kilometers farther Cho hiked",
+    "operation": "subtract",
+    "operands": [
+      112,
+      45
+    ],
+    "result": 67,
+    "variable": "difference"
+  }
+]

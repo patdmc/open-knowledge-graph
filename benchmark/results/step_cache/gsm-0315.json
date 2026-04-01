@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "People from 2 families of 6",
+    "operation": "multiply",
+    "operands": [
+      2,
+      6
+    ],
+    "result": 12,
+    "variable": "large_family_total"
+  },
+  {
+    "step": 2,
+    "description": "People from 3 families of 4",
+    "operation": "multiply",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 12,
+    "variable": "small_family_total"
+  },
+  {
+    "step": 3,
+    "description": "Total invited",
+    "operation": "add",
+    "operands": [
+      12,
+      12
+    ],
+    "result": 24,
+    "variable": "total_invited"
+  },
+  {
+    "step": 4,
+    "description": "People with previous commitments (1/4 of 8)",
+    "operation": "divide",
+    "operands": [
+      8,
+      4
+    ],
+    "result": 2,
+    "variable": "prior_commitments"
+  },
+  {
+    "step": 5,
+    "description": "Total absent",
+    "operation": "add",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 10,
+    "variable": "total_absent"
+  },
+  {
+    "step": 6,
+    "description": "People who show up",
+    "operation": "subtract",
+    "operands": [
+      24,
+      10
+    ],
+    "result": 14,
+    "variable": "attendees"
+  }
+]

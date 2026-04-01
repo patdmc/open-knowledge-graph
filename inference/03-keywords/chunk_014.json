@@ -1,0 +1,57 @@
+{
+  "chunk_index": 14,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 6/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 6/10]"
+  ],
+  "char_count": 6248,
+  "keyphrases": [
+    {
+      "phrase": "survival driven updating",
+      "score": 0.524
+    },
+    {
+      "phrase": "evolutionary learning math",
+      "score": 0.4582
+    },
+    {
+      "phrase": "survives definition math",
+      "score": 0.4409
+    },
+    {
+      "phrase": "organism descends gradient",
+      "score": 0.4149
+    },
+    {
+      "phrase": "ngage math signal",
+      "score": 0.4114
+    },
+    {
+      "phrase": "signal informativeness determines",
+      "score": 0.288
+    },
+    {
+      "phrase": "mechanism undirected random",
+      "score": 0.2755
+    },
+    {
+      "phrase": "entity burns does",
+      "score": 0.2664
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Corollary 5 (Evaluation-Driven State Revision is Survival, Not\nMetaphor).",
+      "Remark (Multi-timescale Structure of Evaluation-Driven\nRevision).",
+      "Part I (Common structure, different mechanisms).",
+      "Part II (\\(\\eta_{\\text{evo"
+    ],
+    "has_math": true
+  }
+}

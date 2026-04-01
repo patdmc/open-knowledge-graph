@@ -1,0 +1,80 @@
+id: PW-DissolutionofFibrinClot
+type: knowledge
+domain: biology
+name: Dissolution of Fibrin Clot
+reactome_id: R-HSA-75205
+
+description: The crosslinked fibrin multimers in a clot are broken down to soluble polypeptides by plasmin, a serine protease. Plasmin can be generated from its inactive precursor plasminogen and recruited to the site of a fibrin clot in two ways, by interaction with tissue plasminogen activator at the surface of a fibrin clot, and by interaction with urokinase plasminogen activator at a cell surface. The first mechanism appears to be the major one responsible for the dissolution of clots within blood vessels.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "histidine-rich glycoprotein + plasminogen <-> histidine-rich glycoprotein:plasminogen"
+    reactome_id: R-HSA-158722
+    type: Reaction
+  - name: "histidine-rich glycoprotein:plasminogen <-> histidine-rich glycoprotein + plasminogen"
+    reactome_id: R-HSA-158721
+    type: Reaction
+  - name: "crosslinked fibrin multimer + tissue plasminogen activator (one-chain) -> crosslinked fibrin multimer:tissue plasminogen activator (one-chain)"
+    reactome_id: R-HSA-158781
+    type: Reaction
+  - name: "crosslinked fibrin multimer:tissue plasminogen activator (one-chain) + plasminogen -> crosslinked fibrin multimer:tissue plasminogen activator (one-chain):plasminogen"
+    reactome_id: R-HSA-158784
+    type: Reaction
+  - name: "crosslinked fibrin multimer:tissue plasminogen activator (one-chain):plasminogen -> crosslinked fibrin multimer:tissue plasminogen activator (one-chain) + plasmin"
+    reactome_id: R-HSA-158750
+    type: Reaction
+  - name: "fibrin multimer, crosslinked -> fibrin digestion products (plasmin)"
+    reactome_id: R-HSA-158766
+    type: Reaction
+  - name: "crosslinked fibrin multimer:tissue plasminogen activator (one-chain) -> crosslinked fibrin multimer:tissue plasminogen activator (two-chain)"
+    reactome_id: R-HSA-158747
+    type: Reaction
+  - name: "crosslinked fibrin multimer:tissue plasminogen activator (two-chain) + plasminogen -> crosslinked fibrin multimer:tissue plasminogen activator (two-chain):plasminogen"
+    reactome_id: R-HSA-158756
+    type: Reaction
+  - name: "crosslinked fibrin multimer:tissue plasminogen activator (two-chain):plasminogen -> crosslinked fibrin multimer:tissue plasminogen activator (two-chain) + plasmin"
+    reactome_id: R-HSA-158744
+    type: Reaction
+  - name: "fibrin multimer, crosslinked:tissue plasminogen activator (two-chain) + plasminogen activator inhibitor 1 -> fibrin multimer, crosslinked:tissue plasminogen activator (two-chain):plasminogen activator inhibitor 1"
+    reactome_id: R-HSA-158800
+    type: Reaction
+  - name: "fibrin multimer, crosslinked:tissue plasminogen activator (one-chain) + plasminogen activator inhibitor 1 -> fibrin multimer, crosslinked:tissue plasminogen activator (one-chain):plasminogen activator inhibitor 1"
+    reactome_id: R-HSA-158795
+    type: Reaction
+  - name: "alpha-2-antiplasmin + plasmin -> alpha-2-antiplasmin:plasmin"
+    reactome_id: R-HSA-158893
+    type: Reaction
+  - name: "urokinase plasminogen activator + urokinase plasminogen activator receptor (uPAR) -> urokinase plasminogen activator:uPAR"
+    reactome_id: R-HSA-158959
+    type: Reaction
+  - name: "plasminogen + histidine-rich glycoprotein -> plasminogen:histidine-rich glycoprotein"
+    reactome_id: R-HSA-158941
+    type: Reaction
+  - name: "plasminogen:histidine-rich glycoprotein -> plasmin + histidine-rich glycoprotein (uPA [one-chain] catalyst)"
+    reactome_id: R-HSA-158982
+    type: Reaction
+  - name: "urokinase plasminogen activator (one-chain):uPAR -> urokinase plasminogen activator (two-chain):uPAR"
+    reactome_id: R-HSA-158942
+    type: Reaction
+  - name: "plasminogen:histidine-rich glycoprotein -> plasmin + histidine-rich glycoprotein (uPA [two-chain] catalyst)"
+    reactome_id: R-HSA-158925
+    type: Reaction
+  - name: "urokinase plasminogen activator (two-chain):uPAR + plasminogen activator inhibitor 1 (PAI-1) -> PAI-1:urokinase plasminogen activator (two-chain):uPAR"
+    reactome_id: R-HSA-159005
+    type: Reaction
+  - name: "urokinase plasminogen activator (two-chain):uPAR + plasminogen activator inhibitor 2 (PAI-2) -> PAI-2:urokinase plasminogen activator (two-chain):uPAR"
+    reactome_id: R-HSA-159001
+    type: Reaction
+  - name: "PLG(20-810) binds aprotinin"
+    reactome_id: R-HSA-9724745
+    type: Reaction
+
+edges:

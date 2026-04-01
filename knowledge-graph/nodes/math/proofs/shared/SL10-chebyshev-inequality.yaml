@@ -1,0 +1,10 @@
+id: SL10-chebyshev-inequality
+type: shared_lemma
+domain: probability
+name: "Chebyshev's Inequality"
+statement: "P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}"
+justification: "Markov's inequality applied to (X-mu)^2: P((X-mu)^2 >= t^2) <= E[(X-mu)^2]/t^2 = sigma^2/t^2"
+references: [variance, expected_value, probability]
+used_by:
+  - proof: PR25-law-large-numbers
+    step: apply-chebyshev

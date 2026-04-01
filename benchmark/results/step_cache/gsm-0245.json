@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "difference between snails in two aquariums",
+    "operation": "subtract",
+    "operands": [
+      32,
+      4
+    ],
+    "result": 28,
+    "variable": "snail_difference"
+  },
+  {
+    "step": 2,
+    "description": "total fish in both aquariums (difference is twice total fish)",
+    "operation": "divide",
+    "operands": [
+      28,
+      2
+    ],
+    "result": 14,
+    "variable": "total_fish"
+  },
+  {
+    "step": 3,
+    "description": "fish in each aquarium (both aquariums have equal fish)",
+    "operation": "divide",
+    "operands": [
+      14,
+      2
+    ],
+    "result": 7.0,
+    "variable": "fish_per_aquarium"
+  }
+]

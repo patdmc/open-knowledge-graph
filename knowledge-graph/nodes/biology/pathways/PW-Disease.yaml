@@ -1,0 +1,56 @@
+id: PW-Disease
+type: knowledge
+domain: biology
+name: Disease
+reactome_id: R-HSA-1643685
+
+description: "Biological processes are captured in Reactome by identifying the molecules (DNA, RNA, protein, small molecules) involved in them and describing the details of their interactions. From this molecular viewpoint, human disease pathways have three mechanistic causes: the inclusion of microbially-expressed proteins, altered functions of human proteins, or changed expression levels of otherwise functionally normal human proteins.The first group encompasses the infectious diseases such as influenza, tuberculosis and HIV infection. The second group involves human proteins modified either by a mutation or by an abnormal post-translational event that produces an aberrant protein with a novel function."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases of signal transduction by growth factor receptors and second messengers
+    reactome_id: R-HSA-5663202
+    type: Pathway
+  - name: Diseases of mitotic cell cycle
+    reactome_id: R-HSA-9675126
+    type: Pathway
+  - name: Diseases of cellular response to stress
+    reactome_id: R-HSA-9675132
+    type: Pathway
+  - name: Diseases of programmed cell death
+    reactome_id: R-HSA-9645723
+    type: Pathway
+  - name: Diseases of DNA repair
+    reactome_id: R-HSA-9675135
+    type: Pathway
+  - name: Disorders of transmembrane transporters
+    reactome_id: R-HSA-5619115
+    type: Pathway
+  - name: Diseases of metabolism
+    reactome_id: R-HSA-5668914
+    type: Pathway
+  - name: Infectious disease
+    reactome_id: R-HSA-5663205
+    type: Pathway
+  - name: Diseases of Immune System
+    reactome_id: R-HSA-5260271
+    type: Pathway
+  - name: Diseases of the neuronal system
+    reactome_id: R-HSA-9675143
+    type: Pathway
+  - name: Disorders of Developmental Biology
+    reactome_id: R-HSA-9675151
+    type: Pathway
+  - name: Diseases of hemostasis
+    reactome_id: R-HSA-9671793
+    type: Pathway
+
+edges:

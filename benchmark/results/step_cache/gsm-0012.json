@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Annual revenue from selling lemons",
+    "operation": "multiply",
+    "operands": [
+      7,
+      1.5
+    ],
+    "result": 10.5,
+    "variable": "annual_revenue"
+  },
+  {
+    "step": 2,
+    "description": "Annual profit after watering and feeding costs",
+    "operation": "subtract",
+    "operands": [
+      10.5,
+      3
+    ],
+    "result": 7.5,
+    "variable": "annual_profit"
+  },
+  {
+    "step": 3,
+    "description": "Years to recover planting cost (break-even)",
+    "operation": "divide",
+    "operands": [
+      90,
+      7.5
+    ],
+    "result": 12.0,
+    "variable": "break_even_years"
+  },
+  {
+    "step": 4,
+    "description": "First year earning money (year after break-even)",
+    "operation": "add",
+    "operands": [
+      12.0,
+      1
+    ],
+    "result": 13.0,
+    "variable": "first_profitable_year"
+  }
+]

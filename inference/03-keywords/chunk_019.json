@@ -1,0 +1,56 @@
+{
+  "chunk_index": 19,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model",
+  "section_path": [
+    "8. The Unified Model"
+  ],
+  "char_count": 3661,
+  "keyphrases": [
+    {
+      "phrase": "agency manifests trajectory",
+      "score": 0.5819
+    },
+    {
+      "phrase": "definition 12 trajectory",
+      "score": 0.5156
+    },
+    {
+      "phrase": "better math trajectories",
+      "score": 0.4658
+    },
+    {
+      "phrase": "reduction abstract agency",
+      "score": 0.4581
+    },
+    {
+      "phrase": "intelligence defined math",
+      "score": 0.4428
+    },
+    {
+      "phrase": "refined informed actions",
+      "score": 0.4117
+    },
+    {
+      "phrase": "entity uncertainty",
+      "score": 0.4048
+    },
+    {
+      "phrase": "model definition",
+      "score": 0.3428
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 12 (Trajectory).",
+      "performance",
+      "Agency manifests as a trajectory",
+      "Orient (\\(\\mathcal{A"
+    ],
+    "has_math": true
+  }
+}

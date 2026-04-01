@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "twice Farmer Brown's farm",
+    "operation": "multiply",
+    "operands": [
+      200,
+      2
+    ],
+    "result": 400,
+    "variable": "twice_brown"
+  },
+  {
+    "step": 2,
+    "description": "Farmer Smith's farm size",
+    "operation": "add",
+    "operands": [
+      400,
+      100
+    ],
+    "result": 500,
+    "variable": "smith_acres"
+  },
+  {
+    "step": 3,
+    "description": "total acres of both farms",
+    "operation": "add",
+    "operands": [
+      200,
+      500
+    ],
+    "result": 700,
+    "variable": "total_acres"
+  }
+]

@@ -1,0 +1,38 @@
+id: PW-GeneexpressionTranscription
+type: knowledge
+domain: biology
+name: Gene expression (Transcription)
+reactome_id: R-HSA-74160
+
+description: "Gene expression encompasses transcription and translation and the regulation of these processes. RNA Polymerase I Transcription produces the large preribosomal RNA transcript (45S pre-rRNA) that is processed to yield 18S rRNA, 28S rRNA, and 5.8S rRNA, accounting for about half the RNA in a cell. RNA Polymerase II transcription produces messenger RNAs (mRNA) as well as a subset of non-coding RNAs including many small nucleolar RNAs (snRNA) and microRNAs (miRNA)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: RNA Polymerase I Transcription
+    reactome_id: R-HSA-73864
+    type: Pathway
+  - name: RNA Polymerase II Transcription
+    reactome_id: R-HSA-73857
+    type: Pathway
+  - name: RNA Polymerase III Transcription
+    reactome_id: R-HSA-74158
+    type: Pathway
+  - name: Transcription from mitochondrial promoters
+    reactome_id: R-HSA-75944
+    type: Pathway
+  - name: Gene Silencing by RNA
+    reactome_id: R-HSA-211000
+    type: Pathway
+  - name: Epigenetic regulation of gene expression
+    reactome_id: R-HSA-212165
+    type: Pathway
+
+edges:

@@ -1,0 +1,81 @@
+id: PW-SignalTransduction
+type: knowledge
+domain: biology
+name: Signal Transduction
+reactome_id: R-HSA-162582
+
+description: Signal transduction is a process in which extracellular signals elicit changes in cell state and activity. Transmembrane receptors sense changes in the cellular environment by binding ligands, such as hormones and growth factors, or reacting to other types of stimuli, such as light. Stimulation of transmembrane receptors leads to their conformational change which propagates the signal to the intracellular environment by activating downstream signaling cascades.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by Receptor Tyrosine Kinases
+    reactome_id: R-HSA-9006934
+    type: Pathway
+  - name: Signaling by TGFB family members
+    reactome_id: R-HSA-9006936
+    type: Pathway
+  - name: Signaling by GPCR
+    reactome_id: R-HSA-372790
+    type: Pathway
+  - name: Signaling by NOTCH
+    reactome_id: R-HSA-157118
+    type: Pathway
+  - name: Signaling by WNT
+    reactome_id: R-HSA-195721
+    type: Pathway
+  - name: Signaling by Hippo
+    reactome_id: R-HSA-2028269
+    type: Pathway
+  - name: Signaling by Hedgehog
+    reactome_id: R-HSA-5358351
+    type: Pathway
+  - name: Signaling by Leptin
+    reactome_id: R-HSA-2586552
+    type: Pathway
+  - name: Integrin signaling
+    reactome_id: R-HSA-354192
+    type: Pathway
+  - name: Signaling by Nuclear Receptors
+    reactome_id: R-HSA-9006931
+    type: Pathway
+  - name: MAPK family signaling cascades
+    reactome_id: R-HSA-5683057
+    type: Pathway
+  - name: Intracellular signaling by second messengers
+    reactome_id: R-HSA-9006925
+    type: Pathway
+  - name: Signaling by Rho GTPases, Miro GTPases and RHOBTB3
+    reactome_id: R-HSA-9716542
+    type: Pathway
+  - name: "Signaling by Non-Receptor Tyrosine Kinases"
+    reactome_id: R-HSA-9006927
+    type: Pathway
+  - name: MTOR signalling
+    reactome_id: R-HSA-165159
+    type: Pathway
+  - name: Death Receptor Signaling
+    reactome_id: R-HSA-73887
+    type: Pathway
+  - name: Signaling by Erythropoietin
+    reactome_id: R-HSA-9006335
+    type: Pathway
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Signal Transduction pathway components are encoded by CHAN-PI3K_Growth genes"

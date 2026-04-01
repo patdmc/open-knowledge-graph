@@ -1,0 +1,85 @@
+id: math:units:time
+type: knowledge
+domain: units
+name: "Time Units"
+
+units:
+  - id: second
+    name: "Second"
+    symbol: "s"
+    si: true
+
+  - id: minute
+    name: "Minute"
+    symbol: "min"
+
+  - id: hour
+    name: "Hour"
+    symbol: "hr"
+
+  - id: day
+    name: "Day"
+    symbol: "d"
+
+  - id: week
+    name: "Week"
+    symbol: "wk"
+
+  - id: month
+    name: "Month"
+    symbol: "mo"
+    note: "approximate — 4 weeks or 30 days depending on context"
+
+  - id: year
+    name: "Year"
+    symbol: "yr"
+
+conversions:
+  - from: second
+    to: minute
+    factor: 60
+    relation: CONVERTS_TO
+    exact: true
+
+  - from: minute
+    to: hour
+    factor: 60
+    relation: CONVERTS_TO
+    exact: true
+
+  - from: hour
+    to: day
+    factor: 24
+    relation: CONVERTS_TO
+    exact: true
+
+  - from: day
+    to: week
+    factor: 7
+    relation: CONVERTS_TO
+    exact: true
+
+  - from: week
+    to: month
+    factor: 4
+    relation: CONVERTS_TO
+    exact: false
+    note: "approximate — 4.348 weeks/month on average"
+
+  - from: week
+    to: year
+    factor: 52
+    relation: CONVERTS_TO
+    exact: true
+
+  - from: day
+    to: year
+    factor: 365
+    relation: CONVERTS_TO
+    exact: false
+    note: "365.25 accounting for leap years"
+
+edges:
+  - to: N01-arithmetic-operators
+    relation: REQUIRES
+    note: "conversions use multiplication/division"

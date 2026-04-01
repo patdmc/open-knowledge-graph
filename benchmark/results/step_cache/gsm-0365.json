@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate number of boys (twice the number of girls)",
+    "operation": "multiply",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 12,
+    "variable": "number of boys"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total number of kids (girls + boys)",
+    "operation": "add",
+    "operands": [
+      6,
+      12
+    ],
+    "result": 18,
+    "variable": "total kids in park"
+  }
+]

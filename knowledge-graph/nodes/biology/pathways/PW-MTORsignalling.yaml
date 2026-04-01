@@ -1,0 +1,65 @@
+id: PW-MTORsignalling
+type: knowledge
+domain: biology
+name: MTOR signalling
+reactome_id: R-HSA-165159
+
+description: "Target of rapamycin (mTOR) is a highly-conserved serine/threonine kinase that regulates cell growth and division in response to energy levels, growth signals, and nutrients (Zoncu et al. 2011). Control of mTOR activity is critical for the cell since its dysregulation leads to cancer, metabolic disease, and diabetes (Laplante & Sabatini 2012)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Inhibition of TSC complex formation by PKB
+    reactome_id: R-HSA-165181
+    type: Pathway
+  - name: GTP loading by Rheb
+    reactome_id: R-HSA-165195
+    type: Reaction
+  - name: Rag dimer formation
+    reactome_id: R-HSA-5653957
+    type: Reaction
+  - name: Formation of Ragulator complex
+    reactome_id: R-HSA-5653936
+    type: Reaction
+  - name: Ragulator binds Rag dimers
+    reactome_id: R-HSA-5653974
+    type: Reaction
+  - name: "SLC38A9 binds Ragulator:Rag dimers"
+    reactome_id: R-HSA-8952716
+    type: Reaction
+  - name: "SLC38A9 transports L-Arg from lysosomal lumen to cytosol"
+    reactome_id: R-HSA-8952726
+    type: Reaction
+  - name: "Ragulator:Rag dimers:SLC38A9 bind mTORC1"
+    reactome_id: R-HSA-5653968
+    type: Reaction
+  - name: Formation of active mTORC1 complex
+    reactome_id: R-HSA-165680
+    type: Reaction
+  - name: AKT1S1 (PRAS40) binds mTORC1
+    reactome_id: R-HSA-5672843
+    type: Reaction
+  - name: Activated Akt1 phosphorylates AKT1S1 (PRAS40)
+    reactome_id: R-HSA-377186
+    type: Reaction
+  - name: "Phosphorylated AKT1S1:mTORC1 binds YWHAB"
+    reactome_id: R-HSA-5672824
+    type: Reaction
+  - name: mTORC1 phosphorylates AKT1S1
+    reactome_id: R-HSA-5672828
+    type: Reaction
+  - name: "mTORC1-mediated signalling"
+    reactome_id: R-HSA-166208
+    type: Pathway
+  - name: "Energy dependent regulation of mTOR by LKB1-AMPK"
+    reactome_id: R-HSA-380972
+    type: Pathway
+
+edges:

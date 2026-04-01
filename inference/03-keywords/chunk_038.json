@@ -1,0 +1,61 @@
+{
+  "chunk_index": 38,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "13. Open Questions > [part 1/4]",
+  "section_path": [
+    "13. Open Questions",
+    "[part 1/4]"
+  ],
+  "char_count": 5861,
+  "keyphrases": [
+    {
+      "phrase": "math arise mechanisms",
+      "score": 0.5138
+    },
+    {
+      "phrase": "universe entropy",
+      "score": 0.4395
+    },
+    {
+      "phrase": "question agency natural",
+      "score": 0.422
+    },
+    {
+      "phrase": "maintain thermodynamic",
+      "score": 0.4006
+    },
+    {
+      "phrase": "pressure generates theory",
+      "score": 0.3766
+    },
+    {
+      "phrase": "uncertainty survive survival",
+      "score": 0.349
+    },
+    {
+      "phrase": "structure minimal sense",
+      "score": 0.3146
+    },
+    {
+      "phrase": "destroys things",
+      "score": 0.2808
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The origin of \\(\\mathcal{A",
+      "The direction of \\(\\mathcal{A",
+      "Perception and \\(K\\) construction.",
+      "Bound composition.",
+      "The novelty boundary (theory limit).",
+      "Competing bounds.",
+      "The \\(M^{(n)",
+      "Genetic encoding and the developmental sufficiency\n  requirement."
+    ],
+    "has_math": true
+  }
+}

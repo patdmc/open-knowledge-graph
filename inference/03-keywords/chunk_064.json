@@ -1,0 +1,55 @@
+{
+  "chunk_index": 64,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "7. Discussion",
+  "section_path": [
+    "7. Discussion"
+  ],
+  "char_count": 3436,
+  "keyphrases": [
+    {
+      "phrase": "fep theorist argue",
+      "score": 0.6531
+    },
+    {
+      "phrase": "fep precision allocation",
+      "score": 0.5398
+    },
+    {
+      "phrase": "architecture fep describes",
+      "score": 0.5382
+    },
+    {
+      "phrase": "minimization imperative capability",
+      "score": 0.4004
+    },
+    {
+      "phrase": "inference quality escalation",
+      "score": 0.3491
+    },
+    {
+      "phrase": "friston formalism asymmetric",
+      "score": 0.3218
+    },
+    {
+      "phrase": "model scaling extension",
+      "score": 0.3159
+    },
+    {
+      "phrase": "generality derivation biological",
+      "score": 0.2861
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "On the relationship to FEP.",
+      "On empirical grounding.",
+      "On the continuity principle."
+    ],
+    "has_math": true
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate contemporary dance students",
+    "operation": "multiply",
+    "operands": [
+      20,
+      0.2
+    ],
+    "result": 4,
+    "variable": "contemporary_students"
+  },
+  {
+    "step": 2,
+    "description": "Calculate remaining students after contemporary",
+    "operation": "subtract",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 16,
+    "variable": "remaining_students"
+  },
+  {
+    "step": 3,
+    "description": "Calculate jazz dance students from remaining",
+    "operation": "multiply",
+    "operands": [
+      16,
+      0.25
+    ],
+    "result": 4,
+    "variable": "jazz_students"
+  },
+  {
+    "step": 4,
+    "description": "Calculate hip-hop students",
+    "operation": "subtract",
+    "operands": [
+      16,
+      4
+    ],
+    "result": 12,
+    "variable": "hiphop_students"
+  },
+  {
+    "step": 5,
+    "description": "Calculate hip-hop fraction of total",
+    "operation": "divide",
+    "operands": [
+      12,
+      20
+    ],
+    "result": 0.6,
+    "variable": "hiphop_fraction"
+  },
+  {
+    "step": 6,
+    "description": "Convert fraction to percentage",
+    "operation": "multiply",
+    "operands": [
+      0.6,
+      100
+    ],
+    "result": 60.0,
+    "variable": "hiphop_percentage"
+  }
+]

@@ -1,0 +1,77 @@
+id: PW-Specificationofprimordialgermc
+type: knowledge
+domain: biology
+name: Specification of primordial germ cells
+reactome_id: R-HSA-9827857
+
+description: "Primordial germ cells (PGCs), the progenitors of female gametes (oocytes) and male gametes (sperm), are specified and segregated from somatic cells early during mammalian development. In the mouse embryo, precursors of PGCs are present in the proximal epiblast adjacent to the extraembryonic ectoderm before gastrulation (E6.0, pre-streak stage) and PGCs, marked by high alkaline phosphatase activity (Ginsburg et al. 1990), are translocated to the extraembryonic mesoderm at the base of the developing allantois during gastrulation (Lawson and Hage 1994)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Expression of SOX17 in primordial germ cells
+    reactome_id: R-HSA-9828100
+    type: BlackBoxEvent
+  - name: Expression of TFAP2C in primordial germ cells
+    reactome_id: R-HSA-9827867
+    type: BlackBoxEvent
+  - name: SOX17 and TFAP2C bind the TFAP2C gene
+    reactome_id: R-HSA-9827870
+    type: Reaction
+  - name: SOX17 and TFAP2C bind the PRDM1 gene
+    reactome_id: R-HSA-9827882
+    type: Reaction
+  - name: Expression of PRDM1 in primordial germ cells
+    reactome_id: R-HSA-9827872
+    type: BlackBoxEvent
+  - name: SOX17 and TFAP2C bind the POU5F1 (OCT4) gene
+    reactome_id: R-HSA-9828032
+    type: Reaction
+  - name: Expression of POU5F1 (OCT4) in primordial germ cells
+    reactome_id: R-HSA-9828023
+    type: BlackBoxEvent
+  - name: SOX17 and TFAP2C bind the NANOG gene
+    reactome_id: R-HSA-9828024
+    type: Reaction
+  - name: Expression of NANOG in primordial germ cells
+    reactome_id: R-HSA-9827997
+    type: BlackBoxEvent
+  - name: SOX17, TFAP2C, and PRDM1 (BLIMP1) bind the NANOS3 gene
+    reactome_id: R-HSA-9828027
+    type: Reaction
+  - name: Expression of NANOS3 in primordial germ cells
+    reactome_id: R-HSA-9827995
+    type: BlackBoxEvent
+  - name: SOX17 and TFAP2C bind the CBFA2T2 gene
+    reactome_id: R-HSA-9827862
+    type: Reaction
+  - name: Expression of CBFA2T2 in primordial germ cells
+    reactome_id: R-HSA-9827864
+    type: BlackBoxEvent
+  - name: SOX17 binds the TET2 gene
+    reactome_id: R-HSA-9827999
+    type: Reaction
+  - name: Expression of TET2 in primordial germ cells
+    reactome_id: R-HSA-9827992
+    type: BlackBoxEvent
+  - name: SOX17 binds the PDPN gene
+    reactome_id: R-HSA-9827994
+    type: Reaction
+  - name: Expression of PDPN in primordial germ cells
+    reactome_id: R-HSA-9827993
+    type: BlackBoxEvent
+  - name: SOX17 binds the CXCR4 gene
+    reactome_id: R-HSA-9828034
+    type: Reaction
+  - name: Expression of CXCR4 in primordial germ cells
+    reactome_id: R-HSA-9828028
+    type: BlackBoxEvent
+
+edges:

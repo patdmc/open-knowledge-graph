@@ -1,0 +1,58 @@
+{
+  "chunk_index": 10,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 2/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 2/10]"
+  ],
+  "char_count": 6223,
+  "keyphrases": [
+    {
+      "phrase": "context capacity inference",
+      "score": 0.6081
+    },
+    {
+      "phrase": "knowledge substrate",
+      "score": 0.5481
+    },
+    {
+      "phrase": "math delegation overhead",
+      "score": 0.4919
+    },
+    {
+      "phrase": "grow math context",
+      "score": 0.4384
+    },
+    {
+      "phrase": "propositions retrievable chunks",
+      "score": 0.4241
+    },
+    {
+      "phrase": "physical constraints effective",
+      "score": 0.3871
+    },
+    {
+      "phrase": "levels sequential concurrent",
+      "score": 0.3779
+    },
+    {
+      "phrase": "graph definition math",
+      "score": 0.3621
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 8a (Active Context Capacity and Inference Quality).",
+      "inference quality",
+      "Definition 8b (Delegation Overhead).",
+      "Theorem 2a (Top-Down Allocation Degrades Inference Quality).",
+      "Theorem 2b (Graph-Structured Knowledge Bounds Active Context)."
+    ],
+    "has_math": true
+  }
+}

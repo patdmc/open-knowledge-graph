@@ -1,0 +1,44 @@
+id: PW-MitochondrialmRNAmodification
+type: knowledge
+domain: biology
+name: Mitochondrial mRNA modification
+reactome_id: R-HSA-9937008
+
+description: "Mitochondrial mRNAs contain polyadenylation, pseudouridylation, and N1-adenosine methylation, posttranscriptional modifications that are catalyzed by proteins encoded in the nucleus (reviewed in Chrzanowska-Lightowlers and Lightowlers 2024). Polyadenylation at the 3' ends of mitochondrial mRNAs is produced by MTPAP (also called PAPD1), a dimeric polyadenylate polymerase located in both the cytosol and the mitochondrial matrix (Nagaike et al. 2005, Slomovic and Schuster 2008, Bai et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: MTPAP polyadenylates mitochondrial mRNA
+    reactome_id: R-HSA-9936998
+    type: Reaction
+  - name: "RPUSD3,TRUB2 pseudouridylates MT-CO1,MT-CO3 mRNA"
+    reactome_id: R-HSA-9937369
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-371 of MT-ND1 mRNA"
+    reactome_id: R-HSA-9937512
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-1472 of MT-CO1 mRNA"
+    reactome_id: R-HSA-9937508
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-185 of MT-CO2 mRNA"
+    reactome_id: R-HSA-9937521
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-333, adenosine-458, and adenosine-707 of MT-CO3 mRNA"
+    reactome_id: R-HSA-9937518
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-252 of MT-ND4L mRNA"
+    reactome_id: R-HSA-9937535
+    type: Reaction
+  - name: "TRMT61B methylates adenosine-616 and adenosine-617 of MT-CYB mRNA"
+    reactome_id: R-HSA-9937529
+    type: Reaction
+
+edges:

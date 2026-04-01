@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Split total sentences equally between two publishers",
+    "operation": "divide",
+    "operands": [
+      1000,
+      2
+    ],
+    "result": 500,
+    "variable": "sentences_per_publisher"
+  },
+  {
+    "step": 2,
+    "description": "Publisher B rate is twice Publisher A rate",
+    "operation": "multiply",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 10,
+    "variable": "publisher_b_rate_cents"
+  },
+  {
+    "step": 3,
+    "description": "Earnings from Publisher A",
+    "operation": "multiply",
+    "operands": [
+      500,
+      5
+    ],
+    "result": 2500,
+    "variable": "earnings_publisher_a_cents"
+  },
+  {
+    "step": 4,
+    "description": "Earnings from Publisher B",
+    "operation": "multiply",
+    "operands": [
+      500,
+      10
+    ],
+    "result": 5000,
+    "variable": "earnings_publisher_b_cents"
+  },
+  {
+    "step": 5,
+    "description": "Total weekly earnings",
+    "operation": "add",
+    "operands": [
+      2500,
+      5000
+    ],
+    "result": 7500.0,
+    "variable": "total_earnings_cents"
+  }
+]

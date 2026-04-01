@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Subtract Lily's extra 7 from total to get sum in David-units plus base",
+    "operation": "subtract",
+    "operands": [
+      43,
+      7
+    ],
+    "result": 36,
+    "variable": "total insects as 4 \u00d7 David"
+  },
+  {
+    "step": 2,
+    "description": "David's units plus Lily's base units (both equal David)",
+    "operation": "add",
+    "operands": [
+      1,
+      1
+    ],
+    "result": 2,
+    "variable": "David + Lily base in David-units"
+  },
+  {
+    "step": 3,
+    "description": "Add Bodhi's units (twice David) to get total David-unit multiplier",
+    "operation": "add",
+    "operands": [
+      2,
+      2
+    ],
+    "result": 4,
+    "variable": "total David-units across all three"
+  },
+  {
+    "step": 4,
+    "description": "Divide adjusted total by David-unit multiplier to find David's count",
+    "operation": "divide",
+    "operands": [
+      36,
+      4
+    ],
+    "result": 9,
+    "variable": "David's insect count"
+  },
+  {
+    "step": 5,
+    "description": "Add 7 to David's count to find Lily's count",
+    "operation": "add",
+    "operands": [
+      9,
+      7
+    ],
+    "result": 16,
+    "variable": "Lily's insect count"
+  }
+]

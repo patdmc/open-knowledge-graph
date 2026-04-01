@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate legs from 4-leg tables",
+    "operation": "multiply",
+    "operands": [
+      40,
+      4
+    ],
+    "result": 160,
+    "variable": "four_leg_table_legs"
+  },
+  {
+    "step": 2,
+    "description": "Calculate legs from 3-leg tables",
+    "operation": "multiply",
+    "operands": [
+      50,
+      3
+    ],
+    "result": 150,
+    "variable": "three_leg_table_legs"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total legs",
+    "operation": "add",
+    "operands": [
+      160,
+      150
+    ],
+    "result": 310,
+    "variable": "total_legs"
+  }
+]

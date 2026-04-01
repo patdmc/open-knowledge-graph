@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "pounds of beeswax needed for 20 candles",
+    "operation": "divide",
+    "operands": [
+      20,
+      10
+    ],
+    "result": 2,
+    "variable": "pounds_needed"
+  },
+  {
+    "step": 2,
+    "description": "total supply cost for 2 pounds",
+    "operation": "multiply",
+    "operands": [
+      2,
+      10.0
+    ],
+    "result": 20.0,
+    "variable": "total_cost"
+  },
+  {
+    "step": 3,
+    "description": "total revenue from selling 20 candles",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2.0
+    ],
+    "result": 40.0,
+    "variable": "total_revenue"
+  },
+  {
+    "step": 4,
+    "description": "net profit after subtracting supply cost",
+    "operation": "subtract",
+    "operands": [
+      40.0,
+      20.0
+    ],
+    "result": 20.0,
+    "variable": "net_profit"
+  }
+]

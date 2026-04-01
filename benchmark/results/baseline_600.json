@@ -1,0 +1,37 @@
+{
+  "date": "2026-03-30",
+  "total": 600,
+  "correct": 70,
+  "pass_rate": 0.117,
+  "class_rates": {
+    "additive_rel": {"correct": 2, "total": 27, "rate": 0.07},
+    "fraction_of_whole": {"correct": 8, "total": 105, "rate": 0.08},
+    "multiplicative_rel": {"correct": 13, "total": 162, "rate": 0.08},
+    "rate_chain": {"correct": 23, "total": 240, "rate": 0.10},
+    "percentage": {"correct": 9, "total": 81, "rate": 0.11},
+    "working_backwards": {"correct": 3, "total": 27, "rate": 0.11},
+    "multi_entity": {"correct": 27, "total": 239, "rate": 0.11},
+    "comparison": {"correct": 2, "total": 14, "rate": 0.14},
+    "system_of_equations": {"correct": 3, "total": 13, "rate": 0.23}
+  },
+  "failure_types": {
+    "OPERATION_DIRECTION": 193,
+    "MISSING_NODE": 157,
+    "UNIT_EXTRACTION": 80,
+    "UNIT_MISMATCH": 69,
+    "FALSE_RATE": 12,
+    "PARTIAL_WALK": 8,
+    "WRONG_VERB_OP": 6,
+    "ORPHAN_NODE": 5
+  },
+  "solver_distribution": {
+    "sequential": 33,
+    "reference_chain": 8,
+    "parallel_tracks": 6,
+    "percentage": 6,
+    "entity_props": 5,
+    "algebra": 5,
+    "question_driven": 4,
+    "unit_conversion": 3
+  }
+}

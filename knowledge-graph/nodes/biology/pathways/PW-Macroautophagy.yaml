@@ -1,0 +1,80 @@
+id: PW-Macroautophagy
+type: knowledge
+domain: biology
+name: Macroautophagy
+reactome_id: R-HSA-1632852
+
+description: "Macroautophagy (hereafter referred to as autophagy) acts as a buffer against starvation by liberating building materials and energy sources from cellular components. It has additional roles in embryonic development, removal of apoptotic cells or organelles, antigen presentation, protection against toxins and as a degradation route for aggregate-prone proteins and infectious agents. The dysregulation of autophagy is involved in several human diseases, for example, Crohn's disease, cancer and neurodegeneration (Ravikumar et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Active MTORC1 binds the ULK1 complex
+    reactome_id: R-HSA-5672817
+    type: Reaction
+  - name: Active MTORC1 phosphorylates ULK1
+    reactome_id: R-HSA-5672010
+    type: Reaction
+  - name: "p-AMPK:AMP phosphorylates Raptor in the MTORC1 complex"
+    reactome_id: R-HSA-5673768
+    type: Reaction
+  - name: Rheb in the MTORC1 complex hydrolyses GTP
+    reactome_id: R-HSA-5672017
+    type: Reaction
+  - name: MTORC1 dissociates from ULK complex
+    reactome_id: R-HSA-5675790
+    type: Reaction
+  - name: ULK1 is dephosphorylated
+    reactome_id: R-HSA-5683925
+    type: BlackBoxEvent
+  - name: "p-AMPK:AMP binds the ULK complex"
+    reactome_id: R-HSA-5672011
+    type: Reaction
+  - name: AMPK (complex) phosphorylates ULK1 (complex)
+    reactome_id: R-HSA-5665868
+    type: Reaction
+  - name: "Thr-180 of ULK1 is phosphorylated"
+    reactome_id: R-HSA-5672008
+    type: BlackBoxEvent
+  - name: ULK1 phosphorylates ATG13 and RB1CC1
+    reactome_id: R-HSA-5675868
+    type: Reaction
+  - name: AMBRA1 binds DYNLL1,DYNLL2
+    reactome_id: R-HSA-1632843
+    type: Reaction
+  - name: "AMBRA1:DYNLL1,DYNLL2 binds BECN1 complex"
+    reactome_id: R-HSA-5678313
+    type: Reaction
+  - name: "ULK1 phosphorylates AMBRA1:BECN1 complex"
+    reactome_id: R-HSA-1632857
+    type: Reaction
+  - name: "BECN1 complex, p-AMBRA1 dissociate from DYNLL1,DYNLL2"
+    reactome_id: R-HSA-5678315
+    type: Reaction
+  - name: ULK complex translocates to the ER
+    reactome_id: R-HSA-5679239
+    type: Reaction
+  - name: "Beclin-1 complex translocates to the ER"
+    reactome_id: R-HSA-5679266
+    type: Reaction
+  - name: "ULK1 phosphorylates Beclin-1"
+    reactome_id: R-HSA-5679205
+    type: Reaction
+  - name: "Beclin-1 complex phosphorylates PtdIns"
+    reactome_id: R-HSA-5672012
+    type: Reaction
+  - name: "The phagophore extends from the PIP3-enriched structure"
+    reactome_id: R-HSA-5682385
+    type: BlackBoxEvent
+  - name: MTMR14, MTMR3 dephosphorylate PI3P
+    reactome_id: R-HSA-5679206
+    type: Reaction
+
+edges:

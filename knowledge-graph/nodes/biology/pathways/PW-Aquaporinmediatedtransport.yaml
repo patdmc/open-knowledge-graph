@@ -1,0 +1,29 @@
+id: PW-Aquaporinmediatedtransport
+type: knowledge
+domain: biology
+name: "Aquaporin-mediated transport"
+reactome_id: R-HSA-445717
+
+description: "Aquaporins (AQP's) are six-pass transmembrane proteins that form channels in membranes. Each monomer contains a central channel formed in part by two asparagine-proline-alanine motifs (NPA boxes) that confer selectivity for water and/or solutes. The monomers assemble into tetramers."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Passive transport by Aquaporins
+    reactome_id: R-HSA-432047
+    type: Pathway
+  - name: Vasopressin regulates renal water homeostasis via Aquaporins
+    reactome_id: R-HSA-432040
+    type: Pathway
+  - name: Transport of glycerol from adipocytes to the liver by Aquaporins
+    reactome_id: R-HSA-432030
+    type: Pathway
+
+edges:

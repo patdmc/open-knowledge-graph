@@ -1,0 +1,107 @@
+id: PR26-euler-polyhedra
+type: proof
+domain: topology
+name: "Euler's Polyhedron Formula"
+target:
+  statement: "V - E + F = 2 \\quad \\text{for any connected planar graph (equivalently, convex polyhedron)}"
+  type: theorem
+method: induction
+
+note: >
+  Proof by induction on the number of edges. At each step, either remove an edge
+  that borders two distinct faces (merging them) or remove a leaf edge (removing a vertex).
+
+assertions:
+  - step: 1
+    id: setup
+    type: definition
+    statement: "G \\text{ is a connected planar graph with } V \\text{ vertices, } E \\text{ edges, } F \\text{ faces (including outer face)}"
+    justification: "standard setup; by Steinitz's theorem, polyhedral graphs are exactly 3-connected planar graphs"
+    depends_on: []
+    references: [graph, euler_characteristic]
+
+  - step: 2
+    id: base-case
+    type: claim
+    statement: "\\text{If } E = 0 \\text{: } V = 1, F = 1, \\text{ so } V - E + F = 1 - 0 + 1 = 2"
+    justification: "a single vertex with no edges has one face (the outer face)"
+    depends_on: [setup]
+
+  - step: 3
+    id: induction-hypothesis
+    type: hypothesis
+    statement: "\\text{Assume } V' - E' + F' = 2 \\text{ for all connected planar graphs with fewer than } E \\text{ edges}"
+    justification: "strong induction hypothesis on the number of edges"
+    depends_on: [base-case]
+
+  - step: 4
+    id: case-leaf
+    type: claim
+    statement: "\\text{If } G \\text{ has a vertex } v \\text{ of degree 1 with edge } e: \\text{ removing } v \\text{ and } e \\text{ gives } G' \\text{ with } V' = V-1, E' = E-1, F' = F"
+    justification: "a leaf edge does not separate any faces, so F is unchanged; one vertex and one edge are removed"
+    depends_on: [setup]
+    references: [degree]
+
+  - step: 5
+    id: case-leaf-apply
+    type: claim
+    statement: "V - E + F = (V'-1+1) - (E'-1+1) + F' = V' - E' + F' = 2"
+    justification: "G' is connected with E-1 edges; by induction hypothesis V' - E' + F' = 2, so V - E + F = (V'+1) - (E'+1) + F' = 2"
+    depends_on: [case-leaf, induction-hypothesis]
+
+  - step: 6
+    id: case-cycle-edge
+    type: claim
+    statement: "\\text{If every vertex has degree} \\geq 2, \\text{ then } G \\text{ has a cycle. Pick edge } e \\text{ on a cycle; } e \\text{ borders two distinct faces.}"
+    justification: "a connected graph where every vertex has degree >= 2 must contain a cycle; an edge on a cycle borders two distinct faces because removing it does not disconnect the graph"
+    depends_on: [setup]
+    references: [graph]
+
+  - step: 7
+    id: remove-cycle-edge
+    type: claim
+    statement: "\\text{Remove } e: G' \\text{ has } V' = V, \\; E' = E - 1, \\; F' = F - 1, \\text{ and } G' \\text{ is still connected}"
+    justification: "removing an edge from a cycle preserves connectivity; the two faces bordered by e merge into one, reducing F by 1"
+    depends_on: [case-cycle-edge]
+
+  - step: 8
+    id: case-cycle-apply
+    type: claim
+    statement: "V - E + F = V' - (E'+1) + (F'+1) = V' - E' + F' = 2"
+    justification: "G' has E-1 edges; by induction hypothesis V' - E' + F' = 2; substituting V = V', E = E'+1, F = F'+1 gives 2"
+    depends_on: [remove-cycle-edge, induction-hypothesis]
+
+  - step: 9
+    id: cases-exhaustive
+    type: claim
+    statement: "\\text{Every connected graph with } E \\geq 1 \\text{ falls into case-leaf or case-cycle-edge}"
+    justification: "either there exists a degree-1 vertex, or all vertices have degree >= 2"
+    depends_on: [case-leaf, case-cycle-edge]
+
+  - step: 10
+    id: conclusion
+    type: theorem
+    statement: "V - E + F = 2 \\quad \\text{for every connected planar graph}"
+    justification: "by strong induction: base case E=0 holds; inductive step covered by both cases"
+    depends_on: [base-case, case-leaf-apply, case-cycle-apply, cases-exhaustive]
+    references: [euler_characteristic]
+
+qed: true
+
+corollaries:
+  - id: polyhedra-v-e-f
+    statement: "V - E + F = 2 \\text{ for every convex polyhedron}"
+    justification: "a convex polyhedron's edge graph is a 3-connected planar graph; apply Euler's formula"
+    depends_on: [conclusion]
+
+  - id: euler-genus-g
+    statement: "V - E + F = 2 - 2g \\quad \\text{for a surface of genus } g"
+    justification: "generalization to closed orientable surfaces; genus 0 (sphere) gives the classical formula"
+    depends_on: [conclusion]
+    references: [homology]
+
+edges:
+  - to: TOP01-topology
+    relation: PROVES_FROM
+  - to: A03-graph-theory
+    relation: PROVES_FROM

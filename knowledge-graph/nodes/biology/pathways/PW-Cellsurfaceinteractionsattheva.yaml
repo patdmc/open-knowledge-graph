@@ -1,0 +1,80 @@
+id: PW-Cellsurfaceinteractionsattheva
+type: knowledge
+domain: biology
+name: Cell surface interactions at the vascular wall
+reactome_id: R-HSA-202733
+
+description: Leukocyte extravasation is a rigorously controlled process that guides white cell movement from the vascular lumen to sites of tissue inflammation. The powerful adhesive interactions that are required for leukocytes to withstand local flow at the vessel wall is a multistep process mediated by different adhesion molecules. Platelets adhered to injured vessel walls form strong adhesive substrates for leukocytes.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Binding of GPVI:Fc Epsilon R1 gamma receptor complex with collagen"
+    reactome_id: R-HSA-114577
+    type: Reaction
+  - name: Integrin alphaMbeta2 (MAC1) binds JAM3
+    reactome_id: R-HSA-202727
+    type: Reaction
+  - name: JAM2 binds JAM3
+    reactome_id: R-HSA-202721
+    type: Reaction
+  - name: "Integrin alpha4beta1 binds JAM2:JAM3"
+    reactome_id: R-HSA-202706
+    type: Reaction
+  - name: "ITGA4:ITGB1 binds natalizumab"
+    reactome_id: R-HSA-9679740
+    type: Reaction
+  - name: F11R dimerises
+    reactome_id: R-HSA-202726
+    type: Reaction
+  - name: "Integrin alphaLbeta2 (LFA-1) binds F11R (JAM-A)"
+    reactome_id: R-HSA-202718
+    type: Reaction
+  - name: Integrin alphaXbeta2 binds JAM3
+    reactome_id: R-HSA-202704
+    type: Reaction
+  - name: MERTK receptor binds ligands (Gas6 or Protein S)
+    reactome_id: R-HSA-202710
+    type: Reaction
+  - name: CD84 homodimerises
+    reactome_id: R-HSA-202713
+    type: Reaction
+  - name: "E-selectin binds E-selectin ligand"
+    reactome_id: R-HSA-2870221
+    type: Reaction
+  - name: "P-selectin binds P-selectin ligand"
+    reactome_id: R-HSA-202724
+    type: Reaction
+  - name: JAM2 dimerises
+    reactome_id: R-HSA-202709
+    type: Reaction
+  - name: JAM3 dimerises
+    reactome_id: R-HSA-202731
+    type: Reaction
+  - name: "CD177 binds PECAM-1"
+    reactome_id: R-HSA-202702
+    type: Reaction
+  - name: CD47 binds SIRP
+    reactome_id: R-HSA-202703
+    type: Reaction
+  - name: CD48 binds CD244
+    reactome_id: R-HSA-202722
+    type: Reaction
+  - name: CD58 binds CD2
+    reactome_id: R-HSA-202714
+    type: Reaction
+  - name: Integrin alpha5beta1 binds FN1 dimer
+    reactome_id: R-HSA-202723
+    type: Reaction
+  - name: CXADR binds to AMICA1
+    reactome_id: R-HSA-199093
+    type: Reaction
+
+edges:

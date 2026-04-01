@@ -1,0 +1,135 @@
+id: math:arithmetic:derived_operations
+type: knowledge
+domain: arithmetic
+name: "Derived Arithmetic Operations"
+
+concepts:
+  - id: complement
+    name: "Complement"
+    meaning: "the part remaining after known parts are removed from a whole"
+    formal: "unknown = total - sum(known_parts)"
+    action:
+      python: "total - sum(known_parts)"
+    edges:
+      - to: N01-arithmetic-operators/subtraction
+        relation: SPECIALIZES
+
+  - id: rate
+    name: "Rate"
+    meaning: "a ratio between two quantities with different units"
+    formal: "rate = quantity_A / quantity_B, units = unit_A / unit_B"
+    action:
+      python: "quantity_a / quantity_b"
+    note: "a rate IS a number with compound units — not a special operation"
+    edges:
+      - to: N01-arithmetic-operators/division
+        relation: SPECIALIZES
+
+  - id: dimensional_chain
+    name: "Dimensional Chain"
+    meaning: "multiply rates so intermediate units cancel, leaving target unit"
+    formal: "(a/b) * (b/c) = a/c"
+    action:
+      python: "functools.reduce(operator.mul, rates)"
+    note: "units cancel like fractions — this is the constraint that kills wrong formulas"
+    edges:
+      - to: rate
+        relation: REQUIRES
+
+  - id: percent_of
+    name: "Percent Of"
+    meaning: "parts per hundred of a base quantity"
+    formal: "result = base * (N / 100)"
+    action:
+      python: "base * (pct / 100)"
+    edges:
+      - to: N01-arithmetic-operators/multiplication
+        relation: SPECIALIZES
+
+  - id: percent_change
+    name: "Percent Change"
+    meaning: "increase or decrease a base by a percentage"
+    formal: "new = base * (1 ± N/100)"
+    variants:
+      increase: "base * (1 + N/100)"
+      decrease: "base * (1 - N/100)"
+    edges:
+      - to: percent_of
+        relation: SPECIALIZES
+
+  - id: ceiling_division
+    name: "Ceiling Division"
+    meaning: "how many whole containers needed for N items"
+    formal: "ceil(N / container_size)"
+    action:
+      python: "math.ceil(n / container_size)"
+    note: "can't buy fractional containers, book fractional rooms, hire fractional people"
+    edges:
+      - to: N01-arithmetic-operators/division
+        relation: SPECIALIZES
+
+  - id: ratio
+    name: "Ratio"
+    meaning: "proportional relationship between two quantities"
+    formal: "A/B = m/n; if one known, other = known * (m/n or n/m)"
+    edges:
+      - to: N01-arithmetic-operators/division
+        relation: SPECIALIZES
+
+  - id: round_trip
+    name: "Round Trip"
+    meaning: "a distance or duration traversed twice (there and back)"
+    formal: "total = one_way * 2"
+    edges:
+      - to: N01-arithmetic-operators/multiplication
+        relation: SPECIALIZES
+
+  - id: frequency_multiplier
+    name: "Frequency Multiplier"
+    meaning: "an event repeated N times over a period"
+    formal: "total = per_occurrence * N"
+    edges:
+      - to: N01-arithmetic-operators/multiplication
+        relation: SPECIALIZES
+
+  - id: sequential_fraction
+    name: "Sequential Fraction"
+    meaning: "each fraction applies to the remainder, not the original"
+    formal: "after step k: remainder_k = remainder_{k-1} * (1 - fraction_k)"
+    note: "spent 1/3, then half the rest = 1/3 + (1/2 * 2/3) = 2/3 total"
+    edges:
+      - to: complement
+        relation: REQUIRES
+
+  - id: geometric_sequence
+    name: "Geometric Sequence"
+    meaning: "each term is a fixed multiple of the previous"
+    formal: "a, ar, ar^2, ...; sum = a*(r^n - 1)/(r - 1)"
+    edges:
+      - to: N01-arithmetic-operators/multiplication
+        relation: SPECIALIZES
+      - to: N01-arithmetic-operators/exponentiation
+        relation: REQUIRES
+
+  - id: threshold_partition
+    name: "Threshold Partition"
+    meaning: "different rules apply to different segments of a quantity"
+    formal: "total = f1(min(x, threshold)) + f2(max(0, x - threshold))"
+    note: "first N at rate_1, rest at rate_2"
+    edges:
+      - to: complement
+        relation: REQUIRES
+
+  - id: solve_for_unknown
+    name: "Solve for Unknown"
+    meaning: "given a total and all parts but one, find the missing part"
+    formal: "unknown = total - sum(known_parts)"
+    edges:
+      - to: complement
+        relation: SPECIALIZES
+
+edges:
+  - to: N01-arithmetic-operators
+    relation: REQUIRES
+  - to: A01-algebra-fundamentals
+    relation: BELONGS_TO

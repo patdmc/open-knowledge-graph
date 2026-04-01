@@ -1,0 +1,65 @@
+id: PW-Strandasynchronousmitochondria
+type: knowledge
+domain: biology
+name: "Strand-asynchronous mitochondrial DNA replication"
+reactome_id: R-HSA-9913635
+
+description: "The human mitochondrial genome is a circular double-stranded DNA of 16569 bp that encodes 2 rRNAs, 22 tRNAs, and 13 proteins. Based on density in a denaturing cesium chloride gradient, a heavy (H) strand and a light (L) strand are distinguishable. Two basic mechanisms of mitochondrial DNA replication have been proposed: (1) strand-asynchronous DNA replication (also called strand-displacement DNA replication), in which initiation of H strand synthesis significantly precedes initiation of L strand synthesis and each initiation is primed at a specific origin, and (2) strand-synchronous DNA replication, also called strand-coupled DNA replication, in which initiations of H strand synthesis and L strand synthesis occur concurrently and are primed by short RNA primers distributed through the genome (Yang et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "POLRMT polymerizes R-loop RNA"
+    reactome_id: R-HSA-9915448
+    type: BlackBoxEvent
+  - name: "RNASEH1 cleaves R-loop RNA to yield RNA primer for H strand polymerization"
+    reactome_id: R-HSA-9913637
+    type: Reaction
+  - name: "POLG:POLG2 and TWNK (PEO1) bind mitochondrial DNA:RNA primer to form H strand replisome"
+    reactome_id: R-HSA-9913634
+    type: Reaction
+  - name: "TWNK (PEO1) unwinds double-stranded mitochondrial DNA at the replication fork"
+    reactome_id: R-HSA-9914438
+    type: Reaction
+  - name: POLG in the replisome polymerizes the H strand
+    reactome_id: R-HSA-9914364
+    type: BlackBoxEvent
+  - name: SSBP1 binds the displaced parental H strand
+    reactome_id: R-HSA-9914478
+    type: Reaction
+  - name: POLRMT and POLG bind the mitochondrial L strand replication origin (OriL)
+    reactome_id: R-HSA-9914404
+    type: Reaction
+  - name: POLRMT polymerizes RNA primer for mitochondrial L strand replication
+    reactome_id: R-HSA-9914409
+    type: BlackBoxEvent
+  - name: POLG in the replisome polymerizes the L strand
+    reactome_id: R-HSA-9914498
+    type: BlackBoxEvent
+  - name: RNASEH1 cleaves RNA primer from nascent H strand, leaving RNA dinucleotides
+    reactome_id: R-HSA-9914858
+    type: BlackBoxEvent
+  - name: RNASEH1 cleaves RNA primer from nascent L strand, leaving RNA dinucleotides
+    reactome_id: R-HSA-9915449
+    type: Reaction
+  - name: "MGME1 cleaves 5' DNA flap from nascent mitochondrial DNA"
+    reactome_id: R-HSA-9914870
+    type: Reaction
+  - name: EXOG cleaves RNA dinucleotide from nascent mitochondrial DNA
+    reactome_id: R-HSA-9915442
+    type: Reaction
+  - name: LIG3 (Ligase III) ligates nascent mitochondrial DNA strands
+    reactome_id: R-HSA-9914903
+    type: Reaction
+  - name: TOP3A (Topoisomerase 3a) decatenates mitochondrial DNA
+    reactome_id: R-HSA-9914922
+    type: Reaction
+
+edges:

@@ -1,0 +1,29 @@
+id: PW-Pyrophosphatehydrolysis
+type: knowledge
+domain: biology
+name: Pyrophosphate hydrolysis
+reactome_id: R-HSA-71737
+
+description: Many biosynthetic reactions are coupled to the cleavage of ATP to yield AMP and pyrophosphate.  These reactions are typically freely reversible when carried out with purified substrates and enzymes in vitro.  In vivo, however, the pyrophosphate is rapdily and essentially irreversibly hydrolyzed by a ubiquitous inorganic pyrophosphatase.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "pyrophosphate + H2O => 2 orthophosphate [mitochondrial]"
+    reactome_id: R-HSA-449937
+    type: Reaction
+  - name: PPA1 hydrolyzes pyrophosphate to orthophosphate
+    reactome_id: R-HSA-71732
+    type: Reaction
+  - name: "LHPP:Mg2+ dimer hydrolyses PPi"
+    reactome_id: R-HSA-6788912
+    type: Reaction
+
+edges:

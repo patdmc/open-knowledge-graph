@@ -1,0 +1,70 @@
+id: PR18-pigeonhole
+type: proof
+domain: combinatorics
+name: "Pigeonhole Principle"
+target:
+  statement: "\\text{If } n > m, \\text{ any function } f: [n] \\to [m] \\text{ is not injective}"
+  type: theorem
+method: contradiction
+
+assertions:
+  - step: 1
+    id: hyp-injective
+    type: hypothesis
+    statement: "f: \\{1, \\ldots, n\\} \\to \\{1, \\ldots, m\\} \\text{ is injective, with } n > m"
+    justification: "assume for contradiction"
+    depends_on: []
+
+  - step: 2
+    id: image-size
+    type: claim
+    statement: "|\\text{im}(f)| = n"
+    justification: "injective function has |im| = |domain|"
+    depends_on: [hyp-injective]
+
+  - step: 3
+    id: image-subset
+    type: claim
+    statement: "\\text{im}(f) \\subseteq \\{1, \\ldots, m\\}"
+    justification: "f maps into {1,...,m} by definition"
+    depends_on: [hyp-injective]
+
+  - step: 4
+    id: size-bound
+    type: claim
+    statement: "|\\text{im}(f)| \\leq m"
+    justification: "subset of {1,...,m} has at most m elements"
+    depends_on: [image-subset]
+
+  - step: 5
+    id: contradiction-size
+    type: contradiction
+    statement: "n = |\\text{im}(f)| \\leq m < n"
+    justification: "n <= m contradicts n > m"
+    depends_on: [image-size, size-bound, hyp-injective]
+
+  - step: 6
+    id: conclusion
+    type: theorem
+    statement: "f \\text{ is not injective: } \\exists a \\neq b : f(a) = f(b)"
+    justification: "no injective function from larger set to smaller set"
+    depends_on: [contradiction-size]
+
+qed: true
+
+corollaries:
+  - id: generalized-pigeonhole
+    statement: "\\text{If } n > km, \\text{ some box has } > k \\text{ items}"
+    justification: "if all boxes had <= k, total <= km < n"
+    depends_on: [conclusion]
+
+  - id: birthday-problem
+    statement: "\\text{Among } n > 365 \\text{ people, two share a birthday}"
+    justification: "pigeonhole with m = 365 boxes"
+    depends_on: [conclusion]
+
+edges:
+  - to: CO01-combinatorics
+    relation: PROVES_FROM
+  - to: N03-set-logic-notation
+    relation: USES

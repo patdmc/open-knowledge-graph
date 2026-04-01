@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total students in school",
+    "operation": "multiply",
+    "operands": [
+      20,
+      3
+    ],
+    "result": 60,
+    "variable": "total_students"
+  },
+  {
+    "step": 2,
+    "description": "Total girls in school (50%)",
+    "operation": "multiply",
+    "operands": [
+      60,
+      0.5
+    ],
+    "result": 30,
+    "variable": "total_girls"
+  },
+  {
+    "step": 3,
+    "description": "Girls in first two classes",
+    "operation": "add",
+    "operands": [
+      15,
+      12
+    ],
+    "result": 27,
+    "variable": "girls_class1_class2"
+  },
+  {
+    "step": 4,
+    "description": "Girls in third class",
+    "operation": "subtract",
+    "operands": [
+      30,
+      27
+    ],
+    "result": 3,
+    "variable": "girls_class3"
+  },
+  {
+    "step": 5,
+    "description": "Boys in third class",
+    "operation": "subtract",
+    "operands": [
+      20,
+      3
+    ],
+    "result": 17,
+    "variable": "boys_class3"
+  }
+]

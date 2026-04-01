@@ -1,0 +1,61 @@
+id: CT-APPC
+type: knowledge
+domain: cancer_biology
+name: "Appendiceal Cancer"
+
+n_patients: 241
+n_mutated: 210
+mutation_rate: 0.8714
+channel_entropy: 1.9400
+hub_fraction: 0.6598
+median_os_months: 16.1750
+event_rate: 0.3485
+survival_36m: 0.2490
+mean_channels_per_patient: 1.9571
+top_gene: KRAS
+top_gene_frequency: 0.2423
+n_harmful_mutations: 3
+n_protective_mutations: 2
+dominant_channels: [CHAN-PI3K_Growth, CHAN-TissueArchitecture]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=241)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Appendiceal Cancer"
+  - to: CHAN-TissueArchitecture
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Appendiceal Cancer"
+  - to: GENE-KRAS
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "KRAS mutated in 0.2423 of Appendiceal Cancer patients"
+

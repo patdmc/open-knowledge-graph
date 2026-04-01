@@ -1,0 +1,50 @@
+id: PW-Metabolismoflipids
+type: knowledge
+domain: biology
+name: Metabolism of lipids
+reactome_id: R-HSA-556833
+
+description: "Lipids are hydrophobic but otherwise chemically diverse molecules that play a wide variety of roles in human biology. They include ketone bodies, fatty acids, triacylglycerols, phospholipids and sphingolipids, eicosanoids, cholesterol, bile salts, steroid hormones, and fat-soluble vitamins. They function as a major source of energy (fatty acids, triacylglycerols, and ketone bodies), are major constituents of cell membranes (cholesterol and phospholipids), play a major role in their own digestion and uptake (bile salts), and participate in numerous signaling and regulatory processes (steroid hormones, eicosanoids, phosphatidylinositols, and sphingolipids) (Vance & Vance 2008 - URL).The central steroid in human biology is cholesterol, obtained from animal fats consumed in the diet or synthesized de novo from acetyl-coenzyme A."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Regulation of lipid metabolism by PPARalpha
+    reactome_id: R-HSA-400206
+    type: Pathway
+  - name: Lipid particle organization
+    reactome_id: R-HSA-8964572
+    type: Pathway
+  - name: Fatty acid metabolism
+    reactome_id: R-HSA-8978868
+    type: Pathway
+  - name: Triglyceride metabolism
+    reactome_id: R-HSA-8979227
+    type: Pathway
+  - name: Phospholipid metabolism
+    reactome_id: R-HSA-1483257
+    type: Pathway
+  - name: Sphingolipid metabolism
+    reactome_id: R-HSA-428157
+    type: Pathway
+  - name: Metabolism of steroids
+    reactome_id: R-HSA-8957322
+    type: Pathway
+  - name: Wax and plasmalogen biosynthesis
+    reactome_id: R-HSA-8848584
+    type: Pathway
+  - name: Ketone body metabolism
+    reactome_id: R-HSA-74182
+    type: Pathway
+  - name: Biosynthesis of specialized proresolving mediators (SPMs)
+    reactome_id: R-HSA-9018678
+    type: Pathway
+
+edges:

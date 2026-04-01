@@ -1,0 +1,35 @@
+id: PW-CellCycle,Mitotic
+type: knowledge
+domain: biology
+name: Cell Cycle, Mitotic
+reactome_id: R-HSA-69278
+
+description: "The events of replication of the genome and the subsequent segregation of chromosomes into daughter cells make up the cell cycle. DNA replication is carried out during a discrete temporal period known as the S (synthesis)-phase, and chromosome segregation occurs during a massive reorganization of cellular architecture at mitosis. Two gap-phases separate these cell cycle events: G1 between mitosis and S-phase, and G2 between S-phase and mitosis."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Mitotic G1 phase and G1/S transition
+    reactome_id: R-HSA-453279
+    type: Pathway
+  - name: S Phase
+    reactome_id: R-HSA-69242
+    type: Pathway
+  - name: "Mitotic G2-G2/M phases"
+    reactome_id: R-HSA-453274
+    type: Pathway
+  - name: M Phase
+    reactome_id: R-HSA-68886
+    type: Pathway
+  - name: Regulation of mitotic cell cycle
+    reactome_id: R-HSA-453276
+    type: Pathway
+
+edges:

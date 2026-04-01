@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "bologna thrown at red balloons",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "bologna_for_red"
+  },
+  {
+    "step": 2,
+    "description": "bologna thrown at yellow balloons",
+    "operation": "subtract",
+    "operands": [
+      58,
+      40
+    ],
+    "result": 18,
+    "variable": "bologna_for_yellow"
+  },
+  {
+    "step": 3,
+    "description": "number of yellow balloons",
+    "operation": "divide",
+    "operands": [
+      18,
+      3
+    ],
+    "result": 6.0,
+    "variable": "yellow_balloons"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Add men and women to get total adults",
+    "operation": "add",
+    "operands": [
+      8417,
+      9092
+    ],
+    "result": 17509,
+    "variable": "total_adults"
+  },
+  {
+    "step": 2,
+    "description": "Subtract total adults from total inhabitants to get children",
+    "operation": "subtract",
+    "operands": [
+      23786,
+      17509
+    ],
+    "result": 6277,
+    "variable": "total_children"
+  }
+]

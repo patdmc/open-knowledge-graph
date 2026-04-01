@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total red pens",
+    "operation": "multiply",
+    "operands": [
+      5,
+      5
+    ],
+    "result": 25,
+    "variable": "red_pens"
+  },
+  {
+    "step": 2,
+    "description": "Calculate number of black pen packs (twice the red packs)",
+    "operation": "multiply",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 10,
+    "variable": "black_packs"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total black pens",
+    "operation": "multiply",
+    "operands": [
+      10,
+      5
+    ],
+    "result": 50,
+    "variable": "black_pens"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total pens",
+    "operation": "add",
+    "operands": [
+      25,
+      50
+    ],
+    "result": 75,
+    "variable": "total_pens"
+  }
+]

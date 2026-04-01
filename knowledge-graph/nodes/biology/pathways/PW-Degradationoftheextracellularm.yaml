@@ -1,0 +1,80 @@
+id: PW-Degradationoftheextracellularm
+type: knowledge
+domain: biology
+name: Degradation of the extracellular matrix
+reactome_id: R-HSA-1474228
+
+description: "Matrix metalloproteinases (MMPs), previously referred to as matrixins because of their role in degradation of the extracellular matrix (ECM), are zinc and calcium dependent proteases belonging to the metzincin family. They contain a characteristic zinc-binding motif HEXXHXXGXXH (Stocker & Bode 1995) and a conserved Methionine which forms a Met-turn. Humans have 24 MMP genes giving rise to 23 MMP proteins, as MMP23 is encoded by two identical genes."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Activation of Matrix Metalloproteinases
+    reactome_id: R-HSA-1592389
+    type: Pathway
+  - name: Collagen degradation
+    reactome_id: R-HSA-1442490
+    type: Pathway
+  - name: "Elastin degradation by elastin-degrading extracellular proteinases"
+    reactome_id: R-HSA-1566962
+    type: Reaction
+  - name: Elastin degradation by MMP14
+    reactome_id: R-HSA-2514790
+    type: BlackBoxEvent
+  - name: Fibrillin 1, 2,(3) degradation by MMP2, 9, 12 and 13
+    reactome_id: R-HSA-2485148
+    type: Reaction
+  - name: "Fibrillin-1 degradation by MMP3, CTSK, CTSL2"
+    reactome_id: R-HSA-2514772
+    type: Reaction
+  - name: "Fibrillin-1 degradation by MMP14"
+    reactome_id: R-HSA-2514831
+    type: Reaction
+  - name: "Fibrillin-1 degradation by ELANE"
+    reactome_id: R-HSA-2514823
+    type: Reaction
+  - name: Fibronectin degradation by MMP1, 3, 7, 12, 13, 19, CTSS
+    reactome_id: R-HSA-1566981
+    type: Reaction
+  - name: Fibronectin degradation by MMP10
+    reactome_id: R-HSA-2533944
+    type: Reaction
+  - name: Fibronectin degradation by MMP14
+    reactome_id: R-HSA-2533950
+    type: Reaction
+  - name: Fibronectin degradation by CTSG
+    reactome_id: R-HSA-3785684
+    type: Reaction
+  - name: Fibronectin degradation by ADAM8
+    reactome_id: R-HSA-3788061
+    type: Reaction
+  - name: "Laminin-332 degradation by laminin-322 degrading extracellular proteinases"
+    reactome_id: R-HSA-1566979
+    type: Reaction
+  - name: "Laminin-322 degradation by MMP14"
+    reactome_id: R-HSA-3791155
+    type: Reaction
+  - name: "Laminin-511 degradation by MMP14"
+    reactome_id: R-HSA-2533874
+    type: Reaction
+  - name: NID1 degradation by MMP1, 9, 12, ELANE
+    reactome_id: R-HSA-1592270
+    type: Reaction
+  - name: NID1 degradation by MMP3, 7
+    reactome_id: R-HSA-2533970
+    type: Reaction
+  - name: NID1 degradation by MMP14, MMP15
+    reactome_id: R-HSA-2533965
+    type: Reaction
+  - name: NID1 degradation by MMP19
+    reactome_id: R-HSA-3791319
+    type: Reaction
+
+edges:

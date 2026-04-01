@@ -1,0 +1,4497 @@
+[
+  {
+    "pid": "gsm-0000",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "per",
+        "text": "Janet\u2019s ducks lay 16 eggs per day.",
+        "nums": [
+          16.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:eats",
+        "text": "She eats three for breakfast every morning and bakes muffins for her friends every day with four.",
+        "nums": [
+          3,
+          4
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "She sells the remainder at the farmers' market daily for $2 per fresh duck egg.",
+        "nums": [
+          2.0
+        ]
+      }
+    ],
+    "answer": 18.0,
+    "sonnet_ops": [
+      "add",
+      "subtract",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0052",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:getting",
+        "text": "Uriah's book bag is getting too heavy for him.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:remove",
+        "text": "He needs to remove 15 pounds from it.",
+        "nums": [
+          15.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "each",
+        "text": "His comic books weigh 1/4 pound each and his toys weigh 1/2 pound each.",
+        "nums": [
+          0.25,
+          4.0,
+          0.5,
+          2.0
+        ]
+      }
+    ],
+    "answer": 15.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0130",
+    "n_steps": 3,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:hires",
+        "text": "Nissa hires 60 seasonal workers to play elves in her department store's Santa village.",
+        "nums": [
+          60.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:quit",
+        "text": "A third of the elves quit after children vomit on them, then 10 of the remaining elves quit after ki",
+        "nums": [
+          0.3333333333333333,
+          10.0
+        ]
+      }
+    ],
+    "answer": 30.0,
+    "sonnet_ops": [
+      "divide",
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0156",
+    "n_steps": 3,
+    "correct_sig": "multiply(subtract(multiply(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The zookeeper feeds all the apes in the zoo.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "every",
+        "text": "He orders all the bananas from a local farm every 2 months.",
+        "nums": [
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "every",
+        "text": "If the monkeys need 200 bananas, the gorillas need 400 bananas, and the baboons need 100 bananas eve",
+        "nums": [
+          200.0,
+          400.0,
+          100.0
+        ]
+      }
+    ],
+    "answer": 1400.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0312",
+    "n_steps": 2,
+    "correct_sig": "add(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Trent is 5 years older than Jane, and Jane is 3 years younger than Quinn.",
+        "nums": [
+          5.0,
+          3.0
+        ]
+      }
+    ],
+    "answer": 32.0,
+    "sonnet_ops": [
+      "subtract",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0338",
+    "n_steps": 3,
+    "correct_sig": "divide(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:phrase:less than",
+        "text": "A class of 200 students is split into 3 groups such that 2 of them are equal in number and the last ",
+        "nums": [
+          200.0,
+          3.0,
+          2.0,
+          1,
+          10.0
+        ]
+      }
+    ],
+    "answer": 60.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0364",
+    "n_steps": 2,
+    "correct_sig": "subtract(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at",
+        "text": "There are 96 fourth-graders at Small Tree  School.",
+        "nums": [
+          96.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "43 of them are girls.",
+        "nums": [
+          43.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "On Friday, 5 fourth-grade girls and 4 fourth-grade boys were absent.",
+        "nums": [
+          5.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 49.0,
+    "sonnet_ops": [
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0390",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Monica is wrapping Christmas gifts.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "She has 6 gifts to wrap for her family, 4 gifts to wrap for her friends and 2 gifts to wrap for her ",
+        "nums": [
+          6.0,
+          4.0,
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:make",
+        "text": "She has 144 inches of ribbon and wants to make a bow for each gift with it.",
+        "nums": [
+          144.0
+        ]
+      }
+    ],
+    "answer": 12.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0416",
+    "n_steps": 2,
+    "correct_sig": "add(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "A herd consists of camels and dromedaries.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bumps",
+        "text": "There are 180 heads and 304 bumps.",
+        "nums": [
+          180.0,
+          304.0
+        ]
+      }
+    ],
+    "answer": 56.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0624",
+    "n_steps": 3,
+    "correct_sig": "subtract(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:learned:together",
+        "text": "Two sports coaches went shopping together.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "The baseball coach bought 9 new baseballs for $3 each.",
+        "nums": [
+          9.0,
+          3.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "The basketball coach bought 8 new basketballs for $14 each.",
+        "nums": [
+          8.0,
+          14.0
+        ]
+      }
+    ],
+    "answer": 85.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0702",
+    "n_steps": 3,
+    "correct_sig": "divide(subtract(L,subtract(L,L)),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Gissela, Gordy, and Gary are truck drivers.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Gissela has a truck large enough to haul 4,000 pounds of gravel.",
+        "nums": [
+          4000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "Gordy's truck can haul 800 pounds more than Gissela's truck.",
+        "nums": [
+          800.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:joins",
+        "text": "And when Gary brings his truck and joins Gissela and Gordy, the three trucks combined can haul a tot",
+        "nums": [
+          3,
+          11600.0
+        ]
+      }
+    ],
+    "answer": 2800.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0832",
+    "n_steps": 3,
+    "correct_sig": "add(divide(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:earned",
+        "text": "Roy has saved 40% more in money earned by chores than his brother Anthony.",
+        "nums": [
+          40.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "Anthony has saved $10.00 more than their sister Eva.",
+        "nums": [
+          10.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Eva has saved $20.00.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 42.0,
+    "sonnet_ops": [
+      "add",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0884",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Argo has 200 toys.",
+        "nums": [
+          200.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:gives",
+        "text": "He gives 40 toys to Alyssa, 80 to Bonnie, and 30 to Nicky.",
+        "nums": [
+          40.0,
+          80.0,
+          30.0
+        ]
+      }
+    ],
+    "answer": 50.0,
+    "sonnet_ops": [
+      "subtract",
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0910",
+    "n_steps": 3,
+    "correct_sig": "subtract(multiply(multiply(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "Farmer Brown's farm is 200 acres, and Farmer Smith's farm is 100 acres more than twice that.",
+        "nums": [
+          200.0,
+          100.0,
+          2
+        ]
+      }
+    ],
+    "answer": 700.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0962",
+    "n_steps": 3,
+    "correct_sig": "multiply(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Jen decides to travel to 3 different countries.",
+        "nums": [
+          3.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:pay",
+        "text": "He has to pay $400 for the supplies he needs, in total.",
+        "nums": [
+          400.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "The tickets for travel cost, in total, 50% more than the supplies.",
+        "nums": [
+          50.0
+        ]
+      }
+    ],
+    "answer": 1000.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0988",
+    "n_steps": 3,
+    "correct_sig": "divide(L,divide(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "Jessica makes $2,000.00 a month.",
+        "nums": [
+          2000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:put",
+        "text": "She sets 25% of her paycheck aside to put towards fancy shoes.",
+        "nums": [
+          25.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "Each pair of shoes she buys costs $1,000.00.",
+        "nums": [
+          1000.0
+        ]
+      }
+    ],
+    "answer": 6.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-1092",
+    "n_steps": 2,
+    "correct_sig": "divide(L,multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:ate",
+        "text": "A Tyrannosaurus rex ate half of a small triceratops it had hunted.",
+        "nums": [
+          0.5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:left",
+        "text": "When it left, a pack of velociraptors scavenged half of what was left.",
+        "nums": [
+          0.5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:down",
+        "text": "A group of lazy Allosaurus gulped down the last 270 kilograms of meat.",
+        "nums": [
+          270.0
+        ]
+      }
+    ],
+    "answer": 1080.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-1170",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "A wall mural has four different colors of paint in it: red, white, purple, and yellow.",
+        "nums": [
+          4
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:learned:equal",
+        "text": "There are equal amounts of red, white, and purple paint in the mural.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:learned:half",
+        "text": "Half the mural is yellow.",
+        "nums": [
+          0.5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:used",
+        "text": "If the mural used 12 pints of paint in all",
+        "nums": [
+          12.0
+        ]
+      }
+    ],
+    "answer": 2.0,
+    "sonnet_ops": [
+      "divide",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-1222",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buying",
+        "text": "Luke is buying fabric for new curtains.",
+        "nums": []
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "There are five windows.",
+        "nums": [
+          5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "Each window is 35 inches wide and Luke needs to buy fabric equal to 2 times the total width of the w",
+        "nums": [
+          35.0,
+          2.0
+        ]
+      }
+    ],
+    "answer": 350.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-1248",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:works",
+        "text": "Jason works as a salesperson at a car dealership.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sell",
+        "text": "He needs to sell 15 cars this month to earn a big bonus.",
+        "nums": [
+          15.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:makes",
+        "text": "He knows based on historical averages, that for every 25 telephone calls he makes to potential custo",
+        "nums": [
+          25.0,
+          1
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "And for every two customers that come into the car dealership, one will buy a car.",
+        "nums": [
+          2,
+          1
+        ]
+      }
+    ],
+    "answer": 750.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0054",
+    "n_steps": 3,
+    "correct_sig": "add(multiply(multiply(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "The Doubtfire sisters are driving home with 7 kittens adopted from the local animal shelter when the",
+        "nums": [
+          7.0,
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "She says that Patchy, the first cat, has had thrice the number of adopted kittens, while Trixie, the",
+        "nums": [
+          12.0
+        ]
+      }
+    ],
+    "answer": 40.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0057",
+    "n_steps": 2,
+    "correct_sig": "divide(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "A wooden bridge can carry no more than 5000 pounds.",
+        "nums": [
+          5000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:pass",
+        "text": "A delivery truck filled with identical boxes, each weighing 15 pounds, will pass over the bridge.",
+        "nums": [
+          15.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:combined",
+        "text": "The combined weight of the driver and the empty truck is 3755 pounds.",
+        "nums": [
+          3755.0
+        ]
+      }
+    ],
+    "answer": 83.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0064",
+    "n_steps": 2,
+    "correct_sig": "subtract(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:taking",
+        "text": "Sophia is thinking of taking a road trip in her car, and would like to know how far she can drive on",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "She has traveled 100 miles since last filling her tank, and she needed to put in 4 gallons of gas to",
+        "nums": [
+          100.0,
+          4.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The owner's manual for her car says that her tank holds 12 gallons of gas.",
+        "nums": [
+          12.0
+        ]
+      }
+    ],
+    "answer": 300.0,
+    "sonnet_ops": [
+      "divide",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0068",
+    "n_steps": 3,
+    "correct_sig": "divide(add(multiply(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:twice",
+        "text": "There are twice as many boys as girls at Dr.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Wertz's school.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "every",
+        "text": "If there are 60 girls and 5 students to every teacher",
+        "nums": [
+          60.0,
+          5.0
+        ]
+      }
+    ],
+    "answer": 36.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0092",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Emily has 4 kids named Amy, Jackson, Corey, and James.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Amy is 5 years older than Jackson and 2 years younger than Corey.",
+        "nums": [
+          5.0,
+          2.0
+        ]
+      }
+    ],
+    "answer": 4.0,
+    "sonnet_ops": [
+      "add",
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0168",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "Jimmy has $2 more than twice the money Ethel has.",
+        "nums": [
+          2.0,
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "If Ethal has $8",
+        "nums": [
+          8.0
+        ]
+      }
+    ],
+    "answer": 18.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0197",
+    "n_steps": 2,
+    "correct_sig": "subtract(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "In the city of Soda, there are exactly 23786 inhabitants.",
+        "nums": [
+          23786.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:include",
+        "text": "They include 8417 men and 9092 women.",
+        "nums": [
+          8417.0,
+          9092.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:made",
+        "text": "The rest of the population is made up of children.",
+        "nums": []
+      }
+    ],
+    "answer": 6277.0,
+    "sonnet_ops": [
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0476",
+    "n_steps": 2,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "Sarah went to buy books from the store and spent $300 on the books.",
+        "nums": [
+          300.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "If each book was $15 and she gave an equal number of books to her 4 kids",
+        "nums": [
+          15.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0496",
+    "n_steps": 2,
+    "correct_sig": "subtract(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Brett is 14 years old.",
+        "nums": [
+          14.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:times",
+        "text": "In four years his sister Angela will be three times as old as he is now.",
+        "nums": [
+          4,
+          3
+        ]
+      }
+    ],
+    "answer": 38.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0625",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Arianna plants a garden that has 10 rows of flowers with 20 flowers in each row.",
+        "nums": [
+          10.0,
+          20.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "Currently, only 4/5 of the planted flowers have bloomed.",
+        "nums": [
+          0.8,
+          5.0
+        ]
+      }
+    ],
+    "answer": 160.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0733",
+    "n_steps": 2,
+    "correct_sig": "add(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:found",
+        "text": "While walking down the street with his 3 younger siblings, Greg found $20.",
+        "nums": [
+          3.0,
+          20.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset:split",
+        "text": "To be fair to his siblings, he decided to split the money equally.",
+        "nums": []
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0765",
+    "n_steps": 3,
+    "correct_sig": "add(add(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "George has 45% more pears than bananas.",
+        "nums": [
+          45.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "If George has 200 bananas",
+        "nums": [
+          200.0
+        ]
+      }
+    ],
+    "answer": 490.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0770",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "A perfume company is trying to create new scents.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "They already have 4 vanilla scents and 8 fruity scents available and they need to decide which kind ",
+        "nums": [
+          4.0,
+          8.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sells",
+        "text": "They decide to focus on whichever scent sells the most and monitor their number of sales as part of ",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sell",
+        "text": "By the end of the day, they sell 5 of each of the vanilla scents and 2 of each of the fruity scents ",
+        "nums": [
+          5.0,
+          2.0
+        ]
+      }
+    ],
+    "answer": 4.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0807",
+    "n_steps": 3,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:making",
+        "text": "Milo is making a mosaic with chips of glass.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:make",
+        "text": "It takes twelve glass chips to make every square inch of the mosaic.",
+        "nums": [
+          12
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "A bag of glass chips holds 72 chips.",
+        "nums": [
+          72.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Milo wants his mosaic to be three inches tall.",
+        "nums": [
+          3
+        ]
+      }
+    ],
+    "answer": 4.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0899",
+    "n_steps": 2,
+    "correct_sig": "divide(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset:divide",
+        "text": "Susan made 100 cookies for Christmas and was going to equally divide them between her 6 nephews.",
+        "nums": [
+          100.0,
+          6.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Before Susan could package them, her husband snuck 4 cookies for himself.",
+        "nums": [
+          4.0
+        ]
+      }
+    ],
+    "answer": 16.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0978",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,subtract(L,L))",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The red car is 40% cheaper than the blue car.",
+        "nums": [
+          40.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The price of the blue car is $100.",
+        "nums": [
+          100.0
+        ]
+      }
+    ],
+    "answer": 160.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-1142",
+    "n_steps": 3,
+    "correct_sig": "divide(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Jess is trying to guess the number of blue jellybeans in a jar.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:twice",
+        "text": "She can see that there are 17 green jelly beans and twice as many red jelly beans.",
+        "nums": [
+          17.0,
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:learned:rest",
+        "text": "The rest of the jellybeans are blue jelly beans.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "total",
+        "text": "If there are a total of 60 jelly beans in total",
+        "nums": [
+          60.0
+        ]
+      }
+    ],
+    "answer": 9.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0001",
+    "n_steps": 2,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:takes",
+        "text": "A robe takes 2 bolts of blue fiber and half that much white fiber.",
+        "nums": [
+          2.0,
+          0.5
+        ]
+      }
+    ],
+    "answer": 3.0,
+    "sonnet_ops": [
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0016",
+    "n_steps": 1,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:leave",
+        "text": "Two trains leave San Rafael at the same time.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "They begin traveling westward, both traveling for 80 miles.",
+        "nums": [
+          80.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The next day, they travel northwards, covering 150 miles.",
+        "nums": [
+          150.0
+        ]
+      }
+    ],
+    "answer": 230.0,
+    "sonnet_ops": [
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0018",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:makes",
+        "text": "Claire makes a 3 egg omelet every morning for breakfast.",
+        "nums": [
+          3.0
+        ]
+      }
+    ],
+    "answer": 7.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0022",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sells",
+        "text": "Billy sells DVDs.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "He has 8 customers on Tuesday.",
+        "nums": [
+          8.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "His first 3 customers buy one DVD each.",
+        "nums": [
+          3.0,
+          1
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "His next 2 customers buy 2 DVDs each.",
+        "nums": [
+          2.0,
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "His last 3 customers don't buy any DVDs.",
+        "nums": [
+          3.0
+        ]
+      }
+    ],
+    "answer": 7.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0027",
+    "n_steps": 2,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:eats",
+        "text": "Cynthia eats one serving of ice cream every night.",
+        "nums": [
+          1
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "She buys cartons of ice cream with 15 servings of ice cream per carton at a cost of $4.00 per carton",
+        "nums": [
+          15.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 16.0,
+    "sonnet_ops": [
+      "divide",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0032",
+    "n_steps": 2,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:takes",
+        "text": "John takes care of 10 dogs.",
+        "nums": [
+          10.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:take",
+        "text": "Each dog takes .5 hours a day to walk and take care of their business.",
+        "nums": [
+          5.0
+        ]
+      }
+    ],
+    "answer": 35.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0041",
+    "n_steps": 2,
+    "correct_sig": "subtract(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:mount",
+        "text": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of",
+        "nums": [
+          1000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:throw",
+        "text": "Polly could throw the gold javelin, the only known weapon that could sleigh the dragon, for a distan",
+        "nums": [
+          400.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:throw",
+        "text": "But when Polly held the sapphire gemstone, she could throw the javelin three times farther than when",
+        "nums": [
+          3
+        ]
+      }
+    ],
+    "answer": 200.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0048",
+    "n_steps": 2,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:used",
+        "text": "Tracy used a piece of wire 4 feet long to support tomato plants in the garden.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:pieces",
+        "text": "The wire was cut into pieces 6 inches long.",
+        "nums": [
+          6.0
+        ]
+      }
+    ],
+    "answer": 8.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0055",
+    "n_steps": 2,
+    "correct_sig": "divide(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Jean has 30 lollipops.",
+        "nums": [
+          30.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:eats",
+        "text": "Jean eats 2 of the lollipops.",
+        "nums": [
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:learned:remaining",
+        "text": "With the remaining lollipops, Jean wants to package 2 lollipops in one bag.",
+        "nums": [
+          2.0,
+          1
+        ]
+      }
+    ],
+    "answer": 14.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0056",
+    "n_steps": 2,
+    "correct_sig": "divide(L,add(L,L))",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Peter plans to go to the movies this week.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:gets",
+        "text": "He always gets a ticket for $7 and popcorn for $7.",
+        "nums": [
+          7.0,
+          7.0
+        ]
+      }
+    ],
+    "answer": 3.0,
+    "sonnet_ops": [
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0069",
+    "n_steps": 2,
+    "correct_sig": "subtract(L,multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:starts",
+        "text": "Bailey starts with a certain amount of money.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:receives",
+        "text": "Then she receives a weekly allowance of $5 for 8 weeks.",
+        "nums": [
+          5.0,
+          8.0
+        ]
+      }
+    ],
+    "answer": 60.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0072",
+    "n_steps": 3,
+    "correct_sig": "add(multiply(L,L),multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:selling",
+        "text": "Tommy is fundraising for his charity by selling brownies for $3 a slice and cheesecakes for $4 a sli",
+        "nums": [
+          3.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 221.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0077",
+    "n_steps": 3,
+    "correct_sig": "divide(L,L)",
+    "clauses": [],
+    "answer": 100.0,
+    "sonnet_ops": [
+      "divide",
+      "divide",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0089",
+    "n_steps": 2,
+    "correct_sig": "add(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "per",
+        "text": "Christina is planning a birthday party and needs .75 gift bags per invited guest, because 1/4 of att",
+        "nums": [
+          75.0,
+          0.25,
+          4.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "She invited 16 friends.",
+        "nums": [
+          16.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "Gift bags are $2 each.",
+        "nums": [
+          2.0
+        ]
+      }
+    ],
+    "answer": 24.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0096",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "learned:hours",
+        "text": "Harry slept 9 hours last night.",
+        "nums": [
+          9.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "His friend James slept only 2/3 of what Harry slept.",
+        "nums": [
+          0.6666666666666666,
+          3.0
+        ]
+      }
+    ],
+    "answer": 3.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0109",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,subtract(subtract(L,L),L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:selling",
+        "text": "A local gas station is selling gas for $3.00 a gallon.",
+        "nums": [
+          3.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "An app company is offering $.20 cashback per gallon if you fill up at this station.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 28.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0114",
+    "n_steps": 2,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:times",
+        "text": "Jamal's phone can hold 6 times more photographs than can Brittany's phone.",
+        "nums": [
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:more than",
+        "text": "The maximum number of photographs that Brittany's phone can hold is 50 times more than the number of",
+        "nums": [
+          50.0
+        ]
+      }
+    ],
+    "answer": 6.0,
+    "sonnet_ops": [
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0116",
+    "n_steps": 3,
+    "correct_sig": "multiply(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:makes",
+        "text": "Katy makes coffee using teaspoons of sugar and cups of water in the ratio of 7:13.",
+        "nums": [
+          7.0
+        ]
+      }
+    ],
+    "answer": 42.0,
+    "sonnet_ops": [
+      "add",
+      "divide",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0126",
+    "n_steps": 2,
+    "correct_sig": "add(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:make",
+        "text": "Dylan needed chicken sausages and fish sausages to make sausage buns at a party.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "He bought 38 chicken sausages and 6 more fish sausages than chicken sausages.",
+        "nums": [
+          38.0,
+          6.0
+        ]
+      }
+    ],
+    "answer": 82.0,
+    "sonnet_ops": [
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0133",
+    "n_steps": 3,
+    "correct_sig": "add(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "On Monday, Walt walked 4 miles.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:times",
+        "text": "Tuesday, he walked 6 times as many miles as he walked on Monday.",
+        "nums": [
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "total",
+        "text": "His total mileage Monday through Wednesday was 41 miles.",
+        "nums": [
+          41.0
+        ]
+      }
+    ],
+    "answer": 13.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0134",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:gets",
+        "text": "Tom gets 4 car washes a month.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "If each car wash costs $15",
+        "nums": [
+          15.0
+        ]
+      }
+    ],
+    "answer": 720.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0164",
+    "n_steps": 2,
+    "correct_sig": "subtract(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:do",
+        "text": "Jackie is trying to decide whether to do her taxes herself or hire an accountant.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:losing",
+        "text": "If she does the taxes herself, she'll be able to do 3 fewer hours of freelance work, losing $35/hour",
+        "nums": [
+          3.0,
+          35.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "The accountant charges $90.",
+        "nums": [
+          90.0
+        ]
+      }
+    ],
+    "answer": 15.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0176",
+    "n_steps": 2,
+    "correct_sig": "subtract(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:learned:rest",
+        "text": "In a race with 240 Asians, 80 were Japanese, and the rest were Chinese.",
+        "nums": [
+          240.0,
+          80.0
+        ]
+      }
+    ],
+    "answer": 100.0,
+    "sonnet_ops": [
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0179",
+    "n_steps": 3,
+    "correct_sig": "multiply(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "Lloyd earns $10 an hour on Math tutoring.",
+        "nums": [
+          10.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "learned:week",
+        "text": "He tutored 5 hours for the first week and 8 hours for the second week.",
+        "nums": [
+          5.0,
+          8.0
+        ]
+      }
+    ],
+    "answer": 130.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0180",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:running",
+        "text": "Two candidates are running for class representative at Sarai's school.",
+        "nums": [
+          2
+        ]
+      }
+    ],
+    "answer": 20.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0185",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:picked",
+        "text": "Jenna and her mother picked some apples from their apple farm.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:picked",
+        "text": "Jenna picked half as many apples as her mom.",
+        "nums": [
+          0.5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:got",
+        "text": "If her mom got 20 apples",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 30.0,
+    "sonnet_ops": [
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0188",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "A trader buys some bags of wheat from a farmer at a rate of $20 per bag.",
+        "nums": [
+          20.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "If it costs $2 to transport each bag from the farm to the warehouse, and the trader made a total pro",
+        "nums": [
+          2.0,
+          400.0,
+          30.0
+        ]
+      }
+    ],
+    "answer": 50.0,
+    "sonnet_ops": [
+      "add",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0191",
+    "n_steps": 2,
+    "correct_sig": "divide(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:eat",
+        "text": "Ducks need to eat 3.5 pounds of insects each week to survive.",
+        "nums": [
+          3.5
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "If there is a flock of ten ducks",
+        "nums": [
+          10
+        ]
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0194",
+    "n_steps": 2,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buy",
+        "text": "Violetta wants to buy new crayons.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:purchase",
+        "text": "She needs them in 5 different colors and prepared $20 for this purchase.",
+        "nums": [
+          5.0,
+          20.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "One crayon costs $2.",
+        "nums": [
+          1,
+          2.0
+        ]
+      }
+    ],
+    "answer": 10.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0212",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Gary likes to walk around the edge of the local park, which is a rectangle that measures 1.5 miles b",
+        "nums": [
+          1.5,
+          6.0
+        ]
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "add",
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0217",
+    "n_steps": 2,
+    "correct_sig": "add(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "There are 4 roses in the vase.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "more",
+        "text": "There are 7 more dahlias than roses in the vase.",
+        "nums": [
+          7.0
+        ]
+      }
+    ],
+    "answer": 15.0,
+    "sonnet_ops": [
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0221",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:filled",
+        "text": "A water tank is filled with 120 liters of water.",
+        "nums": [
+          120.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:used",
+        "text": "Celine used 90 liters of water from the tank to water her small garden.",
+        "nums": [
+          90.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:collect",
+        "text": "She was then able to collect rainwater that is twice as much as what was left.",
+        "nums": [
+          2
+        ]
+      }
+    ],
+    "answer": 90.0,
+    "sonnet_ops": [
+      "subtract",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0222",
+    "n_steps": 2,
+    "correct_sig": "add(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:learned:fewer",
+        "text": "Andy plants 90 geraniums and 40 fewer petunias that geraniums.",
+        "nums": [
+          90.0,
+          40.0
+        ]
+      }
+    ],
+    "answer": 140.0,
+    "sonnet_ops": [
+      "subtract",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0223",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:spends",
+        "text": "A company spends $15000 on advertising for a year, and then spends a third of that amount on adverti",
+        "nums": [
+          15000.0,
+          0.3333333333333333
+        ]
+      }
+    ],
+    "answer": 20000.0,
+    "sonnet_ops": [
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0231",
+    "n_steps": 3,
+    "correct_sig": "divide(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:collect",
+        "text": "Kylie and Robert enjoy going to the beach to collect shells.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:collects",
+        "text": "On Monday, Kylie collects 5 more shells than Robert, who collects 20 shells.",
+        "nums": [
+          5.0,
+          20.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:collects",
+        "text": "On Tuesday, Kylie collects 2 times more shells than she did on Monday.",
+        "nums": [
+          2.0
+        ]
+      }
+    ],
+    "answer": 50.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0240",
+    "n_steps": 3,
+    "correct_sig": "subtract(divide(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "James has 6 more candies than Robert.",
+        "nums": [
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "John has twice as many candies as Robert.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "If John has 54 candies",
+        "nums": [
+          54.0
+        ]
+      }
+    ],
+    "answer": 21.0,
+    "sonnet_ops": [
+      "divide",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0243",
+    "n_steps": 3,
+    "correct_sig": "subtract(subtract(L,multiply(L,L)),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Jason has a phone plan of 1000 minutes per month.",
+        "nums": [
+          1000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Every day he has a 15-minute call with his boss, and he's had 300 extra minutes of call this month t",
+        "nums": [
+          15.0,
+          300.0
+        ]
+      }
+    ],
+    "answer": 250.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0245",
+    "n_steps": 3,
+    "correct_sig": "add(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "There are 4 snails in one aquarium and 32 snails in another aquarium.",
+        "nums": [
+          4.0,
+          1,
+          32.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:learned:difference",
+        "text": "The difference between the number of snails in the two aquariums is twice the amount of fish in both",
+        "nums": [
+          2,
+          2
+        ]
+      }
+    ],
+    "answer": 7.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0262",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Maddison has 5 boxes with 50 marbles in each box.",
+        "nums": [
+          5.0,
+          50.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:gets",
+        "text": "Then she gets 20 marbles from her friend.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 270.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0268",
+    "n_steps": 3,
+    "correct_sig": "add(multiply(L,L),multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "A real estate agent has spent $5 on each newspaper ad and spent $75 on each television ad.",
+        "nums": [
+          5.0,
+          75.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "He bought 50 newspaper ads and 15 television ads.",
+        "nums": [
+          50.0,
+          15.0
+        ]
+      }
+    ],
+    "answer": 1375.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0272",
+    "n_steps": 3,
+    "correct_sig": "divide(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "A mother goes shopping.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buys",
+        "text": "She buys cocoa at $4.20, laundry at $9.45 and a package of pasta at $1.35.",
+        "nums": [
+          4.2,
+          9.45,
+          1.35
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:pays",
+        "text": "She pays $20.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0274",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "It's April, and Mrs.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Rylan has been busy on her farm planting different types of vegetables for the season.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "She has bought 20 packets of tomato seeds and 80 packets of celery seeds to plant.",
+        "nums": [
+          20.0,
+          80.0
+        ]
+      }
+    ],
+    "answer": 3200.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0288",
+    "n_steps": 2,
+    "correct_sig": "multiply(divide(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:delivering",
+        "text": "A landscaping company is delivering flagstones to a customer\u2019s yard.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "each",
+        "text": "Each flagstone weighs 75 pounds.",
+        "nums": [
+          75.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "total",
+        "text": "If the delivery trucks can carry a total weight of 2000 pounds",
+        "nums": [
+          2000.0
+        ]
+      }
+    ],
+    "answer": 3.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0289",
+    "n_steps": 2,
+    "correct_sig": "divide(L,multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at",
+        "text": "A car in the fast lane is traveling at 60 miles/hour.",
+        "nums": [
+          60.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:learned:half",
+        "text": "A car in the slow lane is traveling at half that speed.",
+        "nums": [
+          0.5
+        ]
+      }
+    ],
+    "answer": 16.0,
+    "sonnet_ops": [
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0290",
+    "n_steps": 3,
+    "correct_sig": "multiply(add(subtract(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Ali is a superstar counter.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "He has won 22 medals for counting super fast.",
+        "nums": [
+          22.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "His friend Izzy is also a really good counter and has 5 less medals than Ali.",
+        "nums": [
+          5.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "Together they have 10 times less medals than have been given out for counting.",
+        "nums": [
+          10.0
+        ]
+      }
+    ],
+    "answer": 390.0,
+    "sonnet_ops": [
+      "subtract",
+      "add",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0294",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buys",
+        "text": "Will buys 15 oranges.",
+        "nums": [
+          15.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:gets",
+        "text": "When he gets home, he asks his 2 sons to wash as many oranges as they are years old.",
+        "nums": [
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:learned:half",
+        "text": "The oldest son is 8 years old, the youngest is half as old as the oldest.",
+        "nums": [
+          8.0,
+          0.5
+        ]
+      }
+    ],
+    "answer": 3.0,
+    "sonnet_ops": [
+      "divide",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0301",
+    "n_steps": 1,
+    "correct_sig": "divide(divide(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:made",
+        "text": "A simple folding newspaper or tabloid can be made by folding a piece of paper vertically and unfoldi",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:left",
+        "text": "Then, say, page 1 is printed on the left back, page 2 is printed on the left front, and then, perhap",
+        "nums": [
+          1.0,
+          2.0,
+          32.0,
+          31.0
+        ]
+      }
+    ],
+    "answer": 8.0,
+    "sonnet_ops": [
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0306",
+    "n_steps": 3,
+    "correct_sig": "multiply(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "each",
+        "text": "A bakery produces 60 loaves of bread each day.",
+        "nums": [
+          60.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sold",
+        "text": "Two-thirds of the loaves are sold in the morning and half of what is left is sold equally in the aft",
+        "nums": [
+          2,
+          0.5
+        ]
+      }
+    ],
+    "answer": 10.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0307",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:lose",
+        "text": "Sandy wants to lose as much weight as Joey does but needs 4 weeks to lose the same amount of weight ",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:loses",
+        "text": "If Joey loses 8 pounds in 4 weeks",
+        "nums": [
+          8.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 16.0,
+    "sonnet_ops": [
+      "divide",
+      "divide",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0309",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset_hypernym:lots",
+        "text": "Helena is a mad scientist testing her latest creation, the Lots-of-Limbs Serum.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:make",
+        "text": "The serum will make the drinker grow an extra arm every three days and an extra leg every five days.",
+        "nums": [
+          3,
+          5
+        ]
+      }
+    ],
+    "answer": 8.0,
+    "sonnet_ops": [
+      "divide",
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0319",
+    "n_steps": 1,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "ratio",
+        "text": "The ratio of the electric poles and electric wires needed to connect and supply the electricity in a",
+        "nums": [
+          1.0
+        ]
+      }
+    ],
+    "answer": 15.0,
+    "sonnet_ops": [
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0324",
+    "n_steps": 1,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Ralph has a record store where people can trade their own records for new ones.",
+        "nums": []
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "People can trade 2 old records for 1 new one.",
+        "nums": [
+          2.0,
+          1.0,
+          1
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:leave",
+        "text": "5 people come in with old records and leave with 7 new records between them.",
+        "nums": [
+          5.0,
+          7.0
+        ]
+      }
+    ],
+    "answer": 14.0,
+    "sonnet_ops": [
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0326",
+    "n_steps": 3,
+    "correct_sig": "add(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:got",
+        "text": "Some people got on a bus at the terminal.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:got",
+        "text": "At the first bus stop, 5 more people got in.",
+        "nums": [
+          5.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:got",
+        "text": "Then at the second bus stop, 7 people got down and 8 more got in.",
+        "nums": [
+          7.0,
+          8.0
+        ]
+      }
+    ],
+    "answer": 14.0,
+    "sonnet_ops": [
+      "subtract",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0329",
+    "n_steps": 2,
+    "correct_sig": "subtract(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Erin has 7 lollipops.",
+        "nums": [
+          7.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:gives",
+        "text": "Her mother gives Erin another 10 lollipops.",
+        "nums": [
+          10.0
+        ]
+      }
+    ],
+    "answer": 14.0,
+    "sonnet_ops": [
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0335",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:make",
+        "text": "Mason needs 30 ounces of sugar to make a batch of suckers and 70 ounces of sugar to make a batch of ",
+        "nums": [
+          30.0,
+          70.0
+        ]
+      }
+    ],
+    "answer": 310.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0343",
+    "n_steps": 3,
+    "correct_sig": "multiply(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:runs",
+        "text": "In his training as a professional athlete, Tyson runs 5000 meters every day.",
+        "nums": [
+          5000.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:run",
+        "text": "His coach, however, wants him to run 1/5 times more meters in a day.",
+        "nums": [
+          0.2,
+          5.0
+        ]
+      }
+    ],
+    "answer": 180000.0,
+    "sonnet_ops": [
+      "divide",
+      "add",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0345",
+    "n_steps": 3,
+    "correct_sig": "subtract(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "A restaurant has 40 tables with 4 legs and 50 tables with 3 legs.",
+        "nums": [
+          40.0,
+          4.0,
+          50.0,
+          3.0
+        ]
+      }
+    ],
+    "answer": 310.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0347",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "Davos bought 2 shirts from the mall that cost $30 each.",
+        "nums": [
+          2.0,
+          30.0
+        ]
+      }
+    ],
+    "answer": 36.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0352",
+    "n_steps": 2,
+    "correct_sig": "subtract(L,add(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:gave her",
+        "text": "After Andrea saved some money, she then spent the rest of her money on an $11 sweater and gave her b",
+        "nums": [
+          11.0,
+          4.0
+        ]
+      }
+    ],
+    "answer": 21.0,
+    "sonnet_ops": [
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0358",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "Marisa gets $5 as pocket money every day from her parents.",
+        "nums": [
+          5.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:buys",
+        "text": "She buys 4 lollipops worth 25 cents each every day and saves the change in her piggy bank.",
+        "nums": [
+          4.0,
+          25.0
+        ]
+      }
+    ],
+    "answer": 20.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0365",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "There are 6 girls in the park.",
+        "nums": [
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "graph:learned:twice",
+        "text": "If there are twice the number of boys in the park",
+        "nums": [
+          2
+        ]
+      }
+    ],
+    "answer": 18.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0370",
+    "n_steps": 2,
+    "correct_sig": "subtract(L,multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "painted",
+        "text": "A hand-painted wallpaper costs $400 at the market.",
+        "nums": [
+          400.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "A DIY will saves 20% after considering the materials cost.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 320.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0380",
+    "n_steps": 3,
+    "correct_sig": "divide(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:borrowed",
+        "text": "Karan borrowed $3,650 for five months at an interest rate of 10%.",
+        "nums": [
+          3650.0,
+          5,
+          10.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:pay",
+        "text": "She has to pay an equal amount every month.",
+        "nums": []
+      }
+    ],
+    "answer": 803.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0381",
+    "n_steps": 3,
+    "correct_sig": "subtract(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "per",
+        "text": "Cho hiked 14 kilometers per hour for 8 hours.",
+        "nums": [
+          14.0,
+          8.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:stopped",
+        "text": "Chloe hiked 9 kilometers per hour and stopped after 5 hours.",
+        "nums": [
+          9.0,
+          5.0
+        ]
+      }
+    ],
+    "answer": 67.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0384",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Mr.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:sold",
+        "text": "Ruther sold 3/5 of his land and had 12.8 hectares left.",
+        "nums": [
+          0.6,
+          5.0,
+          12.8
+        ]
+      }
+    ],
+    "answer": 32.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0387",
+    "n_steps": 3,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "An eraser costs $2 and a pencil costs $3.",
+        "nums": [
+          2.0,
+          3.0
+        ]
+      }
+    ],
+    "answer": 36.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0397",
+    "n_steps": 2,
+    "correct_sig": "divide(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:mark",
+        "text": "Mark has $50 in his bank account.",
+        "nums": [
+          50.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "He earns $10 per day at his work.",
+        "nums": [
+          10.0
+        ]
+      }
+    ],
+    "answer": 25.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0400",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:milk",
+        "text": "A glass of milk is 8 ounces of milk.",
+        "nums": [
+          8.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:milk",
+        "text": "John drinks 2 glasses of milk.",
+        "nums": [
+          2.0
+        ]
+      }
+    ],
+    "answer": 48.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0401",
+    "n_steps": 3,
+    "correct_sig": "multiply(multiply(L,L),multiply(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:works",
+        "text": "A builder works for 4 weeks every month and for 6 days every week.",
+        "nums": [
+          4.0,
+          6.0
+        ]
+      }
+    ],
+    "answer": 14400.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0413",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:makes",
+        "text": "Marcy makes homemade candles that she markets as 99% guaranteed not to explode.",
+        "nums": [
+          99.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "5% of the more dangerous candles also have a defect that makes them smell like wet dog.",
+        "nums": [
+          5.0
+        ]
+      }
+    ],
+    "answer": 25.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0414",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,subtract(L,L))",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:picks",
+        "text": "Misha picks out 4 blouses from the 30% off rack.",
+        "nums": [
+          4.0,
+          30.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "The regular price for each blouse is $20.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 56.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0420",
+    "n_steps": 3,
+    "correct_sig": "add(multiply(add(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:fund",
+        "text": "To fund his store, Mr.",
+        "nums": []
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Josue solicited money from two banks.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:gave him",
+        "text": "The first bank gave him $4000, and the second company gave him twice as much.",
+        "nums": [
+          4000.0,
+          2
+        ]
+      }
+    ],
+    "answer": 17000.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0433",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset:divided",
+        "text": "15 gallons of gas were equally divided into 5 different containers.",
+        "nums": [
+          15.0,
+          5.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:run",
+        "text": "Josey needed 1/4 of a container to run her lawnmower.",
+        "nums": [
+          0.25,
+          4.0
+        ]
+      }
+    ],
+    "answer": 6.0,
+    "sonnet_ops": [
+      "divide",
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0435",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:had",
+        "text": "Ray had 25 lollipops.",
+        "nums": [
+          25.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset:shared",
+        "text": "He kept 5 lollipops and shared the remaining equally with his four friends.",
+        "nums": [
+          5.0,
+          4
+        ]
+      }
+    ],
+    "answer": 5.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0437",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "Sitti and Juris bought 34 and 22 oranges, respectively.",
+        "nums": [
+          34.0,
+          22.0
+        ]
+      }
+    ],
+    "answer": 7.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0444",
+    "n_steps": 3,
+    "correct_sig": "multiply(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Movie A was one-fourth the length of Movie B.",
+        "nums": [
+          1
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Movie B was 5 minutes longer than Movie C.",
+        "nums": [
+          5.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Movie C was 1.25 hours.",
+        "nums": [
+          1.25
+        ]
+      }
+    ],
+    "answer": 20.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0449",
+    "n_steps": 3,
+    "correct_sig": "multiply(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "Beatrice bought ten packets of crayons for her Art class.",
+        "nums": [
+          10
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:had",
+        "text": "Six of the packets had eight pieces of colors each, and the other four packets had sixteen pieces of",
+        "nums": [
+          6,
+          8,
+          4,
+          16
+        ]
+      }
+    ],
+    "answer": 112.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0454",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:eat",
+        "text": "Marin and his neighbor Nancy each eat 4 apples a day.",
+        "nums": [
+          4.0
+        ]
+      }
+    ],
+    "answer": 150.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0457",
+    "n_steps": 3,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:playing",
+        "text": "While playing with her friends in their school playground, Katelyn saw 50 fairies flying above the n",
+        "nums": [
+          50.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:join",
+        "text": "After about twenty minutes, one of her friends saw half as many fairies as Katelyn saw come from the",
+        "nums": [
+          20,
+          1,
+          0.5
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Ten minutes later, 30 fairies flew away.",
+        "nums": [
+          10,
+          30.0
+        ]
+      }
+    ],
+    "answer": 45.0,
+    "sonnet_ops": [
+      "divide",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0461",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Shondra has 7 fewer plants than Toni.",
+        "nums": [
+          7.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Toni has 60% more plants than Frederick.",
+        "nums": [
+          60.0
+        ]
+      }
+    ],
+    "answer": 9.0,
+    "sonnet_ops": [
+      "multiply",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0462",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:had",
+        "text": "Ali had $21.",
+        "nums": [
+          21.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:phrase:gave him",
+        "text": "Leila gave him half of her $100.",
+        "nums": [
+          0.5,
+          100.0
+        ]
+      }
+    ],
+    "answer": 71.0,
+    "sonnet_ops": [
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0463",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Ashley's pizza delivery costs $15.",
+        "nums": [
+          15.0
+        ]
+      }
+    ],
+    "answer": 18.0,
+    "sonnet_ops": [
+      "divide",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0469",
+    "n_steps": 2,
+    "correct_sig": "subtract(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Mary has 6 jars of sprinkles in her pantry.",
+        "nums": [
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "each",
+        "text": "Each jar of sprinkles can decorate 8 cupcakes.",
+        "nums": [
+          8.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:bake",
+        "text": "Mary wants to bake enough cupcakes to use up all of her sprinkles.",
+        "nums": []
+      }
+    ],
+    "answer": 4.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0474",
+    "n_steps": 2,
+    "correct_sig": "add(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "At a certain grade level, three-fourths of students have a desktop computer at home.",
+        "nums": [
+          3
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "If 20 students do not have desktop computers",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 80.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0475",
+    "n_steps": 2,
+    "correct_sig": "divide(divide(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:break",
+        "text": "It takes 240 minutes of walking to break in a new pair of shoes.",
+        "nums": [
+          240.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "learned:weeks",
+        "text": "Jason wants to try out for the track team in three weeks.",
+        "nums": [
+          3
+        ]
+      }
+    ],
+    "answer": 20.0,
+    "sonnet_ops": [
+      "multiply",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0477",
+    "n_steps": 3,
+    "correct_sig": "subtract(L,add(L,L))",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Nine of the kids in Gina's class are allergic to dairy, 6 are allergic to peanuts and 3 are allergic",
+        "nums": [
+          9,
+          6.0,
+          3.0
+        ]
+      }
+    ],
+    "answer": 20.0,
+    "sonnet_ops": [
+      "add",
+      "subtract",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-0488",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Jana has 27 puppies.",
+        "nums": [
+          27.0
+        ]
+      },
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Two thirds of Jana's puppies are Pomeranians.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "third",
+        "text": "One third of the Pomeranians are girls.",
+        "nums": [
+          1,
+          0.3333333333333333
+        ]
+      }
+    ],
+    "answer": 6.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-0499",
+    "n_steps": 2,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:choose",
+        "text": "Mark is trying to choose between two venues for a surprise party for his wife.",
+        "nums": [
+          2
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "The first venue charges a flat fee of $200, regardless of how many guests attend.",
+        "nums": [
+          200.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "sells...for",
+        "text": "While the second charges, $25 per person who attends.",
+        "nums": [
+          25.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "However, the first venue does not include food, which Mark estimates will cost $5 for each person wh",
+        "nums": [
+          5.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:included",
+        "text": "At the second venue, food for each guest is already included in the price.",
+        "nums": []
+      }
+    ],
+    "answer": 10.0,
+    "sonnet_ops": [
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0628",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at",
+        "text": "Adam really wants to ride the biggest roller coaster at the park.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "You have to be 4 feet tall to ride it.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:grows",
+        "text": "Adam\u2019s height is 40 inches and he grows 2 inches a year.",
+        "nums": [
+          40.0,
+          2.0
+        ]
+      }
+    ],
+    "answer": 4.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0748",
+    "n_steps": 3,
+    "correct_sig": "multiply(add(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Carl has four times as many marbles as Sean and Sean has half as many marbles as Cal.",
+        "nums": [
+          4,
+          0.5
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "If Sean has 56 marbles",
+        "nums": [
+          56.0
+        ]
+      }
+    ],
+    "answer": 336.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-0913",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:threw",
+        "text": "Benny threw bologna at his balloons.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:threw",
+        "text": "He threw two pieces of bologna at each red balloon and three pieces of bologna at each yellow balloo",
+        "nums": [
+          2,
+          3
+        ]
+      }
+    ],
+    "answer": 6.0,
+    "sonnet_ops": [
+      "multiply",
+      "subtract",
+      "divide"
+    ]
+  },
+  {
+    "pid": "gsm-0917",
+    "n_steps": 3,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:bought",
+        "text": "Kira bought 3 apples, 5 bananas and 6 oranges at the grocery store.",
+        "nums": [
+          3.0,
+          5.0,
+          6.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:ate",
+        "text": "Lola ate 2 pieces of the fruit.",
+        "nums": [
+          2.0
+        ]
+      }
+    ],
+    "answer": 12.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-1043",
+    "n_steps": 2,
+    "correct_sig": "multiply(multiply(L,L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "each",
+        "text": "There are 26 countries in South America and, in each country, there are 5 cities with 1000 people li",
+        "nums": [
+          26.0,
+          5.0,
+          1000.0
+        ]
+      }
+    ],
+    "answer": 130000.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-1054",
+    "n_steps": 2,
+    "correct_sig": "multiply(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "My kitchen floor has a total area of 200 SqFt.",
+        "nums": [
+          200.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "multiply",
+        "verb": "at_rate",
+        "text": "I want to install new square floor tiles that cost $12 each, and each tile side is 1ft in length.",
+        "nums": [
+          12.0,
+          1.0
+        ]
+      }
+    ],
+    "answer": 2400.0,
+    "sonnet_ops": [
+      "divide",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-1113",
+    "n_steps": 2,
+    "correct_sig": "divide(subtract(L,L),L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "The temperature was 2 degrees Celsius.",
+        "nums": [
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:increased",
+        "text": "It dropped 8 degrees Celsius overnight and then increased 3 degrees Celsius in the morning.",
+        "nums": [
+          8.0,
+          3.0
+        ]
+      }
+    ],
+    "answer": -3.0,
+    "sonnet_ops": [
+      "subtract",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-1116",
+    "n_steps": 2,
+    "correct_sig": "divide(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Last year there were 50 students enrolled in a calligraphy class.",
+        "nums": [
+          50.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:increase",
+        "text": "This year, there was a 20% increase in enrollment.",
+        "nums": [
+          20.0
+        ]
+      }
+    ],
+    "answer": 60.0,
+    "sonnet_ops": [
+      "multiply",
+      "add"
+    ]
+  },
+  {
+    "pid": "gsm-1234",
+    "n_steps": 2,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "setup",
+        "operation": "none",
+        "verb": "none",
+        "text": "Regina wrote 9 novels last year.",
+        "nums": [
+          9.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "If this is 3 quarters of the number of novels she has written this year",
+        "nums": [
+          3.0
+        ]
+      }
+    ],
+    "answer": 12.0,
+    "sonnet_ops": [
+      "divide",
+      "multiply"
+    ]
+  },
+  {
+    "pid": "gsm-1285",
+    "n_steps": 3,
+    "correct_sig": "subtract(subtract(subtract(L,L),L),L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset:have",
+        "text": "The recent floods in Mamou\u2019s country have left many families without food or shelter.",
+        "nums": []
+      },
+      {
+        "role": "operation",
+        "operation": "divide",
+        "verb": "graph:synset:distribute",
+        "text": "To help, Mamou has volunteered to distribute 1,360 meals to the affected families.",
+        "nums": [
+          1360.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset:gave",
+        "text": "She gave out 64 meals on Friday, 30 meals on Saturday, and 48 meals on Sunday.",
+        "nums": [
+          64.0,
+          30.0,
+          48.0
+        ]
+      }
+    ],
+    "answer": 1218.0,
+    "sonnet_ops": [
+      "add",
+      "add",
+      "subtract"
+    ]
+  },
+  {
+    "pid": "gsm-1307",
+    "n_steps": 3,
+    "correct_sig": "add(L,L)",
+    "clauses": [
+      {
+        "role": "operation",
+        "operation": "subtract",
+        "verb": "graph:synset_hypernym:putting",
+        "text": "James is putting together 4 tables.",
+        "nums": [
+          4.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "Each table has 4 legs and each leg needs 2 screws.",
+        "nums": [
+          4.0,
+          2.0
+        ]
+      },
+      {
+        "role": "operation",
+        "operation": "add",
+        "verb": "graph:synset_hypernym:has",
+        "text": "He has 40 screws.",
+        "nums": [
+          40.0
+        ]
+      }
+    ],
+    "answer": 8.0,
+    "sonnet_ops": [
+      "multiply",
+      "multiply",
+      "subtract"
+    ]
+  }
+]

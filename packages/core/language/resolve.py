@@ -124,6 +124,106 @@ _PHRASE_TO_OP: dict[str, str] = {
 _PHRASES_BY_LENGTH = sorted(_PHRASE_TO_OP.keys(), key=lambda x: -len(x))
 
 
+# ---------------------------------------------------------------------------
+# Structural patterns: phrases that emit relational equations, not just
+# a single operation. These are "N times as many A as B" → A = N × B.
+#
+# Each pattern is a regex → template. The template says how the captured
+# groups relate to each other via an operation.
+#
+# Format: (compiled_regex, operation, role_of_groups)
+#   - groups are named: 'n' (number), 'subject', 'reference'
+#   - operation: how subject relates to reference
+#   - The equation produced: subject = reference × n (for 'multiply')
+# ---------------------------------------------------------------------------
+
+_STRUCTURAL_PATTERNS: list[tuple[re.Pattern, str, float]] = [
+    # "N times as many/much [stuff] as [ref]" → subject = N × ref
+    # N can be a fraction (1/2), decimal, integer, or multiplier word
+    (re.compile(
+        r'(?P<n>\d+(?:\.\d+)?|half|twice|double|triple|thrice)'
+        r'\s+times?\s+as\s+(?:many|much)\s+'
+        r'(?:\w+\s+)*?as\s+(?:the\s+(?:number|amount)\s+of\s+)?'
+        r'(?:\w+\s+)*?(?P<reference>[a-z]{2,})\b',
+        re.I),
+     'multiply', 0.95),
+
+    # "twice/half/double/triple as many/much [stuff] as [ref]"
+    (re.compile(
+        r'(?P<n>twice|half|double|triple|thrice)'
+        r'\s+as\s+(?:many|much)\s+'
+        r'(?:\w+\s+)*?as\s+(?:the\s+(?:number|amount)\s+of\s+)?'
+        r'(?:\w+\s+)*?(?P<reference>[a-z]{2,})\b',
+        re.I),
+     'multiply', 0.95),
+
+    # "N more [stuff] than [ref]" → subject = ref + N
+    (re.compile(
+        r'(?P<n>\d+(?:\.\d+)?)\s+more\s+(?:\w+\s+)*?than\s+(?:\w+\s+)*?(?P<reference>\w+)',
+        re.I),
+     'add', 0.90),
+
+    # "N fewer/less [stuff] than [ref]" → subject = ref - N
+    (re.compile(
+        r'(?P<n>\d+(?:\.\d+)?)\s+(?:fewer|less)\s+(?:\w+\s+)*?than\s+(?:\w+\s+)*?(?P<reference>\w+)',
+        re.I),
+     'subtract', 0.90),
+]
+
+# Word → number mapping for multiplier words in structural patterns
+_MULT_WORDS = {
+    'half': 0.5, 'twice': 2, 'double': 2,
+    'triple': 3, 'thrice': 3, 'quarter': 0.25,
+}
+
+
+@dataclass
+class StructuralMatch:
+    """Result of matching a structural pattern in a sentence."""
+    operation: str       # 'multiply', 'add', 'subtract'
+    n: float             # the numeric parameter
+    reference: str       # the reference entity/concept
+    confidence: float
+    pattern: str         # description of the matched pattern
+
+
+def resolve_structural(sentence: str) -> Optional[StructuralMatch]:
+    """
+    Check if a sentence matches a structural relational pattern.
+
+    These are patterns like "N times as many X as Y" that produce
+    equations, not just operations. Returns the match with the
+    highest confidence, or None.
+    """
+    sent_lower = sentence.lower()
+    best: Optional[StructuralMatch] = None
+
+    for pattern, op, conf in _STRUCTURAL_PATTERNS:
+        m = pattern.search(sent_lower)
+        if m:
+            n_raw = m.group('n')
+            if n_raw in _MULT_WORDS:
+                n = _MULT_WORDS[n_raw]
+            else:
+                try:
+                    n = float(n_raw)
+                except ValueError:
+                    continue
+
+            ref = m.group('reference')
+            match = StructuralMatch(
+                operation=op,
+                n=n,
+                reference=ref,
+                confidence=conf,
+                pattern=m.group(0),
+            )
+            if best is None or match.confidence > best.confidence:
+                best = match
+
+    return best
+
+
 @dataclass
 class VerbResolution:
     """Result of resolving a verb through the language graph."""

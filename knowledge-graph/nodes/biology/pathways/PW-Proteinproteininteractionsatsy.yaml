@@ -1,0 +1,29 @@
+id: PW-Proteinproteininteractionsatsy
+type: knowledge
+domain: biology
+name: "Protein-protein interactions at synapses"
+reactome_id: R-HSA-6794362
+
+description: "Synapses constitute highly specialized sites of asymmetric cell-cell adhesion and intercellular communication. Its formation involves the recruitment of presynaptic and postsynaptic molecules at newly formed contacts. Synapse assembly and maintenance invokes heterophilic presynaptic and postsynaptic transmembrane proteins that bind each other in the extracellular space and recruit additional proteins via their intracellular domains."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Neurexins and neuroligins
+    reactome_id: R-HSA-6794361
+    type: Pathway
+  - name: "Receptor-type tyrosine-protein phosphatases"
+    reactome_id: R-HSA-388844
+    type: Pathway
+  - name: "Synaptic adhesion-like molecules"
+    reactome_id: R-HSA-8849932
+    type: Pathway
+
+edges:

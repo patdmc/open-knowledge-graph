@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate 60% of Frederick's plants",
+    "operation": "multiply",
+    "operands": [
+      10,
+      0.6
+    ],
+    "result": 6.0,
+    "variable": "sixty_percent_of_frederick"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Toni's plants (Frederick + 60%)",
+    "operation": "add",
+    "operands": [
+      10,
+      6.0
+    ],
+    "result": 16.0,
+    "variable": "toni_plants"
+  },
+  {
+    "step": 3,
+    "description": "Calculate Shondra's plants (Toni minus 7)",
+    "operation": "subtract",
+    "operands": [
+      16.0,
+      7
+    ],
+    "result": 9.0,
+    "variable": "shondra_plants"
+  }
+]

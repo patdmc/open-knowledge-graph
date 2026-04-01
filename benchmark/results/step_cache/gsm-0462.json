@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate half of Leila's $100",
+    "operation": "divide",
+    "operands": [
+      100,
+      2
+    ],
+    "result": 50,
+    "variable": "amount Leila gave Ali"
+  },
+  {
+    "step": 2,
+    "description": "Add Leila's gift to Ali's original amount",
+    "operation": "add",
+    "operands": [
+      21,
+      50
+    ],
+    "result": 71.0,
+    "variable": "Ali's total money"
+  }
+]

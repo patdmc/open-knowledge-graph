@@ -1,0 +1,29 @@
+id: PW-DNADamageReversal
+type: knowledge
+domain: biology
+name: DNA Damage Reversal
+reactome_id: R-HSA-73942
+
+description: "DNA damage can be directly reversed by dealkylation (Mitra and Kaina 1993). Three enzymes play a major role in reparative DNA dealkylation: MGMT, ALKBH2 and ALKBH3. MGMT dealkylates O-6-methylguanine in a suicidal reaction that inactivates the enzyme (Daniels et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "MGMT-mediated DNA damage reversal"
+    reactome_id: R-HSA-5657655
+    type: Pathway
+  - name: Reversal of alkylation damage by DNA dioxygenases
+    reactome_id: R-HSA-73943
+    type: Pathway
+  - name: Reversible DNA damage induced by alkylating chemotherapeutic drugs
+    reactome_id: R-HSA-9729902
+    type: Pathway
+
+edges:

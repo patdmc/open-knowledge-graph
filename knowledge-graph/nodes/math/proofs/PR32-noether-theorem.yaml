@@ -1,0 +1,116 @@
+id: PR32-noether-theorem
+type: proof
+domain: algebra
+name: "Noether's Theorem (Noetherian Rings)"
+target:
+  statement: "\\text{A ring } R \\text{ is Noetherian if and only if every ideal of } R \\text{ is finitely generated}"
+  type: theorem
+method: contradiction
+
+assertions:
+  - step: 1
+    id: def-noetherian
+    type: definition
+    statement: "R \\text{ is Noetherian if every ascending chain of ideals } I_1 \\subseteq I_2 \\subseteq I_3 \\subseteq \\cdots \\text{ stabilizes (ACC)}"
+    justification: "standard definition of a Noetherian ring via the ascending chain condition"
+    depends_on: []
+    references: [ring, ideal]
+
+  - step: 2
+    id: forward-direction-setup
+    type: hypothesis
+    statement: "\\text{Assume } R \\text{ is Noetherian (ACC holds). Suppose for contradiction that some ideal } J \\text{ is not finitely generated.}"
+    justification: "we prove: ACC implies every ideal is finitely generated, by contradiction"
+    depends_on: [def-noetherian]
+
+  - step: 3
+    id: construct-chain
+    type: claim
+    statement: "\\text{Pick } a_1 \\in J. \\text{ Then } (a_1) \\subsetneq J, \\text{ so } \\exists\\, a_2 \\in J \\setminus (a_1). \\text{ Then } (a_1, a_2) \\subsetneq J, \\text{ so } \\exists\\, a_3 \\in J \\setminus (a_1, a_2), \\ldots"
+    justification: "at each step, (a_1, ..., a_n) is a proper subset of J (since J is not finitely generated), so we can always pick a new element"
+    depends_on: [forward-direction-setup]
+    references: [ideal]
+
+  - step: 4
+    id: strictly-ascending
+    type: claim
+    statement: "(a_1) \\subsetneq (a_1, a_2) \\subsetneq (a_1, a_2, a_3) \\subsetneq \\cdots \\text{ is a strictly ascending chain of ideals}"
+    justification: "each a_{n+1} is chosen outside (a_1, ..., a_n), so (a_1, ..., a_n) is strictly contained in (a_1, ..., a_{n+1})"
+    depends_on: [construct-chain]
+
+  - step: 5
+    id: forward-contradiction
+    type: contradiction
+    statement: "\\text{The chain in step 4 never stabilizes, contradicting ACC}"
+    justification: "a strictly ascending chain cannot stabilize, but R is Noetherian so every chain must stabilize"
+    depends_on: [strictly-ascending, def-noetherian]
+
+  - step: 6
+    id: forward-conclusion
+    type: claim
+    statement: "\\text{If } R \\text{ is Noetherian, then every ideal of } R \\text{ is finitely generated}"
+    justification: "the assumption that some ideal is not finitely generated leads to contradiction (step 5)"
+    depends_on: [forward-contradiction]
+
+  - step: 7
+    id: converse-setup
+    type: hypothesis
+    statement: "\\text{Assume every ideal of } R \\text{ is finitely generated. Let } I_1 \\subseteq I_2 \\subseteq \\cdots \\text{ be an ascending chain of ideals.}"
+    justification: "we prove the converse: finitely generated ideals implies ACC"
+    depends_on: []
+
+  - step: 8
+    id: union-is-ideal
+    type: lemma
+    statement: "I = \\bigcup_{n=1}^{\\infty} I_n \\text{ is an ideal of } R"
+    justification: "union of an ascending chain of ideals is an ideal: closed under addition (any two elements lie in some common I_n) and under multiplication by R"
+    depends_on: [converse-setup]
+    references: [ideal]
+
+  - step: 9
+    id: finitely-generated
+    type: claim
+    statement: "I = (b_1, \\ldots, b_m) \\text{ for some } b_1, \\ldots, b_m \\in I"
+    justification: "by hypothesis, I is finitely generated"
+    depends_on: [union-is-ideal, converse-setup]
+
+  - step: 10
+    id: generators-in-some-In
+    type: claim
+    statement: "\\exists\\, N \\text{ such that } b_1, \\ldots, b_m \\in I_N"
+    justification: "each b_j lies in some I_{n_j}; take N = max(n_1, ..., n_m); since the chain is ascending, all generators lie in I_N"
+    depends_on: [finitely-generated]
+
+  - step: 11
+    id: chain-stabilizes
+    type: claim
+    statement: "I_n = I_N = I \\text{ for all } n \\geq N"
+    justification: "I_N contains all generators of I, so I ⊆ I_N; but I_N ⊆ I by definition; hence I_N = I, and for n >= N: I_N ⊆ I_n ⊆ I = I_N"
+    depends_on: [generators-in-some-In]
+
+  - step: 12
+    id: converse-conclusion
+    type: claim
+    statement: "\\text{If every ideal of } R \\text{ is finitely generated, then } R \\text{ is Noetherian}"
+    justification: "every ascending chain stabilizes (step 11), which is precisely the ACC"
+    depends_on: [chain-stabilizes, def-noetherian]
+
+  - step: 13
+    id: conclusion
+    type: theorem
+    statement: "R \\text{ is Noetherian} \\iff \\text{every ideal of } R \\text{ is finitely generated}"
+    justification: "forward direction (step 6) and converse (step 12) together establish the equivalence"
+    depends_on: [forward-conclusion, converse-conclusion]
+
+qed: true
+
+corollaries:
+  - id: hilbert-basis
+    statement: "\\text{If } R \\text{ is Noetherian, then } R[x] \\text{ is Noetherian (Hilbert's Basis Theorem)}"
+    justification: "every ideal of R[x] can be shown finitely generated using finite generation of ideals in R"
+    depends_on: [conclusion]
+    references: [polynomial_ring, ring]
+
+edges:
+  - to: AA01-abstract-algebra
+    relation: PROVES_FROM

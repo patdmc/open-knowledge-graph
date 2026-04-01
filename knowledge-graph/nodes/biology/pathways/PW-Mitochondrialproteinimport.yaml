@@ -1,0 +1,62 @@
+id: PW-Mitochondrialproteinimport
+type: knowledge
+domain: biology
+name: Mitochondrial protein import
+reactome_id: R-HSA-1268020
+
+description: "A human mitochondrion contains about 1500 proteins, more than 99% of which are encoded in the nucleus, synthesized in the cytosol and imported into the mitochondrion. Proteins are targeted to four locations (outer membrane, intermembrane space, inner membrane, and matrix) and must be sorted accordingly (reviewed in Kutik et al. 2007, Milenkovic et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: TOMM40 complex translocates proteins from the cytosol to the mitochondrial intermembrane space
+    reactome_id: R-HSA-1268022
+    type: Reaction
+  - name: "MIA40:ERV1 (CHCHD4:GFER) oxidizes cysteine residues to cystine disulfide bonds"
+    reactome_id: R-HSA-1307802
+    type: Reaction
+  - name: "TIMM8:TIMM13 chaperones hydrophobic proteins"
+    reactome_id: R-HSA-1299484
+    type: Reaction
+  - name: "TIMM9:TIMM10 binds hydrophobic proteins"
+    reactome_id: R-HSA-1299481
+    type: Reaction
+  - name: "TIMM9:TIMM10 transfers proteins to TIMM22"
+    reactome_id: R-HSA-1955380
+    type: Reaction
+  - name: SAM50 complex inserts proteins into mitochondrial outer membrane
+    reactome_id: R-HSA-1268025
+    type: Reaction
+  - name: TIMM22 inserts proteins into inner membrane
+    reactome_id: R-HSA-1307803
+    type: Reaction
+  - name: Precursor proteins enter TIMM23 SORT
+    reactome_id: R-HSA-1299487
+    type: Reaction
+  - name: MPP cleaves targeting peptide (presequence) of inner membrane precursors
+    reactome_id: R-HSA-1299476
+    type: Reaction
+  - name: TIMM23 SORT inserts proteins into inner membrane
+    reactome_id: R-HSA-1299482
+    type: Reaction
+  - name: Precursor proteins enter TIMM23 PAM
+    reactome_id: R-HSA-1299480
+    type: Reaction
+  - name: MPP cleaves targeting peptide (presequence) of matrix precursors
+    reactome_id: R-HSA-1299478
+    type: Reaction
+  - name: TIMM23 PAM translocates proteins from the mitochondrial intermembrane space to the mitochondrial matrix
+    reactome_id: R-HSA-1299475
+    type: Reaction
+  - name: PITRM1 proteolyzes mitochondrial targeting peptides (presequences)
+    reactome_id: R-HSA-8986181
+    type: BlackBoxEvent
+
+edges:

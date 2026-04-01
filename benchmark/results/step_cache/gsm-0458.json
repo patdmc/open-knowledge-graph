@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total spotted puppies",
+    "operation": "add",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 7,
+    "variable": "total_spotted"
+  },
+  {
+    "step": 2,
+    "description": "Total puppies",
+    "operation": "add",
+    "operands": [
+      8,
+      12
+    ],
+    "result": 20,
+    "variable": "total_puppies"
+  },
+  {
+    "step": 3,
+    "description": "Fraction of spotted puppies",
+    "operation": "divide",
+    "operands": [
+      7,
+      20
+    ],
+    "result": 0.35,
+    "variable": "spotted_fraction"
+  },
+  {
+    "step": 4,
+    "description": "Percentage of spotted puppies",
+    "operation": "multiply",
+    "operands": [
+      0.35,
+      100
+    ],
+    "result": 35.0,
+    "variable": "spotted_percentage"
+  }
+]

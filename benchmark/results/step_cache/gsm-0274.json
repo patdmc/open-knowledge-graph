@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of tomato seeds",
+    "operation": "multiply",
+    "operands": [
+      20,
+      40
+    ],
+    "result": 800,
+    "variable": "tomato_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of celery seeds",
+    "operation": "multiply",
+    "operands": [
+      80,
+      30
+    ],
+    "result": 2400,
+    "variable": "celery_cost"
+  },
+  {
+    "step": 3,
+    "description": "Total cost of all seeds",
+    "operation": "add",
+    "operands": [
+      800,
+      2400
+    ],
+    "result": 3200.0,
+    "variable": "total_cost"
+  }
+]

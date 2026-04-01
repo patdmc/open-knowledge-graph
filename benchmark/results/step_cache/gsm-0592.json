@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Amazon total cost",
+    "operation": "add",
+    "operands": [
+      16,
+      4
+    ],
+    "result": 20,
+    "variable": "amazon_total"
+  },
+  {
+    "step": 2,
+    "description": "eBay shipping (twice Amazon)",
+    "operation": "multiply",
+    "operands": [
+      4,
+      2
+    ],
+    "result": 8,
+    "variable": "ebay_shipping"
+  },
+  {
+    "step": 3,
+    "description": "eBay total cost",
+    "operation": "add",
+    "operands": [
+      13,
+      8
+    ],
+    "result": 21,
+    "variable": "ebay_total"
+  },
+  {
+    "step": 4,
+    "description": "how much more expensive eBay is",
+    "operation": "subtract",
+    "operands": [
+      21,
+      20
+    ],
+    "result": 1.0,
+    "variable": "price_difference"
+  }
+]

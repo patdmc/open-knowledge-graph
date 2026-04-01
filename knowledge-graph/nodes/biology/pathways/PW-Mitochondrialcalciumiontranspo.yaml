@@ -1,0 +1,38 @@
+id: PW-Mitochondrialcalciumiontranspo
+type: knowledge
+domain: biology
+name: Mitochondrial calcium ion transport
+reactome_id: R-HSA-8949215
+
+description: "Divalent calcium ions (Ca2+) are transported from the cytosol into the mitochondrial matrix and back out of the matrix into the cytosol (reviewed in Santo-Domingo et al. 2010, De Stefani et al. 2016)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: VDAC1,2,3 translocate calcium from the cytosol to the mitochondrial intermembrane space
+    reactome_id: R-HSA-8949145
+    type: Reaction
+  - name: Processing of SMDT1
+    reactome_id: R-HSA-8949664
+    type: Pathway
+  - name: MCU translocates calcium from the mitochondrial intermembrane space to the mitochondrial matrix
+    reactome_id: R-HSA-8949178
+    type: Reaction
+  - name: SLC8B1 (NCLX) exchanges sodium (mitochondrial intermembrane space) for calcium (mitochondrial matrix)
+    reactome_id: R-HSA-8949688
+    type: Reaction
+  - name: LETM1 exchanges protons (mitochondrial intermembrane space) for calcium (mitochondrial matrix)
+    reactome_id: R-HSA-8949687
+    type: Reaction
+  - name: SLC8A3 (NCX3) exchanges sodium (cytosol) for calcium (mitochondrial intermembrane space)
+    reactome_id: R-HSA-8949703
+    type: Reaction
+
+edges:

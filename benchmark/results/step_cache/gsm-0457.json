@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate half of the fairies Katelyn saw",
+    "operation": "divide",
+    "operands": [
+      50,
+      2
+    ],
+    "result": 25,
+    "variable": "fairies arriving from the east"
+  },
+  {
+    "step": 2,
+    "description": "Add new fairies to original group",
+    "operation": "add",
+    "operands": [
+      50,
+      25
+    ],
+    "result": 75,
+    "variable": "total fairies before any leave"
+  },
+  {
+    "step": 3,
+    "description": "Subtract fairies that flew away",
+    "operation": "subtract",
+    "operands": [
+      75,
+      30
+    ],
+    "result": 45,
+    "variable": "remaining fairies"
+  }
+]

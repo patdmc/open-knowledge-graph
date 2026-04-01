@@ -1,0 +1,32 @@
+id: PW-SignalingbyWNT
+type: knowledge
+domain: biology
+name: Signaling by WNT
+reactome_id: R-HSA-195721
+
+description: "WNT signaling pathways control a wide range of developmental and adult process in metozoans including cell proliferation, cell fate decisions, cell polarity and stem cell maintenance (reviewed in Saito-Diaz et al, 2013; MacDonald et al, 2009).  The pathway is named for the WNT ligands, a large family of secreted cysteine-rich glycoproteins. At least 19 WNT members have been identified in humans and mice with distinct expression patterns during development (reviewed in Willert and Nusse, 2012)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: WNT ligand biogenesis and trafficking
+    reactome_id: R-HSA-3238698
+    type: Pathway
+  - name: "Degradation of beta-catenin by the destruction complex"
+    reactome_id: R-HSA-195253
+    type: Pathway
+  - name: TCF dependent signaling in response to WNT
+    reactome_id: R-HSA-201681
+    type: Pathway
+  - name: "Beta-catenin independent WNT signaling"
+    reactome_id: R-HSA-3858494
+    type: Pathway
+
+edges:

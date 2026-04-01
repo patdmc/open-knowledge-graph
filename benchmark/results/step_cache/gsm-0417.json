@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Distance over first 4 days",
+    "operation": "multiply",
+    "operands": [
+      200,
+      4
+    ],
+    "result": 800,
+    "variable": "first_4_days_km"
+  },
+  {
+    "step": 2,
+    "description": "Distance over days 5-6 (30% of first 4 days)",
+    "operation": "multiply",
+    "operands": [
+      800,
+      0.3
+    ],
+    "result": 240,
+    "variable": "days_5_6_km"
+  },
+  {
+    "step": 3,
+    "description": "Total distance in week 1 (day 7 = 0)",
+    "operation": "add",
+    "operands": [
+      800,
+      240
+    ],
+    "result": 1040,
+    "variable": "week1_total_km"
+  },
+  {
+    "step": 4,
+    "description": "Distance over second week (7 days at 300 km/day)",
+    "operation": "multiply",
+    "operands": [
+      300,
+      7
+    ],
+    "result": 2100,
+    "variable": "week2_total_km"
+  },
+  {
+    "step": 5,
+    "description": "Total distance over two-week trip",
+    "operation": "add",
+    "operands": [
+      1040,
+      2100
+    ],
+    "result": 3140,
+    "variable": "total_km"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Jean eats 2 lollipops",
+    "operation": "subtract",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 28,
+    "variable": "remaining_lollipops"
+  },
+  {
+    "step": 2,
+    "description": "Divide remaining lollipops into bags of 2",
+    "operation": "divide",
+    "operands": [
+      28,
+      2
+    ],
+    "result": 14.0,
+    "variable": "bags_filled"
+  }
+]

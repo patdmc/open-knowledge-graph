@@ -1,0 +1,55 @@
+{
+  "chunk_index": 27,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative",
+  "section_path": [
+    "10. The Social Imperative"
+  ],
+  "char_count": 4226,
+  "keyphrases": [
+    {
+      "phrase": "inherently socialagency",
+      "score": 0.5293
+    },
+    {
+      "phrase": "knowledge external verification",
+      "score": 0.4242
+    },
+    {
+      "phrase": "imperative agency",
+      "score": 0.4042
+    },
+    {
+      "phrase": "beliefs separates knowledge",
+      "score": 0.396
+    },
+    {
+      "phrase": "math independent validation",
+      "score": 0.3855
+    },
+    {
+      "phrase": "bound intelligent share",
+      "score": 0.3846
+    },
+    {
+      "phrase": "corollary 12 aloneness",
+      "score": 0.3094
+    },
+    {
+      "phrase": "loses external gradient",
+      "score": 0.2788
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Corollary 12 (The Aloneness Bound).",
+      "Definition 17 (Collective Knowledge).",
+      "Definition 18 (Provenance)."
+    ],
+    "has_math": true
+  }
+}

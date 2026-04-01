@@ -1,0 +1,57 @@
+{
+  "total_no_correct": 55,
+  "correct_seqs": {
+    "multiply \u2192 multiply \u2192 multiply \u2192 add \u2192 add": 2,
+    "add \u2192 add \u2192 subtract": 2,
+    "add \u2192 subtract \u2192 multiply": 1,
+    "multiply \u2192 subtract \u2192 divide": 1,
+    "multiply \u2192 multiply \u2192 add \u2192 add": 1,
+    "multiply \u2192 multiply \u2192 add \u2192 subtract": 1,
+    "add \u2192 add \u2192 divide": 1,
+    "multiply \u2192 multiply \u2192 multiply \u2192 add \u2192 add \u2192 add \u2192 divide": 1,
+    "multiply \u2192 add \u2192 add": 1,
+    "multiply \u2192 subtract \u2192 add": 1,
+    "multiply \u2192 add": 1,
+    "multiply \u2192 multiply \u2192 add": 1,
+    "multiply \u2192 multiply": 1,
+    "subtract \u2192 divide": 1,
+    "subtract \u2192 add": 1,
+    "divide \u2192 multiply": 1,
+    "multiply \u2192 multiply \u2192 multiply \u2192 multiply \u2192 add \u2192 add \u2192 add": 1
+  },
+  "wrong_seqs": {
+    "multiply \u2192 multiply \u2192 add \u2192 add": 2,
+    "multiply \u2192 multiply \u2192 multiply \u2192 add \u2192 add": 2,
+    "multiply \u2192 multiply \u2192 add \u2192 multiply": 2,
+    "multiply \u2192 add \u2192 add \u2192 add \u2192 add": 2,
+    "multiply \u2192 subtract \u2192 multiply \u2192 multiply \u2192 subtract \u2192 subtract": 1,
+    "multiply \u2192 add \u2192 multiply \u2192 add \u2192 multiply \u2192 add": 1,
+    "divide \u2192 add \u2192 multiply \u2192 add \u2192 add \u2192 add": 1,
+    "multiply \u2192 multiply \u2192 multiply \u2192 multiply \u2192 add": 1,
+    "multiply \u2192 multiply \u2192 add \u2192 add \u2192 subtract": 1,
+    "multiply \u2192 multiply \u2192 multiply \u2192 multiply \u2192 multiply \u2192 subtract": 1,
+    "divide \u2192 divide \u2192 subtract": 1,
+    "add \u2192 multiply \u2192 subtract \u2192 multiply \u2192 add": 1,
+    "add \u2192 divide \u2192 multiply \u2192 multiply": 1,
+    "multiply \u2192 subtract \u2192 add \u2192 multiply \u2192 add \u2192 add \u2192 add": 1,
+    "multiply \u2192 add \u2192 multiply \u2192 add": 1,
+    "divide \u2192 multiply \u2192 subtract \u2192 multiply \u2192 divide": 1,
+    "multiply \u2192 multiply \u2192 multiply \u2192 multiply \u2192 add \u2192 add \u2192 add": 1,
+    "add \u2192 divide \u2192 add \u2192 add": 1,
+    "divide \u2192 multiply \u2192 add \u2192 add \u2192 subtract \u2192 divide": 1,
+    "divide \u2192 multiply \u2192 multiply \u2192 multiply \u2192 add": 1,
+    "multiply \u2192 multiply \u2192 add \u2192 multiply \u2192 add": 1
+  },
+  "correct_ops": {
+    "add": 26,
+    "subtract": 8,
+    "multiply": 27,
+    "divide": 5
+  },
+  "wrong_ops": {
+    "multiply": 57,
+    "subtract": 10,
+    "add": 48,
+    "divide": 10
+  }
+}

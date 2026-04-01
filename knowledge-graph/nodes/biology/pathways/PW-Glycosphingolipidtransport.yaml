@@ -1,0 +1,38 @@
+id: PW-Glycosphingolipidtransport
+type: knowledge
+domain: biology
+name: Glycosphingolipid transport
+reactome_id: R-HSA-9845576
+
+description: "After biosynthesis on the Golgi membrane, gangliosides localize to other membranes via vesicle transport, endocytosis, and exocytosis. To decouple transport from vesicular transport of proteins, gangliosides are additionally transported via non-vesicular processes (reviewed by Perry & Ridgway, 2005; Funato et al., 2020)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Vesicles transport GSL from Golgi to plasma membrane
+    reactome_id: R-HSA-9850731
+    type: BlackBoxEvent
+  - name: PLEKHA8 catalyzes transport of GlcCer to plasma membrane
+    reactome_id: R-HSA-9845055
+    type: Reaction
+  - name: CLN3 transports GalCer to plasma membrane
+    reactome_id: R-HSA-9844955
+    type: BlackBoxEvent
+  - name: GLTP transports GSL from plasma membrane to ER membrane
+    reactome_id: R-HSA-5340320
+    type: Reaction
+  - name: CPTP transports C1P from plasma membrane to Golgi membrane
+    reactome_id: R-HSA-5339535
+    type: Reaction
+  - name: "ESYT1:ESYT2:ESYT3 transport GPL from plasma membrane to ER membrane"
+    reactome_id: R-HSA-8857662
+    type: Reaction
+
+edges:

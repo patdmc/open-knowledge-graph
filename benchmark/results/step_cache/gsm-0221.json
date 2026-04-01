@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Water remaining after Celine used 90 liters",
+    "operation": "subtract",
+    "operands": [
+      120,
+      90
+    ],
+    "result": 30,
+    "variable": "remaining_liters"
+  },
+  {
+    "step": 2,
+    "description": "Rainwater collected, twice the remaining amount",
+    "operation": "multiply",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 60,
+    "variable": "rainwater_collected"
+  },
+  {
+    "step": 3,
+    "description": "Total water in tank after adding rainwater",
+    "operation": "add",
+    "operands": [
+      30,
+      60
+    ],
+    "result": 90,
+    "variable": "total_liters"
+  }
+]

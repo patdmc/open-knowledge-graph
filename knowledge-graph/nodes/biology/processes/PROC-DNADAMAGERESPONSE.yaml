@@ -1,0 +1,54 @@
+id: PROC-DNADAMAGERESPONSE
+type: knowledge
+domain: biology
+name: DNA damage response
+go_id: GO:0006974
+
+definition: Any process that results in a change in state or activity of a cell (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus indicating damage to its DNA from environmental insults or errors during metabolism.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0042770
+    name: signal transduction in response to DNA damage
+    relation: is_a
+  - id: GO:0043247
+    name: telomere maintenance in response to DNA damage
+    relation: is_a
+  - id: GO:0008630
+    name: intrinsic apoptotic signaling pathway in response to DNA damage
+    relation: is_a
+  - id: GO:0140861
+    name: "DNA repair-dependent chromatin remodeling"
+    relation: part_of
+  - id: GO:0006301
+    name: DNA damage tolerance
+    relation: is_a
+  - id: GO:0006281
+    name: DNA repair
+    relation: is_a
+  - id: GO:0141112
+    name: broken chromosome clustering
+    relation: part_of
+  - id: GO:0009432
+    name: SOS response
+    relation: is_a
+
+edges:
+  - to: CHAN-DDR
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-DDR encode components of DNA damage response"

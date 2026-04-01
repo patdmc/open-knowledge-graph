@@ -1,0 +1,98 @@
+id: PR27-binomial-theorem
+type: proof
+domain: combinatorics
+name: "Binomial Theorem"
+target:
+  statement: "(x + y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n-k}"
+  type: theorem
+method: induction
+
+assertions:
+  - step: 1
+    id: base-case
+    type: claim
+    statement: "(x + y)^1 = \\binom{1}{0} y + \\binom{1}{1} x = x + y"
+    justification: "direct verification for n = 1"
+    depends_on: []
+    references: [binomial_coefficient]
+
+  - step: 2
+    id: inductive-hypothesis
+    type: hypothesis
+    statement: "(x + y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n-k} \\text{ holds for some } n \\geq 1"
+    justification: "assume the theorem holds for n"
+    depends_on: [base-case]
+    references: [binomial_coefficient]
+
+  - step: 3
+    id: expand-n-plus-1
+    type: claim
+    statement: "(x + y)^{n+1} = (x + y) \\cdot \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n-k}"
+    justification: "multiply both sides of the inductive hypothesis by (x + y)"
+    depends_on: [inductive-hypothesis]
+
+  - step: 4
+    id: distribute
+    type: claim
+    statement: "(x + y)^{n+1} = \\sum_{k=0}^{n} \\binom{n}{k} x^{k+1} y^{n-k} + \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n+1-k}"
+    justification: "distribute (x + y) over the sum, splitting into x-term and y-term"
+    depends_on: [expand-n-plus-1]
+
+  - step: 5
+    id: reindex
+    type: claim
+    statement: "\\sum_{k=0}^{n} \\binom{n}{k} x^{k+1} y^{n-k} = \\sum_{j=1}^{n+1} \\binom{n}{j-1} x^j y^{n+1-j}"
+    justification: "re-index the first sum by substituting j = k + 1"
+    depends_on: [distribute]
+
+  - step: 6
+    id: pascal-identity
+    type: lemma
+    statement: "\\binom{n}{k-1} + \\binom{n}{k} = \\binom{n+1}{k} \\quad \\text{for } 1 \\leq k \\leq n"
+    justification: "Pascal's identity: follows from expanding factorials and combining fractions"
+    depends_on: []
+    references: [binomial_coefficient, combination_count]
+
+  - step: 7
+    id: combine-sums
+    type: claim
+    statement: >
+      (x + y)^{n+1} = x^{n+1} + \\sum_{k=1}^{n} \\left[\\binom{n}{k-1} + \\binom{n}{k}\\right] x^k y^{n+1-k} + y^{n+1}
+    justification: "separate the j = n+1 term from the first sum and the k = 0 term from the second, then merge interior terms"
+    depends_on: [reindex, distribute]
+
+  - step: 8
+    id: apply-pascal
+    type: claim
+    statement: "(x + y)^{n+1} = x^{n+1} + \\sum_{k=1}^{n} \\binom{n+1}{k} x^k y^{n+1-k} + y^{n+1} = \\sum_{k=0}^{n+1} \\binom{n+1}{k} x^k y^{n+1-k}"
+    justification: "apply Pascal's identity to each interior coefficient, then absorb boundary terms using C(n+1,0) = C(n+1,n+1) = 1"
+    depends_on: [combine-sums, pascal-identity]
+    references: [binomial_coefficient]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "(x + y)^n = \\sum_{k=0}^{n} \\binom{n}{k} x^k y^{n-k} \\quad \\text{for all } n \\geq 1"
+    justification: "base case holds (step 1) and the inductive step is complete (step 8), so by mathematical induction the identity holds for all positive integers n"
+    depends_on: [base-case, apply-pascal]
+
+qed: true
+
+corollaries:
+  - id: power-of-2
+    statement: "\\sum_{k=0}^{n} \\binom{n}{k} = 2^n"
+    justification: "set x = y = 1 in the binomial theorem"
+    depends_on: [conclusion]
+    references: [binomial_coefficient]
+
+  - id: alternating-sum-zero
+    statement: "\\sum_{k=0}^{n} (-1)^k \\binom{n}{k} = 0 \\quad \\text{for } n \\geq 1"
+    justification: "set x = 1, y = -1 in the binomial theorem"
+    depends_on: [conclusion]
+
+edges:
+  - to: CO01-combinatorics
+    relation: PROVES_FROM
+  - to: NT01-number-theory
+    relation: USES
+    note: "Pascal's identity is an arithmetic identity on binomial coefficients"

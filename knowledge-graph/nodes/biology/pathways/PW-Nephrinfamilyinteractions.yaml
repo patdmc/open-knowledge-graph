@@ -1,0 +1,59 @@
+id: PW-Nephrinfamilyinteractions
+type: knowledge
+domain: biology
+name: Nephrin family interactions
+reactome_id: R-HSA-373753
+
+description: "Nephrin (NPHS1) is a member of the Super-IgG-Molecule family and is most prominently expressed in kidney podocytes. It is a major if not the most important structural component of the slit diaphragm, a modified adherens junction in between these cells. NPHS1 has an extracellular domain that contains eight distal IgG like domains and one proximal fibronectin type III domain, a transmembrane domain and a short intracellular domain."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Nephrin trans-homophilic interaction"
+    reactome_id: R-HSA-373732
+    type: Reaction
+  - name: "Cis-Heterodimerization of nephrin and KIRREL"
+    reactome_id: R-HSA-373714
+    type: Reaction
+  - name: Heterodimerization of nephrin and KIRREL2, KIRREL3
+    reactome_id: R-HSA-451757
+    type: Reaction
+  - name: "Nephrin dimer:KIRREL binds FYN"
+    reactome_id: R-HSA-8981534
+    type: Reaction
+  - name: Phosphorylation of nephrin by FYN
+    reactome_id: R-HSA-373747
+    type: Reaction
+  - name: Nephrin binds NCK
+    reactome_id: R-HSA-373724
+    type: Reaction
+  - name: "Nephrin mediated activation of N-WASP"
+    reactome_id: R-HSA-532603
+    type: Reaction
+  - name: Nephrin interacts with Podocin
+    reactome_id: R-HSA-373734
+    type: Reaction
+  - name: Nephrin binds CD2AP
+    reactome_id: R-HSA-373727
+    type: Reaction
+  - name: "p85 associates with both p-Nephrin and CD2AP"
+    reactome_id: R-HSA-451758
+    type: Reaction
+  - name: Nephrin binds CASK
+    reactome_id: R-HSA-373722
+    type: Reaction
+  - name: Interaction of IQGAP1 with nephrin
+    reactome_id: R-HSA-451377
+    type: Reaction
+  - name: "Interaction of nephrin with adherens junction-associated proteins"
+    reactome_id: R-HSA-451403
+    type: Reaction
+
+edges:

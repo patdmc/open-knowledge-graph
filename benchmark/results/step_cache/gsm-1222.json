@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "total width of all windows",
+    "operation": "multiply",
+    "operands": [
+      5,
+      35
+    ],
+    "result": 175,
+    "variable": "total_width"
+  },
+  {
+    "step": 2,
+    "description": "fabric needed at 2 times total width",
+    "operation": "multiply",
+    "operands": [
+      175,
+      2
+    ],
+    "result": 350.0,
+    "variable": "fabric_needed"
+  }
+]

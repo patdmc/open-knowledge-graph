@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "calculate additional meters per day (1/5 of 5000)",
+    "operation": "divide",
+    "operands": [
+      5000,
+      5
+    ],
+    "result": 1000,
+    "variable": "extra_meters_per_day"
+  },
+  {
+    "step": 2,
+    "description": "calculate new daily distance",
+    "operation": "add",
+    "operands": [
+      5000,
+      1000
+    ],
+    "result": 6000,
+    "variable": "new_daily_distance"
+  },
+  {
+    "step": 3,
+    "description": "calculate total distance for June (30 days)",
+    "operation": "multiply",
+    "operands": [
+      6000,
+      30
+    ],
+    "result": 180000,
+    "variable": "total_distance_june"
+  }
+]

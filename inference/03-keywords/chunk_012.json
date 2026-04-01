@@ -1,0 +1,58 @@
+{
+  "chunk_index": 12,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 4/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 4/10]"
+  ],
+  "char_count": 6289,
+  "keyphrases": [
+    {
+      "phrase": "growing math graph",
+      "score": 0.4986
+    },
+    {
+      "phrase": "math enables entity",
+      "score": 0.4857
+    },
+    {
+      "phrase": "information boundary math",
+      "score": 0.4747
+    },
+    {
+      "phrase": "informed actions math",
+      "score": 0.4461
+    },
+    {
+      "phrase": "encoded knowledge lower",
+      "score": 0.4373
+    },
+    {
+      "phrase": "structure merely efficient",
+      "score": 0.391
+    },
+    {
+      "phrase": "end factoring representation",
+      "score": 0.3674
+    },
+    {
+      "phrase": "eventually fail constraints",
+      "score": 0.3417
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Part 4 (\\(C_n\\) stays bounded).",
+      "Corollary 4a (Selection Pressure Produces Graph-Structured\nKnowledge).",
+      "Corollary 4b (The Scaling Argument Against Context Window\nGrowth).",
+      "Definition 9 (Survival Threshold).",
+      "Theorem 3 (Agency Necessarily Produces Evaluation-Driven State\nRevision)."
+    ],
+    "has_math": true
+  }
+}

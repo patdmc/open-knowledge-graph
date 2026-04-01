@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 3 bags of chips",
+    "operation": "multiply",
+    "operands": [
+      3,
+      0.4
+    ],
+    "result": 1.2,
+    "variable": "chips_total"
+  },
+  {
+    "step": 2,
+    "description": "1% of $5 remaining",
+    "operation": "multiply",
+    "operands": [
+      5,
+      0.01
+    ],
+    "result": 0.05,
+    "variable": "money_left"
+  },
+  {
+    "step": 3,
+    "description": "Money actually spent",
+    "operation": "subtract",
+    "operands": [
+      5,
+      0.05
+    ],
+    "result": 4.95,
+    "variable": "money_spent"
+  },
+  {
+    "step": 4,
+    "description": "Money spent on candy bars",
+    "operation": "subtract",
+    "operands": [
+      4.95,
+      1.2
+    ],
+    "result": 3.75,
+    "variable": "candy_spend"
+  },
+  {
+    "step": 5,
+    "description": "Number of candy bars bought",
+    "operation": "divide",
+    "operands": [
+      3.75,
+      0.75
+    ],
+    "result": 5.0,
+    "variable": "candy_bars"
+  }
+]

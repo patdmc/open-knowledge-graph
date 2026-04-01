@@ -1,0 +1,19 @@
+id: BIO-METASTASIS
+type: knowledge
+domain: cancer_biology
+name: Neoplasm Metastasis
+
+description: The transfer of a neoplasm from one organ or part of the body to another remote from the primary site.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in

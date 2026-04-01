@@ -1,0 +1,35 @@
+id: PW-LGIADAMinteractions
+type: knowledge
+domain: biology
+name: "LGI-ADAM interactions"
+reactome_id: R-HSA-5682910
+
+description: "Synapse formation and maturation require multiple interactions between presynaptic and postsynaptic neurons. These interactions are mediated by a diverse set of synaptogenic proteins (Kegel et al. 2013, Siddiqui & Craig 2011)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: LGI1 binds ADAM22 and ADAM23
+    reactome_id: R-HSA-5682794
+    type: Reaction
+  - name: LGI1 binds ADAM11
+    reactome_id: R-HSA-5682826
+    type: Reaction
+  - name: LGI4 binds ADAM22,23,11
+    reactome_id: R-HSA-5682709
+    type: Reaction
+  - name: LGI2 binds ADAM22,23
+    reactome_id: R-HSA-5682769
+    type: Reaction
+  - name: LGI3 binds ADAM22,23,synatxin1
+    reactome_id: R-HSA-5682802
+    type: Reaction
+
+edges:

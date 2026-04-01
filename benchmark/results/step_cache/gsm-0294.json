@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate youngest son's age",
+    "operation": "divide",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 4,
+    "variable": "youngest_son_age"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total oranges washed by both sons",
+    "operation": "add",
+    "operands": [
+      8,
+      4
+    ],
+    "result": 12,
+    "variable": "total_washed"
+  },
+  {
+    "step": 3,
+    "description": "Calculate remaining unwashed oranges",
+    "operation": "subtract",
+    "operands": [
+      15,
+      12
+    ],
+    "result": 3.0,
+    "variable": "unwashed_oranges"
+  }
+]

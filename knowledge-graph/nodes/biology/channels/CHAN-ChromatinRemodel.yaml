@@ -1,0 +1,431 @@
+id: CHAN-ChromatinRemodel
+type: knowledge
+domain: cancer_biology
+name: Chromatin Remodeling
+gene_count: 16
+hub_genes: []
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: ANKRD11
+    string_ppi_degree: 0
+    position: leaf
+    full_name: ankyrin repeat domain 11
+    chromosome: 16
+    ncbi_summary: "This locus encodes an ankryin repeat domain-containing protein. The encoded protein inhibits ligand-dependent activation of transcription."
+    protein_name: "Ankyrin repeat domain-containing protein 11"
+    uniprot_function: Chromatin regulator which modulates histone acetylation and gene expression in neural precursor cells (By similarity). May recruit histone deacetylases (HDACs) to the p160 coactivators/nuclear recepto...
+    subcellular_location: [Nucleus]
+    diseases:
+      - KBG syndrome
+    go_biological_process:
+      - face morphogenesis
+      - "odontogenesis of dentin-containing tooth"
+      - skeletal system morphogenesis
+  - id: ARID1A
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "AT-rich interaction domain 1A"
+    chromosome: 1
+    ncbi_summary: "This gene encodes a member of the SWI/SNF family, whose members have helicase and ATPase activities and are thought to regulate transcription of certain genes by altering the chromatin structure around those genes. The encoded protein is part of the large ATP-dependent chromatin remodeling complex SNF/SWI, which is required for transcriptional activation of genes normally repressed by chromatin."
+    protein_name: "AT-rich interactive domain-containing protein 1A"
+    uniprot_function: "Involved in transcriptional activation and repression of select genes by chromatin remodeling (alteration of DNA-nucleosome topology). Component of SWI/SNF chromatin remodeling complexes that carry ou..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Coffin-Siris syndrome 2"
+    go_biological_process:
+      - chromatin remodeling
+      - nervous system development
+      - nucleosome disassembly
+      - positive regulation of cell differentiation
+      - "positive regulation of DNA-templated transcription"
+      - "positive regulation of double-strand break repair"
+      - positive regulation of myoblast differentiation
+      - positive regulation of stem cell population maintenance
+    kegg_pathways:
+      - "ATP-dependent chromatin remodeling"
+      - Thermogenesis
+      - Hepatocellular carcinoma
+    mutations:
+      - change: "D1850Tfs*33"
+        cancer_type: Endometrial Cancer
+        hr: 0.2626
+        p: 0.0062
+        direction: protective
+        n: 54
+      - change: "D1850Gfs*4"
+        cancer_type: Endometrial Cancer
+        hr: 0.2669
+        p: 0.0094
+        direction: protective
+        n: 39
+      - change: "D1850Tfs*33"
+        cancer_type: Esophagogastric Cancer
+        hr: 0.3084
+        p: 0.0011
+        direction: protective
+        n: 35
+    cross_edges:
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.5070
+        p: 1.66e-10
+        n: 544
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5560
+        p: 5.54e-10
+        n: 484
+      - to: NOTCH1
+        relation: BUFFERS
+        hr: 0.5710
+        p: 2.02e-09
+        n: 566
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6580
+        p: 1.05e-07
+        n: 807
+      - to: AR
+        relation: BUFFERS
+        hr: 0.5550
+        p: 6.78e-07
+        n: 384
+      - to: CDK4
+        relation: COMPENSATES
+        hr: 0.2960
+        p: 6.02e-04
+        n: 102
+  - id: ARID1B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "AT-rich interaction domain 1B"
+    chromosome: 6
+    ncbi_summary: "This locus encodes an AT-rich DNA interacting domain-containing protein. The encoded protein is a component of the SWI/SNF chromatin remodeling complex and may play a role in cell-cycle activation."
+    protein_name: "AT-rich interactive domain-containing protein 1B"
+    uniprot_function: "Involved in transcriptional activation and repression of select genes by chromatin remodeling (alteration of DNA-nucleosome topology). Component of SWI/SNF chromatin remodeling complexes that carry ou..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Coffin-Siris syndrome 1"
+    go_biological_process:
+      - chromatin remodeling
+      - nervous system development
+      - positive regulation of cell differentiation
+      - "positive regulation of DNA-templated transcription"
+      - "positive regulation of double-strand break repair"
+      - positive regulation of myoblast differentiation
+      - positive regulation of T cell differentiation
+      - regulation of G0 to G1 transition
+  - id: ARID2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "AT-rich interaction domain 2"
+    chromosome: 12
+    ncbi_summary: "This gene encodes a member of the AT-rich interactive domain (ARID)-containing family of DNA-binding proteins. Members of the ARID family have roles in embryonic patterning, cell lineage gene regulation, cell cycle control, transcriptional regulation and chromatin structure modification."
+    protein_name: "AT-rich interactive domain-containing protein 2"
+    uniprot_function: "Involved in transcriptional activation and repression of select genes by chromatin remodeling (alteration of DNA-nucleosome topology). Required for the stability of the SWI/SNF chromatin remodeling co..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Coffin-Siris syndrome 6"
+    go_biological_process:
+      - cardiac muscle cell proliferation
+      - chromatin remodeling
+      - coronary artery morphogenesis
+      - embryonic organ development
+      - heart morphogenesis
+      - homeostatic process
+      - negative regulation of cell migration
+      - negative regulation of cell population proliferation
+    kegg_pathways:
+      - hsa03083
+      - hsa04550
+  - id: BCOR
+    string_ppi_degree: 0
+    position: leaf
+    full_name: BCL6 corepressor
+    chromosome: X
+    ncbi_summary: The protein encoded by this gene was identified as an interacting corepressor of BCL6, a POZ/zinc finger transcription repressor that is required for germinal center formation and may influence apoptosis. This protein selectively interacts with the POZ domain of BCL6, but not with eight other POZ proteins.
+    protein_name: "BCL-6 corepressor"
+    uniprot_function: "Transcriptional corepressor. May specifically inhibit gene expression when recruited to promoter regions by sequence-specific DNA-binding proteins such as BCL6 and MLLT3. This repression may be mediat..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Microphthalmia, syndromic, 2
+    go_biological_process:
+      - blastocyst hatching
+      - chromatin remodeling
+      - heart development
+      - negative regulation of bone mineralization
+      - "negative regulation of DNA-templated transcription"
+      - negative regulation of tooth mineralization
+      - negative regulation of transcription by RNA polymerase II
+      - odontogenesis
+    kegg_pathways:
+      - hsa03083
+  - id: CREBBP
+    string_ppi_degree: 0
+    position: leaf
+    full_name: CREB binding lysine acetyltransferase
+    chromosome: 16
+    ncbi_summary: "This gene is ubiquitously expressed and is involved in the transcriptional coactivation of many different transcription factors. First isolated as a nuclear protein that binds to cAMP-response element binding protein (CREB), this gene is now known to play critical roles in embryonic development, growth control, and homeostasis by coupling chromatin remodeling to transcription factor recognition."
+    protein_name: "CREB-binding protein"
+    uniprot_function: "Acetylates histones, giving a specific tag for transcriptional activation (PubMed:21131905, PubMed:24616510). Mediates acetylation of histone H3 at 'Lys-18' and 'Lys-27' (H3K18ac and H3K27ac, respecti..."
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - "Rubinstein-Taybi syndrome 1"
+      - "Menke-Hennekam syndrome 1"
+    go_biological_process:
+      - cAMP/PKA signal transduction
+      - "canonical NF-kappaB signal transduction"
+      - cellular response to nutrient levels
+      - cellular response to UV
+      - embryonic digit morphogenesis
+      - homeostatic process
+      - "N-terminal peptidyl-lysine acetylation"
+      - negative regulation of transcription by RNA polymerase I
+    kegg_pathways:
+      - hsa03083
+      - hsa03250
+      - hsa04024
+      - hsa04066
+      - hsa04068
+      - hsa04110
+      - hsa04310
+      - hsa04330
+  - id: EP300
+    string_ppi_degree: 0
+    position: leaf
+    full_name: EP300 lysine acetyltransferase
+    chromosome: 22
+    ncbi_summary: "This gene encodes the adenovirus E1A-associated cellular p300 transcriptional co-activator protein. It functions as histone acetyltransferase that regulates transcription via chromatin remodeling and is important in the processes of cell proliferation and differentiation."
+    protein_name: Histone acetyltransferase p300
+    uniprot_function: "Functions as a histone acetyltransferase and regulates transcription via chromatin remodeling (PubMed:23415232, PubMed:23934153, PubMed:40240600, PubMed:8945521). Acetylates all four core histones in ..."
+    subcellular_location: [Cytoplasm, Nucleus, Chromosome]
+    diseases:
+      - "Rubinstein-Taybi syndrome 2"
+      - "Menke-Hennekam syndrome 2"
+    go_biological_process:
+      - animal organ morphogenesis
+      - apoptotic process
+      - B cell differentiation
+      - behavioral defense response
+      - "canonical NF-kappaB signal transduction"
+      - canonical Wnt signaling pathway
+      - "cellular response to L-leucine"
+      - cellular response to nutrient levels
+  - id: H3C7
+    string_ppi_degree: 0
+    position: leaf
+    full_name: H3 clustered histone 7
+    chromosome: 6
+    ncbi_summary: Histones are basic nuclear proteins that are responsible for the nucleosome structure of the chromosomal fiber in eukaryotes. This structure consists of approximately 146 bp of DNA wrapped around a nucleosome, an octamer composed of pairs of each of the four core histones (H2A, H2B, H3, and H4).
+    protein_name: Histone H3.1
+    uniprot_function: Core component of nucleosome. Nucleosomes wrap and compact DNA into chromatin, limiting DNA accessibility to the cellular machineries which require DNA as a template. Histones thereby play a central r...
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Glioma
+    go_biological_process:
+      - chromatin organization
+      - epigenetic regulation of gene expression
+      - nucleosome assembly
+      - telomere organization
+    kegg_pathways:
+      - hsa04613
+      - hsa05034
+      - hsa05131
+      - hsa05202
+      - hsa05322
+  - id: KDM6A
+    string_ppi_degree: 0
+    position: leaf
+    full_name: lysine demethylase 6A
+    chromosome: X
+    ncbi_summary: "This gene is located on the X chromosome and is the corresponding locus to a Y-linked gene which encodes a tetratricopeptide repeat (TPR) protein. The encoded protein of this gene contains a JmjC-domain and catalyzes the demethylation of tri/dimethylated histone H3."
+    protein_name: "Lysine-specific demethylase 6A"
+    uniprot_function: "Histone demethylase that specifically demethylates 'Lys-27' of histone H3, thereby playing a central role in histone code (PubMed:17713478, PubMed:17761849, PubMed:17851529). Demethylates trimethylate..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Kabuki syndrome 2
+    go_biological_process:
+      - chromatin remodeling
+      - heart development
+      - regulation of gene expression
+    kegg_pathways:
+      - hsa05202
+  - id: KMT2A
+    string_ppi_degree: 0
+    position: leaf
+    full_name: lysine methyltransferase 2A
+    chromosome: 11
+    ncbi_summary: This gene encodes a transcriptional coactivator that plays an essential role in regulating gene expression during early development and hematopoiesis. The encoded protein contains multiple conserved functional domains.
+    protein_name: "Histone-lysine N-methyltransferase 2A"
+    uniprot_function: "Histone methyltransferase that plays an essential role in early development and hematopoiesis (PubMed:12453419, PubMed:15960975, PubMed:19187761, PubMed:19556245, PubMed:20677832, PubMed:21220120, Pub..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Wiedemann-Steiner syndrome"
+    go_biological_process:
+      - anterior/posterior pattern specification
+      - apoptotic process
+      - cellular response to transforming growth factor beta stimulus
+      - circadian regulation of gene expression
+      - definitive hemopoiesis
+      - embryonic hemopoiesis
+      - exploration behavior
+      - fibroblast proliferation
+    kegg_pathways:
+      - hsa00310
+      - hsa01100
+      - hsa04934
+      - hsa05202
+  - id: KMT2B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: lysine methyltransferase 2B
+    chromosome: 19
+    ncbi_summary: "This gene encodes a protein which contains multiple domains including a CXXC zinc finger, three PHD zinc fingers, two FY-rich domains, and a SET (suppressor of variegation, enhancer of zeste, and trithorax) domain. The SET domain is a conserved C-terminal domain that characterizes proteins of the MLL (mixed-lineage leukemia) family."
+    protein_name: "Histone-lysine N-methyltransferase 2B"
+    uniprot_function: "Histone methyltransferase that catalyzes methyl group transfer from S-adenosyl-L-methionine to the epsilon-amino group of 'Lys-4' of histone H3 (H3K4) via a non-processive mechanism. Part of chromatin..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - "Dystonia 28, childhood-onset"
+      - Intellectual developmental disorder, autosomal dominant 68
+    go_biological_process:
+      - methylation
+      - "positive regulation of DNA-templated transcription"
+    kegg_pathways:
+      - hsa00310
+      - hsa01100
+  - id: KMT2C
+    string_ppi_degree: 0
+    position: leaf
+    full_name: lysine methyltransferase 2C
+    chromosome: 7
+    ncbi_summary: "This gene is a member of the myeloid/lymphoid or mixed-lineage leukemia (MLL) family and encodes a nuclear protein with an AT hook DNA-binding domain, a DHHC-type zinc finger, six PHD-type zinc fingers, a SET domain, a post-SET domain and a RING-type zinc finger. This protein is a member of the ASC-2/NCOA6 complex (ASCOM), which possesses histone methylation activity and is involved in transcriptional coactivation."
+    protein_name: "Histone-lysine N-methyltransferase 2C"
+    uniprot_function: "Histone methyltransferase that catalyzes methyl group transfer from S-adenosyl-L-methionine to the epsilon-amino group of 'Lys-4' of histone H3 (H3K4) (PubMed:25561738). Part of chromatin remodeling m..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Kleefstra syndrome 2
+    go_biological_process:
+      - methylation
+      - positive regulation of transcription by RNA polymerase II
+    kegg_pathways:
+      - hsa00310
+      - hsa01100
+  - id: KMT2D
+    string_ppi_degree: 0
+    position: leaf
+    full_name: lysine methyltransferase 2D
+    chromosome: 12
+    ncbi_summary: "The protein encoded by this gene is a histone methyltransferase that methylates the Lys-4 position of histone H3. The encoded protein is part of a large protein complex called ASCOM, which has been shown to be a transcriptional regulator of the beta-globin and estrogen receptor genes."
+    protein_name: "Histone-lysine N-methyltransferase 2D"
+    uniprot_function: "Histone methyltransferase that catalyzes methyl group transfer from S-adenosyl-L-methionine to the epsilon-amino group of 'Lys-4' of histone H3 (H3K4) (PubMed:25561738). Part of chromatin remodeling m..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Kabuki syndrome 1
+      - Branchial arch abnormalities, choanal atresia, athelia, hearing loss, and hypothyroidism syndrome
+    go_biological_process:
+      - "beta-catenin-TCF complex assembly"
+      - heterochromatin formation
+      - methylation
+      - oocyte growth
+      - oogenesis
+      - positive regulation of cell population proliferation
+      - positive regulation of intracellular estrogen receptor signaling pathway
+      - positive regulation of transcription by RNA polymerase II
+    kegg_pathways:
+      - hsa00310
+      - hsa01100
+      - hsa04934
+  - id: NSD1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: nuclear receptor binding SET domain protein 1
+    chromosome: 5
+    ncbi_summary: "This gene encodes a protein containing a SET domain, 2 LXXLL motifs, 3 nuclear translocation signals (NLSs), 4 plant homeodomain (PHD) finger regions, and a proline-rich region. The encoded protein enhances androgen receptor (AR) transactivation, and this enhancement can be increased further in the presence of other androgen receptor associated coregulators."
+    protein_name: "Histone-lysine N-methyltransferase, H3 lysine-36 specific"
+    uniprot_function: "Histone methyltransferase that dimethylates Lys-36 of histone H3 (H3K36me2). Transcriptional intermediary factor capable of both negatively or positively influencing transcription, depending on the ce..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Sotos syndrome
+      - "Beckwith-Wiedemann syndrome"
+    go_biological_process:
+      - methylation
+      - negative regulation of transcription by RNA polymerase II
+      - "positive regulation of DNA-templated transcription"
+      - "regulation of DNA-templated transcription"
+      - "regulation of peptidyl-serine phosphorylation"
+      - "regulation of RNA polymerase II regulatory region sequence-specific DNA binding"
+  - id: SETD2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: SET domain containing 2, histone lysine methyltransferase
+    chromosome: 3
+    ncbi_summary: "Huntington's disease (HD), a neurodegenerative disorder characterized by loss of striatal neurons, is caused by an expansion of a polyglutamine tract in the HD protein huntingtin. This gene encodes a protein belonging to a class of huntingtin interacting proteins characterized by WW motifs."
+    protein_name: "Histone-lysine N-methyltransferase SETD2"
+    uniprot_function: "Histone methyltransferase that specifically trimethylates 'Lys-36' of histone H3 (H3K36me3) using dimethylated 'Lys-36' (H3K36me2) as substrate (PubMed:16118227, PubMed:19141475, PubMed:21526191, PubM..."
+    subcellular_location: [Nucleus, Chromosome]
+    diseases:
+      - Renal cell carcinoma
+      - "Luscan-Lumish syndrome"
+      - Leukemia, acute lymphoblastic
+      - Leukemia, acute myelogenous
+      - Intellectual developmental disorder, autosomal dominant 70
+    go_biological_process:
+      - defense response to virus
+      - endodermal cell differentiation
+      - microtubule cytoskeleton organization involved in mitosis
+      - mismatch repair
+      - nucleosome organization
+      - "peptidyl-lysine trimethylation"
+      - positive regulation of autophagy
+      - "positive regulation of interferon-alpha production"
+    kegg_pathways:
+      - hsa00310
+      - hsa01100
+  - id: SMARCA4
+    string_ppi_degree: 0
+    position: leaf
+    full_name: SWI/SNF related BAF chromatin remodeling complex subunit ATPase 4
+    chromosome: 19
+    ncbi_summary: The protein encoded by this gene is a member of the SWI/SNF family of proteins and is similar to the brahma protein of Drosophila. Members of this family have helicase and ATPase activities and are thought to regulate transcription of certain genes by altering the chromatin structure around those genes.
+    protein_name: "SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A member 4"
+    uniprot_function: "ATPase involved in transcriptional activation and repression of select genes by chromatin remodeling (alteration of DNA-nucleosome topology). Component of SWI/SNF chromatin remodeling complexes that c..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Rhabdoid tumor predisposition syndrome 2
+      - "Coffin-Siris syndrome 4"
+      - Otosclerosis 12
+    go_biological_process:
+      - chromatin remodeling
+      - heterochromatin formation
+      - "host-mediated activation of viral transcription"
+      - negative regulation of androgen receptor signaling pathway
+      - negative regulation of cell differentiation
+      - negative regulation of cell growth
+      - "negative regulation of DNA-templated transcription"
+      - negative regulation of transcription by RNA polymerase II
+    kegg_pathways:
+      - hsa03082
+      - hsa04714
+      - hsa05225
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

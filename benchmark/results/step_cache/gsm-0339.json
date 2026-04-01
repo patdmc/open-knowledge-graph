@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total animals equals 3 parts (1 cow part + 2 chicken parts), solve for 1 part",
+    "operation": "divide",
+    "operands": [
+      60,
+      3
+    ],
+    "result": 20,
+    "variable": "number of cows"
+  },
+  {
+    "step": 2,
+    "description": "Number of chickens is twice the number of cows",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "number of chickens"
+  },
+  {
+    "step": 3,
+    "description": "Total legs from cows (4 legs each)",
+    "operation": "multiply",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 80,
+    "variable": "cow legs"
+  },
+  {
+    "step": 4,
+    "description": "Total legs from chickens (2 legs each)",
+    "operation": "multiply",
+    "operands": [
+      40,
+      2
+    ],
+    "result": 80,
+    "variable": "chicken legs"
+  },
+  {
+    "step": 5,
+    "description": "Total legs on the farm",
+    "operation": "add",
+    "operands": [
+      80,
+      80
+    ],
+    "result": 160,
+    "variable": "total legs"
+  }
+]

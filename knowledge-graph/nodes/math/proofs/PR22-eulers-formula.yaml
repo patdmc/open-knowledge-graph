@@ -1,0 +1,96 @@
+id: PR22-eulers-formula
+type: proof
+domain: complex_analysis
+name: "Euler's Formula"
+target:
+  statement: "e^{ix} = \\cos x + i \\sin x"
+  type: theorem
+method: direct
+
+note: >
+  Proof by comparing Taylor series expansions of e^{ix}, cos(x), and sin(x),
+  showing they match term by term.
+
+assertions:
+  - step: 1
+    id: taylor-exp
+    type: claim
+    statement: "e^z = \\sum_{n=0}^{\\infty} \\frac{z^n}{n!} \\quad \\text{for all } z \\in \\mathbb{C}"
+    justification: "Taylor series of e^z converges absolutely for all complex z"
+    depends_on: []
+    references: [taylor_series]
+
+  - step: 2
+    id: substitute-ix
+    type: claim
+    statement: "e^{ix} = \\sum_{n=0}^{\\infty} \\frac{(ix)^n}{n!} = \\sum_{n=0}^{\\infty} \\frac{i^n x^n}{n!}"
+    justification: "substitute z = ix into the exponential series"
+    depends_on: [taylor-exp]
+    references: [complex_number]
+
+  - step: 3
+    id: powers-of-i
+    type: observation
+    statement: "i^0 = 1, \\; i^1 = i, \\; i^2 = -1, \\; i^3 = -i, \\; i^4 = 1, \\ldots \\text{ (period 4)}"
+    justification: "direct computation from i^2 = -1"
+    depends_on: []
+    references: [complex_number]
+
+  - step: 4
+    id: split-even-odd
+    type: claim
+    statement: "e^{ix} = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!} + i \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}"
+    justification: >
+      separate into even-indexed terms (n=2k: i^{2k} = (-1)^k, real) and
+      odd-indexed terms (n=2k+1: i^{2k+1} = (-1)^k i, imaginary)
+    depends_on: [substitute-ix, powers-of-i]
+
+  - step: 5
+    id: taylor-cos
+    type: claim
+    statement: "\\cos x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!}"
+    justification: "standard Taylor series of cosine about x = 0"
+    depends_on: []
+    references: [taylor_series]
+
+  - step: 6
+    id: taylor-sin
+    type: claim
+    statement: "\\sin x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}"
+    justification: "standard Taylor series of sine about x = 0"
+    depends_on: []
+    references: [taylor_series]
+
+  - step: 7
+    id: match-series
+    type: claim
+    statement: "\\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!} + i \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!} = \\cos x + i \\sin x"
+    justification: "identify the real part with the cosine series and the imaginary part with the sine series"
+    depends_on: [split-even-odd, taylor-cos, taylor-sin]
+
+  - step: 8
+    id: conclusion
+    type: theorem
+    statement: "e^{ix} = \\cos x + i \\sin x"
+    justification: "combining the series decomposition with the identified Taylor series"
+    depends_on: [match-series]
+
+qed: true
+
+corollaries:
+  - id: euler-identity
+    statement: "e^{i\\pi} + 1 = 0"
+    justification: "set x = pi: e^{i*pi} = cos(pi) + i*sin(pi) = -1 + 0 = -1"
+    depends_on: [conclusion]
+
+  - id: de-moivre
+    statement: "(\\cos x + i \\sin x)^n = \\cos(nx) + i \\sin(nx)"
+    justification: "(e^{ix})^n = e^{inx}; apply Euler's formula to both sides"
+    depends_on: [conclusion]
+
+edges:
+  - to: AN01-complex-analysis
+    relation: PROVES_FROM
+  - to: C01-differential-calculus
+    relation: USES
+    note: "Taylor series expansions of exp, sin, cos"

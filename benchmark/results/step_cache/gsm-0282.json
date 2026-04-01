@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total team members and coaches",
+    "operation": "add",
+    "operands": [
+      12,
+      3
+    ],
+    "result": 15,
+    "variable": "staff_count"
+  },
+  {
+    "step": 2,
+    "description": "Total guests brought by team members",
+    "operation": "multiply",
+    "operands": [
+      12,
+      2
+    ],
+    "result": 24,
+    "variable": "guest_count"
+  },
+  {
+    "step": 3,
+    "description": "Total people to feed",
+    "operation": "add",
+    "operands": [
+      15,
+      24
+    ],
+    "result": 39,
+    "variable": "total_people"
+  },
+  {
+    "step": 4,
+    "description": "Number of pizzas needed",
+    "operation": "divide",
+    "operands": [
+      39,
+      3
+    ],
+    "result": 13,
+    "variable": "pizza_count"
+  },
+  {
+    "step": 5,
+    "description": "Total cost of pizzas",
+    "operation": "multiply",
+    "operands": [
+      13,
+      15
+    ],
+    "result": 195,
+    "variable": "total_cost"
+  }
+]

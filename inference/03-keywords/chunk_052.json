@@ -1,0 +1,59 @@
+{
+  "chunk_index": 52,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+  "section_path": [
+    "5. Results",
+    "7.2 The Proposed Standard",
+    "[part 1/2]"
+  ],
+  "char_count": 5820,
+  "keyphrases": [
+    {
+      "phrase": "authors declare equivalency",
+      "score": 0.5642
+    },
+    {
+      "phrase": "claim authors classify",
+      "score": 0.5276
+    },
+    {
+      "phrase": "foundational assumptions cited",
+      "score": 0.5115
+    },
+    {
+      "phrase": "novel contradiction classification",
+      "score": 0.4728
+    },
+    {
+      "phrase": "makes epistemic status",
+      "score": 0.4626
+    },
+    {
+      "phrase": "conceptual independently verified",
+      "score": 0.4542
+    },
+    {
+      "phrase": "novel contributions transparent",
+      "score": 0.4528
+    },
+    {
+      "phrase": "prior results r2",
+      "score": 0.3862
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "R1 (Equivalency class declaration)",
+      "R2 (Collapse/novel/contradiction classification)",
+      "R3 (Confidence scores for novel claims)",
+      "R4 (Provenance triples for cited claims)",
+      "R5 (Knowledge graph submission)"
+    ],
+    "has_math": true
+  }
+}

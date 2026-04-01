@@ -1,0 +1,19 @@
+id: BIO-TME
+type: knowledge
+domain: cancer_biology
+name: Tumor Microenvironment
+
+description: "The milieu surrounding neoplasms consisting of cells, vessels, soluble factors, and molecules, that can influence and be influenced by, the neoplasm's growth."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in

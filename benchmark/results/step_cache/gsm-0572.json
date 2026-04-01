@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Add first and second shop orders",
+    "operation": "add",
+    "operands": [
+      20,
+      15
+    ],
+    "result": 35,
+    "variable": "roses_needed_shops_1_2"
+  },
+  {
+    "step": 2,
+    "description": "Add third shop order to get total weekly demand",
+    "operation": "add",
+    "operands": [
+      35,
+      30
+    ],
+    "result": 65,
+    "variable": "total_weekly_demand"
+  },
+  {
+    "step": 3,
+    "description": "Subtract weekly supply from weekly demand to get weekly shortage",
+    "operation": "subtract",
+    "operands": [
+      65,
+      40
+    ],
+    "result": 25,
+    "variable": "weekly_shortage"
+  },
+  {
+    "step": 4,
+    "description": "Multiply weekly shortage by 4 weeks to get monthly shortage",
+    "operation": "multiply",
+    "operands": [
+      25,
+      4
+    ],
+    "result": 100,
+    "variable": "monthly_shortage"
+  }
+]

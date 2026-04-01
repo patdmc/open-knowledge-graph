@@ -1,0 +1,26 @@
+id: PW-Organellebiogenesisandmaintena
+type: knowledge
+domain: biology
+name: Organelle biogenesis and maintenance
+reactome_id: R-HSA-1852241
+
+description: "This module describes the biogenesis of organelles. Organelles are subcellular structures of distinctive morphology and function. The organelles of human cells include: mitochondria, endoplasmic reticulum, Golgi apparatus, vacuoles, nucleus, (auto)phagosome, centriole, lysosome, melanosome, myofibril, nucleolus, peroxisome, cilia (in some cell types), proteasome, ribsome, and transport vesicles."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Mitochondrial biogenesis
+    reactome_id: R-HSA-1592230
+    type: Pathway
+  - name: Cilium Assembly
+    reactome_id: R-HSA-5617833
+    type: Pathway
+
+edges:

@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "description": "Day 1 pushups + squats",
+    "operation": "add",
+    "operands": [
+      100,
+      50
+    ],
+    "result": 150,
+    "variable": "day1_pushups_squats"
+  },
+  {
+    "step": 2,
+    "description": "Day 1 total exercises",
+    "operation": "add",
+    "operands": [
+      150,
+      20
+    ],
+    "result": 170,
+    "variable": "day1_total"
+  },
+  {
+    "step": 3,
+    "description": "Day 2 pushups (100 + 20 more)",
+    "operation": "add",
+    "operands": [
+      100,
+      20
+    ],
+    "result": 120,
+    "variable": "day2_pushups"
+  },
+  {
+    "step": 4,
+    "description": "Day 2 squats (50 - 10 fewer)",
+    "operation": "subtract",
+    "operands": [
+      50,
+      10
+    ],
+    "result": 40,
+    "variable": "day2_squats"
+  },
+  {
+    "step": 5,
+    "description": "Day 2 dumbbell presses (doubled)",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40,
+    "variable": "day2_dumbbell"
+  },
+  {
+    "step": 6,
+    "description": "Day 2 pushups + squats",
+    "operation": "add",
+    "operands": [
+      120,
+      40
+    ],
+    "result": 160,
+    "variable": "day2_pushups_squats"
+  },
+  {
+    "step": 7,
+    "description": "Day 2 total exercises",
+    "operation": "add",
+    "operands": [
+      160,
+      40
+    ],
+    "result": 200,
+    "variable": "day2_total"
+  },
+  {
+    "step": 8,
+    "description": "Grand total over two days",
+    "operation": "add",
+    "operands": [
+      170,
+      200
+    ],
+    "result": 370,
+    "variable": "grand_total"
+  }
+]

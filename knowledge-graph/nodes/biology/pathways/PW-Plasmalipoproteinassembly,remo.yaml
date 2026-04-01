@@ -1,0 +1,29 @@
+id: PW-Plasmalipoproteinassembly,remo
+type: knowledge
+domain: biology
+name: Plasma lipoprotein assembly, remodeling, and clearance
+reactome_id: R-HSA-174824
+
+description: Because of their hydrophobicity, lipids are found in the extracellular spaces of the human body primarily in the form of lipoprotein complexes. Chylomicrons form in the small intestine and transport dietary lipids to other tissues in the body. Very low density lipoproteins (VLDL) form in the liver and transport triacylglycerol synthesized there to other tissues of the body.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Plasma lipoprotein assembly
+    reactome_id: R-HSA-8963898
+    type: Pathway
+  - name: Plasma lipoprotein remodeling
+    reactome_id: R-HSA-8963899
+    type: Pathway
+  - name: Plasma lipoprotein clearance
+    reactome_id: R-HSA-8964043
+    type: Pathway
+
+edges:

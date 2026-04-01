@@ -1,0 +1,35 @@
+id: PW-Peptidehormonemetabolism
+type: knowledge
+domain: biology
+name: Peptide hormone metabolism
+reactome_id: R-HSA-2980736
+
+description: "Peptide hormones are cleaved from larger precursors in the secretory system (endoplasmic reticulum, Golgi apparatus, secretory granules) of the cell. After secretion peptide hormones are modified and degraded by extracellular proteases.Insulin processing occurs in 4 steps: formation of intramolecular disulfide bonds, formation of proinsulin-zinc-calcium complexes, proteolytic cleavage of proinsulin by PCSK1 (PC1/3) and PCSK2 to yield insulin, translocation of the granules across the cytosol to the plasma membrane.During Synthesis, secretion, and deacetylation of Ghrelin, proghrelin is acylated by ghrelin O-acyltransferase and cleaved by PCSK1 to yield the mature acyl ghrelin and C-ghrelin. In the bloodstream acyl ghrelin is deacylated by butyrylcholinesterase and platelet-activating factor acetylhydrolase.During Metabolism of Angiotensinogen to Angiotensin, Renin cleaves angiotensinogen to yield a decapaptide, angiotensin I (angiotensin-1, angiotensin-(1-10))."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Insulin processing
+    reactome_id: R-HSA-264876
+    type: Pathway
+  - name: Synthesis, secretion, and deacylation of Ghrelin
+    reactome_id: R-HSA-422085
+    type: Pathway
+  - name: Metabolism of Angiotensinogen to Angiotensins
+    reactome_id: R-HSA-2022377
+    type: Pathway
+  - name: Incretin synthesis, secretion, and inactivation
+    reactome_id: R-HSA-400508
+    type: Pathway
+  - name: Peptide hormone biosynthesis
+    reactome_id: R-HSA-209952
+    type: Pathway
+
+edges:

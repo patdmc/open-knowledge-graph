@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "description": "Fourth grade pass rate",
+    "operation": "divide",
+    "operands": [
+      40,
+      100
+    ],
+    "result": 0.4,
+    "variable": "fourth_grade_rate"
+  },
+  {
+    "step": 2,
+    "description": "Fifth grade pass rate (twice fourth grade)",
+    "operation": "multiply",
+    "operands": [
+      0.4,
+      2
+    ],
+    "result": 0.8,
+    "variable": "fifth_grade_rate"
+  },
+  {
+    "step": 3,
+    "description": "Fifth grade number of passes",
+    "operation": "multiply",
+    "operands": [
+      400,
+      0.8
+    ],
+    "result": 320,
+    "variable": "fifth_grade_passes"
+  },
+  {
+    "step": 4,
+    "description": "Third and fourth grade passes combined",
+    "operation": "add",
+    "operands": [
+      340,
+      40
+    ],
+    "result": 380,
+    "variable": "third_fourth_passes"
+  },
+  {
+    "step": 5,
+    "description": "Total passes across all grades",
+    "operation": "add",
+    "operands": [
+      380,
+      320
+    ],
+    "result": 700,
+    "variable": "total_passes"
+  },
+  {
+    "step": 6,
+    "description": "Third and fourth grade students combined",
+    "operation": "add",
+    "operands": [
+      500,
+      100
+    ],
+    "result": 600,
+    "variable": "third_fourth_students"
+  },
+  {
+    "step": 7,
+    "description": "Total students across all grades",
+    "operation": "add",
+    "operands": [
+      600,
+      400
+    ],
+    "result": 1000,
+    "variable": "total_students"
+  },
+  {
+    "step": 8,
+    "description": "Overall pass rate as decimal",
+    "operation": "divide",
+    "operands": [
+      700,
+      1000
+    ],
+    "result": 0.7,
+    "variable": "overall_rate_decimal"
+  },
+  {
+    "step": 9,
+    "description": "Overall pass rate as percentage",
+    "operation": "multiply",
+    "operands": [
+      0.7,
+      100
+    ],
+    "result": 70.0,
+    "variable": "overall_pass_rate_pct"
+  }
+]

@@ -1,0 +1,38 @@
+id: PW-GeneSilencingbyRNA
+type: knowledge
+domain: biology
+name: Gene Silencing by RNA
+reactome_id: R-HSA-211000
+
+description: "In this module, the biology of various types of regulatory non-coding RNAs are described. Biogenesis and functions of small interfering RNAs (siRNAs) and microRNAs (miRNAs) are annotated. Biogenesis of PIWI-interacting small RNAs (piRNAs) and tRNA-derived small RNAs (tsRNAs) are also annotated."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: MicroRNA (miRNA) biogenesis
+    reactome_id: R-HSA-203927
+    type: Pathway
+  - name: Small interfering RNA (siRNA) biogenesis
+    reactome_id: R-HSA-426486
+    type: Pathway
+  - name: "Post-transcriptional silencing by small RNAs"
+    reactome_id: R-HSA-426496
+    type: Pathway
+  - name: Transcriptional regulation by small RNAs
+    reactome_id: R-HSA-5578749
+    type: Pathway
+  - name: "PIWI-interacting RNA (piRNA) biogenesis"
+    reactome_id: R-HSA-5601884
+    type: Pathway
+  - name: "tRNA-derived small RNA (tsRNA or tRNA-related fragment, tRF) biogenesis"
+    reactome_id: R-HSA-9708296
+    type: Pathway
+
+edges:

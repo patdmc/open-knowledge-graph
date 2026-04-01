@@ -1,0 +1,80 @@
+id: PR02-infinitely-many-primes
+type: proof
+domain: number_theory
+name: "Infinitely Many Primes (Euclid)"
+target:
+  statement: "|\\mathbb{P}| = \\infty"
+  type: theorem
+method: contradiction
+
+assertions:
+  - step: 1
+    id: hyp-finite
+    type: hypothesis
+    statement: "\\mathbb{P} = \\{p_1, p_2, \\ldots, p_n\\} \\text{ is finite}"
+    justification: "assume for contradiction"
+    depends_on: []
+
+  - step: 2
+    id: construct-N
+    type: claim
+    statement: "N = p_1 p_2 \\cdots p_n + 1"
+    justification: "construct product of all primes plus one"
+    depends_on: [hyp-finite]
+
+  - step: 3
+    id: N-gt-1
+    type: observation
+    statement: "N > 1"
+    justification: "product of primes >= 2, so N >= 3"
+    depends_on: [construct-N]
+
+  - step: 4
+    id: N-has-prime-factor
+    type: claim
+    statement: "\\exists p \\in \\mathbb{P} : p \\mid N"
+    justification: "every integer > 1 has a prime factor (Fundamental Theorem of Arithmetic)"
+    depends_on: [N-gt-1]
+    references: [prime_factorization]
+
+  - step: 5
+    id: p-in-list
+    type: claim
+    statement: "p = p_i \\text{ for some } i"
+    justification: "by hypothesis, our list contains all primes"
+    depends_on: [N-has-prime-factor, hyp-finite]
+
+  - step: 6
+    id: p-divides-product
+    type: claim
+    statement: "p_i \\mid (p_1 p_2 \\cdots p_n)"
+    justification: "p_i is a factor of the product"
+    depends_on: [p-in-list]
+
+  - step: 7
+    id: remainder-is-1
+    type: claim
+    statement: "N \\bmod p_i = 1"
+    justification: "N = product + 1, so N mod p_i = (0 + 1) = 1"
+    depends_on: [construct-N, p-divides-product]
+    references: [modular_arithmetic]
+
+  - step: 8
+    id: contradiction-divisibility
+    type: contradiction
+    statement: "p_i \\mid N \\text{ but } N \\bmod p_i = 1 \\neq 0"
+    justification: "p_i cannot both divide N and leave remainder 1"
+    depends_on: [N-has-prime-factor, remainder-is-1]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "\\text{There are infinitely many primes}"
+    justification: "assuming finitely many primes leads to contradiction"
+    depends_on: [contradiction-divisibility]
+
+qed: true
+
+edges:
+  - to: NT01-number-theory
+    relation: PROVES_FROM

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total cost of 10 gallons at $3.00 per gallon",
+    "operation": "multiply",
+    "operands": [
+      3.0,
+      10
+    ],
+    "result": 30.0,
+    "variable": "total_cost"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total cashback for 10 gallons at $0.20 per gallon",
+    "operation": "multiply",
+    "operands": [
+      0.2,
+      10
+    ],
+    "result": 2.0,
+    "variable": "total_cashback"
+  },
+  {
+    "step": 3,
+    "description": "Subtract cashback from total cost to get final price",
+    "operation": "subtract",
+    "operands": [
+      30.0,
+      2.0
+    ],
+    "result": 28.0,
+    "variable": "final_price"
+  }
+]

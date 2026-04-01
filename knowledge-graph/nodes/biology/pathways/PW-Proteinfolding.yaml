@@ -1,0 +1,26 @@
+id: PW-Proteinfolding
+type: knowledge
+domain: biology
+name: Protein folding
+reactome_id: R-HSA-391251
+
+description: "Due to the crowded envirnoment within the cell, many proteins must interact with molecular chaperones to attain their native conformation  (reviewed in Young  et al., 2004).  Chaperones recognize and associate with  proteins in their non-native state and facilitate their folding by stabilizing the conformation of productive folding intermediates. Chaperones that take part broadly in de novo protein folding, such as the Hsp70s and the chaperonins, facilitate the folding process through cycles of substrate binding and release regulated by their  ATPase activity (see Young  et al., 2004; Spiess et al., 2004; Bigotti and Clarke, 2008)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Chaperonin-mediated protein folding"
+    reactome_id: R-HSA-390466
+    type: Pathway
+  - name: "Post-chaperonin tubulin folding pathway"
+    reactome_id: R-HSA-389977
+    type: Pathway
+
+edges:

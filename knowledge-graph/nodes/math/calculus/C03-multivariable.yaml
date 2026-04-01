@@ -1,0 +1,163 @@
+id: C03-multivariable-calculus
+type: knowledge
+domain: calculus
+name: "Multivariable Calculus"
+
+concepts:
+  # === Differentiation ===
+  - id: multivariable_limit
+    name: "Multivariable Limit"
+    latex: "\\lim_{(x,y) \\to (a,b)} f(x,y)"
+    meaning: "must approach same value from all paths"
+
+  - id: total_derivative
+    name: "Total Derivative"
+    latex: "Df(a) \\in \\mathbb{R}^{m \\times n}"
+    meaning: "best linear approximation of f at a; the Jacobian matrix"
+    links: [jacobian]
+
+  - id: directional_derivative
+    name: "Directional Derivative"
+    latex: "D_\\vec{u} f = \\nabla f \\cdot \\vec{u}"
+    meaning: "rate of change of f in direction u"
+    action:
+      sympy: "sum(diff(f, xi) * ui for xi, ui in zip(vars, direction))"
+    curried: "lambda f: lambda vars: lambda u: sum(sympy.diff(f, xi) * ui for xi, ui in zip(vars, u))"
+
+  - id: gradient_field
+    name: "Gradient"
+    latex: "\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_n}\\right)"
+    meaning: "direction of steepest ascent; magnitude = max rate of change"
+    action:
+      sympy: "[diff(f, xi) for xi in vars]"
+      jax: "jax.grad(f)"
+      torch: "torch.autograd.grad(f, x)"
+    curried: "lambda f: lambda vars: [sympy.diff(f, v) for v in vars]"
+    links: [gradient]
+
+  - id: divergence
+    name: "Divergence"
+    latex: "\\nabla \\cdot \\vec{F} = \\sum_i \\frac{\\partial F_i}{\\partial x_i}"
+    meaning: "scalar measure of source/sink strength at a point"
+    action:
+      sympy: "sum(diff(F[i], vars[i]) for i in range(len(vars)))"
+    curried: "lambda F: lambda vars: sum(sympy.diff(F[i], vars[i]) for i in range(len(vars)))"
+
+  - id: curl
+    name: "Curl"
+    latex: "\\nabla \\times \\vec{F} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ \\partial_x & \\partial_y & \\partial_z \\\\ F_x & F_y & F_z \\end{vmatrix}"
+    meaning: "vector measure of rotation at a point (3D only)"
+    action:
+      sympy: "[diff(F[2],y)-diff(F[1],z), diff(F[0],z)-diff(F[2],x), diff(F[1],x)-diff(F[0],y)]"
+
+  - id: laplacian
+    name: "Laplacian"
+    latex: "\\nabla^2 f = \\sum_i \\frac{\\partial^2 f}{\\partial x_i^2}"
+    meaning: "divergence of gradient; measures concavity in all directions"
+    action:
+      sympy: "sum(diff(f, xi, 2) for xi in vars)"
+    curried: "lambda f: lambda vars: sum(sympy.diff(f, xi, 2) for xi in vars)"
+
+  # === Integration ===
+  - id: multiple_integral
+    name: "Multiple Integral"
+    latex: "\\int \\cdots \\int_D f \\, dV"
+    action:
+      scipy_2d: "scipy.integrate.dblquad(f, y0, y1, x0, x1)[0]"
+      scipy_3d: "scipy.integrate.tplquad(f, z0, z1, y0, y1, x0, x1)[0]"
+    links: [double_integral, triple_integral]
+
+  - id: change_of_variables
+    name: "Change of Variables"
+    latex: "\\int_D f(x) \\, dx = \\int_{D'} f(g(u)) |\\det(Dg(u))| \\, du"
+    meaning: "Jacobian determinant accounts for stretching of coordinates"
+    links: [jacobian, determinant]
+
+  - id: line_integral_scalar
+    name: "Scalar Line Integral"
+    latex: "\\int_C f \\, ds = \\int_a^b f(\\vec{r}(t)) \\|\\vec{r}'(t)\\| \\, dt"
+
+  - id: line_integral_vector
+    name: "Vector Line Integral"
+    latex: "\\int_C \\vec{F} \\cdot d\\vec{r} = \\int_a^b \\vec{F}(\\vec{r}(t)) \\cdot \\vec{r}'(t) \\, dt"
+    meaning: "work done by force field along curve"
+
+  - id: surface_integral_scalar
+    name: "Scalar Surface Integral"
+    latex: "\\iint_S f \\, dS = \\iint_D f(\\vec{r}(u,v)) \\|\\vec{r}_u \\times \\vec{r}_v\\| \\, du\\,dv"
+
+  - id: flux_integral
+    name: "Flux Integral"
+    latex: "\\iint_S \\vec{F} \\cdot d\\vec{S} = \\iint_D \\vec{F} \\cdot (\\vec{r}_u \\times \\vec{r}_v) \\, du\\,dv"
+    meaning: "flow of vector field through surface"
+
+  # === Coordinate Systems ===
+  - id: cylindrical_coords
+    name: "Cylindrical Coordinates"
+    latex: "x = r\\cos\\theta, \\; y = r\\sin\\theta, \\; z = z"
+    jacobian: "r"
+    action:
+      numpy: "(r*np.cos(theta), r*np.sin(theta), z)"
+
+  - id: spherical_coords
+    name: "Spherical Coordinates"
+    latex: "x = \\rho\\sin\\phi\\cos\\theta, \\; y = \\rho\\sin\\phi\\sin\\theta, \\; z = \\rho\\cos\\phi"
+    jacobian: "\\rho^2 \\sin\\phi"
+    action:
+      numpy: "(rho*np.sin(phi)*np.cos(theta), rho*np.sin(phi)*np.sin(theta), rho*np.cos(phi))"
+
+  # === Critical Points ===
+  - id: critical_point
+    name: "Critical Point"
+    latex: "\\nabla f(\\vec{a}) = \\vec{0}"
+    meaning: "point where gradient vanishes; candidate for extremum"
+    classification: "use Hessian eigenvalues: all positive = local min, all negative = local max, mixed = saddle"
+    links: [hessian, positive_definite]
+
+  - id: lagrange_multipliers
+    name: "Lagrange Multipliers"
+    latex: "\\nabla f = \\lambda \\nabla g \\text{ subject to } g(x) = c"
+    meaning: "optimize f subject to equality constraint g(x) = c"
+    action:
+      sympy: "solve([diff(f - lam*g, xi) for xi in vars] + [g - c], vars + [lam])"
+      scipy: "scipy.optimize.minimize(f, x0, constraints={'type': 'eq', 'fun': g})"
+    curried: "lambda f: lambda g: lambda vars: scipy.optimize.minimize(f, x0, constraints={'type': 'eq', 'fun': g})"
+    links: [O01-numerical-optimization]
+
+theorems:
+  - name: "Green's Theorem"
+    latex: "\\oint_C (P\\,dx + Q\\,dy) = \\iint_D \\left(\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y}\\right) dA"
+    meaning: "relates line integral around boundary to double integral over region"
+
+  - name: "Stokes' Theorem"
+    latex: "\\oint_C \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}"
+    meaning: "generalizes Green's to surfaces in 3D"
+
+  - name: "Divergence Theorem (Gauss)"
+    latex: "\\oiint_S \\vec{F} \\cdot d\\vec{S} = \\iiint_V (\\nabla \\cdot \\vec{F}) \\, dV"
+    meaning: "total flux through closed surface = integral of divergence over volume"
+
+  - name: "Generalized Stokes"
+    latex: "\\int_{\\partial \\Omega} \\omega = \\int_\\Omega d\\omega"
+    meaning: "unifies Green's, Stokes', and Divergence theorems via differential forms"
+
+  - name: "Implicit Function Theorem"
+    statement: "if F(x,y) = 0 and F_y != 0, then locally y = g(x) and dy/dx = -F_x/F_y"
+
+  - name: "Inverse Function Theorem"
+    statement: "if Df(a) is invertible, then f is locally invertible near a with (f^{-1})' = (Df)^{-1}"
+
+edges:
+  - to: C01-differential-calculus
+    relation: EXTENDS
+  - to: C02-integral-calculus
+    relation: EXTENDS
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "Jacobians, Hessians, eigenvalues for classification"
+  - to: G01-geometry-fundamentals
+    relation: REQUIRES
+    note: "coordinate systems, distances"
+  - to: O01-numerical-optimization
+    relation: REQUIRED_BY
+    note: "gradient descent, Lagrange multipliers"

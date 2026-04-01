@@ -1,0 +1,13 @@
+[
+  {
+    "step": 1,
+    "description": "multiply new records by trade ratio to get old records needed",
+    "operation": "multiply",
+    "operands": [
+      7,
+      2
+    ],
+    "result": 14.0,
+    "variable": "total old records brought in"
+  }
+]

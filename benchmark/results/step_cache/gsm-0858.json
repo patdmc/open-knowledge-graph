@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "New infections on day 1",
+    "operation": "multiply",
+    "operands": [
+      10,
+      6
+    ],
+    "result": 60,
+    "variable": "new_day1"
+  },
+  {
+    "step": 2,
+    "description": "Total infected after day 1",
+    "operation": "add",
+    "operands": [
+      10,
+      60
+    ],
+    "result": 70,
+    "variable": "total_day1"
+  },
+  {
+    "step": 3,
+    "description": "New infections on day 2",
+    "operation": "multiply",
+    "operands": [
+      70,
+      6
+    ],
+    "result": 420,
+    "variable": "new_day2"
+  },
+  {
+    "step": 4,
+    "description": "Total infected after day 2",
+    "operation": "add",
+    "operands": [
+      70,
+      420
+    ],
+    "result": 490,
+    "variable": "total_day2"
+  },
+  {
+    "step": 5,
+    "description": "New infections on day 3",
+    "operation": "multiply",
+    "operands": [
+      490,
+      6
+    ],
+    "result": 2940,
+    "variable": "new_day3"
+  },
+  {
+    "step": 6,
+    "description": "Total infected after day 3",
+    "operation": "add",
+    "operands": [
+      490,
+      2940
+    ],
+    "result": 3430,
+    "variable": "total_day3"
+  }
+]

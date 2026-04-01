@@ -1,0 +1,62 @@
+id: PW-FanconiAnemiaPathway
+type: knowledge
+domain: biology
+name: Fanconi Anemia Pathway
+reactome_id: R-HSA-6783310
+
+description: "Fanconi anemia (FA) is a genetic disease of genome instability characterized by congenital skeletal defects, aplastic anemia, susceptibility to leukemias, and cellular sensitivity to DNA damaging agents. Patients with FA have been categorized into at least 15 complementation groups (FA-A, -B, -C, -D1, -D2, -E, -F, -G, -I, -J, -L, -M, -N, -O and -P). These complementation groups correspond to the genes FANCA, FANCB, FANCC, FANCD1/BRCA2, FANCD2, FANCE, FANCF, FANCG, FANCJ/BRIP1, FANCL, FANCM, FANCN/PALB2, FANCO/RAD51C and FANCP/SLX4."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: FANCM binds FAAP24
+    reactome_id: R-HSA-6785607
+    type: Reaction
+  - name: "FANCM:FAAP24 and APITD1:STRA13 bind ICL-DNA"
+    reactome_id: R-HSA-6785087
+    type: Reaction
+  - name: FA core complex assembles at DNA interstrand crosslinks (ICLs)
+    reactome_id: R-HSA-6785126
+    type: Reaction
+  - name: FANCD2 binds FANCI
+    reactome_id: R-HSA-6785594
+    type: Reaction
+  - name: "FANCD2:FANCI complex and UBE2T bind ICL-DNA associated with the FA core complex"
+    reactome_id: R-HSA-6785342
+    type: Reaction
+  - name: "The complex of ATR and ATRIP is recruited to ICL-DNA"
+    reactome_id: R-HSA-6788385
+    type: Reaction
+  - name: "ATR phosphorylates RPA2, FANCI, FANCD2 and FANCM at ICL-DNA"
+    reactome_id: R-HSA-6788392
+    type: Reaction
+  - name: "Monoubiquitination of FANCD2:FANCI"
+    reactome_id: R-HSA-6785361
+    type: Reaction
+  - name: "FANCD2 deubiquitination by USP1:WDR48"
+    reactome_id: R-HSA-6786171
+    type: Reaction
+  - name: DNA nucleases bind monoubiquitinated ID2 complex
+    reactome_id: R-HSA-6785732
+    type: Reaction
+  - name: DNA nucleases unhook the interstrand crosslink (ICL)
+    reactome_id: R-HSA-6785986
+    type: BlackBoxEvent
+  - name: "POLN binds ICL-DNA"
+    reactome_id: R-HSA-6786155
+    type: Reaction
+  - name: Translesion synthesis across unhooked ICL by POLN
+    reactome_id: R-HSA-6786166
+    type: BlackBoxEvent
+  - name: "Drug-induced formation of DNA interstrand crosslinks"
+    reactome_id: R-HSA-9750126
+    type: Pathway
+
+edges:

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Find Brittany's phone capacity by dividing Jamal's by 6",
+    "operation": "divide",
+    "operands": [
+      1800,
+      6
+    ],
+    "result": 300,
+    "variable": "Brittany's phone capacity"
+  },
+  {
+    "step": 2,
+    "description": "Find number of ducks by dividing Brittany's capacity by 50",
+    "operation": "divide",
+    "operands": [
+      300,
+      50
+    ],
+    "result": 6.0,
+    "variable": "number of ducks in Jamal's photograph"
+  }
+]

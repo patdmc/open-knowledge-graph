@@ -1,0 +1,54 @@
+{
+  "chunk_index": 7,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "3. Formal Definitions > [part 4/5]",
+  "section_path": [
+    "3. Formal Definitions",
+    "[part 4/5]"
+  ],
+  "char_count": 6042,
+  "keyphrases": [
+    {
+      "phrase": "retention criterion governs",
+      "score": 0.5969
+    },
+    {
+      "phrase": "math asymmetric retention",
+      "score": 0.5638
+    },
+    {
+      "phrase": "holds math survival",
+      "score": 0.5341
+    },
+    {
+      "phrase": "inseparability entity math",
+      "score": 0.5069
+    },
+    {
+      "phrase": "criterion governs displaced",
+      "score": 0.4623
+    },
+    {
+      "phrase": "absence outweighs finite",
+      "score": 0.4271
+    },
+    {
+      "phrase": "costs math theorem",
+      "score": 0.4215
+    },
+    {
+      "phrase": "uncertain benefit sufficient",
+      "score": 0.3613
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 1 (K/F Inseparability)."
+    ],
+    "has_math": true
+  }
+}

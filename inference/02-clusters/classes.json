@@ -1,0 +1,256 @@
+{
+  "EC00": {
+    "class_id": "EC00",
+    "label": "knowledge-graph-schema",
+    "n_chunks": 3,
+    "chunk_indices": [
+      46,
+      47,
+      51
+    ],
+    "representative": 47,
+    "representative_title": "3. Knowledge Graph Schema > 3.2 Edge Types",
+    "member_titles": [
+      "3. Knowledge Graph Schema > 3.1 Node Types",
+      "3. Knowledge Graph Schema > 3.2 Edge Types",
+      "5. Results > 5.1 Equivalency Classes > [part 3/3]"
+    ]
+  },
+  "EC01": {
+    "class_id": "EC01",
+    "label": "escalation-principle-unified",
+    "n_chunks": 19,
+    "chunk_indices": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      23,
+      25,
+      61
+    ],
+    "representative": 18,
+    "representative_title": "5. The Escalation Principle > [part 10/10]",
+    "member_titles": [
+      "2. The Central Claims",
+      "3. Formal Definitions > [part 3/5]",
+      "3. Formal Definitions > [part 4/5]",
+      "3. Formal Definitions > [part 5/5]",
+      "5. The Escalation Principle > [part 1/10]",
+      "5. The Escalation Principle > [part 2/10]",
+      "5. The Escalation Principle > [part 3/10]",
+      "5. The Escalation Principle > [part 4/10]",
+      "5. The Escalation Principle > [part 5/10]",
+      "5. The Escalation Principle > [part 6/10]",
+      "5. The Escalation Principle > [part 7/10]",
+      "5. The Escalation Principle > [part 8/10]",
+      "5. The Escalation Principle > [part 9/10]",
+      "5. The Escalation Principle > [part 10/10]",
+      "8. The Unified Model",
+      "8. The Unified Model > The Universal Invariants > [part 2/7]",
+      "8. The Unified Model > The Universal Invariants > [part 4/7]",
+      "8. The Unified Model > The Universal Invariants > [part 6/7]",
+      "1. Introduction > [part 2/4]"
+    ]
+  },
+  "EC02": {
+    "class_id": "EC02",
+    "label": "escalation-principle-social",
+    "n_chunks": 10,
+    "chunk_indices": [
+      0,
+      10,
+      12,
+      16,
+      32,
+      33,
+      48,
+      49,
+      50,
+      64
+    ],
+    "representative": 50,
+    "representative_title": "5. Results > 5.1 Equivalency Classes > [part 2/3]",
+    "member_titles": [
+      "Abstract",
+      "5. The Escalation Principle > [part 2/10]",
+      "5. The Escalation Principle > [part 4/10]",
+      "5. The Escalation Principle > [part 8/10]",
+      "10. The Social Imperative > The Collective Gradient > [part 5/6]",
+      "10. The Social Imperative > The Collective Gradient > [part 6/6]",
+      "3. Knowledge Graph Schema > 4.1 The Target Theory",
+      "5. Results > 5.1 Equivalency Classes > [part 1/3]",
+      "5. Results > 5.1 Equivalency Classes > [part 2/3]",
+      "7. Discussion"
+    ]
+  },
+  "EC03": {
+    "class_id": "EC03",
+    "label": "social-imperative-collective",
+    "n_chunks": 19,
+    "chunk_indices": [
+      0,
+      3,
+      4,
+      10,
+      12,
+      20,
+      21,
+      23,
+      27,
+      29,
+      30,
+      33,
+      34,
+      36,
+      37,
+      38,
+      48,
+      58,
+      62
+    ],
+    "representative": 3,
+    "representative_title": "2. The Central Claims",
+    "member_titles": [
+      "Abstract",
+      "2. The Central Claims",
+      "3. Formal Definitions > [part 1/5]",
+      "5. The Escalation Principle > [part 2/10]",
+      "5. The Escalation Principle > [part 4/10]",
+      "8. The Unified Model > The Universal Invariants > [part 1/7]",
+      "8. The Unified Model > The Universal Invariants > [part 2/7]",
+      "8. The Unified Model > The Universal Invariants > [part 4/7]",
+      "10. The Social Imperative",
+      "10. The Social Imperative > The Collective Gradient > [part 2/6]",
+      "10. The Social Imperative > The Collective Gradient > [part 3/6]",
+      "10. The Social Imperative > The Collective Gradient > [part 6/6]",
+      "11. Related Work",
+      "11. Related Work > Collective Intelligence",
+      "12. Discussion",
+      "13. Open Questions > [part 1/4]",
+      "3. Knowledge Graph Schema > 4.1 The Target Theory",
+      "References",
+      "1. Introduction > [part 3/4]"
+    ]
+  },
+  "EC04": {
+    "class_id": "EC04",
+    "label": "introduction-escalation-principle",
+    "n_chunks": 11,
+    "chunk_indices": [
+      1,
+      2,
+      9,
+      10,
+      26,
+      35,
+      39,
+      41,
+      59,
+      60,
+      65
+    ],
+    "representative": 2,
+    "representative_title": "1. Introduction > [part 2/2]",
+    "member_titles": [
+      "1. Introduction > [part 1/2]",
+      "1. Introduction > [part 2/2]",
+      "5. The Escalation Principle > [part 1/10]",
+      "5. The Escalation Principle > [part 2/10]",
+      "8. The Unified Model > The Universal Invariants > [part 7/7]",
+      "11. Related Work > Cognitive Architectures",
+      "13. Open Questions > [part 2/4]",
+      "13. Open Questions > [part 4/4]",
+      "Abstract",
+      "1. Introduction > [part 1/4]",
+      "8. Conclusion"
+    ]
+  },
+  "EC05": {
+    "class_id": "EC05",
+    "label": "unified-model-universal",
+    "n_chunks": 10,
+    "chunk_indices": [
+      22,
+      24,
+      31,
+      42,
+      43,
+      44,
+      52,
+      53,
+      55,
+      56
+    ],
+    "representative": 52,
+    "representative_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+    "member_titles": [
+      "8. The Unified Model > The Universal Invariants > [part 3/7]",
+      "8. The Unified Model > The Universal Invariants > [part 5/7]",
+      "10. The Social Imperative > The Collective Gradient > [part 4/6]",
+      "1. Introduction",
+      "2. The Formal Framework > 2.1 Provenance Triples",
+      "2. The Formal Framework > 2.2 Equivalency Classes",
+      "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+      "5. Results > 7.2 The Proposed Standard > [part 2/2]",
+      "9. Discussion > 9.2 Limitations",
+      "10. Conclusion"
+    ]
+  },
+  "EC06": {
+    "class_id": "EC06",
+    "label": "knowledge-graph-schema",
+    "n_chunks": 3,
+    "chunk_indices": [
+      45,
+      54,
+      57
+    ],
+    "representative": 45,
+    "representative_title": "3. Knowledge Graph Schema",
+    "member_titles": [
+      "3. Knowledge Graph Schema",
+      "9. Discussion",
+      "Acknowledgments"
+    ]
+  },
+  "EC07": {
+    "class_id": "EC07",
+    "label": "social-imperative-introduction",
+    "n_chunks": 8,
+    "chunk_indices": [
+      3,
+      5,
+      12,
+      27,
+      28,
+      40,
+      61,
+      63
+    ],
+    "representative": 63,
+    "representative_title": "1. Introduction > [part 4/4]",
+    "member_titles": [
+      "2. The Central Claims",
+      "3. Formal Definitions > [part 2/5]",
+      "5. The Escalation Principle > [part 4/10]",
+      "10. The Social Imperative",
+      "10. The Social Imperative > The Collective Gradient > [part 1/6]",
+      "13. Open Questions > [part 3/4]",
+      "1. Introduction > [part 2/4]",
+      "1. Introduction > [part 4/4]"
+    ]
+  }
+}

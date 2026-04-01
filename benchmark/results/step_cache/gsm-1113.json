@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "temperature after overnight drop",
+    "operation": "subtract",
+    "operands": [
+      2,
+      8
+    ],
+    "result": -6,
+    "variable": "temperature_after_drop"
+  },
+  {
+    "step": 2,
+    "description": "temperature after morning increase",
+    "operation": "add",
+    "operands": [
+      -6,
+      3
+    ],
+    "result": -3.0,
+    "variable": "final_temperature"
+  }
+]

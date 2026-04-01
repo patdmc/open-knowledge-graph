@@ -1,0 +1,26 @@
+id: PW-AbacavirADME
+type: knowledge
+domain: biology
+name: Abacavir ADME
+reactome_id: R-HSA-2161522
+
+description: "Abacavir is a nucleoside analogue reverse transcriptase inhibitor with antiretroviral activity, widely used in combination with other drugs to treat HIV-1 infection (Yuen et al. 2008). Its uptake across the plasma membrane is mediated by organic cation transporters SLC22A1, 2, and 3; the transport proteins ABCB1 and ABCG2 mediate its efflux."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Abacavir transmembrane transport
+    reactome_id: R-HSA-2161517
+    type: Pathway
+  - name: Abacavir metabolism
+    reactome_id: R-HSA-2161541
+    type: Pathway
+
+edges:

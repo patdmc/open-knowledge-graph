@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total number of books purchased",
+    "operation": "divide",
+    "operands": [
+      300,
+      15
+    ],
+    "result": 20,
+    "variable": "total_books"
+  },
+  {
+    "step": 2,
+    "description": "Calculate books per child",
+    "operation": "divide",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 5.0,
+    "variable": "books_per_child"
+  }
+]

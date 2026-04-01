@@ -1,0 +1,113 @@
+id: PR12-central-limit-theorem
+type: proof
+domain: probability
+name: "Central Limit Theorem (sketch via characteristic functions)"
+target:
+  statement: "\\frac{\\bar{X}_n - \\mu}{\\sigma/\\sqrt{n}} \\xrightarrow{d} N(0,1)"
+  type: theorem
+method: direct
+
+note: >
+  Proof via characteristic functions (Fourier transforms of distributions).
+  Shows convergence of characteristic function of standardized sum to that of N(0,1).
+
+assertions:
+  - step: 1
+    id: setup
+    type: definition
+    statement: "X_1, \\ldots, X_n \\text{ iid with } E[X_i] = \\mu, \\; \\text{Var}(X_i) = \\sigma^2 < \\infty"
+    justification: "hypotheses of CLT"
+    depends_on: []
+    references: [expected_value, variance]
+
+  - step: 2
+    id: standardize
+    type: definition
+    statement: "Z_n = \\frac{\\sum_{i=1}^n X_i - n\\mu}{\\sigma\\sqrt{n}} = \\frac{1}{\\sqrt{n}} \\sum_{i=1}^n Y_i, \\quad Y_i = \\frac{X_i - \\mu}{\\sigma}"
+    justification: "standardize: E[Y_i] = 0, Var(Y_i) = 1"
+    depends_on: [setup]
+
+  - step: 3
+    id: def-char-fn
+    type: definition
+    statement: "\\varphi_Y(t) = E[e^{itY}] \\text{ is the characteristic function of } Y_i"
+    justification: "Fourier transform of distribution; always exists for any random variable"
+    depends_on: [standardize]
+    references: [fourier_transform]
+
+  - step: 4
+    id: char-fn-of-sum
+    type: claim
+    statement: "\\varphi_{Z_n}(t) = \\left[\\varphi_Y\\left(\\frac{t}{\\sqrt{n}}\\right)\\right]^n"
+    justification: >
+      Z_n = sum of Y_i / sqrt(n). Characteristic function of sum of independent
+      variables is product of characteristic functions. Scaling: phi_{aX}(t) = phi_X(at).
+    depends_on: [def-char-fn, standardize]
+    references: [independence]
+
+  - step: 5
+    id: taylor-expand
+    type: claim
+    statement: "\\varphi_Y(s) = 1 + is \\cdot E[Y] - \\frac{s^2}{2} E[Y^2] + o(s^2) = 1 - \\frac{s^2}{2} + o(s^2)"
+    justification: "Taylor expand e^{isY} and take expectation; E[Y]=0, E[Y^2]=1"
+    depends_on: [def-char-fn, standardize]
+    references: [taylor_series]
+
+  - step: 6
+    id: substitute-s
+    type: claim
+    statement: "\\varphi_Y\\left(\\frac{t}{\\sqrt{n}}\\right) = 1 - \\frac{t^2}{2n} + o\\left(\\frac{1}{n}\\right)"
+    justification: "substitute s = t/sqrt(n) into Taylor expansion"
+    depends_on: [taylor-expand]
+
+  - step: 7
+    id: raise-to-n
+    type: claim
+    statement: "\\left[1 - \\frac{t^2}{2n} + o\\left(\\frac{1}{n}\\right)\\right]^n \\to e^{-t^2/2} \\text{ as } n \\to \\infty"
+    justification: "fundamental limit: (1 + a/n)^n → e^a; here a = -t^2/2"
+    depends_on: [substitute-s, char-fn-of-sum]
+    references: [limit]
+
+  - step: 8
+    id: identify-normal
+    type: claim
+    statement: "e^{-t^2/2} = \\varphi_{N(0,1)}(t)"
+    justification: "characteristic function of standard normal is exp(-t^2/2)"
+    depends_on: [raise-to-n]
+    references: [normal]
+
+  - step: 9
+    id: levy-continuity
+    type: claim
+    statement: "\\varphi_{Z_n}(t) \\to \\varphi_{N(0,1)}(t) \\implies Z_n \\xrightarrow{d} N(0,1)"
+    justification: "Lévy continuity theorem: pointwise convergence of characteristic functions implies convergence in distribution"
+    depends_on: [identify-normal, raise-to-n]
+
+  - step: 10
+    id: conclusion
+    type: theorem
+    statement: "\\frac{\\bar{X}_n - \\mu}{\\sigma / \\sqrt{n}} \\xrightarrow{d} N(0,1)"
+    justification: "CLT established via convergence of characteristic functions"
+    depends_on: [levy-continuity]
+
+qed: true
+
+corollaries:
+  - id: confidence-interval-approx
+    statement: "\\bar{X}_n \\approx N\\left(\\mu, \\frac{\\sigma^2}{n}\\right) \\text{ for large } n"
+    depends_on: [conclusion]
+
+  - id: berry-esseen
+    statement: "\\sup_x |F_{Z_n}(x) - \\Phi(x)| \\leq \\frac{C \\rho}{\\sigma^3 \\sqrt{n}} \\text{ where } \\rho = E[|Y|^3]"
+    justification: "quantitative bound on rate of convergence"
+    depends_on: [conclusion]
+
+edges:
+  - to: P01-probability-statistics
+    relation: PROVES_FROM
+  - to: C01-differential-calculus
+    relation: USES
+    note: "Taylor expansion of characteristic function"
+  - to: AN01-complex-analysis
+    relation: USES
+    note: "characteristic functions are complex exponentials"

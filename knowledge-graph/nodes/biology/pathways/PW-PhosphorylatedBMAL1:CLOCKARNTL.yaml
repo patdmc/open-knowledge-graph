@@ -1,0 +1,74 @@
+id: PW-PhosphorylatedBMAL1:CLOCKARNTL
+type: knowledge
+domain: biology
+name: "Phosphorylated BMAL1:CLOCK (ARNTL:CLOCK) activates expression of core clock genes"
+reactome_id: R-HSA-9931510
+
+description: "After translocation into the nucleus, the phosphorylated BMAL1:CLOCK heterodimer and, by inference, the BMAL1:NPAS2 heterodimer activate transcription by binding E-box elements (consensus: CANNTG) in the promoters of more than 2000 target genes (inferred from mouse homologs in Hatanaka et al. 2010, Guillaume et al. 2011) and recruiting coactivators such as CREB-binding protein (CREBBP) (inferred from mouse homologs in Garg et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK,p-NPAS2 and coactivators bind the CRY1 gene"
+    reactome_id: R-HSA-9922994
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK,NPAS2 and coactivators positively regulate expression of Cryptochrome-1 (CRY1)"
+    reactome_id: R-HSA-9922989
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK and coactivators bind the CRY2 gene"
+    reactome_id: R-HSA-9925650
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK and coactivators positively regulate expression of Cryptochrome-2 (CRY2)"
+    reactome_id: R-HSA-9925647
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK,p-NPAS2 and coactivators bind the PER1 gene"
+    reactome_id: R-HSA-9922982
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK,NPAS2 and coactivators positively regulate expression of Period-1 (PER1)"
+    reactome_id: R-HSA-9909561
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK,p-NPAS2 and coactivators bind the PER2 gene"
+    reactome_id: R-HSA-9922998
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK,NPAS2 and coactivators positively regulate expression of Period-2 (PER2)"
+    reactome_id: R-HSA-9922990
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK and coactivators bind the PER3 gene"
+    reactome_id: R-HSA-9909400
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK and coactivators positively regulate expression of Period-3 (PER3)"
+    reactome_id: R-HSA-9909374
+    type: BlackBoxEvent
+  - name: "p-90-BMAL1:p-T451,T461-CLOCK and coactivators bind the DBP gene"
+    reactome_id: R-HSA-9929319
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK and coactivators positively regulate expression of DBP"
+    reactome_id: R-HSA-9929321
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK and coactivators bind the NR1D1 (REV-ERBA) gene"
+    reactome_id: R-HSA-9923010
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK positively regulates expression of NR1D1 (REV-ERBA)"
+    reactome_id: R-HSA-9923018
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK binds the RORA gene"
+    reactome_id: R-HSA-9923006
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK positively regulates expression of RORA"
+    reactome_id: R-HSA-9922984
+    type: BlackBoxEvent
+  - name: "p-S90-BMAL1:p-T451,T461-CLOCK and coactivators bind the RORC gene"
+    reactome_id: R-HSA-9925862
+    type: Reaction
+  - name: "Phosphorylated BMAL1:CLOCK and coactivators positively regulate expression of RORC"
+    reactome_id: R-HSA-9925861
+    type: BlackBoxEvent
+
+edges:

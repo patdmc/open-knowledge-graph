@@ -1,0 +1,32 @@
+id: PW-RNAPolymeraseIIITranscription
+type: knowledge
+domain: biology
+name: RNA Polymerase III Transcription
+reactome_id: R-HSA-74158
+
+description: "RNA polymerase III is one of three types of nuclear RNA polymerases present in eucaryotic cells.  About 10% of the total transcription in dividing cells can be attributed to its activity.  It synthesizes an eclectic collection of catalytic or structural RNA molecules, some of which are involved in protein synthesis, pre-mRNA splicing, tRNA processing, and the control of RNA polymerase II elongation, whereas some others have still unknown functions."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: RNA Polymerase III Abortive And Retractive Initiation
+    reactome_id: R-HSA-749476
+    type: Pathway
+  - name: RNA Polymerase III Transcription Initiation
+    reactome_id: R-HSA-76046
+    type: Pathway
+  - name: RNA Polymerase III Chain Elongation
+    reactome_id: R-HSA-73780
+    type: Pathway
+  - name: RNA Polymerase III Transcription Termination
+    reactome_id: R-HSA-73980
+    type: Pathway
+
+edges:

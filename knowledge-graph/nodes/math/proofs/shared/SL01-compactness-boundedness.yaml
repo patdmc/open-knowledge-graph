@@ -1,0 +1,16 @@
+id: SL01-compactness-boundedness
+type: shared_lemma
+domain: topology
+name: "Continuous on Compact is Bounded"
+statement: "\\text{If } f: K \\to \\mathbb{R} \\text{ is continuous and } K \\text{ is compact, then } f \\text{ is bounded on } K"
+justification: "f(K) is compact (continuous image of compact is compact); compact subsets of R are bounded (Heine-Borel)"
+references: [compactness, continuous_map]
+used_by:
+  - proof: PR09-fundamental-theorem-algebra
+    step: g-bounded-inside
+  - proof: PR19-bolzano-weierstrass
+    step: setup
+  - proof: PR28-open-mapping
+    step: boundary-image
+  - proof: PR24-mean-value-theorem
+    step: extreme-value-applies

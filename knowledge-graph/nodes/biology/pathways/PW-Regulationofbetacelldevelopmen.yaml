@@ -1,0 +1,32 @@
+id: PW-Regulationofbetacelldevelopmen
+type: knowledge
+domain: biology
+name: "Regulation of beta-cell development"
+reactome_id: R-HSA-186712
+
+description: The normal development of the pancreas during gestation has been intensively investigated over the past decade especially in the mouse (Servitja and Ferrer 2004; Chakrabarti and Mirmira 2003). Studies of genetic defects associated with maturity onset diabetes of the young (MODY) has provided direct insight into these processes as they take place in humans (Fajans et al. 2001).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Regulation of gene expression in early pancreatic precursor cells
+    reactome_id: R-HSA-210747
+    type: Pathway
+  - name: Regulation of gene expression in late stage (branching morphogenesis) pancreatic bud precursor cells
+    reactome_id: R-HSA-210744
+    type: Pathway
+  - name: "Regulation of gene expression in endocrine-committed (NEUROG3+) progenitor cells"
+    reactome_id: R-HSA-210746
+    type: Pathway
+  - name: Regulation of gene expression in beta cells
+    reactome_id: R-HSA-210745
+    type: Pathway
+
+edges:

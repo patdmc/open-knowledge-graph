@@ -1,0 +1,121 @@
+id: PR30-konigs-theorem
+type: proof
+domain: algebra
+name: "König's Theorem (Bipartite Graphs)"
+target:
+  statement: "\\text{In a bipartite graph, the size of a maximum matching equals the size of a minimum vertex cover}"
+  type: theorem
+method: construction
+
+assertions:
+  - step: 1
+    id: def-matching
+    type: definition
+    statement: "\\text{A matching } M \\subseteq E \\text{ is a set of edges with no shared endpoints. A vertex cover } C \\subseteq V \\text{ is a set of vertices touching every edge.}"
+    justification: "standard definitions in graph theory"
+    depends_on: []
+    references: [graph, bipartite]
+
+  - step: 2
+    id: weak-duality
+    type: lemma
+    statement: "|M| \\leq |C| \\text{ for any matching } M \\text{ and any vertex cover } C"
+    justification: "each edge of M must be covered by a distinct vertex of C (since the edges of M are pairwise disjoint), so |M| <= |C|"
+    depends_on: [def-matching]
+
+  - step: 3
+    id: take-max-matching
+    type: hypothesis
+    statement: "\\text{Let } M^* \\text{ be a maximum matching in bipartite graph } G = (A \\cup B, E)"
+    justification: "a maximum matching exists since the graph is finite"
+    depends_on: [def-matching]
+    references: [bipartite]
+
+  - step: 4
+    id: def-unmatched
+    type: definition
+    statement: "U = \\{a \\in A : a \\text{ is not matched by } M^*\\}"
+    justification: "U is the set of unmatched vertices on side A"
+    depends_on: [take-max-matching]
+
+  - step: 5
+    id: alternating-reachability
+    type: definition
+    statement: "Z = \\text{set of vertices reachable from } U \\text{ by alternating paths (edges alternately not in } M^* \\text{ and in } M^*\\text{)}"
+    justification: "define the alternating-path reachability set starting from unmatched vertices in A"
+    depends_on: [def-unmatched, take-max-matching]
+
+  - step: 6
+    id: no-augmenting
+    type: lemma
+    statement: "\\text{No alternating path from } U \\text{ ends at an unmatched vertex in } B"
+    justification: "if such a path existed, it would be an augmenting path, contradicting maximality of M*"
+    depends_on: [alternating-reachability, take-max-matching]
+
+  - step: 7
+    id: construct-cover
+    type: claim
+    statement: "C^* = (A \\setminus Z) \\cup (B \\cap Z)"
+    justification: "define the vertex cover as the matched A-vertices not reachable from U, together with the B-vertices reachable from U"
+    depends_on: [alternating-reachability]
+
+  - step: 8
+    id: cover-is-valid
+    type: claim
+    statement: "C^* \\text{ is a vertex cover}"
+    justification: >
+      consider any edge (a, b). Case 1: a not in Z, then a in A \\ Z ⊆ C*.
+      Case 2: a in Z and b not in Z, impossible — if a in Z, the edge (a,b) extends
+      an alternating path, so b in Z. Case 3: a in Z and b in Z, then b in B ∩ Z ⊆ C*.
+      So every edge is covered.
+    depends_on: [construct-cover, alternating-reachability]
+
+  - step: 9
+    id: cover-size
+    type: claim
+    statement: "|C^*| = |A \\setminus Z| + |B \\cap Z|"
+    justification: "the two sets are disjoint (one in A, one in B), so sizes add"
+    depends_on: [construct-cover]
+
+  - step: 10
+    id: a-minus-z-matched
+    type: claim
+    statement: "|A \\setminus Z| = |M^* \\text{ edges with both endpoints having } A\\text{-side} \\in A \\setminus Z|"
+    justification: "every vertex in A \\ Z is matched (U ⊆ Z), and is not reachable from U, so its matching partner in B is not in Z; these matching edges are in 1-1 correspondence with A \\ Z"
+    depends_on: [construct-cover, def-unmatched, alternating-reachability]
+
+  - step: 11
+    id: b-cap-z-matched
+    type: claim
+    statement: "|B \\cap Z| = |M^* \\text{ edges with } B\\text{-endpoint} \\in B \\cap Z|"
+    justification: "every vertex in B ∩ Z is matched (by no-augmenting), and its alternating path passes through its matching edge; these are in 1-1 correspondence"
+    depends_on: [no-augmenting, alternating-reachability]
+
+  - step: 12
+    id: partition-matching
+    type: claim
+    statement: "|C^*| = |A \\setminus Z| + |B \\cap Z| = |M^*|"
+    justification: "the matching edges counted in steps 10 and 11 partition M* (an edge has its A-endpoint either in Z or not), so |C*| = |M*|"
+    depends_on: [cover-size, a-minus-z-matched, b-cap-z-matched]
+
+  - step: 13
+    id: conclusion
+    type: theorem
+    statement: "\\nu(G) = \\tau(G) \\text{ for bipartite } G \\text{ (max matching = min vertex cover)}"
+    justification: "weak duality gives |M| <= |C| for all M, C; we constructed C* with |C*| = |M*|, so M* is maximum and C* is minimum, and they have the same size"
+    depends_on: [weak-duality, cover-is-valid, partition-matching]
+
+qed: true
+
+corollaries:
+  - id: halls-marriage
+    statement: "\\text{A bipartite graph } G = (A \\cup B, E) \\text{ has a matching saturating } A \\iff |N(S)| \\geq |S| \\text{ for all } S \\subseteq A"
+    justification: "Hall's condition is equivalent to the min vertex cover having size |A|; König's theorem converts this to the max matching having size |A|"
+    depends_on: [conclusion]
+    references: [bipartite]
+
+edges:
+  - to: A03-graph-theory
+    relation: PROVES_FROM
+  - to: AA01-abstract-algebra
+    relation: PROVES_FROM

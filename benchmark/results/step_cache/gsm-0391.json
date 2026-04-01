@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "sum of ratio parts",
+    "operation": "add",
+    "operands": [
+      5,
+      6
+    ],
+    "result": 11,
+    "variable": "total_parts"
+  },
+  {
+    "step": 2,
+    "description": "value of one part",
+    "operation": "divide",
+    "operands": [
+      165,
+      11
+    ],
+    "result": 15,
+    "variable": "one_part"
+  },
+  {
+    "step": 3,
+    "description": "Betty's popsicles",
+    "operation": "multiply",
+    "operands": [
+      5,
+      15
+    ],
+    "result": 75,
+    "variable": "betty"
+  },
+  {
+    "step": 4,
+    "description": "Sam's popsicles",
+    "operation": "multiply",
+    "operands": [
+      6,
+      15
+    ],
+    "result": 90,
+    "variable": "sam"
+  },
+  {
+    "step": 5,
+    "description": "how many more Sam has than Betty",
+    "operation": "subtract",
+    "operands": [
+      90,
+      75
+    ],
+    "result": 15,
+    "variable": "difference"
+  }
+]

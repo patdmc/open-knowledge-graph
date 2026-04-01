@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "customers needed to sell 15 cars",
+    "operation": "multiply",
+    "operands": [
+      15,
+      2
+    ],
+    "result": 30,
+    "variable": "customers_needed"
+  },
+  {
+    "step": 2,
+    "description": "calls needed to bring in 30 customers",
+    "operation": "multiply",
+    "operands": [
+      30,
+      25
+    ],
+    "result": 750,
+    "variable": "calls_needed"
+  }
+]

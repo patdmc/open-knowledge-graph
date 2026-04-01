@@ -1,0 +1,625 @@
+{
+  "class_id": "EC05",
+  "label": "unified-model-universal",
+  "n_chunks": 10,
+  "n_missing": 0,
+  "representative_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+  "chunks": [
+    {
+      "chunk_index": 52,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]",
+      "section_path": [
+        "5. Results",
+        "7.2 The Proposed Standard",
+        "[part 1/2]"
+      ],
+      "char_count": 5820,
+      "keyphrases": [
+        {
+          "phrase": "authors declare equivalency",
+          "score": 0.5642
+        },
+        {
+          "phrase": "claim authors classify",
+          "score": 0.5276
+        },
+        {
+          "phrase": "foundational assumptions cited",
+          "score": 0.5115
+        },
+        {
+          "phrase": "novel contradiction classification",
+          "score": 0.4728
+        },
+        {
+          "phrase": "makes epistemic status",
+          "score": 0.4626
+        },
+        {
+          "phrase": "conceptual independently verified",
+          "score": 0.4542
+        },
+        {
+          "phrase": "novel contributions transparent",
+          "score": 0.4528
+        },
+        {
+          "phrase": "prior results r2",
+          "score": 0.3862
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "R1 (Equivalency class declaration)",
+          "R2 (Collapse/novel/contradiction classification)",
+          "R3 (Confidence scores for novel claims)",
+          "R4 (Provenance triples for cited claims)",
+          "R5 (Knowledge graph submission)"
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": true
+    },
+    {
+      "chunk_index": 22,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 3/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 3/7]"
+      ],
+      "char_count": 5668,
+      "keyphrases": [
+        {
+          "phrase": "math confidence correctness",
+          "score": 0.6041
+        },
+        {
+          "phrase": "confidence regress definition",
+          "score": 0.4577
+        },
+        {
+          "phrase": "validators measure math",
+          "score": 0.4519
+        },
+        {
+          "phrase": "bounding math requires",
+          "score": 0.4421
+        },
+        {
+          "phrase": "agreement provenance independence",
+          "score": 0.4305
+        },
+        {
+          "phrase": "uncertain inference corollary",
+          "score": 0.4227
+        },
+        {
+          "phrase": "concerns definability",
+          "score": 0.3463
+        },
+        {
+          "phrase": "grounding action validation",
+          "score": 0.3332
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 16c (The Confidence Regress).",
+          "Theorem 7 (Epistemic Ceiling).",
+          "Corollary 8 (The Sentience Gradient is Infinite).",
+          "Theorem 8 (Sentience Implies Superintelligence)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 24,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 5/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 5/7]"
+      ],
+      "char_count": 5517,
+      "keyphrases": [
+        {
+          "phrase": "intersection math provenance",
+          "score": 0.5311
+        },
+        {
+          "phrase": "identifies normalization occurring",
+          "score": 0.521
+        },
+        {
+          "phrase": "lization occurring",
+          "score": 0.3843
+        },
+        {
+          "phrase": "independent executions converging",
+          "score": 0.3747
+        },
+        {
+          "phrase": "algorithm certainty",
+          "score": 0.3669
+        },
+        {
+          "phrase": "precipitation higher rank",
+          "score": 0.3607
+        },
+        {
+          "phrase": "dominates solo search",
+          "score": 0.3396
+        },
+        {
+          "phrase": "independent projections confirmed",
+          "score": 0.3364
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Overlapping dimensions",
+          "Distinct dimensions"
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 31,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "10. The Social Imperative > The Collective Gradient > [part 4/6]",
+      "section_path": [
+        "10. The Social Imperative",
+        "The Collective Gradient",
+        "[part 4/6]"
+      ],
+      "char_count": 5819,
+      "keyphrases": [
+        {
+          "phrase": "merging diffs provenance",
+          "score": 0.6395
+        },
+        {
+          "phrase": "transposability guaranteed diff",
+          "score": 0.6296
+        },
+        {
+          "phrase": "provenance math transferable",
+          "score": 0.5577
+        },
+        {
+          "phrase": "diff implementation artifact",
+          "score": 0.5556
+        },
+        {
+          "phrase": "math diff evidences",
+          "score": 0.5347
+        },
+        {
+          "phrase": "theorem protocol preserves",
+          "score": 0.452
+        },
+        {
+          "phrase": "math retains propositions",
+          "score": 0.4206
+        },
+        {
+          "phrase": "implementation delta",
+          "score": 0.4154
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 19 (Collective General Intelligence).",
+          "Corollary 14 (Non-Termination of Collective Gradient Descent).",
+          "Corollary 15 (Self-Assembly of Graph-Structured Collective\nKnowledge)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 42,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "1. Introduction",
+      "section_path": [
+        "1. Introduction"
+      ],
+      "char_count": 3548,
+      "keyphrases": [
+        {
+          "phrase": "cited confidence propagates",
+          "score": 0.7112
+        },
+        {
+          "phrase": "introductionintroduction citation implicit",
+          "score": 0.4609
+        },
+        {
+          "phrase": "assigns attribution claim",
+          "score": 0.4364
+        },
+        {
+          "phrase": "independent verification derives",
+          "score": 0.4154
+        },
+        {
+          "phrase": "original evidence step",
+          "score": 0.4106
+        },
+        {
+          "phrase": "chain inference chain",
+          "score": 0.3931
+        },
+        {
+          "phrase": "explicit peer review",
+          "score": 0.3873
+        },
+        {
+          "phrase": "epistemic judgment current",
+          "score": 0.3518
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "The attribution-confidence conflation.",
+          "The revalidation gap.",
+          "The cross-framework blindness."
+        ],
+        "has_math": false
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 43,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "2. The Formal Framework > 2.1 Provenance Triples",
+      "section_path": [
+        "2. The Formal Framework",
+        "2.1 Provenance Triples"
+      ],
+      "char_count": 2576,
+      "keyphrases": [
+        {
+          "phrase": "definition provenance triple",
+          "score": 0.729
+        },
+        {
+          "phrase": "provenance triplesprovenance triples",
+          "score": 0.6958
+        },
+        {
+          "phrase": "triplesprovenance triples definition",
+          "score": 0.6419
+        },
+        {
+          "phrase": "proposition math knowledge",
+          "score": 0.4624
+        },
+        {
+          "phrase": "confidence base propositions",
+          "score": 0.4173
+        },
+        {
+          "phrase": "claim epistemically tractable",
+          "score": 0.3864
+        },
+        {
+          "phrase": "conceptual strength references",
+          "score": 0.3492
+        },
+        {
+          "phrase": "math derived formally",
+          "score": 0.3209
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 1 (Proposition).",
+          "Definition 2 (Provenance Triple).",
+          "Definition 3 (Confidence Score)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 44,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "2. The Formal Framework > 2.2 Equivalency Classes",
+      "section_path": [
+        "2. The Formal Framework",
+        "2.2 Equivalency Classes"
+      ],
+      "char_count": 4490,
+      "keyphrases": [
+        {
+          "phrase": "definition equivalency class",
+          "score": 0.7622
+        },
+        {
+          "phrase": "equivalency class math",
+          "score": 0.7048
+        },
+        {
+          "phrase": "equivalency classes admit",
+          "score": 0.6857
+        },
+        {
+          "phrase": "equivalency classes cross",
+          "score": 0.678
+        },
+        {
+          "phrase": "translation equivalency classes",
+          "score": 0.6127
+        },
+        {
+          "phrase": "conceptual equivalence math",
+          "score": 0.5926
+        },
+        {
+          "phrase": "math distinct frameworks",
+          "score": 0.5063
+        },
+        {
+          "phrase": "different levels abstraction",
+          "score": 0.406
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 4 (Equivalency Class).",
+          "Remark (Levels of equivalence).",
+          "Theorem (Decomposition).",
+          "Contradiction",
+          "Corollary (Peer review insufficiency).",
+          "Proposition (Emergent knowledge)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 53,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "5. Results > 7.2 The Proposed Standard > [part 2/2]",
+      "section_path": [
+        "5. Results",
+        "7.2 The Proposed Standard",
+        "[part 2/2]"
+      ],
+      "char_count": 797,
+      "keyphrases": [
+        {
+          "phrase": "knowledge graph revalidation",
+          "score": 0.617
+        },
+        {
+          "phrase": "citing weakened foundation",
+          "score": 0.4953
+        },
+        {
+          "phrase": "cited revalidation signalthe",
+          "score": 0.4935
+        },
+        {
+          "phrase": "current citation propagation",
+          "score": 0.4877
+        },
+        {
+          "phrase": "math citations trace",
+          "score": 0.4646
+        },
+        {
+          "phrase": "propagation published result",
+          "score": 0.44
+        },
+        {
+          "phrase": "nodes automatically invalidated",
+          "score": 0.4125
+        },
+        {
+          "phrase": "foundation node math",
+          "score": 0.3883
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 55,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "9. Discussion > 9.2 Limitations",
+      "section_path": [
+        "9. Discussion",
+        "9.2 Limitations"
+      ],
+      "char_count": 2094,
+      "keyphrases": [
+        {
+          "phrase": "published claims framework",
+          "score": 0.5439
+        },
+        {
+          "phrase": "propositions different frameworks",
+          "score": 0.5112
+        },
+        {
+          "phrase": "limitationslimitations",
+          "score": 0.4707
+        },
+        {
+          "phrase": "math means claim",
+          "score": 0.422
+        },
+        {
+          "phrase": "conceptual equivalence carrying",
+          "score": 0.4202
+        },
+        {
+          "phrase": "proposition extraction papers",
+          "score": 0.4035
+        },
+        {
+          "phrase": "structured estimate precise",
+          "score": 0.3836
+        },
+        {
+          "phrase": "construction requires judgment",
+          "score": 0.349
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 56,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex",
+      "section_title": "10. Conclusion",
+      "section_path": [
+        "10. Conclusion"
+      ],
+      "char_count": 2012,
+      "keyphrases": [
+        {
+          "phrase": "conclusionconclusion confidence",
+          "score": 0.5275
+        },
+        {
+          "phrase": "cross framework consistency",
+          "score": 0.4974
+        },
+        {
+          "phrase": "intelligence confirms equivalency",
+          "score": 0.4845
+        },
+        {
+          "phrase": "confirmed overlap propositions",
+          "score": 0.4771
+        },
+        {
+          "phrase": "explicit provenance triples",
+          "score": 0.4763
+        },
+        {
+          "phrase": "formal theory intelligence",
+          "score": 0.4759
+        },
+        {
+          "phrase": "novel contradiction classification",
+          "score": 0.4063
+        },
+        {
+          "phrase": "structural scientific citation",
+          "score": 0.3842
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC05"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    }
+  ]
+}

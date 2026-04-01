@@ -1,0 +1,15 @@
+id: BIO-TRANSCRIPTION
+type: knowledge
+domain: biology
+name: Transcription, Genetic
+
+description: The biosynthesis of RNA carried out on a template of DNA. The biosynthesis of DNA from an RNA template is called REVERSE TRANSCRIPTION.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

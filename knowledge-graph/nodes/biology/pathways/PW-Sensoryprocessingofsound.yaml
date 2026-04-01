@@ -1,0 +1,26 @@
+id: PW-Sensoryprocessingofsound
+type: knowledge
+domain: biology
+name: Sensory processing of sound
+reactome_id: R-HSA-9659379
+
+description: "In mammals, sounds are processed in the cochlea, a spiral-shaped organ in the inner ear (reviewed in Basch et al. 2016, Fettiplace 2017, Koppl and Manley 2019). Low frequency sounds are sensed at the distal end (apex) of the cochlea; high frequency sounds are sensed at the proximal end (base) of the cochlea (reviewed in Dallos 1992, Manley 2018)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Sensory processing of sound by inner hair cells of the cochlea
+    reactome_id: R-HSA-9662360
+    type: Pathway
+  - name: Sensory processing of sound by outer hair cells of the cochlea
+    reactome_id: R-HSA-9662361
+    type: Pathway
+
+edges:

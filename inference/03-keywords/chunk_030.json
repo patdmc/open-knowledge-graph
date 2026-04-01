@@ -1,0 +1,57 @@
+{
+  "chunk_index": 30,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 3/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 3/6]"
+  ],
+  "char_count": 6211,
+  "keyphrases": [
+    {
+      "phrase": "math information theoretic",
+      "score": 0.4936
+    },
+    {
+      "phrase": "transmits math factors",
+      "score": 0.4683
+    },
+    {
+      "phrase": "interaction terms subsets",
+      "score": 0.4249
+    },
+    {
+      "phrase": "combinations perspectives continue",
+      "score": 0.4096
+    },
+    {
+      "phrase": "identically entity substrate",
+      "score": 0.3911
+    },
+    {
+      "phrase": "limited propositions require",
+      "score": 0.3685
+    },
+    {
+      "phrase": "distinct sensing",
+      "score": 0.3624
+    },
+    {
+      "phrase": "enables bounded action",
+      "score": 0.279
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Step 3 (Strict inequality under \\(\\lambda > \\lambda_{min",
+      "Corollary 13 (Group Collapse Threshold).",
+      "Corollary 13a (Proposition Merging as the Correct Collective\nUpdate Protocol)."
+    ],
+    "has_math": true
+  }
+}

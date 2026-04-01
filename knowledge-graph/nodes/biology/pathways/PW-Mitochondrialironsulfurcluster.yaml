@@ -1,0 +1,35 @@
+id: PW-Mitochondrialironsulfurcluster
+type: knowledge
+domain: biology
+name: "Mitochondrial iron-sulfur cluster biogenesis"
+reactome_id: R-HSA-1362409
+
+description: "Iron-sulfur (Fe-S) proteins are localized in the cytosol, nucleus, and mitochondria of mammalian cells (reviewed in Stemmler et al. 2010, Rouault 2012, Bandyopadhyay et al. 2008, Lill 2009, Lill et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Mitoferrin translocates iron from the mitochondrial intermembrane space to the mitochondrial matrix
+    reactome_id: R-HSA-1362417
+    type: Reaction
+  - name: Frataxin binds iron
+    reactome_id: R-HSA-1362416
+    type: Reaction
+  - name: Electron transport from NADPH to Ferredoxin
+    reactome_id: R-HSA-2395516
+    type: Pathway
+  - name: "FXN:NFS1:ISD11:ISCU assembles 2Fe-2S iron-sulfur cluster"
+    reactome_id: R-HSA-1362408
+    type: BlackBoxEvent
+  - name: "Formation of 4Fe-4S cluster on ISCA1:ISCA2"
+    reactome_id: R-HSA-8878815
+    type: Reaction
+
+edges:

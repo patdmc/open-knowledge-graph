@@ -1,0 +1,68 @@
+id: PW-ABCfamilyproteinsmediatedtrans
+type: knowledge
+domain: biology
+name: "ABC-family proteins mediated transport"
+reactome_id: R-HSA-382556
+
+description: "The ATP-binding cassette (ABC) superfamily of active transporters involves a large number of functionally diverse transmembrane proteins. They transport  a variety of compounds through membranes against steep concentration gradients at the cost of ATP hydrolysis.  These substrates include amino acids, lipids, inorganic ions, peptides, saccharides, peptides for antigen presentation, metals, drugs, and proteins."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "HCO3- transport through ion channel"
+    reactome_id: R-HSA-383190
+    type: Reaction
+  - name: ABC transporters in lipid homeostasis
+    reactome_id: R-HSA-1369062
+    type: Pathway
+  - name: Mitochondrial ABC transporters
+    reactome_id: R-HSA-1369007
+    type: Pathway
+  - name: The ABCC family mediates organic anion transport
+    reactome_id: R-HSA-1454916
+    type: Reaction
+  - name: ABCB4 transports PC from plasma membrane to extracellular region
+    reactome_id: R-HSA-5678706
+    type: Reaction
+  - name: CFTR transits to the plasma membrane
+    reactome_id: R-HSA-8866851
+    type: BlackBoxEvent
+  - name: "CFTR transports Cl- from cytosol to extracellular region"
+    reactome_id: R-HSA-5678863
+    type: Reaction
+  - name: ABCA8,B1,B5 transport xenobiotics from cytosol to extracellular region
+    reactome_id: R-HSA-1467457
+    type: Reaction
+  - name: ABCA4 mediates atRAL transport
+    reactome_id: R-HSA-1467466
+    type: Reaction
+  - name: ABCB9 transports peptides from cytosol to lysosomal lumen
+    reactome_id: R-HSA-5223317
+    type: Reaction
+  - name: ABCF1 binds EIF2
+    reactome_id: R-HSA-5227009
+    type: Reaction
+  - name: "KCNJ11:ABCC9 transports K+ from extracellular region to cytosol"
+    reactome_id: R-HSA-5678261
+    type: Reaction
+  - name: CFTR binds components of the ERAD machinery for ubiquitination and degradation
+    reactome_id: R-HSA-8866551
+    type: Reaction
+  - name: RNF5 and RNF185 ubiquitinate misfolded CFTR
+    reactome_id: R-HSA-8866546
+    type: Reaction
+  - name: "VCP-catalyzed ATP hydrolysis promotes the translocation of misfolded CFTR into the cytosol"
+    reactome_id: R-HSA-8866542
+    type: Reaction
+  - name: misfolded CFTR is degraded by the 26S proteasome
+    reactome_id: R-HSA-8866553
+    type: BlackBoxEvent
+
+edges:

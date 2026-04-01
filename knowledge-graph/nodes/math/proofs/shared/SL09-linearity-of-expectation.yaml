@@ -1,0 +1,12 @@
+id: SL09-linearity-of-expectation
+type: shared_lemma
+domain: probability
+name: "Linearity of Expectation"
+statement: "E[aX + bY] = aE[X] + bE[Y] \\text{ (always, even if X,Y dependent)}"
+justification: "follows from linearity of integration/summation"
+references: [expected_value]
+used_by:
+  - proof: PR25-law-large-numbers
+    step: compute-mean
+  - proof: PR12-central-limit-theorem
+    step: standardize

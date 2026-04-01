@@ -1,0 +1,106 @@
+id: PR24-mean-value-theorem
+type: proof
+domain: calculus
+name: "Mean Value Theorem"
+target:
+  statement: "f \\in C[a,b], \\; f \\text{ differentiable on } (a,b) \\implies \\exists c \\in (a,b) : f'(c) = \\frac{f(b) - f(a)}{b - a}"
+  type: theorem
+method: direct
+
+note: >
+  Classic proof by constructing an auxiliary function that satisfies the hypotheses
+  of Rolle's theorem, then applying Rolle.
+
+assertions:
+  - step: 1
+    id: hypotheses
+    type: hypothesis
+    statement: "f \\text{ is continuous on } [a,b] \\text{ and differentiable on } (a,b)"
+    justification: "given hypotheses of MVT"
+    depends_on: []
+    references: [derivative, limit]
+
+  - step: 2
+    id: secant-slope
+    type: definition
+    statement: "m = \\frac{f(b) - f(a)}{b - a}"
+    justification: "slope of the secant line from (a, f(a)) to (b, f(b))"
+    depends_on: [hypotheses]
+
+  - step: 3
+    id: define-g
+    type: definition
+    statement: "g(x) = f(x) - m(x - a) - f(a)"
+    justification: "g measures the difference between f and the secant line through (a, f(a)) and (b, f(b))"
+    depends_on: [secant-slope]
+
+  - step: 4
+    id: g-continuous
+    type: claim
+    statement: "g \\text{ is continuous on } [a,b] \\text{ and differentiable on } (a,b)"
+    justification: "g is f minus a linear function; sum of continuous/differentiable functions"
+    depends_on: [define-g, hypotheses]
+
+  - step: 5
+    id: g-at-a
+    type: claim
+    statement: "g(a) = f(a) - m(0) - f(a) = 0"
+    justification: "direct substitution x = a"
+    depends_on: [define-g]
+
+  - step: 6
+    id: g-at-b
+    type: claim
+    statement: "g(b) = f(b) - m(b-a) - f(a) = f(b) - (f(b) - f(a)) - f(a) = 0"
+    justification: "direct substitution x = b, using m(b-a) = f(b) - f(a)"
+    depends_on: [define-g, secant-slope]
+
+  - step: 7
+    id: rolle-hypotheses
+    type: claim
+    statement: "g \\text{ satisfies the hypotheses of Rolle's theorem on } [a,b]"
+    justification: "g is continuous on [a,b], differentiable on (a,b), and g(a) = g(b) = 0"
+    depends_on: [g-continuous, g-at-a, g-at-b]
+
+  - step: 8
+    id: apply-rolle
+    type: claim
+    statement: "\\exists c \\in (a,b) : g'(c) = 0"
+    justification: >
+      Rolle's theorem: continuous on [a,b], differentiable on (a,b), g(a) = g(b)
+      implies there exists c with g'(c) = 0. (Rolle follows from Extreme Value Theorem:
+      g attains max and min on [a,b]; if both at endpoints then g is constant;
+      otherwise interior extremum has g'(c) = 0.)
+    depends_on: [rolle-hypotheses]
+
+  - step: 9
+    id: compute-g-prime
+    type: claim
+    statement: "g'(x) = f'(x) - m"
+    justification: "differentiate g(x) = f(x) - m(x - a) - f(a)"
+    depends_on: [define-g]
+    references: [derivative]
+
+  - step: 10
+    id: conclusion
+    type: theorem
+    statement: "f'(c) = m = \\frac{f(b) - f(a)}{b - a}"
+    justification: "g'(c) = 0 means f'(c) - m = 0, so f'(c) = m"
+    depends_on: [apply-rolle, compute-g-prime]
+
+qed: true
+
+corollaries:
+  - id: zero-derivative-constant
+    statement: "f'(x) = 0 \\text{ for all } x \\in (a,b) \\implies f \\text{ is constant on } [a,b]"
+    justification: "for any x1 < x2 in [a,b], MVT gives f(x2) - f(x1) = f'(c)(x2 - x1) = 0"
+    depends_on: [conclusion]
+
+  - id: cauchy-mvt
+    statement: "\\frac{f'(c)}{g'(c)} = \\frac{f(b) - f(a)}{g(b) - g(a)} \\text{ (Cauchy's MVT, assuming } g' \\neq 0 \\text{)}"
+    justification: "apply same argument to h(x) = f(x)(g(b) - g(a)) - g(x)(f(b) - f(a))"
+    depends_on: [conclusion]
+
+edges:
+  - to: C01-differential-calculus
+    relation: PROVES_FROM

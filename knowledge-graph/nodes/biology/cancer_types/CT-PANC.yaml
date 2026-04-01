@@ -1,0 +1,61 @@
+id: CT-PANC
+type: knowledge
+domain: cancer_biology
+name: "Pancreatic Cancer"
+
+n_patients: 2451
+n_mutated: 2270
+mutation_rate: 0.9262
+channel_entropy: 1.8511
+hub_fraction: 0.7010
+median_os_months: 10.1920
+event_rate: 0.5920
+survival_36m: 0.1318
+mean_channels_per_patient: 2.2542
+top_gene: KRAS
+top_gene_frequency: 0.3041
+n_harmful_mutations: 11
+n_protective_mutations: 2
+dominant_channels: [CHAN-PI3K_Growth, CHAN-CellCycle]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=2451)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Pancreatic Cancer"
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Pancreatic Cancer"
+  - to: GENE-KRAS
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "KRAS mutated in 0.3041 of Pancreatic Cancer patients"
+

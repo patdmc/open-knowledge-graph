@@ -1,0 +1,244 @@
+id: CHAN-Endocrine
+type: knowledge
+domain: cancer_biology
+name: Endocrine / Hormone
+gene_count: 6
+hub_genes: [ESR1, FOXA1, PGR]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: AR
+    string_ppi_degree: 0
+    position: leaf
+    full_name: androgen receptor
+    chromosome: X
+    ncbi_summary: "The androgen receptor gene is more than 90 kb long and codes for a protein that has 3 major functional domains: the N-terminal domain, DNA-binding domain, and androgen-binding domain. The protein functions as a steroid-hormone activated transcription factor."
+    protein_name: Androgen receptor
+    uniprot_function: "Steroid hormone receptors are ligand-activated transcription factors that regulate eukaryotic gene expression and affect cellular proliferation and differentiation in target tissues (PubMed:19022849)...."
+    subcellular_location: [Nucleus, Cytoplasm]
+    diseases:
+      - Androgen insensitivity syndrome
+      - "Spinal and bulbar muscular atrophy X-linked 1"
+      - "Prostate cancer, hereditary, X-linked 3"
+      - Androgen insensitivity, partial
+      - "Hypospadias 1, X-linked"
+    go_biological_process:
+      - androgen receptor signaling pathway
+      - animal organ formation
+      - "cell-cell signaling"
+      - cellular response to estrogen stimulus
+      - cellular response to steroid hormone stimulus
+      - cellular response to testosterone stimulus
+      - epithelial cell differentiation involved in prostate gland development
+      - epithelial cell morphogenesis
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5550
+        p: 6.78e-07
+        n: 384
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5160
+        p: 1.38e-06
+        n: 264
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.4520
+        p: 2.58e-06
+        n: 164
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5620
+        p: 1.22e-05
+        n: 222
+      - to: FBXW7
+        relation: BUFFERS
+        hr: 0.4560
+        p: 2.05e-05
+        n: 187
+  - id: ESR1
+    string_ppi_degree: 34
+    position: hub
+    full_name: estrogen receptor 1
+    chromosome: 6
+    ncbi_summary: "This gene encodes an estrogen receptor and ligand-activated transcription factor. The canonical protein contains an N-terminal ligand-independent transactivation domain, a central DNA binding domain, a hinge domain, and a C-terminal ligand-dependent transactivation domain."
+    protein_name: Estrogen receptor
+    uniprot_function: Nuclear hormone receptor. The steroid hormones and their receptors are involved in the regulation of eukaryotic gene expression and affect cellular proliferation and differentiation in target tissues....
+    subcellular_location: [Nucleus, Cytoplasm, Cell membrane]
+    diseases:
+      - Estrogen resistance
+    go_biological_process:
+      - androgen metabolic process
+      - antral ovarian follicle growth
+      - cellular response to estradiol stimulus
+      - cellular response to estrogen stimulus
+      - chromatin remodeling
+      - epithelial cell development
+      - epithelial cell proliferation involved in mammary gland duct elongation
+      - estrogen receptor signaling pathway
+    mutations:
+      - change: D538G
+        cancer_type: Breast Cancer
+        hr: 1.6704
+        p: 1.21e-06
+        direction: harmful
+        n: 166
+      - change: Y537S
+        cancer_type: Breast Cancer
+        hr: 1.7478
+        p: 2.80e-05
+        direction: harmful
+        n: 104
+      - change: Y537N
+        cancer_type: Breast Cancer
+        hr: 2.2173
+        p: 2.81e-04
+        direction: harmful
+        n: 33
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.6050
+        p: 7.21e-05
+        n: 274
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5840
+        p: 3.48e-04
+        n: 187
+      - to: RB1
+        relation: BUFFERS
+        hr: 0.5420
+        p: 5.23e-04
+        n: 116
+      - to: KRAS
+        relation: BUFFERS
+        hr: 0.5730
+        p: 5.38e-04
+        n: 136
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6340
+        p: 0.0013
+        n: 229
+  - id: ESR2
+    string_ppi_degree: 0
+    position: leaf
+    full_name: estrogen receptor 2
+    chromosome: 14
+    ncbi_summary: "This gene encodes a member of the family of estrogen receptors and superfamily of nuclear receptor transcription factors. The gene product contains an N-terminal DNA binding domain and C-terminal ligand binding domain and is localized to the nucleus, cytoplasm, and mitochondria."
+    protein_name: Estrogen receptor beta
+    uniprot_function: "Nuclear hormone receptor. Binds estrogens with an affinity similar to that of ESR1/ER-alpha, and activates expression of reporter genes containing estrogen response elements (ERE) in an estrogen-depen..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Ovarian dysgenesis 8
+    go_biological_process:
+      - "cell-cell signaling"
+      - cellular response to estradiol stimulus
+      - estrogen receptor signaling pathway
+      - negative regulation of cell growth
+      - negative regulation of transcription by RNA polymerase II
+      - "positive regulation of DNA-binding transcription factor activity"
+      - "positive regulation of DNA-templated transcription"
+      - positive regulation of transcription by RNA polymerase II
+    kegg_pathways:
+      - Notch signaling pathway
+      - Human papillomavirus infection
+      - Pathways in cancer
+      - Breast cancer
+  - id: FOXA1
+    string_ppi_degree: 0
+    position: hub
+    full_name: forkhead box A1
+    chromosome: 14
+    ncbi_summary: "This gene encodes a member of the forkhead class of DNA-binding proteins. These hepatocyte nuclear factors are transcriptional activators for liver-specific transcripts such as albumin and transthyretin, and they also interact with chromatin."
+    protein_name: "Hepatocyte nuclear factor 3-alpha"
+    uniprot_function: "Transcription factor that is involved in embryonic development, establishment of tissue-specific gene expression and regulation of gene expression in differentiated tissues. Is thought to act as a 'pi..."
+    subcellular_location: [Nucleus]
+    go_biological_process:
+      - alveolar secondary septum development
+      - anatomical structure formation involved in morphogenesis
+      - anatomical structure morphogenesis
+      - cell differentiation
+      - chromatin remodeling
+      - dopaminergic neuron differentiation
+      - dorsal/ventral neural tube patterning
+      - epithelial cell maturation involved in prostate gland development
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.6040
+        p: 0.0028
+        n: 197
+  - id: GATA3
+    string_ppi_degree: 0
+    position: leaf
+    full_name: GATA binding protein 3
+    chromosome: 10
+    ncbi_summary: "This gene encodes a protein which belongs to the GATA family of transcription factors. The protein contains two GATA-type zinc fingers and is an important regulator of T-cell development and plays an important role in endothelial cell biology."
+    protein_name: "Trans-acting T-cell-specific transcription factor GATA-3"
+    uniprot_function: "Transcriptional activator which binds to the enhancer of the T-cell receptor alpha and delta genes. Binds to the consensus sequence 5'-AGATAG-3'. Required for the T-helper 2 (Th2) differentiation proc..."
+    subcellular_location: [Nucleus]
+    diseases:
+      - Hypoparathyroidism, sensorineural deafness, and renal disease
+    go_biological_process:
+      - anatomical structure formation involved in morphogenesis
+      - anatomical structure morphogenesis
+      - aortic valve morphogenesis
+      - axon guidance
+      - canonical Wnt signaling pathway
+      - cardiac right ventricle morphogenesis
+      - cartilage development
+      - cell fate commitment
+    kegg_pathways:
+      - Th1 and Th2 cell differentiation
+      - Th17 cell differentiation
+      - Parathyroid hormone synthesis, secretion and action
+      - Inflammatory bowel disease
+    mutations:
+      - change: X308_splice
+        cancer_type: Breast Cancer
+        hr: 0.3201
+        p: 4.57e-04
+        direction: protective
+        n: 72
+  - id: PGR
+    string_ppi_degree: 0
+    position: hub
+    full_name: progesterone receptor
+    chromosome: 11
+    ncbi_summary: This gene encodes a member of the steroid receptor superfamily. The encoded protein mediates the physiological effects of progesterone, which plays a central role in reproductive events associated with the establishment and maintenance of pregnancy.
+    protein_name: Progesterone receptor
+    uniprot_function: The steroid hormones and their receptors are involved in the regulation of eukaryotic gene expression and affect cellular proliferation and differentiation in target tissues. Depending on the isoform,...
+    subcellular_location: [Nucleus, Cytoplasm, Mitochondrion outer membrane]
+    go_biological_process:
+      - "cell-cell signaling"
+      - glandular epithelial cell maturation
+      - lung alveolus development
+      - maintenance of protein location in nucleus
+      - negative regulation of gene expression
+      - "nuclear receptor-mediated steroid hormone signaling pathway"
+      - ovulation from ovarian follicle
+      - paracrine signaling
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

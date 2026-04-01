@@ -1,0 +1,74 @@
+id: PW-DevelopmentalBiology
+type: knowledge
+domain: biology
+name: Developmental Biology
+reactome_id: R-HSA-1266738
+
+description: Developmental biology seeks to understand the array of processes by which a fertilized egg gives rise to the diverse tissues of the adult body. Examples of several developmental processes have been annotated here. In the early embryo, transcriptional regulation of pluripotent stem cells, gastrulation (including NODAL signaling), and activation of HOX genes during differentiation are annotated.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Maternal to zygotic transition (MZT)
+    reactome_id: R-HSA-9816359
+    type: Pathway
+  - name: Transcriptional regulation of pluripotent stem cells
+    reactome_id: R-HSA-452723
+    type: Pathway
+  - name: Gastrulation
+    reactome_id: R-HSA-9758941
+    type: Pathway
+  - name: Signaling by NODAL
+    reactome_id: R-HSA-1181150
+    type: Pathway
+  - name: Activation of HOX genes during differentiation
+    reactome_id: R-HSA-5619507
+    type: Pathway
+  - name: Nervous system development
+    reactome_id: R-HSA-9675108
+    type: Pathway
+  - name: "LGI-ADAM interactions"
+    reactome_id: R-HSA-5682910
+    type: Pathway
+  - name: Myogenesis
+    reactome_id: R-HSA-525793
+    type: Pathway
+  - name: Cardiogenesis
+    reactome_id: R-HSA-9733709
+    type: Pathway
+  - name: Kidney development
+    reactome_id: R-HSA-9830369
+    type: Pathway
+  - name: "Regulation of beta-cell development"
+    reactome_id: R-HSA-186712
+    type: Pathway
+  - name: Transcriptional regulation of testis differentiation
+    reactome_id: R-HSA-9690406
+    type: Pathway
+  - name: Keratinization
+    reactome_id: R-HSA-6805567
+    type: Pathway
+  - name: Transcriptional regulation of granulopoiesis
+    reactome_id: R-HSA-9616222
+    type: Pathway
+  - name: Developmental Cell Lineages
+    reactome_id: R-HSA-9734767
+    type: CellLineagePath
+  - name: "MITF-M-regulated melanocyte development"
+    reactome_id: R-HSA-9730414
+    type: Pathway
+  - name: Adipogenesis
+    reactome_id: R-HSA-9843745
+    type: Pathway
+  - name: Differentiation of T cells
+    reactome_id: R-HSA-9945266
+    type: Pathway
+
+edges:

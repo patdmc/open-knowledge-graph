@@ -1,0 +1,91 @@
+id: C02-integral-calculus
+type: knowledge
+domain: calculus
+name: "Integral Calculus"
+
+concepts:
+  - id: indefinite_integral
+    name: "Indefinite Integral"
+    latex: "\\int f(x)\\, dx = F(x) + C"
+    meaning: "antiderivative — function whose derivative is f"
+    action:
+      sympy: "integrate(f, x)"
+    curried: "lambda f: lambda x: sympy.integrate(f, x)"
+
+  - id: definite_integral
+    name: "Definite Integral"
+    latex: "\\int_a^b f(x)\\, dx"
+    meaning: "signed area under f from a to b"
+    action:
+      sympy: "integrate(f, (x, a, b))"
+      scipy: "scipy.integrate.quad(f, a, b)[0]"
+      numpy: "np.trapz(y, x)"
+    curried: "lambda f: lambda a: lambda b: scipy.integrate.quad(f, a, b)[0]"
+
+  - id: double_integral
+    name: "Double Integral"
+    latex: "\\iint_D f(x,y)\\, dA"
+    action:
+      sympy: "integrate(f, (x, x0, x1), (y, y0, y1))"
+      scipy: "scipy.integrate.dblquad(f, y0, y1, x0, x1)[0]"
+    curried: "lambda f: lambda x_bounds: lambda y_bounds: scipy.integrate.dblquad(f, *y_bounds, *x_bounds)[0]"
+
+  - id: triple_integral
+    name: "Triple Integral"
+    latex: "\\iiint_V f(x,y,z)\\, dV"
+    action:
+      scipy: "scipy.integrate.tplquad(f, z0, z1, y0, y1, x0, x1)[0]"
+
+  - id: line_integral
+    name: "Line Integral"
+    latex: "\\int_C \\vec{F} \\cdot d\\vec{r}"
+    meaning: "integral of vector field along a curve"
+
+  - id: surface_integral
+    name: "Surface Integral"
+    latex: "\\iint_S \\vec{F} \\cdot d\\vec{S}"
+
+  - id: fundamental_theorem
+    name: "Fundamental Theorem of Calculus"
+    latex: "\\int_a^b f'(x)\\, dx = f(b) - f(a)"
+    meaning: "integration and differentiation are inverse operations"
+    links: [C01-differential-calculus]
+
+  - id: integration_by_parts
+    name: "Integration by Parts"
+    latex: "\\int u\\, dv = uv - \\int v\\, du"
+    action:
+      sympy: "integrate(u * diff(v, x), x)  # sympy handles automatically"
+
+  - id: substitution
+    name: "U-Substitution"
+    latex: "\\int f(g(x))g'(x)\\, dx = \\int f(u)\\, du"
+    meaning: "reverse chain rule"
+
+  - id: ode_solve
+    name: "Solve ODE"
+    latex: "\\frac{dy}{dx} = f(x, y)"
+    action:
+      sympy: "dsolve(Eq(y(x).diff(x), f), y(x))"
+      scipy: "scipy.integrate.solve_ivp(f, t_span, y0)"
+    curried: "lambda f: lambda t_span: lambda y0: scipy.integrate.solve_ivp(f, t_span, y0)"
+
+rules:
+  - name: "Power rule"
+    latex: "\\int x^n\\, dx = \\frac{x^{n+1}}{n+1} + C \\quad (n \\neq -1)"
+  - name: "Exponential"
+    latex: "\\int e^x\\, dx = e^x + C"
+  - name: "Reciprocal"
+    latex: "\\int \\frac{1}{x}\\, dx = \\ln|x| + C"
+  - name: "Sine"
+    latex: "\\int \\sin x\\, dx = -\\cos x + C"
+  - name: "Cosine"
+    latex: "\\int \\cos x\\, dx = \\sin x + C"
+  - name: "Gaussian"
+    latex: "\\int_{-\\infty}^{\\infty} e^{-x^2}\\, dx = \\sqrt{\\pi}"
+
+edges:
+  - to: C01-differential-calculus
+    relation: INVERSE_OF
+  - to: N04-aggregation-notation
+    relation: REQUIRES

@@ -1,0 +1,26 @@
+id: PW-Chromatinorganization
+type: knowledge
+domain: biology
+name: Chromatin organization
+reactome_id: R-HSA-4839726
+
+description: "Eukaryotic DNA is associated with histone proteins and organized into a complex nucleoprotein structure called chromatin. This structure decreases the accessibility of DNA but also helps to protect it from damage (reviewed in Li and Reinberg, 2011; Gilbert et al, 2005; Desjarlais and Tummino, 2016). The 'building block' of chromatin is the nucleosome."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Chromatin modifying enzymes
+    reactome_id: R-HSA-3247509
+    type: Pathway
+  - name: "ATP-dependent chromatin remodelers"
+    reactome_id: R-HSA-9932444
+    type: Pathway
+
+edges:

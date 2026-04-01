@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Oscar eats 2 lollipops on the way to school",
+    "operation": "subtract",
+    "operands": [
+      24,
+      2
+    ],
+    "result": 22,
+    "variable": "lollipops_after_eating_to_school"
+  },
+  {
+    "step": 2,
+    "description": "Oscar passes 14 lollipops to friends",
+    "operation": "subtract",
+    "operands": [
+      22,
+      14
+    ],
+    "result": 8,
+    "variable": "lollipops_after_giving_friends"
+  },
+  {
+    "step": 3,
+    "description": "Oscar buys twice as many as he gave to friends",
+    "operation": "multiply",
+    "operands": [
+      14,
+      2
+    ],
+    "result": 28,
+    "variable": "lollipops_bought"
+  },
+  {
+    "step": 4,
+    "description": "Oscar adds purchased lollipops to his remaining supply",
+    "operation": "add",
+    "operands": [
+      8,
+      28
+    ],
+    "result": 36,
+    "variable": "lollipops_after_buying"
+  },
+  {
+    "step": 5,
+    "description": "Oscar eats 3 lollipops that night",
+    "operation": "subtract",
+    "operands": [
+      36,
+      3
+    ],
+    "result": 33,
+    "variable": "lollipops_after_night"
+  },
+  {
+    "step": 6,
+    "description": "Oscar eats 2 more lollipops in the morning",
+    "operation": "subtract",
+    "operands": [
+      33,
+      2
+    ],
+    "result": 31,
+    "variable": "lollipops_final"
+  }
+]

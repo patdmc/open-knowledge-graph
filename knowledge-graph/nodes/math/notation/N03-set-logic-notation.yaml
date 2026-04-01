@@ -1,0 +1,187 @@
+id: N03-set-logic-notation
+type: notation
+domain: sets_and_logic
+name: "Set and Logic Notation"
+
+symbols:
+  # --- Sets ---
+  - symbol: "{}"
+    latex: "\\{a, b, c\\}"
+    name: set_literal
+    action:
+      python: "{a, b, c}"
+      sympy: "FiniteSet(a, b, c)"
+
+  - symbol: "in"
+    latex: "\\in"
+    name: element_of
+    arity: 2
+    returns: bool
+    action:
+      python: "a in S"
+      sympy: "a in S"
+
+  - symbol: "notin"
+    latex: "\\notin"
+    name: not_element_of
+    arity: 2
+    returns: bool
+    action:
+      python: "a not in S"
+
+  - symbol: "union"
+    latex: "\\cup"
+    name: union
+    arity: 2
+    action:
+      python: "A | B"
+      sympy: "Union(A, B)"
+    identity: "EmptySet"
+
+  - symbol: "intersect"
+    latex: "\\cap"
+    name: intersection
+    arity: 2
+    action:
+      python: "A & B"
+      sympy: "Intersection(A, B)"
+
+  - symbol: "subset"
+    latex: "\\subset"
+    name: proper_subset
+    arity: 2
+    returns: bool
+    action:
+      python: "A < B"
+      sympy: "A.is_proper_subset(B)"
+
+  - symbol: "subseteq"
+    latex: "\\subseteq"
+    name: subset_or_equal
+    arity: 2
+    returns: bool
+    action:
+      python: "A <= B"
+      sympy: "A.is_subset(B)"
+
+  - symbol: "setminus"
+    latex: "\\setminus"
+    name: set_difference
+    arity: 2
+    action:
+      python: "A - B"
+      sympy: "Complement(A, B)"
+
+  - symbol: "emptyset"
+    latex: "\\emptyset"
+    name: empty_set
+    action:
+      python: "set()"
+      sympy: "S.EmptySet"
+
+  - symbol: "card"
+    latex: "|S|"
+    name: cardinality
+    arity: 1
+    action:
+      python: "len(S)"
+      sympy: "len(S)"
+
+  # --- Number sets ---
+  - symbol: "N"
+    latex: "\\mathbb{N}"
+    name: natural_numbers
+    meaning: "{0, 1, 2, ...} or {1, 2, 3, ...}"
+    action:
+      sympy: "S.Naturals"
+
+  - symbol: "Z"
+    latex: "\\mathbb{Z}"
+    name: integers
+    action:
+      sympy: "S.Integers"
+
+  - symbol: "Q"
+    latex: "\\mathbb{Q}"
+    name: rationals
+    action:
+      sympy: "S.Rationals"
+
+  - symbol: "R"
+    latex: "\\mathbb{R}"
+    name: reals
+    action:
+      sympy: "S.Reals"
+
+  - symbol: "C"
+    latex: "\\mathbb{C}"
+    name: complex_numbers
+    action:
+      sympy: "S.Complexes"
+
+  # --- Logic ---
+  - symbol: "and"
+    latex: "\\land"
+    name: logical_and
+    arity: 2
+    returns: bool
+    action:
+      python: "a and b"
+      numpy: "np.logical_and(a, b)"
+      sympy: "a & b"
+
+  - symbol: "or"
+    latex: "\\lor"
+    name: logical_or
+    arity: 2
+    returns: bool
+    action:
+      python: "a or b"
+      numpy: "np.logical_or(a, b)"
+      sympy: "a | b"
+
+  - symbol: "not"
+    latex: "\\lnot"
+    name: logical_not
+    arity: 1
+    returns: bool
+    action:
+      python: "not a"
+      numpy: "np.logical_not(a)"
+      sympy: "~a"
+
+  - symbol: "implies"
+    latex: "\\Rightarrow"
+    name: logical_implication
+    arity: 2
+    returns: bool
+    action:
+      sympy: "Implies(a, b)"
+    equivalent: "not a or b"
+
+  - symbol: "iff"
+    latex: "\\Leftrightarrow"
+    name: biconditional
+    arity: 2
+    returns: bool
+    action:
+      sympy: "Equivalent(a, b)"
+
+  - symbol: "forall"
+    latex: "\\forall"
+    name: universal_quantifier
+    meaning: "for all"
+    action:
+      python: "all(pred(x) for x in S)"
+
+  - symbol: "exists"
+    latex: "\\exists"
+    name: existential_quantifier
+    meaning: "there exists"
+    action:
+      python: "any(pred(x) for x in S)"
+
+  - symbol: "therefore"
+    latex: "\\therefore"
+    name: therefore
+    meaning: "it follows that"

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate how much more money Mark needs",
+    "operation": "subtract",
+    "operands": [
+      300,
+      50
+    ],
+    "result": 250,
+    "variable": "remaining_amount"
+  },
+  {
+    "step": 2,
+    "description": "Calculate how many days to earn the remaining amount",
+    "operation": "divide",
+    "operands": [
+      250,
+      10
+    ],
+    "result": 25.0,
+    "variable": "days_needed"
+  }
+]

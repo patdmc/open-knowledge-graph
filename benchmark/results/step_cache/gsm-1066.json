@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "pizzas eaten by glee club",
+    "operation": "multiply",
+    "operands": [
+      20,
+      0.7
+    ],
+    "result": 14.0,
+    "variable": "glee_eaten"
+  },
+  {
+    "step": 2,
+    "description": "pizzas left from glee club",
+    "operation": "subtract",
+    "operands": [
+      20,
+      14.0
+    ],
+    "result": 6.0,
+    "variable": "glee_left"
+  },
+  {
+    "step": 3,
+    "description": "pizzas ordered by football team",
+    "operation": "multiply",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 40.0,
+    "variable": "football_ordered"
+  },
+  {
+    "step": 4,
+    "description": "pizzas eaten by football team",
+    "operation": "multiply",
+    "operands": [
+      40.0,
+      0.8
+    ],
+    "result": 32.0,
+    "variable": "football_eaten"
+  },
+  {
+    "step": 5,
+    "description": "pizzas left from football team",
+    "operation": "subtract",
+    "operands": [
+      40.0,
+      32.0
+    ],
+    "result": 8.0,
+    "variable": "football_left"
+  },
+  {
+    "step": 6,
+    "description": "total pizzas left",
+    "operation": "add",
+    "operands": [
+      6.0,
+      8.0
+    ],
+    "result": 14.0,
+    "variable": "total_left"
+  }
+]

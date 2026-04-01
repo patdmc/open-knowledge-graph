@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "total extra students across the two larger groups",
+    "operation": "multiply",
+    "operands": [
+      2,
+      10
+    ],
+    "result": 20,
+    "variable": "total_extra"
+  },
+  {
+    "step": 2,
+    "description": "subtract extra to make all three groups equal",
+    "operation": "subtract",
+    "operands": [
+      200,
+      20
+    ],
+    "result": 180,
+    "variable": "adjusted_total"
+  },
+  {
+    "step": 3,
+    "description": "divide equally among 3 groups to find smallest group size",
+    "operation": "divide",
+    "operands": [
+      180,
+      3
+    ],
+    "result": 60,
+    "variable": "smallest_group"
+  }
+]

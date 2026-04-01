@@ -1,0 +1,62 @@
+id: PW-Posttranslationalproteinmodifi
+type: knowledge
+domain: biology
+name: "Post-translational protein modification"
+reactome_id: R-HSA-597592
+
+description: "After translation, many newly formed proteins undergo further covalent modifications that alter their functional properties. Modifications associated with protein localization include the attachment of oligosaccharide moieties to membrane-bound and secreted proteins (N-linked and O-linked glycosylation), the attachment of lipid (RAB geranylgeranylation) or glycolipid moieties (GPI-anchored proteins) that anchor proteins to cellular membranes, and the vitamin K-dependent attachment of carboxyl groups to glutamate residues. Modifications associated with functions of specific proteins include gamma carboxylation of clotting factors, hypusine formation on eukaryotic translation initiation factor 5A, conversion of a cysteine residue to formylglycine (arylsulfatase activation), methylation of lysine and arginine residues on non-histone proteins (protein methylation), protein phosphorylation by secretory pathway kinases, and carboxyterminal modifications of tubulin involving the addition of polyglutamate chains.Protein ubiquitination and deubiquitination play a major role in regulating protein stability and, together with SUMOylation and neddylation, can modulate protein function as well."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Gamma carboxylation, hypusinylation, hydroxylation, and arylsulfatase activation
+    reactome_id: R-HSA-163841
+    type: Pathway
+  - name: "Post-translational modification: synthesis of GPI-anchored proteins"
+    reactome_id: R-HSA-163125
+    type: Pathway
+  - name: "Asparagine N-linked glycosylation"
+    reactome_id: R-HSA-446203
+    type: Pathway
+  - name: "O-linked glycosylation"
+    reactome_id: R-HSA-5173105
+    type: Pathway
+  - name: SUMOylation
+    reactome_id: R-HSA-2990846
+    type: Pathway
+  - name: Deubiquitination
+    reactome_id: R-HSA-5688426
+    type: Pathway
+  - name: Protein ubiquitination
+    reactome_id: R-HSA-8852135
+    type: Pathway
+  - name: Proteasome assembly
+    reactome_id: R-HSA-9907900
+    type: Pathway
+  - name: RAB geranylgeranylation
+    reactome_id: R-HSA-8873719
+    type: Pathway
+  - name: Protein methylation
+    reactome_id: R-HSA-8876725
+    type: Pathway
+  - name: "Carboxyterminal post-translational modifications of tubulin"
+    reactome_id: R-HSA-8955332
+    type: Pathway
+  - name: Neddylation
+    reactome_id: R-HSA-8951664
+    type: Pathway
+  - name: "Post-translational protein phosphorylation"
+    reactome_id: R-HSA-8957275
+    type: Pathway
+  - name: Protein lipoylation
+    reactome_id: R-HSA-9857492
+    type: Pathway
+
+edges:

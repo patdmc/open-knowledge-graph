@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Add cake ingredients and birthday presents",
+    "operation": "add",
+    "operands": [
+      12,
+      43
+    ],
+    "result": 55,
+    "variable": "cake_and_presents"
+  },
+  {
+    "step": 2,
+    "description": "Add decorations to running total",
+    "operation": "add",
+    "operands": [
+      55,
+      15
+    ],
+    "result": 70,
+    "variable": "cake_presents_decorations"
+  },
+  {
+    "step": 3,
+    "description": "Add invitations to running total",
+    "operation": "add",
+    "operands": [
+      70,
+      4
+    ],
+    "result": 74,
+    "variable": "cake_presents_decorations_invitations"
+  },
+  {
+    "step": 4,
+    "description": "Add goodie bags to get total cost",
+    "operation": "add",
+    "operands": [
+      74,
+      22
+    ],
+    "result": 96,
+    "variable": "total_cost"
+  },
+  {
+    "step": 5,
+    "description": "Split total evenly among three people",
+    "operation": "divide",
+    "operands": [
+      96,
+      3
+    ],
+    "result": 32.0,
+    "variable": "each_person_pays"
+  }
+]

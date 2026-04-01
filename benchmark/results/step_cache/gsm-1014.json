@@ -1,0 +1,101 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 3 peaches",
+    "operation": "multiply",
+    "operands": [
+      3,
+      0.5
+    ],
+    "result": 1.5,
+    "variable": "peach_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 4 pears",
+    "operation": "multiply",
+    "operands": [
+      4,
+      0.5
+    ],
+    "result": 2.0,
+    "variable": "pear_cost"
+  },
+  {
+    "step": 3,
+    "description": "Cost of 2 kiwis",
+    "operation": "multiply",
+    "operands": [
+      2,
+      1.0
+    ],
+    "result": 2.0,
+    "variable": "kiwi_cost"
+  },
+  {
+    "step": 4,
+    "description": "Cost of 5 apples",
+    "operation": "multiply",
+    "operands": [
+      5,
+      0.75
+    ],
+    "result": 3.75,
+    "variable": "apple_cost"
+  },
+  {
+    "step": 5,
+    "description": "Peach + pear cost",
+    "operation": "add",
+    "operands": [
+      1.5,
+      2.0
+    ],
+    "result": 3.5,
+    "variable": "peach_pear_total"
+  },
+  {
+    "step": 6,
+    "description": "Add kiwi cost",
+    "operation": "add",
+    "operands": [
+      3.5,
+      2.0
+    ],
+    "result": 5.5,
+    "variable": "peach_pear_kiwi_total"
+  },
+  {
+    "step": 7,
+    "description": "Add apple cost to get total spent",
+    "operation": "add",
+    "operands": [
+      5.5,
+      3.75
+    ],
+    "result": 9.25,
+    "variable": "total_spent"
+  },
+  {
+    "step": 8,
+    "description": "Remaining money after purchases",
+    "operation": "subtract",
+    "operands": [
+      10.0,
+      9.25
+    ],
+    "result": 0.75,
+    "variable": "remaining"
+  },
+  {
+    "step": 9,
+    "description": "Number of plums at $0.25 each",
+    "operation": "divide",
+    "operands": [
+      0.75,
+      0.25
+    ],
+    "result": 3.0,
+    "variable": "plums_count"
+  }
+]

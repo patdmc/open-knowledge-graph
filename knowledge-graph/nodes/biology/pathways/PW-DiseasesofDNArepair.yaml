@@ -1,0 +1,29 @@
+id: PW-DiseasesofDNArepair
+type: knowledge
+domain: biology
+name: Diseases of DNA repair
+reactome_id: R-HSA-9675135
+
+description: Germline and somatic defects in genes that encode proteins that participate in DNA repair give rise to genetic instability that can lead to malignant transformation or trigger cellular senescence or apoptosis. Germline defects in DNA repair genes are an underlying cause of familial cancer syndromes and premature ageing syndromes. Somatic defects in DNA repair genes are frequently found in tumors.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases of Mismatch Repair (MMR)
+    reactome_id: R-HSA-5423599
+    type: Pathway
+  - name: Diseases of Base Excision Repair
+    reactome_id: R-HSA-9605308
+    type: Pathway
+  - name: "Diseases of DNA Double-Strand Break Repair"
+    reactome_id: R-HSA-9675136
+    type: Pathway
+
+edges:

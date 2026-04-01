@@ -1,0 +1,80 @@
+id: PW-Mitochondrialproteindegradatio
+type: knowledge
+domain: biology
+name: Mitochondrial protein degradation
+reactome_id: R-HSA-9837999
+
+description: Mitochondrial proteases participate in proteostasis, the regulation of proteins to maintain a functional proteome, by degrading unfolded, unassembled, and oxidatively damaged proteins (reviewed in Ng et al. 2021, Song et al. 2021).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PRKACA phosphorylates TFAM in the mitochondrial matrix
+    reactome_id: R-HSA-9838321
+    type: Reaction
+  - name: LONP1 binds mitochondrial matrix proteins
+    reactome_id: R-HSA-9838093
+    type: Reaction
+  - name: LONP1 degrades mitochondrial matrix proteins
+    reactome_id: R-HSA-9838081
+    type: BlackBoxEvent
+  - name: LONP1 binds mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9837978
+    type: Reaction
+  - name: LONP1 degrades mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9838004
+    type: BlackBoxEvent
+  - name: CLPXP binds mitochondrial matrix proteins
+    reactome_id: R-HSA-9838035
+    type: Reaction
+  - name: CLPXP degrades mitochondrial matrix proteins
+    reactome_id: R-HSA-9838289
+    type: BlackBoxEvent
+  - name: AFG3L2 binds mitochondrial matrix proteins
+    reactome_id: R-HSA-9839149
+    type: Reaction
+  - name: AFG3L2 degrades mitochondrial matrix proteins
+    reactome_id: R-HSA-9839105
+    type: BlackBoxEvent
+  - name: AFG3L2 binds mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9838627
+    type: Reaction
+  - name: AFG3L2 degrades mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9839113
+    type: BlackBoxEvent
+  - name: "AFG3L2:SPG7 binds SMDT1 (EMRE)"
+    reactome_id: R-HSA-9839053
+    type: Reaction
+  - name: "AFG3L2:SPG7 degrades SMDT1 (EMRE)"
+    reactome_id: R-HSA-9839059
+    type: BlackBoxEvent
+  - name: YME1L1 binds mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9839064
+    type: Reaction
+  - name: YME1L1 degrades mitochondrial inner membrane proteins
+    reactome_id: R-HSA-9839146
+    type: BlackBoxEvent
+  - name: YME1L1 binds mitochondrial intermembrane space proteins
+    reactome_id: R-HSA-9839772
+    type: Reaction
+  - name: YME1L1 degrades mitochondrial intermembrane space proteins
+    reactome_id: R-HSA-9839751
+    type: BlackBoxEvent
+  - name: "HTRA2 binds NDUFA13 (GRIM-19)"
+    reactome_id: R-HSA-9839073
+    type: Reaction
+  - name: "HTRA2 degrades NDUFA13 (GRIM-19)"
+    reactome_id: R-HSA-9839110
+    type: BlackBoxEvent
+  - name: "HTRA2 degrades APP (Amyloid-beta precursor protein)"
+    reactome_id: R-HSA-9839072
+    type: BlackBoxEvent
+
+edges:

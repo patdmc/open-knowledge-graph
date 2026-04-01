@@ -1,0 +1,88 @@
+id: PR08-spectral-theorem
+type: proof
+domain: algebra
+name: "Spectral Theorem for Real Symmetric Matrices"
+target:
+  statement: "A = A^T \\implies A = Q \\Lambda Q^T \\text{ where } Q \\text{ orthogonal, } \\Lambda \\text{ diagonal real}"
+  type: theorem
+method: induction
+
+assertions:
+  - step: 1
+    id: eigenvalue-exists
+    type: lemma
+    statement: "\\text{Every real symmetric matrix has at least one real eigenvalue}"
+    justification: >
+      characteristic polynomial has real coefficients and odd degree for odd n.
+      For even n: A symmetric => <Ax,x> is real for all x, and by compactness of unit sphere,
+      max and min of <Ax,x>/||x||^2 are attained — these are eigenvalues.
+    depends_on: []
+    references: [eigenvalues]
+
+  - step: 2
+    id: real-eigenvector
+    type: claim
+    statement: "\\exists \\lambda_1 \\in \\mathbb{R}, \\; v_1 \\in \\mathbb{R}^n : Av_1 = \\lambda_1 v_1, \\; \\|v_1\\| = 1"
+    justification: "eigenvalue-exists gives real lambda; corresponding eigenvector can be chosen real and normalized"
+    depends_on: [eigenvalue-exists]
+
+  - step: 3
+    id: orthogonal-complement
+    type: claim
+    statement: "W = v_1^\\perp \\text{ is invariant under } A"
+    justification: >
+      for w in W: <Aw, v1> = <w, A^T v1> = <w, Av1> = <w, lambda_1 v1> = lambda_1 <w, v1> = 0.
+      So Aw is in W.
+    depends_on: [real-eigenvector]
+    references: [orthogonal, transpose]
+
+  - step: 4
+    id: restriction
+    type: claim
+    statement: "A|_W : W \\to W \\text{ is symmetric and } (n-1) \\times (n-1)"
+    justification: "restriction of symmetric operator to invariant subspace is symmetric; dim(W) = n-1"
+    depends_on: [orthogonal-complement]
+
+  - step: 5
+    id: induction-hypothesis
+    type: hypothesis
+    statement: "\\text{Assume spectral theorem holds for } (n-1) \\times (n-1) \\text{ symmetric matrices}"
+    justification: "induction hypothesis"
+    depends_on: []
+
+  - step: 6
+    id: apply-induction
+    type: claim
+    statement: "A|_W = Q' \\Lambda' Q'^T \\text{ where } Q' \\text{ is } (n-1) \\times (n-1) \\text{ orthogonal}"
+    justification: "apply induction hypothesis to the restriction"
+    depends_on: [restriction, induction-hypothesis]
+
+  - step: 7
+    id: assemble
+    type: claim
+    statement: "Q = [v_1 | Q'_{\\text{extended}}], \\quad \\Lambda = \\text{diag}(\\lambda_1, \\Lambda')"
+    justification: "extend Q' by prepending v1 as first column; Q is orthogonal by construction"
+    depends_on: [real-eigenvector, apply-induction]
+
+  - step: 8
+    id: base-case
+    type: claim
+    statement: "\\text{Base case } n=1: A = [a] = [1][a][1] \\text{ trivially}"
+    justification: "1x1 matrix is already diagonal"
+    depends_on: []
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "A = Q \\Lambda Q^T, \\quad Q^T Q = I, \\quad \\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_n)"
+    justification: "by strong induction from base case n=1 using orthogonal complement decomposition"
+    depends_on: [base-case, assemble]
+    references: [spectral_theorem, eigenvalues, eigenvectors]
+
+qed: true
+
+edges:
+  - to: A04-linear-algebra-advanced
+    relation: PROVES_FROM
+  - to: A02-linear-algebra
+    relation: PROVES_FROM

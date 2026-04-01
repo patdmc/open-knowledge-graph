@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cards from dad's boxes",
+    "operation": "multiply",
+    "operands": [
+      2,
+      15
+    ],
+    "result": 30,
+    "variable": "box_cards"
+  },
+  {
+    "step": 2,
+    "description": "Total cards Erica started with",
+    "operation": "add",
+    "operands": [
+      20,
+      30
+    ],
+    "result": 50,
+    "variable": "total_cards"
+  },
+  {
+    "step": 3,
+    "description": "Total cards passed out",
+    "operation": "add",
+    "operands": [
+      24,
+      5
+    ],
+    "result": 29,
+    "variable": "cards_given"
+  },
+  {
+    "step": 4,
+    "description": "Cards remaining after passing out",
+    "operation": "subtract",
+    "operands": [
+      50,
+      29
+    ],
+    "result": 21,
+    "variable": "cards_remaining"
+  },
+  {
+    "step": 5,
+    "description": "Final count after receiving cards",
+    "operation": "add",
+    "operands": [
+      21,
+      17
+    ],
+    "result": 38,
+    "variable": "final_cards"
+  }
+]

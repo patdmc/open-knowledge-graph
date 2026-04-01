@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate girlfriend's daily consumption (half of Steve's)",
+    "operation": "divide",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 3,
+    "variable": "girlfriend_per_day"
+  },
+  {
+    "step": 2,
+    "description": "Total tomatoes consumed per day",
+    "operation": "add",
+    "operands": [
+      6,
+      3
+    ],
+    "result": 9,
+    "variable": "total_per_day"
+  },
+  {
+    "step": 3,
+    "description": "Total tomatoes consumed per week",
+    "operation": "multiply",
+    "operands": [
+      9,
+      7
+    ],
+    "result": 63,
+    "variable": "total_per_week"
+  },
+  {
+    "step": 4,
+    "description": "Number of vines needed",
+    "operation": "divide",
+    "operands": [
+      63,
+      3
+    ],
+    "result": 21,
+    "variable": "vines_needed"
+  }
+]

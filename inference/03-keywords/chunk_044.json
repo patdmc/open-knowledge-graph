@@ -1,0 +1,59 @@
+{
+  "chunk_index": 44,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "2. The Formal Framework > 2.2 Equivalency Classes",
+  "section_path": [
+    "2. The Formal Framework",
+    "2.2 Equivalency Classes"
+  ],
+  "char_count": 4490,
+  "keyphrases": [
+    {
+      "phrase": "definition equivalency class",
+      "score": 0.7622
+    },
+    {
+      "phrase": "equivalency class math",
+      "score": 0.7048
+    },
+    {
+      "phrase": "equivalency classes admit",
+      "score": 0.6857
+    },
+    {
+      "phrase": "equivalency classes cross",
+      "score": 0.678
+    },
+    {
+      "phrase": "translation equivalency classes",
+      "score": 0.6127
+    },
+    {
+      "phrase": "conceptual equivalence math",
+      "score": 0.5926
+    },
+    {
+      "phrase": "math distinct frameworks",
+      "score": 0.5063
+    },
+    {
+      "phrase": "different levels abstraction",
+      "score": 0.406
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 4 (Equivalency Class).",
+      "Remark (Levels of equivalence).",
+      "Theorem (Decomposition).",
+      "Contradiction",
+      "Corollary (Peer review insufficiency).",
+      "Proposition (Emergent knowledge)."
+    ],
+    "has_math": true
+  }
+}

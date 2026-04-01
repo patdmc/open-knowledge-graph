@@ -1,0 +1,29 @@
+id: PW-CiliumAssembly
+type: knowledge
+domain: biology
+name: Cilium Assembly
+reactome_id: R-HSA-5617833
+
+description: "Cilia are membrane-covered organelles that extend from the surface of eukaryotic cells. Cilia may be motile, such as respiratory cilia) or non-motile (such as the primary cilium) and are distinguished by the structure of their microtubule-based axonemes. The axoneme consists of nine peripheral doublet microtubules, and in the case of many motile cilia, may also contain a pair of central single microtubules."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Anchoring of the basal body to the plasma membrane
+    reactome_id: R-HSA-5620912
+    type: Pathway
+  - name: Cargo trafficking to the periciliary membrane
+    reactome_id: R-HSA-5620920
+    type: Pathway
+  - name: Intraflagellar transport
+    reactome_id: R-HSA-5620924
+    type: Pathway
+
+edges:

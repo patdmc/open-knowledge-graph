@@ -1,0 +1,101 @@
+{
+  "class_id": "EC02",
+  "label": "escalation-principle-social",
+  "n_chunks": 10,
+  "representative": {
+    "chunk_index": 10,
+    "section_title": "5. The Escalation Principle > [part 2/10]",
+    "similarity": 0.8505
+  },
+  "top_chunks": [
+    {
+      "chunk_index": 10,
+      "section_title": "5. The Escalation Principle > [part 2/10]",
+      "similarity": 0.8505,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 12,
+      "section_title": "5. The Escalation Principle > [part 4/10]",
+      "similarity": 0.8413,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex"
+    },
+    {
+      "chunk_index": 48,
+      "section_title": "3. Knowledge Graph Schema > 4.1 The Target Theory",
+      "similarity": 0.7771,
+      "source": "CONFIDENCE_CHAIN_PAPER.tex"
+    }
+  ],
+  "top_keyphrases": [
+    {
+      "phrase": "fep theorist argue",
+      "score": 0.6531
+    },
+    {
+      "phrase": "context capacity inference",
+      "score": 0.6081
+    },
+    {
+      "phrase": "graph structure self",
+      "score": 0.584
+    },
+    {
+      "phrase": "knowledge substrate",
+      "score": 0.5481
+    },
+    {
+      "phrase": "fep precision allocation",
+      "score": 0.5398
+    },
+    {
+      "phrase": "architecture fep describes",
+      "score": 0.5382
+    },
+    {
+      "phrase": "structured knowledge efficient",
+      "score": 0.5226
+    },
+    {
+      "phrase": "action space knowledge",
+      "score": 0.5219
+    },
+    {
+      "phrase": "knowledge graph individual",
+      "score": 0.5218
+    },
+    {
+      "phrase": "target theory uncertainty",
+      "score": 0.5166
+    }
+  ],
+  "theorems": [],
+  "definitions": [],
+  "claims": [],
+  "citations": [],
+  "bold_claims": [
+    "NV01 (Graph structure is necessary, not sufficient)",
+    "NV02 (\\(M < N\\) formal mechanical derivation)",
+    "NV03 (Agency as engagement probability; the \\(\\mathcal{A",
+    "NV04 (Intersection formally accelerates \\(M \\to N\\))",
+    "NV05 (Higher-order sentience is derived, not axiomatic)",
+    "EM01: Schmidhuber's formal agent is UB with\n\\(\\mathcal{A",
+    "EM02: FEP's equilibrium claim requires the \\(M < N\\)\nstationarity qualification",
+    "Confirmation of the intersection prediction",
+    "driven capacity to\nimprove",
+    "Definition 8a (Active Context Capacity and Inference Quality).",
+    "inference quality",
+    "Definition 8b (Delegation Overhead).",
+    "Theorem 2a (Top-Down Allocation Degrades Inference Quality).",
+    "Theorem 2b (Graph-Structured Knowledge Bounds Active Context).",
+    "Part 4 (\\(C_n\\) stays bounded)."
+  ],
+  "bridge_chunks": [
+    0,
+    10,
+    12,
+    16,
+    33,
+    48
+  ]
+}

@@ -1,0 +1,181 @@
+id: lang:clusters:arithmetic
+type: language
+domain: word_clusters
+name: "Arithmetic Word Clusters"
+description: >
+  Word clusters for arithmetic word problems. Each cluster is a set of
+  words/phrases that all denote the same concept. The words are language.
+  The concept they point to is real (math, units, physics).
+
+  Architecture: word → cluster → concept (DENOTES)
+  This is O(n) edges, not O(n^2) pairwise synonymy.
+
+clusters:
+
+  # --- Complement / remainder ---
+  - id: remainder_words
+    words: ["the rest", "remaining", "left", "left over", "not", "other", "otherwise"]
+    denotes: math:arithmetic:derived_operations/complement
+    relation: DENOTES
+    examples:
+      - "she sells the rest" → complement of what was consumed
+      - "the remaining students" → total - known_students
+      - "how many are left" → total - removed
+
+  # --- Rate indicators ---
+  - id: rate_words
+    words: ["per", "each", "every", "for every", "for each", "a", "an"]
+    denotes: math:arithmetic:derived_operations/rate
+    relation: DENOTES
+    note: "'a' and 'an' as rate indicators: '$5 a pound', '3 miles an hour'"
+    examples:
+      - "3 beetles per bird" → rate = 3 beetles/bird
+      - "$5 each" → rate = $5/item
+      - "every week" → rate denominator = week
+
+  # --- Round trip ---
+  - id: round_trip_words
+    words: ["to and from", "back and forth", "round trip", "there and back", "both ways"]
+    denotes: math:arithmetic:derived_operations/round_trip
+    relation: DENOTES
+    examples:
+      - "walks to and from school" → distance * 2
+      - "the round trip takes" → one_way * 2
+
+  # --- Frequency ---
+  - id: frequency_words
+    words: ["times a", "times per", "times each", "days a week", "hours a day"]
+    denotes: math:arithmetic:derived_operations/frequency_multiplier
+    relation: DENOTES
+    note: "the number before the phrase is the multiplier"
+    examples:
+      - "3 times a week" → * 3 per week
+      - "works 6 days a week" → * 6 per week
+
+  # --- Fraction of reference ---
+  - id: fraction_words
+    words: ["half", "a third", "a quarter", "a fifth", "one-half", "one-third", "one-quarter"]
+    values:
+      half: 0.5
+      "a third": 0.333333
+      "one-third": 0.333333
+      "a quarter": 0.25
+      "one-quarter": 0.25
+      "a fifth": 0.2
+    denotes: N01-arithmetic-operators/multiplication
+    relation: DENOTES
+    note: "'half of X' = X * 0.5 — the fraction IS the multiplier"
+
+  # --- Multiplier words ---
+  - id: multiplier_words
+    words: ["twice", "double", "triple", "thrice", "quadruple"]
+    values:
+      twice: 2
+      double: 2
+      triple: 3
+      thrice: 3
+      quadruple: 4
+    denotes: N01-arithmetic-operators/multiplication
+    relation: DENOTES
+
+  # --- Dozen ---
+  - id: dozen_words
+    words: ["dozen", "a dozen", "two dozen", "three dozen", "half a dozen"]
+    values:
+      dozen: 12
+      "a dozen": 12
+      "two dozen": 24
+      "three dozen": 36
+      "half a dozen": 6
+    denotes: N01-arithmetic-operators/multiplication
+    relation: DENOTES
+    note: "dozen is a named quantity — 'a dozen eggs' = 12 eggs"
+
+  # --- Percent change direction ---
+  - id: percent_increase_words
+    words: ["more", "increase", "increased", "raise", "raised", "markup", "tax", "tip", "surcharge", "extra", "additional", "higher"]
+    denotes: math:arithmetic:derived_operations/percent_change
+    direction: increase
+    relation: DENOTES
+
+  - id: percent_decrease_words
+    words: ["less", "decrease", "decreased", "discount", "off", "cheaper", "lower", "save", "reduction", "sale"]
+    denotes: math:arithmetic:derived_operations/percent_change
+    direction: decrease
+    relation: DENOTES
+
+  # --- Comparative relationships ---
+  - id: comparative_more_words
+    words: ["more than", "greater than", "older than", "taller than", "heavier than", "longer than", "faster than"]
+    denotes: N01-arithmetic-operators/addition
+    relation: DENOTES
+    pattern: "subject = reference + N"
+    note: "N [more_word] than reference → subject = reference + N"
+
+  - id: comparative_less_words
+    words: ["fewer than", "less than", "younger than", "shorter than", "lighter than", "slower than"]
+    denotes: N01-arithmetic-operators/subtraction
+    relation: DENOTES
+    pattern: "subject = reference - N"
+
+  - id: comparative_times_words
+    words: ["times as many", "times as much", "times more", "times the"]
+    denotes: N01-arithmetic-operators/multiplication
+    relation: DENOTES
+    pattern: "subject = reference * N"
+
+  # --- Back-references ---
+  - id: backreference_words
+    words: ["the same", "that rate", "this ratio", "the same price", "that amount", "the same number"]
+    denotes: null
+    relation: BACK_REFERENCE
+    note: "these point to a previously established relationship, not a number — resolution requires traversing prior context"
+
+  # --- Ordinal references ---
+  - id: ordinal_words
+    words: ["first", "second", "third", "fourth", "fifth", "last", "next", "previous", "former", "latter"]
+    denotes: null
+    relation: ORDINAL_REFERENCE
+    note: "maps to Nth item in introduction order — resolution requires entity tracking"
+
+  # --- Sequential remainder ---
+  - id: sequential_remainder_words
+    words: ["of the rest", "of the remainder", "of the remaining", "of what was left", "of what's left"]
+    denotes: math:arithmetic:derived_operations/sequential_fraction
+    relation: DENOTES
+    note: "signals that the fraction applies to remainder, not original"
+
+  # --- Partition ---
+  - id: partition_words
+    words: ["first", "thereafter", "after that", "the rest at", "remaining at", "for the next"]
+    denotes: math:arithmetic:derived_operations/threshold_partition
+    relation: DENOTES
+    note: "context-dependent — 'first' here means threshold boundary, not ordinal"
+
+  # --- Ceiling division ---
+  - id: container_words
+    words: ["packs of", "groups of", "boxes of", "bags of", "cartons of", "bundles of", "sets of", "rows of", "tables of"]
+    denotes: math:arithmetic:derived_operations/ceiling_division
+    relation: DENOTES
+    note: "when the question asks 'how many [containers]', partial containers round up"
+
+  # --- Area ---
+  - id: area_words
+    words: ["by", "x"]
+    denotes: null
+    relation: DENOTES
+    pattern: "N by M → area = N * M"
+    note: "only when used between two measurements with spatial units"
+    context_required: "spatial units (feet, inches, meters, etc.)"
+
+edges:
+  - to: math:arithmetic:derived_operations
+    relation: DENOTES
+    note: "language clusters bridge to math concepts"
+  - to: math:units:time
+    relation: DENOTES
+    note: "unit words bridge to unit nodes"
+  - to: math:units:length
+    relation: DENOTES
+  - to: math:units:volume_mass
+    relation: DENOTES

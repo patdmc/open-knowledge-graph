@@ -1,0 +1,29 @@
+id: PW-CellCycleCheckpoints
+type: knowledge
+domain: biology
+name: Cell Cycle Checkpoints
+reactome_id: R-HSA-69620
+
+description: A hallmark of the human cell cycle in normal somatic cells is its precision. This remarkable fidelity is achieved by a number of signal transduction pathways, known as checkpoints, which monitor cell cycle progression ensuring an interdependency of S phase and mitosis, the integrity of the genome and the fidelity of chromosome segregation (reviewed in Shackelford et al. 1999, Panagopoulos and Altmeyer 2021, Tyson and Novak 2022).Checkpoints are layers of control that act to delay CDK activation when defects in the division program occur.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: G1/S DNA Damage Checkpoints
+    reactome_id: R-HSA-69615
+    type: Pathway
+  - name: G2/M Checkpoints
+    reactome_id: R-HSA-69481
+    type: Pathway
+  - name: Mitotic Spindle Checkpoint
+    reactome_id: R-HSA-69618
+    type: Pathway
+
+edges:

@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "subtract work emails from total",
+    "operation": "subtract",
+    "operands": [
+      16,
+      7
+    ],
+    "result": 9,
+    "variable": "remainder after work emails"
+  },
+  {
+    "step": 2,
+    "description": "two-thirds of remainder go to family",
+    "operation": "multiply",
+    "operands": [
+      9,
+      0.6667
+    ],
+    "result": 6,
+    "variable": "emails to family"
+  },
+  {
+    "step": 3,
+    "description": "subtract family emails from remainder",
+    "operation": "subtract",
+    "operands": [
+      9,
+      6
+    ],
+    "result": 3,
+    "variable": "other emails"
+  },
+  {
+    "step": 4,
+    "description": "one-third of other emails go to boyfriend",
+    "operation": "multiply",
+    "operands": [
+      3,
+      0.3333
+    ],
+    "result": 1.0,
+    "variable": "emails to boyfriend"
+  }
+]

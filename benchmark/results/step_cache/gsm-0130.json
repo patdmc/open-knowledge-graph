@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate how many elves quit after vomit incidents",
+    "operation": "divide",
+    "operands": [
+      60,
+      3
+    ],
+    "result": 20,
+    "variable": "elves_quit_vomit"
+  },
+  {
+    "step": 2,
+    "description": "Calculate remaining elves after first wave of quitting",
+    "operation": "subtract",
+    "operands": [
+      60,
+      20
+    ],
+    "result": 40,
+    "variable": "elves_after_vomit"
+  },
+  {
+    "step": 3,
+    "description": "Calculate remaining elves after shin-kicking quitters",
+    "operation": "subtract",
+    "operands": [
+      40,
+      10
+    ],
+    "result": 30,
+    "variable": "elves_remaining"
+  }
+]

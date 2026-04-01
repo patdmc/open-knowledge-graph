@@ -1,0 +1,61 @@
+id: CT-UCEC
+type: knowledge
+domain: cancer_biology
+name: "Endometrial Cancer"
+
+n_patients: 2189
+n_mutated: 2163
+mutation_rate: 0.9881
+channel_entropy: 2.0583
+hub_fraction: 0.4442
+median_os_months: 17.5560
+event_rate: 0.2672
+survival_36m: 0.1864
+mean_channels_per_patient: 2.5576
+top_gene: PTEN
+top_gene_frequency: 0.0996
+n_harmful_mutations: 7
+n_protective_mutations: 80
+dominant_channels: [CHAN-PI3K_Growth, CHAN-DDR]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=2189)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Endometrial Cancer"
+  - to: CHAN-DDR
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Endometrial Cancer"
+  - to: GENE-PTEN
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "PTEN mutated in 0.0996 of Endometrial Cancer patients"
+

@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "dozens of cookies needed today",
+    "operation": "divide",
+    "operands": [
+      36,
+      12
+    ],
+    "result": 3,
+    "variable": "dozens_today"
+  },
+  {
+    "step": 2,
+    "description": "dozens of cookies needed tomorrow",
+    "operation": "divide",
+    "operands": [
+      30,
+      12
+    ],
+    "result": 2.5,
+    "variable": "dozens_tomorrow"
+  },
+  {
+    "step": 3,
+    "description": "cups of flour needed today",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "cups_today"
+  },
+  {
+    "step": 4,
+    "description": "cups of flour needed tomorrow",
+    "operation": "multiply",
+    "operands": [
+      2.5,
+      2
+    ],
+    "result": 5,
+    "variable": "cups_tomorrow"
+  },
+  {
+    "step": 5,
+    "description": "total cups of flour needed",
+    "operation": "add",
+    "operands": [
+      6,
+      5
+    ],
+    "result": 11.0,
+    "variable": "total_cups"
+  }
+]

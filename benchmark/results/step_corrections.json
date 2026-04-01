@@ -1,0 +1,2646 @@
+[
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "total extra students across the two larger groups",
+      "operation": "multiply",
+      "operands": [
+        2,
+        10
+      ],
+      "result": 20,
+      "variable": "total_extra"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "subtract extra to make all three groups equal",
+      "operation": "subtract",
+      "operands": [
+        200,
+        20
+      ],
+      "result": 180,
+      "variable": "adjusted_total"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "divide equally among 3 groups to find smallest group size",
+      "operation": "divide",
+      "operands": [
+        180,
+        3
+      ],
+      "result": 60,
+      "variable": "smallest_group"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "total extra students across the two larger groups",
+      "operation": "multiply",
+      "operands": [
+        2,
+        10
+      ],
+      "result": 20,
+      "variable": "total_extra"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "subtract extra to make all three groups equal",
+      "operation": "subtract",
+      "operands": [
+        200,
+        20
+      ],
+      "result": 180,
+      "variable": "adjusted_total"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "additive_rel",
+    "problem_id": "gsm-0338",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "divide equally among 3 groups to find smallest group size",
+      "operation": "divide",
+      "operands": [
+        180,
+        3
+      ],
+      "result": 60,
+      "variable": "smallest_group"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "cost of all baseballs",
+      "operation": "multiply",
+      "operands": [
+        9,
+        3
+      ],
+      "result": 27,
+      "variable": "baseballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "cost of all basketballs",
+      "operation": "multiply",
+      "operands": [
+        8,
+        14
+      ],
+      "result": 112,
+      "variable": "basketballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "difference in spending",
+      "operation": "subtract",
+      "operands": [
+        112,
+        27
+      ],
+      "result": 85.0,
+      "variable": "difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "cost of all baseballs",
+      "operation": "multiply",
+      "operands": [
+        9,
+        3
+      ],
+      "result": 27,
+      "variable": "baseballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "cost of all basketballs",
+      "operation": "multiply",
+      "operands": [
+        8,
+        14
+      ],
+      "result": 112,
+      "variable": "basketballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "difference in spending",
+      "operation": "subtract",
+      "operands": [
+        112,
+        27
+      ],
+      "result": 85.0,
+      "variable": "difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "cost of all baseballs",
+      "operation": "multiply",
+      "operands": [
+        9,
+        3
+      ],
+      "result": 27,
+      "variable": "baseballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "cost of all basketballs",
+      "operation": "multiply",
+      "operands": [
+        8,
+        14
+      ],
+      "result": 112,
+      "variable": "basketballs_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "comparison",
+    "problem_id": "gsm-0624",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "difference in spending",
+      "operation": "subtract",
+      "operands": [
+        112,
+        27
+      ],
+      "result": 85.0,
+      "variable": "difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "fraction_of_whole",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multi_entity",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 1,
+      "description": "Jan's age two years ago",
+      "operation": "subtract",
+      "operands": [
+        30,
+        2
+      ],
+      "result": 28,
+      "variable": "jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 2,
+      "description": "Half of Jan's age two years ago",
+      "operation": "divide",
+      "operands": [
+        28,
+        2
+      ],
+      "result": 14,
+      "variable": "half_jan_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 3,
+      "description": "Mark's age two years ago (5 older than half Jan's age)",
+      "operation": "add",
+      "operands": [
+        14,
+        5
+      ],
+      "result": 19,
+      "variable": "mark_age_two_years_ago"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 4,
+      "description": "Mark's current age",
+      "operation": "add",
+      "operands": [
+        19,
+        2
+      ],
+      "result": 21,
+      "variable": "mark_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "multiplicative_rel",
+    "problem_id": "gsm-0182",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 5,
+      "description": "Jean's current age (two years older than Mark)",
+      "operation": "add",
+      "operands": [
+        21,
+        2
+      ],
+      "result": 23,
+      "variable": "jean_current_age"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 2,
+      "description": "Clara's final cost after $2 voucher",
+      "operation": "subtract",
+      "operands": [
+        400,
+        2
+      ],
+      "result": 398,
+      "variable": "clara_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 3,
+      "description": "Sheila's base cost before discount",
+      "operation": "multiply",
+      "operands": [
+        20,
+        30
+      ],
+      "result": 600,
+      "variable": "sheila_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 4,
+      "description": "Sheila's 10% discount amount",
+      "operation": "multiply",
+      "operands": [
+        600,
+        0.1
+      ],
+      "result": 60,
+      "variable": "sheila_discount"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 5,
+      "description": "Sheila's final cost after discount",
+      "operation": "subtract",
+      "operands": [
+        600,
+        60
+      ],
+      "result": 540,
+      "variable": "sheila_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 6,
+      "description": "Difference between the two final prices",
+      "operation": "subtract",
+      "operands": [
+        540,
+        398
+      ],
+      "result": 142.0,
+      "variable": "price_difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Clara's base cost before voucher",
+      "operation": "multiply",
+      "operands": [
+        20,
+        20
+      ],
+      "result": 400,
+      "variable": "clara_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Clara's final cost after $2 voucher",
+      "operation": "subtract",
+      "operands": [
+        400,
+        2
+      ],
+      "result": 398,
+      "variable": "clara_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Sheila's base cost before discount",
+      "operation": "multiply",
+      "operands": [
+        20,
+        30
+      ],
+      "result": 600,
+      "variable": "sheila_base_cost"
+    },
+    "partial": "wrong_op:add_should_be_multiply",
+    "our_step": {
+      "step": 2,
+      "operation": "add",
+      "operands": [
+        30.0,
+        20.0
+      ],
+      "result": 50.0
+    }
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 4,
+      "description": "Sheila's 10% discount amount",
+      "operation": "multiply",
+      "operands": [
+        600,
+        0.1
+      ],
+      "result": 60,
+      "variable": "sheila_discount"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 5,
+      "description": "Sheila's final cost after discount",
+      "operation": "subtract",
+      "operands": [
+        600,
+        60
+      ],
+      "result": 540,
+      "variable": "sheila_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 6,
+      "description": "Difference between the two final prices",
+      "operation": "subtract",
+      "operands": [
+        540,
+        398
+      ],
+      "result": 142.0,
+      "variable": "price_difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Clara's final cost after $2 voucher",
+      "operation": "subtract",
+      "operands": [
+        400,
+        2
+      ],
+      "result": 398,
+      "variable": "clara_final_cost"
+    },
+    "partial": "wrong_op:add_should_be_subtract",
+    "our_step": {
+      "step": 2,
+      "operation": "add",
+      "operands": [
+        400.0,
+        2.0
+      ],
+      "result": 402.0
+    }
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Sheila's base cost before discount",
+      "operation": "multiply",
+      "operands": [
+        20,
+        30
+      ],
+      "result": 600,
+      "variable": "sheila_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 4,
+      "description": "Sheila's 10% discount amount",
+      "operation": "multiply",
+      "operands": [
+        600,
+        0.1
+      ],
+      "result": 60,
+      "variable": "sheila_discount"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 5,
+      "description": "Sheila's final cost after discount",
+      "operation": "subtract",
+      "operands": [
+        600,
+        60
+      ],
+      "result": 540,
+      "variable": "sheila_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 6,
+      "description": "Difference between the two final prices",
+      "operation": "subtract",
+      "operands": [
+        540,
+        398
+      ],
+      "result": 142.0,
+      "variable": "price_difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Clara's base cost before voucher",
+      "operation": "multiply",
+      "operands": [
+        20,
+        20
+      ],
+      "result": 400,
+      "variable": "clara_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Clara's final cost after $2 voucher",
+      "operation": "subtract",
+      "operands": [
+        400,
+        2
+      ],
+      "result": 398,
+      "variable": "clara_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Sheila's base cost before discount",
+      "operation": "multiply",
+      "operands": [
+        20,
+        30
+      ],
+      "result": 600,
+      "variable": "sheila_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 4,
+      "description": "Sheila's 10% discount amount",
+      "operation": "multiply",
+      "operands": [
+        600,
+        0.1
+      ],
+      "result": 60,
+      "variable": "sheila_discount"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 5,
+      "description": "Sheila's final cost after discount",
+      "operation": "subtract",
+      "operands": [
+        600,
+        60
+      ],
+      "result": 540,
+      "variable": "sheila_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 6,
+      "description": "Difference between the two final prices",
+      "operation": "subtract",
+      "operands": [
+        540,
+        398
+      ],
+      "result": 142.0,
+      "variable": "price_difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 1,
+      "description": "Clara's base cost before voucher",
+      "operation": "multiply",
+      "operands": [
+        20,
+        20
+      ],
+      "result": 400,
+      "variable": "clara_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 2,
+      "description": "Clara's final cost after $2 voucher",
+      "operation": "subtract",
+      "operands": [
+        400,
+        2
+      ],
+      "result": 398,
+      "variable": "clara_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 3,
+      "description": "Sheila's base cost before discount",
+      "operation": "multiply",
+      "operands": [
+        20,
+        30
+      ],
+      "result": 600,
+      "variable": "sheila_base_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 4,
+      "description": "Sheila's 10% discount amount",
+      "operation": "multiply",
+      "operands": [
+        600,
+        0.1
+      ],
+      "result": 60,
+      "variable": "sheila_discount"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 5,
+      "description": "Sheila's final cost after discount",
+      "operation": "subtract",
+      "operands": [
+        600,
+        60
+      ],
+      "result": 540,
+      "variable": "sheila_final_cost"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "percentage",
+    "problem_id": "gsm-0650",
+    "solver": "percentage",
+    "correct_step": {
+      "step": 6,
+      "description": "Difference between the two final prices",
+      "operation": "subtract",
+      "operands": [
+        540,
+        398
+      ],
+      "result": 142.0,
+      "variable": "price_difference"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Add monkey and gorilla monthly bananas",
+      "operation": "add",
+      "operands": [
+        200,
+        400
+      ],
+      "result": 600,
+      "variable": "monkey_gorilla_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Add baboon monthly bananas to get total monthly",
+      "operation": "add",
+      "operands": [
+        600,
+        100
+      ],
+      "result": 700,
+      "variable": "total_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Multiply total monthly by 2 months",
+      "operation": "multiply",
+      "operands": [
+        700,
+        2
+      ],
+      "result": 1400,
+      "variable": "total_bananas_ordered"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Add monkey and gorilla monthly bananas",
+      "operation": "add",
+      "operands": [
+        200,
+        400
+      ],
+      "result": 600,
+      "variable": "monkey_gorilla_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Add baboon monthly bananas to get total monthly",
+      "operation": "add",
+      "operands": [
+        600,
+        100
+      ],
+      "result": 700,
+      "variable": "total_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Multiply total monthly by 2 months",
+      "operation": "multiply",
+      "operands": [
+        700,
+        2
+      ],
+      "result": 1400,
+      "variable": "total_bananas_ordered"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Add monkey and gorilla monthly bananas",
+      "operation": "add",
+      "operands": [
+        200,
+        400
+      ],
+      "result": 600,
+      "variable": "monkey_gorilla_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Add baboon monthly bananas to get total monthly",
+      "operation": "add",
+      "operands": [
+        600,
+        100
+      ],
+      "result": 700,
+      "variable": "total_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Multiply total monthly by 2 months",
+      "operation": "multiply",
+      "operands": [
+        700,
+        2
+      ],
+      "result": 1400,
+      "variable": "total_bananas_ordered"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "entity_props",
+    "correct_step": {
+      "step": 1,
+      "description": "Add monkey and gorilla monthly bananas",
+      "operation": "add",
+      "operands": [
+        200,
+        400
+      ],
+      "result": 600,
+      "variable": "monkey_gorilla_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "rate_chain",
+    "problem_id": "gsm-0156",
+    "solver": "entity_props",
+    "correct_step": {
+      "step": 2,
+      "description": "Add baboon monthly bananas to get total monthly",
+      "operation": "add",
+      "operands": [
+        600,
+        100
+      ],
+      "result": 700,
+      "variable": "total_monthly"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Calculate combined capacity of Gissela and Gordy",
+      "operation": "add",
+      "operands": [
+        4000,
+        4800
+      ],
+      "result": 8800,
+      "variable": "gissela_gordy_combined"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Calculate Gary's truck capacity by subtracting known capacities from total",
+      "operation": "subtract",
+      "operands": [
+        11600,
+        8800
+      ],
+      "result": 2800,
+      "variable": "gary_capacity"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Calculate Gordy's truck capacity",
+      "operation": "add",
+      "operands": [
+        4000,
+        800
+      ],
+      "result": 4800,
+      "variable": "gordy_capacity"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Calculate combined capacity of Gissela and Gordy",
+      "operation": "add",
+      "operands": [
+        4000,
+        4800
+      ],
+      "result": 8800,
+      "variable": "gissela_gordy_combined"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Calculate Gary's truck capacity by subtracting known capacities from total",
+      "operation": "subtract",
+      "operands": [
+        11600,
+        8800
+      ],
+      "result": 2800,
+      "variable": "gary_capacity"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 1,
+      "description": "Calculate Gordy's truck capacity",
+      "operation": "add",
+      "operands": [
+        4000,
+        800
+      ],
+      "result": 4800,
+      "variable": "gordy_capacity"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 2,
+      "description": "Calculate combined capacity of Gissela and Gordy",
+      "operation": "add",
+      "operands": [
+        4000,
+        4800
+      ],
+      "result": 8800,
+      "variable": "gissela_gordy_combined"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "system_of_equations",
+    "problem_id": "gsm-0702",
+    "solver": "algebra",
+    "correct_step": {
+      "step": 3,
+      "description": "Calculate Gary's truck capacity by subtracting known capacities from total",
+      "operation": "subtract",
+      "operands": [
+        11600,
+        8800
+      ],
+      "result": 2800,
+      "variable": "gary_capacity"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 1,
+      "description": "Number of 3-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        3
+      ],
+      "result": 6,
+      "variable": "packages_of_3"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 2,
+      "description": "Total cost buying 18 flowers in packages of 3 at $2.50 each",
+      "operation": "multiply",
+      "operands": [
+        6,
+        2.5
+      ],
+      "result": 15.0,
+      "variable": "cost_option1"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 3,
+      "description": "Number of 2-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        2
+      ],
+      "result": 9,
+      "variable": "packages_of_2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 4,
+      "description": "Total cost buying 18 flowers in packages of 2 at $1.00 each",
+      "operation": "multiply",
+      "operands": [
+        9,
+        1.0
+      ],
+      "result": 9.0,
+      "variable": "cost_option2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "parallel_tracks",
+    "correct_step": {
+      "step": 5,
+      "description": "Savings by choosing the cheaper option (packages of 2)",
+      "operation": "subtract",
+      "operands": [
+        15.0,
+        9.0
+      ],
+      "result": 6.0,
+      "variable": "total_savings"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 1,
+      "description": "Number of 3-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        3
+      ],
+      "result": 6,
+      "variable": "packages_of_3"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 2,
+      "description": "Total cost buying 18 flowers in packages of 3 at $2.50 each",
+      "operation": "multiply",
+      "operands": [
+        6,
+        2.5
+      ],
+      "result": 15.0,
+      "variable": "cost_option1"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 3,
+      "description": "Number of 2-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        2
+      ],
+      "result": 9,
+      "variable": "packages_of_2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 4,
+      "description": "Total cost buying 18 flowers in packages of 2 at $1.00 each",
+      "operation": "multiply",
+      "operands": [
+        9,
+        1.0
+      ],
+      "result": 9.0,
+      "variable": "cost_option2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "graph_walk",
+    "correct_step": {
+      "step": 5,
+      "description": "Savings by choosing the cheaper option (packages of 2)",
+      "operation": "subtract",
+      "operands": [
+        15.0,
+        9.0
+      ],
+      "result": 6.0,
+      "variable": "total_savings"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Number of 3-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        3
+      ],
+      "result": 6,
+      "variable": "packages_of_3"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Total cost buying 18 flowers in packages of 3 at $2.50 each",
+      "operation": "multiply",
+      "operands": [
+        6,
+        2.5
+      ],
+      "result": 15.0,
+      "variable": "cost_option1"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 3,
+      "description": "Number of 2-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        2
+      ],
+      "result": 9,
+      "variable": "packages_of_2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 4,
+      "description": "Total cost buying 18 flowers in packages of 2 at $1.00 each",
+      "operation": "multiply",
+      "operands": [
+        9,
+        1.0
+      ],
+      "result": 9.0,
+      "variable": "cost_option2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 5,
+      "description": "Savings by choosing the cheaper option (packages of 2)",
+      "operation": "subtract",
+      "operands": [
+        15.0,
+        9.0
+      ],
+      "result": 6.0,
+      "variable": "total_savings"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Number of 3-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        3
+      ],
+      "result": 6,
+      "variable": "packages_of_3"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Total cost buying 18 flowers in packages of 3 at $2.50 each",
+      "operation": "multiply",
+      "operands": [
+        6,
+        2.5
+      ],
+      "result": 15.0,
+      "variable": "cost_option1"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 3,
+      "description": "Number of 2-flower packages needed for 18 flowers",
+      "operation": "divide",
+      "operands": [
+        18,
+        2
+      ],
+      "result": 9,
+      "variable": "packages_of_2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 4,
+      "description": "Total cost buying 18 flowers in packages of 2 at $1.00 each",
+      "operation": "multiply",
+      "operands": [
+        9,
+        1.0
+      ],
+      "result": 9.0,
+      "variable": "cost_option2"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "unclassified",
+    "problem_id": "gsm-0078",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 5,
+      "description": "Savings by choosing the cheaper option (packages of 2)",
+      "operation": "subtract",
+      "operands": [
+        15.0,
+        9.0
+      ],
+      "result": 6.0,
+      "variable": "total_savings"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "working_backwards",
+    "problem_id": "gsm-1092",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 1,
+      "description": "Allosaurus ate the last portion, which was half of what velociraptors left, so double it to find what velociraptors left",
+      "operation": "multiply",
+      "operands": [
+        270,
+        2
+      ],
+      "result": 540,
+      "variable": "meat_after_trex"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "working_backwards",
+    "problem_id": "gsm-1092",
+    "solver": "sequential",
+    "correct_step": {
+      "step": 2,
+      "description": "Velociraptors ate half of what T-Rex left, so double what they left to find what T-Rex left",
+      "operation": "multiply",
+      "operands": [
+        540,
+        2
+      ],
+      "result": 1080,
+      "variable": "original_triceratops_meat"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "working_backwards",
+    "problem_id": "gsm-1092",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 1,
+      "description": "Allosaurus ate the last portion, which was half of what velociraptors left, so double it to find what velociraptors left",
+      "operation": "multiply",
+      "operands": [
+        270,
+        2
+      ],
+      "result": 540,
+      "variable": "meat_after_trex"
+    },
+    "partial": "",
+    "our_step": null
+  },
+  {
+    "class": "working_backwards",
+    "problem_id": "gsm-1092",
+    "solver": "question_driven",
+    "correct_step": {
+      "step": 2,
+      "description": "Velociraptors ate half of what T-Rex left, so double what they left to find what T-Rex left",
+      "operation": "multiply",
+      "operands": [
+        540,
+        2
+      ],
+      "result": 1080,
+      "variable": "original_triceratops_meat"
+    },
+    "partial": "",
+    "our_step": null
+  }
+]

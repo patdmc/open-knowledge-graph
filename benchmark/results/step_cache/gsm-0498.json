@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Ashley's total oranges from 5 boxes of 10",
+    "operation": "multiply",
+    "operands": [
+      5,
+      10
+    ],
+    "result": 50,
+    "variable": "ashley_oranges"
+  },
+  {
+    "step": 2,
+    "description": "Brianne's oranges, 20 more than Ashley",
+    "operation": "add",
+    "operands": [
+      50,
+      20
+    ],
+    "result": 70,
+    "variable": "brianne_oranges"
+  },
+  {
+    "step": 3,
+    "description": "Total oranges combined",
+    "operation": "add",
+    "operands": [
+      50,
+      70
+    ],
+    "result": 120,
+    "variable": "total_oranges"
+  },
+  {
+    "step": 4,
+    "description": "Number of pies at 3 oranges each",
+    "operation": "divide",
+    "operands": [
+      120,
+      3
+    ],
+    "result": 40.0,
+    "variable": "total_pies"
+  }
+]

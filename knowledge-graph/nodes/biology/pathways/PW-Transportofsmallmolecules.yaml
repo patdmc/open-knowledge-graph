@@ -1,0 +1,53 @@
+id: PW-Transportofsmallmolecules
+type: knowledge
+domain: biology
+name: Transport of small molecules
+reactome_id: R-HSA-382551
+
+description: By definition cells have a critical separation between inner (cytoplasmic) and outer (extracellular) compartments. This separation provides for protection, gradient assembly, and environmental control but at the same time isolates the interior compartments of the cell from energy resources, oxygen, and raw materials. Cells have evolved a myriad of mechanisms to regulate, and enable transportation of small molecules ascross plasma membranes and between cellular organelle compartments within cells.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "ABC-family proteins mediated transport"
+    reactome_id: R-HSA-382556
+    type: Pathway
+  - name: "SLC-mediated transmembrane transport"
+    reactome_id: R-HSA-425407
+    type: Pathway
+  - name: "Aquaporin-mediated transport"
+    reactome_id: R-HSA-445717
+    type: Pathway
+  - name: Iron uptake and transport
+    reactome_id: R-HSA-917937
+    type: Pathway
+  - name: Ion channel transport
+    reactome_id: R-HSA-983712
+    type: Pathway
+  - name: O2/CO2 exchange in erythrocytes
+    reactome_id: R-HSA-1480926
+    type: Pathway
+  - name: Miscellaneous transport and binding events
+    reactome_id: R-HSA-5223345
+    type: Pathway
+  - name: Mitochondrial calcium ion transport
+    reactome_id: R-HSA-8949215
+    type: Pathway
+  - name: Plasma lipoprotein assembly, remodeling, and clearance
+    reactome_id: R-HSA-174824
+    type: Pathway
+  - name: Intracellular oxygen transport
+    reactome_id: R-HSA-8981607
+    type: Pathway
+  - name: Glycosphingolipid transport
+    reactome_id: R-HSA-9845576
+    type: Pathway
+
+edges:

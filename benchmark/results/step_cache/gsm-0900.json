@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Denise's pages today: Daniel's yesterday plus 5",
+    "operation": "add",
+    "operands": [
+      13,
+      5
+    ],
+    "result": 18,
+    "variable": "denise_today"
+  },
+  {
+    "step": 2,
+    "description": "Denise's total pages over both days",
+    "operation": "add",
+    "operands": [
+      10,
+      18
+    ],
+    "result": 28,
+    "variable": "denise_total"
+  },
+  {
+    "step": 3,
+    "description": "Daniel's total pages over both days (0 today)",
+    "operation": "add",
+    "operands": [
+      13,
+      0
+    ],
+    "result": 13,
+    "variable": "daniel_total"
+  },
+  {
+    "step": 4,
+    "description": "How many more pages Denise read than Daniel",
+    "operation": "subtract",
+    "operands": [
+      28,
+      13
+    ],
+    "result": 15,
+    "variable": "difference"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "count total people including Greg",
+    "operation": "add",
+    "operands": [
+      1,
+      3
+    ],
+    "result": 4,
+    "variable": "total_people"
+  },
+  {
+    "step": 2,
+    "description": "divide money equally among all people",
+    "operation": "divide",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 5.0,
+    "variable": "each_person_share"
+  }
+]

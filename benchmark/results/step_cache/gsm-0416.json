@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "maximum humps if all animals were camels",
+    "operation": "multiply",
+    "operands": [
+      2,
+      180
+    ],
+    "result": 360,
+    "variable": "max_humps"
+  },
+  {
+    "step": 2,
+    "description": "excess humps over actual count equals dromedaries",
+    "operation": "subtract",
+    "operands": [
+      360,
+      304
+    ],
+    "result": 56,
+    "variable": "dromedaries"
+  }
+]

@@ -1,0 +1,85 @@
+id: PR01-sqrt2-irrational
+type: proof
+domain: number_theory
+name: "Irrationality of sqrt(2)"
+target:
+  statement: "\\sqrt{2} \\notin \\mathbb{Q}"
+  type: theorem
+method: contradiction
+
+assertions:
+  - step: 1
+    id: hyp-rational
+    type: hypothesis
+    statement: "\\sqrt{2} = \\frac{a}{b} \\text{ where } a, b \\in \\mathbb{Z}, \\; b \\neq 0, \\; \\gcd(a,b) = 1"
+    justification: "assume for contradiction that sqrt(2) is rational in lowest terms"
+    depends_on: []
+    references: [gcd]
+
+  - step: 2
+    id: square-both-sides
+    type: claim
+    statement: "2 = \\frac{a^2}{b^2} \\implies a^2 = 2b^2"
+    justification: "square both sides of hyp-rational"
+    depends_on: [hyp-rational]
+
+  - step: 3
+    id: a-squared-even
+    type: claim
+    statement: "2 \\mid a^2"
+    justification: "a^2 = 2b^2, so a^2 is divisible by 2"
+    depends_on: [square-both-sides]
+    references: [divisibility]
+
+  - step: 4
+    id: a-even
+    type: claim
+    statement: "2 \\mid a"
+    justification: "if p is prime and p | n^2, then p | n (Euclid's lemma)"
+    depends_on: [a-squared-even]
+    references: [prime]
+
+  - step: 5
+    id: a-equals-2k
+    type: claim
+    statement: "a = 2k \\text{ for some } k \\in \\mathbb{Z}"
+    justification: "definition of divisibility from a-even"
+    depends_on: [a-even]
+
+  - step: 6
+    id: substitute
+    type: claim
+    statement: "(2k)^2 = 2b^2 \\implies 4k^2 = 2b^2 \\implies b^2 = 2k^2"
+    justification: "substitute a = 2k into square-both-sides"
+    depends_on: [a-equals-2k, square-both-sides]
+
+  - step: 7
+    id: b-even
+    type: claim
+    statement: "2 \\mid b"
+    justification: "b^2 = 2k^2, so 2 | b^2, so 2 | b by Euclid's lemma"
+    depends_on: [substitute]
+    references: [prime]
+
+  - step: 8
+    id: contradiction-gcd
+    type: contradiction
+    statement: "2 \\mid a \\text{ and } 2 \\mid b \\implies \\gcd(a,b) \\geq 2"
+    justification: "contradicts hyp-rational which requires gcd(a,b) = 1"
+    depends_on: [a-even, b-even, hyp-rational]
+    references: [gcd]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "\\sqrt{2} \\notin \\mathbb{Q}"
+    justification: "assumption of rationality leads to contradiction, so sqrt(2) is irrational"
+    depends_on: [contradiction-gcd]
+
+qed: true
+
+edges:
+  - to: NT01-number-theory
+    relation: PROVES_FROM
+  - to: N03-set-logic-notation
+    relation: USES

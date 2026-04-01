@@ -1,0 +1,54 @@
+{
+  "chunk_index": 36,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "11. Related Work > Collective Intelligence",
+  "section_path": [
+    "11. Related Work",
+    "Collective Intelligence"
+  ],
+  "char_count": 3155,
+  "keyphrases": [
+    {
+      "phrase": "empirically collective intelligence",
+      "score": 0.5292
+    },
+    {
+      "phrase": "foundations process mining",
+      "score": 0.5186
+    },
+    {
+      "phrase": "grounded provenance quantified",
+      "score": 0.409
+    },
+    {
+      "phrase": "skill precipitation cs",
+      "score": 0.3941
+    },
+    {
+      "phrase": "precipitates informed actions",
+      "score": 0.3817
+    },
+    {
+      "phrase": "workflow descriptions theorem",
+      "score": 0.3722
+    },
+    {
+      "phrase": "action validation independent",
+      "score": 0.3719
+    },
+    {
+      "phrase": "definition truth peirce1877",
+      "score": 0.3505
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "informed action"
+    ],
+    "has_math": true
+  }
+}

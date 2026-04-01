@@ -1,0 +1,50 @@
+id: PW-SignalingbyNODAL
+type: knowledge
+domain: biology
+name: Signaling by NODAL
+reactome_id: R-HSA-1181150
+
+description: Signaling by NODAL is essential for patterning of the axes of the embryo and formation of mesoderm and endoderm (reviewed in Schier 2009, Shen 2007). The NODAL proprotein is secreted and cleaved extracellularly to yield mature NODAL. Mature NODAL homodimerizes and can also form heterodimers with LEFTY1, LEFTY2, or CERBERUS, which negatively regulate NODAL signaling.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Cleavage of NODAL proprotein
+    reactome_id: R-HSA-1181152
+    type: Reaction
+  - name: The NODAL Receptor binds NODAL ligands
+    reactome_id: R-HSA-1181155
+    type: Reaction
+  - name: Type II Activin Receptor (ActRII/ACVR2) phosphorylates Type I Activin Receptor (ActRIB/ACVR1B) in response to NODAL
+    reactome_id: R-HSA-1181156
+    type: Reaction
+  - name: Type II Activin Receptor (ActRIIB/ACVR2B) phosphorylates Type I Activin Receptor (ActRIC/ACVR1C) in response to NODAL
+    reactome_id: R-HSA-1225894
+    type: Reaction
+  - name: "Phosphorylation of R-SMAD2/3 by NODAL receptor"
+    reactome_id: R-HSA-1181355
+    type: Reaction
+  - name: Phosphorylated SMAD2 and SMAD3 form a complex with SMAD4
+    reactome_id: R-HSA-170847
+    type: Reaction
+  - name: "The SMAD2/3:SMAD4 complex transfers to the nucleus"
+    reactome_id: R-HSA-173488
+    type: BlackBoxEvent
+  - name: "Phospho R-SMAD(SMAD2,3):CO-SMAD(SMAD4):FOXH1 binds Activin Response Element"
+    reactome_id: R-HSA-1225919
+    type: Reaction
+  - name: "Phospho R-SMAD(SMAD2/3):CO-SMAD(SMAD4):FOXO3 binds FoxO3a-binding elements"
+    reactome_id: R-HSA-1535903
+    type: Reaction
+  - name: Regulation of signaling by NODAL
+    reactome_id: R-HSA-1433617
+    type: Pathway
+
+edges:

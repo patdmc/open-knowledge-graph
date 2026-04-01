@@ -1,0 +1,97 @@
+id: PR19-bolzano-weierstrass
+type: proof
+domain: analysis
+name: "Bolzano-Weierstrass Theorem"
+target:
+  statement: "\\text{Every bounded sequence in } \\mathbb{R}^n \\text{ has a convergent subsequence}"
+  type: theorem
+method: construction
+
+assertions:
+  - step: 1
+    id: setup
+    type: hypothesis
+    statement: "(x_k) \\text{ is a bounded sequence in } \\mathbb{R}: a \\leq x_k \\leq b \\text{ for all } k"
+    justification: "theorem hypothesis (prove for R, extend to R^n by components)"
+    depends_on: []
+
+  - step: 2
+    id: bisect
+    type: claim
+    statement: "\\text{Bisect } [a, b] \\text{ into } [a, \\frac{a+b}{2}] \\text{ and } [\\frac{a+b}{2}, b]. \\text{ At least one half contains infinitely many terms.}"
+    justification: "union of two halves is [a,b]; if both halves had finitely many, total would be finite"
+    depends_on: [setup]
+    references: [pigeonhole]
+
+  - step: 3
+    id: choose-half
+    type: definition
+    statement: "[a_1, b_1] = \\text{half containing infinitely many terms}, \\quad b_1 - a_1 = \\frac{b-a}{2}"
+    justification: "choose the half with infinitely many terms (if both, pick left)"
+    depends_on: [bisect]
+
+  - step: 4
+    id: iterate
+    type: claim
+    statement: "\\text{Repeat: } [a_n, b_n] \\text{ with } b_n - a_n = \\frac{b-a}{2^n}, \\text{ each containing infinitely many terms}"
+    justification: "at each step, bisect and keep the half with infinitely many terms"
+    depends_on: [choose-half]
+
+  - step: 5
+    id: nested-intervals
+    type: claim
+    statement: "[a_1, b_1] \\supseteq [a_2, b_2] \\supseteq \\cdots, \\quad b_n - a_n \\to 0"
+    justification: "nested intervals with lengths shrinking to zero"
+    depends_on: [iterate]
+
+  - step: 6
+    id: intersection-point
+    type: claim
+    statement: "\\exists! L \\in \\bigcap_{n=1}^{\\infty} [a_n, b_n], \\quad a_n \\to L, \\; b_n \\to L"
+    justification: "nested interval theorem: intersection of nested closed intervals with lengths → 0 is a single point"
+    depends_on: [nested-intervals]
+    references: [compactness]
+
+  - step: 7
+    id: extract-subsequence
+    type: claim
+    statement: "\\text{Pick } x_{k_n} \\in [a_n, b_n] \\text{ with } k_1 < k_2 < \\cdots"
+    justification: "each interval has infinitely many terms, so we can always pick the next index larger than the previous"
+    depends_on: [iterate, intersection-point]
+
+  - step: 8
+    id: subsequence-converges
+    type: claim
+    statement: "|x_{k_n} - L| \\leq b_n - a_n = \\frac{b-a}{2^n} \\to 0"
+    justification: "x_{k_n} and L both in [a_n, b_n], which has length (b-a)/2^n"
+    depends_on: [extract-subsequence, intersection-point]
+    references: [limit]
+
+  - step: 9
+    id: conclusion
+    type: theorem
+    statement: "x_{k_n} \\to L \\text{ as } n \\to \\infty"
+    justification: "convergent subsequence found by nested bisection"
+    depends_on: [subsequence-converges]
+
+qed: true
+
+corollaries:
+  - id: heine-borel
+    statement: "\\text{closed bounded subset of } \\mathbb{R}^n \\text{ is sequentially compact}"
+    justification: "Bolzano-Weierstrass gives convergent subsequence; closed ensures limit is in the set"
+    depends_on: [conclusion]
+    references: [compactness]
+
+  - id: extreme-value
+    statement: "\\text{continuous } f: [a,b] \\to \\mathbb{R} \\text{ attains its max and min}"
+    justification: "supremum is limit of a sequence of values; BW gives convergent subsequence of inputs; continuity gives f achieves the value"
+    depends_on: [conclusion]
+
+edges:
+  - to: C01-differential-calculus
+    relation: USES
+    note: "limits, convergence"
+  - to: TOP01-topology
+    relation: PROVES_FROM
+    note: "compactness in R^n"

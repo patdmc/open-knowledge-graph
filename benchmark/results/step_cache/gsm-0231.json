@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Robert's shells on Monday",
+    "operation": "add",
+    "operands": [
+      20,
+      0
+    ],
+    "result": 20,
+    "variable": "robert_monday"
+  },
+  {
+    "step": 2,
+    "description": "Kylie's shells on Monday (5 more than Robert)",
+    "operation": "add",
+    "operands": [
+      20,
+      5
+    ],
+    "result": 25,
+    "variable": "kylie_monday"
+  },
+  {
+    "step": 3,
+    "description": "Kylie's shells on Tuesday (2 times Monday)",
+    "operation": "multiply",
+    "operands": [
+      25,
+      2
+    ],
+    "result": 50,
+    "variable": "kylie_tuesday"
+  }
+]

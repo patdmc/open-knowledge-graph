@@ -1,0 +1,75 @@
+id: PROC-DIFFERENTIATION
+type: knowledge
+domain: biology
+name: cell differentiation
+go_id: GO:0030154
+
+definition: The cellular developmental process in which a relatively unspecialized cell, e.g. embryonic or regenerative cell, acquires specialized structural and/or functional features that characterize a specific cell. Differentiation includes the processes involved in commitment of a cell to a specific fate and its subsequent development to the mature state.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0090077
+    name: foam cell differentiation
+    relation: is_a
+  - id: GO:0022008
+    name: neurogenesis
+    relation: is_a
+  - id: GO:0010026
+    name: trichome differentiation
+    relation: is_a
+  - id: GO:0048657
+    name: anther wall tapetum cell differentiation
+    relation: is_a
+  - id: GO:0010001
+    name: glial cell differentiation
+    relation: is_a
+  - id: GO:0022036
+    name: rhombomere cell differentiation
+    relation: is_a
+  - id: GO:0048824
+    name: pigment cell precursor differentiation
+    relation: is_a
+  - id: GO:0048889
+    name: neuromast support cell differentiation
+    relation: is_a
+  - id: GO:0048888
+    name: neuromast mantle cell differentiation
+    relation: is_a
+  - id: GO:0048863
+    name: stem cell differentiation
+    relation: is_a
+  - id: GO:0048468
+    name: cell development
+    relation: part_of
+  - id: GO:0036446
+    name: myofibroblast differentiation
+    relation: is_a
+  - id: GO:0061521
+    name: hepatic stellate cell differentiation
+    relation: is_a
+  - id: GO:0048515
+    name: spermatid differentiation
+    relation: is_a
+  - id: GO:0048533
+    name: sporocyte differentiation
+    relation: is_a
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-TissueArchitecture encode components of cell differentiation"

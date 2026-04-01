@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Miles run at 10 mph for 3 hours",
+    "operation": "multiply",
+    "operands": [
+      10,
+      3
+    ],
+    "result": 30,
+    "variable": "fast_miles"
+  },
+  {
+    "step": 2,
+    "description": "Remaining hours after fast pace",
+    "operation": "subtract",
+    "operands": [
+      7,
+      3
+    ],
+    "result": 4,
+    "variable": "slow_hours"
+  },
+  {
+    "step": 3,
+    "description": "Miles run at 5 mph for remaining hours",
+    "operation": "multiply",
+    "operands": [
+      5,
+      4
+    ],
+    "result": 20,
+    "variable": "slow_miles"
+  },
+  {
+    "step": 4,
+    "description": "Total miles run in 7 hours",
+    "operation": "add",
+    "operands": [
+      30,
+      20
+    ],
+    "result": 50,
+    "variable": "total_miles"
+  }
+]

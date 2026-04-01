@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total cost of red balls",
+    "operation": "multiply",
+    "operands": [
+      3,
+      9
+    ],
+    "result": 27,
+    "variable": "red_total"
+  },
+  {
+    "step": 2,
+    "description": "Total cost of blue balls",
+    "operation": "multiply",
+    "operands": [
+      11,
+      5
+    ],
+    "result": 55,
+    "variable": "blue_total"
+  },
+  {
+    "step": 3,
+    "description": "Total cost of green balls",
+    "operation": "multiply",
+    "operands": [
+      25,
+      3
+    ],
+    "result": 75,
+    "variable": "green_total"
+  },
+  {
+    "step": 4,
+    "description": "Sum of red and blue totals",
+    "operation": "add",
+    "operands": [
+      27,
+      55
+    ],
+    "result": 82,
+    "variable": "red_blue_total"
+  },
+  {
+    "step": 5,
+    "description": "Sum of all ball totals",
+    "operation": "add",
+    "operands": [
+      82,
+      75
+    ],
+    "result": 157,
+    "variable": "store_total"
+  }
+]

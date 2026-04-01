@@ -1,0 +1,15 @@
+id: BIO-UBIQUITIN
+type: knowledge
+domain: biology
+name: Ubiquitin
+
+description: "A highly conserved 76-amino acid peptide universally found in eukaryotic cells that functions as a marker for intracellular PROTEIN TRANSPORT and degradation. Ubiquitin becomes activated through a series of complicated steps and forms an isopeptide bond to lysine residues of specific proteins within the cell. These ubiquitinated proteins can be recognized and degraded by proteosomes or be transported to specific compartments within the cell."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

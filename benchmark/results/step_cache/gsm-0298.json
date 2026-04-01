@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Person 1 bids after Carmen's opening bid",
+    "operation": "add",
+    "operands": [
+      200,
+      50
+    ],
+    "result": 250,
+    "variable": "person1_bid"
+  },
+  {
+    "step": 2,
+    "description": "Carmen bids after person 1",
+    "operation": "add",
+    "operands": [
+      250,
+      50
+    ],
+    "result": 300,
+    "variable": "carmen_bid2"
+  },
+  {
+    "step": 3,
+    "description": "Person 2 bids after Carmen",
+    "operation": "add",
+    "operands": [
+      300,
+      50
+    ],
+    "result": 350,
+    "variable": "person2_bid"
+  },
+  {
+    "step": 4,
+    "description": "Carmen bids after person 2",
+    "operation": "add",
+    "operands": [
+      350,
+      50
+    ],
+    "result": 400,
+    "variable": "carmen_bid3"
+  },
+  {
+    "step": 5,
+    "description": "Person 3 bids after Carmen",
+    "operation": "add",
+    "operands": [
+      400,
+      50
+    ],
+    "result": 450,
+    "variable": "person3_bid"
+  },
+  {
+    "step": 6,
+    "description": "Carmen bids after person 3 and wins",
+    "operation": "add",
+    "operands": [
+      450,
+      50
+    ],
+    "result": 500,
+    "variable": "carmen_winning_bid"
+  }
+]

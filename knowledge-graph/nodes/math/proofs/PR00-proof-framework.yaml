@@ -1,0 +1,122 @@
+id: PR00-proof-framework
+type: meta
+domain: logic
+name: "Proof Framework"
+
+description: >
+  Schema for representing mathematical proofs as directed graphs.
+  Each proof is a chain of assertions connected by inference steps.
+  Assertions have types, logical status, and dependencies.
+
+assertion_types:
+  - id: axiom
+    name: "Axiom"
+    meaning: "assumed true without proof; foundational"
+    latex: "\\text{(Axiom)}"
+
+  - id: definition
+    name: "Definition"
+    meaning: "assigns meaning to a term or symbol"
+    latex: "\\text{(Def.)}"
+
+  - id: hypothesis
+    name: "Hypothesis"
+    meaning: "assumed true for this proof; conditional premise"
+    latex: "\\text{(Hyp.)}"
+
+  - id: lemma
+    name: "Lemma"
+    meaning: "auxiliary result used to prove the main theorem"
+    latex: "\\text{(Lem.)}"
+
+  - id: proposition
+    name: "Proposition"
+    meaning: "intermediate result of independent interest"
+    latex: "\\text{(Prop.)}"
+
+  - id: theorem
+    name: "Theorem"
+    meaning: "major result; the target of the proof"
+    latex: "\\text{(Thm.)}"
+
+  - id: corollary
+    name: "Corollary"
+    meaning: "follows immediately from a theorem"
+    latex: "\\text{(Cor.)}"
+
+  - id: claim
+    name: "Claim"
+    meaning: "intermediate assertion within a proof"
+    latex: "\\text{(Claim)}"
+
+  - id: observation
+    name: "Observation"
+    meaning: "straightforward consequence of definitions/previous steps"
+
+  - id: contradiction
+    name: "Contradiction"
+    meaning: "statement shown to be false, completing a proof by contradiction"
+    latex: "\\lightning"
+
+inference_types:
+  - id: direct
+    name: "Direct Inference"
+    meaning: "conclusion follows from premises by logical rules"
+
+  - id: contrapositive
+    name: "Contrapositive"
+    latex: "(P \\Rightarrow Q) \\iff (\\neg Q \\Rightarrow \\neg P)"
+
+  - id: contradiction_method
+    name: "Proof by Contradiction"
+    meaning: "assume negation of statement, derive contradiction"
+    latex: "\\text{assume } \\neg P \\Rightarrow \\bot \\Rightarrow P"
+
+  - id: induction
+    name: "Mathematical Induction"
+    steps:
+      base: "verify P(n_0)"
+      inductive: "assume P(k), prove P(k+1)"
+    variants:
+      - "strong induction: assume P(n_0)...P(k), prove P(k+1)"
+      - "structural induction: on recursive data types"
+      - "transfinite induction: on ordinals"
+
+  - id: construction
+    name: "Proof by Construction"
+    meaning: "prove existence by explicitly building the object"
+
+  - id: exhaustion
+    name: "Proof by Cases (Exhaustion)"
+    meaning: "partition into cases and prove each"
+
+  - id: bijection
+    name: "Proof by Bijection"
+    meaning: "establish correspondence between two sets"
+
+  - id: pigeonhole_arg
+    name: "Pigeonhole Argument"
+    meaning: "if n > m items in m boxes, some box has > 1"
+
+  - id: diagonalization
+    name: "Diagonalization"
+    meaning: "construct object differing from every list member (Cantor-style)"
+
+  - id: compactness_arg
+    name: "Compactness Argument"
+    meaning: "reduce infinite case to finite subcover"
+
+proof_schema:
+  proof:
+    id: "string — unique identifier"
+    target: "string — theorem/proposition being proved"
+    method: "string — one of inference_types"
+    assertions:
+      - step: "integer — order in chain"
+        id: "string — unique within proof"
+        type: "one of assertion_types"
+        statement: "string — mathematical statement (LaTeX)"
+        justification: "string — why this follows"
+        depends_on: ["list of assertion ids this step uses"]
+        references: ["list of external theorem/concept ids"]
+    qed: "boolean — proof is complete"

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate 45% of 200 bananas",
+    "operation": "multiply",
+    "operands": [
+      200,
+      0.45
+    ],
+    "result": 90.0,
+    "variable": "extra_pears"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total pears",
+    "operation": "add",
+    "operands": [
+      200,
+      90.0
+    ],
+    "result": 290.0,
+    "variable": "total_pears"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total fruits (bananas + pears)",
+    "operation": "add",
+    "operands": [
+      200,
+      290.0
+    ],
+    "result": 490.0,
+    "variable": "total_fruits"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Tuesday cooking class duration (3x Monday yoga)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 3,
+    "variable": "tuesday_hours"
+  },
+  {
+    "step": 2,
+    "description": "Thursday museum tour duration (half of cooking class)",
+    "operation": "divide",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 1.5,
+    "variable": "thursday_hours"
+  },
+  {
+    "step": 3,
+    "description": "Monday + Tuesday total",
+    "operation": "add",
+    "operands": [
+      1,
+      3
+    ],
+    "result": 4,
+    "variable": "mon_tue_total"
+  },
+  {
+    "step": 4,
+    "description": "Add Wednesday cheese-tasting",
+    "operation": "add",
+    "operands": [
+      4,
+      0.5
+    ],
+    "result": 4.5,
+    "variable": "mon_tue_wed_total"
+  },
+  {
+    "step": 5,
+    "description": "Add Thursday museum tour",
+    "operation": "add",
+    "operands": [
+      4.5,
+      1.5
+    ],
+    "result": 6,
+    "variable": "mon_thu_total"
+  },
+  {
+    "step": 6,
+    "description": "Add Friday errands to get total hours",
+    "operation": "add",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 8.0,
+    "variable": "total_hours"
+  }
+]

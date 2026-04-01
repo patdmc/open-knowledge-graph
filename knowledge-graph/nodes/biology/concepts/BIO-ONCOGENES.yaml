@@ -1,0 +1,19 @@
+id: BIO-ONCOGENES
+type: knowledge
+domain: cancer_biology
+name: Oncogenes
+
+description: "Genes whose gain-of-function alterations lead to NEOPLASTIC CELL TRANSFORMATION. They include, for example, genes for activators or stimulators of CELL PROLIFERATION such as growth factors, growth factor receptors, protein kinases, signal transducers, nuclear phosphoproteins, and transcription factors. A prefix of v- before oncogene symbols indicates oncogenes captured and transmitted by RETROVIRUSES; the prefix c- before the gene symbol of an oncogene indicates it is the cellular homolog (PROTO-ONCOGENES) of a v-oncogene."
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in

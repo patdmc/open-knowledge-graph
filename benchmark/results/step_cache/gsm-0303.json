@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Books sold in first year (twice current year)",
+    "operation": "multiply",
+    "operands": [
+      45,
+      2
+    ],
+    "result": 90,
+    "variable": "first_year_sales"
+  },
+  {
+    "step": 2,
+    "description": "Total books sold across all years",
+    "operation": "subtract",
+    "operands": [
+      250,
+      50
+    ],
+    "result": 200,
+    "variable": "total_sold"
+  },
+  {
+    "step": 3,
+    "description": "Books sold in first and current year combined",
+    "operation": "add",
+    "operands": [
+      90,
+      45
+    ],
+    "result": 135,
+    "variable": "first_and_current_sales"
+  },
+  {
+    "step": 4,
+    "description": "Books sold in second year",
+    "operation": "subtract",
+    "operands": [
+      200,
+      135
+    ],
+    "result": 65,
+    "variable": "second_year_sales"
+  },
+  {
+    "step": 5,
+    "description": "Total money earned in second year",
+    "operation": "multiply",
+    "operands": [
+      65,
+      20
+    ],
+    "result": 1300,
+    "variable": "second_year_earnings"
+  }
+]

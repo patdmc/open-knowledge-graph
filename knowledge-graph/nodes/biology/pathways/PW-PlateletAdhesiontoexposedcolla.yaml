@@ -1,0 +1,44 @@
+id: PW-PlateletAdhesiontoexposedcolla
+type: knowledge
+domain: biology
+name: Platelet Adhesion to exposed collagen
+reactome_id: R-HSA-75892
+
+description: Initiation of platelet adhesion is the first step in the formation of the platelet plug. Circulating platelets are arrested and subsequently activated by exposed collagen and von Willebrand factor (VWF). It is not entirely clear which type of collagen is responsible for adhesion and activation; collagen types I and III are abundant in vascular epithelia but several other types including IV are present (Farndale RW 2006).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Collagen type I binds integrin alpha1beta1, alpha2beta1, alpha10beta1
+    reactome_id: R-HSA-114563
+    type: Reaction
+  - name: Interaction of GPVI and FceRI gamma
+    reactome_id: R-HSA-210282
+    type: Reaction
+  - name: GPVI binds Fyn and Lyn
+    reactome_id: R-HSA-432295
+    type: Reaction
+  - name: "Binding of GPVI:Fc Epsilon R1 gamma receptor complex with collagen"
+    reactome_id: R-HSA-114577
+    type: Reaction
+  - name: VWF multimer binds to collagen type I
+    reactome_id: R-HSA-9822539
+    type: Reaction
+  - name: "GPIb:IX:V binds to VWF multimer:collagen"
+    reactome_id: R-HSA-9823065
+    type: Reaction
+  - name: ADAMTS13 cleaves VWF multimer
+    reactome_id: R-HSA-9822532
+    type: BlackBoxEvent
+  - name: Caplacizumab binds VWF
+    reactome_id: R-HSA-9822734
+    type: Reaction
+
+edges:

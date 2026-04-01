@@ -1,0 +1,26 @@
+id: PW-Intestinalabsorption
+type: knowledge
+domain: biology
+name: Intestinal absorption
+reactome_id: R-HSA-8963676
+
+description: Nutrient absorption occurs mostly in the small intestine. Processes annotated here include the uptake of dietary cholesterol and phytosterols, and of monosaccharides. Movement of the final products of digestion out of the intestinal lumen is mediated by arrays of transporters associated with the apical and basolateral surfaces of enterocytes (Yamada 2015).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Intestinal lipid absorption
+    reactome_id: R-HSA-8963678
+    type: Pathway
+  - name: Intestinal hexose absorption
+    reactome_id: R-HSA-8981373
+    type: Pathway
+
+edges:

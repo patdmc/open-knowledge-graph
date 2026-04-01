@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Convert quarters to cents",
+    "operation": "multiply",
+    "operands": [
+      8,
+      25
+    ],
+    "result": 200,
+    "variable": "quarters_cents"
+  },
+  {
+    "step": 2,
+    "description": "Convert dimes to cents",
+    "operation": "multiply",
+    "operands": [
+      6,
+      10
+    ],
+    "result": 60,
+    "variable": "dimes_cents"
+  },
+  {
+    "step": 3,
+    "description": "Convert nickels to cents",
+    "operation": "multiply",
+    "operands": [
+      14,
+      5
+    ],
+    "result": 70,
+    "variable": "nickels_cents"
+  },
+  {
+    "step": 4,
+    "description": "Add quarters and dimes cents",
+    "operation": "add",
+    "operands": [
+      200,
+      60
+    ],
+    "result": 260,
+    "variable": "quarters_plus_dimes"
+  },
+  {
+    "step": 5,
+    "description": "Add nickels cents",
+    "operation": "add",
+    "operands": [
+      260,
+      70
+    ],
+    "result": 330,
+    "variable": "quarters_dimes_nickels"
+  },
+  {
+    "step": 6,
+    "description": "Add pennies to get total cents",
+    "operation": "add",
+    "operands": [
+      330,
+      15
+    ],
+    "result": 345,
+    "variable": "total_cents"
+  },
+  {
+    "step": 7,
+    "description": "Divide total cents by cost per gumball",
+    "operation": "divide",
+    "operands": [
+      345,
+      5
+    ],
+    "result": 69.0,
+    "variable": "gumballs_count"
+  }
+]

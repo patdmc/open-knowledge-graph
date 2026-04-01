@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total number of teams across all schools",
+    "operation": "multiply",
+    "operands": [
+      4,
+      2
+    ],
+    "result": 8,
+    "variable": "total_teams"
+  },
+  {
+    "step": 2,
+    "description": "Total players across all teams",
+    "operation": "multiply",
+    "operands": [
+      8,
+      5
+    ],
+    "result": 40,
+    "variable": "total_players"
+  },
+  {
+    "step": 3,
+    "description": "Total coaches across all teams",
+    "operation": "multiply",
+    "operands": [
+      8,
+      1
+    ],
+    "result": 8,
+    "variable": "total_coaches"
+  },
+  {
+    "step": 4,
+    "description": "Total people sent by all schools",
+    "operation": "add",
+    "operands": [
+      40,
+      8
+    ],
+    "result": 48,
+    "variable": "total_people"
+  }
+]

@@ -1,0 +1,15 @@
+id: BIO-TRANSLATION
+type: knowledge
+domain: biology
+name: Protein Biosynthesis
+
+description: The biosynthesis of PEPTIDES and PROTEINS on RIBOSOMES, directed by MESSENGER RNA, via TRANSFER RNA that is charged with standard proteinogenic AMINO ACIDS.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

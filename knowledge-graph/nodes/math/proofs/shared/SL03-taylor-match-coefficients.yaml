@@ -1,0 +1,14 @@
+id: SL03-taylor-match-coefficients
+type: shared_lemma
+domain: calculus
+name: "Taylor Expansion and Coefficient Matching"
+statement: "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n \\implies \\text{two power series equal iff coefficients match}"
+justification: "identity theorem for power series: if two power series agree on an interval, their coefficients are identical"
+references: [taylor_series, limit]
+used_by:
+  - proof: PR22-eulers-formula
+    step: identify-cos-sin
+  - proof: PR12-central-limit-theorem
+    step: taylor-expand
+  - proof: PR31-stirling-approximation
+    step: expand-integrand

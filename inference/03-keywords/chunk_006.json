@@ -1,0 +1,57 @@
+{
+  "chunk_index": 6,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "3. Formal Definitions > [part 3/5]",
+  "section_path": [
+    "3. Formal Definitions",
+    "[part 3/5]"
+  ],
+  "char_count": 5894,
+  "keyphrases": [
+    {
+      "phrase": "encountered math survival",
+      "score": 0.521
+    },
+    {
+      "phrase": "inseparability entity math",
+      "score": 0.4127
+    },
+    {
+      "phrase": "math intrinsic drive",
+      "score": 0.4087
+    },
+    {
+      "phrase": "agency survival compelled",
+      "score": 0.4034
+    },
+    {
+      "phrase": "crystallized knowledge",
+      "score": 0.3904
+    },
+    {
+      "phrase": "normalized orientation math",
+      "score": 0.3472
+    },
+    {
+      "phrase": "mechanisms",
+      "score": 0.3167
+    },
+    {
+      "phrase": "nals",
+      "score": 0.3117
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 7 (Intelligence).",
+      "performance measure",
+      "Lemma 1 (Proposition Absence Lethality).",
+      "Theorem 1 (K/F Inseparability)."
+    ],
+    "has_math": true
+  }
+}

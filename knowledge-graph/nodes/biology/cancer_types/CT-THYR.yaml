@@ -1,0 +1,61 @@
+id: CT-THYR
+type: knowledge
+domain: cancer_biology
+name: "Thyroid Cancer"
+
+n_patients: 746
+n_mutated: 603
+mutation_rate: 0.8083
+channel_entropy: 1.5740
+hub_fraction: 0.3411
+median_os_months: 23.0300
+event_rate: 0.3150
+survival_36m: 0.3150
+mean_channels_per_patient: 1.4113
+top_gene: BRAF
+top_gene_frequency: 0.2848
+n_harmful_mutations: 5
+n_protective_mutations: 2
+dominant_channels: [CHAN-PI3K_Growth, CHAN-CellCycle]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=746)"
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Thyroid Cancer"
+  - to: CHAN-CellCycle
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Thyroid Cancer"
+  - to: GENE-BRAF
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "BRAF mutated in 0.2848 of Thyroid Cancer patients"
+

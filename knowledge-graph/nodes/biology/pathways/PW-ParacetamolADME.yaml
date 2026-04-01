@@ -1,0 +1,59 @@
+id: PW-ParacetamolADME
+type: knowledge
+domain: biology
+name: Paracetamol ADME
+reactome_id: R-HSA-9753281
+
+description: "Paracetamol (APAP, aka acetaminophen or N-acetyl-p-aminophenol) is an analgesic drug used for to treat mild to moderate pain and as an antipyretic agent. It is one of the most widely used drugs in the world and is available alone or in combination with other drugs for pain relief, fever and allergy. It is thought to act through the inhibition of cyclooxygenases 1 and 2 (Graham et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: APAP translocates from extracellular region to cytosol
+    reactome_id: R-HSA-9754180
+    type: BlackBoxEvent
+  - name: "UGTs glucuronate APAP to APAP-GlcA"
+    reactome_id: R-HSA-158546
+    type: Reaction
+  - name: "SULT dimers sulfate APAP to APAP-SO3"
+    reactome_id: R-HSA-9753277
+    type: Reaction
+  - name: "ABCC2,ABCG2 transport APAP-GlcA, APAP-SO3"
+    reactome_id: R-HSA-9753278
+    type: Reaction
+  - name: "ABCC3,ABCC4 transport APAP-GlcA, APAP-SO3"
+    reactome_id: R-HSA-9753283
+    type: Reaction
+  - name: CYP2E1 monooxygenates APAP to NAPQI
+    reactome_id: R-HSA-9753285
+    type: Reaction
+  - name: NAPQI binds proteins in hepatocytes
+    reactome_id: R-HSA-9753916
+    type: BlackBoxEvent
+  - name: "ACY1:Zn2+ dimer deacetylates NAC to L-Cys"
+    reactome_id: R-HSA-9753944
+    type: Reaction
+  - name: "GSTs transfer GSH to NAPQI to form APAP-SG"
+    reactome_id: R-HSA-9753280
+    type: Reaction
+  - name: "GGT dimers hydrolyse APAP-SG"
+    reactome_id: R-HSA-9753634
+    type: Reaction
+  - name: "CNDP2:2Mn2+ dimer hydrolyses APAP-CysGly"
+    reactome_id: R-HSA-9753632
+    type: Reaction
+  - name: "NAT1,2 acetylate APAP-Cys to APAP-Mer"
+    reactome_id: R-HSA-9753676
+    type: Reaction
+  - name: "ABCC1,4,5 transport APAP-Cys,APAP-Mer from cytosol to extracellular region"
+    reactome_id: R-HSA-9753284
+    type: Reaction
+
+edges:

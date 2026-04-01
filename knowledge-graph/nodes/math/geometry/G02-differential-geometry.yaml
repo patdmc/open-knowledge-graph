@@ -1,0 +1,171 @@
+id: G02-differential-geometry
+type: knowledge
+domain: geometry
+name: "Differential Geometry"
+
+concepts:
+  - id: parametric_curve
+    name: "Parametric Curve"
+    latex: "\\vec{r}(t) = (x(t), y(t), z(t))"
+    meaning: "path traced by point as parameter varies"
+    action:
+      numpy: "np.array([x(t), y(t), z(t)])"
+
+  - id: tangent_vector
+    name: "Tangent Vector"
+    latex: "\\vec{T} = \\frac{\\vec{r}'(t)}{\\|\\vec{r}'(t)\\|}"
+    meaning: "unit vector in direction of motion along curve"
+    action:
+      sympy: "r.diff(t) / r.diff(t).norm()"
+
+  - id: normal_vector
+    name: "Normal Vector"
+    latex: "\\vec{N} = \\frac{\\vec{T}'(t)}{\\|\\vec{T}'(t)\\|}"
+    meaning: "unit vector perpendicular to tangent, in direction of turning"
+
+  - id: binormal_vector
+    name: "Binormal Vector"
+    latex: "\\vec{B} = \\vec{T} \\times \\vec{N}"
+    meaning: "completes right-handed orthonormal frame (Frenet-Serret frame)"
+
+  - id: curvature
+    name: "Curvature"
+    latex: "\\kappa = \\|\\vec{T}'(s)\\| = \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3}"
+    meaning: "rate of turning; reciprocal of radius of osculating circle"
+    action:
+      sympy: "norm(cross(r.diff(t), r.diff(t,2))) / norm(r.diff(t))**3"
+
+  - id: torsion
+    name: "Torsion"
+    latex: "\\tau = -\\frac{d\\vec{B}}{ds} \\cdot \\vec{N} = \\frac{(\\vec{r}' \\times \\vec{r}'') \\cdot \\vec{r}'''}{\\|\\vec{r}' \\times \\vec{r}''\\|^2}"
+    meaning: "rate of rotation of osculating plane; measures twisting out of plane"
+
+  - id: arc_length
+    name: "Arc Length"
+    latex: "s = \\int_a^b \\|\\vec{r}'(t)\\| \\, dt"
+    action:
+      scipy: "scipy.integrate.quad(lambda t: np.linalg.norm(r_prime(t)), a, b)[0]"
+    curried: "lambda r_prime: lambda a: lambda b: scipy.integrate.quad(lambda t: np.linalg.norm(r_prime(t)), a, b)[0]"
+
+  - id: frenet_serret
+    name: "Frenet-Serret Formulas"
+    latex: "\\begin{pmatrix} \\vec{T}' \\\\ \\vec{N}' \\\\ \\vec{B}' \\end{pmatrix} = \\begin{pmatrix} 0 & \\kappa & 0 \\\\ -\\kappa & 0 & \\tau \\\\ 0 & -\\tau & 0 \\end{pmatrix} \\begin{pmatrix} \\vec{T} \\\\ \\vec{N} \\\\ \\vec{B} \\end{pmatrix}"
+    meaning: "differential equations governing the moving frame"
+
+  # === Surfaces ===
+  - id: parametric_surface
+    name: "Parametric Surface"
+    latex: "\\vec{r}(u, v) = (x(u,v), y(u,v), z(u,v))"
+
+  - id: surface_normal
+    name: "Surface Normal"
+    latex: "\\hat{n} = \\frac{\\vec{r}_u \\times \\vec{r}_v}{\\|\\vec{r}_u \\times \\vec{r}_v\\|}"
+    meaning: "unit vector perpendicular to surface at a point"
+
+  - id: first_fundamental_form
+    name: "First Fundamental Form"
+    latex: "I = E\\,du^2 + 2F\\,du\\,dv + G\\,dv^2"
+    meaning: "metric tensor on surface; measures distances and angles"
+    components:
+      E: "r_u . r_u"
+      F: "r_u . r_v"
+      G: "r_v . r_v"
+
+  - id: second_fundamental_form
+    name: "Second Fundamental Form"
+    latex: "II = L\\,du^2 + 2M\\,du\\,dv + N\\,dv^2"
+    meaning: "measures curvature of surface"
+    components:
+      L: "r_uu . n"
+      M: "r_uv . n"
+      N: "r_vv . n"
+
+  - id: gaussian_curvature
+    name: "Gaussian Curvature"
+    latex: "K = \\kappa_1 \\kappa_2 = \\frac{LN - M^2}{EG - F^2}"
+    meaning: "product of principal curvatures; intrinsic (Gauss's Theorema Egregium)"
+    values:
+      positive: "sphere-like (elliptic)"
+      zero: "flat (parabolic)"
+      negative: "saddle-like (hyperbolic)"
+
+  - id: mean_curvature
+    name: "Mean Curvature"
+    latex: "H = \\frac{\\kappa_1 + \\kappa_2}{2} = \\frac{EN - 2FM + GL}{2(EG - F^2)}"
+    meaning: "average of principal curvatures; H=0 defines minimal surfaces"
+
+  - id: geodesic
+    name: "Geodesic"
+    meaning: "shortest path between two points on a surface; zero geodesic curvature"
+    latex: "\\frac{d^2 x^k}{ds^2} + \\Gamma^k_{ij} \\frac{dx^i}{ds} \\frac{dx^j}{ds} = 0"
+
+  - id: christoffel_symbols
+    name: "Christoffel Symbols"
+    latex: "\\Gamma^k_{ij} = \\frac{1}{2} g^{kl}\\left(\\frac{\\partial g_{il}}{\\partial x^j} + \\frac{\\partial g_{jl}}{\\partial x^i} - \\frac{\\partial g_{ij}}{\\partial x^l}\\right)"
+    meaning: "connection coefficients encoding how basis vectors change"
+
+  - id: riemann_curvature_tensor
+    name: "Riemann Curvature Tensor"
+    latex: "R^l_{\\;ijk} = \\partial_j \\Gamma^l_{ik} - \\partial_k \\Gamma^l_{ij} + \\Gamma^l_{jm}\\Gamma^m_{ik} - \\Gamma^l_{km}\\Gamma^m_{ij}"
+    meaning: "measures failure of parallel transport around closed loop"
+
+  - id: ricci_curvature
+    name: "Ricci Curvature"
+    latex: "R_{ij} = R^k_{\\;ikj}"
+    meaning: "contraction of Riemann tensor; appears in Einstein's equations"
+
+  - id: metric_tensor
+    name: "Metric Tensor"
+    latex: "ds^2 = g_{ij} \\, dx^i \\, dx^j"
+    meaning: "defines distances and angles on manifold"
+    examples:
+      euclidean: "g_{ij} = delta_{ij}"
+      sphere: "ds^2 = r^2(d\\theta^2 + sin^2\\theta \\, d\\phi^2)"
+
+  - id: manifold
+    name: "Manifold"
+    meaning: "topological space locally resembling R^n; allows calculus on curved spaces"
+    examples: ["sphere S^2", "torus T^2", "projective space RP^n"]
+
+  - id: tangent_space
+    name: "Tangent Space"
+    latex: "T_p M"
+    meaning: "vector space of all tangent vectors at point p on manifold M"
+
+  - id: differential_form
+    name: "Differential Form"
+    latex: "\\omega = f_1 dx_1 + f_2 dx_2 + \\cdots"
+    meaning: "antisymmetric multilinear functional on tangent vectors"
+    action:
+      sympy: "from sympy.diffgeom import Differential"
+
+  - id: exterior_derivative
+    name: "Exterior Derivative"
+    latex: "d\\omega"
+    meaning: "generalization of grad, curl, div to differential forms"
+    property: "d(d(omega)) = 0"
+
+theorems:
+  - name: "Gauss's Theorema Egregium"
+    statement: "Gaussian curvature is an intrinsic invariant — preserved by isometries (bending without stretching)"
+
+  - name: "Gauss-Bonnet Theorem"
+    latex: "\\int_M K \\, dA = 2\\pi \\chi(M)"
+    meaning: "total Gaussian curvature of closed surface = 2pi * Euler characteristic"
+
+  - name: "Fundamental Theorem of Curves"
+    statement: "curvature kappa(s) and torsion tau(s) determine a space curve uniquely up to rigid motion"
+
+  - name: "Nash Embedding Theorem"
+    statement: "every Riemannian manifold can be isometrically embedded in some Euclidean space"
+
+edges:
+  - to: C03-multivariable-calculus
+    relation: REQUIRES
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "tangent spaces, metric tensors, curvature as matrices"
+  - to: G01-geometry-fundamentals
+    relation: EXTENDS
+  - to: T01-trig-functions
+    relation: REQUIRES

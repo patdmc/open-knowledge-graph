@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add dairy and peanut allergic kids",
+    "operation": "add",
+    "operands": [
+      9,
+      6
+    ],
+    "result": 15,
+    "variable": "dairy_plus_peanuts"
+  },
+  {
+    "step": 2,
+    "description": "Subtract double-counted kids allergic to both",
+    "operation": "subtract",
+    "operands": [
+      15,
+      3
+    ],
+    "result": 12,
+    "variable": "total_allergic"
+  },
+  {
+    "step": 3,
+    "description": "Subtract allergic kids from class total",
+    "operation": "subtract",
+    "operands": [
+      32,
+      12
+    ],
+    "result": 20,
+    "variable": "not_allergic"
+  }
+]

@@ -1,0 +1,41 @@
+id: PW-MitochondrialRNAdegradation
+type: knowledge
+domain: biology
+name: Mitochondrial RNA degradation
+reactome_id: R-HSA-9836573
+
+description: "The human mitochondrial genome encodes two rRNAs, 22 tRNAs, and 13 proteins. The mitochondrial genome is transcribed from two divergent promoters into two large precursor RNAs, one from each strand, that are endonucleolytically processed into individual mRNAs, tRNAs, and rRNAs (Mercer et al. 2011, reviewed in Barchiesi and Vascotto 2019, Jedynak-Slyvka et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: GRSF1 binds RNA containing quadruplex guanosine
+    reactome_id: R-HSA-9836993
+    type: Reaction
+  - name: GRSF1 unwinds quadruplex G regions in RNA
+    reactome_id: R-HSA-9836998
+    type: Reaction
+  - name: "SUPV3L1 unwinds double-stranded mitochondiral RNA"
+    reactome_id: R-HSA-9836927
+    type: Reaction
+  - name: "SUPV3L1:PNPT1 hydrolyzes mitochondrial RNA to yield 4-5 nucleotide oligoribonucleotides"
+    reactome_id: R-HSA-9836585
+    type: Reaction
+  - name: "REXO2 hydrolyzes 4-5 nucleotide RNAs to ribonucleotides"
+    reactome_id: R-HSA-9836822
+    type: Reaction
+  - name: "SLIRP:LRPPRC binds mitochondrial RNAs"
+    reactome_id: R-HSA-9837034
+    type: Reaction
+  - name: FASTK family proteins regulate processing and stability of mitochondrial RNAs
+    reactome_id: R-HSA-9837092
+    type: Pathway
+
+edges:

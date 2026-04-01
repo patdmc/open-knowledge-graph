@@ -1,0 +1,77 @@
+id: PW-ChaperoneMediatedAutophagy
+type: knowledge
+domain: biology
+name: Chaperone Mediated Autophagy
+reactome_id: R-HSA-9613829
+
+description: "In contrary to the vesicle-mediated macroautophagy, the chaperone mediated mechanism of autophagy selectively targets individual proteins to the lysosome for degradation. Chaperones bind intracellular proteins based on recognition motifs and transports them from the cytosol to the lysosomal membrane. Subsequently, the protein is translocated into the lumen for digestion (Cuervo A M et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: HSPA8 binds substrate
+    reactome_id: R-HSA-9615721
+    type: Reaction
+  - name: "HSPA8:Substrate binds LAMP2a"
+    reactome_id: R-HSA-9620197
+    type: Reaction
+  - name: "HSPA8 dissociates from LAMP2A-bound substrate"
+    reactome_id: R-HSA-9622840
+    type: Reaction
+  - name: "Substrate:LAMP2a binds HSP90"
+    reactome_id: R-HSA-9622831
+    type: Reaction
+  - name: "Substrate:LAMP2a:HSP90 polymerizes"
+    reactome_id: R-HSA-9624158
+    type: Polymerisation
+  - name: GFAP binds LAMP2a multimer
+    reactome_id: R-HSA-9625197
+    type: Reaction
+  - name: Unfolded substrate in LAMP2a multimeric complex binds HSPA8
+    reactome_id: R-HSA-9625196
+    type: Reaction
+  - name: HSPA8 transports unfolded substrate to lysosomal lumen for degradation
+    reactome_id: R-HSA-9625188
+    type: Reaction
+  - name: "HSPA8:Substrate dissociates from LAMP2a multimer"
+    reactome_id: R-HSA-9626060
+    type: Reaction
+  - name: "p-GFAP binds EEF1A1"
+    reactome_id: R-HSA-9626046
+    type: Reaction
+  - name: "EEF1A1 dissociates from p-GFAP"
+    reactome_id: R-HSA-9626034
+    type: Reaction
+  - name: EEF1A1 binds GTP
+    reactome_id: R-HSA-9626038
+    type: Reaction
+  - name: "EEF1A1:GTP translocates from lysosomal membrane to cytosol"
+    reactome_id: R-HSA-9626067
+    type: Reaction
+  - name: pGFAP binds GFAP in LAMP2a multimer
+    reactome_id: R-HSA-9626039
+    type: Reaction
+  - name: "p-GFAP:GFAP dissociates from LAMP2a multimer"
+    reactome_id: R-HSA-9626242
+    type: Reaction
+  - name: HSPA8 binds LAMP2a multimers
+    reactome_id: R-HSA-9626253
+    type: Reaction
+  - name: "HSPA8:LAMP2a multimers depolymerizes to monomers"
+    reactome_id: R-HSA-9626256
+    type: Depolymerisation
+  - name: HSPA8 dissociates from LAMP2a
+    reactome_id: R-HSA-9626235
+    type: Reaction
+  - name: HSP90 dissociates from LAMP2a
+    reactome_id: R-HSA-9626276
+    type: Reaction
+
+edges:

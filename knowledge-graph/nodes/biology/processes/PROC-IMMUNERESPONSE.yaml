@@ -1,0 +1,77 @@
+id: PROC-IMMUNERESPONSE
+type: knowledge
+domain: biology
+name: immune response
+go_id: GO:0006955
+
+definition: Any immune system process that functions in the calibrated response of an organism to a potential internal or invasive threat.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0006959
+    name: humoral immune response
+    relation: is_a
+  - id: GO:0090713
+    name: immunological memory process
+    relation: part_of
+  - id: GO:0002437
+    name: inflammatory response to antigenic stimulus
+    relation: is_a
+  - id: GO:0002418
+    name: immune response to tumor cell
+    relation: is_a
+  - id: GO:0002522
+    name: leukocyte migration involved in immune response
+    relation: part_of
+  - id: GO:0002250
+    name: adaptive immune response
+    relation: is_a
+  - id: GO:0002251
+    name: organ or tissue specific immune response
+    relation: is_a
+  - id: GO:0002233
+    name: leukocyte chemotaxis involved in immune response
+    relation: part_of
+  - id: GO:0002280
+    name: monocyte activation involved in immune response
+    relation: part_of
+  - id: GO:0002281
+    name: macrophage activation involved in immune response
+    relation: part_of
+  - id: GO:0002282
+    name: microglial cell activation involved in immune response
+    relation: part_of
+  - id: GO:0002283
+    name: neutrophil activation involved in immune response
+    relation: part_of
+  - id: GO:0002285
+    name: lymphocyte activation involved in immune response
+    relation: part_of
+  - id: GO:0002286
+    name: T cell activation involved in immune response
+    relation: part_of
+  - id: GO:0002287
+    name: "alpha-beta T cell activation involved in immune response"
+    relation: part_of
+
+edges:
+  - to: CHAN-Immune
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-Immune encode components of immune response"
+  - to: BIO-IMMUNE
+    relation: part_of

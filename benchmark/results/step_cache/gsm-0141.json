@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total ratio parts: 1 queen + 2 babies + 4 workers = 7",
+    "operation": "add",
+    "operands": [
+      1,
+      6
+    ],
+    "result": 7,
+    "variable": "total_ratio_parts"
+  },
+  {
+    "step": 2,
+    "description": "Find number of queens (1 part)",
+    "operation": "divide",
+    "operands": [
+      700,
+      7
+    ],
+    "result": 100,
+    "variable": "queens"
+  },
+  {
+    "step": 3,
+    "description": "Find number of baby bees (twice queens)",
+    "operation": "multiply",
+    "operands": [
+      100,
+      2
+    ],
+    "result": 200,
+    "variable": "baby_bees"
+  },
+  {
+    "step": 4,
+    "description": "Find number of worker bees (twice babies)",
+    "operation": "multiply",
+    "operands": [
+      200,
+      2
+    ],
+    "result": 400,
+    "variable": "worker_bees"
+  }
+]

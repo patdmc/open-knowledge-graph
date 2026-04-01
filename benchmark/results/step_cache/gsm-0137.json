@@ -1,0 +1,90 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of 2 subs",
+    "operation": "multiply",
+    "operands": [
+      2,
+      7.5
+    ],
+    "result": 15.0,
+    "variable": "subs_total"
+  },
+  {
+    "step": 2,
+    "description": "Cost of 2 bags of chips",
+    "operation": "multiply",
+    "operands": [
+      2,
+      1.5
+    ],
+    "result": 3.0,
+    "variable": "chips_total"
+  },
+  {
+    "step": 3,
+    "description": "Cost of 2 cookies",
+    "operation": "multiply",
+    "operands": [
+      2,
+      1.0
+    ],
+    "result": 2.0,
+    "variable": "cookies_total"
+  },
+  {
+    "step": 4,
+    "description": "Subs plus chips",
+    "operation": "add",
+    "operands": [
+      15.0,
+      3.0
+    ],
+    "result": 18.0,
+    "variable": "subtotal_partial"
+  },
+  {
+    "step": 5,
+    "description": "Add cookies to get order subtotal",
+    "operation": "add",
+    "operands": [
+      18.0,
+      2.0
+    ],
+    "result": 20.0,
+    "variable": "order_subtotal"
+  },
+  {
+    "step": 6,
+    "description": "Calculate 20% delivery fee",
+    "operation": "multiply",
+    "operands": [
+      20.0,
+      0.2
+    ],
+    "result": 4.0,
+    "variable": "delivery_fee"
+  },
+  {
+    "step": 7,
+    "description": "Add delivery fee to subtotal",
+    "operation": "add",
+    "operands": [
+      20.0,
+      4.0
+    ],
+    "result": 24.0,
+    "variable": "total_with_fee"
+  },
+  {
+    "step": 8,
+    "description": "Add tip to get final total",
+    "operation": "add",
+    "operands": [
+      24.0,
+      5.0
+    ],
+    "result": 29.0,
+    "variable": "final_total"
+  }
+]

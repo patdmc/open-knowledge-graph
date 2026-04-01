@@ -1,0 +1,29 @@
+id: PW-Metabolismofvitaminsandcofacto
+type: knowledge
+domain: biology
+name: Metabolism of vitamins and cofactors
+reactome_id: R-HSA-196854
+
+description: "Vitamins are a diverse group of organic compounds, classified according to their solubility, either fat-soluble or water-soluble, that are either not synthesized or synthesized only in limited amounts by human cells. They are required in small amounts in the diet and have distinct biochemical roles, often as coenzymes (cofactors). The physiological processes dependent on vitamin-requiring reactions include many aspects of intermediary metabolism, vision, bone formation, and blood coagulation, and vitamin deficiencies are associated with a correspondingly diverse and severe group of diseases."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Metabolism of water-soluble vitamins and cofactors"
+    reactome_id: R-HSA-196849
+    type: Pathway
+  - name: "Metabolism of fat-soluble vitamins"
+    reactome_id: R-HSA-6806667
+    type: Pathway
+  - name: Metabolism of cofactors
+    reactome_id: R-HSA-8978934
+    type: Pathway
+
+edges:

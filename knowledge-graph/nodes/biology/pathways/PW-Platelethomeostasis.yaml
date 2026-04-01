@@ -1,0 +1,38 @@
+id: PW-Platelethomeostasis
+type: knowledge
+domain: biology
+name: Platelet homeostasis
+reactome_id: R-HSA-418346
+
+description: "Under normal conditions the vascular endothelium supports vasodilation, inhibits platelet adhesion and activation, suppresses coagulation, enhances fibrin cleavage and is anti-inflammatory in character. Under acute vascular trauma, vasoconstrictor mechanisms predominate and the endothelium becomes prothrombotic, procoagulatory and proinflammatory in nature. This is achieved by a reduction of endothelial dilating agents: adenosine, NO and prostacyclin; and by the direct action of ADP, serotonin and thromboxane on vascular smooth muscle cells to elicit their contraction (Becker et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Prostacyclin signalling through prostacyclin receptor
+    reactome_id: R-HSA-392851
+    type: Pathway
+  - name: Nitric oxide stimulates guanylate cyclase
+    reactome_id: R-HSA-392154
+    type: Pathway
+  - name: Binding of ATP to P2X receptors
+    reactome_id: R-HSA-419490
+    type: Reaction
+  - name: Platelet calcium homeostasis
+    reactome_id: R-HSA-418360
+    type: Pathway
+  - name: Platelet sensitization by LDL
+    reactome_id: R-HSA-432142
+    type: Pathway
+  - name: "PAFAH2 hydrolyses PAF to lyso-PAF and acetate"
+    reactome_id: R-HSA-8869206
+    type: Reaction
+
+edges:

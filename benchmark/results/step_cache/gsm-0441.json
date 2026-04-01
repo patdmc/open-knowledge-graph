@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Elizabeth's total packs (1 red + 2 clear)",
+    "operation": "add",
+    "operands": [
+      1,
+      2
+    ],
+    "result": 3,
+    "variable": "elizabeth_packs"
+  },
+  {
+    "step": 2,
+    "description": "Margareth's total packs (3 blue + 4 red)",
+    "operation": "add",
+    "operands": [
+      3,
+      4
+    ],
+    "result": 7,
+    "variable": "margareth_packs"
+  },
+  {
+    "step": 3,
+    "description": "Elizabeth's total beads (3 packs \u00d7 20)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      20
+    ],
+    "result": 60,
+    "variable": "elizabeth_beads"
+  },
+  {
+    "step": 4,
+    "description": "Margareth's total beads (7 packs \u00d7 20)",
+    "operation": "multiply",
+    "operands": [
+      7,
+      20
+    ],
+    "result": 140,
+    "variable": "margareth_beads"
+  },
+  {
+    "step": 5,
+    "description": "Difference between Margareth and Elizabeth beads",
+    "operation": "subtract",
+    "operands": [
+      140,
+      60
+    ],
+    "result": 80,
+    "variable": "difference"
+  }
+]

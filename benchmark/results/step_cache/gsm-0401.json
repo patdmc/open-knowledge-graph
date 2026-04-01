@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "days per week times weeks per month",
+    "operation": "multiply",
+    "operands": [
+      6,
+      4
+    ],
+    "result": 24,
+    "variable": "days_per_month"
+  },
+  {
+    "step": 2,
+    "description": "days per month times months per year",
+    "operation": "multiply",
+    "operands": [
+      24,
+      12
+    ],
+    "result": 288,
+    "variable": "days_per_year"
+  },
+  {
+    "step": 3,
+    "description": "days per year times daily pay",
+    "operation": "multiply",
+    "operands": [
+      288,
+      50
+    ],
+    "result": 14400.0,
+    "variable": "total_earnings"
+  }
+]

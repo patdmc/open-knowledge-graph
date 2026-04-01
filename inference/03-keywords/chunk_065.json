@@ -1,0 +1,51 @@
+{
+  "chunk_index": 65,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "8. Conclusion",
+  "section_path": [
+    "8. Conclusion"
+  ],
+  "char_count": 1475,
+  "keyphrases": [
+    {
+      "phrase": "general collective intelligence",
+      "score": 0.5734
+    },
+    {
+      "phrase": "self organizing framework",
+      "score": 0.4946
+    },
+    {
+      "phrase": "generative model escalation",
+      "score": 0.4322
+    },
+    {
+      "phrase": "attention architecture",
+      "score": 0.3979
+    },
+    {
+      "phrase": "conclusionconclusion free energy",
+      "score": 0.3931
+    },
+    {
+      "phrase": "biological systems extensions",
+      "score": 0.3684
+    },
+    {
+      "phrase": "imperative allocation violates",
+      "score": 0.3621
+    },
+    {
+      "phrase": "organization fep asks",
+      "score": 0.3358
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": true
+  }
+}

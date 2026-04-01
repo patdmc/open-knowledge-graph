@@ -1,0 +1,63 @@
+id: PW-RegulationofInsulinlikeGrowthF
+type: knowledge
+domain: biology
+name: "Regulation of Insulin-like Growth Factor (IGF) transport and uptake by Insulin-like Growth Factor Binding Proteins (IGFBPs)"
+reactome_id: R-HSA-381426
+
+description: "The family of Insulin like Growth Factor Binding Proteins (IGFBPs) share 50% amino acid identity with conserved N terminal and C terminal regions responsible for binding Insulin like Growth Factors I and II (IGF I and IGF II). Most circulating IGFs are in complexes with IGFBPs, which are believed to increase the residence of IGFs in the body, modulate availability of IGFs to target receptors for IGFs, reduce insulin like effects of IGFs, and act as signaling molecules independently of IGFs.
+About 75% of circulating IGFs are in 1500 220 KDa complexes with IGFBP3 and ALS. Such complexes are too large to pass the endothelial barrier."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "IGFBP1 binds IGF forming IGF:IGFBP1"
+    reactome_id: R-HSA-381487
+    type: Reaction
+  - name: "IGFBP2 binds IGF forming IGF:IGFBP2"
+    reactome_id: R-HSA-381412
+    type: Reaction
+  - name: "Formation of the IGF:IGFBP3:ALS complex"
+    reactome_id: R-HSA-381496
+    type: Reaction
+  - name: "IGFBP4 binds IGF forming IGF:IGFBP4"
+    reactome_id: R-HSA-381543
+    type: Reaction
+  - name: "Formation of the IGF:IGFBP5:ALS complex"
+    reactome_id: R-HSA-381545
+    type: Reaction
+  - name: "IGFBP6 binds IGF forming IGF:IGFBP6"
+    reactome_id: R-HSA-381503
+    type: Reaction
+  - name: "Cathepsin G proteolyzes IGF:IGFBP3:ALS"
+    reactome_id: R-HSA-381500
+    type: Reaction
+  - name: "Matrix metalloproteinase proteolyzes IGF:IGFBP3:ALS"
+    reactome_id: R-HSA-381435
+    type: Reaction
+  - name: "Plasmin proteolyzes IGF:IGFBP-3:ALS"
+    reactome_id: R-HSA-381461
+    type: Reaction
+  - name: "Prostate-specific Antigen proteolyzes IGF:IGFBP3:ALS "
+    reactome_id: R-HSA-381466
+    type: Reaction
+  - name: "Thrombin proteolyzes IGF:IGFBP3:ALS"
+    reactome_id: R-HSA-381446
+    type: Reaction
+  - name: "PAAP-A proteolyzes IGF:IGFBP4"
+    reactome_id: R-HSA-381518
+    type: Reaction
+  - name: "PAPP-A2 proteolyzes IGF:IGFBP5:ALS"
+    reactome_id: R-HSA-381537
+    type: Reaction
+  - name: FAM20C phosphorylates FAM20C substrates
+    reactome_id: R-HSA-8952289
+    type: Reaction
+
+edges:

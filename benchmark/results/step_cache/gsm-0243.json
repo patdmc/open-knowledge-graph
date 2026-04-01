@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total minutes used on boss calls",
+    "operation": "multiply",
+    "operands": [
+      15,
+      30
+    ],
+    "result": 450,
+    "variable": "boss_call_minutes"
+  },
+  {
+    "step": 2,
+    "description": "Total minutes used across all calls",
+    "operation": "add",
+    "operands": [
+      450,
+      300
+    ],
+    "result": 750,
+    "variable": "total_minutes_used"
+  },
+  {
+    "step": 3,
+    "description": "Minutes remaining in plan",
+    "operation": "subtract",
+    "operands": [
+      1000,
+      750
+    ],
+    "result": 250.0,
+    "variable": "minutes_remaining"
+  }
+]

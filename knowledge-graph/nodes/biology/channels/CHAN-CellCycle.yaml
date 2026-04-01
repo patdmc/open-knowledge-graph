@@ -1,0 +1,498 @@
+id: CHAN-CellCycle
+type: knowledge
+domain: cancer_biology
+name: Cell Cycle / Apoptosis
+gene_count: 14
+hub_genes: [CDKN1A, CDKN2A, TP53]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Channel defined by organizational function; validated across MSK-IMPACT 2017, MSK-MET, MSK-IMPACT 50K (n=73,593)"
+
+genes:
+  - id: CCND1
+    string_ppi_degree: 42
+    position: leaf
+    full_name: cyclin D1
+    chromosome: 11
+    ncbi_summary: The protein encoded by this gene belongs to the highly conserved cyclin family, whose members are characterized by a dramatic periodicity in protein abundance throughout the cell cycle. Cyclins function as regulators of CDK kinases.
+    protein_name: "G1/S-specific cyclin-D1"
+    uniprot_function: "Regulatory component of the cyclin D1-CDK4 (DC) complex that phosphorylates and inhibits members of the retinoblastoma (RB) protein family including RB1 and regulates the cell-cycle during G(1)/S tran..."
+    subcellular_location: [Nucleus, Cytoplasm, Nucleus membrane]
+    diseases:
+      - Multiple myeloma
+    go_biological_process:
+      - cell division
+      - cellular response to hypoxia
+      - DNA damage response
+      - endoplasmic reticulum unfolded protein response
+      - fat cell differentiation
+      - G1/S transition of mitotic cell cycle
+      - lactation
+      - Leydig cell differentiation
+    kegg_pathways:
+      - Endocrine resistance
+      - FoxO signaling pathway
+      - Cell cycle
+      - p53 signaling pathway
+      - "PI3K-Akt signaling pathway"
+      - AMPK signaling pathway
+      - Cellular senescence
+      - Wnt signaling pathway
+  - id: CCNE1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: cyclin E1
+    chromosome: 19
+    ncbi_summary: The protein encoded by this gene belongs to the highly conserved cyclin family, whose members are characterized by a dramatic periodicity in protein abundance through the cell cycle. Cyclins function as regulators of CDK kinases.
+    protein_name: "G1/S-specific cyclin-E1"
+    uniprot_function: Essential for the control of the cell cycle at the G1/S (start) transition
+    subcellular_location: [Nucleus]
+    go_biological_process:
+      - cell division
+      - DNA replication initiation
+      - G1/S transition of mitotic cell cycle
+      - homologous chromosome pairing at meiosis
+      - negative regulation of transcription by RNA polymerase II
+      - positive regulation of G1/S transition of mitotic cell cycle
+      - positive regulation of mesenchymal stem cell proliferation
+      - protein phosphorylation
+    kegg_pathways:
+      - Cell cycle
+      - Oocyte meiosis
+      - p53 signaling pathway
+      - "PI3K-Akt signaling pathway"
+      - Cellular senescence
+      - Cushing syndrome
+      - Hepatitis B
+      - Measles
+  - id: CDK4
+    string_ppi_degree: 25
+    position: leaf
+    full_name: cyclin dependent kinase 4
+    chromosome: 12
+    ncbi_summary: The protein encoded by this gene is a member of the Ser/Thr protein kinase family. This protein is highly similar to the gene products of S.
+    protein_name: "Cyclin-dependent kinase 4"
+    uniprot_function: "Ser/Thr-kinase component of cyclin D-CDK4 (DC) complexes that phosphorylate and inhibit members of the retinoblastoma (RB) protein family including RB1 and regulate the cell-cycle during G(1)/S transi..."
+    subcellular_location: [Cytoplasm, Nucleus, Nucleus membrane]
+    diseases:
+      - Melanoma, cutaneous malignant 3
+    go_biological_process:
+      - cell division
+      - "cellular response to interleukin-4"
+      - cellular response to ionomycin
+      - cellular response to lipopolysaccharide
+      - "cellular response to phorbol 13-acetate 12-myristate"
+      - G1/S transition of mitotic cell cycle
+      - positive regulation of cell population proliferation
+      - positive regulation of fibroblast proliferation
+    kegg_pathways:
+      - Endocrine resistance
+      - Platinum drug resistance
+      - Cell cycle
+      - p53 signaling pathway
+      - Cellular senescence
+      - Cushing syndrome
+      - Human cytomegalovirus infection
+      - "Human T-cell leukemia virus 1 infection"
+    cross_edges:
+      - to: ARID1A
+        relation: COMPENSATES
+        hr: 0.2960
+        p: 6.02e-04
+        n: 102
+  - id: CDK6
+    string_ppi_degree: 0
+    position: leaf
+    full_name: cyclin dependent kinase 6
+    chromosome: 7
+    ncbi_summary: The protein encoded by this gene is a member of the CMGC family of serine/threonine protein kinases. This kinase is a catalytic subunit of the protein kinase complex that is important for cell cycle G1 phase progression and G1/S transition.
+    protein_name: "Cyclin-dependent kinase 6"
+    uniprot_function: "Serine/threonine-protein kinase involved in the control of the cell cycle and differentiation; promotes G1/S transition. Phosphorylates pRB/RB1 and NPM1. Interacts with D-type G1 cyclins during interp..."
+    subcellular_location: [Cytoplasm, Nucleus, Cell projection, ruffle]
+    diseases:
+      - Microcephaly 12, primary, autosomal recessive
+    go_biological_process:
+      - astrocyte development
+      - cell dedifferentiation
+      - cell division
+      - dentate gyrus development
+      - DNA damage response
+      - G1/S transition of mitotic cell cycle
+      - generation of neurons
+      - gliogenesis
+    kegg_pathways:
+      - Cell cycle
+      - p53 signaling pathway
+      - "PI3K-Akt signaling pathway"
+      - Cellular senescence
+      - Cushing syndrome
+      - Hepatitis C
+      - Measles
+      - Human cytomegalovirus infection
+  - id: CDKN1A
+    string_ppi_degree: 26
+    position: hub
+    full_name: cyclin dependent kinase inhibitor 1A
+    chromosome: 6
+    ncbi_summary: "This gene encodes a potent cyclin-dependent kinase inhibitor. The encoded protein binds to and inhibits the activity of cyclin-cyclin-dependent kinase2 or -cyclin-dependent kinase4 complexes, and thus functions as a regulator of cell cycle progression at G1."
+    protein_name: "Cyclin-dependent kinase inhibitor 1"
+    uniprot_function: "Plays an important role in controlling cell cycle progression and DNA damage-induced G2 arrest (PubMed:9106657). Involved in p53/TP53 mediated inhibition of cellular proliferation in response to DNA d..."
+    subcellular_location: [Cytoplasm, Nucleus]
+    go_biological_process:
+      - cellular response to amino acid starvation
+      - "cellular response to cell-matrix adhesion"
+      - cellular response to gamma radiation
+      - cellular response to ionizing radiation
+      - "cellular response to UV-B"
+      - cellular senescence
+      - DNA damage response
+      - DNA damage response, signal transduction by p53 class mediator
+  - id: CDKN1B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: cyclin dependent kinase inhibitor 1B
+    chromosome: 12
+    ncbi_summary: "This gene encodes a cyclin-dependent kinase inhibitor, which shares a limited similarity with CDK inhibitor CDKN1A/p21. The encoded protein binds to and prevents the activation of cyclin E-CDK2 or cyclin D-CDK4 complexes, and thus controls the cell cycle progression at G1."
+    protein_name: "Cyclin-dependent kinase inhibitor 1B"
+    uniprot_function: "Important regulator of cell cycle progression. Inhibits the kinase activity of CDK2 bound to cyclin A, but has little inhibitory activity on CDK2 bound to SPDYA (PubMed:28666995). Involved in G1 arres..."
+    subcellular_location: [Nucleus, Cytoplasm, Endosome]
+    diseases:
+      - Multiple endocrine neoplasia 4
+    go_biological_process:
+      - autophagic cell death
+      - cellular response to antibiotic
+      - cellular response to lithium ion
+      - cellular senescence
+      - DNA damage response, signal transduction by p53 class mediator
+      - epithelial cell apoptotic process
+      - epithelial cell proliferation involved in prostate gland development
+      - G1/S transition of mitotic cell cycle
+    kegg_pathways:
+      - Endocrine resistance
+      - ErbB signaling pathway
+      - "HIF-1 signaling pathway"
+      - FoxO signaling pathway
+      - Cell cycle
+      - "PI3K-Akt signaling pathway"
+      - "AGE-RAGE signaling pathway in diabetic complications"
+      - Cushing syndrome
+  - id: CDKN2A
+    string_ppi_degree: 37
+    position: hub
+    full_name: cyclin dependent kinase inhibitor 2A
+    chromosome: 9
+    ncbi_summary: This gene generates several transcript variants which differ in their first exons. At least three alternatively spliced variants encoding distinct proteins have been reported, two of which encode structurally related isoforms known to function as inhibitors of CDK4 kinase.
+    protein_name: "Cyclin-dependent kinase inhibitor 2A"
+    uniprot_function: Acts as a negative regulator of the proliferation of normal cells by interacting strongly with CDK4 and CDK6. This inhibits their ability to interact with cyclins D and to phosphorylate the retinoblas...
+    subcellular_location: [Cytoplasm, Nucleus]
+    diseases:
+      - Melanoma, cutaneous malignant 2
+      - "Familial atypical multiple mole melanoma-pancreatic carcinoma syndrome"
+      - "Melanoma-astrocytoma syndrome"
+    go_biological_process:
+      - apoptotic process involved in mammary gland involution
+      - cellular response to hydrogen peroxide
+      - cellular senescence
+      - glucose homeostasis
+      - keratinocyte differentiation
+      - keratinocyte proliferation
+      - mammary gland epithelial cell proliferation
+      - negative regulation of cell growth
+    cross_edges:
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5870
+        p: 1.67e-06
+        n: 260
+      - to: EGFR
+        relation: BUFFERS
+        hr: 0.4730
+        p: 3.26e-06
+        n: 126
+      - to: BRAF
+        relation: BUFFERS
+        hr: 0.5670
+        p: 2.13e-05
+        n: 187
+      - to: KRAS
+        relation: ESCALATES
+        hr: 1.2920
+        p: 8.22e-05
+        n: 700
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6180
+        p: 1.09e-04
+        n: 207
+  - id: CDKN2B
+    string_ppi_degree: 0
+    position: leaf
+    full_name: cyclin dependent kinase inhibitor 2B
+    chromosome: 9
+    ncbi_summary: "This gene lies adjacent to the tumor suppressor gene CDKN2A in a region that is frequently mutated and deleted in a wide variety of tumors. This gene encodes a cyclin-dependent kinase inhibitor, which forms a complex with CDK4 or CDK6, and prevents the activation of the CDK kinases, thus the encoded protein functions as a cell growth regulator that controls cell cycle G1 progression."
+    protein_name: "Cyclin-dependent kinase 4 inhibitor B"
+    uniprot_function: "Interacts strongly with CDK4 and CDK6. Potent inhibitor. Potential effector of TGF-beta induced cell cycle arrest"
+    subcellular_location: [Cytoplasm]
+    go_biological_process:
+      - "cellular response to cell-matrix adhesion"
+      - cellular response to nutrient
+      - cellular senescence
+      - megakaryocyte differentiation
+      - negative regulation of cell population proliferation
+      - negative regulation of epithelial cell proliferation
+      - negative regulation of G1/S transition of mitotic cell cycle
+      - positive regulation of transforming growth factor beta receptor signaling pathway
+  - id: MDM2
+    string_ppi_degree: 29
+    position: leaf
+    full_name: "MDM2 proto-oncogene"
+    chromosome: 12
+    ncbi_summary: "This gene encodes a nuclear-localized E3 ubiquitin ligase. The encoded protein can promote tumor formation by targeting tumor suppressor proteins, such as p53, for proteasomal degradation."
+    protein_name: "E3 ubiquitin-protein ligase Mdm2"
+    uniprot_function: "E3 ubiquitin-protein ligase that mediates ubiquitination of p53/TP53, leading to its degradation by the proteasome (PubMed:29681526). Inhibits p53/TP53- and p73/TP73-mediated cell cycle arrest and apo..."
+    subcellular_location: [Nucleus, nucleoplasm, Cytoplasm, Nucleus, nucleolus]
+    diseases:
+      - "Lessel-Kubisch syndrome"
+    go_biological_process:
+      - amyloid fibril formation
+      - apoptotic process
+      - atrial septum development
+      - atrioventricular valve morphogenesis
+      - blood vessel development
+      - blood vessel remodeling
+      - cardiac septum morphogenesis
+      - cellular response to alkaloid
+    kegg_pathways:
+      - Cell cycle
+    cross_edges:
+      - to: BRCA2
+        relation: COMPENSATES
+        hr: 0.2640
+        p: 4.52e-04
+        n: 106
+  - id: MDM4
+    string_ppi_degree: 0
+    position: leaf
+    full_name: MDM4 regulator of p53
+    chromosome: 1
+    ncbi_summary: "This gene encodes a nuclear protein that contains a p53 binding domain at the N-terminus and a RING finger domain at the C-terminus, and shows structural similarity to p53-binding protein MDM2. Both proteins bind the p53 tumor suppressor protein and inhibit its activity, and have been shown to be overexpressed in a variety of human cancers."
+    protein_name: Protein Mdm4
+    uniprot_function: "Contributes to p53/TP53 regulation (PubMed:32300648). Inhibits p53/TP53- and p73/TP73-mediated cell cycle arrest and apoptosis by binding their transcriptional activation domains. Inhibits degradation..."
+    subcellular_location: [Nucleus, Cytoplasm]
+    diseases:
+      - Bone marrow failure syndrome 6
+    go_biological_process:
+      - atrial septum development
+      - atrioventricular valve morphogenesis
+      - cellular response to hypoxia
+      - DNA damage response, signal transduction by p53 class mediator
+      - endocardial cushion morphogenesis
+      - heart valve development
+      - negative regulation of apoptotic process
+      - negative regulation of cell population proliferation
+    kegg_pathways:
+      - p53 signaling pathway
+      - MicroRNAs in cancer
+  - id: MYC
+    string_ppi_degree: 45
+    position: leaf
+    full_name: "MYC proto-oncogene, bHLH transcription factor"
+    chromosome: 8
+    ncbi_summary: "This gene is a proto-oncogene and encodes a nuclear phosphoprotein that plays a role in cell cycle progression, apoptosis and cellular transformation. The encoded protein forms a heterodimer with the related transcription factor MAX."
+    protein_name: "Myc proto-oncogene protein"
+    uniprot_function: "Transcription factor that binds DNA in a non-specific manner, yet also specifically recognizes the core sequence 5'-CAC[GA]TG-3' (PubMed:24940000, PubMed:25956029). Activates the transcription of grow..."
+    subcellular_location: [Nucleus, nucleoplasm, Nucleus, nucleolus, Nucleus]
+    diseases:
+      - Burkitt lymphoma
+    go_biological_process:
+      - acinar cell proliferation
+      - B cell apoptotic process
+      - branching involved in ureteric bud morphogenesis
+      - cellular response to hypoxia
+      - "cellular response to interferon-alpha"
+      - cellular response to UV
+      - cellular response to xenobiotic stimulus
+      - chromatin remodeling
+  - id: MYCN
+    string_ppi_degree: 0
+    position: leaf
+    full_name: "MYCN proto-oncogene, bHLH transcription factor"
+    chromosome: 2
+    ncbi_summary: "This gene is a member of the MYC family and encodes a protein with a basic helix-loop-helix (bHLH) domain. This protein is located in the nucleus and must dimerize with another bHLH protein in order to bind DNA."
+    protein_name: "N-myc proto-oncogene protein"
+    uniprot_function: Positively regulates the transcription of MYCNOS in neuroblastoma cells
+    subcellular_location: [Nucleus]
+    diseases:
+      - Feingold syndrome 1
+      - "Megalencephaly-polydactyly syndrome"
+    go_biological_process:
+      - astrocyte differentiation
+      - autosome genomic imprinting
+      - branching morphogenesis of an epithelial tube
+      - cartilage condensation
+      - embryonic digit morphogenesis
+      - embryonic skeletal system morphogenesis
+      - epithelial cell proliferation
+      - lung development
+  - id: RB1
+    string_ppi_degree: 0
+    position: leaf
+    full_name: RB transcriptional corepressor 1
+    chromosome: 13
+    ncbi_summary: The protein encoded by this gene is a negative regulator of the cell cycle and was the first tumor suppressor gene found. The encoded protein also stabilizes constitutive heterochromatin to maintain the overall chromatin structure.
+    protein_name: "Retinoblastoma-associated protein"
+    uniprot_function: "Tumor suppressor that is a key regulator of the G1/S transition of the cell cycle (PubMed:10499802). The hypophosphorylated form binds transcription regulators of the E2F family, preventing transcript..."
+    subcellular_location: [Nucleus, Cytoplasm]
+    diseases:
+      - Childhood cancer retinoblastoma
+      - Bladder cancer
+      - Osteogenic sarcoma
+    go_biological_process:
+      - aortic valve morphogenesis
+      - cell differentiation
+      - cell division
+      - cell morphogenesis involved in neuron differentiation
+      - cellular response to insulin stimulus
+      - cellular response to xenobiotic stimulus
+      - chondrocyte differentiation
+      - chromatin remodeling
+    kegg_pathways:
+      - Hippo signaling pathway
+    cross_edges:
+      - to: ARID1A
+        relation: BUFFERS
+        hr: 0.5560
+        p: 5.54e-10
+        n: 484
+      - to: BRCA2
+        relation: BUFFERS
+        hr: 0.4340
+        p: 6.40e-10
+        n: 283
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.5400
+        p: 3.27e-09
+        n: 374
+      - to: SMAD4
+        relation: BUFFERS
+        hr: 0.3690
+        p: 2.34e-08
+        n: 123
+      - to: ATM
+        relation: BUFFERS
+        hr: 0.5570
+        p: 7.24e-07
+        n: 306
+      - to: FGFR1
+        relation: COMPENSATES
+        hr: 0.2800
+        p: 5.05e-06
+        n: 154
+      - to: TGFBR1
+        relation: COMPENSATES
+        hr: 0.2960
+        p: 2.76e-05
+        n: 125
+  - id: TP53
+    string_ppi_degree: 68
+    position: hub
+    full_name: tumor protein p53
+    chromosome: 17
+    ncbi_summary: This gene encodes a tumor suppressor protein containing transcriptional activation, DNA binding, and oligomerization domains. The encoded protein responds to diverse cellular stresses to regulate expression of target genes, thereby inducing cell cycle arrest, apoptosis, senescence, DNA repair, or changes in metabolism.
+    protein_name: Cellular tumor antigen p53
+    uniprot_function: "Multifunctional transcription factor that induces cell cycle arrest, DNA repair or apoptosis upon binding to its target DNA sequence (PubMed:11025664, PubMed:12524540, PubMed:12810724, PubMed:15186775..."
+    subcellular_location: [Cytoplasm, Nucleus, Nucleus, PML body]
+    diseases:
+      - Esophageal cancer
+      - "Li-Fraumeni syndrome"
+      - Squamous cell carcinoma of the head and neck
+      - Lung cancer
+      - Papilloma of choroid plexus
+    go_biological_process:
+      - autophagy
+      - B cell lineage commitment
+      - bone marrow development
+      - cardiac muscle cell apoptotic process
+      - cardiac septum morphogenesis
+      - cellular response to actinomycin D
+      - cellular response to gamma radiation
+      - cellular response to glucose starvation
+    kegg_pathways:
+      - Hippo signaling pathway
+    mutations:
+      - change: E285K
+        cancer_type: Bladder Cancer
+        hr: 1.6262
+        p: 0.0093
+        direction: harmful
+        n: 74
+      - change: Y220C
+        cancer_type: Ovarian Cancer
+        hr: 0.5380
+        p: 0.0215
+        direction: protective
+        n: 69
+      - change: R248Q
+        cancer_type: Endometrial Cancer
+        hr: 1.6318
+        p: 0.0144
+        direction: harmful
+        n: 64
+      - change: R282W
+        cancer_type: Pancreatic Cancer
+        hr: 1.4680
+        p: 0.0119
+        direction: harmful
+        n: 58
+      - change: R273H
+        cancer_type: Endometrial Cancer
+        hr: 1.9749
+        p: 5.34e-04
+        direction: harmful
+        n: 57
+    cross_edges:
+      - to: APC
+        relation: BUFFERS
+        hr: 0.6910
+        p: 2.55e-13
+        n: 3484
+      - to: STK11
+        relation: BUFFERS
+        hr: 0.6220
+        p: 5.41e-10
+        n: 604
+      - to: BAP1
+        relation: BUFFERS
+        hr: 0.5870
+        p: 3.51e-07
+        n: 315
+      - to: NF2
+        relation: BUFFERS
+        hr: 0.5670
+        p: 5.12e-07
+        n: 327
+      - to: NF1
+        relation: BUFFERS
+        hr: 0.7410
+        p: 1.39e-06
+        n: 1478
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: formal-derivation
+        description: "Coupling channels instantiate the escalation hierarchy predicted by bounded context theory"

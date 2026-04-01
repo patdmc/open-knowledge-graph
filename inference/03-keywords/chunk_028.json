@@ -1,0 +1,58 @@
+{
+  "chunk_index": 28,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 1/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 1/6]"
+  ],
+  "char_count": 5690,
+  "keyphrases": [
+    {
+      "phrase": "transmission fidelity knowledge",
+      "score": 0.6367
+    },
+    {
+      "phrase": "knowledge transfer inherently",
+      "score": 0.5765
+    },
+    {
+      "phrase": "collective reduces uncertainty",
+      "score": 0.547
+    },
+    {
+      "phrase": "knowledge noise",
+      "score": 0.5211
+    },
+    {
+      "phrase": "gradient dominates collective",
+      "score": 0.5037
+    },
+    {
+      "phrase": "transfer math noise",
+      "score": 0.4989
+    },
+    {
+      "phrase": "math fidelity threshold",
+      "score": 0.4694
+    },
+    {
+      "phrase": "gain union equals",
+      "score": 0.3704
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 10 (Collective Gradient Dominance).",
+      "Step 1 (Level dominance).",
+      "Step 2 (Rate dominance).",
+      "Step 2b (The precipitation criterion --- why \\(|K|\\) is not the\nright metric)."
+    ],
+    "has_math": true
+  }
+}

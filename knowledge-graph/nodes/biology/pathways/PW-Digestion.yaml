@@ -1,0 +1,35 @@
+id: PW-Digestion
+type: knowledge
+domain: biology
+name: Digestion
+reactome_id: R-HSA-8935690
+
+description: "Dietary carbohydrates, fats, and proteins must be broken down to their constituent monosaccharides, fatty acids and sterols, and amino acids, respectively, before they can be absorbed in the intestine.Dietary lipids such as long-chain triacylglycerols and cholesterol esters are hydrolyzed in the stomach and small intestine to yield long-chain fatty acids, monoacylglycerols, glycerol and cholesterol through the action of a variety of lipases, and are then absorbed into enterocytes.Carbohydrates include starch (amylose and amylopectin) and disaccharides such as sucrose, lactose, maltose and, in small amounts, trehalose. The digestion of starch begins with the action of amylase enzymes secreted in the saliva and small intestine, which convert it to maltotriose, maltose, limit dextrins, and some glucose. Digestion of the limit dextrins and disaccharides, both dietary and starch-derived, to monosaccharides - glucose, galactose, and fructose - is accomplished by enzymes located on the luminal surfaces of enterocytes lining the microvilli of the small intestine.Dietary protein is hydrolyzed to dipeptides and amino acids by the action of pepsin in the stomach and an array of intestinal hydrolases."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Digestion of dietary lipid
+    reactome_id: R-HSA-192456
+    type: Pathway
+  - name: Digestion of dietary carbohydrate
+    reactome_id: R-HSA-189085
+    type: Pathway
+  - name: ALPI dimer hydrolyses phosphate monoesters
+    reactome_id: R-HSA-8878787
+    type: Reaction
+  - name: GUCY2C trimer binds GUCA2A,B
+    reactome_id: R-HSA-8936214
+    type: Reaction
+  - name: PIR oxygenates quercetin
+    reactome_id: R-HSA-8953398
+    type: Reaction
+
+edges:

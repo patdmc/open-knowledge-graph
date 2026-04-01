@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate earnings for the first week",
+    "operation": "multiply",
+    "operands": [
+      10,
+      5
+    ],
+    "result": 50,
+    "variable": "week1_earnings"
+  },
+  {
+    "step": 2,
+    "description": "Calculate earnings for the second week",
+    "operation": "multiply",
+    "operands": [
+      10,
+      8
+    ],
+    "result": 80,
+    "variable": "week2_earnings"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total earnings for both weeks",
+    "operation": "add",
+    "operands": [
+      50,
+      80
+    ],
+    "result": 130.0,
+    "variable": "total_earnings"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Samantha's amount",
+    "operation": "add",
+    "operands": [
+      100,
+      25
+    ],
+    "result": 125,
+    "variable": "Samantha's money"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Daisy's amount",
+    "operation": "add",
+    "operands": [
+      125,
+      50
+    ],
+    "result": 175,
+    "variable": "Daisy's money"
+  },
+  {
+    "step": 3,
+    "description": "Add Carmen and Samantha's amounts",
+    "operation": "add",
+    "operands": [
+      100,
+      125
+    ],
+    "result": 225,
+    "variable": "Carmen + Samantha"
+  },
+  {
+    "step": 4,
+    "description": "Add Daisy's amount to get total",
+    "operation": "add",
+    "operands": [
+      225,
+      175
+    ],
+    "result": 400,
+    "variable": "total combined money"
+  }
+]

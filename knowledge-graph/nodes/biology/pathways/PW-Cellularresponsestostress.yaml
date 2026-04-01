@@ -1,0 +1,53 @@
+id: PW-Cellularresponsestostress
+type: knowledge
+domain: biology
+name: Cellular responses to stress
+reactome_id: R-HSA-2262752
+
+description: Cells are subject to external molecular and physical stresses such as foreign molecules that perturb metabolic or signaling processes, and changes in temperature or pH. Cells are also subject to internal molecular stresses such as production of reactive metabolic byproducts. The ability of cells and tissues to modulate molecular processes in response to such stresses is essential to the maintenance of tissue homeostasis (Kultz 2005).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Cellular response to hypoxia
+    reactome_id: R-HSA-1234174
+    type: Pathway
+  - name: Cellular response to heat stress
+    reactome_id: R-HSA-3371556
+    type: Pathway
+  - name: Cellular Senescence
+    reactome_id: R-HSA-2559583
+    type: Pathway
+  - name: HSP90 chaperone cycle for steroid hormone receptors (SHR) in the presence of ligand
+    reactome_id: R-HSA-3371497
+    type: Pathway
+  - name: Response of EIF2AK1 (HRI) to heme deficiency
+    reactome_id: R-HSA-9648895
+    type: Pathway
+  - name: Heme signaling
+    reactome_id: R-HSA-9707616
+    type: Pathway
+  - name: Cellular response to chemical stress
+    reactome_id: R-HSA-9711123
+    type: Pathway
+  - name: Cellular response to starvation
+    reactome_id: R-HSA-9711097
+    type: Pathway
+  - name: Unfolded Protein Response (UPR)
+    reactome_id: R-HSA-381119
+    type: Pathway
+  - name: Cellular response to mitochondrial stress
+    reactome_id: R-HSA-9840373
+    type: Pathway
+  - name: Mitochondrial unfolded protein response (UPRmt)
+    reactome_id: R-HSA-9841251
+    type: Pathway
+
+edges:

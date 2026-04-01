@@ -1,0 +1,118 @@
+{
+  "done": [
+    {
+      "class_a": "EC01",
+      "class_b": "EC03"
+    },
+    {
+      "class_a": "EC02",
+      "class_b": "EC03"
+    },
+    {
+      "class_a": "EC01",
+      "class_b": "EC02"
+    },
+    {
+      "class_a": "EC01",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC03",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC01",
+      "class_b": "EC04"
+    },
+    {
+      "class_a": "EC02",
+      "class_b": "EC04"
+    },
+    {
+      "class_a": "EC02",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC03",
+      "class_b": "EC04"
+    },
+    {
+      "class_a": "EC03",
+      "class_b": "EC05"
+    },
+    {
+      "class_a": "EC04",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC02",
+      "class_b": "EC05"
+    },
+    {
+      "class_a": "EC05",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC01",
+      "class_b": "EC05"
+    },
+    {
+      "class_a": "EC05",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC04",
+      "class_b": "EC05"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC05"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC02",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC03",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC02"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC03"
+    },
+    {
+      "class_a": "EC06",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC07"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC01"
+    },
+    {
+      "class_a": "EC04",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC01",
+      "class_b": "EC06"
+    },
+    {
+      "class_a": "EC00",
+      "class_b": "EC04"
+    }
+  ],
+  "failed": [],
+  "total": 28
+}

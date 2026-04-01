@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add monkey and gorilla monthly bananas",
+    "operation": "add",
+    "operands": [
+      200,
+      400
+    ],
+    "result": 600,
+    "variable": "monkey_gorilla_monthly"
+  },
+  {
+    "step": 2,
+    "description": "Add baboon monthly bananas to get total monthly",
+    "operation": "add",
+    "operands": [
+      600,
+      100
+    ],
+    "result": 700,
+    "variable": "total_monthly"
+  },
+  {
+    "step": 3,
+    "description": "Multiply total monthly by 2 months",
+    "operation": "multiply",
+    "operands": [
+      700,
+      2
+    ],
+    "result": 1400,
+    "variable": "total_bananas_ordered"
+  }
+]

@@ -1,0 +1,15 @@
+id: BIO-KINASES
+type: knowledge
+domain: biology
+name: Protein Kinases
+
+description: A family of enzymes that catalyze the conversion of ATP and a protein to ADP and a phosphoprotein.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"

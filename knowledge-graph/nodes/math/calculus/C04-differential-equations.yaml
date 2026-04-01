@@ -1,0 +1,195 @@
+id: C04-differential-equations
+type: knowledge
+domain: calculus
+name: "Differential Equations"
+
+concepts:
+  # === ODE ===
+  - id: ode_first_order
+    name: "First-Order ODE"
+    latex: "\\frac{dy}{dx} = f(x, y)"
+    action:
+      sympy: "dsolve(Eq(y(x).diff(x), f), y(x))"
+      scipy: "solve_ivp(f, [t0, tf], y0)"
+    curried: "lambda f: lambda t_span: lambda y0: scipy.integrate.solve_ivp(f, t_span, y0)"
+
+  - id: separable_ode
+    name: "Separable ODE"
+    latex: "\\frac{dy}{dx} = g(x) h(y)"
+    method: "separate variables and integrate both sides"
+    action:
+      sympy: "dsolve(Eq(y(x).diff(x), g(x)*h(y(x))), y(x))"
+
+  - id: linear_first_order
+    name: "Linear First-Order ODE"
+    latex: "\\frac{dy}{dx} + P(x)y = Q(x)"
+    method: "integrating factor mu = exp(integral(P dx))"
+    action:
+      sympy: "dsolve(Eq(y(x).diff(x) + P*y(x), Q), y(x))"
+
+  - id: exact_ode
+    name: "Exact ODE"
+    latex: "M(x,y)dx + N(x,y)dy = 0, \\quad \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x}"
+
+  - id: ode_second_order
+    name: "Second-Order Linear ODE"
+    latex: "y'' + p(x)y' + q(x)y = g(x)"
+    action:
+      sympy: "dsolve(Eq(y(x).diff(x,2) + p*y(x).diff(x) + q*y(x), g), y(x))"
+
+  - id: constant_coefficient
+    name: "Constant Coefficient ODE"
+    latex: "ay'' + by' + cy = 0"
+    method: "characteristic equation ar^2 + br + c = 0"
+    solutions:
+      distinct_real: "C1*exp(r1*x) + C2*exp(r2*x)"
+      repeated: "(C1 + C2*x)*exp(r*x)"
+      complex: "exp(ax)(C1*cos(bx) + C2*sin(bx))"
+
+  - id: variation_of_parameters
+    name: "Variation of Parameters"
+    latex: "y_p = u_1 y_1 + u_2 y_2"
+    meaning: "general method for particular solutions of non-homogeneous linear ODEs"
+
+  - id: initial_value_problem
+    name: "Initial Value Problem"
+    latex: "y' = f(t, y), \\quad y(t_0) = y_0"
+    action:
+      scipy: "scipy.integrate.solve_ivp(f, [t0, tf], [y0], method='RK45')"
+    methods: ["Euler", "RK4", "RK45 (adaptive)", "BDF (stiff)"]
+
+  - id: boundary_value_problem
+    name: "Boundary Value Problem"
+    latex: "y'' = f(x, y, y'), \\quad y(a) = \\alpha, \\; y(b) = \\beta"
+    action:
+      scipy: "scipy.integrate.solve_bvp(f, bc, x, y_init)"
+
+  # === Systems ===
+  - id: ode_system
+    name: "System of ODEs"
+    latex: "\\vec{y}' = A\\vec{y}"
+    meaning: "vector ODE; solution via matrix exponential"
+    action:
+      scipy: "solve_ivp(lambda t, y: A @ y, [t0, tf], y0)"
+      matrix_exp: "y(t) = expm(A*t) @ y0"
+    links: [matrix_exponential, eigenvalues]
+
+  - id: phase_portrait
+    name: "Phase Portrait"
+    meaning: "trajectories in state space; classified by eigenvalues of A"
+    classification:
+      - "stable node: real eigenvalues both negative"
+      - "unstable node: real eigenvalues both positive"
+      - "saddle: real eigenvalues opposite sign"
+      - "stable spiral: complex eigenvalues, negative real part"
+      - "center: pure imaginary eigenvalues"
+
+  - id: stability_analysis
+    name: "Stability (Lyapunov)"
+    meaning: "equilibrium is stable if nearby solutions stay nearby"
+    method: "linearize at equilibrium, check eigenvalues of Jacobian"
+    links: [jacobian, eigenvalues]
+
+  # === PDE ===
+  - id: pde
+    name: "Partial Differential Equation"
+    meaning: "equation involving partial derivatives of unknown function of multiple variables"
+
+  - id: heat_equation
+    name: "Heat Equation"
+    latex: "\\frac{\\partial u}{\\partial t} = \\alpha \\nabla^2 u"
+    meaning: "diffusion of heat; parabolic PDE"
+    type: parabolic
+
+  - id: wave_equation
+    name: "Wave Equation"
+    latex: "\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u"
+    meaning: "propagation of waves; hyperbolic PDE"
+    type: hyperbolic
+
+  - id: laplace_equation
+    name: "Laplace's Equation"
+    latex: "\\nabla^2 u = 0"
+    meaning: "steady-state heat, potential theory; elliptic PDE"
+    type: elliptic
+
+  - id: poisson_equation
+    name: "Poisson's Equation"
+    latex: "\\nabla^2 u = f"
+    meaning: "inhomogeneous Laplace equation"
+
+  - id: separation_of_variables
+    name: "Separation of Variables"
+    meaning: "assume u(x,t) = X(x)T(t), reduce PDE to ODEs"
+
+  - id: fourier_series
+    name: "Fourier Series"
+    latex: "f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} \\left(a_n \\cos\\frac{n\\pi x}{L} + b_n \\sin\\frac{n\\pi x}{L}\\right)"
+    action:
+      numpy_fft: "np.fft.fft(signal)"
+      scipy_fft: "scipy.fft.fft(signal)"
+    curried: "lambda signal: np.fft.fft(signal)"
+
+  - id: fourier_transform
+    name: "Fourier Transform"
+    latex: "\\hat{f}(\\omega) = \\int_{-\\infty}^{\\infty} f(t) e^{-i\\omega t} \\, dt"
+    action:
+      numpy: "np.fft.fft(signal)"
+      scipy: "scipy.fft.fft(signal)"
+    inverse: "np.fft.ifft(spectrum)"
+    curried: "lambda signal: np.fft.fft(signal)"
+
+  - id: laplace_transform
+    name: "Laplace Transform"
+    latex: "F(s) = \\int_0^{\\infty} f(t) e^{-st} \\, dt"
+    meaning: "converts ODE to algebraic equation"
+    action:
+      sympy: "laplace_transform(f, t, s)"
+    curried: "lambda f: lambda t: lambda s: sympy.laplace_transform(f, t, s)"
+
+  # === Numerical Methods ===
+  - id: euler_method
+    name: "Euler's Method"
+    latex: "y_{n+1} = y_n + h f(t_n, y_n)"
+    convergence: "O(h) — first order"
+
+  - id: runge_kutta
+    name: "Runge-Kutta (RK4)"
+    latex: "y_{n+1} = y_n + \\frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)"
+    convergence: "O(h^4) — fourth order"
+    action:
+      scipy: "solve_ivp(f, t_span, y0, method='RK45')"
+
+  - id: finite_difference
+    name: "Finite Differences"
+    latex: "f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}"
+    variants:
+      forward: "(f(x+h) - f(x)) / h"
+      backward: "(f(x) - f(x-h)) / h"
+      central: "(f(x+h) - f(x-h)) / (2h)"
+      second: "(f(x+h) - 2f(x) + f(x-h)) / h^2"
+
+theorems:
+  - name: "Existence and Uniqueness (Picard-Lindelof)"
+    statement: "if f(t,y) is Lipschitz in y, then y' = f(t,y) with y(t0) = y0 has a unique local solution"
+
+  - name: "Superposition Principle"
+    statement: "for linear ODEs, sum of solutions is a solution"
+
+  - name: "Sturm-Liouville Theory"
+    statement: "eigenvalue problem (p*y')' + (q + lambda*r)*y = 0 has countable eigenvalues with orthogonal eigenfunctions"
+
+edges:
+  - to: C01-differential-calculus
+    relation: REQUIRES
+  - to: C02-integral-calculus
+    relation: REQUIRES
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "systems of ODEs, eigenvalue classification"
+  - to: A04-linear-algebra-advanced
+    relation: USES
+    note: "matrix exponential for systems"
+  - to: C03-multivariable-calculus
+    relation: USES
+    note: "PDEs, Jacobians for stability"

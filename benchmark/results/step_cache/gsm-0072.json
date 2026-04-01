@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Revenue from brownie sales",
+    "operation": "multiply",
+    "operands": [
+      43,
+      3
+    ],
+    "result": 129,
+    "variable": "brownie_revenue"
+  },
+  {
+    "step": 2,
+    "description": "Revenue from cheesecake sales",
+    "operation": "multiply",
+    "operands": [
+      23,
+      4
+    ],
+    "result": 92,
+    "variable": "cheesecake_revenue"
+  },
+  {
+    "step": 3,
+    "description": "Total money raised",
+    "operation": "add",
+    "operands": [
+      129,
+      92
+    ],
+    "result": 221.0,
+    "variable": "total_revenue"
+  }
+]

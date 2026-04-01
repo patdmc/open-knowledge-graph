@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Cards collected in month 1 (3x initial)",
+    "operation": "multiply",
+    "operands": [
+      20,
+      3
+    ],
+    "result": 60,
+    "variable": "month1"
+  },
+  {
+    "step": 2,
+    "description": "Cards collected in month 2 (20 fewer than month 1)",
+    "operation": "subtract",
+    "operands": [
+      60,
+      20
+    ],
+    "result": 40,
+    "variable": "month2"
+  },
+  {
+    "step": 3,
+    "description": "Combined cards from month 1 and month 2",
+    "operation": "add",
+    "operands": [
+      60,
+      40
+    ],
+    "result": 100,
+    "variable": "month1_plus_month2"
+  },
+  {
+    "step": 4,
+    "description": "Cards collected in month 3 (twice month 1+2 combined)",
+    "operation": "multiply",
+    "operands": [
+      100,
+      2
+    ],
+    "result": 200,
+    "variable": "month3"
+  },
+  {
+    "step": 5,
+    "description": "Total after adding initial cards and month 1",
+    "operation": "add",
+    "operands": [
+      20,
+      60
+    ],
+    "result": 80,
+    "variable": "running_total"
+  },
+  {
+    "step": 6,
+    "description": "Running total plus month 2",
+    "operation": "add",
+    "operands": [
+      80,
+      40
+    ],
+    "result": 120,
+    "variable": "running_total"
+  },
+  {
+    "step": 7,
+    "description": "Running total plus month 3",
+    "operation": "add",
+    "operands": [
+      120,
+      200
+    ],
+    "result": 320,
+    "variable": "total_cards"
+  }
+]

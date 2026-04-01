@@ -1,0 +1,63 @@
+id: PROC-AUTOPHAGY
+type: knowledge
+domain: biology
+name: autophagy
+go_id: GO:0006914
+
+definition: "The cellular catabolic process in which cells digest cellular materials, such as organelles and other macromolecular constituents, or non-self materials such as intracellular pathogens. Autophagy serves to provide essential nutrients under conditions of cellular stress; or can remodel intracellular structures during cell differentiation."
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0160155
+    name: crinophagy
+    relation: is_a
+  - id: GO:0034263
+    name: positive regulation of autophagy in response to ER overload
+    relation: positively_regulates
+  - id: GO:0000422
+    name: autophagy of mitochondrion
+    relation: is_a
+  - id: GO:0061684
+    name: "chaperone-mediated autophagy"
+    relation: is_a
+  - id: GO:0016236
+    name: macroautophagy
+    relation: is_a
+  - id: GO:0016237
+    name: microautophagy
+    relation: is_a
+  - id: GO:0030242
+    name: autophagy of peroxisome
+    relation: is_a
+  - id: GO:0071211
+    name: protein targeting to vacuole involved in autophagy
+    relation: part_of
+  - id: GO:0010508
+    name: positive regulation of autophagy
+    relation: positively_regulates
+  - id: GO:0010507
+    name: negative regulation of autophagy
+    relation: negatively_regulates
+  - id: GO:0010506
+    name: regulation of autophagy
+    relation: regulates
+
+edges:
+  - to: CHAN-CellCycle
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-CellCycle encode components of autophagy"

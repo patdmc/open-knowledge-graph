@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate income lost doing taxes herself",
+    "operation": "multiply",
+    "operands": [
+      3,
+      35
+    ],
+    "result": 105,
+    "variable": "lost_income"
+  },
+  {
+    "step": 2,
+    "description": "Subtract accountant fee from lost income to find savings",
+    "operation": "subtract",
+    "operands": [
+      105,
+      90
+    ],
+    "result": 15.0,
+    "variable": "money_saved_hiring_accountant"
+  }
+]

@@ -1,0 +1,100 @@
+id: REF-Leek2015-GlassHalfFull
+type: reference
+domain: epistemology
+name: "Leek, Jager (2015) — A Glass Half Full Interpretation of the Replicability of Psychological Science"
+
+provenance:
+  attribution:
+    authors: ["Jeffrey T. Leek", "Leah R. Jager"]
+    source: "arXiv"
+    date: "2015"
+    arxiv_id: "1509.08968"
+  evidence:
+    type: reanalysis
+    description: "Reanalysis of Reproducibility Project: Psychology showing 77% of replications fell within prediction intervals"
+
+# === THE WHY ===
+# The replication crisis narrative: "only 36% of studies replicated."
+# Leek's reframe: replication is not binary (p < 0.05 or not). It is a prediction problem.
+# If you treat the original effect size as a point estimate with known uncertainty,
+# then you can compute a PREDICTION INTERVAL for what the replication should find.
+# 77% of replications fell within this interval.
+#
+# The Greek question: what does "failure to replicate" MEAN?
+# Answer: it means one of three things:
+#   1. The original finding was false (real failure)
+#   2. The replication was underpowered (sampling noise)
+#   3. The effect is real but smaller than originally measured (regression to the mean)
+# The prediction interval separates case 1 from cases 2 and 3.
+
+claims:
+  - id: narrative-vs-prediction
+    statement: "The '36% replication rate' conflates real failures with expected sampling variation — p-value replication is the wrong metric"
+    type: theoretical_observation
+    justification: "Binary p < 0.05 criterion ignores effect size uncertainty, sample size differences, and regression to the mean"
+    why: "A small replication study of a small true effect will often fail to reach p < 0.05 even when the effect is real. This is not a failure of science — it is a failure of the metric."
+
+  - id: prediction-interval-method
+    statement: "Under Fisher z-transform, the difference z_orig - z_rep ~ N(0, 1/(n_orig-3) + 1/(n_rep-3)), yielding a 95% prediction interval for the replication effect size"
+    type: theorem
+    latex: "\\hat{z}^f_{\\text{orig}} - \\hat{z}^f_{\\text{rep}} \\sim N\\left(0, \\frac{1}{n_{\\text{orig}}-3} + \\frac{1}{n_{\\text{rep}}-3}\\right)"
+    justification: "Fisher z-transform normalizes correlation coefficients; prediction interval follows from sum of independent normal variances"
+    depends_on: [narrative-vs-prediction]
+    why: "the prediction interval asks the right question: given what we measured originally AND how much uncertainty that measurement carries, what should we EXPECT the replication to find?"
+
+  - id: seventy-seven-percent
+    statement: "77% of replication effect sizes fell within the 95% prediction interval based on original effect sizes"
+    type: empirical_finding
+    justification: "Direct calculation on Reproducibility Project: Psychology data"
+    depends_on: [prediction-interval-method]
+    why: "this is close to the expected 95% — the shortfall is explained by a mix of true failures, unmodeled heterogeneity, and the conservative independence assumption"
+
+  - id: power-explains-gap
+    statement: "Studies with small original effect sizes and small replication sample sizes have low probability of achieving p < 0.05 even when the effect is real"
+    type: empirical_finding
+    justification: "Simulation: for each study, simulate 100 replications from the original effect size distribution and compute empirical probability of p < 0.05"
+    depends_on: [seventy-seven-percent]
+    why: "the 'crisis' is partly an artifact of using a binary threshold on underpowered studies"
+
+# === CROSS-DOMAIN CONNECTIONS ===
+cross_domain_edges:
+  - target: D13-provenance
+    relation: INSTANTIATES
+    note: "Replication IS provenance verification. The prediction interval quantifies how much degradation to expect when the same experiment is repeated with different samples. The 77% rate means the provenance chain is intact in most cases."
+
+  - target: EM07-action-accuracy-bound
+    relation: SUPPORTS
+    note: "The power calculation directly instantiates the action accuracy bound: inference quality (replication probability) is bounded by sample size and effect size — both measurable quantities"
+
+  - target: EC08-compression-factoring
+    relation: SUPPORTS
+    note: "The p-value is a lossy compression of the full effect-size posterior. Judging replication by p < 0.05 is like judging a JPEG by whether it passes a specific pixel threshold — the compression destroys exactly the information needed for the judgment."
+
+  - target: REF-Salerno2025-DoWeNeedData
+    relation: PRECEDES
+    note: "The replicability paper (2015) established that prediction-as-evidence has quantifiable error bounds. The IPD work (2025) formalized this into a general statistical framework."
+
+  - target: NV01-graph-necessity
+    relation: SUPPORTS
+    note: "Binary p-value replication discards the relationship between original and replication effect sizes. You need the full graph (original effect, replication effect, sample sizes, prediction interval) to assess whether science is working."
+
+concepts:
+  - id: prediction_interval_replication
+    name: "Prediction Interval for Replication"
+    meaning: "the range of replication effect sizes expected given the original result and both sample sizes"
+    why: "shifts the question from 'did it replicate?' (binary) to 'is the replication consistent with what we should expect?' (continuous)"
+
+  - id: replication_as_prediction
+    name: "Replication as Prediction Problem"
+    meaning: "a replication is a draw from the sampling distribution centered on the true effect — failure to replicate may reflect sampling noise, not false original findings"
+    why: "reframes the crisis from 'science is broken' to 'our metric for measuring science is broken'"
+
+edges:
+  - from: REF-Leek2015-GlassHalfFull
+    to: REF-Salerno2025-DoWeNeedData
+    type: PRECEDES
+    note: "replication-as-prediction (2015) → inference-with-predicted-data (2025)"
+  - from: REF-Leek2015-GlassHalfFull
+    to: REF-Salerno2025-PostPI
+    type: MOTIVATES
+    note: "if replication effect sizes are predictable, then predictions themselves can be calibrated"

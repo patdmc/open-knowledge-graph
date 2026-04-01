@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Add light blue and dark blue spools",
+    "operation": "add",
+    "operands": [
+      15,
+      45
+    ],
+    "result": 60,
+    "variable": "total_blue"
+  },
+  {
+    "step": 2,
+    "description": "Add light green and dark green spools",
+    "operation": "add",
+    "operands": [
+      40,
+      50
+    ],
+    "result": 90,
+    "variable": "total_green"
+  },
+  {
+    "step": 3,
+    "description": "Add blue and green spools for total",
+    "operation": "add",
+    "operands": [
+      60,
+      90
+    ],
+    "result": 150,
+    "variable": "total_spools"
+  },
+  {
+    "step": 4,
+    "description": "Divide blue spools by total spools",
+    "operation": "divide",
+    "operands": [
+      60,
+      150
+    ],
+    "result": 0.4,
+    "variable": "blue_fraction"
+  },
+  {
+    "step": 5,
+    "description": "Multiply fraction by 100 to get percent",
+    "operation": "multiply",
+    "operands": [
+      0.4,
+      100
+    ],
+    "result": 40.0,
+    "variable": "blue_percent"
+  }
+]

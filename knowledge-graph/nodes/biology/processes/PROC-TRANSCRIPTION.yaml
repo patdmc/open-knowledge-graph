@@ -1,0 +1,65 @@
+id: PROC-TRANSCRIPTION
+type: knowledge
+domain: biology
+name: "DNA-templated transcription"
+go_id: GO:0006351
+
+definition: The synthesis of an RNA transcript from a DNA template.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0001109
+    name: "promoter clearance during DNA-templated transcription"
+    relation: part_of
+  - id: GO:0061614
+    name: miRNA transcription
+    relation: is_a
+  - id: GO:0009299
+    name: mRNA transcription
+    relation: is_a
+  - id: GO:0009303
+    name: rRNA transcription
+    relation: is_a
+  - id: GO:0009302
+    name: sno(s)RNA transcription
+    relation: is_a
+  - id: GO:0009301
+    name: snRNA transcription
+    relation: is_a
+  - id: GO:0009300
+    name: antisense RNA transcription
+    relation: is_a
+  - id: GO:0009304
+    name: tRNA transcription
+    relation: is_a
+  - id: GO:0097393
+    name: "telomeric repeat-containing RNA transcription"
+    relation: is_a
+  - id: GO:0006383
+    name: transcription by RNA polymerase III
+    relation: is_a
+  - id: GO:0006390
+    name: mitochondrial transcription
+    relation: is_a
+  - id: GO:0001059
+    name: transcription by RNA polymerase IV
+    relation: is_a
+  - id: GO:0001060
+    name: transcription by RNA polymerase V
+    relation: is_a
+  - id: GO:0140541
+    name: piRNA transcription
+    relation: is_a
+  - id: GO:0042793
+    name: plastid transcription
+    relation: is_a
+
+edges:

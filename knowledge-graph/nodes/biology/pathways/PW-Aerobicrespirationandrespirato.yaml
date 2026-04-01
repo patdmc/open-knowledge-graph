@@ -1,0 +1,38 @@
+id: PW-Aerobicrespirationandrespirato
+type: knowledge
+domain: biology
+name: Aerobic respiration and respiratory electron transport
+reactome_id: R-HSA-1428517
+
+description: Pyruvate metabolism and the citric acid (TCA) cycle together link the processes of energy metabolism in a human cell with one another and with key biosynthetic reactions. Pyruvate, derived from the reversible oxidation of lactate or transamination of alanine, can be converted to acetyl CoA. Other sources of acetyl CoA include breakdown of free fatty acids and ketone bodies in the fasting state.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Pyruvate metabolism
+    reactome_id: R-HSA-70268
+    type: Pathway
+  - name: Citric acid cycle (TCA cycle)
+    reactome_id: R-HSA-71403
+    type: Pathway
+  - name: Respiratory electron transport
+    reactome_id: R-HSA-611105
+    type: Pathway
+  - name: Formation of ATP by chemiosmotic coupling
+    reactome_id: R-HSA-163210
+    type: Pathway
+  - name: Mitochondrial Uncoupling
+    reactome_id: R-HSA-166187
+    type: Pathway
+  - name: "Interconversion of 2-oxoglutarate and 2-hydroxyglutarate"
+    reactome_id: R-HSA-880009
+    type: Pathway
+
+edges:

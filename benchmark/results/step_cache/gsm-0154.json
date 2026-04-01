@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Hours per MWF day",
+    "operation": "multiply",
+    "operands": [
+      3,
+      1
+    ],
+    "result": 3,
+    "variable": "mwf_hours_per_day"
+  },
+  {
+    "step": 2,
+    "description": "MWF days per week",
+    "operation": "multiply",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 9,
+    "variable": "mwf_hours_per_week"
+  },
+  {
+    "step": 3,
+    "description": "Hours per TTh class",
+    "operation": "multiply",
+    "operands": [
+      2,
+      2
+    ],
+    "result": 4,
+    "variable": "tth_hours_per_day"
+  },
+  {
+    "step": 4,
+    "description": "TTh hours per week",
+    "operation": "multiply",
+    "operands": [
+      2,
+      4
+    ],
+    "result": 8,
+    "variable": "tth_hours_per_week"
+  },
+  {
+    "step": 5,
+    "description": "Total hours per week",
+    "operation": "add",
+    "operands": [
+      9,
+      8
+    ],
+    "result": 17,
+    "variable": "total_hours_per_week"
+  },
+  {
+    "step": 6,
+    "description": "Total hours in semester",
+    "operation": "multiply",
+    "operands": [
+      17,
+      16
+    ],
+    "result": 272,
+    "variable": "total_semester_hours"
+  }
+]

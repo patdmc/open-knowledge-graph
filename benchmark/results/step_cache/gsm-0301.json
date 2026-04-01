@@ -1,0 +1,13 @@
+[
+  {
+    "step": 1,
+    "description": "pages per sheet of paper (front and back of folded sheet = 4 pages)",
+    "operation": "divide",
+    "operands": [
+      32,
+      4
+    ],
+    "result": 8,
+    "variable": "sheets_of_paper"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "chunk_index": 54,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "9. Discussion",
+  "section_path": [
+    "9. Discussion"
+  ],
+  "char_count": 1510,
+  "keyphrases": [
+    {
+      "phrase": "scientometrics bibliometric analysis",
+      "score": 0.6377
+    },
+    {
+      "phrase": "hirsch2005 citation networks",
+      "score": 0.5749
+    },
+    {
+      "phrase": "biomedical knowledge graphs",
+      "score": 0.5674
+    },
+    {
+      "phrase": "research owl rdf",
+      "score": 0.5148
+    },
+    {
+      "phrase": "cited strong evidence",
+      "score": 0.457
+    },
+    {
+      "phrase": "contribution provenance design",
+      "score": 0.4491
+    },
+    {
+      "phrase": "scientific frameworks relate",
+      "score": 0.3932
+    },
+    {
+      "phrase": "discussiondiscussion relation existing",
+      "score": 0.3178
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

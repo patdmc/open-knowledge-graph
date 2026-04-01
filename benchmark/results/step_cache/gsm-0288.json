@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "total weight of all flagstones",
+    "operation": "multiply",
+    "operands": [
+      80,
+      75
+    ],
+    "result": 6000,
+    "variable": "total_weight_pounds"
+  },
+  {
+    "step": 2,
+    "description": "number of trucks needed",
+    "operation": "divide",
+    "operands": [
+      6000,
+      2000
+    ],
+    "result": 3.0,
+    "variable": "trucks_needed"
+  }
+]

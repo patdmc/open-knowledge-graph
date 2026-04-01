@@ -1,0 +1,80 @@
+id: PW-Surfactantmetabolism
+type: knowledge
+domain: biology
+name: Surfactant metabolism
+reactome_id: R-HSA-5683826
+
+description: "The alveolar region of the lung creates an extensive epithelial surface that mediates the transfer of oxygen and carbon dioxide required for respiration after birth. Type I epithelial cells form the alveolar surface and mediate gaseous exchange. Type II epithelial cells secrete pulmonary surfactant, a lipoprotein complex that forms a thin interfacial film, lowering surface tension at the air-liquid interface in alveoli and maintaining the structural integrity of alveoli, preventing their collapse at low volumes (Agassandian & Mallampalli 2013)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: CCDC59 binds TTF1
+    reactome_id: R-HSA-5683831
+    type: Reaction
+  - name: "CCDC59:TTF1 binds SFTPB gene"
+    reactome_id: R-HSA-5685208
+    type: Reaction
+  - name: "SFTPB gene produces pro-SFTPB protein"
+    reactome_id: R-HSA-5683840
+    type: BlackBoxEvent
+  - name: "CCDC59:TTF1 binds SFTPC gene"
+    reactome_id: R-HSA-5685201
+    type: Reaction
+  - name: "SFTPC gene produces pro-SFTPC protein"
+    reactome_id: R-HSA-5683836
+    type: BlackBoxEvent
+  - name: GATA6 binds SFTPA genes
+    reactome_id: R-HSA-5685296
+    type: Reaction
+  - name: SFTPA genes produce SFTPA proteins
+    reactome_id: R-HSA-5683879
+    type: BlackBoxEvent
+  - name: LMCD1 binds GATA6, sequestering it
+    reactome_id: R-HSA-5683888
+    type: Reaction
+  - name: SFTPD gene produces SFTPD protein
+    reactome_id: R-HSA-5685290
+    type: BlackBoxEvent
+  - name: SFTPD binds with itself to form SFTPD 12mer
+    reactome_id: R-HSA-8961021
+    type: Reaction
+  - name: SFTPAs translocate from ER membrane to extracellular region
+    reactome_id: R-HSA-5685649
+    type: BlackBoxEvent
+  - name: SFTPD 12mer translocates from ER membrane to extracellular region
+    reactome_id: R-HSA-9624778
+    type: BlackBoxEvent
+  - name: DMBT1 binds SFTPD 12mer, SFTPAs
+    reactome_id: R-HSA-5687284
+    type: Reaction
+  - name: "pro-SFTPB translocates from ER membrane to multivesicle body"
+    reactome_id: R-HSA-9624789
+    type: BlackBoxEvent
+  - name: "pro-SFTPC translocates from ER membrane to multivesicle body"
+    reactome_id: R-HSA-5684868
+    type: BlackBoxEvent
+  - name: "NAPSA, CTSH, PGA3-5 cleave pro-SFTPB"
+    reactome_id: R-HSA-5684864
+    type: Reaction
+  - name: SFTPB binds itself
+    reactome_id: R-HSA-6791016
+    type: Reaction
+  - name: "NAPSA, CTSH, PGA3-5 cleave pro-SFTPC"
+    reactome_id: R-HSA-5685902
+    type: Reaction
+  - name: SFTPB dimer,C translocate from multivesicle body to lamellar body
+    reactome_id: R-HSA-5684865
+    type: BlackBoxEvent
+  - name: ABCA3 transports PC, PG from ER membrane to lamellar body
+    reactome_id: R-HSA-5683714
+    type: Reaction
+
+edges:

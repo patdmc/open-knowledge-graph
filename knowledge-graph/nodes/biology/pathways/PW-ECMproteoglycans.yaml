@@ -1,0 +1,80 @@
+id: PW-ECMproteoglycans
+type: knowledge
+domain: biology
+name: ECM proteoglycans
+reactome_id: R-HSA-3000178
+
+description: "Proteoglycans are major components of the extracellular matrix. In cartilage the matrix constitutes more than 90% of tissue dry weight. Proteoglycans are proteins substituted with glycosaminoglycans (GAGs), linear polysaccharides consisting of a repeating disaccharide, generally of an acetylated amino sugar alternatingwith a uronic acid."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: SLRPs bind TGF Beta
+    reactome_id: R-HSA-2327886
+    type: Reaction
+  - name: DCN binds collagen I, II, III, VI fibrils
+    reactome_id: R-HSA-2327909
+    type: Reaction
+  - name: BGN binds Collagen types I, VI, (IX)
+    reactome_id: R-HSA-2466106
+    type: Reaction
+  - name: BGN binds Collagen types II, III
+    reactome_id: R-HSA-2466238
+    type: Reaction
+  - name: VTN binds collagens I, IV and VI
+    reactome_id: R-HSA-2465883
+    type: Reaction
+  - name: VTN binds collagens II, III and V
+    reactome_id: R-HSA-2396370
+    type: Reaction
+  - name: VTN binds integrins alphaVbeta1, alphaVbeta3, alpha3beta5, alphaIIBbeta3
+    reactome_id: R-HSA-2426471
+    type: Reaction
+  - name: "VTN binds Plasminogen activator inhibitor- 1"
+    reactome_id: R-HSA-2396079
+    type: Reaction
+  - name: "AGRN binds Alpha-dystroglycan"
+    reactome_id: R-HSA-2467716
+    type: Reaction
+  - name: "AGRN binds LRP4:MUSK"
+    reactome_id: R-HSA-2467633
+    type: Reaction
+  - name: "AGRN binds Laminins with gamma-1 subunit"
+    reactome_id: R-HSA-2396124
+    type: Reaction
+  - name: AGRN binds NCAM1, PTPRS
+    reactome_id: R-HSA-2467659
+    type: Reaction
+  - name: AGRN binds Beta amyloid fibril via GAG chains
+    reactome_id: R-HSA-2467665
+    type: Reaction
+  - name: SPARC binds Collagen type I fibril, hydroxylapatite and Ca2+
+    reactome_id: R-HSA-2424243
+    type: Reaction
+  - name: TNC binds Integrin alphaVbeta3, alphaVbeta6, alpha2beta1, alpha7beta1, alpha8beta1, alpha9beta1, alphaXbeta1
+    reactome_id: R-HSA-2681667
+    type: Reaction
+  - name: Tenascins C, R, (X, N) bind lecticans
+    reactome_id: R-HSA-2424246
+    type: Reaction
+  - name: Tenascins C, R, (X, N) bind fibronectin matrix
+    reactome_id: R-HSA-2681681
+    type: Reaction
+  - name: COMP binds collagen, fibronectin, aggrecan and matrilins
+    reactome_id: R-HSA-2424252
+    type: Reaction
+  - name: Aggrecan binds Hyaluronan and HAPLN1
+    reactome_id: R-HSA-2318623
+    type: Reaction
+  - name: IBSP binds collagen type I
+    reactome_id: R-HSA-4086204
+    type: Reaction
+
+edges:

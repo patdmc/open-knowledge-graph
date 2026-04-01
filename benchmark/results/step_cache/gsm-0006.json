@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Charleston has 4 times Seattle's sheep",
+    "operation": "multiply",
+    "operands": [
+      20,
+      4
+    ],
+    "result": 80,
+    "variable": "Charleston sheep"
+  },
+  {
+    "step": 2,
+    "description": "Toulouse has twice Charleston's sheep",
+    "operation": "multiply",
+    "operands": [
+      80,
+      2
+    ],
+    "result": 160,
+    "variable": "Toulouse sheep"
+  },
+  {
+    "step": 3,
+    "description": "Add Seattle and Charleston sheep",
+    "operation": "add",
+    "operands": [
+      20,
+      80
+    ],
+    "result": 100,
+    "variable": "Seattle + Charleston sheep"
+  },
+  {
+    "step": 4,
+    "description": "Add Toulouse to get total",
+    "operation": "add",
+    "operands": [
+      100,
+      160
+    ],
+    "result": 260,
+    "variable": "total sheep"
+  }
+]

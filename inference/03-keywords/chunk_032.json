@@ -1,0 +1,56 @@
+{
+  "chunk_index": 32,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 5/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 5/6]"
+  ],
+  "char_count": 5593,
+  "keyphrases": [
+    {
+      "phrase": "graph structure self",
+      "score": 0.584
+    },
+    {
+      "phrase": "knowledge graph individual",
+      "score": 0.5218
+    },
+    {
+      "phrase": "hierarchy math collective",
+      "score": 0.454
+    },
+    {
+      "phrase": "entity internal math",
+      "score": 0.4521
+    },
+    {
+      "phrase": "math contains knowledge",
+      "score": 0.4239
+    },
+    {
+      "phrase": "internally internal architecture",
+      "score": 0.4057
+    },
+    {
+      "phrase": "corollary civilization scale",
+      "score": 0.3003
+    },
+    {
+      "phrase": "ambda_ min survives",
+      "score": 0.2499
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Corollary 16 (Humanity as Participant-Observer of Its Own\nKnowledge Graph).",
+      "Theorem 11 (Observational Bootstrapping)."
+    ],
+    "has_math": true
+  }
+}

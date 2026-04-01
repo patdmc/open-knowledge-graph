@@ -1,0 +1,67 @@
+id: PROC-SYNAPTICTRANSMISSION
+type: knowledge
+domain: biology
+name: chemical synaptic transmission
+go_id: GO:0007268
+
+definition: The vesicular release of classical neurotransmitter molecules from a presynapse, across a chemical synapse, the subsequent activation of neurotransmitter receptors at the postsynapse of a target cell (neuron, muscle, or secretory cell) and the effects of this activation on the postsynaptic membrane potential and ionic composition of the postsynaptic cytosol. This process encompasses both spontaneous and evoked release of neurotransmitter and all parts of synaptic vesicle exocytosis. Evoked transmission starts with the arrival of an action potential at the presynapse.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0090127
+    name: positive regulation of synapse maturation by synaptic transmission
+    relation: is_a
+  - id: GO:0099083
+    name: "retrograde trans-synaptic signaling by neuropeptide, modulating synaptic transmission"
+    relation: regulates
+  - id: GO:0099565
+    name: chemical synaptic transmission, postsynaptic
+    relation: part_of
+  - id: GO:0099564
+    name: modification of synaptic structure, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099576
+    name: regulation of protein catabolic process at postsynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099577
+    name: regulation of translation at presynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099574
+    name: regulation of protein catabolic process at synapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099575
+    name: regulation of protein catabolic process at presynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099578
+    name: regulation of translation at postsynapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099550
+    name: "trans-synaptic signaling, modulating synaptic transmission"
+    relation: regulates
+  - id: GO:0099551
+    name: "trans-synaptic signaling by neuropeptide, modulating synaptic transmission"
+    relation: regulates
+  - id: GO:0099547
+    name: regulation of translation at synapse, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099546
+    name: protein catabolic process, modulating synaptic transmission
+    relation: regulates
+  - id: GO:0099555
+    name: "trans-synaptic signaling by nitric oxide, modulating synaptic transmission"
+    relation: regulates
+  - id: GO:0099552
+    name: "trans-synaptic signaling by lipid, modulating synaptic transmission"
+    relation: regulates
+
+edges:
+  - to: BIO-NERVOUS
+    relation: part_of

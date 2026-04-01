@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Allosaurus ate the last portion, which was half of what velociraptors left, so double it to find what velociraptors left",
+    "operation": "multiply",
+    "operands": [
+      270,
+      2
+    ],
+    "result": 540,
+    "variable": "meat_after_trex"
+  },
+  {
+    "step": 2,
+    "description": "Velociraptors ate half of what T-Rex left, so double what they left to find what T-Rex left",
+    "operation": "multiply",
+    "operands": [
+      540,
+      2
+    ],
+    "result": 1080,
+    "variable": "original_triceratops_meat"
+  }
+]

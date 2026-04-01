@@ -1,0 +1,57 @@
+{
+  "n_chunks": 66,
+  "n_classes": 8,
+  "bridge_threshold": 0.5,
+  "n_bridge_chunks": 12,
+  "n_bridge_pairs": 9,
+  "classes_summary": [
+    {
+      "class_id": "EC00",
+      "label": "knowledge-graph-schema",
+      "n_chunks": 3,
+      "representative_title": "3. Knowledge Graph Schema > 3.2 Edge Types"
+    },
+    {
+      "class_id": "EC01",
+      "label": "escalation-principle-unified",
+      "n_chunks": 19,
+      "representative_title": "5. The Escalation Principle > [part 10/10]"
+    },
+    {
+      "class_id": "EC02",
+      "label": "escalation-principle-social",
+      "n_chunks": 10,
+      "representative_title": "5. Results > 5.1 Equivalency Classes > [part 2/3]"
+    },
+    {
+      "class_id": "EC03",
+      "label": "social-imperative-collective",
+      "n_chunks": 19,
+      "representative_title": "2. The Central Claims"
+    },
+    {
+      "class_id": "EC04",
+      "label": "introduction-escalation-principle",
+      "n_chunks": 11,
+      "representative_title": "1. Introduction > [part 2/2]"
+    },
+    {
+      "class_id": "EC05",
+      "label": "unified-model-universal",
+      "n_chunks": 10,
+      "representative_title": "5. Results > 7.2 The Proposed Standard > [part 1/2]"
+    },
+    {
+      "class_id": "EC06",
+      "label": "knowledge-graph-schema",
+      "n_chunks": 3,
+      "representative_title": "3. Knowledge Graph Schema"
+    },
+    {
+      "class_id": "EC07",
+      "label": "social-imperative-introduction",
+      "n_chunks": 8,
+      "representative_title": "1. Introduction > [part 4/4]"
+    }
+  ]
+}

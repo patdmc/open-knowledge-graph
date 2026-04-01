@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Convert required height from feet to inches",
+    "operation": "multiply",
+    "operands": [
+      4,
+      12
+    ],
+    "result": 48,
+    "variable": "required_height_inches"
+  },
+  {
+    "step": 2,
+    "description": "Calculate how many inches Adam still needs to grow",
+    "operation": "subtract",
+    "operands": [
+      48,
+      40
+    ],
+    "result": 8,
+    "variable": "inches_to_grow"
+  },
+  {
+    "step": 3,
+    "description": "Divide remaining growth by annual growth rate to get years",
+    "operation": "divide",
+    "operands": [
+      8,
+      2
+    ],
+    "result": 4.0,
+    "variable": "years_until_tall_enough"
+  }
+]

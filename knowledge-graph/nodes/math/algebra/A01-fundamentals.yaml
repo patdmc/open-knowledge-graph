@@ -1,0 +1,70 @@
+id: A01-algebra-fundamentals
+type: knowledge
+domain: algebra
+name: "Algebra Fundamentals"
+
+concepts:
+  - id: variable
+    name: "Variable"
+    latex: "x, y, z"
+    meaning: "symbol representing an unknown or varying quantity"
+    action:
+      sympy: "symbols('x y z')"
+    curried: "lambda name: sympy.Symbol(name)"
+
+  - id: expression
+    name: "Expression"
+    meaning: "combination of variables, constants, and operators"
+    action:
+      sympy: "Expr"
+    examples:
+      - latex: "3x^2 + 2x - 5"
+        sympy: "3*x**2 + 2*x - 5"
+
+  - id: equation
+    name: "Equation"
+    latex: "f(x) = 0"
+    meaning: "statement that two expressions are equal"
+    action:
+      sympy: "Eq(lhs, rhs)"
+    curried: "lambda lhs: lambda rhs: sympy.Eq(lhs, rhs)"
+
+  - id: solve
+    name: "Solve equation"
+    latex: "x = ?"
+    meaning: "find values of variable that satisfy equation"
+    action:
+      sympy: "solve(expr, x)"
+      numpy: "np.roots(coeffs)"  # polynomial only
+    curried: "lambda expr: lambda var: sympy.solve(expr, var)"
+
+  - id: substitute
+    name: "Substitution"
+    latex: "f(x)|_{x=a}"
+    meaning: "replace variable with value"
+    action:
+      sympy: "expr.subs(x, a)"
+    curried: "lambda expr: lambda var: lambda val: expr.subs(var, val)"
+
+  - id: simplify
+    name: "Simplify"
+    meaning: "reduce expression to simpler equivalent form"
+    action:
+      sympy: "simplify(expr)"
+    curried: "lambda expr: sympy.simplify(expr)"
+
+  - id: expand
+    name: "Expand"
+    meaning: "distribute products over sums"
+    action:
+      sympy: "expand(expr)"
+    curried: "lambda expr: sympy.expand(expr)"
+    inverse_of: factor
+
+  - id: factor
+    name: "Factor"
+    meaning: "express as product of simpler expressions"
+    action:
+      sympy: "factor(expr)"
+    curried: "lambda expr: sympy.factor(expr)"
+    inverse_of: expand

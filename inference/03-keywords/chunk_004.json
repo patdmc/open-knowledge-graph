@@ -1,0 +1,62 @@
+{
+  "chunk_index": 4,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "3. Formal Definitions > [part 1/5]",
+  "section_path": [
+    "3. Formal Definitions",
+    "[part 1/5]"
+  ],
+  "char_count": 5844,
+  "keyphrases": [
+    {
+      "phrase": "definition knowledge graph",
+      "score": 0.5809
+    },
+    {
+      "phrase": "formal definitionsformal",
+      "score": 0.5024
+    },
+    {
+      "phrase": "math knowledge action",
+      "score": 0.4993
+    },
+    {
+      "phrase": "2a bounded knowledge",
+      "score": 0.4882
+    },
+    {
+      "phrase": "informed action space",
+      "score": 0.4819
+    },
+    {
+      "phrase": "regime propositions accumulate",
+      "score": 0.4056
+    },
+    {
+      "phrase": "math capacity",
+      "score": 0.3374
+    },
+    {
+      "phrase": "retention criterion theorem",
+      "score": 0.3285
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 1 (World State Space).",
+      "Definition 2 (Knowledge Graph).",
+      "Definition 2a (Bounded Knowledge Graph).",
+      "growth regime",
+      "curation regime",
+      "Definition 3 (Informed Action Space).",
+      "informed action",
+      "Definition 3a (Action Feedback).",
+      "Definition 3b (Information Gain)."
+    ],
+    "has_math": true
+  }
+}

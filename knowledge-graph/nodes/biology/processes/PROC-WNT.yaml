@@ -1,0 +1,63 @@
+id: PROC-WNT
+type: knowledge
+domain: biology
+name: Wnt signaling pathway
+go_id: GO:0016055
+
+definition: The series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of a target cell and ending with a change in cell state.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:1990957
+    name: NPHP complex
+    relation: capable_of_part_of
+  - id: GO:1990851
+    name: "Wnt-Frizzled-LRP5/6 complex"
+    relation: capable_of_part_of
+  - id: GO:0090244
+    name: Wnt signaling pathway involved in somitogenesis
+    relation: is_a
+  - id: GO:0030111
+    name: regulation of Wnt signaling pathway
+    relation: regulates
+  - id: GO:0030178
+    name: negative regulation of Wnt signaling pathway
+    relation: negatively_regulates
+  - id: GO:0030177
+    name: positive regulation of Wnt signaling pathway
+    relation: positively_regulates
+  - id: GO:0003306
+    name: Wnt signaling pathway involved in heart development
+    relation: is_a
+  - id: GO:0042813
+    name: Wnt receptor activity
+    relation: part_of
+  - id: GO:0021874
+    name: Wnt signaling pathway involved in forebrain neuroblast division
+    relation: is_a
+  - id: GO:0060070
+    name: canonical Wnt signaling pathway
+    relation: is_a
+  - id: GO:0035567
+    name: "non-canonical Wnt signaling pathway"
+    relation: is_a
+
+edges:
+  - to: CHAN-TissueArchitecture
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-TissueArchitecture encode components of Wnt signaling pathway"

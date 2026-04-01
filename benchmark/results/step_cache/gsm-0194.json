@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total cost of crayons",
+    "operation": "multiply",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 10,
+    "variable": "total_cost"
+  },
+  {
+    "step": 2,
+    "description": "Calculate change from payment",
+    "operation": "subtract",
+    "operands": [
+      20,
+      10
+    ],
+    "result": 10,
+    "variable": "change"
+  }
+]

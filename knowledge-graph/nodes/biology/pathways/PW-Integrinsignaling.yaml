@@ -1,0 +1,80 @@
+id: PW-Integrinsignaling
+type: knowledge
+domain: biology
+name: Integrin signaling
+reactome_id: R-HSA-354192
+
+description: "Integrins are a major family of cell surface receptors that modulate cell adhesion, migration, proliferation and survival through interaction with the extracellular matrix (ECM) and the actin cytoskeleton.  Integrins are type 1 transmembrane proteins that exist at the cell surface as heterodimers of alpha and beta subunits, of which there are 18 and 8 different isoforms, respectively, in human cells. In addition to their mechanical role in mediating contact between the ECM and the cytoskeleton, integrins also modulate intracellular signaling pathways governing cytoskeletal rearrangements and pro-survival and mitogenic signaling (reviewed in Hehlgans et al, 2007; Harburger and Calderwood, 2009; Ata and Antonescu, 2017)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Activation of Rap1 by cytosolic GEFs
+    reactome_id: R-HSA-354173
+    type: Reaction
+  - name: "Activation of Rap1 by membrane-associated GEFs"
+    reactome_id: R-HSA-939265
+    type: Reaction
+  - name: Translocation of RIAM to plasma membrane
+    reactome_id: R-HSA-354060
+    type: Reaction
+  - name: Activation of Talin
+    reactome_id: R-HSA-354097
+    type: Reaction
+  - name: Integrin alphaIIb beta3 activation
+    reactome_id: R-HSA-354077
+    type: Reaction
+  - name: Interaction of integrin alphaIIb beta3 with Fibrinogen
+    reactome_id: R-HSA-354149
+    type: Reaction
+  - name: Clustering of Integrin alphaIIb beta3 complexes
+    reactome_id: R-HSA-377641
+    type: Reaction
+  - name: Release of CSK from SRC
+    reactome_id: R-HSA-377644
+    type: Reaction
+  - name: Dephosphorylation of inactive SRC by PTPB1
+    reactome_id: R-HSA-377643
+    type: Reaction
+  - name: Autophosphorylation of SRC
+    reactome_id: R-HSA-377640
+    type: Reaction
+  - name: Translocation of PTK2 to Focal complexes
+    reactome_id: R-HSA-354066
+    type: Reaction
+  - name: Autophosphorylation of PTK2 at Y397
+    reactome_id: R-HSA-354073
+    type: Reaction
+  - name: Phosphorylation of pPTK2 by SRC
+    reactome_id: R-HSA-354124
+    type: Reaction
+  - name: "GRB2:SOS provides linkage to MAPK signaling for Integrins "
+    reactome_id: R-HSA-354194
+    type: Pathway
+  - name: p130Cas linkage to MAPK signaling for integrins
+    reactome_id: R-HSA-372708
+    type: Pathway
+  - name: Integrin alpha IIb beta3 T779 phosphorylation blocks SHC binding
+    reactome_id: R-HSA-432110
+    type: Reaction
+  - name: Activated integrin alphaIIb beta3 binds SHC1
+    reactome_id: R-HSA-432096
+    type: Reaction
+  - name: SHC1 bound to integrin alphaIIb beta3 is phosphorylated somehow
+    reactome_id: R-HSA-443905
+    type: BlackBoxEvent
+  - name: SHC1 dissociates from integrin alphaIIb beta3
+    reactome_id: R-HSA-443910
+    type: BlackBoxEvent
+  - name: SYK binds to integrin alphaIIb beta3
+    reactome_id: R-HSA-429415
+    type: Reaction
+
+edges:

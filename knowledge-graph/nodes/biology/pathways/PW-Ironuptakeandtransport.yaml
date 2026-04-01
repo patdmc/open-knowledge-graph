@@ -1,0 +1,80 @@
+id: PW-Ironuptakeandtransport
+type: knowledge
+domain: biology
+name: Iron uptake and transport
+reactome_id: R-HSA-917937
+
+description: "The transport of iron between cells is mediated by transferrin. However, iron can also enter and leave cells not only by itself, but also in the form of heme and siderophores. When entering the cell via the main path (by transferrin endocytosis), its goal is not the (still elusive) chelated iron pool in the cytosol nor the lysosomes but the mitochondria, where heme is synthesized and iron-sulfur clusters are assembled (Kurz et al,2008, Hower et al 2009, Richardson et al 2010)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "CYBRD1:Heme reduces Fe3+ to Fe2+"
+    reactome_id: R-HSA-917805
+    type: Reaction
+  - name: SLC11A2 cotransports Fe2+, H+ from extracellular region to cytosol
+    reactome_id: R-HSA-435349
+    type: Reaction
+  - name: "SLC40A1:HEPH:6Cu2+ transports Fe2+ from cytosol to extracellular region"
+    reactome_id: R-HSA-442368
+    type: Reaction
+  - name: "SLC40A1:CP:6Cu2+ transports Fe2+ from cytosol to extracellular region"
+    reactome_id: R-HSA-904830
+    type: Reaction
+  - name: "SLC40A1:CP:6Cu2+ oxidises Fe2+ to Fe3+"
+    reactome_id: R-HSA-917891
+    type: Reaction
+  - name: "SLC40A1:HEPH:6Cu2+ oxidises 4Fe2+ to 4Fe3+"
+    reactome_id: R-HSA-917933
+    type: Reaction
+  - name: apoTF binds 2Fe3+ to form holoTF
+    reactome_id: R-HSA-917888
+    type: Reaction
+  - name: SLC46A1 transports hemes from extracellular region to cytosol
+    reactome_id: R-HSA-917870
+    type: Reaction
+  - name: HMOX1 dimer, HMOX2 cleave heme
+    reactome_id: R-HSA-189398
+    type: Reaction
+  - name: "FLVCR1-1 transports heme from cytosol to extracellular region"
+    reactome_id: R-HSA-917892
+    type: Reaction
+  - name: ABCG2 tetramer transports heme from cytosol to extracellular region
+    reactome_id: R-HSA-917979
+    type: Reaction
+  - name: Transferrin endocytosis and recycling
+    reactome_id: R-HSA-917977
+    type: Pathway
+  - name: Ferritin Complex oxidises 4Fe2+ to Fe(3+)O(OH)
+    reactome_id: R-HSA-1562626
+    type: Reaction
+  - name: "LCN2:2,5DHBA binds Fe3+"
+    reactome_id: R-HSA-5229273
+    type: Reaction
+  - name: "SLC22A17 binds LCN2:2,5DHBA:Fe3+"
+    reactome_id: R-HSA-5246444
+    type: Reaction
+  - name: "Fe3+ dissociates from SLC22A17:LCN2:2,5DHBA"
+    reactome_id: R-HSA-5671707
+    type: Reaction
+  - name: "ACO1 binds 4Fe-4S"
+    reactome_id: R-HSA-5690873
+    type: Reaction
+  - name: ACO1, IREB2 bind IREs in TFRC, ALAD, FTL, FTH1 mRNAs
+    reactome_id: R-HSA-5690886
+    type: Reaction
+  - name: CANDI binds CUL1
+    reactome_id: R-HSA-5691131
+    type: Reaction
+  - name: CUL1, SKP1, FBXL5 bind
+    reactome_id: R-HSA-5691167
+    type: Reaction
+
+edges:

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "multiply boxes by marbles per box",
+    "operation": "multiply",
+    "operands": [
+      5,
+      50
+    ],
+    "result": 250,
+    "variable": "marbles_in_boxes"
+  },
+  {
+    "step": 2,
+    "description": "add marbles received from friend",
+    "operation": "add",
+    "operands": [
+      250,
+      20
+    ],
+    "result": 270,
+    "variable": "total_marbles"
+  }
+]

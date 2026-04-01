@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "cost of all baseballs",
+    "operation": "multiply",
+    "operands": [
+      9,
+      3
+    ],
+    "result": 27,
+    "variable": "baseballs_cost"
+  },
+  {
+    "step": 2,
+    "description": "cost of all basketballs",
+    "operation": "multiply",
+    "operands": [
+      8,
+      14
+    ],
+    "result": 112,
+    "variable": "basketballs_cost"
+  },
+  {
+    "step": 3,
+    "description": "difference in spending",
+    "operation": "subtract",
+    "operands": [
+      112,
+      27
+    ],
+    "result": 85.0,
+    "variable": "difference"
+  }
+]

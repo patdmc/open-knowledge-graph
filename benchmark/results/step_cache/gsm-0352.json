@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Total money spent and given away",
+    "operation": "add",
+    "operands": [
+      11,
+      4
+    ],
+    "result": 15,
+    "variable": "total_spent"
+  },
+  {
+    "step": 2,
+    "description": "Amount Andrea saved",
+    "operation": "subtract",
+    "operands": [
+      36,
+      15
+    ],
+    "result": 21,
+    "variable": "amount_saved"
+  }
+]

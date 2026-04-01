@@ -1,0 +1,29 @@
+id: PW-ProcessingofCappedIntronlessPr
+type: knowledge
+domain: biology
+name: "Processing of Capped Intronless Pre-mRNA"
+reactome_id: R-HSA-75067
+
+description: "Co-transcriptional pre-mRNA splicing is not obligatory. Pre-mRNA splicing begins co-transcriptionally and often continues post-transcriptionally. Human genes contain an average of nine introns per gene, which cannot serve as splicing substrates until both 5' and 3' ends of each intron are synthesized."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "SLBP Dependent Processing of Replication-Dependent Histone Pre-mRNAs"
+    reactome_id: R-HSA-77588
+    type: Pathway
+  - name: "SLBP independent Processing of Histone Pre-mRNAs"
+    reactome_id: R-HSA-111367
+    type: Pathway
+  - name: "Processing of Intronless Pre-mRNAs"
+    reactome_id: R-HSA-77595
+    type: Pathway
+
+edges:

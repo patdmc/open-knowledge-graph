@@ -1,0 +1,41 @@
+id: PW-Integrationofenergymetabolism
+type: knowledge
+domain: biology
+name: Integration of energy metabolism
+reactome_id: R-HSA-163685
+
+description: Many hormones that affect individual physiological processes including the regulation of appetite, absorption, transport, and oxidation of foodstuffs influence energy metabolism pathways. While insulin mediates the storage of excess nutrients, glucagon is involved in the mobilization of energy resources in response to low blood glucose levels, principally by stimulating hepatic glucose output. Small doses of glucagon are sufficient to induce significant glucose elevations.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Regulation of insulin secretion
+    reactome_id: R-HSA-422356
+    type: Pathway
+  - name: Glucagon signaling in metabolic regulation
+    reactome_id: R-HSA-163359
+    type: Pathway
+  - name: "PKA-mediated phosphorylation of key metabolic factors"
+    reactome_id: R-HSA-163358
+    type: Pathway
+  - name: "Insulin effects increased synthesis of Xylulose-5-Phosphate"
+    reactome_id: R-HSA-163754
+    type: Pathway
+  - name: AMPK inhibits chREBP transcriptional activation activity
+    reactome_id: R-HSA-163680
+    type: Pathway
+  - name: "PP2A-mediated dephosphorylation of key metabolic factors"
+    reactome_id: R-HSA-163767
+    type: Pathway
+  - name: ChREBP activates metabolic gene expression
+    reactome_id: R-HSA-163765
+    type: Pathway
+
+edges:

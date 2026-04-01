@@ -1,0 +1,41 @@
+id: PW-Cardiacconduction
+type: knowledge
+domain: biology
+name: Cardiac conduction
+reactome_id: R-HSA-5576891
+
+description: The normal sequence of contraction of atria and ventricles of the heart require activation of groups of cardiac cells. The mechanism must elicit rapid changes in heart rate and respond to changes in autonomic tone. The cardiac action potential controls these functions.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "Phase 4 - resting membrane potential"
+    reactome_id: R-HSA-5576886
+    type: Pathway
+  - name: "Phase 0 - rapid depolarisation"
+    reactome_id: R-HSA-5576892
+    type: Pathway
+  - name: "Phase 1 - inactivation of fast Na+ channels"
+    reactome_id: R-HSA-5576894
+    type: Pathway
+  - name: "Phase 2 - plateau phase"
+    reactome_id: R-HSA-5576893
+    type: Pathway
+  - name: "Phase 3 - rapid repolarisation"
+    reactome_id: R-HSA-5576890
+    type: Pathway
+  - name: Ion homeostasis
+    reactome_id: R-HSA-5578775
+    type: Pathway
+  - name: Physiological factors
+    reactome_id: R-HSA-5578768
+    type: Pathway
+
+edges:

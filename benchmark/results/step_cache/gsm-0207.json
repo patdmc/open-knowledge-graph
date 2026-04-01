@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "weight of all chocolate bars",
+    "operation": "multiply",
+    "operands": [
+      25,
+      40
+    ],
+    "result": 1000,
+    "variable": "total_chocolate_weight"
+  },
+  {
+    "step": 2,
+    "description": "weight of each candied apple (half a chocolate bar)",
+    "operation": "divide",
+    "operands": [
+      40,
+      2
+    ],
+    "result": 20,
+    "variable": "apple_weight"
+  },
+  {
+    "step": 3,
+    "description": "weight of all candied apples",
+    "operation": "multiply",
+    "operands": [
+      80,
+      20
+    ],
+    "result": 1600,
+    "variable": "total_apple_weight"
+  },
+  {
+    "step": 4,
+    "description": "total weight of all candy",
+    "operation": "add",
+    "operands": [
+      1000,
+      1600
+    ],
+    "result": 2600,
+    "variable": "total_bag_weight"
+  }
+]

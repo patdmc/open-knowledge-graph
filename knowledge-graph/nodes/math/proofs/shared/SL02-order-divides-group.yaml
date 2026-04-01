@@ -1,0 +1,14 @@
+id: SL02-order-divides-group
+type: shared_lemma
+domain: algebra
+name: "Element Order Divides Group Order"
+statement: "g \\in G \\implies \\text{ord}(g) \\mid |G|"
+justification: "H = <g> is a subgroup of order ord(g); by Lagrange's theorem |H| divides |G|"
+references: [element_order, subgroup, group_order]
+proved_by: PR05-lagrange-theorem
+proved_at: order-divides
+used_by:
+  - proof: PR21-fermats-little-theorem
+    step: apply-lagrange
+  - proof: PR29-sylow-first
+    step: center-element-order

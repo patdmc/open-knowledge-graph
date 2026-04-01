@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Jamal's apples = Andrea's apples minus 8",
+    "operation": "subtract",
+    "operands": [
+      52,
+      8
+    ],
+    "result": 44,
+    "variable": "jamal_apples"
+  },
+  {
+    "step": 2,
+    "description": "Jamal's bananas = Jamal's apples plus 4",
+    "operation": "add",
+    "operands": [
+      44,
+      4
+    ],
+    "result": 48,
+    "variable": "jamal_bananas"
+  },
+  {
+    "step": 3,
+    "description": "Andrea's bananas = half of Jamal's bananas",
+    "operation": "divide",
+    "operands": [
+      48,
+      2
+    ],
+    "result": 24,
+    "variable": "andrea_bananas"
+  },
+  {
+    "step": 4,
+    "description": "Total apples = Andrea's apples plus Jamal's apples",
+    "operation": "add",
+    "operands": [
+      52,
+      44
+    ],
+    "result": 96,
+    "variable": "total_apples"
+  },
+  {
+    "step": 5,
+    "description": "Total bananas = Jamal's bananas plus Andrea's bananas",
+    "operation": "add",
+    "operands": [
+      48,
+      24
+    ],
+    "result": 72,
+    "variable": "total_bananas"
+  },
+  {
+    "step": 6,
+    "description": "Total fruits = total apples plus total bananas",
+    "operation": "add",
+    "operands": [
+      96,
+      72
+    ],
+    "result": 168,
+    "variable": "total_fruits"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Jane's age from Quinn's age",
+    "operation": "subtract",
+    "operands": [
+      30,
+      3
+    ],
+    "result": 27,
+    "variable": "Jane's age"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Trent's age from Jane's age",
+    "operation": "add",
+    "operands": [
+      27,
+      5
+    ],
+    "result": 32,
+    "variable": "Trent's age"
+  }
+]

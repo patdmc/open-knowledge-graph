@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "eggs produced by the 2 extra white chickens",
+    "operation": "multiply",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 10,
+    "variable": "extra_white_eggs"
+  },
+  {
+    "step": 2,
+    "description": "eggs remaining after accounting for extra white chickens",
+    "operation": "subtract",
+    "operands": [
+      42,
+      10
+    ],
+    "result": 32,
+    "variable": "adjusted_eggs"
+  },
+  {
+    "step": 3,
+    "description": "combined eggs per red+white pair (one red chicken implies one white chicken)",
+    "operation": "add",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 8,
+    "variable": "eggs_per_pair"
+  },
+  {
+    "step": 4,
+    "description": "number of red chickens",
+    "operation": "divide",
+    "operands": [
+      32,
+      8
+    ],
+    "result": 4.0,
+    "variable": "red_chickens"
+  }
+]

@@ -1,0 +1,23 @@
+id: PW-Diseasesofcellularresponsetost
+type: knowledge
+domain: biology
+name: Diseases of cellular response to stress
+reactome_id: R-HSA-9675132
+
+description: "Cells are subject to external and internal stressors, such as foreign molecules that perturb metabolic or signaling processes, cellular respiration-generated reactive oxygen species that can cause DNA damage, oxygen and nutrient deprivation, and changes in temperature or pH.  The ability of cells and tissues to respond to stress is essential to the maintenance of tissue homeostasis (Kultz 2005) and dysregulation of cellular response to stress is involved in disease.So far, we have captured diseases of cellular senescence.Impaired cellular senescence contributes to malignant transformation and cancer development by enabling continuous proliferation of damaged cells. On the other hand, presence of an excessive number of senescent cells that are not cleared by the immune system promotes tissue inflammation and creates a microenvironment suitable for growth of neighboring malignant cells."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Diseases of Cellular Senescence
+    reactome_id: R-HSA-9630747
+    type: Pathway
+
+edges:

@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Convert 100 pennies to dollars",
+    "operation": "multiply",
+    "operands": [
+      100,
+      0.01
+    ],
+    "result": 1.0,
+    "variable": "pennies_value"
+  },
+  {
+    "step": 2,
+    "description": "Convert 40 nickels to dollars",
+    "operation": "multiply",
+    "operands": [
+      40,
+      0.05
+    ],
+    "result": 2.0,
+    "variable": "nickels_value"
+  },
+  {
+    "step": 3,
+    "description": "Convert 20 dimes to dollars",
+    "operation": "multiply",
+    "operands": [
+      20,
+      0.1
+    ],
+    "result": 2.0,
+    "variable": "dimes_value"
+  },
+  {
+    "step": 4,
+    "description": "Convert 40 dollar bills to dollars",
+    "operation": "multiply",
+    "operands": [
+      40,
+      1.0
+    ],
+    "result": 40.0,
+    "variable": "bills_value"
+  },
+  {
+    "step": 5,
+    "description": "Add pennies and nickels values",
+    "operation": "add",
+    "operands": [
+      1.0,
+      2.0
+    ],
+    "result": 3.0,
+    "variable": "pennies_plus_nickels"
+  },
+  {
+    "step": 6,
+    "description": "Add dimes value",
+    "operation": "add",
+    "operands": [
+      3.0,
+      2.0
+    ],
+    "result": 5.0,
+    "variable": "coins_total"
+  },
+  {
+    "step": 7,
+    "description": "Add dollar bills value",
+    "operation": "add",
+    "operands": [
+      5.0,
+      40.0
+    ],
+    "result": 45.0,
+    "variable": "total"
+  }
+]

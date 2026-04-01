@@ -1,0 +1,55 @@
+{
+  "chunk_index": 13,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "5. The Escalation Principle > [part 5/10]",
+  "section_path": [
+    "5. The Escalation Principle",
+    "[part 5/10]"
+  ],
+  "char_count": 5538,
+  "keyphrases": [
+    {
+      "phrase": "math entities signals",
+      "score": 0.5499
+    },
+    {
+      "phrase": "sensed dimensions math",
+      "score": 0.5097
+    },
+    {
+      "phrase": "convergence induction sensed",
+      "score": 0.4986
+    },
+    {
+      "phrase": "infinite entity does",
+      "score": 0.4323
+    },
+    {
+      "phrase": "informed action math",
+      "score": 0.4283
+    },
+    {
+      "phrase": "reachable epistemic domain",
+      "score": 0.4133
+    },
+    {
+      "phrase": "finite bounded math",
+      "score": 0.3858
+    },
+    {
+      "phrase": "execution dimension dimension",
+      "score": 0.3677
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Base case (\\(M = 1\\)).",
+      "Inductive step (\\(M \\to M+1\\))."
+    ],
+    "has_math": true
+  }
+}

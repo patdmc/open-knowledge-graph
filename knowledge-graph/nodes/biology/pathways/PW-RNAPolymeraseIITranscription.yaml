@@ -1,0 +1,44 @@
+id: PW-RNAPolymeraseIITranscription
+type: knowledge
+domain: biology
+name: RNA Polymerase II Transcription
+reactome_id: R-HSA-73857
+
+description: "RNA polymerase II (Pol II) is the central enzyme that catalyses DNA- directed mRNA synthesis during the transcription of protein-coding genes. Pol II consists of a 10-subunit catalytic core, which alone is capable of elongating the RNA transcript, and a complex of two subunits, Rpb4/7, that is required for transcription initiation.   The transcription cycle is divided in three major phases: initiation, elongation, and termination."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Generic Transcription Pathway
+    reactome_id: R-HSA-212436
+    type: Pathway
+  - name: "RNA Polymerase II Pre-transcription Events"
+    reactome_id: R-HSA-674695
+    type: Pathway
+  - name: "RNA Polymerase II Transcription Pre-Initiation And Promoter Opening"
+    reactome_id: R-HSA-73779
+    type: Pathway
+  - name: RNA Polymerase II Transcription Initiation And Promoter Clearance
+    reactome_id: R-HSA-76042
+    type: Pathway
+  - name: RNA Pol II CTD phosphorylation and interaction with CE
+    reactome_id: R-HSA-77075
+    type: Pathway
+  - name: RNA Polymerase II Transcription Elongation
+    reactome_id: R-HSA-75955
+    type: Pathway
+  - name: RNA Polymerase II Transcription Termination
+    reactome_id: R-HSA-73856
+    type: Pathway
+  - name: RNA polymerase II transcribes snRNA genes
+    reactome_id: R-HSA-6807505
+    type: Pathway
+
+edges:

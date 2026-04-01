@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "90% of 30 small stickers to trade",
+    "operation": "multiply",
+    "operands": [
+      30,
+      0.9
+    ],
+    "result": 27,
+    "variable": "small_stickers_traded"
+  },
+  {
+    "step": 2,
+    "description": "large buttons received (each costs 3 small stickers)",
+    "operation": "divide",
+    "operands": [
+      27,
+      3
+    ],
+    "result": 9,
+    "variable": "large_buttons_from_small_stickers"
+  },
+  {
+    "step": 3,
+    "description": "50% of 40 large stickers traded for large buttons",
+    "operation": "multiply",
+    "operands": [
+      40,
+      0.5
+    ],
+    "result": 20,
+    "variable": "large_stickers_for_large_buttons"
+  },
+  {
+    "step": 4,
+    "description": "remaining 50% of large stickers traded for small buttons",
+    "operation": "multiply",
+    "operands": [
+      40,
+      0.5
+    ],
+    "result": 20,
+    "variable": "large_stickers_for_small_buttons"
+  },
+  {
+    "step": 5,
+    "description": "small buttons received (each large sticker = 3 small buttons)",
+    "operation": "multiply",
+    "operands": [
+      20,
+      3
+    ],
+    "result": 60,
+    "variable": "small_buttons_from_large_stickers"
+  },
+  {
+    "step": 6,
+    "description": "total large buttons (from small stickers + from large stickers)",
+    "operation": "add",
+    "operands": [
+      9,
+      20
+    ],
+    "result": 29,
+    "variable": "total_large_buttons"
+  },
+  {
+    "step": 7,
+    "description": "total buttons (large + small)",
+    "operation": "add",
+    "operands": [
+      29,
+      60
+    ],
+    "result": 89,
+    "variable": "total_buttons"
+  }
+]

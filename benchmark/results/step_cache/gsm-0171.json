@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Total legs from spiders",
+    "operation": "multiply",
+    "operands": [
+      80,
+      8
+    ],
+    "result": 640,
+    "variable": "spider_legs"
+  },
+  {
+    "step": 2,
+    "description": "Total legs from insects",
+    "operation": "multiply",
+    "operands": [
+      90,
+      6
+    ],
+    "result": 540,
+    "variable": "insect_legs"
+  },
+  {
+    "step": 3,
+    "description": "Total legs from mutant invertebrates",
+    "operation": "multiply",
+    "operands": [
+      3,
+      10
+    ],
+    "result": 30,
+    "variable": "mutant_legs"
+  },
+  {
+    "step": 4,
+    "description": "Sum spider and insect legs",
+    "operation": "add",
+    "operands": [
+      640,
+      540
+    ],
+    "result": 1180,
+    "variable": "spider_insect_legs"
+  },
+  {
+    "step": 5,
+    "description": "Add mutant legs to get total",
+    "operation": "add",
+    "operands": [
+      1180,
+      30
+    ],
+    "result": 1210,
+    "variable": "total_legs"
+  }
+]

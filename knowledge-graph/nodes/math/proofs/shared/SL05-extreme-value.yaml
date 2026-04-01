@@ -1,0 +1,13 @@
+id: SL05-extreme-value-theorem
+type: shared_lemma
+domain: calculus
+name: "Extreme Value Theorem"
+statement: "f: [a,b] \\to \\mathbb{R} \\text{ continuous} \\implies f \\text{ attains its max and min on } [a,b]"
+justification: "continuous image of compact set is compact; compact subset of R is closed and bounded; closed bounded set contains its sup and inf"
+references: [compactness, continuous_map, limit]
+depends_on: [SL01-compactness-boundedness]
+used_by:
+  - proof: PR24-mean-value-theorem
+    step: extreme-value-applies
+  - proof: PR08-spectral-theorem
+    step: eigenvalue-exists

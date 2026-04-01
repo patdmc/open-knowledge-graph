@@ -1,0 +1,721 @@
+{
+  "model": "opus",
+  "suite": "gsm8k",
+  "original": {
+    "label": "ORIGINAL",
+    "accuracy": 0.76,
+    "correct": 38,
+    "total": 50,
+    "results": [
+      {
+        "id": "gsm-0000",
+        "answer": "18",
+        "reference": "18",
+        "correct": true,
+        "latency_ms": 19088
+      },
+      {
+        "id": "gsm-0026",
+        "answer": "243",
+        "reference": "243",
+        "correct": true,
+        "latency_ms": 18216
+      },
+      {
+        "id": "gsm-0052",
+        "answer": "3",
+        "reference": "15",
+        "correct": false,
+        "latency_ms": 22973
+      },
+      {
+        "id": "gsm-0078",
+        "answer": "6",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 26097
+      },
+      {
+        "id": "gsm-0104",
+        "answer": "500",
+        "reference": "500",
+        "correct": true,
+        "latency_ms": 26939
+      },
+      {
+        "id": "gsm-0130",
+        "answer": "30",
+        "reference": "30",
+        "correct": true,
+        "latency_ms": 17357
+      },
+      {
+        "id": "gsm-0156",
+        "answer": "1400",
+        "reference": "1400",
+        "correct": true,
+        "latency_ms": 17992
+      },
+      {
+        "id": "gsm-0182",
+        "answer": "expression: Mark's current age from \"two years ago Mark was 5 years older than half Jan's age\" with Jan=30:\n\n(Mark - 2) = (30/2) + 5 \u2192 Mark = 22\n\nJean = 22 + 2 = **24**",
+        "reference": "23",
+        "correct": false,
+        "latency_ms": 21517
+      },
+      {
+        "id": "gsm-0208",
+        "answer": "76",
+        "reference": "76",
+        "correct": true,
+        "latency_ms": 21276
+      },
+      {
+        "id": "gsm-0234",
+        "answer": "9",
+        "reference": "21",
+        "correct": false,
+        "latency_ms": 23390
+      },
+      {
+        "id": "gsm-0260",
+        "answer": "11",
+        "reference": "11",
+        "correct": true,
+        "latency_ms": 21198
+      },
+      {
+        "id": "gsm-0286",
+        "answer": "90",
+        "reference": "90",
+        "correct": true,
+        "latency_ms": 18106
+      },
+      {
+        "id": "gsm-0312",
+        "answer": "32",
+        "reference": "32",
+        "correct": true,
+        "latency_ms": 15135
+      },
+      {
+        "id": "gsm-0338",
+        "answer": "60",
+        "reference": "60",
+        "correct": true,
+        "latency_ms": 16017
+      },
+      {
+        "id": "gsm-0364",
+        "answer": "44",
+        "reference": "49",
+        "correct": false,
+        "latency_ms": 15443
+      },
+      {
+        "id": "gsm-0390",
+        "answer": "12",
+        "reference": "12",
+        "correct": true,
+        "latency_ms": 17995
+      },
+      {
+        "id": "gsm-0416",
+        "answer": "56",
+        "reference": "56",
+        "correct": true,
+        "latency_ms": 19591
+      },
+      {
+        "id": "gsm-0442",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 21855
+      },
+      {
+        "id": "gsm-0468",
+        "answer": "120",
+        "reference": "120",
+        "correct": true,
+        "latency_ms": 20397
+      },
+      {
+        "id": "gsm-0494",
+        "answer": "53",
+        "reference": "21",
+        "correct": false,
+        "latency_ms": 17608
+      },
+      {
+        "id": "gsm-0520",
+        "answer": "63",
+        "reference": "63",
+        "correct": true,
+        "latency_ms": 16773
+      },
+      {
+        "id": "gsm-0546",
+        "answer": "130",
+        "reference": "130",
+        "correct": true,
+        "latency_ms": 13429
+      },
+      {
+        "id": "gsm-0572",
+        "answer": "100",
+        "reference": "100",
+        "correct": true,
+        "latency_ms": 13222
+      },
+      {
+        "id": "gsm-0598",
+        "answer": "49",
+        "reference": "69",
+        "correct": false,
+        "latency_ms": 14660
+      },
+      {
+        "id": "gsm-0624",
+        "answer": "85",
+        "reference": "85",
+        "correct": true,
+        "latency_ms": 13975
+      },
+      {
+        "id": "gsm-0650",
+        "answer": "142",
+        "reference": "142",
+        "correct": true,
+        "latency_ms": 13333
+      },
+      {
+        "id": "gsm-0676",
+        "answer": "240",
+        "reference": "240",
+        "correct": true,
+        "latency_ms": 15114
+      },
+      {
+        "id": "gsm-0702",
+        "answer": "2800",
+        "reference": "2800",
+        "correct": true,
+        "latency_ms": 18478
+      },
+      {
+        "id": "gsm-0728",
+        "answer": "40",
+        "reference": "40",
+        "correct": true,
+        "latency_ms": 20706
+      },
+      {
+        "id": "gsm-0754",
+        "answer": "Let me work through this:\n\n**Lorraine starts with:** 30 small stickers, 40 large stickers\n\n**Trade 1:** 90% of small stickers = 27 small stickers\n- Small sticker = 1 small button\n- Gets 27 small buttons\n\n**Trade 2:** 50% of large stickers = 20 large stickers for large buttons\n- Large sticker = 1 large button\n- Gets 20 large buttons\n\n**Trade 3:** Remaining 50% of large stickers = 20 large stickers for small buttons\n- Large sticker = 3 small buttons\n- Gets 60 small buttons\n\n**Total buttons:** 27 small + 20 large + 60 small = 107\n\n107",
+        "reference": "89",
+        "correct": false,
+        "latency_ms": 24846
+      },
+      {
+        "id": "gsm-0780",
+        "answer": "-25",
+        "reference": "25",
+        "correct": false,
+        "latency_ms": 30480
+      },
+      {
+        "id": "gsm-0806",
+        "answer": "68",
+        "reference": "70",
+        "correct": false,
+        "latency_ms": 18903
+      },
+      {
+        "id": "gsm-0832",
+        "answer": "42",
+        "reference": "42",
+        "correct": true,
+        "latency_ms": 23551
+      },
+      {
+        "id": "gsm-0858",
+        "answer": "2170",
+        "reference": "3430",
+        "correct": false,
+        "latency_ms": 18524
+      },
+      {
+        "id": "gsm-0884",
+        "answer": "50",
+        "reference": "50",
+        "correct": true,
+        "latency_ms": 18015
+      },
+      {
+        "id": "gsm-0910",
+        "answer": "700",
+        "reference": "700",
+        "correct": true,
+        "latency_ms": 19434
+      },
+      {
+        "id": "gsm-0936",
+        "answer": "bangka\n\n17 hours total. 12-hour base + 5 extra hours = 1000 + 350 = 1350. 24-hour rate = 1600. Savings = 1600 - 1350.\n\n250",
+        "reference": "250",
+        "correct": true,
+        "latency_ms": 19193
+      },
+      {
+        "id": "gsm-0962",
+        "answer": "1000",
+        "reference": "1000",
+        "correct": true,
+        "latency_ms": 18287
+      },
+      {
+        "id": "gsm-0988",
+        "answer": "6",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 15394
+      },
+      {
+        "id": "gsm-1014",
+        "answer": "9",
+        "reference": "3",
+        "correct": false,
+        "latency_ms": 19476
+      },
+      {
+        "id": "gsm-1040",
+        "answer": "Tuesday: 425/5 + 17 = 102\nWednesday: 102 \u00d7 2 + 5 = 209\nTotal: 425 + 102 + 209 = 736\n\n736",
+        "reference": "736",
+        "correct": true,
+        "latency_ms": 18490
+      },
+      {
+        "id": "gsm-1066",
+        "answer": "14",
+        "reference": "14",
+        "correct": true,
+        "latency_ms": 20093
+      },
+      {
+        "id": "gsm-1092",
+        "answer": "1080",
+        "reference": "1080",
+        "correct": true,
+        "latency_ms": 16901
+      },
+      {
+        "id": "gsm-1118",
+        "answer": "1",
+        "reference": "5",
+        "correct": false,
+        "latency_ms": 19238
+      },
+      {
+        "id": "gsm-1144",
+        "answer": "34",
+        "reference": "34",
+        "correct": true,
+        "latency_ms": 16578
+      },
+      {
+        "id": "gsm-1170",
+        "answer": "2",
+        "reference": "2",
+        "correct": true,
+        "latency_ms": 15447
+      },
+      {
+        "id": "gsm-1196",
+        "answer": "75",
+        "reference": "75",
+        "correct": true,
+        "latency_ms": 16915
+      },
+      {
+        "id": "gsm-1222",
+        "answer": "350",
+        "reference": "350",
+        "correct": true,
+        "latency_ms": 24963
+      },
+      {
+        "id": "gsm-1248",
+        "answer": "750",
+        "reference": "750",
+        "correct": true,
+        "latency_ms": 14705
+      },
+      {
+        "id": "gsm-1274",
+        "answer": "38",
+        "reference": "38",
+        "correct": true,
+        "latency_ms": 15952
+      }
+    ]
+  },
+  "nonsense": {
+    "label": "NONSENSE",
+    "accuracy": 0.76,
+    "correct": 38,
+    "total": 50,
+    "results": [
+      {
+        "id": "gsm-0000",
+        "answer": "18",
+        "reference": "18",
+        "correct": true,
+        "latency_ms": 12394
+      },
+      {
+        "id": "gsm-0026",
+        "answer": "243",
+        "reference": "243",
+        "correct": true,
+        "latency_ms": 21458
+      },
+      {
+        "id": "gsm-0052",
+        "answer": "15",
+        "reference": "15",
+        "correct": true,
+        "latency_ms": 13685
+      },
+      {
+        "id": "gsm-0078",
+        "answer": "longest longest longest\n\nlongest longest longest$longest longest\n\n9 - 7.50 = 1.50\n\n**1.50**\n\nWait, let me recalculate.\n\n18 vuik in packages of 3: 18/3 = 6 packages \u00d7 $2.50 = $15.00\n18 vuik in packages of 2: 18/2 = 9 packages \u00d7 $1.00 = $9.00\n\n$15.00 - $9.00 = $6.00\n\n**6**",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 15463
+      },
+      {
+        "id": "gsm-0104",
+        "answer": "500",
+        "reference": "500",
+        "correct": true,
+        "latency_ms": 17626
+      },
+      {
+        "id": "gsm-0130",
+        "answer": "30",
+        "reference": "30",
+        "correct": true,
+        "latency_ms": 19607
+      },
+      {
+        "id": "gsm-0156",
+        "answer": "1400",
+        "reference": "1400",
+        "correct": true,
+        "latency_ms": 11402
+      },
+      {
+        "id": "gsm-0182",
+        "answer": "longest path:\n\nJan = 30\n\nTwo years ago, Chaifruel was 5 + 30/2 = 5 + 15 = 20, so Chaifruel now = 22.\n\nStaveid = 22 + 2 = 24.\n\n**24**",
+        "reference": "23",
+        "correct": false,
+        "latency_ms": 13725
+      },
+      {
+        "id": "gsm-0208",
+        "answer": "76",
+        "reference": "76",
+        "correct": true,
+        "latency_ms": 16745
+      },
+      {
+        "id": "gsm-0234",
+        "answer": "14",
+        "reference": "21",
+        "correct": false,
+        "latency_ms": 18670
+      },
+      {
+        "id": "gsm-0260",
+        "answer": "11",
+        "reference": "11",
+        "correct": true,
+        "latency_ms": 22089
+      },
+      {
+        "id": "gsm-0286",
+        "answer": "90",
+        "reference": "90",
+        "correct": true,
+        "latency_ms": 27187
+      },
+      {
+        "id": "gsm-0312",
+        "answer": "32",
+        "reference": "32",
+        "correct": true,
+        "latency_ms": 33444
+      },
+      {
+        "id": "gsm-0338",
+        "answer": "60",
+        "reference": "60",
+        "correct": true,
+        "latency_ms": 33704
+      },
+      {
+        "id": "gsm-0364",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 26995
+      },
+      {
+        "id": "gsm-0390",
+        "answer": "12",
+        "reference": "12",
+        "correct": true,
+        "latency_ms": 17988
+      },
+      {
+        "id": "gsm-0416",
+        "answer": "56",
+        "reference": "56",
+        "correct": true,
+        "latency_ms": 18466
+      },
+      {
+        "id": "gsm-0442",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 27413
+      },
+      {
+        "id": "gsm-0468",
+        "answer": "120",
+        "reference": "120",
+        "correct": true,
+        "latency_ms": 19483
+      },
+      {
+        "id": "gsm-0494",
+        "answer": "Here's the calculation:\n\n- Bottom row (4 cheerleaders): 64\" tall\n- Second row (3 on top): 64\"\n- Third row (2 on top): 64\"\n- Top (1 shortest): 60\"\n\nTotal height: 64 + 64 + 64 + 60 = 252 inches\n\n252 \u00f7 12 = 21\n\n21",
+        "reference": "21",
+        "correct": true,
+        "latency_ms": 19878
+      },
+      {
+        "id": "gsm-0520",
+        "answer": "63",
+        "reference": "63",
+        "correct": true,
+        "latency_ms": 27210
+      },
+      {
+        "id": "gsm-0546",
+        "answer": "65",
+        "reference": "130",
+        "correct": false,
+        "latency_ms": 14828
+      },
+      {
+        "id": "gsm-0572",
+        "answer": "100",
+        "reference": "100",
+        "correct": true,
+        "latency_ms": 16035
+      },
+      {
+        "id": "gsm-0598",
+        "answer": "49",
+        "reference": "69",
+        "correct": false,
+        "latency_ms": 15791
+      },
+      {
+        "id": "gsm-0624",
+        "answer": "85",
+        "reference": "85",
+        "correct": true,
+        "latency_ms": 20254
+      },
+      {
+        "id": "gsm-0650",
+        "answer": "142",
+        "reference": "142",
+        "correct": true,
+        "latency_ms": 36120
+      },
+      {
+        "id": "gsm-0676",
+        "answer": "240",
+        "reference": "240",
+        "correct": true,
+        "latency_ms": 26055
+      },
+      {
+        "id": "gsm-0702",
+        "answer": "2800",
+        "reference": "2800",
+        "correct": true,
+        "latency_ms": 15865
+      },
+      {
+        "id": "gsm-0728",
+        "answer": "40",
+        "reference": "40",
+        "correct": true,
+        "latency_ms": 14104
+      },
+      {
+        "id": "gsm-0754",
+        "answer": "9 small voouls trade for 3 large gruiks.\n20 large voouls trade for 20 large gruiks.\n20 large voouls trade for 60 small gruiks.\n\nTotal gruiks: 23 large + 60 small = 83\n\n83",
+        "reference": "89",
+        "correct": false,
+        "latency_ms": 26127
+      },
+      {
+        "id": "gsm-0780",
+        "answer": "-25",
+        "reference": "25",
+        "correct": false,
+        "latency_ms": 14531
+      },
+      {
+        "id": "gsm-0806",
+        "answer": "The fourth grade pass rate is 40/100 = 40%, so the fifth grade pass rate is 80%, meaning 320 out of 400 fifth graders passed.\n\nTotal passed: 340 + 40 + 320 = 700\nTotal students: 500 + 100 + 400 = 1000\n\n70",
+        "reference": "70",
+        "correct": true,
+        "latency_ms": 54726
+      },
+      {
+        "id": "gsm-0832",
+        "answer": "42",
+        "reference": "42",
+        "correct": true,
+        "latency_ms": 12241
+      },
+      {
+        "id": "gsm-0858",
+        "answer": "2170",
+        "reference": "3430",
+        "correct": false,
+        "latency_ms": 12808
+      },
+      {
+        "id": "gsm-0884",
+        "answer": "50",
+        "reference": "50",
+        "correct": true,
+        "latency_ms": 12374
+      },
+      {
+        "id": "gsm-0910",
+        "answer": "700",
+        "reference": "700",
+        "correct": true,
+        "latency_ms": 13501
+      },
+      {
+        "id": "gsm-0936",
+        "answer": "70",
+        "reference": "250",
+        "correct": false,
+        "latency_ms": 14472
+      },
+      {
+        "id": "gsm-0962",
+        "answer": "600",
+        "reference": "1000",
+        "correct": false,
+        "latency_ms": 29370
+      },
+      {
+        "id": "gsm-0988",
+        "answer": "6",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 16527
+      },
+      {
+        "id": "gsm-1014",
+        "answer": "3",
+        "reference": "3",
+        "correct": true,
+        "latency_ms": 12393
+      },
+      {
+        "id": "gsm-1040",
+        "answer": "Monday: 425\n\nTuesday: 425/5 + 17 = 85 + 17 = 102\n\nWednesday: 102 \u00d7 2 + 5 = 204 + 5 = 209\n\nTotal: 425 + 102 + 209 = 736\n\n736",
+        "reference": "736",
+        "correct": true,
+        "latency_ms": 12009
+      },
+      {
+        "id": "gsm-1066",
+        "answer": "longest longest14",
+        "reference": "14",
+        "correct": true,
+        "latency_ms": 15265
+      },
+      {
+        "id": "gsm-1092",
+        "answer": "1080",
+        "reference": "1080",
+        "correct": true,
+        "latency_ms": 20101
+      },
+      {
+        "id": "gsm-1118",
+        "answer": "2",
+        "reference": "5",
+        "correct": false,
+        "latency_ms": 22290
+      },
+      {
+        "id": "gsm-1144",
+        "answer": "34",
+        "reference": "34",
+        "correct": true,
+        "latency_ms": 38262
+      },
+      {
+        "id": "gsm-1170",
+        "answer": "2",
+        "reference": "2",
+        "correct": true,
+        "latency_ms": 15373
+      },
+      {
+        "id": "gsm-1196",
+        "answer": "15",
+        "reference": "75",
+        "correct": false,
+        "latency_ms": 11975
+      },
+      {
+        "id": "gsm-1222",
+        "answer": "350",
+        "reference": "350",
+        "correct": true,
+        "latency_ms": 24878
+      },
+      {
+        "id": "gsm-1248",
+        "answer": "750",
+        "reference": "750",
+        "correct": true,
+        "latency_ms": 13940
+      },
+      {
+        "id": "gsm-1274",
+        "answer": "26",
+        "reference": "38",
+        "correct": false,
+        "latency_ms": 12725
+      }
+    ]
+  },
+  "delta": 0.0
+}

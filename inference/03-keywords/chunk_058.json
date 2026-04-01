@@ -1,0 +1,51 @@
+{
+  "chunk_index": 58,
+  "source": "CONFIDENCE_CHAIN_PAPER.tex",
+  "section_title": "References",
+  "section_path": [
+    "References"
+  ],
+  "char_count": 1493,
+  "keyphrases": [
+    {
+      "phrase": "referencesreferences",
+      "score": 0.5521
+    },
+    {
+      "phrase": "cognitive theory consciousness",
+      "score": 0.484
+    },
+    {
+      "phrase": "maynardsmith1995 major transitions",
+      "score": 0.4144
+    },
+    {
+      "phrase": "intelligence companion paper",
+      "score": 0.4133
+    },
+    {
+      "phrase": "inference gibson1979 ecological",
+      "score": 0.4047
+    },
+    {
+      "phrase": "chalmers1995",
+      "score": 0.3818
+    },
+    {
+      "phrase": "belief peirce1878",
+      "score": 0.3446
+    },
+    {
+      "phrase": "theory friston2021 sophisticated",
+      "score": 0.3357
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [],
+    "has_math": false
+  }
+}

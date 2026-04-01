@@ -1,0 +1,53 @@
+id: PW-mRNACapping
+type: knowledge
+domain: biology
+name: mRNA Capping
+reactome_id: R-HSA-72086
+
+description: "The 5'-ends of all eukaryotic pre-mRNAs studied thus far are converted to cap structures. The cap is thought to influence splicing of the first intron, and is bound by 'cap-binding' proteins, CBP80 and CBP20, in the nucleus. The cap is important for translation initiation, and it also interacts with the poly(A)terminus, via proteins, resulting in circularization of the mRNA to facilitate multiple rounds of translation."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Capping complex formation
+    reactome_id: R-HSA-77077
+    type: Reaction
+  - name: "Hydrolysis of the 5'-end of the nascent transcript by the capping enzyme"
+    reactome_id: R-HSA-77078
+    type: Reaction
+  - name: "Formation of the CE:GMP intermediate complex"
+    reactome_id: R-HSA-77081
+    type: Reaction
+  - name: "Transfer of GMP from the capping enzyme GT site to 5'-end of mRNA"
+    reactome_id: R-HSA-77083
+    type: Reaction
+  - name: "Dissociation of  transcript with 5'-GMP from GT"
+    reactome_id: R-HSA-77085
+    type: Reaction
+  - name: "Methylation of GMP-cap by RNA Methyltransferase"
+    reactome_id: R-HSA-77090
+    type: Reaction
+  - name: "Recognition and binding of the mRNA cap by the cap-binding complex "
+    reactome_id: R-HSA-77095
+    type: Reaction
+  - name: Formation of cap binding complex (CBC)
+    reactome_id: R-HSA-77094
+    type: Reaction
+  - name: SPT5 subunit of Pol II binds the RNA triphosphatase (RTP)
+    reactome_id: R-HSA-77073
+    type: Reaction
+  - name: Activation of GT
+    reactome_id: R-HSA-77068
+    type: Reaction
+  - name: RNA Polymerase II CTD (phosphorylated) binds to CE
+    reactome_id: R-HSA-77069
+    type: Reaction
+
+edges:

@@ -1,0 +1,12 @@
+id: SL08-kernel-is-normal
+type: shared_lemma
+domain: algebra
+name: "Kernel of Homomorphism is Normal"
+statement: "\\phi: G \\to H \\text{ homomorphism} \\implies \\ker(\\phi) \\trianglelefteq G"
+justification: "for g in G, k in ker(phi): phi(gkg^{-1}) = phi(g)phi(k)phi(g)^{-1} = phi(g)e phi(g)^{-1} = e, so gkg^{-1} in ker(phi)"
+references: [kernel, homomorphism, normal_subgroup]
+used_by:
+  - proof: PR16-first-isomorphism
+    step: kernel-normal
+  - proof: PR29-sylow-first
+    step: quotient-setup

@@ -1,0 +1,26 @@
+id: PW-Transcriptionfrommitochondrial
+type: knowledge
+domain: biology
+name: Transcription from mitochondrial promoters
+reactome_id: R-HSA-75944
+
+description: "Thirteen of the ~80 different proteins present in the respiratory chain of human mitochondria are encoded by the mitochondrial genome (mtDNA). The circular mtDNA, which is present in 1000 to 10000 copies in the human cell, also encodes for 2 ribosomal RNAs, and 22 transfer RNAs. The double-stranded mitochondrial genome lacks introns and the longer non-coding region contains the control elements for transcription and replication of mtDNA  (Shadel and Clayton,  1997)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Mitochondrial transcription initiation
+    reactome_id: R-HSA-163282
+    type: Pathway
+  - name: Mitochondrial transcription termination
+    reactome_id: R-HSA-163316
+    type: Pathway
+
+edges:

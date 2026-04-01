@@ -1,0 +1,26 @@
+id: PW-NonsenseMediatedDecayNMD
+type: knowledge
+domain: biology
+name: "Nonsense-Mediated Decay (NMD)"
+reactome_id: R-HSA-927802
+
+description: "The Nonsense-Mediated Decay (NMD) pathway activates the destruction of mRNAs containing premature termination codons (PTCs) (reviewed in Isken and Maquat 2007, Chang et al. 2007, Behm-Ansmant et al. 2007, Neu-Yilik and Kulozik 2008, Rebbapragada and Lykke-Andersen 2009, Bhuvanagiri et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Nonsense Mediated Decay (NMD) enhanced by the Exon Junction Complex (EJC)
+    reactome_id: R-HSA-975957
+    type: Pathway
+  - name: Nonsense Mediated Decay (NMD) independent of the Exon Junction Complex (EJC)
+    reactome_id: R-HSA-975956
+    type: Pathway
+
+edges:

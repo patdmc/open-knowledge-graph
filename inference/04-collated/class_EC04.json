@@ -1,0 +1,683 @@
+{
+  "class_id": "EC04",
+  "label": "introduction-escalation-principle",
+  "n_chunks": 11,
+  "n_missing": 0,
+  "representative_title": "1. Introduction > [part 2/2]",
+  "chunks": [
+    {
+      "chunk_index": 2,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "1. Introduction > [part 2/2]",
+      "section_path": [
+        "1. Introduction",
+        "[part 2/2]"
+      ],
+      "char_count": 2813,
+      "keyphrases": [
+        {
+          "phrase": "architecture feasible genetic",
+          "score": 0.5362
+        },
+        {
+          "phrase": "biology intelligence unambiguously",
+          "score": 0.4798
+        },
+        {
+          "phrase": "observed reason evolutionary",
+          "score": 0.4363
+        },
+        {
+          "phrase": "software optimization theory",
+          "score": 0.4362
+        },
+        {
+          "phrase": "theory intelligence formal",
+          "score": 0.426
+        },
+        {
+          "phrase": "theory explanation lethality",
+          "score": 0.4045
+        },
+        {
+          "phrase": "math generations corollary",
+          "score": 0.3883
+        },
+        {
+          "phrase": "question encoding hierarchy",
+          "score": 0.3317
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "On the relationship to prior accounts."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": true
+    },
+    {
+      "chunk_index": 1,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "1. Introduction > [part 1/2]",
+      "section_path": [
+        "1. Introduction",
+        "[part 1/2]"
+      ],
+      "char_count": 5661,
+      "keyphrases": [
+        {
+          "phrase": "synthesizes behavior context",
+          "score": 0.5185
+        },
+        {
+          "phrase": "repeatability agentic",
+          "score": 0.5074
+        },
+        {
+          "phrase": "inherently unpredictable unpredictability",
+          "score": 0.4999
+        },
+        {
+          "phrase": "transposability requires quantifiable",
+          "score": 0.4781
+        },
+        {
+          "phrase": "performance constraints biological",
+          "score": 0.4686
+        },
+        {
+          "phrase": "inherently",
+          "score": 0.4369
+        },
+        {
+          "phrase": "grows provenance epistemic",
+          "score": 0.3981
+        },
+        {
+          "phrase": "ecosystem spanning",
+          "score": 0.3542
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "The origin: provenance as the root constraint.",
+          "The graph structure as an optimization.",
+          "The empirical measurement of factor extraction.",
+          "The escalation architecture as a consequence.",
+          "What this means for the formal claims."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 9,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 1/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 1/10]"
+      ],
+      "char_count": 5657,
+      "keyphrases": [
+        {
+          "phrase": "encoding hierarchy continuous",
+          "score": 0.5927
+        },
+        {
+          "phrase": "principle definition encoding",
+          "score": 0.5461
+        },
+        {
+          "phrase": "escalation principle definition",
+          "score": 0.5091
+        },
+        {
+          "phrase": "qualitative boundaries",
+          "score": 0.4491
+        },
+        {
+          "phrase": "levels math interfaces",
+          "score": 0.4478
+        },
+        {
+          "phrase": "reasoning represented vocabulary",
+          "score": 0.4428
+        },
+        {
+          "phrase": "continuous moves",
+          "score": 0.3801
+        },
+        {
+          "phrase": "crosses action encoding",
+          "score": 0.3614
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 8 (Encoding Hierarchy).",
+          "interfaces",
+          "upward interface protocol",
+          "downward interface protocol",
+          "Theorem 2 (Escalation).",
+          "Corollary 3 (Context Window as Frontier).",
+          "Corollary 4 (Simultaneous Multi-Level Activity)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC04",
+        "EC01"
+      ],
+      "other_classes": [
+        "EC01"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 10,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "5. The Escalation Principle > [part 2/10]",
+      "section_path": [
+        "5. The Escalation Principle",
+        "[part 2/10]"
+      ],
+      "char_count": 6223,
+      "keyphrases": [
+        {
+          "phrase": "context capacity inference",
+          "score": 0.6081
+        },
+        {
+          "phrase": "knowledge substrate",
+          "score": 0.5481
+        },
+        {
+          "phrase": "math delegation overhead",
+          "score": 0.4919
+        },
+        {
+          "phrase": "grow math context",
+          "score": 0.4384
+        },
+        {
+          "phrase": "propositions retrievable chunks",
+          "score": 0.4241
+        },
+        {
+          "phrase": "physical constraints effective",
+          "score": 0.3871
+        },
+        {
+          "phrase": "levels sequential concurrent",
+          "score": 0.3779
+        },
+        {
+          "phrase": "graph definition math",
+          "score": 0.3621
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "Definition 8a (Active Context Capacity and Inference Quality).",
+          "inference quality",
+          "Definition 8b (Delegation Overhead).",
+          "Theorem 2a (Top-Down Allocation Degrades Inference Quality).",
+          "Theorem 2b (Graph-Structured Knowledge Bounds Active Context)."
+        ],
+        "has_math": true
+      },
+      "is_bridge": true,
+      "all_classes": [
+        "EC03",
+        "EC01",
+        "EC02",
+        "EC04"
+      ],
+      "other_classes": [
+        "EC03",
+        "EC01",
+        "EC02"
+      ],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 26,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "8. The Unified Model > The Universal Invariants > [part 7/7]",
+      "section_path": [
+        "8. The Unified Model",
+        "The Universal Invariants",
+        "[part 7/7]"
+      ],
+      "char_count": 940,
+      "keyphrases": [
+        {
+          "phrase": "paradigmatic crystallized intelligence",
+          "score": 0.6008
+        },
+        {
+          "phrase": "intelligence freed automata",
+          "score": 0.5302
+        },
+        {
+          "phrase": "ministic descent dna",
+          "score": 0.5001
+        },
+        {
+          "phrase": "actions proven evolutionary",
+          "score": 0.4143
+        },
+        {
+          "phrase": "gradient checkpoint enables",
+          "score": 0.4126
+        },
+        {
+          "phrase": "automata execute center0",
+          "score": 0.3863
+        },
+        {
+          "phrase": "crystallization escalation principle",
+          "score": 0.359
+        },
+        {
+          "phrase": "selection pressure",
+          "score": 0.2891
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 35,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "11. Related Work > Cognitive Architectures",
+      "section_path": [
+        "11. Related Work",
+        "Cognitive Architectures"
+      ],
+      "char_count": 1031,
+      "keyphrases": [
+        {
+          "phrase": "cognitive architecturescognitive",
+          "score": 0.594
+        },
+        {
+          "phrase": "workspace inefficient kahneman",
+          "score": 0.5393
+        },
+        {
+          "phrase": "architecturally hierarchy continuous",
+          "score": 0.457
+        },
+        {
+          "phrase": "architectures global workspace",
+          "score": 0.4484
+        },
+        {
+          "phrase": "organism capacities math",
+          "score": 0.4433
+        },
+        {
+          "phrase": "routine computation global",
+          "score": 0.3853
+        },
+        {
+          "phrase": "definition gibson affordances",
+          "score": 0.3401
+        },
+        {
+          "phrase": "escalation criterion",
+          "score": 0.3057
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 39,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 2/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 2/4]"
+      ],
+      "char_count": 5941,
+      "keyphrases": [
+        {
+          "phrase": "evolutionary rigor threshold",
+          "score": 0.5952
+        },
+        {
+          "phrase": "structure math evolutionary",
+          "score": 0.5622
+        },
+        {
+          "phrase": "function genetic encoding",
+          "score": 0.5428
+        },
+        {
+          "phrase": "developmental constraint",
+          "score": 0.4904
+        },
+        {
+          "phrase": "sufficient bootstrap organism",
+          "score": 0.4065
+        },
+        {
+          "phrase": "math math developmental",
+          "score": 0.3902
+        },
+        {
+          "phrase": "programs architectures gradient",
+          "score": 0.3709
+        },
+        {
+          "phrase": "finition describes ratchet",
+          "score": 0.3147
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "The AGI condition.",
+          "The next precipitation: normal form priority and extraction\n  protocol."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 41,
+      "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+      "section_title": "13. Open Questions > [part 4/4]",
+      "section_path": [
+        "13. Open Questions",
+        "[part 4/4]"
+      ],
+      "char_count": 2421,
+      "keyphrases": [
+        {
+          "phrase": "daptive evolution",
+          "score": 0.6068
+        },
+        {
+          "phrase": "definition evolutionary gradient",
+          "score": 0.5004
+        },
+        {
+          "phrase": "genetic encoding cost",
+          "score": 0.4372
+        },
+        {
+          "phrase": "developmental generality",
+          "score": 0.4088
+        },
+        {
+          "phrase": "conjectures selection pressure",
+          "score": 0.3871
+        },
+        {
+          "phrase": "random mutation radiation",
+          "score": 0.3747
+        },
+        {
+          "phrase": "germline channel sufficient",
+          "score": 0.3727
+        },
+        {
+          "phrase": "learning slower",
+          "score": 0.3405
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 59,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "Abstract",
+      "section_path": [
+        "Abstract"
+      ],
+      "char_count": 2962,
+      "keyphrases": [
+        {
+          "phrase": "constraint knowledge",
+          "score": 0.5032
+        },
+        {
+          "phrase": "predictions fep generative",
+          "score": 0.4277
+        },
+        {
+          "phrase": "variational free energy",
+          "score": 0.4144
+        },
+        {
+          "phrase": "non continuous decisions",
+          "score": 0.3634
+        },
+        {
+          "phrase": "intrinsic drive uncertainty",
+          "score": 0.3634
+        },
+        {
+          "phrase": "living systems minimize",
+          "score": 0.3614
+        },
+        {
+          "phrase": "action validation independent",
+          "score": 0.315
+        },
+        {
+          "phrase": "domain specific lethality",
+          "score": 0.2913
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 60,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "1. Introduction > [part 1/4]",
+      "section_path": [
+        "1. Introduction",
+        "[part 1/4]"
+      ],
+      "char_count": 5731,
+      "keyphrases": [
+        {
+          "phrase": "minimizes free energy",
+          "score": 0.5201
+        },
+        {
+          "phrase": "intelligent behavior biological",
+          "score": 0.4367
+        },
+        {
+          "phrase": "maintains markov blanket",
+          "score": 0.4234
+        },
+        {
+          "phrase": "attentional resources uncertainty",
+          "score": 0.4219
+        },
+        {
+          "phrase": "inference friston2017 operationalizes",
+          "score": 0.4169
+        },
+        {
+          "phrase": "sensory states math",
+          "score": 0.3795
+        },
+        {
+          "phrase": "weaknesses foundational fep",
+          "score": 0.3713
+        },
+        {
+          "phrase": "principle",
+          "score": 0.3392
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [
+          "The derivation."
+        ],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    },
+    {
+      "chunk_index": 65,
+      "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+      "section_title": "8. Conclusion",
+      "section_path": [
+        "8. Conclusion"
+      ],
+      "char_count": 1475,
+      "keyphrases": [
+        {
+          "phrase": "general collective intelligence",
+          "score": 0.5734
+        },
+        {
+          "phrase": "self organizing framework",
+          "score": 0.4946
+        },
+        {
+          "phrase": "generative model escalation",
+          "score": 0.4322
+        },
+        {
+          "phrase": "attention architecture",
+          "score": 0.3979
+        },
+        {
+          "phrase": "conclusionconclusion free energy",
+          "score": 0.3931
+        },
+        {
+          "phrase": "biological systems extensions",
+          "score": 0.3684
+        },
+        {
+          "phrase": "imperative allocation violates",
+          "score": 0.3621
+        },
+        {
+          "phrase": "organization fep asks",
+          "score": 0.3358
+        }
+      ],
+      "structure": {
+        "theorems": [],
+        "definitions": [],
+        "claims": [],
+        "citations": [],
+        "bold_claims": [],
+        "has_math": true
+      },
+      "is_bridge": false,
+      "all_classes": [
+        "EC04"
+      ],
+      "other_classes": [],
+      "is_representative": false
+    }
+  ]
+}

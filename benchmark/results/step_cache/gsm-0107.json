@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Monday plus Tuesday hours",
+    "operation": "add",
+    "operands": [
+      1,
+      1
+    ],
+    "result": 2,
+    "variable": "mon_tue_hours"
+  },
+  {
+    "step": 2,
+    "description": "Thursday 1-hour plus 30-minute show",
+    "operation": "add",
+    "operands": [
+      1,
+      0.5
+    ],
+    "result": 1.5,
+    "variable": "thu_hours"
+  },
+  {
+    "step": 3,
+    "description": "Friday two 1-hour episodes",
+    "operation": "multiply",
+    "operands": [
+      2,
+      1
+    ],
+    "result": 2,
+    "variable": "fri_hours"
+  },
+  {
+    "step": 4,
+    "description": "Mon+Tue plus Thursday hours",
+    "operation": "add",
+    "operands": [
+      2,
+      1.5
+    ],
+    "result": 3.5,
+    "variable": "mon_tue_thu_hours"
+  },
+  {
+    "step": 5,
+    "description": "Known hours excluding Wednesday",
+    "operation": "add",
+    "operands": [
+      3.5,
+      2
+    ],
+    "result": 5.5,
+    "variable": "known_hours"
+  },
+  {
+    "step": 6,
+    "description": "Wednesday hours from total minus known",
+    "operation": "subtract",
+    "operands": [
+      7,
+      5.5
+    ],
+    "result": 1.5,
+    "variable": "wed_hours"
+  },
+  {
+    "step": 7,
+    "description": "Number of 30-minute episodes on Wednesday",
+    "operation": "divide",
+    "operands": [
+      1.5,
+      0.5
+    ],
+    "result": 3.0,
+    "variable": "wed_episodes"
+  }
+]

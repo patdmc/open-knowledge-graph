@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Remaining pen pals after stopping",
+    "operation": "subtract",
+    "operands": [
+      5,
+      2
+    ],
+    "result": 3,
+    "variable": "active_pen_pals"
+  },
+  {
+    "step": 2,
+    "description": "Pages per letter per person",
+    "operation": "multiply",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 10,
+    "variable": "pages_per_person_per_week"
+  },
+  {
+    "step": 3,
+    "description": "Total pages Mike writes per week",
+    "operation": "multiply",
+    "operands": [
+      3,
+      10
+    ],
+    "result": 30,
+    "variable": "total_pages_per_week"
+  },
+  {
+    "step": 4,
+    "description": "Total minutes spent writing per week",
+    "operation": "multiply",
+    "operands": [
+      30,
+      6
+    ],
+    "result": 180,
+    "variable": "total_minutes_per_week"
+  },
+  {
+    "step": 5,
+    "description": "Convert minutes to hours",
+    "operation": "divide",
+    "operands": [
+      180,
+      60
+    ],
+    "result": 3.0,
+    "variable": "total_hours_per_week"
+  }
+]

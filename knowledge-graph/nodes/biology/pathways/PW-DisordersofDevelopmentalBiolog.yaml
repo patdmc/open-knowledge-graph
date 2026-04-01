@@ -1,0 +1,26 @@
+id: PW-DisordersofDevelopmentalBiolog
+type: knowledge
+domain: biology
+name: Disorders of Developmental Biology
+reactome_id: R-HSA-9675151
+
+description: Developmental disorders affect formation of body organs and organ systems. The causes of defects in human development are diverse and incompletely understood, and include environmental insults such as nutrient deficiency, exposure to toxins and infections (Gilbert 2000, National Research Council (US) Committee on Developmental Toxicology 2000, Taylor and Rogers 2005, Zilbauer et al. 2016, Izvolskaia et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Disorders of Nervous System Development
+    reactome_id: R-HSA-9697154
+    type: Pathway
+  - name: Loss of Function of KMT2D in Kabuki Syndrome
+    reactome_id: R-HSA-9944971
+    type: Pathway
+
+edges:

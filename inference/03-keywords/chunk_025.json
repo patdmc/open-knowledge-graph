@@ -1,0 +1,61 @@
+{
+  "chunk_index": 25,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 6/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 6/7]"
+  ],
+  "char_count": 5817,
+  "keyphrases": [
+    {
+      "phrase": "collective uncertainty",
+      "score": 0.5383
+    },
+    {
+      "phrase": "collapsing complexity",
+      "score": 0.3774
+    },
+    {
+      "phrase": "gradient checkpoint enables",
+      "score": 0.3725
+    },
+    {
+      "phrase": "ahead crystallized knowledge",
+      "score": 0.3508
+    },
+    {
+      "phrase": "continued execution theorem",
+      "score": 0.3197
+    },
+    {
+      "phrase": "share survival technique",
+      "score": 0.316
+    },
+    {
+      "phrase": "retrieval cost math",
+      "score": 0.3137
+    },
+    {
+      "phrase": "tity",
+      "score": 0.2565
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Theorem 9 (Perspective as Precondition for the Gradient).",
+      "Corollary 9 (Sentience and the Social Imperative).",
+      "Corollary 10 (The Uncertainty Condition).",
+      "Complete ignorance",
+      "Complete certainty",
+      "Corollary 11 (Truth Swallows Sentience; the Limit Preserves\nIt).",
+      "Crystallized Knowledge and the Automata Boundary."
+    ],
+    "has_math": true
+  }
+}

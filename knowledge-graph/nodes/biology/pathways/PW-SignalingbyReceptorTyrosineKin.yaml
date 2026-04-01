@@ -1,0 +1,62 @@
+id: PW-SignalingbyReceptorTyrosineKin
+type: knowledge
+domain: biology
+name: Signaling by Receptor Tyrosine Kinases
+reactome_id: R-HSA-9006934
+
+description: "Receptor tyrosine kinases (RTKs) are a major class of cell surface proteins involved in Signal Transduction.  Human cells contain ~60 RTKs, grouped into 20 subfamilies based on their domain architecture. All RTK subfamilies are characterized by an extracellular ligand-binding domain, a single transmembrane region and an intracellular region consisting of the tyrosine kinase domain and additional regulatory and protein interaction domains."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by EGFR
+    reactome_id: R-HSA-177929
+    type: Pathway
+  - name: Signaling by FGFR
+    reactome_id: R-HSA-190236
+    type: Pathway
+  - name: Signaling by NTRKs
+    reactome_id: R-HSA-166520
+    type: Pathway
+  - name: Signaling by Insulin receptor
+    reactome_id: R-HSA-74752
+    type: Pathway
+  - name: Signaling by PDGF
+    reactome_id: R-HSA-186797
+    type: Pathway
+  - name: Signaling by VEGF
+    reactome_id: R-HSA-194138
+    type: Pathway
+  - name: "Signaling by SCF-KIT"
+    reactome_id: R-HSA-1433557
+    type: Pathway
+  - name: Signaling by ERBB2
+    reactome_id: R-HSA-1227986
+    type: Pathway
+  - name: Signaling by ERBB4
+    reactome_id: R-HSA-1236394
+    type: Pathway
+  - name: "Signaling by Type 1 Insulin-like Growth Factor 1 Receptor (IGF1R)"
+    reactome_id: R-HSA-2404192
+    type: Pathway
+  - name: Signaling by MET
+    reactome_id: R-HSA-6806834
+    type: Pathway
+  - name: Signaling by MST1
+    reactome_id: R-HSA-8852405
+    type: Pathway
+  - name: Signaling by ALK
+    reactome_id: R-HSA-201556
+    type: Pathway
+  - name: Signaling by LTK
+    reactome_id: R-HSA-9842663
+    type: Pathway
+
+edges:

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate 40% of blue car price",
+    "operation": "multiply",
+    "operands": [
+      100,
+      0.4
+    ],
+    "result": 40.0,
+    "variable": "discount_amount"
+  },
+  {
+    "step": 2,
+    "description": "Calculate red car price after 40% discount",
+    "operation": "subtract",
+    "operands": [
+      100,
+      40.0
+    ],
+    "result": 60.0,
+    "variable": "red_car_price"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total cost of both cars",
+    "operation": "add",
+    "operands": [
+      100,
+      60.0
+    ],
+    "result": 160.0,
+    "variable": "total_cost"
+  }
+]

@@ -1,0 +1,44 @@
+id: PW-MembraneTrafficking
+type: knowledge
+domain: biology
+name: Membrane Trafficking
+reactome_id: R-HSA-199991
+
+description: The secretory membrane system allows a cell to regulate delivery of newly synthesized proteins, carbohydrates, and lipids to the cell surface, a necessity for growth and homeostasis. The system is made up of distinct organelles, including the endoplasmic reticulum (ER), Golgi complex, plasma membrane, and tubulovesicular transport intermediates. These organelles mediate intracellular membrane transport between themselves and the cell surface.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: ER to Golgi Anterograde Transport
+    reactome_id: R-HSA-199977
+    type: Pathway
+  - name: "Intra-Golgi and retrograde Golgi-to-ER traffic"
+    reactome_id: R-HSA-6811442
+    type: Pathway
+  - name: "trans-Golgi Network Vesicle Budding"
+    reactome_id: R-HSA-199992
+    type: Pathway
+  - name: Gap junction trafficking and regulation
+    reactome_id: R-HSA-157858
+    type: Pathway
+  - name: "Clathrin-mediated endocytosis"
+    reactome_id: R-HSA-8856828
+    type: Pathway
+  - name: Endosomal Sorting Complex Required For Transport (ESCRT)
+    reactome_id: R-HSA-917729
+    type: Pathway
+  - name: Translocation of SLC2A4 (GLUT4) to the plasma membrane
+    reactome_id: R-HSA-1445148
+    type: Pathway
+  - name: Rab regulation of trafficking
+    reactome_id: R-HSA-9007101
+    type: Pathway
+
+edges:

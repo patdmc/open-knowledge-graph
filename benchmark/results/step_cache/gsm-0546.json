@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Letters in two full alphabets",
+    "operation": "multiply",
+    "operands": [
+      26,
+      2
+    ],
+    "result": 52,
+    "variable": "two_full_alphabets"
+  },
+  {
+    "step": 2,
+    "description": "Letters in half an alphabet",
+    "operation": "divide",
+    "operands": [
+      26,
+      2
+    ],
+    "result": 13,
+    "variable": "half_alphabet"
+  },
+  {
+    "step": 3,
+    "description": "Total letters before rewriting",
+    "operation": "add",
+    "operands": [
+      52,
+      13
+    ],
+    "result": 65,
+    "variable": "letters_before_rewrite"
+  },
+  {
+    "step": 4,
+    "description": "Total after rewriting everything (doubles the total)",
+    "operation": "multiply",
+    "operands": [
+      65,
+      2
+    ],
+    "result": 130,
+    "variable": "total_letters"
+  }
+]

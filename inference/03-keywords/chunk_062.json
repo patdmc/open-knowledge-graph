@@ -1,0 +1,58 @@
+{
+  "chunk_index": 62,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "1. Introduction > [part 3/4]",
+  "section_path": [
+    "1. Introduction",
+    "[part 3/4]"
+  ],
+  "char_count": 5554,
+  "keyphrases": [
+    {
+      "phrase": "delegation precision allocation",
+      "score": 0.6241
+    },
+    {
+      "phrase": "math manages subproblem",
+      "score": 0.5076
+    },
+    {
+      "phrase": "allocator degrades inference",
+      "score": 0.3904
+    },
+    {
+      "phrase": "complexity argument knowledge",
+      "score": 0.3797
+    },
+    {
+      "phrase": "intrinsic drive uncertainty",
+      "score": 0.3795
+    },
+    {
+      "phrase": "capability increases",
+      "score": 0.3767
+    },
+    {
+      "phrase": "fep holds intelligent",
+      "score": 0.3578
+    },
+    {
+      "phrase": "attention allocation continuous",
+      "score": 0.3441
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The Big-O comparison.",
+      "The correct architecture.",
+      "Relationship to predictive coding.",
+      "The continuity correction.",
+      "Collective gradient dominance."
+    ],
+    "has_math": true
+  }
+}

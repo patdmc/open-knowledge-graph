@@ -1,0 +1,48 @@
+id: PROC-EGFR
+type: knowledge
+domain: biology
+name: epidermal growth factor receptor signaling pathway
+go_id: GO:0007173
+
+definition: The series of molecular signals initiated by binding of a ligand to the tyrosine kinase receptor EGFR (ERBB1) on the surface of a cell. The pathway ends with regulation of a downstream cellular process, e.g. transcription.
+
+provenance:
+  attribution:
+    source: "Gene Ontology"
+    url: "https://geneontology.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Gene Ontology"
+
+sub_processes:
+  - id: GO:0038137
+    name: "ERBB4-EGFR signaling pathway"
+    relation: is_a
+  - id: GO:0038134
+    name: "ERBB2-EGFR signaling pathway"
+    relation: is_a
+  - id: GO:0042058
+    name: regulation of epidermal growth factor receptor signaling pathway
+    relation: regulates
+  - id: GO:0042059
+    name: negative regulation of epidermal growth factor receptor signaling pathway
+    relation: negatively_regulates
+  - id: GO:0045742
+    name: positive regulation of epidermal growth factor receptor signaling pathway
+    relation: positively_regulates
+  - id: GO:0005006
+    name: epidermal growth factor receptor activity
+    relation: part_of
+
+edges:
+  - to: CHAN-PI3K_Growth
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Genes in CHAN-PI3K_Growth encode components of epidermal growth factor receptor signaling pathway"

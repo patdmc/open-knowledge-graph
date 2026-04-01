@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Maximum orange fish if all 17 purchased were orange (original 3 + 17)",
+    "operation": "add",
+    "operands": [
+      3,
+      17
+    ],
+    "result": 20,
+    "variable": "max_orange"
+  },
+  {
+    "step": 2,
+    "description": "Two times the original white fish count (right-side expansion of 2*(4+w))",
+    "operation": "multiply",
+    "operands": [
+      2,
+      4
+    ],
+    "result": 8,
+    "variable": "twice_original_white"
+  },
+  {
+    "step": 3,
+    "description": "Solve numerator: 20 - w = 8 + 2w \u2192 20 - 8 = 3w",
+    "operation": "subtract",
+    "operands": [
+      20,
+      8
+    ],
+    "result": 12,
+    "variable": "numerator"
+  },
+  {
+    "step": 4,
+    "description": "Coefficient of w after moving -w to right side: 1 + 2 = 3",
+    "operation": "add",
+    "operands": [
+      1,
+      2
+    ],
+    "result": 3,
+    "variable": "denominator"
+  },
+  {
+    "step": 5,
+    "description": "White fish purchased: 12 / 3 = 4",
+    "operation": "divide",
+    "operands": [
+      12,
+      3
+    ],
+    "result": 4,
+    "variable": "white_fish_bought"
+  }
+]

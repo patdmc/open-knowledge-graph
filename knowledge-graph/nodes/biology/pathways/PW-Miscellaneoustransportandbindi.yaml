@@ -1,0 +1,62 @@
+id: PW-Miscellaneoustransportandbindi
+type: knowledge
+domain: biology
+name: Miscellaneous transport and binding events
+reactome_id: R-HSA-5223345
+
+description: This section contains known transport and binding events that as of yet cannot be placed in exisiting pathways (Purves 2001, He et al. 2009, Rees et al. 2009).
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "ADD1:ADD2 binds DMTN"
+    reactome_id: R-HSA-5226979
+    type: Reaction
+  - name: "ADD1:ADD3 binds DMTN"
+    reactome_id: R-HSA-5226999
+    type: Reaction
+  - name: ANKH transports PPi from cytosol to extracellular region
+    reactome_id: R-HSA-5226964
+    type: Reaction
+  - name: AZGP1 binds PIP
+    reactome_id: R-HSA-5252072
+    type: Reaction
+  - name: MMGT1 transports Mg2+ from cytosol to Golgi lumen
+    reactome_id: R-HSA-5336454
+    type: Reaction
+  - name: MRS2 transports Mg2+ from cytosol to mitochondrial matrix
+    reactome_id: R-HSA-5336466
+    type: Reaction
+  - name: NIPAs transport Mg2+ from extracellular region to cytosol
+    reactome_id: R-HSA-5336453
+    type: Reaction
+  - name: MAGT1 transports Mg2+ from extracellular region to cytosol
+    reactome_id: R-HSA-5339538
+    type: Reaction
+  - name: TUSC3 transports Mg2+ from extracellular region to cytosol
+    reactome_id: R-HSA-5339528
+    type: Reaction
+  - name: CSN polymer binds CaPO4
+    reactome_id: R-HSA-5340124
+    type: Reaction
+  - name: "CTNS cotransports CySS-, H+ from lysosomal lumen to cytosol"
+    reactome_id: R-HSA-5340130
+    type: Reaction
+  - name: "PQLC2 transports L-Arg,L-His,L-Lys from lysosomal lumen to cytosol"
+    reactome_id: R-HSA-8932851
+    type: Reaction
+  - name: "VRAC heteromer transports I-, Cl- from cytosol to extracellular region"
+    reactome_id: R-HSA-8941543
+    type: Reaction
+  - name: Rhesus glycoproteins mediate ammonium transport
+    reactome_id: R-HSA-444411
+    type: Pathway
+
+edges:

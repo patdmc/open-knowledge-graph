@@ -1,0 +1,44 @@
+id: PW-Keratinization
+type: knowledge
+domain: biology
+name: Keratinization
+reactome_id: R-HSA-6805567
+
+description: "Keratins are the major structural protein of vertebrate epidermis, constituting up to 85% of a fully differentiated keratinocyte (Fuchs 1995). Keratins belong to a superfamily of intermediate filament (IF) proteins that form alpha-helical coiled-coil dimers, which associate laterally and end-to-end to form approximately 10 nm diameter filaments. Keratin filaments are heteropolymeric, formed from equal amounts of acidic type I and basic /neutral type 2 keratins."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Keratin type I binds keratin type II
+    reactome_id: R-HSA-6805546
+    type: Reaction
+  - name: Keratin type I/type II heterodimers form tetramers
+    reactome_id: R-HSA-6805573
+    type: Reaction
+  - name: Keratin tetramers bind to form unit length filaments
+    reactome_id: R-HSA-6806613
+    type: Reaction
+  - name: Keratin filament formation
+    reactome_id: R-HSA-6806610
+    type: Polymerisation
+  - name: Formation of tonofilament bundles
+    reactome_id: R-HSA-6806629
+    type: Polymerisation
+  - name: "Keratin filaments bind cell-cell adhesion complexes"
+    reactome_id: R-HSA-6809393
+    type: Reaction
+  - name: Formation of the cornified envelope
+    reactome_id: R-HSA-6809371
+    type: Pathway
+  - name: Formation of hair keratin fibres
+    reactome_id: R-HSA-6809663
+    type: Polymerisation
+
+edges:

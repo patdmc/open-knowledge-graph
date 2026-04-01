@@ -1,0 +1,75 @@
+id: PR20-brouwer-fixed-point
+type: proof
+domain: topology
+name: "Brouwer Fixed Point Theorem (1D)"
+target:
+  statement: "\\text{Every continuous } f: [0,1] \\to [0,1] \\text{ has a fixed point } f(x^*) = x^*"
+  type: theorem
+method: direct
+
+note: >
+  Proof for [0,1] via IVT. Higher dimensions require algebraic topology (degree theory or homology).
+
+assertions:
+  - step: 1
+    id: define-g
+    type: definition
+    statement: "g(x) = f(x) - x"
+    justification: "fixed point of f iff zero of g"
+    depends_on: []
+
+  - step: 2
+    id: g-continuous
+    type: claim
+    statement: "g \\text{ is continuous on } [0, 1]"
+    justification: "f is continuous by hypothesis; x is continuous; difference of continuous is continuous"
+    depends_on: [define-g]
+    references: [continuous_map]
+
+  - step: 3
+    id: g-at-0
+    type: claim
+    statement: "g(0) = f(0) - 0 = f(0) \\geq 0"
+    justification: "f maps into [0,1], so f(0) >= 0"
+    depends_on: [define-g]
+
+  - step: 4
+    id: g-at-1
+    type: claim
+    statement: "g(1) = f(1) - 1 \\leq 0"
+    justification: "f maps into [0,1], so f(1) <= 1"
+    depends_on: [define-g]
+
+  - step: 5
+    id: ivt-applies
+    type: claim
+    statement: "g(0) \\geq 0 \\geq g(1), \\text{ so by IVT } \\exists x^* \\in [0,1] : g(x^*) = 0"
+    justification: "Intermediate Value Theorem: continuous function taking values >= 0 and <= 0 must cross zero"
+    depends_on: [g-continuous, g-at-0, g-at-1]
+
+  - step: 6
+    id: conclusion
+    type: theorem
+    statement: "f(x^*) = x^* \\text{ — fixed point exists}"
+    justification: "g(x*) = 0 means f(x*) - x* = 0 means f(x*) = x*"
+    depends_on: [ivt-applies]
+
+qed: true
+
+corollaries:
+  - id: higher-dim
+    statement: "\\text{Every continuous } f: B^n \\to B^n \\text{ has a fixed point (closed unit ball in } \\mathbb{R}^n)"
+    justification: "requires algebraic topology (degree theory, homology, or Sperner's lemma)"
+    depends_on: [conclusion]
+
+  - id: no-retraction
+    statement: "\\text{There is no continuous retraction } r: B^n \\to S^{n-1}"
+    justification: "if r existed, f(x) = -r(x) would be continuous with no fixed point"
+    depends_on: [conclusion]
+
+edges:
+  - to: TOP01-topology
+    relation: PROVES_FROM
+  - to: C01-differential-calculus
+    relation: USES
+    note: "IVT, continuity"

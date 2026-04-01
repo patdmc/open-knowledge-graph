@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "60% of red cards",
+    "operation": "multiply",
+    "operands": [
+      15,
+      0.6
+    ],
+    "result": 9,
+    "variable": "green_extra"
+  },
+  {
+    "step": 2,
+    "description": "number of green cards",
+    "operation": "add",
+    "operands": [
+      15,
+      9
+    ],
+    "result": 24,
+    "variable": "green_cards"
+  },
+  {
+    "step": 3,
+    "description": "number of yellow cards (sum of red and green)",
+    "operation": "add",
+    "operands": [
+      15,
+      24
+    ],
+    "result": 39,
+    "variable": "yellow_cards"
+  },
+  {
+    "step": 4,
+    "description": "total red and green cards",
+    "operation": "add",
+    "operands": [
+      15,
+      24
+    ],
+    "result": 39,
+    "variable": "red_plus_green"
+  },
+  {
+    "step": 5,
+    "description": "total all cards",
+    "operation": "add",
+    "operands": [
+      39,
+      39
+    ],
+    "result": 78,
+    "variable": "total_cards"
+  }
+]

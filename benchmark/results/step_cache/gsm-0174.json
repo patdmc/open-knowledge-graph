@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "total peeling time in minutes",
+    "operation": "multiply",
+    "operands": [
+      60,
+      1.5
+    ],
+    "result": 90,
+    "variable": "peeling_minutes"
+  },
+  {
+    "step": 2,
+    "description": "total cutting time in seconds",
+    "operation": "multiply",
+    "operands": [
+      60,
+      5
+    ],
+    "result": 300,
+    "variable": "cutting_seconds"
+  },
+  {
+    "step": 3,
+    "description": "convert cutting seconds to minutes",
+    "operation": "divide",
+    "operands": [
+      300,
+      60
+    ],
+    "result": 5,
+    "variable": "cutting_minutes"
+  },
+  {
+    "step": 4,
+    "description": "total prep time in minutes",
+    "operation": "add",
+    "operands": [
+      90,
+      5
+    ],
+    "result": 95.0,
+    "variable": "total_minutes"
+  }
+]

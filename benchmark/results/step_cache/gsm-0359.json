@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "total spent on gumballs",
+    "operation": "multiply",
+    "operands": [
+      40,
+      0.05
+    ],
+    "result": 2.0,
+    "variable": "gumball_total"
+  },
+  {
+    "step": 2,
+    "description": "total change (gumball spend was half of change)",
+    "operation": "multiply",
+    "operands": [
+      2.0,
+      2
+    ],
+    "result": 4.0,
+    "variable": "total_change"
+  },
+  {
+    "step": 3,
+    "description": "amount spent on candy",
+    "operation": "subtract",
+    "operands": [
+      10,
+      4.0
+    ],
+    "result": 6.0,
+    "variable": "candy_spend"
+  },
+  {
+    "step": 4,
+    "description": "pounds of candy bought",
+    "operation": "divide",
+    "operands": [
+      6.0,
+      1.5
+    ],
+    "result": 4.0,
+    "variable": "candy_pounds"
+  }
+]

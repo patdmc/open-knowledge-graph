@@ -1,0 +1,110 @@
+id: N04-aggregation-notation
+type: notation
+domain: arithmetic
+name: "Aggregation and Composition Notation"
+
+symbols:
+  - symbol: "sum"
+    latex: "\\sum_{i=a}^{b} f(i)"
+    name: summation
+    arity: 3  # lower, upper, body
+    action:
+      python: "sum(f(i) for i in range(a, b+1))"
+      numpy: "np.sum(f(np.arange(a, b+1)))"
+      sympy: "summation(f(i), (i, a, b))"
+    curried: "lambda f: lambda a, b: sum(f(i) for i in range(a, b+1))"
+
+  - symbol: "prod"
+    latex: "\\prod_{i=a}^{b} f(i)"
+    name: product
+    arity: 3
+    action:
+      python: "math.prod(f(i) for i in range(a, b+1))"
+      numpy: "np.prod(f(np.arange(a, b+1)))"
+      sympy: "product(f(i), (i, a, b))"
+    curried: "lambda f: lambda a, b: math.prod(f(i) for i in range(a, b+1))"
+
+  - symbol: "compose"
+    latex: "f \\circ g"
+    name: function_composition
+    arity: 2
+    meaning: "(f . g)(x) = f(g(x))"
+    action:
+      python: "lambda x: f(g(x))"
+    curried: "lambda f: lambda g: lambda x: f(g(x))"
+
+  - symbol: "pipe"
+    latex: "g \\triangleright f"
+    name: pipe
+    arity: 2
+    meaning: "pipe(g, f)(x) = f(g(x)), left-to-right composition"
+    action:
+      python: "lambda x: f(g(x))"
+    curried: "lambda g: lambda f: lambda x: f(g(x))"
+    note: "reverse of compose — data flows left to right"
+
+  - symbol: "apply"
+    latex: "f(x)"
+    name: function_application
+    arity: 2
+    action:
+      python: "f(x)"
+    curried: "lambda f: lambda x: f(x)"
+
+  - symbol: "partial"
+    latex: "f(a, \\cdot)"
+    name: partial_application
+    meaning: "fix first argument, return function of remaining"
+    action:
+      python: "functools.partial(f, a)"
+    curried: "lambda f: lambda a: functools.partial(f, a)"
+
+  - symbol: "map"
+    latex: "f \\mapsto [f(x_1), \\ldots, f(x_n)]"
+    name: map
+    arity: 2
+    action:
+      python: "list(map(f, xs))"
+      numpy: "np.vectorize(f)(xs)"
+    curried: "lambda f: lambda xs: list(map(f, xs))"
+
+  - symbol: "reduce"
+    latex: "\\bigoplus_{i} x_i"
+    name: fold
+    arity: 3  # binary_op, initial, sequence
+    action:
+      python: "functools.reduce(op, xs, init)"
+    curried: "lambda op: lambda init: lambda xs: functools.reduce(op, xs, init)"
+
+  - symbol: "min"
+    latex: "\\min(S)"
+    name: minimum
+    arity: 1
+    action:
+      python: "min(S)"
+      numpy: "np.min(S)"
+      sympy: "Min(*S)"
+
+  - symbol: "max"
+    latex: "\\max(S)"
+    name: maximum
+    arity: 1
+    action:
+      python: "max(S)"
+      numpy: "np.max(S)"
+      sympy: "Max(*S)"
+
+  - symbol: "argmin"
+    latex: "\\arg\\min_{x} f(x)"
+    name: argmin
+    action:
+      numpy: "np.argmin(f(xs))"
+      scipy: "scipy.optimize.minimize(f, x0)"
+    curried: "lambda f: lambda xs: xs[np.argmin([f(x) for x in xs])]"
+
+  - symbol: "argmax"
+    latex: "\\arg\\max_{x} f(x)"
+    name: argmax
+    action:
+      numpy: "np.argmax(f(xs))"
+    curried: "lambda f: lambda xs: xs[np.argmax([f(x) for x in xs])]"

@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate swimming time (half of boating)",
+    "operation": "divide",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 3,
+    "variable": "swimming_hours"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total show time (3 shows \u00d7 2 hours)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "show_hours"
+  },
+  {
+    "step": 3,
+    "description": "Add boating and swimming hours",
+    "operation": "add",
+    "operands": [
+      6,
+      3
+    ],
+    "result": 9,
+    "variable": "boating_plus_swimming"
+  },
+  {
+    "step": 4,
+    "description": "Add show hours to get the 30% portion",
+    "operation": "add",
+    "operands": [
+      9,
+      6
+    ],
+    "result": 15,
+    "variable": "thirty_percent_of_total"
+  },
+  {
+    "step": 5,
+    "description": "Calculate total vacation time (15 hours = 30%)",
+    "operation": "divide",
+    "operands": [
+      15,
+      0.3
+    ],
+    "result": 50,
+    "variable": "total_hours"
+  },
+  {
+    "step": 6,
+    "description": "Calculate sightseeing time (40% of total)",
+    "operation": "multiply",
+    "operands": [
+      50,
+      0.4
+    ],
+    "result": 20.0,
+    "variable": "sightseeing_hours"
+  }
+]

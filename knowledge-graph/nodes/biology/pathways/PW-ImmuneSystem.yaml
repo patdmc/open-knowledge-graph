@@ -1,0 +1,39 @@
+id: PW-ImmuneSystem
+type: knowledge
+domain: biology
+name: Immune System
+reactome_id: R-HSA-168256
+
+description: Humans are exposed to millions of potential pathogens daily, through contact, ingestion, and inhalation. Our ability to avoid infection depends on the adaptive immune system and during the first critical hours and days of exposure to a new pathogen, our innate immune system.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Adaptive Immune System
+    reactome_id: R-HSA-1280218
+    type: Pathway
+  - name: Innate Immune System
+    reactome_id: R-HSA-168249
+    type: Pathway
+  - name: Cytokine Signaling in Immune system
+    reactome_id: R-HSA-1280215
+    type: Pathway
+
+edges:
+  - to: CHAN-Immune
+    relation: encoded_by
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Immune System pathway components are encoded by CHAN-Immune genes"

@@ -1,0 +1,38 @@
+id: PW-Intracellularoxygentransport
+type: knowledge
+domain: biology
+name: Intracellular oxygen transport
+reactome_id: R-HSA-8981607
+
+description: "Globins are heme-containing proteins that reversibly bind molecular oxygen.  Humans contain at least 5 types of globins: hemoglobins, myoglobin, cytoglobin, neuroglobin, and androglobin (reviewed in Burmester et al. 2014)."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Myoglobin binds oxygen
+    reactome_id: R-HSA-8981606
+    type: Reaction
+  - name: "Myoglobin:oxygen dissociates"
+    reactome_id: R-HSA-8981622
+    type: Reaction
+  - name: Neuroglobin binds oxygen
+    reactome_id: R-HSA-8981610
+    type: Reaction
+  - name: "Neuroglobin:oxygen dissociates"
+    reactome_id: R-HSA-8981621
+    type: Reaction
+  - name: CYGB binds O2
+    reactome_id: R-HSA-5340214
+    type: Reaction
+  - name: "CYGB:O2 dissociates"
+    reactome_id: R-HSA-8982617
+    type: Reaction
+
+edges:

@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Total money needed (ticket + spending cash)",
+    "operation": "add",
+    "operands": [
+      100,
+      50
+    ],
+    "result": 150,
+    "variable": "total_money_needed"
+  },
+  {
+    "step": 2,
+    "description": "Number of cards sold to earn $150 at $1.5 each",
+    "operation": "divide",
+    "operands": [
+      150,
+      1.5
+    ],
+    "result": 100,
+    "variable": "cards_sold"
+  },
+  {
+    "step": 3,
+    "description": "Cards kept (1/3 of total = half of the 2/3 sold, so kept = sold / 2)",
+    "operation": "divide",
+    "operands": [
+      100,
+      2
+    ],
+    "result": 50,
+    "variable": "cards_kept"
+  },
+  {
+    "step": 4,
+    "description": "Total cards started with (sold + kept)",
+    "operation": "add",
+    "operands": [
+      100,
+      50
+    ],
+    "result": 150,
+    "variable": "total_cards"
+  }
+]

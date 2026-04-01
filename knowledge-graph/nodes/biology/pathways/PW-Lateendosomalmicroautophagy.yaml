@@ -1,0 +1,29 @@
+id: PW-Lateendosomalmicroautophagy
+type: knowledge
+domain: biology
+name: Late endosomal microautophagy
+reactome_id: R-HSA-9615710
+
+description: "Microautophagy (MI) is a non-selective autophagic pathway that involves internalisation of cytosolic cargo through invaginations of the lysosomal membrane. MI can be induced by nitrogen starvation and complements other related self-eating processes such as Macroautophagy (MA) and Chaperone Mediated Autophagy (CMA). MI can degrade cell organelles and bulk cytosolic proteins directly via the lysosome and late endosome."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: HSPA8 binds substrate
+    reactome_id: R-HSA-9615721
+    type: Reaction
+  - name: "HSPA8:substrate binds late endosomal phospholipids"
+    reactome_id: R-HSA-9631068
+    type: Reaction
+  - name: Substrate translocates into late endosomal lumen
+    reactome_id: R-HSA-9631065
+    type: Reaction
+
+edges:

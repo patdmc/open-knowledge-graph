@@ -1,0 +1,80 @@
+id: PW-Metabolismofaminoacidsandderiv
+type: knowledge
+domain: biology
+name: Metabolism of amino acids and derivatives
+reactome_id: R-HSA-71291
+
+description: "Cellular metabolism of amino acids and related molecules includes the pathways for the catabolism of amino acids, the biosynthesis of the nonessential amino acids (alanine, arginine, aspartate, asparagine, cysteine, glutamate, glutamine, glycine, proline, and serine) and selenocysteine, the synthesis of urea, and the metabolism of carnitine, creatine, choline, polyamides, melanin, and amine-derived hormones. The metabolism of amino acids provides a balanced supply of amino acids for protein synthesis. In the fasting state, the catabolism of amino acids derived from breakdown of skeletal muscle protein and other sources is coupled to the processes of gluconeogenesis and ketogenesis to meet the body’s energy needs in the absence of dietary energy sources."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Aspartate and asparagine metabolism
+    reactome_id: R-HSA-8963693
+    type: Pathway
+  - name: Glutamate and glutamine metabolism
+    reactome_id: R-HSA-8964539
+    type: Pathway
+  - name: Alanine metabolism
+    reactome_id: R-HSA-8964540
+    type: Pathway
+  - name: "Branched-chain amino acid catabolism"
+    reactome_id: R-HSA-70895
+    type: Pathway
+  - name: Histidine catabolism
+    reactome_id: R-HSA-70921
+    type: Pathway
+  - name: Lysine catabolism
+    reactome_id: R-HSA-71064
+    type: Pathway
+  - name: Phenylalanine and tyrosine metabolism
+    reactome_id: R-HSA-8963691
+    type: Pathway
+  - name: Proline catabolism
+    reactome_id: R-HSA-70688
+    type: Pathway
+  - name: Serine metabolism
+    reactome_id: R-HSA-977347
+    type: Pathway
+  - name: Threonine catabolism
+    reactome_id: R-HSA-8849175
+    type: Pathway
+  - name: Tryptophan catabolism
+    reactome_id: R-HSA-71240
+    type: Pathway
+  - name: Sulfur amino acid metabolism
+    reactome_id: R-HSA-1614635
+    type: Pathway
+  - name: Selenoamino acid metabolism
+    reactome_id: R-HSA-2408522
+    type: Pathway
+  - name: Glyoxylate metabolism and glycine degradation
+    reactome_id: R-HSA-389661
+    type: Pathway
+  - name: Urea cycle
+    reactome_id: R-HSA-70635
+    type: Pathway
+  - name: Carnitine synthesis
+    reactome_id: R-HSA-71262
+    type: Pathway
+  - name: Creatine metabolism
+    reactome_id: R-HSA-71288
+    type: Pathway
+  - name: Choline catabolism
+    reactome_id: R-HSA-6798163
+    type: Pathway
+  - name: Metabolism of polyamines
+    reactome_id: R-HSA-351202
+    type: Pathway
+  - name: Melanin biosynthesis
+    reactome_id: R-HSA-5662702
+    type: Pathway
+
+edges:

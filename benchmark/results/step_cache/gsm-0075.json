@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "compute level 3 square footage",
+    "operation": "multiply",
+    "operands": [
+      16,
+      2
+    ],
+    "result": 32,
+    "variable": "level_3_sqft"
+  },
+  {
+    "step": 2,
+    "description": "compute level 2 square footage",
+    "operation": "multiply",
+    "operands": [
+      32,
+      2
+    ],
+    "result": 64,
+    "variable": "level_2_sqft"
+  },
+  {
+    "step": 3,
+    "description": "compute level 1 square footage",
+    "operation": "multiply",
+    "operands": [
+      64,
+      2
+    ],
+    "result": 128,
+    "variable": "level_1_sqft"
+  },
+  {
+    "step": 4,
+    "description": "sum levels 4 and 3",
+    "operation": "add",
+    "operands": [
+      16,
+      32
+    ],
+    "result": 48,
+    "variable": "sum_levels_4_3"
+  },
+  {
+    "step": 5,
+    "description": "sum levels 4+3 and level 2",
+    "operation": "add",
+    "operands": [
+      48,
+      64
+    ],
+    "result": 112,
+    "variable": "sum_levels_4_3_2"
+  },
+  {
+    "step": 6,
+    "description": "sum all four levels",
+    "operation": "add",
+    "operands": [
+      112,
+      128
+    ],
+    "result": 240,
+    "variable": "total_sqft"
+  },
+  {
+    "step": 7,
+    "description": "divide total by number of levels to get average",
+    "operation": "divide",
+    "operands": [
+      240,
+      4
+    ],
+    "result": 60.0,
+    "variable": "average_sqft"
+  }
+]

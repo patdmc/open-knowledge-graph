@@ -1,0 +1,32 @@
+id: PW-Proteinlocalization
+type: knowledge
+domain: biology
+name: Protein localization
+reactome_id: R-HSA-9609507
+
+description: Protein localization encompasses the processes that establish and maintain proteins at specific locations. Mechanisms that target proteins to particular locations in the cell typically involve a motif in the targeted protein that interacts with proteins located at the destination (reviewed in Bauer et al. 2015).Mitochondrial proteins encoded in the nucleus may be targeted to the outer membrane, intermembrane space, inner membrane, or the matrix (reviewed in Kutik et al.
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Mitochondrial protein import
+    reactome_id: R-HSA-1268020
+    type: Pathway
+  - name: Peroxisomal protein import
+    reactome_id: R-HSA-9033241
+    type: Pathway
+  - name: Class I peroxisomal membrane protein import
+    reactome_id: R-HSA-9603798
+    type: Pathway
+  - name: "Insertion of tail-anchored proteins into the endoplasmic reticulum membrane"
+    reactome_id: R-HSA-9609523
+    type: Pathway
+
+edges:

@@ -1,0 +1,54 @@
+{
+  "chunk_index": 40,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "13. Open Questions > [part 3/4]",
+  "section_path": [
+    "13. Open Questions",
+    "[part 3/4]"
+  ],
+  "char_count": 5960,
+  "keyphrases": [
+    {
+      "phrase": "existing named factors",
+      "score": 0.5518
+    },
+    {
+      "phrase": "propositions grounds factor",
+      "score": 0.5178
+    },
+    {
+      "phrase": "dimension collapse case",
+      "score": 0.5037
+    },
+    {
+      "phrase": "conjecture component claims",
+      "score": 0.4505
+    },
+    {
+      "phrase": "propositions remain math",
+      "score": 0.4102
+    },
+    {
+      "phrase": "distinctions actions underlying",
+      "score": 0.3907
+    },
+    {
+      "phrase": "entity math faces",
+      "score": 0.3741
+    },
+    {
+      "phrase": "operational question entity",
+      "score": 0.3696
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "11. DNA as the transitive closure of environmental knowledge encoding."
+    ],
+    "has_math": true
+  }
+}

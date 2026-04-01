@@ -1,0 +1,26 @@
+id: PW-Responsetometalions
+type: knowledge
+domain: biology
+name: Response to metal ions
+reactome_id: R-HSA-5660526
+
+description: "Though metals such as zinc, copper, and iron are required as cofactors for cellular enzymes they can also catalyze damaging metal substitution or unspecific redox reactions if they are not sequestered. The transcription factor MTF1 directs the major cellular response to zinc, cadmium, and copper. MTF1 activates gene expression to up-regulate genes encoding proteins, such as metallothioneins and glutamate-cysteine ligase (GCLC), involved in sequestering metals."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: MTF1 activates gene expression
+    reactome_id: R-HSA-5660489
+    type: Pathway
+  - name: Metallothioneins bind metals
+    reactome_id: R-HSA-5661231
+    type: Pathway
+
+edges:

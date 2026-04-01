@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Total cost per bag including transport",
+    "operation": "add",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 22,
+    "variable": "cost_per_bag"
+  },
+  {
+    "step": 2,
+    "description": "Profit per bag after selling",
+    "operation": "subtract",
+    "operands": [
+      30,
+      22
+    ],
+    "result": 8,
+    "variable": "profit_per_bag"
+  },
+  {
+    "step": 3,
+    "description": "Number of bags sold",
+    "operation": "divide",
+    "operands": [
+      400,
+      8
+    ],
+    "result": 50.0,
+    "variable": "num_bags"
+  }
+]

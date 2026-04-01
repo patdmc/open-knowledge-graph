@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Cost of one doll (3 action figures)",
+    "operation": "multiply",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 15,
+    "variable": "doll_cost"
+  },
+  {
+    "step": 2,
+    "description": "Cost of all action figures",
+    "operation": "multiply",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 15,
+    "variable": "total_action_figures_cost"
+  },
+  {
+    "step": 3,
+    "description": "Cost of all red cars",
+    "operation": "multiply",
+    "operands": [
+      5,
+      4
+    ],
+    "result": 20,
+    "variable": "total_cars_cost"
+  },
+  {
+    "step": 4,
+    "description": "Total cost of action figures and doll",
+    "operation": "add",
+    "operands": [
+      15,
+      15
+    ],
+    "result": 30,
+    "variable": "figures_and_doll_cost"
+  },
+  {
+    "step": 5,
+    "description": "Total cost of all toys",
+    "operation": "add",
+    "operands": [
+      30,
+      20
+    ],
+    "result": 50,
+    "variable": "total_cost"
+  }
+]

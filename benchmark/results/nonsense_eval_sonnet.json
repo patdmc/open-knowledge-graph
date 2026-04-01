@@ -1,0 +1,721 @@
+{
+  "model": "sonnet",
+  "suite": "gsm8k",
+  "original": {
+    "label": "ORIGINAL",
+    "accuracy": 0.72,
+    "correct": 36,
+    "total": 50,
+    "results": [
+      {
+        "id": "gsm-0000",
+        "answer": "18",
+        "reference": "18",
+        "correct": true,
+        "latency_ms": 18138
+      },
+      {
+        "id": "gsm-0026",
+        "answer": "243",
+        "reference": "243",
+        "correct": true,
+        "latency_ms": 11750
+      },
+      {
+        "id": "gsm-0052",
+        "answer": "18",
+        "reference": "15",
+        "correct": false,
+        "latency_ms": 11329
+      },
+      {
+        "id": "gsm-0078",
+        "answer": "3",
+        "reference": "6",
+        "correct": false,
+        "latency_ms": 12278
+      },
+      {
+        "id": "gsm-0104",
+        "answer": "500",
+        "reference": "500",
+        "correct": true,
+        "latency_ms": 11344
+      },
+      {
+        "id": "gsm-0130",
+        "answer": "30",
+        "reference": "30",
+        "correct": true,
+        "latency_ms": 15746
+      },
+      {
+        "id": "gsm-0156",
+        "answer": "1400",
+        "reference": "1400",
+        "correct": true,
+        "latency_ms": 10495
+      },
+      {
+        "id": "gsm-0182",
+        "answer": "23",
+        "reference": "23",
+        "correct": true,
+        "latency_ms": 11777
+      },
+      {
+        "id": "gsm-0208",
+        "answer": "76",
+        "reference": "76",
+        "correct": true,
+        "latency_ms": 10902
+      },
+      {
+        "id": "gsm-0234",
+        "answer": "7",
+        "reference": "21",
+        "correct": false,
+        "latency_ms": 11999
+      },
+      {
+        "id": "gsm-0260",
+        "answer": "11",
+        "reference": "11",
+        "correct": true,
+        "latency_ms": 11818
+      },
+      {
+        "id": "gsm-0286",
+        "answer": "90",
+        "reference": "90",
+        "correct": true,
+        "latency_ms": 11468
+      },
+      {
+        "id": "gsm-0312",
+        "answer": "32",
+        "reference": "32",
+        "correct": true,
+        "latency_ms": 12142
+      },
+      {
+        "id": "gsm-0338",
+        "answer": "60",
+        "reference": "60",
+        "correct": true,
+        "latency_ms": 10387
+      },
+      {
+        "id": "gsm-0364",
+        "answer": "44",
+        "reference": "49",
+        "correct": false,
+        "latency_ms": 10580
+      },
+      {
+        "id": "gsm-0390",
+        "answer": "9",
+        "reference": "12",
+        "correct": false,
+        "latency_ms": 10913
+      },
+      {
+        "id": "gsm-0416",
+        "answer": "56",
+        "reference": "56",
+        "correct": true,
+        "latency_ms": 10279
+      },
+      {
+        "id": "gsm-0442",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 13187
+      },
+      {
+        "id": "gsm-0468",
+        "answer": "160",
+        "reference": "120",
+        "correct": false,
+        "latency_ms": 9439
+      },
+      {
+        "id": "gsm-0494",
+        "answer": "21",
+        "reference": "21",
+        "correct": true,
+        "latency_ms": 27496
+      },
+      {
+        "id": "gsm-0520",
+        "answer": "63",
+        "reference": "63",
+        "correct": true,
+        "latency_ms": 11197
+      },
+      {
+        "id": "gsm-0546",
+        "answer": "130",
+        "reference": "130",
+        "correct": true,
+        "latency_ms": 10484
+      },
+      {
+        "id": "gsm-0572",
+        "answer": "100",
+        "reference": "100",
+        "correct": true,
+        "latency_ms": 11232
+      },
+      {
+        "id": "gsm-0598",
+        "answer": "113",
+        "reference": "69",
+        "correct": false,
+        "latency_ms": 10235
+      },
+      {
+        "id": "gsm-0624",
+        "answer": "85",
+        "reference": "85",
+        "correct": true,
+        "latency_ms": 9352
+      },
+      {
+        "id": "gsm-0650",
+        "answer": "140",
+        "reference": "142",
+        "correct": false,
+        "latency_ms": 10116
+      },
+      {
+        "id": "gsm-0676",
+        "answer": "240",
+        "reference": "240",
+        "correct": true,
+        "latency_ms": 9588
+      },
+      {
+        "id": "gsm-0702",
+        "answer": "2800",
+        "reference": "2800",
+        "correct": true,
+        "latency_ms": 11707
+      },
+      {
+        "id": "gsm-0728",
+        "answer": "40",
+        "reference": "40",
+        "correct": true,
+        "latency_ms": 14311
+      },
+      {
+        "id": "gsm-0754",
+        "answer": "89",
+        "reference": "89",
+        "correct": true,
+        "latency_ms": 19258
+      },
+      {
+        "id": "gsm-0780",
+        "answer": "95",
+        "reference": "25",
+        "correct": false,
+        "latency_ms": 46239
+      },
+      {
+        "id": "gsm-0806",
+        "answer": "64",
+        "reference": "70",
+        "correct": false,
+        "latency_ms": 9982
+      },
+      {
+        "id": "gsm-0832",
+        "answer": "42",
+        "reference": "42",
+        "correct": true,
+        "latency_ms": 9374
+      },
+      {
+        "id": "gsm-0858",
+        "answer": "3430",
+        "reference": "3430",
+        "correct": true,
+        "latency_ms": 9881
+      },
+      {
+        "id": "gsm-0884",
+        "answer": "50",
+        "reference": "50",
+        "correct": true,
+        "latency_ms": 10169
+      },
+      {
+        "id": "gsm-0910",
+        "answer": "500",
+        "reference": "700",
+        "correct": false,
+        "latency_ms": 11159
+      },
+      {
+        "id": "gsm-0936",
+        "answer": "250",
+        "reference": "250",
+        "correct": true,
+        "latency_ms": 47330
+      },
+      {
+        "id": "gsm-0962",
+        "answer": "600",
+        "reference": "1000",
+        "correct": false,
+        "latency_ms": 12524
+      },
+      {
+        "id": "gsm-0988",
+        "answer": "6",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 10523
+      },
+      {
+        "id": "gsm-1014",
+        "answer": "3",
+        "reference": "3",
+        "correct": true,
+        "latency_ms": 14736
+      },
+      {
+        "id": "gsm-1040",
+        "answer": "736",
+        "reference": "736",
+        "correct": true,
+        "latency_ms": 12866
+      },
+      {
+        "id": "gsm-1066",
+        "answer": "14",
+        "reference": "14",
+        "correct": true,
+        "latency_ms": 10870
+      },
+      {
+        "id": "gsm-1092",
+        "answer": "1080",
+        "reference": "1080",
+        "correct": true,
+        "latency_ms": 9437
+      },
+      {
+        "id": "gsm-1118",
+        "answer": "3",
+        "reference": "5",
+        "correct": false,
+        "latency_ms": 10862
+      },
+      {
+        "id": "gsm-1144",
+        "answer": "43",
+        "reference": "34",
+        "correct": false,
+        "latency_ms": 10340
+      },
+      {
+        "id": "gsm-1170",
+        "answer": "2",
+        "reference": "2",
+        "correct": true,
+        "latency_ms": 12091
+      },
+      {
+        "id": "gsm-1196",
+        "answer": "75",
+        "reference": "75",
+        "correct": true,
+        "latency_ms": 11309
+      },
+      {
+        "id": "gsm-1222",
+        "answer": "350",
+        "reference": "350",
+        "correct": true,
+        "latency_ms": 10068
+      },
+      {
+        "id": "gsm-1248",
+        "answer": "750",
+        "reference": "750",
+        "correct": true,
+        "latency_ms": 9893
+      },
+      {
+        "id": "gsm-1274",
+        "answer": "38",
+        "reference": "38",
+        "correct": true,
+        "latency_ms": 10110
+      }
+    ]
+  },
+  "nonsense": {
+    "label": "NONSENSE",
+    "accuracy": 0.78,
+    "correct": 39,
+    "total": 50,
+    "results": [
+      {
+        "id": "gsm-0000",
+        "answer": "18",
+        "reference": "18",
+        "correct": true,
+        "latency_ms": 10853
+      },
+      {
+        "id": "gsm-0026",
+        "answer": "243",
+        "reference": "243",
+        "correct": true,
+        "latency_ms": 11177
+      },
+      {
+        "id": "gsm-0052",
+        "answer": "22.5",
+        "reference": "15",
+        "correct": false,
+        "latency_ms": 13080
+      },
+      {
+        "id": "gsm-0078",
+        "answer": "3",
+        "reference": "6",
+        "correct": false,
+        "latency_ms": 12383
+      },
+      {
+        "id": "gsm-0104",
+        "answer": "500",
+        "reference": "500",
+        "correct": true,
+        "latency_ms": 10238
+      },
+      {
+        "id": "gsm-0130",
+        "answer": "30",
+        "reference": "30",
+        "correct": true,
+        "latency_ms": 11647
+      },
+      {
+        "id": "gsm-0156",
+        "answer": "1400",
+        "reference": "1400",
+        "correct": true,
+        "latency_ms": 10102
+      },
+      {
+        "id": "gsm-0182",
+        "answer": "23",
+        "reference": "23",
+        "correct": true,
+        "latency_ms": 11191
+      },
+      {
+        "id": "gsm-0208",
+        "answer": "64",
+        "reference": "76",
+        "correct": false,
+        "latency_ms": 12569
+      },
+      {
+        "id": "gsm-0234",
+        "answer": "21",
+        "reference": "21",
+        "correct": true,
+        "latency_ms": 11497
+      },
+      {
+        "id": "gsm-0260",
+        "answer": "11",
+        "reference": "11",
+        "correct": true,
+        "latency_ms": 11226
+      },
+      {
+        "id": "gsm-0286",
+        "answer": "90",
+        "reference": "90",
+        "correct": true,
+        "latency_ms": 13285
+      },
+      {
+        "id": "gsm-0312",
+        "answer": "32",
+        "reference": "32",
+        "correct": true,
+        "latency_ms": 10380
+      },
+      {
+        "id": "gsm-0338",
+        "answer": "60",
+        "reference": "60",
+        "correct": true,
+        "latency_ms": 13426
+      },
+      {
+        "id": "gsm-0364",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 11519
+      },
+      {
+        "id": "gsm-0390",
+        "answer": "8",
+        "reference": "12",
+        "correct": false,
+        "latency_ms": 12188
+      },
+      {
+        "id": "gsm-0416",
+        "answer": "56",
+        "reference": "56",
+        "correct": true,
+        "latency_ms": 10873
+      },
+      {
+        "id": "gsm-0442",
+        "answer": "49",
+        "reference": "49",
+        "correct": true,
+        "latency_ms": 12103
+      },
+      {
+        "id": "gsm-0468",
+        "answer": "120",
+        "reference": "120",
+        "correct": true,
+        "latency_ms": 11616
+      },
+      {
+        "id": "gsm-0494",
+        "answer": "21",
+        "reference": "21",
+        "correct": true,
+        "latency_ms": 35592
+      },
+      {
+        "id": "gsm-0520",
+        "answer": "63",
+        "reference": "63",
+        "correct": true,
+        "latency_ms": 10144
+      },
+      {
+        "id": "gsm-0546",
+        "answer": "130",
+        "reference": "130",
+        "correct": true,
+        "latency_ms": 11180
+      },
+      {
+        "id": "gsm-0572",
+        "answer": "100",
+        "reference": "100",
+        "correct": true,
+        "latency_ms": 24148
+      },
+      {
+        "id": "gsm-0598",
+        "answer": "71",
+        "reference": "69",
+        "correct": false,
+        "latency_ms": 9898
+      },
+      {
+        "id": "gsm-0624",
+        "answer": "85",
+        "reference": "85",
+        "correct": true,
+        "latency_ms": 10308
+      },
+      {
+        "id": "gsm-0650",
+        "answer": "140",
+        "reference": "142",
+        "correct": false,
+        "latency_ms": 9966
+      },
+      {
+        "id": "gsm-0676",
+        "answer": "240",
+        "reference": "240",
+        "correct": true,
+        "latency_ms": 12725
+      },
+      {
+        "id": "gsm-0702",
+        "answer": "2800",
+        "reference": "2800",
+        "correct": true,
+        "latency_ms": 10985
+      },
+      {
+        "id": "gsm-0728",
+        "answer": "40",
+        "reference": "40",
+        "correct": true,
+        "latency_ms": 10048
+      },
+      {
+        "id": "gsm-0754",
+        "answer": "89",
+        "reference": "89",
+        "correct": true,
+        "latency_ms": 15978
+      },
+      {
+        "id": "gsm-0780",
+        "answer": "25",
+        "reference": "25",
+        "correct": true,
+        "latency_ms": 15275
+      },
+      {
+        "id": "gsm-0806",
+        "answer": "70%",
+        "reference": "70",
+        "correct": true,
+        "latency_ms": 12045
+      },
+      {
+        "id": "gsm-0832",
+        "answer": "42",
+        "reference": "42",
+        "correct": true,
+        "latency_ms": 10230
+      },
+      {
+        "id": "gsm-0858",
+        "answer": "The question is unanswerable. It introduces two undefined creature types \u2014 \"thion\" and \"phaiuk\" \u2014 without establishing any relationship between them. The infection rate is given for phaiuk, but the population is thion. There is no basis to compute a numeric answer.",
+        "reference": "3430",
+        "correct": false,
+        "latency_ms": 25129
+      },
+      {
+        "id": "gsm-0884",
+        "answer": "50",
+        "reference": "50",
+        "correct": true,
+        "latency_ms": 10970
+      },
+      {
+        "id": "gsm-0910",
+        "answer": "600",
+        "reference": "700",
+        "correct": false,
+        "latency_ms": 10379
+      },
+      {
+        "id": "gsm-0936",
+        "answer": "250",
+        "reference": "250",
+        "correct": true,
+        "latency_ms": 11901
+      },
+      {
+        "id": "gsm-0962",
+        "answer": "600",
+        "reference": "1000",
+        "correct": false,
+        "latency_ms": 9373
+      },
+      {
+        "id": "gsm-0988",
+        "answer": "6",
+        "reference": "6",
+        "correct": true,
+        "latency_ms": 10210
+      },
+      {
+        "id": "gsm-1014",
+        "answer": "3",
+        "reference": "3",
+        "correct": true,
+        "latency_ms": 11581
+      },
+      {
+        "id": "gsm-1040",
+        "answer": "736",
+        "reference": "736",
+        "correct": true,
+        "latency_ms": 11409
+      },
+      {
+        "id": "gsm-1066",
+        "answer": "14",
+        "reference": "14",
+        "correct": true,
+        "latency_ms": 11681
+      },
+      {
+        "id": "gsm-1092",
+        "answer": "1080",
+        "reference": "1080",
+        "correct": true,
+        "latency_ms": 10386
+      },
+      {
+        "id": "gsm-1118",
+        "answer": "5",
+        "reference": "5",
+        "correct": true,
+        "latency_ms": 12357
+      },
+      {
+        "id": "gsm-1144",
+        "answer": "34",
+        "reference": "34",
+        "correct": true,
+        "latency_ms": 11307
+      },
+      {
+        "id": "gsm-1170",
+        "answer": "2",
+        "reference": "2",
+        "correct": true,
+        "latency_ms": 16520
+      },
+      {
+        "id": "gsm-1196",
+        "answer": "15",
+        "reference": "75",
+        "correct": false,
+        "latency_ms": 10415
+      },
+      {
+        "id": "gsm-1222",
+        "answer": "350",
+        "reference": "350",
+        "correct": true,
+        "latency_ms": 11787
+      },
+      {
+        "id": "gsm-1248",
+        "answer": "750",
+        "reference": "750",
+        "correct": true,
+        "latency_ms": 10713
+      },
+      {
+        "id": "gsm-1274",
+        "answer": "26",
+        "reference": "38",
+        "correct": false,
+        "latency_ms": 18752
+      }
+    ]
+  },
+  "delta": -0.06000000000000005
+}

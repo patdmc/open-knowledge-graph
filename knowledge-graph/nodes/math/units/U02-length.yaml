@@ -1,0 +1,75 @@
+id: math:units:length
+type: knowledge
+domain: units
+name: "Length Units"
+
+units:
+  - id: millimeter
+    name: "Millimeter"
+    symbol: "mm"
+
+  - id: centimeter
+    name: "Centimeter"
+    symbol: "cm"
+
+  - id: meter
+    name: "Meter"
+    symbol: "m"
+    si: true
+
+  - id: kilometer
+    name: "Kilometer"
+    symbol: "km"
+
+  - id: inch
+    name: "Inch"
+    symbol: "in"
+
+  - id: foot
+    name: "Foot"
+    symbol: "ft"
+
+  - id: yard
+    name: "Yard"
+    symbol: "yd"
+
+  - id: mile
+    name: "Mile"
+    symbol: "mi"
+
+conversions:
+  - from: millimeter
+    to: centimeter
+    factor: 10
+    exact: true
+
+  - from: centimeter
+    to: meter
+    factor: 100
+    exact: true
+
+  - from: meter
+    to: kilometer
+    factor: 1000
+    exact: true
+
+  - from: inch
+    to: foot
+    factor: 12
+    exact: true
+
+  - from: foot
+    to: yard
+    factor: 3
+    exact: true
+
+  - from: yard
+    to: mile
+    factor: 1760
+    exact: true
+
+  - from: inch
+    to: centimeter
+    factor: 2.54
+    exact: true
+    note: "bridge between imperial and metric"

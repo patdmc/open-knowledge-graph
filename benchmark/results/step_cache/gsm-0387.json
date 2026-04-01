@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "cost of 6 erasers",
+    "operation": "multiply",
+    "operands": [
+      6,
+      2
+    ],
+    "result": 12,
+    "variable": "eraser_total"
+  },
+  {
+    "step": 2,
+    "description": "cost of 8 pencils",
+    "operation": "multiply",
+    "operands": [
+      8,
+      3
+    ],
+    "result": 24,
+    "variable": "pencil_total"
+  },
+  {
+    "step": 3,
+    "description": "total cost of erasers and pencils",
+    "operation": "add",
+    "operands": [
+      12,
+      24
+    ],
+    "result": 36.0,
+    "variable": "total_cost"
+  }
+]

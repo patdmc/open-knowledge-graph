@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate a third of the first year's advertising spend",
+    "operation": "divide",
+    "operands": [
+      15000,
+      3
+    ],
+    "result": 5000,
+    "variable": "second_year_spend"
+  },
+  {
+    "step": 2,
+    "description": "Add both years of advertising spend for the total",
+    "operation": "add",
+    "operands": [
+      15000,
+      5000
+    ],
+    "result": 20000.0,
+    "variable": "total_advertising_spend"
+  }
+]

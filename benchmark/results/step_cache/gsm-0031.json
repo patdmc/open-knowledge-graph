@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "half of first guess",
+    "operation": "divide",
+    "operands": [
+      80,
+      2
+    ],
+    "result": 40,
+    "variable": "half_first"
+  },
+  {
+    "step": 2,
+    "description": "second friend's guess: 20 more than half the first",
+    "operation": "add",
+    "operands": [
+      40,
+      20
+    ],
+    "result": 60,
+    "variable": "guess2"
+  },
+  {
+    "step": 3,
+    "description": "25% of first guess",
+    "operation": "multiply",
+    "operands": [
+      80,
+      0.25
+    ],
+    "result": 20,
+    "variable": "quarter_first"
+  },
+  {
+    "step": 4,
+    "description": "third friend's guess: 25% more than first",
+    "operation": "add",
+    "operands": [
+      80,
+      20
+    ],
+    "result": 100,
+    "variable": "guess3"
+  },
+  {
+    "step": 5,
+    "description": "sum of first two guesses",
+    "operation": "add",
+    "operands": [
+      80,
+      60
+    ],
+    "result": 140,
+    "variable": "sum_12"
+  },
+  {
+    "step": 6,
+    "description": "sum of all three guesses",
+    "operation": "add",
+    "operands": [
+      140,
+      100
+    ],
+    "result": 240,
+    "variable": "total"
+  },
+  {
+    "step": 7,
+    "description": "average of three guesses",
+    "operation": "divide",
+    "operands": [
+      240,
+      3
+    ],
+    "result": 80.0,
+    "variable": "average"
+  }
+]

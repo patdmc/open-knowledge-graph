@@ -1,0 +1,54 @@
+{
+  "chunk_index": 60,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "1. Introduction > [part 1/4]",
+  "section_path": [
+    "1. Introduction",
+    "[part 1/4]"
+  ],
+  "char_count": 5731,
+  "keyphrases": [
+    {
+      "phrase": "minimizes free energy",
+      "score": 0.5201
+    },
+    {
+      "phrase": "intelligent behavior biological",
+      "score": 0.4367
+    },
+    {
+      "phrase": "maintains markov blanket",
+      "score": 0.4234
+    },
+    {
+      "phrase": "attentional resources uncertainty",
+      "score": 0.4219
+    },
+    {
+      "phrase": "inference friston2017 operationalizes",
+      "score": 0.4169
+    },
+    {
+      "phrase": "sensory states math",
+      "score": 0.3795
+    },
+    {
+      "phrase": "weaknesses foundational fep",
+      "score": 0.3713
+    },
+    {
+      "phrase": "principle",
+      "score": 0.3392
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The derivation."
+    ],
+    "has_math": true
+  }
+}

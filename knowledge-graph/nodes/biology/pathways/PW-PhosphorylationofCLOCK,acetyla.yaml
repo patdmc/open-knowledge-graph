@@ -1,0 +1,26 @@
+id: PW-PhosphorylationofCLOCK,acetyla
+type: knowledge
+domain: biology
+name: Phosphorylation of CLOCK, acetylation of BMAL1 (ARNTL) at target gene promoters
+reactome_id: R-HSA-9931512
+
+description: "After phosphorylated BMAL1:CLOCK heterodimers bind E-box elements in the promoters of target genes, CLOCK acetylates BMAL1 (inferred from mouse homologs in Hirayama et al. 2007) and becomes hyperphosphorylated through an incompletely characterized mechanism (inferred from the mouse homolog in Yoshitane et al. 2009, Robles et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "p-T451,T461-CLOCK is phosphorylated on serines-440,441,446"
+    reactome_id: R-HSA-9920724
+    type: BlackBoxEvent
+  - name: "CLOCK acetylates BMAL1 on lysine-538"
+    reactome_id: R-HSA-9920716
+    type: Reaction
+
+edges:

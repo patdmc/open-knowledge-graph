@@ -1,0 +1,63 @@
+{
+  "phase": "direct",
+  "summary": {
+    "date": "2026-03-30",
+    "total": 600,
+    "correct": 34,
+    "pass_rate": 0.057,
+    "class_rates": {
+      "working_backwards": {
+        "correct": 0,
+        "total": 27,
+        "rate": 0.0
+      },
+      "multiplicative_rel": {
+        "correct": 4,
+        "total": 162,
+        "rate": 0.025
+      },
+      "fraction_of_whole": {
+        "correct": 3,
+        "total": 105,
+        "rate": 0.029
+      },
+      "rate_chain": {
+        "correct": 10,
+        "total": 240,
+        "rate": 0.042
+      },
+      "multi_entity": {
+        "correct": 12,
+        "total": 239,
+        "rate": 0.05
+      },
+      "comparison": {
+        "correct": 1,
+        "total": 14,
+        "rate": 0.071
+      },
+      "additive_rel": {
+        "correct": 2,
+        "total": 27,
+        "rate": 0.074
+      },
+      "percentage": {
+        "correct": 6,
+        "total": 81,
+        "rate": 0.074
+      },
+      "unclassified": {
+        "correct": 8,
+        "total": 89,
+        "rate": 0.09
+      },
+      "system_of_equations": {
+        "correct": 2,
+        "total": 13,
+        "rate": 0.154
+      }
+    }
+  },
+  "n_corrections": 0,
+  "correction_types": {}
+}

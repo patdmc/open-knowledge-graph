@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Half of first-wave bees return in hours 7-12",
+    "operation": "divide",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 15,
+    "variable": "bees_returned_wave2"
+  },
+  {
+    "step": 2,
+    "description": "Twice first-wave bees leave in hours 13-18",
+    "operation": "multiply",
+    "operands": [
+      30,
+      2
+    ],
+    "result": 60,
+    "variable": "bees_left_wave3"
+  },
+  {
+    "step": 3,
+    "description": "First-wave bees still outside after wave-2 returns",
+    "operation": "subtract",
+    "operands": [
+      30,
+      15
+    ],
+    "result": 15,
+    "variable": "wave1_still_out"
+  },
+  {
+    "step": 4,
+    "description": "Total bees returning in last 6 hours (wave1 remainder + wave3)",
+    "operation": "add",
+    "operands": [
+      15,
+      60
+    ],
+    "result": 75,
+    "variable": "bees_returned_final"
+  }
+]

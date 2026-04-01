@@ -1,0 +1,29 @@
+id: PW-DNADoubleStrandBreakRepair
+type: knowledge
+domain: biology
+name: "DNA Double-Strand Break Repair"
+reactome_id: R-HSA-5693532
+
+description: "Double-strand breaks (DSBs), one of the most deleterious types of DNA damage along with interstrand crosslinks, are caused by ionizing radiation or certain chemicals such as bleomycin. DSBs also occur physiologically, during the processes of DNA replication, meiotic exchange, and V(D)J recombination.DSBs are sensed (detected) by the MRN complex. Binding of the MRN complex to the DSBs usually triggers ATM kinase activation, thus initiating the DNA double strand break response."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: DNA Double Strand Break Response
+    reactome_id: R-HSA-5693606
+    type: Pathway
+  - name: Homology Directed Repair
+    reactome_id: R-HSA-5693538
+    type: Pathway
+  - name: "Nonhomologous End-Joining (NHEJ)"
+    reactome_id: R-HSA-5693571
+    type: Pathway
+
+edges:

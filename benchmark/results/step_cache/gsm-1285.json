@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add Friday and Saturday meals distributed",
+    "operation": "add",
+    "operands": [
+      64,
+      30
+    ],
+    "result": 94,
+    "variable": "meals_distributed_fri_sat"
+  },
+  {
+    "step": 2,
+    "description": "Add Sunday meals to get total distributed",
+    "operation": "add",
+    "operands": [
+      94,
+      48
+    ],
+    "result": 142,
+    "variable": "total_meals_distributed"
+  },
+  {
+    "step": 3,
+    "description": "Subtract total distributed from initial meals",
+    "operation": "subtract",
+    "operands": [
+      1360,
+      142
+    ],
+    "result": 1218,
+    "variable": "meals_remaining"
+  }
+]

@@ -1,0 +1,132 @@
+id: G03-computational-geometry
+type: knowledge
+domain: geometry
+name: "Computational Geometry"
+
+concepts:
+  - id: convex_hull
+    name: "Convex Hull"
+    meaning: "smallest convex set containing all points"
+    action:
+      scipy: "scipy.spatial.ConvexHull(points)"
+      shapely: "MultiPoint(points).convex_hull"
+    curried: "lambda points: scipy.spatial.ConvexHull(points)"
+    complexity: "O(n log n)"
+
+  - id: voronoi_diagram
+    name: "Voronoi Diagram"
+    meaning: "partition of space where each cell is closest to one site"
+    action:
+      scipy: "scipy.spatial.Voronoi(points)"
+    curried: "lambda points: scipy.spatial.Voronoi(points)"
+    dual: delaunay
+
+  - id: delaunay
+    name: "Delaunay Triangulation"
+    meaning: "triangulation maximizing minimum angle; no point inside circumcircle of any triangle"
+    action:
+      scipy: "scipy.spatial.Delaunay(points)"
+    curried: "lambda points: scipy.spatial.Delaunay(points)"
+    dual: voronoi_diagram
+
+  - id: kd_tree
+    name: "k-d Tree"
+    meaning: "space-partitioning data structure for efficient nearest neighbor queries"
+    action:
+      scipy: "scipy.spatial.KDTree(points)"
+      sklearn: "sklearn.neighbors.KDTree(points)"
+    curried: "lambda points: scipy.spatial.KDTree(points)"
+
+  - id: nearest_neighbor
+    name: "Nearest Neighbor Query"
+    action:
+      scipy: "scipy.spatial.KDTree(points).query(x)"
+      sklearn: "NearestNeighbors(n_neighbors=k).fit(X).kneighbors(x)"
+    curried: "lambda points: lambda x: scipy.spatial.KDTree(points).query(x)"
+
+  - id: pairwise_distance
+    name: "Pairwise Distance Matrix"
+    latex: "D_{ij} = d(x_i, x_j)"
+    action:
+      scipy: "scipy.spatial.distance.cdist(X, Y, metric)"
+      sklearn: "sklearn.metrics.pairwise_distances(X, metric)"
+    curried: "lambda metric='euclidean': lambda X: scipy.spatial.distance.cdist(X, X, metric)"
+
+  - id: bounding_box
+    name: "Axis-Aligned Bounding Box"
+    action:
+      numpy: "(points.min(axis=0), points.max(axis=0))"
+    curried: "lambda points: (points.min(axis=0), points.max(axis=0))"
+
+  - id: point_in_polygon
+    name: "Point in Polygon"
+    meaning: "test whether point lies inside polygon (ray casting or winding number)"
+    action:
+      shapely: "Polygon(vertices).contains(Point(x, y))"
+      matplotlib: "matplotlib.path.Path(vertices).contains_point((x, y))"
+
+  - id: line_intersection
+    name: "Line Segment Intersection"
+    meaning: "find crossing point of two segments, if it exists"
+    action:
+      shapely: "LineString(seg1).intersection(LineString(seg2))"
+
+  - id: polygon_area
+    name: "Polygon Area (Shoelace)"
+    latex: "A = \\frac{1}{2} |\\sum_i (x_i y_{i+1} - x_{i+1} y_i)|"
+    action:
+      numpy: "0.5 * abs(np.cross(vertices[:-1], vertices[1:]).sum())"
+      shapely: "Polygon(vertices).area"
+    curried: "lambda v: 0.5 * abs(sum(v[i][0]*v[(i+1)%len(v)][1] - v[(i+1)%len(v)][0]*v[i][1] for i in range(len(v))))"
+
+  - id: hausdorff_distance
+    name: "Hausdorff Distance"
+    latex: "d_H(A, B) = \\max\\left(\\sup_{a \\in A} \\inf_{b \\in B} d(a,b), \\; \\sup_{b \\in B} \\inf_{a \\in A} d(a,b)\\right)"
+    meaning: "maximum distance from any point in one set to nearest point in the other"
+    action:
+      scipy: "scipy.spatial.distance.directed_hausdorff(A, B)[0]"
+
+  - id: affine_transform
+    name: "Affine Transformation"
+    latex: "y = Ax + b"
+    meaning: "linear map + translation; preserves collinearity and ratios"
+    action:
+      numpy: "A @ x + b"
+    curried: "lambda A: lambda b: lambda x: A @ x + b"
+
+  - id: homogeneous_coordinates
+    name: "Homogeneous Coordinates"
+    latex: "(x, y, z, 1)"
+    meaning: "encode affine transforms as matrix multiplication in n+1 dimensions"
+    action:
+      numpy: "np.vstack([points.T, np.ones(len(points))])"
+
+  - id: principal_component_analysis
+    name: "PCA"
+    latex: "X \\approx U_k \\Sigma_k V_k^T"
+    meaning: "find directions of maximum variance via SVD/eigendecomposition of covariance"
+    action:
+      numpy: "np.linalg.svd(X - X.mean(axis=0), full_matrices=False)"
+      sklearn: "PCA(n_components=k).fit_transform(X)"
+    curried: "lambda k: lambda X: np.linalg.svd(X - X.mean(axis=0), full_matrices=False)"
+    links: [svd, eigenvalues]
+
+  - id: procrustes
+    name: "Procrustes Analysis"
+    meaning: "optimal rotation/scaling to align two point sets"
+    action:
+      scipy: "scipy.spatial.procrustes(X, Y)"
+    curried: "lambda X: lambda Y: scipy.spatial.procrustes(X, Y)"
+
+edges:
+  - to: G01-geometry-fundamentals
+    relation: EXTENDS
+  - to: A02-linear-algebra
+    relation: REQUIRES
+    note: "transforms, SVD, eigendecomposition"
+  - to: A03-graph-theory
+    relation: USES
+    note: "Delaunay/Voronoi as dual graphs"
+  - to: O01-numerical-optimization
+    relation: USES
+    note: "spatial search structures for optimization"

@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate Carl's marbles (4 times Sean's)",
+    "operation": "multiply",
+    "operands": [
+      56,
+      4
+    ],
+    "result": 224,
+    "variable": "Carl's marbles"
+  },
+  {
+    "step": 2,
+    "description": "Calculate Cal's marbles (twice Sean's, since Sean has half of Cal's)",
+    "operation": "multiply",
+    "operands": [
+      56,
+      2
+    ],
+    "result": 112,
+    "variable": "Cal's marbles"
+  },
+  {
+    "step": 3,
+    "description": "Combine Carl's and Cal's marbles",
+    "operation": "add",
+    "operands": [
+      224,
+      112
+    ],
+    "result": 336,
+    "variable": "Carl and Cal combined"
+  }
+]

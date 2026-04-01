@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total blue pens",
+    "operation": "multiply",
+    "operands": [
+      6,
+      9
+    ],
+    "result": 54,
+    "variable": "blue_pens"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total red pens",
+    "operation": "multiply",
+    "operands": [
+      2,
+      6
+    ],
+    "result": 12,
+    "variable": "red_pens"
+  },
+  {
+    "step": 3,
+    "description": "Add green and yellow pens",
+    "operation": "add",
+    "operands": [
+      22,
+      10
+    ],
+    "result": 32,
+    "variable": "initial_pens"
+  },
+  {
+    "step": 4,
+    "description": "Add initial pens and blue pens",
+    "operation": "add",
+    "operands": [
+      32,
+      54
+    ],
+    "result": 86,
+    "variable": "pens_after_blue"
+  },
+  {
+    "step": 5,
+    "description": "Add pens so far and red pens",
+    "operation": "add",
+    "operands": [
+      86,
+      12
+    ],
+    "result": 98,
+    "variable": "total_pens"
+  }
+]

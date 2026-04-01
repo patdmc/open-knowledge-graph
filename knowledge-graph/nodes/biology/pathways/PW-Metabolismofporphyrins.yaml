@@ -1,0 +1,26 @@
+id: PW-Metabolismofporphyrins
+type: knowledge
+domain: biology
+name: Metabolism of porphyrins
+reactome_id: R-HSA-189445
+
+description: "Porphyrins are heterocyclic macrocycles, consisting of four pyrrole subunits (tetrapyrrole) linked by four methine (=CH-) bridges. The extensive conjugated porphyrin macrocycle is chromatic and the name itself, porphyrin, is derived from the Greek word for purple. The aromatic character of porphyrins can be seen by NMR spectroscopy.Porphyrins readily combine with metals by coordinating them in the central cavity."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Heme biosynthesis
+    reactome_id: R-HSA-189451
+    type: Pathway
+  - name: Heme degradation
+    reactome_id: R-HSA-189483
+    type: Pathway
+
+edges:

@@ -1,0 +1,29 @@
+id: PW-Cytosolicironsulfurclusterasse
+type: knowledge
+domain: biology
+name: "Cytosolic iron-sulfur cluster assembly"
+reactome_id: R-HSA-2564830
+
+description: "Iron-sulfur clusters containing 4 atoms of iron and 4 atoms of sulfur (4Fe-4S clusters) are assembled in the cytosol on a heterotetrameric scaffold composed of NUBP2 and NUBP1 subunits (reviewed in Lill et al. 2012, Rouault et al. 2012, Sharma et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: "NADPH reduces NDOR1:CIAPIN1"
+    reactome_id: R-HSA-2564824
+    type: Reaction
+  - name: "4Fe-4S cluster assembles on NUBP2:NUBP1 scaffold"
+    reactome_id: R-HSA-2564826
+    type: BlackBoxEvent
+  - name: "CIA Targeting Complex transfers 4Fe-4S cluster to apoproteins"
+    reactome_id: R-HSA-2564828
+    type: BlackBoxEvent
+
+edges:

@@ -1,0 +1,80 @@
+id: PW-Peroxisomalproteinimport
+type: knowledge
+domain: biology
+name: Peroxisomal protein import
+reactome_id: R-HSA-9033241
+
+description: "Peroxisomes are small cellular organelles that are bounded by a single membrane and contain variable compositions of proteins depending on cell type. Peroxisomes function in oxidation of fatty acids, detoxification of glyoxylate, and synthesis of plasmalogens, glycerophospholipids containing an alcohol with a vinyl-ether bond (reviewed in Lohdi and Semenkovich 2014). All of the approximately 46 proteins contained in peroxisomal matrix are imported from the cytosol by a unique mechanism that does not require the imported proteins to be unfolded as they cross the membrane (Walton et al."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: PEX5S,L binds cargo proteins containing PTS1
+    reactome_id: R-HSA-9033233
+    type: Reaction
+  - name: "PEX5S,L:Cargo binds PEX13:PEX14:PEX2:PEX10:PEX12 (Docking and Translocation Module)"
+    reactome_id: R-HSA-9033236
+    type: Reaction
+  - name: Cargo of PEX5S,L translocates from the cytosol to the peroxisomal matrix
+    reactome_id: R-HSA-9033235
+    type: BlackBoxEvent
+  - name: "PEX2:PEX10:PEX12 binds PEX5S,L (in PEX5S:PEX13:PEX14) and Ub:UBE2D1,2,3"
+    reactome_id: R-HSA-8953917
+    type: Reaction
+  - name: "PEX2:PEX10:PEX12 monoubiquitinates PEX5S,L at cysteine-11"
+    reactome_id: R-HSA-8953946
+    type: Reaction
+  - name: "PEX2:PEX10:PEX12:Ub:PEX5S,L:PEX13:PEX14 binds PEX1:PEX6:PEX26 and ZFAND6"
+    reactome_id: R-HSA-9033533
+    type: Reaction
+  - name: "PEX1:PEX6:PEX26:ZFAND6:Ub:PEX5S,L:PEX14:PEX13:PEX2:PEX10:PEX12 dissociates yielding cytosolic Ub:PEX5S,L and membrane PEX14:PEX13:PEX2:PEX10:PEX12"
+    reactome_id: R-HSA-9033505
+    type: BlackBoxEvent
+  - name: "USP9X binds Ub:PEX5S"
+    reactome_id: R-HSA-9033526
+    type: Reaction
+  - name: "USP9X hydrolyzes Ub:PEX5S yielding PEX5S and Ubiquitin"
+    reactome_id: R-HSA-9033478
+    type: Reaction
+  - name: PEX7 binds cargo proteins containing PTS2
+    reactome_id: R-HSA-9033232
+    type: Reaction
+  - name: "PEX5L binds PEX7:Cargo protein"
+    reactome_id: R-HSA-9033240
+    type: Reaction
+  - name: "PEX5L:PEX7:Cargo binds PEX13:PEX14:PEX2:PEX10:PEX12 (Docking and Translocation Module)"
+    reactome_id: R-HSA-9033238
+    type: Reaction
+  - name: "Cargo of PEX5L:PEX7 translocates from the cytosol to the peroxisomal matrix"
+    reactome_id: R-HSA-9033514
+    type: BlackBoxEvent
+  - name: "PEX2:PEX10:PEX12 binds PEX5L (in PEX5L:PEX7:PEX13:PEX14:PEX2:PEX10:PEX12) and Ub:UBE2D1,2,3"
+    reactome_id: R-HSA-9033527
+    type: Reaction
+  - name: "PEX2:PEX10:PEX12 monoubiquitinates PEX5L at cysteine-11"
+    reactome_id: R-HSA-9033485
+    type: Reaction
+  - name: "PEX2:PEX10:PEX12:Ub:PEX5L:PEX7:PEX13:PEX14 binds PEX1:PEX6:PEX26 and ZFAND6"
+    reactome_id: R-HSA-9033516
+    type: Reaction
+  - name: "PEX1:PEX6:PEX26:ZFAND6 dissociates Ub:PEX5L and PEX7 from PEX14:PEX13:PEX2:PEX10:PEX12 and translocates PEX5L and PEX7 from the peroxisomal membrane to the cytosol"
+    reactome_id: R-HSA-9033499
+    type: BlackBoxEvent
+  - name: "USP9X binds Ub:PEX5L"
+    reactome_id: R-HSA-9033509
+    type: Reaction
+  - name: "USP9X hydrolyzes Ub:PEX5L yielding PEX5L and Ubiquitin"
+    reactome_id: R-HSA-9033491
+    type: Reaction
+  - name: TYSND1 cleaves peroxisomal proteins
+    reactome_id: R-HSA-9033500
+    type: Pathway
+
+edges:

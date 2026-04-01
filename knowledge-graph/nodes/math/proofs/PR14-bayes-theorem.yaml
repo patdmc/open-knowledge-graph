@@ -1,0 +1,60 @@
+id: PR14-bayes-theorem
+type: proof
+domain: probability
+name: "Bayes' Theorem"
+target:
+  statement: "P(A|B) = \\frac{P(B|A) P(A)}{P(B)}"
+  type: theorem
+method: direct
+
+assertions:
+  - step: 1
+    id: def-conditional
+    type: definition
+    statement: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0"
+    justification: "definition of conditional probability"
+    depends_on: []
+    references: [conditional_probability]
+
+  - step: 2
+    id: symmetric-intersection
+    type: claim
+    statement: "P(A \\cap B) = P(B|A) P(A)"
+    justification: "apply conditional probability definition with roles swapped: P(B|A) = P(A∩B)/P(A)"
+    depends_on: [def-conditional]
+
+  - step: 3
+    id: substitute
+    type: claim
+    statement: "P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{P(B|A) P(A)}{P(B)}"
+    justification: "substitute step 2 into step 1"
+    depends_on: [def-conditional, symmetric-intersection]
+
+  - step: 4
+    id: conclusion
+    type: theorem
+    statement: "P(A|B) = \\frac{P(B|A) P(A)}{P(B)}"
+    justification: "Bayes' theorem derived from definition of conditional probability"
+    depends_on: [substitute]
+    references: [bayes_theorem]
+
+qed: true
+
+corollaries:
+  - id: law-total-prob
+    statement: "P(B) = \\sum_i P(B|A_i) P(A_i) \\text{ when } \\{A_i\\} \\text{ partitions } \\Omega"
+    depends_on: [conclusion]
+
+  - id: bayes-with-total
+    statement: "P(A_i|B) = \\frac{P(B|A_i) P(A_i)}{\\sum_j P(B|A_j) P(A_j)}"
+    justification: "substitute law of total probability for P(B) in denominator"
+    depends_on: [conclusion, law-total-prob]
+
+  - id: odds-form
+    statement: "\\frac{P(A|B)}{P(\\neg A|B)} = \\frac{P(B|A)}{P(B|\\neg A)} \\cdot \\frac{P(A)}{P(\\neg A)}"
+    justification: "posterior odds = likelihood ratio × prior odds"
+    depends_on: [conclusion]
+
+edges:
+  - to: P01-probability-statistics
+    relation: PROVES_FROM

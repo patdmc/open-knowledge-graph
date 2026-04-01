@@ -1,0 +1,79 @@
+[
+  {
+    "step": 1,
+    "description": "Job A gross annual pay",
+    "operation": "multiply",
+    "operands": [
+      15,
+      2000
+    ],
+    "result": 30000,
+    "variable": "job_a_gross"
+  },
+  {
+    "step": 2,
+    "description": "Job A tax amount",
+    "operation": "multiply",
+    "operands": [
+      30000,
+      0.2
+    ],
+    "result": 6000,
+    "variable": "job_a_tax"
+  },
+  {
+    "step": 3,
+    "description": "Job A net pay",
+    "operation": "subtract",
+    "operands": [
+      30000,
+      6000
+    ],
+    "result": 24000,
+    "variable": "job_a_net"
+  },
+  {
+    "step": 4,
+    "description": "Job B income after property tax",
+    "operation": "subtract",
+    "operands": [
+      42000,
+      6000
+    ],
+    "result": 36000,
+    "variable": "job_b_after_property_tax"
+  },
+  {
+    "step": 5,
+    "description": "Job B income tax on net income",
+    "operation": "multiply",
+    "operands": [
+      36000,
+      0.1
+    ],
+    "result": 3600,
+    "variable": "job_b_income_tax"
+  },
+  {
+    "step": 6,
+    "description": "Job B net pay",
+    "operation": "subtract",
+    "operands": [
+      36000,
+      3600
+    ],
+    "result": 32400,
+    "variable": "job_b_net"
+  },
+  {
+    "step": 7,
+    "description": "Difference between higher and lower net pay",
+    "operation": "subtract",
+    "operands": [
+      32400,
+      24000
+    ],
+    "result": 8400,
+    "variable": "net_pay_difference"
+  }
+]

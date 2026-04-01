@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "People who came in at 10:00",
+    "operation": "add",
+    "operands": [
+      50,
+      40
+    ],
+    "result": 90,
+    "variable": "morning_plus_10am"
+  },
+  {
+    "step": 2,
+    "description": "Lunch crowd: twice the 10:00 group",
+    "operation": "multiply",
+    "operands": [
+      40,
+      2
+    ],
+    "result": 80,
+    "variable": "lunch_crowd"
+  },
+  {
+    "step": 3,
+    "description": "Evening crowd: 3 times the first group",
+    "operation": "multiply",
+    "operands": [
+      50,
+      3
+    ],
+    "result": 150,
+    "variable": "evening_crowd"
+  },
+  {
+    "step": 4,
+    "description": "Add lunch crowd to morning+10am total",
+    "operation": "add",
+    "operands": [
+      90,
+      80
+    ],
+    "result": 170,
+    "variable": "subtotal"
+  },
+  {
+    "step": 5,
+    "description": "Add evening crowd to get final total",
+    "operation": "add",
+    "operands": [
+      170,
+      150
+    ],
+    "result": 320,
+    "variable": "total_people"
+  }
+]

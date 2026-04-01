@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "description": "Clara's base cost before voucher",
+    "operation": "multiply",
+    "operands": [
+      20,
+      20
+    ],
+    "result": 400,
+    "variable": "clara_base_cost"
+  },
+  {
+    "step": 2,
+    "description": "Clara's final cost after $2 voucher",
+    "operation": "subtract",
+    "operands": [
+      400,
+      2
+    ],
+    "result": 398,
+    "variable": "clara_final_cost"
+  },
+  {
+    "step": 3,
+    "description": "Sheila's base cost before discount",
+    "operation": "multiply",
+    "operands": [
+      20,
+      30
+    ],
+    "result": 600,
+    "variable": "sheila_base_cost"
+  },
+  {
+    "step": 4,
+    "description": "Sheila's 10% discount amount",
+    "operation": "multiply",
+    "operands": [
+      600,
+      0.1
+    ],
+    "result": 60,
+    "variable": "sheila_discount"
+  },
+  {
+    "step": 5,
+    "description": "Sheila's final cost after discount",
+    "operation": "subtract",
+    "operands": [
+      600,
+      60
+    ],
+    "result": 540,
+    "variable": "sheila_final_cost"
+  },
+  {
+    "step": 6,
+    "description": "Difference between the two final prices",
+    "operation": "subtract",
+    "operands": [
+      540,
+      398
+    ],
+    "result": 142.0,
+    "variable": "price_difference"
+  }
+]

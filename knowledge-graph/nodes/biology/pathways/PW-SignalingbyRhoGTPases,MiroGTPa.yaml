@@ -1,0 +1,29 @@
+id: PW-SignalingbyRhoGTPases,MiroGTPa
+type: knowledge
+domain: biology
+name: Signaling by Rho GTPases, Miro GTPases and RHOBTB3
+reactome_id: R-HSA-9716542
+
+description: "RAS-like proteins are small GTP binding proteins characterized structurally by 5 G boxes that are involved in nucleotide binding and hydrolysis. RAS-like proteins are typically active when bound to GTP and inactive when bound to GDP. Conversion between the two states is mediated by effector proteins: among others, GTPase activating proteins (GAPs) enable hydrolysis of bound GTP to form GDP, which remains bound, and guanine nucleotide exchange factors (GEFs) enable exchange of bound GDP for free GTP (intracellular GTP concentrations are typically an order of magnitude higher than GDP concentrations) (reviewed in Tetlow and Tamanoi, 2013).The human genome includes over 150 members of the RAS superfamily grouped into five main subfamilies: RAS, RHO, ARF, RAB and RAN."
+
+provenance:
+  attribution:
+    source: "Reactome"
+    url: "https://reactome.org"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from Reactome"
+
+sub_pathways:
+  - name: Signaling by Rho GTPases
+    reactome_id: R-HSA-194315
+    type: Pathway
+  - name: RHOBTB3 ATPase cycle
+    reactome_id: R-HSA-9706019
+    type: Pathway
+  - name: Miro GTPase Cycle
+    reactome_id: R-HSA-9715370
+    type: Pathway
+
+edges:

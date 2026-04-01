@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Add apples and bananas",
+    "operation": "add",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 8,
+    "variable": "apples_and_bananas"
+  },
+  {
+    "step": 2,
+    "description": "Add oranges to get total fruit",
+    "operation": "add",
+    "operands": [
+      8,
+      6
+    ],
+    "result": 14,
+    "variable": "total_fruit"
+  },
+  {
+    "step": 3,
+    "description": "Subtract pieces Lola ate",
+    "operation": "subtract",
+    "operands": [
+      14,
+      2
+    ],
+    "result": 12,
+    "variable": "remaining_fruit"
+  }
+]

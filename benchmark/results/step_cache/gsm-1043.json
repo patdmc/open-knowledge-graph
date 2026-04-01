@@ -1,0 +1,24 @@
+[
+  {
+    "step": 1,
+    "description": "cities per country times people per city",
+    "operation": "multiply",
+    "operands": [
+      5,
+      1000
+    ],
+    "result": 5000,
+    "variable": "people_per_country"
+  },
+  {
+    "step": 2,
+    "description": "people per country times number of countries",
+    "operation": "multiply",
+    "operands": [
+      5000,
+      26
+    ],
+    "result": 130000,
+    "variable": "total_population"
+  }
+]

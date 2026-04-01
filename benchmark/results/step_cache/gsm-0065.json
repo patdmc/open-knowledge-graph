@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate reading time per session",
+    "operation": "divide",
+    "operands": [
+      2,
+      2
+    ],
+    "result": 1,
+    "variable": "reading_hours_per_session"
+  },
+  {
+    "step": 2,
+    "description": "Calculate total hours per session (TV + reading)",
+    "operation": "add",
+    "operands": [
+      2,
+      1
+    ],
+    "result": 3,
+    "variable": "hours_per_session"
+  },
+  {
+    "step": 3,
+    "description": "Calculate total hours per week",
+    "operation": "multiply",
+    "operands": [
+      3,
+      3
+    ],
+    "result": 9,
+    "variable": "hours_per_week"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total hours over 4 weeks",
+    "operation": "multiply",
+    "operands": [
+      9,
+      4
+    ],
+    "result": 36,
+    "variable": "total_hours"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "chunk_index": 22,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "8. The Unified Model > The Universal Invariants > [part 3/7]",
+  "section_path": [
+    "8. The Unified Model",
+    "The Universal Invariants",
+    "[part 3/7]"
+  ],
+  "char_count": 5668,
+  "keyphrases": [
+    {
+      "phrase": "math confidence correctness",
+      "score": 0.6041
+    },
+    {
+      "phrase": "confidence regress definition",
+      "score": 0.4577
+    },
+    {
+      "phrase": "validators measure math",
+      "score": 0.4519
+    },
+    {
+      "phrase": "bounding math requires",
+      "score": 0.4421
+    },
+    {
+      "phrase": "agreement provenance independence",
+      "score": 0.4305
+    },
+    {
+      "phrase": "uncertain inference corollary",
+      "score": 0.4227
+    },
+    {
+      "phrase": "concerns definability",
+      "score": 0.3463
+    },
+    {
+      "phrase": "grounding action validation",
+      "score": 0.3332
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Definition 16c (The Confidence Regress).",
+      "Theorem 7 (Epistemic Ceiling).",
+      "Corollary 8 (The Sentience Gradient is Infinite).",
+      "Theorem 8 (Sentience Implies Superintelligence)."
+    ],
+    "has_math": true
+  }
+}

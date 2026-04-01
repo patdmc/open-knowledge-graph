@@ -1,0 +1,56 @@
+{
+  "chunk_index": 63,
+  "source": "UNCERTAINTY_BOUNDING_FEP_EXTENSION.tex",
+  "section_title": "1. Introduction > [part 4/4]",
+  "section_path": [
+    "1. Introduction",
+    "[part 4/4]"
+  ],
+  "char_count": 3022,
+  "keyphrases": [
+    {
+      "phrase": "collective inference degrades",
+      "score": 0.5063
+    },
+    {
+      "phrase": "fidelity mechanism knowledge",
+      "score": 0.5055
+    },
+    {
+      "phrase": "transfer agents inherently",
+      "score": 0.4934
+    },
+    {
+      "phrase": "gradient transmission fidelity",
+      "score": 0.4448
+    },
+    {
+      "phrase": "shared generative",
+      "score": 0.4377
+    },
+    {
+      "phrase": "total knowledge transmitted",
+      "score": 0.4364
+    },
+    {
+      "phrase": "math ensures provenance",
+      "score": 0.3978
+    },
+    {
+      "phrase": "fep model evidence",
+      "score": 0.3264
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Provenance as the fidelity mechanism.",
+      "Truth as a formal limit.",
+      "Self-assembly."
+    ],
+    "has_math": true
+  }
+}

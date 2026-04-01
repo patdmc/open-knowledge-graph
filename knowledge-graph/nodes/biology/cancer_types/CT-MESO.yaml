@@ -1,0 +1,61 @@
+id: CT-MESO
+type: knowledge
+domain: cancer_biology
+name: Mesothelioma
+
+n_patients: 346
+n_mutated: 218
+mutation_rate: 0.6301
+channel_entropy: 1.9426
+hub_fraction: 0.2201
+median_os_months: 11.4245
+event_rate: 0.6329
+survival_36m: 0.1590
+mean_channels_per_patient: 1.4358
+top_gene: BAP1
+top_gene_frequency: 0.3445
+n_harmful_mutations: 2
+n_protective_mutations: 0
+dominant_channels: [CHAN-DDR, CHAN-PI3K_Growth]
+
+provenance:
+  attribution:
+    author: "Patrick D. McCarthy"
+    source: "Genome as Projection (Paper 5)"
+    date: "2026"
+    doi: "10.5281/zenodo.18923066"
+  evidence:
+    type: empirical
+    description: "Statistics computed from MSK-IMPACT cohort (n=346)"
+
+edges:
+  - to: CHAN-DDR
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Mesothelioma"
+  - to: CHAN-PI3K_Growth
+    relation: primarily_disrupts
+    provenance:
+      attribution:
+        author: "Patrick D. McCarthy"
+        source: "Paper 5 — Genome as Projection"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "Dominant disruption channel in Mesothelioma"
+  - to: GENE-BAP1
+    relation: frequently_mutated_in
+    provenance:
+      attribution:
+        source: "MSK-IMPACT mutation frequencies"
+        date: "2026"
+      evidence:
+        type: empirical
+        description: "BAP1 mutated in 0.3445 of Mesothelioma patients"
+

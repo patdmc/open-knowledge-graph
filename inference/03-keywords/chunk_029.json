@@ -1,0 +1,56 @@
+{
+  "chunk_index": 29,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "10. The Social Imperative > The Collective Gradient > [part 2/6]",
+  "section_path": [
+    "10. The Social Imperative",
+    "The Collective Gradient",
+    "[part 2/6]"
+  ],
+  "char_count": 5333,
+  "keyphrases": [
+    {
+      "phrase": "cross dimensional factors",
+      "score": 0.5394
+    },
+    {
+      "phrase": "underlying dimension observed",
+      "score": 0.514
+    },
+    {
+      "phrase": "normalization reveals math",
+      "score": 0.5126
+    },
+    {
+      "phrase": "math factor collective",
+      "score": 0.4877
+    },
+    {
+      "phrase": "precipitation factor extraction",
+      "score": 0.4846
+    },
+    {
+      "phrase": "math pools projections",
+      "score": 0.4816
+    },
+    {
+      "phrase": "projections collective identify",
+      "score": 0.4314
+    },
+    {
+      "phrase": "math empirical measurement",
+      "score": 0.4173
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "Step 2c (M-level sharing: the collective raises \\(\\eta_M\\)).",
+      "Step 3 (Strict inequality under \\(\\lambda > \\lambda_{min"
+    ],
+    "has_math": true
+  }
+}

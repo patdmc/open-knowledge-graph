@@ -1,0 +1,58 @@
+{
+  "chunk_index": 1,
+  "source": "UNCERTAINTY_BOUNDING_FORMAL_THEORY.tex",
+  "section_title": "1. Introduction > [part 1/2]",
+  "section_path": [
+    "1. Introduction",
+    "[part 1/2]"
+  ],
+  "char_count": 5661,
+  "keyphrases": [
+    {
+      "phrase": "synthesizes behavior context",
+      "score": 0.5185
+    },
+    {
+      "phrase": "repeatability agentic",
+      "score": 0.5074
+    },
+    {
+      "phrase": "inherently unpredictable unpredictability",
+      "score": 0.4999
+    },
+    {
+      "phrase": "transposability requires quantifiable",
+      "score": 0.4781
+    },
+    {
+      "phrase": "performance constraints biological",
+      "score": 0.4686
+    },
+    {
+      "phrase": "inherently",
+      "score": 0.4369
+    },
+    {
+      "phrase": "grows provenance epistemic",
+      "score": 0.3981
+    },
+    {
+      "phrase": "ecosystem spanning",
+      "score": 0.3542
+    }
+  ],
+  "structure": {
+    "theorems": [],
+    "definitions": [],
+    "claims": [],
+    "citations": [],
+    "bold_claims": [
+      "The origin: provenance as the root constraint.",
+      "The graph structure as an optimization.",
+      "The empirical measurement of factor extraction.",
+      "The escalation architecture as a consequence.",
+      "What this means for the formal claims."
+    ],
+    "has_math": true
+  }
+}

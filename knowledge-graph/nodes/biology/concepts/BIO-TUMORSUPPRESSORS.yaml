@@ -1,0 +1,19 @@
+id: BIO-TUMORSUPPRESSORS
+type: knowledge
+domain: cancer_biology
+name: Genes, Tumor Suppressor
+
+description: Genes that inhibit expression of the tumorigenic phenotype. They are normally involved in holding cellular growth in check. When tumor suppressor genes are inactivated or lost, a barrier to normal proliferation is removed and unregulated growth is possible.
+
+provenance:
+  attribution:
+    source: "MeSH (NLM)"
+    url: "https://meshb.nlm.nih.gov"
+    date: "2026"
+  evidence:
+    type: cited
+    description: "Curated definition from MeSH (NLM)"
+
+edges:
+  - to: NV01-graph-necessity
+    relation: instantiated_in

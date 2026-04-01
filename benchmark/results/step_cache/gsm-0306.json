@@ -1,0 +1,35 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate loaves sold in the morning",
+    "operation": "multiply",
+    "operands": [
+      60,
+      0.6667
+    ],
+    "result": 40,
+    "variable": "morning_sales"
+  },
+  {
+    "step": 2,
+    "description": "Calculate loaves remaining after morning",
+    "operation": "subtract",
+    "operands": [
+      60,
+      40
+    ],
+    "result": 20,
+    "variable": "remaining_loaves"
+  },
+  {
+    "step": 3,
+    "description": "Calculate loaves sold in the afternoon (half of remaining)",
+    "operation": "divide",
+    "operands": [
+      20,
+      2
+    ],
+    "result": 10.0,
+    "variable": "afternoon_sales"
+  }
+]

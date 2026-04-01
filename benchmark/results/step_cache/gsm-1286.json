@@ -1,0 +1,46 @@
+[
+  {
+    "step": 1,
+    "description": "value of two nickels",
+    "operation": "multiply",
+    "operands": [
+      2,
+      5
+    ],
+    "result": 10,
+    "variable": "nickels_total"
+  },
+  {
+    "step": 2,
+    "description": "value of seven dimes",
+    "operation": "multiply",
+    "operands": [
+      7,
+      10
+    ],
+    "result": 70,
+    "variable": "dimes_total"
+  },
+  {
+    "step": 3,
+    "description": "quarter plus nickels",
+    "operation": "add",
+    "operands": [
+      25,
+      10
+    ],
+    "result": 35,
+    "variable": "quarter_and_nickels"
+  },
+  {
+    "step": 4,
+    "description": "add dimes to running total",
+    "operation": "add",
+    "operands": [
+      35,
+      70
+    ],
+    "result": 105,
+    "variable": "total_cents"
+  }
+]

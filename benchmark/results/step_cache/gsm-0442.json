@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "description": "Calculate total temperature increase from baking",
+    "operation": "multiply",
+    "operands": [
+      3,
+      5
+    ],
+    "result": 15,
+    "variable": "baking_heat_gain"
+  },
+  {
+    "step": 2,
+    "description": "Calculate temperature after baking",
+    "operation": "add",
+    "operands": [
+      40,
+      15
+    ],
+    "result": 55,
+    "variable": "temp_after_baking"
+  },
+  {
+    "step": 3,
+    "description": "Calculate number of 10-minute intervals the window is open",
+    "operation": "divide",
+    "operands": [
+      30,
+      10
+    ],
+    "result": 3,
+    "variable": "window_intervals"
+  },
+  {
+    "step": 4,
+    "description": "Calculate total cooling from open window",
+    "operation": "multiply",
+    "operands": [
+      3,
+      2
+    ],
+    "result": 6,
+    "variable": "window_heat_loss"
+  },
+  {
+    "step": 5,
+    "description": "Calculate final temperature after cooling",
+    "operation": "subtract",
+    "operands": [
+      55,
+      6
+    ],
+    "result": 49,
+    "variable": "final_temperature"
+  }
+]
