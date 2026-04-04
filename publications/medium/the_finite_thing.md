@@ -112,7 +112,7 @@ That principle would turn out to be the whole thing. But I did not know that yet
 
 ---
 
-## IV.
+## V.
 
 Oscar was our first child.
 
@@ -138,7 +138,7 @@ I did not see the pattern yet. I was living it.
 
 ---
 
-## V.
+## VI.
 
 Tricia got offered the AllThingsD job on our honeymoon in 2010. Kara Swisher's operation, the Wall Street Journal's tech division. She had earned it. Garfield High School to the University of Oregon to the Seattle Times — where she drove the Tech Tracks blog, one of the first blogger journalists — to PaidContent in 2008, to this. Every step harder than the last.
 
@@ -164,7 +164,7 @@ After Dylan, Tricia got a part-time gig at GeekWire. It felt like a big step dow
 
 ---
 
-## VI.
+## VII.
 
 Around the same time I was building my career, I was coaching the University of Washington ultimate frisbee team. Nine years. 2004 to 2012. I started with the B team — two years there — then seven as the A team coach. I called them my practice children.
 
@@ -188,7 +188,7 @@ And there was a lesson about context windows. You are dumb when you are tired. Y
 
 ---
 
-## VII.
+## VIII.
 
 When Dylan was eight months old I started at a startup called Dwellable — a vacation rental app with a Tinder-like swipe interface. One of the founders, Nathan, was the same engineer that taught me git. He must have remembered I only asked once. I was their first engineer hire. I managed the data pipeline, built the quoting architecture into checkout, moved our data storage to AWS, helped close potential partners. They let me do what I thought was right because I could do the work and I understood what the business needed.
 
@@ -218,7 +218,7 @@ It was Stage 2A. We thought local treatment would be fine.
 
 ---
 
-## VIII.
+## IX.
 
 So I dug myself out the same way I always did. One edge at a time.
 
@@ -234,7 +234,7 @@ The same thing I had done at WhitePages with the Oracle report. The same thing I
 
 My first real architecture project was to rebuild the mobile stack with a technology called GraphQL. In 2017 it felt like a revelation. No breaking changes. Clients defined their contracts. But more than that, it was a chance to cut out a whole layer of our infrastructure.
 
-2017 was a time of decomposition in the tech world. Relational databases getting replaced with distributed data stores. Moving all our apps to AWS.
+The 2010s were a time of decomposition in the tech world. Architectural layers were getting separated from each other. Companies moved to the cloud because they were not really IT companies — they just needed IT. Survival pressure forces simplicity and focus. Relational databases getting replaced with distributed data stores. The old guarantees — every transaction consistent, every write durable, every read current — work at one scale. Past that scale you hit a wall. You cannot have consistency, availability, and partition tolerance at the same time. You have to choose. That tradeoff became the defining constraint of the decade.
 
 I had a team of four including me. We rebuilt the entire business layer of HomeAway's traveler applications. I coached the organization through it the same way I coached the ultimate team — define the axioms, implement the reference examples, let the teams compose their own solutions.
 
@@ -258,7 +258,7 @@ The researcher who ran the study probably learned the why. But the community tak
 
 ---
 
-## IX.
+## X.
 
 The surgeon left thin margins. Her doctor ignored her neck pain for months.
 
@@ -278,7 +278,7 @@ Cancer is the same. A runaway exception. A failure that escalated through every 
 
 ---
 
-## X.
+## XI.
 
 I tried to research RAD51C on my own. I got fixated on Fanconi anemia — an inherited DNA repair disorder.
 
@@ -296,7 +296,7 @@ Tricia's whole medical history was one signal. Every doctor saw one piece. I saw
 
 ---
 
-## XI.
+## XII.
 
 Cancer treatment kills you. The hope is that it kills the cancer more.
 
@@ -322,7 +322,7 @@ A one-way ratchet. Each treatment kills the vulnerable cells and selects for the
 
 ---
 
-## XII.
+## XIII.
 
 She was supposed to ask me to help her go to the bathroom. I was in the other room. I did not hear her fall.
 
@@ -340,7 +340,7 @@ Seven years, almost to the day, from the stage 4 diagnosis.
 
 ---
 
-## XIII.
+## XIV.
 
 The uncertainty between us — nine years of cancer, of not knowing the prognosis, the next treatment, whether the neck pain was cancer or nothing — pushed us apart. Coparents more than a couple by the end.
 
@@ -354,7 +354,7 @@ We did not quite get there together. The fog was too thick. Medical uncertainty,
 
 ---
 
-## XIV.
+## XV.
 
 I have been pouting for eighteen months. Doing my best but deep down not myself. Not curious. Not engaged. Faking it. A great dad. But not taking care of myself.
 
@@ -364,7 +364,7 @@ I was waiting to get laid off. And then I did not. Instead I got assigned 700 ap
 
 Nobody knew anything about what was going on. We did not even have repo URLs for most of the applications. Before I could do the work, I had to build the map of the work.
 
-The company paid $47,000 a month for a search tool called Glean that indexed our Confluence pages, Jira tickets, and GitHub repos, then fed the results to an AI. Every question cost 60,000 tokens of context. Can you imagine Gleaning 700 times? And then doing it again and again?
+The company was wasting millions of dollars on a search tool that indexed our Confluence pages, Jira tickets, and GitHub repos, then fed the results to an AI. Every question cost 60,000 tokens of context. Can you imagine doing that 700 times? And then doing it again and again?
 
 It is so the opposite of me.
 
@@ -388,7 +388,7 @@ The graph was not doing anything sophisticated. It was doing something obvious t
 
 ---
 
-## XV.
+## XVI.
 
 The company cannot adopt it. Not because it does not work. Because the incentive structure will not allow it.
 
@@ -408,7 +408,7 @@ That is why we are doing it here. Open. Public. Free.
 
 ---
 
-## XVI.
+## XVII.
 
 I realized I was not refactoring the code. I was refactoring the process. And the design patterns I had used for twenty years were not about code. They were about one thing.
 
@@ -432,7 +432,7 @@ I was doing a post-mortem. Literally.
 
 ---
 
-## XVII.
+## XVIII.
 
 A cell has defense systems. Not one. Several. DNA repair catches copying errors. The cell cycle checkpoint catches cells that should not be dividing. The PI3K/Growth pathway controls resource allocation. Chromatin remodeling maintains the index that tells the cell which genes to read. DNA methylation maintains the marks that tell the cell what type it is. The immune system surveys for rogue cells. The endocrine system coordinates distant tissues. Tissue architecture maintains physical structure.
 
@@ -468,7 +468,7 @@ The mutations are not random. They look random when you count them without the f
 
 ---
 
-## XVIII.
+## XIX.
 
 Nine genes are on the PARP inhibitor trial list. ATM, BRCA1, BRCA2, FANCA, FANCC, FANCD2, PALB2, RAD51C, RAD51D.
 
@@ -484,7 +484,7 @@ The graph is the breadth pass. It does not go deeper. It goes wider. And the wid
 
 ---
 
-## XIX.
+## XX.
 
 There is a difference between discovering something and being told something.
 
@@ -502,7 +502,7 @@ And the thing we lose when we dismiss a perspective — "you are not an oncologi
 
 ---
 
-## XX.
+## XXI.
 
 There is an industry built on not knowing.
 
@@ -520,7 +520,7 @@ Tricia's entire career was building the antidote. Source it. Confirm it. Publish
 
 ---
 
-## XXI.
+## XXII.
 
 Two weeks ago I took my mom camping with us at Big Bend. She took us camping constantly when I was a kid — the chaos, the spontaneity, the mountains. She gave me that. Now I took her to Chisos. Three generations in the desert. My mom who gave me the wonder. My kids who are receiving it.
 
@@ -540,13 +540,13 @@ Naming is the act that turns fog into knowledge. The name is the node. The under
 
 ---
 
-## XXII.
+## XXIII.
 
 I plotted the number of defense layers against the number of cells across ten organisms — from E. coli to the bowhead whale. The relationship was logarithmic. Layers scale as the log of cell count. R-squared 0.84. p = 0.00018.
 
 The naked mole rat is about the size of a mouse. Same number of cells. Same seven layers. The mouse gets cancer 30% of the time. The naked mole rat gets cancer less than 0.1%. Same architecture. Different layer quality. Three-hundred-fold difference.
 
-My search tool cost $47,000 a month because it searched from scratch every time. My graph cost nothing because it remembered. One scaled quadratically. The other scaled logarithmically. There is a crossover where the lines meet. Before the crossover, searching is simpler. After, it is ruinous and the graph is the only option.
+The search tool cost millions because it searched from scratch every time. My graph cost nothing because it remembered. One scaled quadratically. The other scaled logarithmically. There is a crossover where the lines meet. Before the crossover, searching is simpler. After, it is ruinous and the graph is the only option.
 
 Language models are on this curve now. Context windows growing. Costs rising quadratically. The success is real. The crossover is ahead. Some will build the graph and cross over. Some will find the niche where brute-force attention is enough and stay there forever. Both survive.
 
@@ -554,7 +554,7 @@ Dinosaurs went extinct not because they failed but because they succeeded in a s
 
 ---
 
-## XXIII.
+## XXIV.
 
 Six weeks ago I had a laptop, an API key, and a $47,000 monthly search bill. Now I have a 20-megabyte graph, a framework that explains why it works, and eleven papers showing the same pattern in cancer, the genome, software, and language.
 
