@@ -1,0 +1,29 @@
+id: L06-rate-indicators
+type: knowledge
+domain: language
+name: "Rate indicators — words that signal a rate or unit price"
+description: >
+  Words that tell the lexer a number is a rate (value per unit).
+  "per", "each", "every" signal that the preceding number should be
+  treated as a rate and the following noun is the per-unit.
+
+provenance:
+  attribution:
+    source: "English rate expression conventions"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard rate indicators in word problems"
+
+rate_indicators:
+  - word: "per"
+    position: between_value_and_unit
+    semantics: "number before is rate, noun after is per-unit"
+
+  - word: "each"
+    position: after_value_or_clause_final
+    semantics: "when clause-final, number applies per subject noun"
+
+  - word: "every"
+    position: before_unit
+    semantics: "number applies per the following time/unit noun"

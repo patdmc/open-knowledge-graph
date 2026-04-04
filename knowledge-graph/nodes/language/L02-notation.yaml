@@ -1,0 +1,53 @@
+id: L02-notation
+type: knowledge
+domain: language
+name: "Notation rules — how symbols map to meaning"
+description: >
+  Notation nodes define how written symbols resolve to semantic tokens.
+  Each node declares a symbol, its position relative to the value it
+  captures, and what it resolves to. The lexer reads these nodes and
+  compiles their patterns — no hardcoded regex in code.
+
+provenance:
+  attribution:
+    source: "English mathematical notation conventions"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard notation used in grade-school math word problems"
+
+notations:
+  - id: dollar-prefix
+    symbol: "$"
+    position: prefix
+    captures: decimal
+    resolves_to:
+      token_type: money
+      unit: dollars
+    pattern: "\\$(\\d[\\d,]*\\.?\\d*)"
+
+  - id: percent-suffix
+    symbol: "%"
+    position: suffix
+    captures: decimal
+    resolves_to:
+      token_type: percent
+      scale: 0.01
+    pattern: "(\\d[\\d,]*\\.?\\d*)\\s*%"
+
+  - id: fraction-infix
+    symbol: "/"
+    position: infix
+    captures: [integer, integer]
+    resolves_to:
+      token_type: fraction
+      operation: divide
+    pattern: "(\\d+)\\s*/\\s*(\\d+)"
+
+  - id: decimal-number
+    symbol: null
+    position: standalone
+    captures: decimal
+    resolves_to:
+      token_type: number
+    pattern: "(?<!\\d)(\\d[\\d,]*\\.?\\d*)(?!\\d)"

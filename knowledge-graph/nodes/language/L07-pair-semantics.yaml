@@ -1,0 +1,40 @@
+id: L07-pair-semantics
+type: knowledge
+domain: language
+name: "Pair semantics — when 'pair' means 1 vs 2"
+description: >
+  The word "pair" has two meanings in quantity context:
+  1. "pair of dice" = 2 individual dice
+  2. "pair of shoes" = 1 unit (shoes naturally come in pairs)
+
+  The distinction is world knowledge about which objects are
+  inherently paired. This node encodes that knowledge.
+
+provenance:
+  attribution:
+    source: "English usage conventions for paired objects"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Items that naturally come in pairs"
+
+default_pair_value: 2
+
+pair_is_one_unit:
+  - shoes
+  - socks
+  - pants
+  - shorts
+  - gloves
+  - mittens
+  - boots
+  - sandals
+  - slippers
+  - earrings
+  - glasses
+  - scissors
+  - tweezers
+  - jeans
+  - trousers
+  - leggings
+  - stockings

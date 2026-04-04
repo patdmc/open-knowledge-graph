@@ -1,0 +1,54 @@
+id: L03-number-words
+type: knowledge
+domain: language
+name: "Number words — English words that denote numeric values"
+description: >
+  Maps English number words to their numeric values. These are lexical
+  edges: the word IS the number. The lexer scans for these words and
+  emits numeric tokens.
+
+provenance:
+  attribution:
+    source: "English cardinal number system"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard English number words"
+
+number_words:
+  # Cardinals 0-19
+  zero: 0
+  one: 1
+  two: 2
+  three: 3
+  four: 4
+  five: 5
+  six: 6
+  seven: 7
+  eight: 8
+  nine: 9
+  ten: 10
+  eleven: 11
+  twelve: 12
+  thirteen: 13
+  fourteen: 14
+  fifteen: 15
+  sixteen: 16
+  seventeen: 17
+  eighteen: 18
+  nineteen: 19
+
+  # Tens
+  twenty: 20
+  thirty: 30
+  forty: 40
+  fifty: 50
+  sixty: 60
+  seventy: 70
+  eighty: 80
+  ninety: 90
+
+  # Scale words
+  hundred: 100
+  thousand: 1000
+  million: 1000000

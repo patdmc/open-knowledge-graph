@@ -1,0 +1,118 @@
+id: L08-stop-words
+type: knowledge
+domain: language
+name: "Stop words — words that are never units or entities"
+description: >
+  Words to skip during unit extraction. These are function words
+  (determiners, prepositions, pronouns, auxiliaries, conjunctions)
+  and common adjectives that cannot be the head noun of a quantity.
+
+provenance:
+  attribution:
+    source: "English function word classes"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard English closed-class words"
+
+stop_words:
+  # Determiners
+  - a
+  - an
+  - the
+
+  # Auxiliaries
+  - is
+  - are
+  - was
+  - were
+  - has
+  - have
+  - had
+  - be
+  - been
+  - being
+  - do
+  - does
+  - did
+
+  # Modals
+  - will
+  - would
+  - can
+  - could
+  - should
+  - may
+  - might
+  - shall
+  - must
+
+  # Prepositions
+  - to
+  - for
+  - of
+  - on
+  - in
+  - at
+  - by
+  - with
+  - from
+  - up
+
+  # Conjunctions
+  - and
+  - or
+  - but
+  - if
+  - then
+  - than
+  - that
+  - this
+  - it
+
+  # Pronouns
+  - he
+  - she
+  - they
+  - his
+  - her
+  - its
+  - their
+  - him
+  - them
+
+  # Adverbs / degree words
+  - not
+  - no
+  - so
+  - as
+  - also
+  - just
+  - very
+  - too
+  - more
+  - most
+  - much
+  - many
+  - some
+  - any
+  - all
+
+  # Quantifier adjectives (these modify, don't name)
+  - each
+  - every
+  - per
+  - new
+  - old
+  - big
+  - small
+  - long
+  - short
+  - tall
+
+  # Ordinals
+  - first
+  - second
+  - third
+  - last
+  - next

@@ -1,0 +1,31 @@
+id: L04-multipliers
+type: knowledge
+domain: language
+name: "Multiplier words — words that scale a quantity"
+description: >
+  Words that multiply an adjacent number. Two kinds:
+  1. Scale multipliers (half, twice, triple) — multiply the value
+  2. Unit multipliers (dozen, score, gross) — multiply the count
+
+provenance:
+  attribution:
+    source: "English quantity expressions"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard English multiplier words"
+
+scale_multipliers:
+  half: 0.5
+  quarter: 0.25
+  third: 0.3333333333333333
+  twice: 2
+  double: 2
+  triple: 3
+  quadruple: 4
+
+unit_multipliers:
+  dozen: 12
+  score: 20
+  gross: 144
+  couple: 2

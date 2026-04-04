@@ -181,74 +181,57 @@ class CompileContext:
 
 # =====================================================================
 # Lexer: extract tokens from text
+#
+# All lexical knowledge comes from the language graph
+# (knowledge-graph/compiled/language.json). The code below is pure
+# action — it reads the graph and applies it. No hardcoded word lists.
 # =====================================================================
 
-NUMBER_WORDS = {
-    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
-    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
-    "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
-    "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
-    "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40,
-    "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90,
-    "hundred": 100, "thousand": 1000, "million": 1_000_000,
-}
+from packages.core.language_graph import load as _load_language_graph
 
-MULTIPLIER_WORDS = {
-    "half": 0.5, "quarter": 0.25, "third": 1/3,
-    "twice": 2, "double": 2, "triple": 3, "quadruple": 4,
-}
+def _lg():
+    """Shorthand for the language graph."""
+    return _load_language_graph()
 
-# Known unit conversion rates → dollars (world knowledge)
-# ---------------------------------------------------------------------------
-# Unit conversions — imported from math graph (packages/math/units.py)
-#
-# The conversion FACTORS are math knowledge (1 hour = 60 minutes).
-# The LANGUAGE that maps "per hour" or "every 30 minutes" to a conversion
-# is handled by the language graph (packages/core/language/resolve.py).
-# ---------------------------------------------------------------------------
+# All lexical knowledge is read from the language graph at call time.
+# No hardcoded dicts — the graph is the single source of truth.
+
+def _number_words():
+    return _lg().number_words
+
+def _scale_multipliers():
+    return _lg().scale_multipliers
+
+def _unit_multipliers():
+    return _lg().unit_multipliers
+
+def _stop_words():
+    return _lg().stop_words
+
+def _pair_is_one_unit():
+    return _lg().pair_is_one_unit
+
+def _notations():
+    return _lg().notations
+
+def _references():
+    return _lg().references
+
+def _rate_words():
+    return _lg().rate_words
+
+def _verb_index():
+    return _lg().verb_index
+
+def _synset_to_op():
+    return _lg().synset_to_op
+
+# Unit conversions — math knowledge (packages/math/units.py)
 from packages.math.units import (
     UNIT_TO_DOLLARS, UNIT_TO_SECONDS, UNIT_TO_HOURS, UNIT_TO_MINUTES,
     UNIT_TO_DAYS, UNIT_TO_WEEKS,
     UNIT_TO_INCHES, UNIT_TO_FEET, UNIT_TO_MILES, UNIT_TO_CM,
 )
-
-# Quantity words (implicit multipliers)
-# Note: "pair" excluded — too context-dependent ("pair of shorts" = 1 item)
-UNIT_MULTIPLIERS = {
-    "dozen": 12,
-    "score": 20, "gross": 144,
-    "couple": 2,
-}
-
-# Items where "a pair of X" = 1 unit (not 2 individual items)
-# These naturally come in pairs — the pair IS the unit
-_PAIR_IS_UNIT = {
-    "shoes", "shoe", "socks", "sock", "pants", "pant",
-    "shorts", "short", "gloves", "glove", "mittens", "mitten",
-    "boots", "boot", "sandals", "sandal", "slippers", "slipper",
-    "earrings", "earring", "glasses", "scissors", "tweezers",
-    "jeans", "trousers", "leggings", "stockings",
-}
-
-FRACTION_PATTERN = re.compile(r'(\d+)\s*/\s*(\d+)')
-MONEY_PATTERN = re.compile(r'\$(\d[\d,]*\.?\d*)')
-NUMBER_PATTERN = re.compile(r'(?<!\d)(\d[\d,]*\.?\d*)(?!\d)')
-
-# References to computed values
-REFERENCE_PATTERNS = [
-    (r'\b(?:the\s+)?remain(?:der|ing)\b', "remainder"),
-    (r'\b(?:the\s+)?rest\b', "remainder"),
-    (r'\bleft\s*over\b', "remainder"),
-    (r'\bthat\s+(?:number|amount|many)\b', "previous"),
-    (r'\bthis\s+(?:number|amount|many)\b', "previous"),
-    (r'\bthe\s+(?:same\s+)?(?:number|amount)\b', "previous"),
-    (r'\b(\d+)\s+times\s+(?:that|this|the)\b', "multiply_previous"),
-    (r'\b(twice|double|triple|two|three|four|five|six|seven|eight|nine|ten)\s+times\s+(?:that|this|the)\b', "multiply_previous"),
-    (r'\b(\d+)\s+times\s+(?:as\s+)?(?:many|much)\b', "multiply_previous"),
-    (r'\b(twice|double|triple|two|three|four|five|six|seven|eight|nine|ten)\s+times\s+(?:as\s+)?(?:many|much)\b', "multiply_previous"),
-    (r'\b(\d+)\s+more\s+than\b', "add_to_previous"),
-    (r'\b(\d+)\s+(?:less|fewer)\s+than\b', "subtract_from_previous"),
-]
 
 
 @dataclass
@@ -269,48 +252,52 @@ def lex_sentence(sentence: str) -> list[Token]:
     tokens = []
     sent_lower = sentence.lower()
 
-    # Money: $X.XX
-    for m in MONEY_PATTERN.finditer(sentence):
-        val = float(m.group(1).replace(',', ''))
-        tokens.append(Token("money", val, m.group(), m.start(), unit="dollars"))
+    # Notation rules from language graph (L02): money, fractions, percents, digits
+    for notation in _notations():
+        for m in notation.pattern.finditer(sentence):
+            if notation.token_type == "money":
+                val = float(m.group(1).replace(',', ''))
+                tokens.append(Token("money", val, m.group(), m.start(),
+                                    unit=notation.unit or "dollars"))
+            elif notation.token_type == "fraction":
+                num, den = int(m.group(1)), int(m.group(2))
+                if den != 0:
+                    tokens.append(Token("fraction", num/den, m.group(),
+                                        m.start()))
+            elif notation.token_type == "percent":
+                val = float(m.group(1).replace(',', ''))
+                tokens.append(Token("number", val * (notation.scale or 0.01),
+                                    m.group(), m.start()))
+            elif notation.token_type == "number":
+                pos = m.start()
+                if not any(abs(pos - t.position) < len(m.group()) + 1
+                           for t in tokens):
+                    val = float(m.group(1).replace(',', ''))
+                    tokens.append(Token("number", val, m.group(), pos))
 
-    # Fractions: X/Y
-    for m in FRACTION_PATTERN.finditer(sentence):
-        num, den = int(m.group(1)), int(m.group(2))
-        if den != 0:
-            tokens.append(Token("fraction", num/den, m.group(), m.start()))
-
-    # Multiplier words: half, twice, triple, etc.
-    for word, val in MULTIPLIER_WORDS.items():
+    # Scale multiplier words from language graph (L04): half, twice, triple, etc.
+    for word, val in _scale_multipliers().items():
         for m in re.finditer(rf'\b{word}\b', sent_lower):
             tokens.append(Token("multiplier", val, word, m.start()))
 
-    # Number words
-    for word, val in NUMBER_WORDS.items():
+    # Number words from language graph (L03): one, two, hundred, etc.
+    for word, val in _number_words().items():
         for m in re.finditer(rf'\b{word}\b', sent_lower):
-            # Don't double-count if already captured as part of fraction/money
             if not any(abs(m.start() - t.position) < 3 for t in tokens):
                 tokens.append(Token("number", val, word, m.start()))
 
-    # Digit numbers (skip those already captured as money/fraction)
-    for m in NUMBER_PATTERN.finditer(sentence):
-        pos = m.start()
-        if not any(abs(pos - t.position) < len(m.group()) + 1 for t in tokens):
-            val = float(m.group(1).replace(',', ''))
-            tokens.append(Token("number", val, m.group(), pos))
-
-    # References
-    for pattern, ref_type in REFERENCE_PATTERNS:
-        for m in re.finditer(pattern, sent_lower):
-            # Extract multiplier if present
+    # Reference patterns from language graph (L05): remainder, previous, etc.
+    for ref in _references():
+        for m in ref.pattern.finditer(sent_lower):
             mult = 1.0
+            ref_type = ref.resolves_to
             if ref_type in ("multiply_previous", "add_to_previous",
                             "subtract_from_previous"):
                 g = m.group(1) if m.lastindex else ""
-                if g in MULTIPLIER_WORDS:
-                    mult = MULTIPLIER_WORDS[g]
-                elif g in NUMBER_WORDS:
-                    mult = NUMBER_WORDS[g]
+                if ref.multiplier_words and g in _scale_multipliers():
+                    mult = _scale_multipliers()[g]
+                elif ref.multiplier_words and g in _number_words():
+                    mult = _number_words()[g]
                 elif g.isdigit():
                     mult = float(g)
             tokens.append(Token("reference", mult, m.group(), m.start(),
@@ -325,19 +312,7 @@ def lex_sentence(sentence: str) -> list[Token]:
     return tokens
 
 
-# Words that are NOT units (stop words, verbs, adjectives)
-_NOT_UNITS = {
-    "a", "an", "the", "is", "are", "was", "were", "has", "have", "had",
-    "to", "for", "of", "on", "in", "at", "by", "with", "from", "up",
-    "and", "or", "but", "if", "then", "than", "that", "this", "it",
-    "he", "she", "they", "his", "her", "its", "their", "him", "them",
-    "be", "been", "being", "do", "does", "did", "will", "would", "can",
-    "could", "should", "may", "might", "shall", "must",
-    "not", "no", "so", "as", "also", "just", "very", "too", "more",
-    "most", "much", "many", "some", "any", "all", "each", "every",
-    "per", "new", "old", "big", "small", "long", "short", "tall",
-    "first", "second", "third", "last", "next",
-}
+# Stop words (words that are never units) — loaded from language graph L08
 
 
 def _find_head_noun(phrase: str) -> str:
@@ -359,7 +334,7 @@ def _find_head_noun(phrase: str) -> str:
 
         # Walk right-to-left (English heads are rightmost)
         for word in reversed(words):
-            if word in _NOT_UNITS:
+            if word in _stop_words():
                 continue
             noun_syns = wn.synsets(word, pos=wn.NOUN)
             adj_syns = wn.synsets(word, pos=wn.ADJ)
@@ -398,9 +373,9 @@ def _assign_units(tokens: list[Token], sentence: str):
         for word, wstart, wend in word_spans:
             if wstart < token_end:
                 continue
-            if word in _NOT_UNITS:
+            if word in _stop_words():
                 continue
-            if word in NUMBER_WORDS or word in MULTIPLIER_WORDS:
+            if word in _number_words() or word in _scale_multipliers():
                 continue
             # Found a noun — assign as unit
             if not token.unit:
@@ -420,7 +395,7 @@ def _assign_units(tokens: list[Token], sentence: str):
                               rate_match.group(1))[0].strip()
             if phrase:
                 per_word = _find_head_noun(phrase)
-                if per_word and per_word not in _NOT_UNITS:
+                if per_word and per_word not in _stop_words():
                     token.per_unit = per_word
 
         # "each" at end of clause = rate per the subject noun
@@ -430,7 +405,7 @@ def _assign_units(tokens: list[Token], sentence: str):
         # Known unit conversions: "5 quarters" → value=5, unit="quarters"
         # The rate (0.25 $/quarter) is available via UNIT_TO_DOLLARS
         # "a dozen cookies" → value=12, unit="cookies"
-        if token.unit in UNIT_MULTIPLIERS and token.type == "number":
+        if token.unit in _unit_multipliers() and token.type == "number":
             # Check what noun follows the multiplier
             # "3 pairs of shoes" → pair is the unit for shoes (no multiply)
             # "3 pairs of dice" → pair = 2 dice (multiply)
@@ -438,18 +413,18 @@ def _assign_units(tokens: list[Token], sentence: str):
             for word, wstart, wend in word_spans:
                 if wstart > token_end and word == token.unit:
                     for w2, ws2, we2 in word_spans:
-                        if ws2 > wend and w2 not in _NOT_UNITS:
+                        if ws2 > wend and w2 not in _stop_words():
                             real_unit = w2
                             break
                     break
 
             # For clothing pairs, "pair" IS the unit — don't multiply
             if token.unit in ("pair", "pairs") and real_unit and \
-               real_unit.lower() in _PAIR_IS_UNIT:
+               real_unit.lower() in _pair_is_one_unit():
                 token.unit = real_unit
             else:
                 # "3 dozen cookies" → 3 × 12 = 36 cookies
-                token.value = token.value * UNIT_MULTIPLIERS[token.unit]
+                token.value = token.value * _unit_multipliers()[token.unit]
                 if real_unit:
                     token.unit = real_unit
 
@@ -523,18 +498,18 @@ def _classify_sentence(sentence: str, tokens: list[Token],
             clause.operation = graph_result.operation
             clause.verb = f"graph:{graph_result.source}:{graph_result.lemma}"
         else:
-            # Fallback: curated verb index (will be deprecated as graph grows)
-            from packages.math.operations import _VERB_INDEX
-            for verb in sorted(_VERB_INDEX.keys(), key=lambda x: -len(x)):
+            # Fallback: verb index from language graph (L09)
+            vi = _verb_index()
+            for verb in sorted(vi.keys(), key=lambda x: -len(x)):
                 if " " in verb:
                     if verb in sent_lower:
-                        clause.operation = _VERB_INDEX[verb]
-                        clause.verb = verb
+                        clause.operation = vi[verb]
+                        clause.verb = f"graph:verb_index:{verb}"
                         break
                 else:
                     if re.search(rf'\b{re.escape(verb)}\b', sent_lower):
-                        clause.operation = _VERB_INDEX[verb]
-                        clause.verb = verb
+                        clause.operation = vi[verb]
+                        clause.verb = f"graph:verb_index:{verb}"
                         break
 
             # Fallback 2: learned mappings (trained from GSM8K)

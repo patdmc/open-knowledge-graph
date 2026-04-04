@@ -1,0 +1,53 @@
+id: L05-references
+type: knowledge
+domain: language
+name: "Reference patterns — words that point to computed values"
+description: >
+  Words and phrases that refer back to previously computed values.
+  These are anaphoric references in math context — "the rest",
+  "twice as many", "3 more than" all point to something already
+  established in the problem.
+
+provenance:
+  attribution:
+    source: "English mathematical discourse patterns"
+    date: "2026-04-01"
+  evidence:
+    type: axiomatic
+    description: "Standard reference patterns in word problems"
+
+references:
+  - id: remainder
+    triggers: ["the remainder", "the remaining", "the rest", "left over"]
+    resolves_to: remainder
+    pattern: "\\b(?:the\\s+)?remain(?:der|ing)\\b|\\b(?:the\\s+)?rest\\b|\\bleft\\s*over\\b"
+
+  - id: previous
+    triggers: ["that number", "that amount", "that many", "this number", "this amount", "the number", "the amount"]
+    resolves_to: previous
+    pattern: "\\b(?:that|this|the)\\s+(?:same\\s+)?(?:number|amount|many)\\b"
+
+  - id: multiply_previous_digit
+    triggers: ["N times that", "N times as many"]
+    resolves_to: multiply_previous
+    captures: multiplier
+    pattern: "\\b(\\d+)\\s+times\\s+(?:that|this|the|as\\s+(?:many|much))\\b"
+
+  - id: multiply_previous_word
+    triggers: ["twice that", "double the", "triple the"]
+    resolves_to: multiply_previous
+    captures: multiplier
+    multiplier_words: true
+    pattern: "\\b(twice|double|triple|two|three|four|five|six|seven|eight|nine|ten)\\s+times\\s+(?:that|this|the|as\\s+(?:many|much))\\b"
+
+  - id: add_to_previous
+    triggers: ["N more than"]
+    resolves_to: add_to_previous
+    captures: offset
+    pattern: "\\b(\\d+)\\s+more\\s+than\\b"
+
+  - id: subtract_from_previous
+    triggers: ["N less than", "N fewer than"]
+    resolves_to: subtract_from_previous
+    captures: offset
+    pattern: "\\b(\\d+)\\s+(?:less|fewer)\\s+than\\b"

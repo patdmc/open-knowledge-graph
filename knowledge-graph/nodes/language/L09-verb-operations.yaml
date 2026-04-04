@@ -1,0 +1,202 @@
+id: L09-verb-operations
+type: knowledge
+domain: language
+name: "Verb-to-operation mappings — how verbs resolve to math"
+description: >
+  Maps verb synsets to mathematical operations. This is the bridge
+  between the language graph and the math graph. Each entry says:
+  "this meaning cluster denotes this math operation."
+
+  All inflections (gives, gave, giving, given) resolve through
+  WordNet lemmatization to the same synset. Only the synset needs
+  to be mapped — the inflections come for free from the graph.
+
+  When WordNet is unavailable, the explicit verb list serves as
+  a fallback. But the synset is the canonical mapping.
+
+provenance:
+  attribution:
+    source: "Semantic analysis of math word problem verbs"
+    date: "2026-04-01"
+  evidence:
+    type: empirical
+    description: "Verb-operation associations validated against GSM8K corpus"
+
+operations:
+  add:
+    name: Addition
+    identity: 0
+    commutative: true
+    inverse: subtract
+    synsets:
+      - get.v.01         # come into possession of
+      - receive.v.01     # get something
+      - gain.v.01        # obtain
+      - earn.v.01        # earn (receive as return)
+      - collect.v.01     # accumulate
+      - buy.v.01         # acquire by paying
+      - find.v.01        # discover
+      - add.v.01         # make an addition
+      - increase.v.01    # make greater in size/amount
+      - join.v.01        # become part of
+    verbs:
+      - add
+      - adds
+      - added
+      - plus
+      - more
+      - gain
+      - gains
+      - gained
+      - receive
+      - receives
+      - received
+      - get
+      - gets
+      - got
+      - earn
+      - earns
+      - earned
+      - collect
+      - collects
+      - collected
+      - buy
+      - buys
+      - bought
+      - find
+      - finds
+      - found
+      - join
+      - joins
+      - joined
+      - increase
+      - increases
+      - increased
+      - total
+      - altogether
+      - combined
+      - sum
+      - additional
+
+  subtract:
+    name: Subtraction
+    identity: 0
+    commutative: false
+    inverse: add
+    synsets:
+      - give.v.01        # transfer possession
+      - lose.v.01        # fail to keep
+      - spend.v.01       # pay out
+      - use.v.01         # consume
+      - eat.v.01         # consume food
+      - remove.v.01      # take away
+      - sell.v.01        # exchange for money (reduces inventory)
+      - throw.v.01       # propel away
+      - break.v.01       # destroy
+      - leave.v.01       # go away from (reduces count)
+      - donate.v.01      # give to charity
+      - get_rid_of.v.01  # dispose of
+      - discard.v.01     # throw away
+      - cook.v.01        # consumes ingredients
+      - bake.v.01        # consumes ingredients
+      - create_from_raw_material.v.01  # consumes raw material
+    verbs:
+      - subtract
+      - minus
+      - less
+      - lose
+      - loses
+      - lost
+      - eat
+      - eats
+      - ate
+      - use
+      - uses
+      - used
+      - give
+      - gives
+      - gave
+      - spend
+      - spends
+      - spent
+      - remove
+      - removes
+      - removed
+      - take
+      - takes
+      - took
+      - discard
+      - discards
+      - discarded
+      - break
+      - breaks
+      - broke
+      - throw
+      - throws
+      - threw
+      - donate
+      - donates
+      - donated
+      - leave
+      - left
+      - fewer
+      - decrease
+      - decreases
+      - decreased
+      - bake
+      - bakes
+      - baked
+      - cook
+      - cooks
+      - cooked
+      - paint
+      - paints
+      - painted
+
+  multiply:
+    name: Multiplication
+    identity: 1
+    commutative: true
+    inverse: divide
+    synsets:
+      - multiply.v.01    # arithmetic
+      - double.v.01      # make twice as great
+    verbs:
+      - multiply
+      - times
+      - twice
+      - double
+      - triple
+      - quadruple
+      - per
+      - each
+      - every
+      - rate
+      - at
+
+  divide:
+    name: Division
+    identity: 1
+    commutative: false
+    inverse: multiply
+    synsets:
+      - divide.v.01      # separate into parts
+      - share.v.01       # use jointly
+      - split.v.01       # separate
+      - distribute.v.01  # give to several
+    verbs:
+      - divide
+      - divides
+      - divided
+      - split
+      - splits
+      - share
+      - shares
+      - shared
+      - distribute
+      - distributes
+      - average
+      - half
+      - third
+      - quarter
+      - ratio
