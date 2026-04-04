@@ -556,7 +556,7 @@ Dinosaurs went extinct not because they failed but because they succeeded in a s
 
 ## XXIV.
 
-Six weeks ago I had a laptop, an API key, and a $47,000 monthly search bill. Now I have a 20-megabyte graph, a framework that explains why it works, and eleven papers showing the same pattern in cancer, the genome, software, and language.
+Six weeks ago I had a laptop and an API key. Now I have a 20-megabyte graph, a framework that explains why it works, and eleven papers showing the same pattern in cancer, the genome, software, and language.
 
 We are building it from the ground up. Starting with language and math. Tested with word problems. Getting the graph shape right so that when we reach trigonometry and calculus and linear algebra, it is just new nodes and edges. The traversal engine does not change. The graph gets wider.
 
