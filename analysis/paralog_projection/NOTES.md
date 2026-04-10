@@ -352,6 +352,165 @@ showing that the bound is tighter than descent-only models allow.
 
 ---
 
+## Analog vs paralog at deep history — the symbiosis hypothesis
+
+A separate question, possibly its own follow-up paper, possibly a fifth
+panel of this one.
+
+Duplication is the path of least resistance. If a cell needs more of a
+working machine, the locally easy thing is to copy the existing
+instructions. So the fact that BRCA1/2/PALB2 and the RAD51 family are
+*both* required for HR but are *not* paralogs of each other is a real
+puzzle under the duplication-only model. Two completely distinct things
+doing the same job is not what duplication produces.
+
+The hint is already in our fetch: BioMart returned **zero paralogs** for
+BRCA1, BRCA2, and PALB2. They are singletons by sequence descent. The
+RAD51 family returned six paralogs at Opisthokonta divergence. Same
+channel. Same complex. Same function. Two completely different
+evolutionary signatures sitting next to each other.
+
+### Deep biology of the DDR channel components
+
+The RAD51 family traces back to bacterial RecA (universal in bacteria,
+~3.5 Gya) and archaeal RadA. The Opisthokonta-level duplications within
+the family are duplications *within* the eukaryotic lineage of an
+already-ancient bacterial machine. **The HR core is inherited from the
+bacterial side of eukaryotic ancestry.**
+
+BRCA1, BRCA2, and PALB2 are different. No clear bacterial or archaeal
+homologs. BRCA1 is essentially vertebrate-specific. BRCA2 has weak
+homology in plants and fungi but the canonical version is animal-specific.
+They appear to be **eukaryotic innovations layered on top of the
+bacterial-origin RAD51 core.**
+
+The channel is mosaic. The machine is bacterial. The scaffold and
+regulation are eukaryotic. Same node functionally, two distinct origins
+historically.
+
+### The lichen / endosymbiosis frame
+
+Lichens are fungi + algae fused into one organism that does photosynthesis
++ nutrient cycling as a single unit. Neither partner can do the joint
+function alone. They evolved separately, met, and merged because the
+merger was more fit than either side alone. The "redundancy" between
+fungal and algal contributions is not redundancy — it is **complementarity
+that looks like redundancy** once the merged organism is treated as one
+unit.
+
+Margulis established the same picture for the eukaryotic cell as a whole
+in the 1970s: mitochondria are former bacteria, chloroplasts are former
+cyanobacteria, the cell itself is a frozen merger of multiple organisms.
+Koonin's deep-ancestry work over the past two decades has shown that many
+"eukaryotic" pathways are mosaics of bacterial and archaeal contributions,
+with the chimera dating to the original eukaryogenesis event.
+
+The DDR channel may be the same kind of object. The bacterial RAD51
+machine and the eukaryotic BRCA scaffold may have started in different
+lineages, met inside an early eukaryote, and been retained together
+because the joint function — regulated, error-corrected HR — was more fit
+than either side alone. Once merged, they collapsed to one functional
+node, which is exactly what we observe today. They look "redundant" only
+because we look at the merged organism and treat two histories as one
+biology.
+
+### Analog vs paralog at the deep-history level
+
+The right vocabulary for the distinction:
+
+- **Paralog (deep).** Two genes whose deepest verifiable common ancestor
+  is in the same lineage. They share a historical origin and diverged by
+  drift.
+- **Analog (deep).** Two genes whose deepest verifiable common ancestor
+  is *not* on the same lineage, or who have no detectable common ancestor
+  at all. They evolved their shared function independently and ended up
+  in the same channel by merger or convergence, not by drift.
+
+Pure descent predicts channels should be built mostly from paralogs —
+one ancestral gene, duplicated and specialized. Projection theory plus
+symbiosis predicts channels can be built from analogs *too*, and the
+mosaic ancestry is evidence that the "one functional node" was assembled
+from pieces with different histories.
+
+### The testable form
+
+Take every gene on every channel in `data/channel_gene_map.csv`. For
+each gene, trace its deepest verifiable homolog through the tree of life
+using existing public tools — eggNOG, OMA, OrthoMCL, NCBI Conserved
+Domains all do this for the entire human proteome. Tag each gene with
+its deepest origin: bacterial (specify lineage), archaeal (specify),
+eukaryotic-only at depth opisthokonta / metazoa / vertebrata / mammalia.
+
+Plot the deep-origin distribution per channel.
+
+- If a channel's components all share one deep origin → paralog-built
+  channel, descent-only assembly, predictable from duplication models.
+- If a channel's components span multiple deep origins → analog-built
+  channel, mosaic ancestry, evidence of merger or convergence.
+- Mixed cases → partial mosaic, layered assembly over time.
+
+### The discriminating prediction
+
+Pure descent has no reason to expect channels to span multiple deep
+lineages. Projection theory plus endosymbiosis predicts that **the most
+essential channels — the ones under strongest selection to maintain
+function across catastrophic conditions — should be the most mosaic.**
+Mosaicism is what happens when multiple organisms with similar functions
+merge and the cell can't afford to lose either copy. Channels under
+weaker selection should be more paralog-built because they had time to
+drift to a single ancestor without anything breaking.
+
+This is a fingerprint of *how the node was assembled*, not just whether
+it exists.
+
+### Why this strengthens the current paper
+
+The current paper claims equivalence predicts 3D contact, and the fold
+reads off the equivalence structure regardless of how it was assembled.
+That claim stands regardless of whether the equivalence was built by
+paralog drift or by analog merger — the fold doesn't care about history,
+it cares about current function.
+
+But the **cleanest case** for projection theory is the BRCA + RAD51
+contact prediction, because it is the case where two completely
+different deep ancestries are forced to behave as one node by current
+selection pressure. If those genes touch in 3D despite having no shared
+ancestry by sequence, the fold is doing pure equivalence-based recovery.
+There is literally no descent-based reason for them to be in contact.
+Descent has nothing to say about why a vertebrate-specific gene should
+touch a bacterially-derived gene. Projection theory predicts it directly
+because they're in the same channel.
+
+The analog case is more discriminating than the paralog case. The BRCA
++ RAD51 contact test is *stronger* evidence for projection theory than
+the within-RAD51-family contact test.
+
+### Possible follow-up paper
+
+> *Channels as Chimeras: Functional Equivalence Built by Symbiosis, Not
+> Drift.*
+>
+> We test whether functional channels in the human cell are built from
+> components of single deep ancestry (paralog-built) or from components
+> of multiple deep ancestries (analog-built). Using public deep-orthology
+> resources, we trace each component of each channel to its deepest
+> verifiable homolog and plot the lineage distribution per channel. We
+> show that the most essential channels — the ones under strongest
+> selection — are also the most ancestrally mosaic, consistent with the
+> hypothesis that essential cellular functions in eukaryotes were
+> assembled by merger of pre-existing machines from distinct organisms,
+> rather than by descent and drift from a single ancestral gene. The
+> DNA damage response channel, in which a bacterially-derived RAD51
+> recombinase is regulated by vertebrate-specific BRCA scaffolds, is
+> the canonical example.
+
+This is the second paper, after the projection one. The two are
+complementary: paper one establishes that the fold reads off equivalence;
+paper two establishes that equivalence itself is built by both drift and
+merger, with merger being the dominant mode for the most essential nodes.
+
+---
+
 ## Data anchor (already in the main graph)
 
 `data/channel_gene_map.csv` already places BRCA1, BRCA2, PALB2, RAD51B,
