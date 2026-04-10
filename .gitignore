@@ -8,7 +8,11 @@
 .temp/
 gnn/results/
 packages/cancer/results/
-analysis/
+**/analysis/
+!/analysis/
+/analysis/*
+!/analysis/paralog_projection/
+/analysis/paralog_projection/data/
 */__pycache__/*
 *.pyc
 .DS_Store
