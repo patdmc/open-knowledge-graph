@@ -1069,28 +1069,61 @@ of the most ATP-intensive cellular processes. **Attention is expensive
 because it is the only K/A unit that operates against an unbounded
 substrate, and the cost of selective loading is high.**
 
-### The full hierarchy
+### Do not name the levels — they should become visible to us
 
-1. **First-order (implementation).** RAD51 doing strand exchange. K/A
-   of work.
-2. **Second-order (wrapper).** BRCA1 escalating HR failure. K/A of
-   work-error.
-3. **Third-order (meta-regulator).** p53 coordinating channels. K/A of
-   wrapper-network.
-4. **Fourth-order (cell-cycle / chromatin / developmental).**
-   Coordinating differentiation. K/A of cell state.
-5. **Fifth-order (tissue / organ).** Coordinating cells. K/A of
-   multicellular state.
-6. **N-th order (organism / nervous system).** Coordinating behavior.
-   K/A of organismal state.
-7. **Top order (attention / context management).** Managing the
-   boundary with the unbounded environment. K/A of what-to-load-from-
-   the-outside.
+A methodological rule for the paper and the analysis.
 
-The cell sits at level 4. The organism sits at level 6. Conscious
-brains sit at level 7. Each level wraps the level below. Each level
-is finite. Only the top level handles unboundedness, and it handles
-it by selective loading, which is what attention is.
+The K/A hierarchy has some number of levels deep in any real system,
+but **the exact count and the boundaries between levels are what the
+analysis measures, not what the theory asserts**. We should not write
+a paper that says "the cell has 7 orders of K/A" or "chromatin is at
+level 4." That kind of pre-naming bakes in a taxonomy before the data
+has spoken.
+
+The theory makes three claims only:
+
+1. K/A inseparability is forced at every level by CAP under finite
+   context.
+2. Finite systems handle unboundedness by stacking K/A units, each
+   operating on bounded context at its own level.
+3. Errors at one level can be handled by the level above, and failure
+   to do so drops the system to a lower order of operation.
+
+Everything else — how many levels, where the boundaries are, which
+proteins sit at which level, whether chromatin is the attention layer
+or a lower layer — **falls out of the empirical analysis**. The test
+should recover the hierarchy from data, not impose one.
+
+Concretely for the paper: do not enumerate the levels in the abstract
+or the introduction. Describe the architectural claim, describe the
+predictions (hub-vs-spoke at multiple scales, fractal nesting, failure-
+and-revert), and let the results section reveal the level count and
+boundaries. The level names should become visible as the data is
+analyzed, not be asserted in advance.
+
+**Why this matters:** naming the levels commits us to a specific
+taxonomy that may be wrong. Biology rarely respects the categorical
+boundaries humans propose. If we say "chromatin is level 4" and it
+turns out the fractal has a different shape — maybe chromatin lives at
+the boundary between two orders, maybe it's distributed across orders,
+maybe it is its own thing we have not named yet — we will be forced to
+retrofit. If we instead say "the analysis will show how many levels
+the cell has and where the boundaries lie," the paper stays honest and
+the test is the oracle.
+
+**Later, maybe.** We might be able to name the levels eventually, once
+the data has shown us the structure and we have enough evidence to
+claim that the names track something real. But we do not need to
+presume anything now, and presuming now would be a cost we do not have
+to pay. The stance is: no pre-naming, no imposed taxonomy, no
+hypothesized count. Let the analysis be the oracle. If the data earns
+a naming, we name it. If the data refuses a naming, we do not.
+
+This rule also prevents us from mistaking a mechanism for a category.
+Encapsulation is a mechanism. "Channels" is a category we happened to
+inherit from cancer biology. The mechanism is real; the category is a
+convenience. The paper should argue for the mechanism and let the
+categories be whatever the data produces.
 
 ### Errors at any level — recursion is the cause, hub-vs-spoke is the observable consequence
 
