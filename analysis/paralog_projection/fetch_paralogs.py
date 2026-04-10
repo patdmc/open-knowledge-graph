@@ -55,7 +55,12 @@ BIOMART_QUERY = """<?xml version="1.0" encoding="UTF-8"?>
 def fetch(mart_host: str, out_path: Path) -> int:
     url = f"{mart_host.rstrip('/')}/biomart/martservice"
     data = urllib.parse.urlencode({"query": BIOMART_QUERY}).encode("utf-8")
-    req = urllib.request.Request(url, data=data)
+    # Some Ensembl mirrors (e.g. useast) 403 the Python-urllib default UA.
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={"User-Agent": "paralog-projection/0.1 (+urllib)"},
+    )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     rows = 0
     with urllib.request.urlopen(req, timeout=600) as resp, out_path.open("wb") as fh:

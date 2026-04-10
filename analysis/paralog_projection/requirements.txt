@@ -10,7 +10,7 @@ scipy>=1.10
 
 # Hi-C I/O
 cooler>=0.9
-hicstraw>=1.3
+hic-straw>=1.3
 
 # Modeling and figures
 scikit-learn>=1.3
