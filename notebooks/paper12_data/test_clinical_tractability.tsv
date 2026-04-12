@@ -1,0 +1,280 @@
+gene	ensembl_id	found	drug_count	sm_flag_count	sm_approved_drug	sm_advanced_clinical	sm_phase1_clinical	sm_high_pocket	sm_med_pocket	sm_structure_ligand	sm_druggable_family	ab_approved_drug	ab_advanced_clinical	class	channel
+AKT1	ENSG00000142208	True	15	True	False	True	False	True	False	True	True	False	False	channel	PI3K_Growth
+AKT2	ENSG00000105221	True	13	True	False	True	False	True	False	True	True	False	False	channel	PI3K_Growth
+AKT3	ENSG00000117020	True	13	True	False	True	False	False	False	False	True	False	False	channel	PI3K_Growth
+ANKRD11	ENSG00000167522	True	0	False	False	False	False	False	False	False	False	False	False	channel	ChromatinRemodel
+APC	ENSG00000134982	True	0	True	False	False	False	False	False	True	False	False	False	channel	TissueArchitecture
+AR	ENSG00000169083	True	39	True	True	False	False	True	False	True	True	False	False	channel	Endocrine
+ARID1A	ENSG00000117713	True	0	False	False	False	False	False	False	False	False	False	False	channel	ChromatinRemodel
+ARID1B	ENSG00000049618	True	0	False	False	False	False	False	False	False	False	False	False	channel	ChromatinRemodel
+ARID2	ENSG00000189079	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+ATM	ENSG00000149311	True	0	True	False	False	False	False	False	True	True	False	False	channel	DDR
+ATR	ENSG00000175054	True	4	True	False	True	False	False	False	False	True	False	False	channel	DDR
+ATRX	ENSG00000085224	True	0	False	False	False	False	False	False	False	False	False	False	channel	DNAMethylation
+AXIN1	ENSG00000103126	True	0	True	False	False	False	False	False	True	False	False	False	channel	TissueArchitecture
+AXIN2	ENSG00000168646	True	0	True	False	False	False	False	False	False	True	False	False	channel	TissueArchitecture
+B2M	ENSG00000166710	True	0	True	False	False	False	True	False	True	False	False	False	channel	Immune
+BAP1	ENSG00000163930	True	0	False	False	False	False	False	False	False	False	False	False	channel	DDR
+BARD1	ENSG00000138376	True	0	True	False	False	False	False	True	False	False	False	False	channel	DDR
+BCOR	ENSG00000183337	True	0	True	False	False	False	False	False	False	False	False	False	channel	ChromatinRemodel
+BRAF	ENSG00000157764	True	18	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+BRCA1	ENSG00000012048	True	0	True	False	False	False	False	False	False	True	False	False	channel	DDR
+BRCA2	ENSG00000139618	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+CCND1	ENSG00000110092	True	2	True	False	True	False	False	False	False	True	False	False	channel	CellCycle
+CCNE1	ENSG00000105173	True	0	True	False	False	False	False	False	True	True	False	False	channel	CellCycle
+CD274	ENSG00000120217	True	13	True	False	False	False	False	True	True	False	True	False	channel	Immune
+CDH1	ENSG00000039068	True	0	True	False	False	False	False	False	True	False	False	False	channel	TissueArchitecture
+CDH2	ENSG00000170558	True	0	False	False	False	False	False	False	False	False	False	False	channel	TissueArchitecture
+CDK4	ENSG00000135446	True	18	True	True	False	False	True	False	True	True	False	False	channel	CellCycle
+CDK6	ENSG00000105810	True	12	True	True	False	False	True	False	True	True	False	False	channel	CellCycle
+CDKN1A	ENSG00000124762	True	0	True	False	False	False	False	False	False	True	False	False	channel	CellCycle
+CDKN1B	ENSG00000111276	True	0	True	False	False	False	False	False	True	False	False	False	channel	CellCycle
+CDKN2A	ENSG00000147889	True	0	False	False	False	False	False	False	False	False	False	False	channel	CellCycle
+CDKN2B	ENSG00000147883	True	0	False	False	False	False	False	False	False	False	False	False	channel	CellCycle
+CHEK1	ENSG00000149554	True	9	True	False	True	False	True	False	True	True	False	False	channel	DDR
+CHEK2	ENSG00000183765	True	2	True	False	True	False	True	False	True	True	False	False	channel	DDR
+CREBBP	ENSG00000005339	True	1	True	False	False	False	False	True	True	True	False	False	channel	ChromatinRemodel
+CTLA4	ENSG00000163599	True	6	True	False	False	False	False	False	True	False	True	False	channel	Immune
+CTNNB1	ENSG00000168036	True	1	True	False	False	False	False	False	True	True	False	False	channel	TissueArchitecture
+DAXX	ENSG00000204209	True	0	True	False	False	False	False	False	True	False	False	False	channel	DNAMethylation
+DNMT3A	ENSG00000119772	True	2	True	True	False	False	False	False	True	True	False	False	channel	DNAMethylation
+DNMT3B	ENSG00000088305	True	0	True	False	False	False	False	False	True	True	False	False	channel	DNAMethylation
+EGFR	ENSG00000146648	True	79	True	True	False	False	True	False	True	True	True	False	channel	PI3K_Growth
+EP300	ENSG00000100393	True	0	True	False	False	False	True	False	True	True	False	False	channel	ChromatinRemodel
+ERBB2	ENSG00000141736	True	47	True	True	False	False	True	False	True	True	True	False	channel	PI3K_Growth
+ERBB3	ENSG00000065361	True	17	True	True	False	False	True	False	True	True	False	True	channel	PI3K_Growth
+ESR1	ENSG00000091831	True	51	True	True	False	False	True	False	True	True	False	False	channel	Endocrine
+ESR2	ENSG00000140009	True	34	True	True	False	False	True	False	True	True	False	False	channel	Endocrine
+FANCA	ENSG00000187741	True	0	False	False	False	False	False	False	False	False	False	False	channel	DDR
+FANCC	ENSG00000158169	True	0	False	False	False	False	False	False	False	False	False	False	channel	DDR
+FANCD2	ENSG00000144554	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+FBXW7	ENSG00000109670	True	0	True	False	False	False	False	True	True	False	False	False	channel	TissueArchitecture
+FGFR1	ENSG00000077782	True	26	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+FGFR2	ENSG00000066468	True	27	True	True	False	False	True	False	True	True	False	True	channel	PI3K_Growth
+FGFR3	ENSG00000068078	True	25	True	True	False	False	False	False	True	True	False	False	channel	PI3K_Growth
+FOXA1	ENSG00000129514	True	0	False	False	False	False	False	False	False	False	False	False	channel	Endocrine
+GATA3	ENSG00000107485	True	0	False	False	False	False	False	False	False	False	False	False	channel	Endocrine
+GJA1	ENSG00000152661	True	0	True	False	False	False	False	False	True	False	False	False	channel	TissueArchitecture
+GJB2	ENSG00000165474	True	0	True	False	False	False	False	True	True	False	False	False	channel	TissueArchitecture
+H3C7	ENSG00000277775	True	0	False	False	False	False	False	False	False	False	False	False	channel	ChromatinRemodel
+HLA-A	ENSG00000206503	True	0	True	False	False	False	False	False	True	True	False	False	channel	Immune
+HLA-B	ENSG00000234745	True	0	True	False	False	False	False	False	True	False	False	False	channel	Immune
+HLA-C	ENSG00000204525	True	0	False	False	False	False	False	False	False	False	False	False	channel	Immune
+HRAS	ENSG00000174775	True	1	True	False	True	False	True	False	True	True	False	False	channel	PI3K_Growth
+IDH1	ENSG00000138413	True	8	True	True	False	False	True	False	True	False	False	False	channel	DNAMethylation
+IDH2	ENSG00000182054	True	4	True	True	False	False	False	False	True	False	False	False	channel	DNAMethylation
+IGF1R	ENSG00000140443	True	20	True	True	False	False	True	False	True	True	True	False	channel	PI3K_Growth
+JAK1	ENSG00000162434	True	25	True	True	False	False	False	False	True	True	False	False	channel	Immune
+JAK2	ENSG00000096968	True	31	True	True	False	False	True	False	True	True	False	False	channel	Immune
+KDM6A	ENSG00000147050	True	0	True	False	False	False	False	True	True	False	False	False	channel	ChromatinRemodel
+KMT2A	ENSG00000118058	True	2	True	False	False	True	False	False	True	True	False	False	channel	ChromatinRemodel
+KMT2B	ENSG00000272333	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+KMT2C	ENSG00000055609	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+KMT2D	ENSG00000167548	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+KRAS	ENSG00000133703	True	3	True	True	False	False	False	False	True	False	False	False	channel	PI3K_Growth
+MAP2K1	ENSG00000169032	True	19	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+MAP2K2	ENSG00000126934	True	18	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+MAP3K1	ENSG00000095015	True	1	True	False	True	False	False	False	False	True	False	False	channel	PI3K_Growth
+MAP3K13	ENSG00000073803	True	1	True	False	True	False	False	False	False	True	False	False	channel	PI3K_Growth
+MDM2	ENSG00000135679	True	4	True	False	True	False	True	False	True	True	False	False	channel	CellCycle
+MDM4	ENSG00000198625	True	0	True	False	False	False	False	False	True	False	False	False	channel	CellCycle
+MET	ENSG00000105976	True	36	True	True	False	False	True	False	True	True	True	False	channel	PI3K_Growth
+MLH1	ENSG00000076242	True	0	True	False	False	False	False	True	True	False	False	False	channel	DDR
+MSH2	ENSG00000095002	True	0	True	False	False	False	True	False	True	False	False	False	channel	DDR
+MSH6	ENSG00000116062	True	0	True	False	False	False	True	False	True	False	False	False	channel	DDR
+MTOR	ENSG00000198793	True	26	True	True	False	False	False	False	True	True	False	False	channel	PI3K_Growth
+MYC	ENSG00000136997	True	0	True	False	False	False	False	False	True	False	False	False	channel	CellCycle
+MYCN	ENSG00000134323	True	0	True	False	False	False	False	False	True	False	False	False	channel	CellCycle
+NF1	ENSG00000196712	True	0	True	False	False	False	True	False	True	False	False	False	channel	PI3K_Growth
+NF2	ENSG00000186575	True	0	True	False	False	False	True	False	True	False	False	False	channel	PI3K_Growth
+NOTCH1	ENSG00000148400	True	1	True	False	False	False	False	True	True	True	False	True	channel	TissueArchitecture
+NOTCH2	ENSG00000134250	True	1	True	False	False	False	False	True	False	False	False	True	channel	TissueArchitecture
+NOTCH3	ENSG00000074181	True	1	True	False	False	False	False	False	False	False	False	True	channel	TissueArchitecture
+NOTCH4	ENSG00000204301	True	0	True	False	False	False	False	False	True	False	False	False	channel	TissueArchitecture
+NRAS	ENSG00000213281	True	1	True	False	True	False	False	False	True	False	False	False	channel	PI3K_Growth
+NSD1	ENSG00000165671	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+PALB2	ENSG00000083093	True	0	True	False	False	False	True	False	False	False	False	False	channel	DDR
+PDCD1LG2	ENSG00000197646	True	1	False	False	False	False	False	False	False	False	False	False	channel	Immune
+PGR	ENSG00000082175	True	32	True	True	False	False	True	False	True	True	False	False	channel	Endocrine
+PIK3CA	ENSG00000121879	True	32	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+PIK3R1	ENSG00000145675	True	24	True	False	True	False	False	True	True	True	False	False	channel	PI3K_Growth
+PMS2	ENSG00000122512	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+POLD1	ENSG00000062822	True	7	True	True	False	False	False	False	True	True	False	False	channel	DDR
+POLE	ENSG00000177084	True	7	True	True	False	False	False	False	True	True	False	False	channel	DDR
+PTEN	ENSG00000171862	True	0	True	False	False	False	False	False	True	False	False	False	channel	PI3K_Growth
+RAD51B	ENSG00000182185	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+RAD51C	ENSG00000108384	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+RAD51D	ENSG00000185379	True	0	True	False	False	False	False	False	True	False	False	False	channel	DDR
+RAF1	ENSG00000132155	True	9	True	True	False	False	True	False	True	True	False	False	channel	PI3K_Growth
+RB1	ENSG00000139687	True	0	True	False	False	False	False	True	False	True	False	False	channel	CellCycle
+SETD2	ENSG00000181555	True	0	True	False	False	False	False	False	True	False	False	False	channel	ChromatinRemodel
+SMAD2	ENSG00000175387	True	0	True	False	False	False	False	True	False	False	False	False	channel	TissueArchitecture
+SMAD3	ENSG00000166949	True	0	True	False	False	False	False	True	False	True	False	False	channel	TissueArchitecture
+SMAD4	ENSG00000141646	True	0	True	False	False	False	True	False	True	False	False	False	channel	TissueArchitecture
+SMARCA4	ENSG00000127616	True	0	True	False	False	False	False	True	True	False	False	False	channel	ChromatinRemodel
+STAT1	ENSG00000115415	True	0	True	False	False	False	False	False	False	True	False	False	channel	Immune
+STK11	ENSG00000118046	True	0	True	False	False	False	False	True	True	True	False	False	channel	PI3K_Growth
+TET1	ENSG00000138336	True	0	True	False	False	False	False	False	False	False	False	False	channel	DNAMethylation
+TET2	ENSG00000168769	True	0	True	False	False	False	False	False	True	False	False	False	channel	DNAMethylation
+TGFBR1	ENSG00000106799	True	2	True	False	True	False	True	False	True	True	False	False	channel	TissueArchitecture
+TGFBR2	ENSG00000163513	True	0	True	False	False	False	False	False	True	True	False	False	channel	TissueArchitecture
+TP53	ENSG00000141510	True	8	True	False	True	False	False	True	True	True	False	False	channel	CellCycle
+TSC1	ENSG00000165699	True	0	False	False	False	False	False	False	False	False	False	False	channel	PI3K_Growth
+TSC2	ENSG00000103197	True	0	False	False	False	False	False	False	False	False	False	False	channel	PI3K_Growth
+ACTB	ENSG00000075624	True	0	True	False	False	False	False	False	True	False	False	False	implementation	
+DMC1	ENSG00000100206	True	0	True	False	False	False	True	False	True	False	False	False	implementation	
+EEF1A1	ENSG00000156508	True	0	True	False	False	False	False	False	True	False	False	False	implementation	
+EEF1A2	ENSG00000101210	True	1	True	False	True	False	False	False	False	False	False	False	implementation	
+FEN1	ENSG00000168496	True	0	True	False	False	False	True	False	True	True	False	False	implementation	
+GAPDH	ENSG00000111640	True	0	True	False	False	False	True	False	True	True	False	False	implementation	
+HK1	ENSG00000156515	True	0	True	False	False	False	True	False	True	False	False	False	implementation	
+HK2	ENSG00000159399	True	0	True	False	False	False	True	False	True	False	False	False	implementation	
+LARS	ENSG00000133706	True	0	True	False	False	False	False	True	True	True	False	False	implementation	
+LDHA	ENSG00000134333	True	1	True	False	False	False	True	False	True	True	False	False	implementation	
+LIG1	ENSG00000105486	True	0	True	False	False	False	False	False	True	True	False	False	implementation	
+LIG3	ENSG00000005156	True	0	True	False	False	False	True	False	True	False	False	False	implementation	
+LIG4	ENSG00000174405	True	0	True	False	False	False	False	False	True	False	False	False	implementation	
+MARS1	ENSG00000166986	True	0	True	False	False	False	False	False	True	True	False	False	implementation	
+PKM	ENSG00000067225	True	0	True	False	False	False	True	False	True	True	False	False	implementation	
+POLA1	ENSG00000101868	True	7	True	True	False	False	False	False	True	True	False	False	implementation	
+POLB	ENSG00000070501	True	0	True	False	False	False	False	True	True	True	False	False	implementation	
+POLD1	ENSG00000062822	True	7	True	True	False	False	False	False	True	True	False	False	implementation	
+POLE	ENSG00000177084	True	7	True	True	False	False	False	False	True	True	False	False	implementation	
+POLG	ENSG00000140521	True	0	True	False	False	False	False	True	True	False	False	False	implementation	
+POLH	ENSG00000170734	True	0	True	False	False	False	False	False	True	False	False	False	implementation	
+POLK	ENSG00000122008	True	0	True	False	False	False	False	False	True	False	False	False	implementation	
+RAD51	ENSG00000051180	True	0	True	False	False	False	False	False	True	True	False	False	implementation	
+RPL11	ENSG00000142676	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+RPL22	ENSG00000116251	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+RPL23	ENSG00000125691	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+RPL7	ENSG00000147604	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+RPS3	ENSG00000149273	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+RPS6	ENSG00000137154	True	6	True	True	False	False	False	False	True	False	False	False	implementation	
+TOP1	ENSG00000198900	True	26	True	True	False	False	True	False	True	True	False	False	implementation	
+TOP2A	ENSG00000131747	True	26	True	True	False	False	True	False	True	True	False	True	implementation	
+TOP2B	ENSG00000077097	True	11	True	True	False	False	True	False	True	True	False	False	implementation	
+TOP3A	ENSG00000177302	True	0	False	False	False	False	False	False	False	False	False	False	implementation	
+TOP3B	ENSG00000100038	True	0	False	False	False	False	False	False	False	False	False	False	implementation	
+TUBA1A	ENSG00000167552	True	86	True	True	False	False	False	False	True	True	False	False	implementation	
+TUBB	ENSG00000196230	True	87	True	True	False	False	False	False	True	True	False	False	implementation	
+VARS	ENSG00000204394	True	0	False	False	False	False	False	False	False	False	False	False	implementation	
+AATF	ENSG00000275700	True	0	True	False	False	False	False	False	True	False	False	False	background	
+ADGRB2	ENSG00000121753	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ANXA4	ENSG00000196975	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ARHGAP39	ENSG00000147799	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ATF5	ENSG00000169136	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ATP12A	ENSG00000075673	True	0	True	False	False	False	False	False	False	True	False	False	background	
+ATP13A4	ENSG00000127249	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ATP2B3	ENSG00000067842	True	0	True	False	False	False	False	False	False	True	False	False	background	
+BAIAP3	ENSG00000007516	True	0	False	False	False	False	False	False	False	False	False	False	background	
+BCDIN3D	ENSG00000186666	True	0	True	False	False	False	False	False	True	False	False	False	background	
+C1QC	ENSG00000159189	True	0	True	False	False	False	False	False	True	False	False	False	background	
+C6orf201	ENSG00000293447	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CACNB1	ENSG00000067191	True	10	True	True	False	False	False	False	True	True	False	False	background	
+CACNG2	ENSG00000166862	True	10	True	True	False	False	False	False	True	True	False	False	background	
+CASP5	ENSG00000137757	True	1	True	False	True	False	False	False	False	False	False	False	background	
+CDH17	ENSG00000079112	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CDKN2AIPNL	ENSG00000237190	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CETP	ENSG00000087237	True	6	True	False	True	False	True	False	True	True	False	False	background	
+CGB8	ENSG00000213030	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CHRNA5	ENSG00000169684	True	1	True	False	True	False	False	False	False	True	False	False	background	
+CHST10	ENSG00000115526	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CHST11	ENSG00000171310	True	0	False	False	False	False	False	False	False	False	False	False	background	
+CTXND2	ENSG00000283324	True	0	False	False	False	False	False	False	False	False	False	False	background	
+DBN1	ENSG00000113758	True	0	False	False	False	False	False	False	False	False	False	False	background	
+DCAF10	ENSG00000122741	True	0	False	False	False	False	False	False	False	False	False	False	background	
+DNAJB7	ENSG00000172404	True	0	False	False	False	False	False	False	False	False	False	False	background	
+DPH7	ENSG00000148399	True	0	False	False	False	False	False	False	False	False	False	False	background	
+DSTYK	ENSG00000133059	True	0	True	False	False	False	False	False	False	True	False	False	background	
+E2F6	ENSG00000169016	True	1	False	False	False	False	False	False	False	False	False	False	background	
+EAF1	ENSG00000144597	True	0	False	False	False	False	False	False	False	False	False	False	background	
+EIF1AD	ENSG00000175376	True	0	True	False	False	False	False	False	True	False	False	False	background	
+ERP29	ENSG00000089248	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ESCO2	ENSG00000171320	True	0	False	False	False	False	False	False	False	False	False	False	background	
+FBXO11	ENSG00000138081	True	0	False	False	False	False	False	False	False	False	False	False	background	
+FOS	ENSG00000170345	True	0	True	False	False	False	False	False	False	True	False	False	background	
+FUCA2	ENSG00000001036	True	0	True	False	False	False	False	False	False	True	False	False	background	
+FUNDC1	ENSG00000069509	True	0	False	False	False	False	False	False	False	False	False	False	background	
+FUOM	ENSG00000148803	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GALNT16	ENSG00000100626	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GFRA2	ENSG00000168546	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GGA2	ENSG00000103365	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GOLGA8S	ENSG00000261739	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GPHB5	ENSG00000179600	True	0	False	False	False	False	False	False	False	False	False	False	background	
+GSTM3	ENSG00000134202	True	0	True	False	False	False	False	True	False	False	False	False	background	
+GTSE1	ENSG00000075218	True	0	False	False	False	False	False	False	False	False	False	False	background	
+H2AC16	ENSG00000276903	True	0	False	False	False	False	False	False	False	False	False	False	background	
+HERC6	ENSG00000138642	True	0	False	False	False	False	False	False	False	False	False	False	background	
+HNRNPH3	ENSG00000096746	True	0	False	False	False	False	False	False	False	False	False	False	background	
+HSD17B10	ENSG00000072506	True	0	True	False	False	False	True	False	True	True	False	False	background	
+HSF5	ENSG00000176160	True	0	False	False	False	False	False	False	False	False	False	False	background	
+HTR3C	ENSG00000178084	True	14	True	True	False	False	False	False	False	True	False	False	background	
+IL11RA	ENSG00000137070	True	1	False	False	False	False	False	False	False	False	False	False	background	
+IL15RA	ENSG00000134470	True	1	False	False	False	False	False	False	False	False	False	False	background	
+ITGB7	ENSG00000139626	True	5	True	False	True	False	False	False	True	True	True	False	background	
+KHDC4	ENSG00000132680	True	0	False	False	False	False	False	False	False	False	False	False	background	
+KIAA0586	ENSG00000100578	True	0	False	False	False	False	False	False	False	False	False	False	background	
+KNG1	ENSG00000113889	True	0	True	False	False	False	False	False	True	False	False	False	background	
+LRBA	ENSG00000198589	True	0	True	False	False	False	True	False	False	False	False	False	background	
+LRCH4	ENSG00000077454	True	0	False	False	False	False	False	False	False	False	False	False	background	
+LRRC37A	ENSG00000176681	True	0	False	False	False	False	False	False	False	False	False	False	background	
+LYRM4	ENSG00000214113	True	0	True	False	False	False	False	False	True	False	False	False	background	
+MAJIN	ENSG00000168070	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MARCO	ENSG00000019169	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MEIOC	ENSG00000180336	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MEST	ENSG00000106484	True	0	False	False	False	False	False	False	False	False	False	False	background	
+METTL26	ENSG00000130731	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MIER3	ENSG00000155545	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MYOM2	ENSG00000036448	True	0	False	False	False	False	False	False	False	False	False	False	background	
+MYSM1	ENSG00000162601	True	0	False	False	False	False	False	False	False	False	False	False	background	
+NAGPA	ENSG00000103174	True	0	False	False	False	False	False	False	False	False	False	False	background	
+NPBWR2	ENSG00000125522	True	0	True	False	False	False	False	False	False	True	False	False	background	
+NR0B1	ENSG00000169297	True	0	True	False	False	False	False	False	True	True	False	False	background	
+OR2T6	ENSG00000198104	True	0	False	False	False	False	False	False	False	False	False	False	background	
+OR51D1	ENSG00000197428	True	0	False	False	False	False	False	False	False	False	False	False	background	
+OR7G3	ENSG00000170920	True	0	False	False	False	False	False	False	False	False	False	False	background	
+OR8B2	ENSG00000284680	True	0	False	False	False	False	False	False	False	False	False	False	background	
+P2RY12	ENSG00000169313	True	15	True	True	False	False	False	False	True	True	False	False	background	
+PDC	ENSG00000116703	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PDE6H	ENSG00000139053	True	2	True	True	False	False	False	False	False	True	False	False	background	
+PENK	ENSG00000181195	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PLA2G2C	ENSG00000187980	True	0	True	False	False	False	False	False	False	True	False	False	background	
+PLK2	ENSG00000145632	True	0	True	False	False	False	False	False	True	True	False	False	background	
+PPP1R32	ENSG00000162148	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PPP2R3C	ENSG00000092020	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PRDM9	ENSG00000164256	True	0	True	False	False	False	False	False	True	False	False	False	background	
+PRG3	ENSG00000156575	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PTF1A	ENSG00000168267	True	0	False	False	False	False	False	False	False	False	False	False	background	
+PTPRN2	ENSG00000155093	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RASSF3	ENSG00000153179	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RBFOX1	ENSG00000078328	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RDX	ENSG00000137710	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RFC1	ENSG00000035928	True	0	True	False	False	False	False	False	True	False	False	False	background	
+RHOB	ENSG00000143878	True	0	True	False	False	False	False	False	True	False	False	False	background	
+RIN2	ENSG00000132669	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RNF17	ENSG00000132972	True	0	False	False	False	False	False	False	False	False	False	False	background	
+RSRC2	ENSG00000111011	True	0	False	False	False	False	False	False	False	False	False	False	background	
+SCARB2	ENSG00000138760	True	0	True	False	False	False	False	False	True	False	False	False	background	
+SEPTIN9	ENSG00000184640	True	0	True	False	False	False	False	False	True	False	False	False	background	
+SERPINF1	ENSG00000132386	True	0	False	False	False	False	False	False	False	False	False	False	background	
+SESN2	ENSG00000130766	True	0	True	False	False	False	False	False	True	False	False	False	background	
+SLC18B1	ENSG00000146409	True	0	False	False	False	False	False	False	False	False	False	False	background	
+SLC38A8	ENSG00000166558	True	0	False	False	False	False	False	False	False	False	False	False	background	
+SOGA3	ENSG00000214338	True	0	False	False	False	False	False	False	False	False	False	False	background	
+SOX11	ENSG00000176887	True	0	False	False	False	False	False	False	False	False	False	False	background	
+STAMBPL1	ENSG00000138134	True	0	False	False	False	False	False	False	False	False	False	False	background	
+STMP1	ENSG00000243317	True	0	False	False	False	False	False	False	False	False	False	False	background	
+THOC3	ENSG00000051596	True	0	False	False	False	False	False	False	False	False	False	False	background	
+TJP3	ENSG00000105289	True	0	False	False	False	False	False	False	False	False	False	False	background	
+TMEM52	ENSG00000178821	True	0	False	False	False	False	False	False	False	False	False	False	background	
+TRIM63	ENSG00000158022	True	0	False	False	False	False	False	False	False	False	False	False	background	
+TSN	ENSG00000211460	True	0	True	False	False	False	False	True	False	False	False	False	background	
+UBE2V2	ENSG00000169139	True	0	True	False	False	False	False	False	True	False	False	False	background	
+USP10	ENSG00000103194	True	0	False	False	False	False	False	False	False	False	False	False	background	
+USP17L8	ENSG00000237038	True	0	False	False	False	False	False	False	False	False	False	False	background	
+VPS8	ENSG00000156931	True	0	False	False	False	False	False	False	False	False	False	False	background	
+WDR4	ENSG00000160193	True	0	True	False	False	False	False	False	True	False	False	False	background	
+YAF2	ENSG00000015153	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ZFP28	ENSG00000196867	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ZNF658	ENSG00000274349	True	0	False	False	False	False	False	False	False	False	False	False	background	
+ZNF90	ENSG00000213988	True	0	False	False	False	False	False	False	False	False	False	False	background	
