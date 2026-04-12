@@ -1,0 +1,489 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\hypersetup{hidelinks}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{All Software Is a Graph\\
+\large A Foundational Observation for the McCarthy 2026 Series}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\textit{Paper 0 of the McCarthy 2026 series. The empirical entry point that the rest of the series formalizes and tests.}
+\end{center}
+
+\begin{abstract}
+This paper makes one observation, derives one recursive corollary, and notes one information-theoretic consequence. None of the three requires theoretical machinery to defend. The reader can verify the entire paper from any software system they have built or worked on.
+
+\textbf{The observation}: every actual instance of software is a graph. Functions calling functions, modules importing modules, types referencing types, services communicating with services, tables joined by foreign keys, deployments staged by dependencies, documents linked to documents---every software system exhibits directed adjacency with typed edges across multiple simultaneous substrates. This is not a definitional move and not a metaphor. It is a description of every system we build.
+
+\textbf{The recursive corollary}: at every level of complexity, the factorization that works best is to add another graph at a higher level of abstraction that organizes the previous one. Code too tangled---add a module dependency graph. Modules too tangled---add a service graph. Services too tangled---add a service mesh with routing. Dependencies too tangled---add a package manager with versioned constraints. The pattern never bottoms out, because each new graph layer eventually develops its own complexity that requires another graph above it.
+
+\textbf{The lossiness consequence}: any non-graph abstraction over software is strictly less information-dense than the underlying graph, because it must carry translation overhead from the graph form to the abstraction's form. The abstraction is sometimes worth the lossiness---for human comprehension, for specific queries, for legal documents, for marketing---but the lossiness is real and the underlying graph is the maximum-density form. Every long-lived software system eventually develops graph-shaped tooling (call graphs, dependency analyzers, schema diagrams, service meshes, knowledge bases) because the human-readable abstractions lose information that the engineers need to recover, and the only way to recover it without lossiness is to look at the actual graph.
+
+This paper is the foundational observation on which the rest of the McCarthy 2026 series rests. Papers 1--4 derive the structural reasons why software must take this form, from bounded context plus survival pressure plus cost minimization. Papers 5--12 test whether the same structural pattern shows up in other substrates, with cancer biology, genome architecture, and the recursion executor stack as the empirical extensions. The framework as a whole is one structural claim with substrate-specific instantiations across software, biology, and AI architecture. \textbf{This paper is the entry point because the observation it makes can be verified by any engineer with production experience, and the rest of the framework follows naturally as the explanation for what they have already seen.}
+\end{abstract}
+
+% ------------------------------------------------------------------
+\section{The observation}
+\label{sec:observation}
+% ------------------------------------------------------------------
+
+Every actual piece of software exhibits directed adjacency with typed edges, simultaneously, across multiple substrates. Pick any system you have ever built or worked on, and the following graphs are present in it whether or not anyone has named them:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Call graph.} Functions call functions. The set of caller-callee pairs is a directed graph with typed edges (the function signature is the type).
+\item \textbf{Import graph.} Modules import modules. Files include files. Packages depend on packages. All directed, all typed.
+\item \textbf{Type graph.} Types reference types. Composite types contain primitive types. Interfaces specify methods on types. Type parameters constrain type arguments. All directed, all typed.
+\item \textbf{Dataflow graph.} Data moves from sources to sinks through transformations. Pipeline stages depend on upstream stages. The flow is directed and the data shape at each edge is the type.
+\item \textbf{Service graph.} Services call services. Microservices have explicit API contracts between them. Even monoliths have internal service-like boundaries (controllers calling models, view layers calling business logic).
+\item \textbf{Process / IPC graph.} Processes communicate via pipes, sockets, message queues, shared memory, signals. Each communication channel is a typed directed edge.
+\item \textbf{Schema graph.} Database tables are joined by foreign keys. Documents reference other documents. The relational structure of any data store is a graph with typed edges (the foreign key columns are the types).
+\item \textbf{Build graph.} Build steps depend on outputs of earlier build steps. Make, Bazel, Nix, every build system is explicitly a directed acyclic graph with typed inputs and outputs.
+\item \textbf{Deployment graph.} Deployment stages depend on earlier stages. Canary deploys depend on smoke tests passing. Production deploys depend on staging deploys passing. The whole release pipeline is a graph.
+\item \textbf{Documentation graph.} Documentation links to other documentation. Wiki pages reference each other. README files link to API docs link to changelog. The link structure is a graph.
+\item \textbf{Org graph.} Engineers report to managers. Teams collaborate with other teams. Code review requirements specify which engineers can approve which PRs. The organizational structure that produces the software is itself a graph, and it shapes the software.
+\end{itemize}
+
+\textbf{You cannot construct software that lacks all of these graphs.} Even a single shell script has a call graph (every command it invokes), an IPC graph (every program it pipes through), a dataflow graph (every variable it sets and reads), and a dependency graph (every binary on \texttt{PATH} it depends on). The script might be small enough that nobody has bothered to write the graphs down, but the graphs are present in the structure of the script itself, and any tool that analyzes the script (a linter, a security scanner, a documentation generator) must reconstruct the graphs to do its job.
+
+\textbf{Software is a graph in the same way that water is wet.} The graph property is not an architectural choice you can opt out of; it is intrinsic to what software is. Every architectural choice you do make is a choice about which graph to make explicit, which to leave implicit, and how the graphs at different levels relate to each other. The graphs are always there.
+
+% ------------------------------------------------------------------
+\section{Why this is not a tautology}
+\label{sec:not-tautology}
+% ------------------------------------------------------------------
+
+A reader could object that ``everything connected is a graph'' and that this paper is therefore making a vacuous claim. The objection is wrong, and it is wrong for two specific reasons.
+
+\textbf{First}, the claim is empirical, not definitional. A definitional claim would assert that we are calling these structures ``graphs'' by convention. The empirical claim is that every actual software system exhibits \textbf{directed adjacency with typed edges across multiple simultaneous substrates}, and that this property is observable from the source code, the build artifacts, the running processes, the database schemas, and the deployment configurations. The property is verifiable. Anyone who doubts the claim can point at a software system that lacks one of the graphs above, and we can test whether the claim survives. (It survives.)
+
+\textbf{Second}, the typed-edge requirement is non-trivial. An untyped graph---one where the edges have no semantic content beyond ``is connected to''---is the kind of structure a hostile reviewer is right to call definitional. But the graphs in software have edges with rich type structure. The call graph's edges carry function signatures. The schema graph's edges carry foreign key columns. The dependency graph's edges carry version constraints. The deployment graph's edges carry conditional logic. \textbf{The information content of the edges is doing real work in every graph this paper claims is present.} Strip the type information out of the edges and the graph becomes useless for the purposes the engineers actually use it for. The claim is therefore not ``software is connected'' but ``software exhibits directed connectivity with substantive type information at every edge.'' That is empirical and falsifiable.
+
+The falsification test is also clean. To falsify Paper 0, produce a software system that lacks call graph structure, lacks data flow structure, lacks any kind of dependency between components, lacks any communication between processes, and lacks any organizational structure of relationships among its parts. \textbf{Such a system cannot be built}, because the absence of all these properties would mean the system has no internal structure whatsoever, which means it cannot do anything. A program that takes an input and produces an output already has at minimum a dataflow graph from input to output, and any non-trivial program has all the others.
+
+% ------------------------------------------------------------------
+\section{The recursive corollary: add another graph}
+\label{sec:recursive}
+% ------------------------------------------------------------------
+
+Once the observation is granted, the operational corollary is forced. \textbf{At every level of software complexity, the factorization that works best is to add another graph at a higher level of abstraction that organizes the previous one.} This is not a recommendation; it is a description of what every successful engineering organization actually does.
+
+The pattern is recursive. When the existing graph becomes too complex to navigate, the solution is never to shrink the graph or to flatten it. The solution is always to add a new graph layer above it that organizes the previous layer's complexity into a smaller number of meaningful units. Each new layer eventually develops its own complexity that requires another layer above it. The recursion never bottoms out.
+
+The pattern, illustrated by the engineering progressions every working engineer has watched happen:
+
+\begin{longtable}{|p{0.30\textwidth}|p{0.30\textwidth}|p{0.32\textwidth}|}
+\hline
+\textbf{Initial state} & \textbf{Problem at scale} & \textbf{Factorization that works} \\
+\hline
+\endhead
+Single file with all the code & Too large to navigate & Split into modules with explicit imports---adds the module dependency graph \\
+\hline
+Many modules with implicit cross-module dependencies & Refactoring impossible & Add explicit interfaces and bounded contexts---adds the interface graph on top of the module graph \\
+\hline
+Monolithic application with internal modules & Deploy is slow and risky & Split into services with explicit API contracts---adds the service graph \\
+\hline
+Many services calling each other directly & Service-to-service traffic is unmanageable & Add a service mesh with routing---adds the service mesh graph \\
+\hline
+Many services with implicit version dependencies & Compatibility breaks at deploy time & Add a package manager with semver constraints---adds the version constraint graph \\
+\hline
+Build steps run sequentially and slowly & CI takes hours & Add a build dependency graph with caching---adds the build graph \\
+\hline
+Deployments are risky and all-or-nothing & Failed deploys take down production & Add a deployment stage graph with progressive rollout---adds the deployment graph \\
+\hline
+Database is a single denormalized table & Updates produce inconsistencies & Normalize into a relational schema with foreign keys---adds the schema graph \\
+\hline
+Schema is too rigid for evolving requirements & Every API change requires schema migration & Add a federated graph layer (GraphQL, MCP)---adds the federation graph \\
+\hline
+API contracts couple producers and consumers tightly & Producer changes break consumers & Add a versioned contract layer with explicit deprecations---adds the contract graph \\
+\hline
+Engineering team is small and informal & Coordination overhead at scale & Add an explicit org chart with interface contracts between teams---adds the org graph \\
+\hline
+Engineering knowledge lives in people's heads & New hires take months to ramp up & Add a knowledge graph with provenance---adds the knowledge graph \\
+\hline
+\end{longtable}
+
+Every row of this table is \textbf{a real engineering progression that working engineers have watched happen} in their own organizations or in the broader industry. Every row has the same structure: \textbf{the previous graph became too complex, and the factorization that worked was to add another graph above it}. The new graph does not replace the previous one---the previous graph still exists and still does its work. The new graph organizes the previous one into a smaller number of higher-level units that the engineers can hold in working memory at one time.
+
+The recursion is the key feature. \textbf{No row of this table is the final answer.} Each new graph layer eventually develops its own complexity at scale, and the next factorization is always another graph above it. The progression continues indefinitely as the system grows. There is no architectural endpoint where the system stops needing additional graph layers; there are only intermediate equilibria where the current set of graph layers is sufficient for the current scale. When scale grows, another layer is added.
+
+This is the same pattern biology arrived at through evolution. \textbf{Cell $\to$ tissue $\to$ organ $\to$ organism $\to$ social group $\to$ ecosystem.} Each new biological level is another graph organizing the previous one. The transition from one level to the next is what biology calls a major evolutionary event---eukaryogenesis, multicellularity, vertebrate body plans, adaptive immunity, neural coordination, sociality. \textbf{Each major evolutionary event is biology adding another graph layer to handle complexity that the previous layer could not.} Software has independently arrived at the same recursive pattern through engineering practice.
+
+% ------------------------------------------------------------------
+\section{The lossiness consequence: graphs are the maximum-density form}
+\label{sec:lossiness}
+% ------------------------------------------------------------------
+
+The third part of Paper 0 is information-theoretic. \textbf{Any abstraction over software that is not a graph is strictly less information-dense than the underlying graph it abstracts from}, because the abstraction must carry translation overhead from the graph form to the abstraction's form.
+
+Consider the alternatives a working engineer routinely uses to communicate about software:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{English prose} (a README, a design doc, a postmortem narrative). Useful for human comprehension. Lossy. The prose cannot capture every directed adjacency in the system without becoming as long as the source code. The author is forced to summarize, which means dropping edges. The reader cannot reconstruct the original graph from the prose alone.
+\item \textbf{UML diagrams} (class diagrams, sequence diagrams, component diagrams). Useful for human comprehension. Lossy in a different way. UML can represent some of the graphs (the class graph, the sequence-of-calls graph), but it has to choose which graph to show on each diagram, and the diagrams cannot show all the graphs simultaneously. Each diagram is a single projection of the underlying multi-graph structure.
+\item \textbf{Architectural metaphors} (the system is a ``pipeline,'' the system is a ``factory,'' the system is a ``garden''). Useful for storytelling and onboarding. Severely lossy. The metaphor captures one or two structural features and ignores the rest. The metaphor is helpful for the listener's first ten minutes of understanding and then becomes misleading as soon as the listener tries to do anything specific with the system.
+\item \textbf{Hierarchical class structures} (deep inheritance, framework conventions, OOP design patterns). Useful for organizing code at small to medium scale. Lossy at large scale because the hierarchy hides the actual call graph and dataflow graph behind implicit method dispatch and instance state. Engineers debugging large OOP systems frequently end up reconstructing the actual call graph from logs or debuggers because the class hierarchy alone does not tell them what the program is actually doing.
+\item \textbf{Sequence diagrams} (a single trace through the system at one point in time). Useful for debugging a specific scenario. Lossy in that they capture one path through the call graph and ignore the rest. Engineers use sequence diagrams to communicate about specific scenarios, never to communicate about the system as a whole.
+\item \textbf{Tree views} (file system layouts, package hierarchies, JSON / YAML configuration). Useful for organizing static structure. Lossy in that trees cannot represent cycles or cross-references, both of which are common in real software graphs. The tree is a projection that drops edges that don't fit the parent-child constraint.
+\end{itemize}
+
+\textbf{Each of these abstractions is sometimes worth the lossiness it imposes}, because the human reader has bounded working memory and cannot directly absorb the underlying graph. The abstraction is a tool for getting some of the graph's information into the human's head at the cost of losing the rest. The trade is often correct, but it is a trade. The underlying graph remains the maximum-density representation of what the system actually is.
+
+\textbf{This is why every long-lived software system eventually develops graph-shaped tooling.} Call graph analyzers, dependency graph visualizers, schema diagram generators, service mesh dashboards, knowledge graphs with provenance---all of these are tools that exist because engineers eventually need to recover the information that the human-readable abstractions have dropped. The only way to recover the information without lossiness is to look at the actual graph, which means building tools that compute and display the graph directly. \textbf{The graph form is what the engineers eventually go back to whenever the abstractions fail.}
+
+The lossiness consequence has a sharp practical implication: \textbf{the maximum-density form of any software system is the graph itself}, and the abstractions over the graph are useful but strictly less informative. When you want to understand why a system works, you need the graph. When you want to build a system that works, you build it as a graph (whether or not you call it that). When you want to communicate about a system at scale, you eventually need graph-shaped tools, because the human-friendly abstractions cannot carry the full information density.
+
+% ------------------------------------------------------------------
+\section{The pattern in biology, the same pattern}
+\label{sec:biology}
+% ------------------------------------------------------------------
+
+The bigger framework in this series claims that the recursive add-another-graph pattern is not unique to software. It is the universal solution to bounded-context complexity at scale, and biology has independently arrived at the same pattern through evolution. The full argument is in the rest of the series, but a brief illustration belongs here because it makes the claim concrete.
+
+\textbf{DNA is a graph, not a sequence.} The linear sequence is the serialized projection of an underlying three-dimensional graph. Hi-C topology, TAD structure, enhancer-promoter loops, chromatin accessibility, replication timing---these are not artifacts of folding. They are the actual functional adjacency of the underlying graph. The 1D sequence is the storage projection; the 3D structure is the working graph.
+
+\textbf{Biological complexity is handled by adding graph layers, exactly as software is.} Each major evolutionary transition added a new graph layer organizing the previous one:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Eukaryogenesis}: nucleus, organelles, chromatin, cell-cycle checkpoints. Each is a new graph organizing what was previously flat prokaryotic regulation.
+\item \textbf{Multicellularity}: apoptosis, intercellular signaling, growth control. Each is a new graph organizing many cells into a coordinated whole.
+\item \textbf{Vertebrate body plan}: organ systems, neural-endocrine coordination. Each is a new graph organizing tissues into functional units.
+\item \textbf{Adaptive immunity}: somatic hypermutation, immune memory, antigen recognition. Each is a new graph storing a learned response to pathogens.
+\item \textbf{Cognition}: organism-level neural coordination, behavioral regulation, brain-as-control-layer. Each is a new graph organizing the organism's responses to the environment.
+\item \textbf{Sociality}: group-level coordination, communication, division of labor. Each is a new graph organizing many organisms into groups.
+\end{itemize}
+
+\textbf{Every transition is biology adding another graph layer to handle complexity that the previous layer could not.} Cancer is what happens when one of those bolted-on layers fails: the system reverts to the prior architecture, which was viable before the layer existed but is no longer viable in the current organism. (The full argument is in Papers 5--12 of this series.)
+
+The point of mentioning biology in Paper 0 is not to argue the cross-substrate claim here. The point is to note that \textbf{the recursive add-another-graph pattern is not specific to software}, and that the rest of the McCarthy 2026 series is the test of how far the pattern generalizes. Software is one substrate where the pattern can be verified by direct observation. Biology is another substrate where the pattern shows up under a different name (major evolutionary events as bolted-on escalation layers). AI architecture is a third substrate where the pattern is currently being rediscovered (RAG, MoE, structured retrieval, agentic decomposition). The framework's claim is that the pattern is universal under bounded context plus survival pressure plus cost minimization, and the rest of the series is the formalization and the cross-substrate tests.
+
+% ------------------------------------------------------------------
+\section{Best practice is best practice for a reason --- software speed-runs the convergence}
+\label{sec:speed-run}
+% ------------------------------------------------------------------
+
+Every working software engineer accepts the following statement without argument: \textbf{best practice is best practice for a reason}. Engineers do not believe in best practices because someone fashionable wrote them down. They believe in best practices because they have personally watched what happens when those practices are violated at scale, and they have personally watched the factorizations that worked when the previous architecture failed.
+
+Best practices in software engineering are not arbitrary fashion. They are \textbf{the residue of repeated encounters with structural constraints}. We define a new best practice when we hit a practical scaling limit, the previous architecture breaks, and someone figures out what factorization handles the next scale. The best practice that survives is the one that worked when everything else failed. The next time the same kind of problem appears at the same kind of scale, the surviving factorization is what gets reached for, and over time it becomes ``the way it is done.''
+
+We have been doing this for \textbf{eighty years}. The first programmable computers ran in the 1940s. Every decade since has produced new scaling limits and new factorizations to handle them:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{1950s--60s}: subroutines and structured programming, when monolithic spaghetti became unmaintainable
+\item \textbf{1970s}: relational normalization (Codd) and the C language ABI, when ad hoc data layouts and assembly procedures could not survive multi-author projects
+\item \textbf{1980s}: object-oriented programming and modular design, when procedural codebases got too large to track manually
+\item \textbf{1990s}: design patterns, refactoring discipline, version control, when teams hit the limits of single-author code
+\item \textbf{2000s}: agile, test-driven development, continuous integration, when waterfall projects collapsed under requirements drift
+\item \textbf{2010s}: microservices, bounded contexts, eventual consistency, infrastructure as code, when monoliths could not deploy fast enough at internet scale
+\item \textbf{2020s}: retrieval-augmented generation, mixture of experts, sparse attention, structured generation, agentic decomposition, when context windows could not absorb the knowledge volume LLMs were being asked to handle
+\end{itemize}
+
+\textbf{Each decade is one round of the same iterated experiment}: hit a scaling wall, break, figure out the factorization that handles the next scale, formalize it as best practice, hit the next wall, repeat. The current set of software engineering best practices is the cumulative residue of eighty years of this process. We have optimized intensively because we have been hitting walls continuously, and every wall is another round of selection on what factorizations survive.
+
+\textbf{The framework's claim is that this eighty-year history is a compressed evolutionary experiment.} Software is selected on much faster timescales than biology. A failed software architecture gets replaced in months or years. A failed biological architecture gets replaced over millions of years. Software has done in eighty years what biology has been doing for billions, and software has arrived at the same architectural solutions---graph structure, recursive add-another-graph factorization, escalation hierarchies, normalized shared state, bounded contexts with explicit interfaces, eventual consistency under partition, separation of compute from data, retrieval-augmented inference---\textbf{because the constraints are the same constraints}. Bounded context plus survival pressure plus cost minimization forces the same solutions whether the substrate is silicon or carbon.
+
+\textbf{This is the argument that hits every software engineer's core beliefs.} If you accept that best practice is best practice for a reason---and every engineer does, because every engineer has watched the alternative fail---then you must accept that life, which executes under bounded context plus survival pressure plus cost minimization just as software does, will have converged on the same best practices. The convergence is not optional. The convergence is what survives under those constraints. Biology has had billions of years to do the convergence and has done it many times over. Software has done it in eighty years and is still doing it. \textbf{The two histories are independent runs of the same iterated experiment, and the experiment has been producing the same answers in both.}
+
+\textbf{Software is just speed-running it.}
+
+The rest of the McCarthy 2026 series tests this. Papers 5--12 take the structural patterns that software engineering has converged on as best practice over the last eighty years and check whether biology has independently converged on the same patterns through evolution. The framework's prediction is that the patterns will match, because the constraints are the same. The empirical record so far is that they do match, in cancer biology, in genome architecture, in the recursion executor stack, and in the developmental phenotypes of HBOC carriers. None of the framework's central predictions has been clean-falsified across an inventory of roughly 58 specific testable claims.
+
+\textbf{What this means for the working engineer reading Paper 0}: the entire McCarthy 2026 series is the proposition that \textbf{the structural reasons for your engineering best practices are universal}, that biology has independently arrived at the same answers, that the convergence proves the constraints are structural rather than coincidental, and that the framework's predictions in domains you have never thought about (cancer treatment, AGI architecture, the trajectory of LLM scaling) are firing in real time because the same constraints apply there too. Paper 0 is the entry point because it asks you to verify nothing more than what you already know about your own work. The rest of the series shows you that what you already know about your own work is also what biology has been doing for billions of years, and what AI is currently rediscovering at industrial scale.
+
+The eighty years of software engineering have produced the most exhaustive inventory we have of what works and what doesn't under bounded context plus survival pressure. The framework's contribution is to name the structural reasons for that inventory and to test whether the same structural reasons explain biology, the genome, and cancer outcomes. The test is in Papers 5--12. \textbf{The hypothesis is that we have been doing the same thing the whole time, and the only differences are the substrate and the speed.}
+
+% ------------------------------------------------------------------
+\section{So why is the AI industry doing the opposite?}
+\label{sec:wtf}
+% ------------------------------------------------------------------
+
+Here is the part of this paper that should make you uncomfortable.
+
+For eighty years the software industry has been hitting scaling walls and selecting for the factorizations that survive. We know what works at scale. We know it because we have personally watched the alternatives fail and we have personally watched the survivors. The current set of best practices is the residue of eighty years of that selection process. \textbf{Every working software engineer accepts this}, because it is the field they are in.
+
+So look at what the AI industry is currently doing in its most important architectural decision of the decade---large language models---and tell me where it stands relative to those best practices.
+
+\begin{longtable}{|p{0.46\textwidth}|p{0.46\textwidth}|}
+\hline
+\textbf{Best practice the field has converged on} & \textbf{What current LLM architecture does} \\
+\hline
+\endhead
+Separate knowledge from computation. Normalize shared data. Foreign keys, schemas, query layers. [Codd 1970; Date, \emph{An Introduction to Database Systems}] & \textbf{Fuses knowledge and computation into a single monolithic parameter blob with no separation.} \\
+\hline
+Explicit dependency graphs. Imports, package manifests, lock files, build graphs. [Mokhov et al., \emph{Build Systems \`a la Carte} 2018; semver.org] & \textbf{No explicit dependency structure. Implicit ``attention'' weights instead.} \\
+\hline
+Provenance for every claim. Version control, git blame, audit logs, citation chains. [W3C PROV-DM 2013; SOC 2 Type II controls] & \textbf{No provenance. The model cannot tell you where any of its knowledge came from.} \\
+\hline
+Continuous deployment with rollback. Hot reload. Live updates. Roll-forward fixes. [Google SRE Book Ch 8 release engineering; Humble \& Farley, \emph{Continuous Delivery} 2010] & \textbf{Frozen at training time. Cannot update or rollback without retraining the entire blob.} \\
+\hline
+Bounded context per component with explicit interfaces. Modular deployment. [Evans, \emph{Domain-Driven Design} 2003; Newman, \emph{Building Microservices} 2015] & \textbf{Single monolithic deployment of an undifferentiated parameter mass.} \\
+\hline
+Strong typing, schemas, contracts, compile-time error detection at boundaries. [Meyer, \emph{Object-Oriented Software Construction} on contract programming; Pierce, \emph{Types and Programming Languages} 2002] & \textbf{No type signatures on internal computations. The contract is ``it tries its best.''} \\
+\hline
+Behavioral guarantees: SLOs, SLIs, error budgets, reproducibility. [Google SRE Book Ch 4 SLO definitions] & \textbf{``It does its best.'' Outputs are nondeterministic by design; aggregate metrics only; no per-query guarantees.} \\
+\hline
+Testing and change-impact estimation. Unit tests, regression tests, predictable consequences of edits. [Beck, \emph{TDD by Example} 2002; Beizer, \emph{Software Testing Techniques}] & \textbf{``Eval suites'' measuring aggregate accuracy on test prompts; fine-tune effects on the rest of the model are unpredictable in principle.} \\
+\hline
+Observability and auditability. Inspectable internal state, traceable execution paths. [Majors, Fong-Jones \& Miranda, \emph{Observability Engineering} 2022] & \textbf{The model is an opaque blob; input and output are mostly all you can see; internal computations are not auditable.} \\
+\hline
+Security review: input validation, output sanitization, injection defense as baseline. [OWASP ASVS; NIST SSDF SP 800-218] & \textbf{Prompt injection is unsolved. Output sanitization is unsolved. The standard answer is ``we'll get to it.''} \\
+\hline
+Incident response and blameless postmortems with documented root causes. [Google SRE Book Ch 14; Allspaw, \emph{Blameless PostMortems and a Just Culture} 2012] & \textbf{``Root cause'' is some unfindable interaction of weights and prompt. There is no fix path other than ``try a different prompt.''} \\
+\hline
+\end{longtable}
+
+\textbf{Every cell in the right column violates something the software industry spent decades establishing as best practice.} Not violates a little---violates fundamentally, in the architectural sense, in the way that ``let's just put everything in one big undifferentiated blob'' violates everything we ever learned about why monoliths break at scale.
+
+\textbf{And we know this.} We have always known this. The graph-nature of software is not a 2020s discovery. Knuth wrote \emph{The Art of Computer Programming} on data structures and graph algorithms in the 1960s. Dijkstra was solving shortest-path problems on graphs in 1956. Codd's relational model was 1970. Object-oriented design patterns explicitly named the recurring graph structures in the 1990s. Every package manager since the 1990s has implemented dependency resolution as a graph problem. Every build system since make has been a directed acyclic graph. Every microservice architecture is an explicit service graph. Every modern frontend is a component tree. Every CI/CD pipeline is a stage graph. \textbf{Software has been graphs all the way down for as long as software has existed.} The industry knows this in its bones.
+
+\textbf{So WTF are we doing?}
+
+We are spending hundreds of billions of dollars building systems that violate every architectural lesson the field has ever learned. We are building bigger and bigger monolithic parameter blobs with no provenance, no separation of concerns, no modular deployment, no online learning, and no explicit structure. We are scaling them by making the parameters more numerous and the context window wider, when the entire history of the field tells us that scale is handled by adding graph layers, not by inflating the existing architecture. We are watching them hit predictable scaling walls---context degradation, hallucination, expensive retraining cycles, inability to update knowledge without rebuilding from scratch---and the industry's response so far has mostly been to throw more compute at the same architecture.
+
+And meanwhile, \textbf{the workarounds that are being developed to make LLMs actually useful in production are all the patterns we already know}. Look at them honestly:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{RAG} is retrieval against an external knowledge graph. We have known how to do this since IR systems in the 1960s.
+\item \textbf{MoE} is service-oriented architecture for inference. We have known how to do this since SOA in the 2000s.
+\item \textbf{Function calling} is explicit API contracts. We have known how to do this since type systems were invented.
+\item \textbf{MCP} is a federated graph layer for tool integration. We have known how to do this since GraphQL.
+\item \textbf{Agentic decomposition} is escalation hierarchy with circuit breakers. We have known how to do this since fault-tolerant distributed systems in the 1980s.
+\item \textbf{Structured generation} is type-constrained output. We have known how to do this since strong type systems.
+\item \textbf{Sparse attention} and \textbf{KV caches} are explicit storage of adjacency. We have known how to do this since database indexes.
+\item \textbf{Speculative decoding} is read-ahead caching with verification. We have known how to do this since CPU pipelining.
+\end{itemize}
+
+\textbf{Every single one of these is the AI industry independently rediscovering, under a different name, something the software industry already knows works.} The reason they are all being developed in parallel is that pure LLMs hit walls and the workarounds are what survives. The reason they are being given new names instead of being recognized as the existing patterns they are is that the AI subfield has not yet noticed it is doing software engineering.
+
+\textbf{To be clear: the engineers building these workarounds are doing real engineering work}, often at the frontier of what is possible in the AI substrate, often shipping production systems that do not exist in any other field. The argument here is not that the work is fake or unimportant. The argument is that the workarounds are being framed as new techniques rather than as the basic engineering discipline the rest of the field already knows is required, and that this framing hides the structural continuity between current AI engineering and the rest of software engineering. Naming the continuity is the contribution of this paper. The engineering that produced the workarounds stands on its own.
+
+What the alternative architecture looks like is laid out in Paper 4 of this series, Prediction 7, as the four properties of any system that will eventually be widely recognized as artificial general intelligence: explicit graph structure over knowledge, escalation-based control over actions, separated $K$ with provenance rather than fused parameters, and $\gamma > 0$ online learning. This paper does not need to specify the alternative; Paper 4 already has. Here it is sufficient to note what the current architecture lacks.
+
+\textbf{The framework this series belongs to does not predict that AI will eventually adopt these patterns. It predicts that AI is currently being forced into them by the same constraints the software industry has been hitting for eighty years, and the question is not whether the convergence will happen but how much money and time the industry will burn pretending it isn't happening before it admits it is.}
+
+The current LLM architecture is what the eighty-year survival experiment has spent eighty years selecting against. We know better. We have always known better. The reason we are not acting like it is some combination of: a few years of impressive demos created a temporary illusion that the rules had changed, the financial incentives favor scaling parameters over architecturing systems, the cultural barrier between ``AI researcher'' and ``software engineer'' prevents the disciplines from talking to each other, and the workarounds (RAG, MoE, function calling, agents) have not yet been recognized as the same pattern under different names.
+
+\textbf{This paper exists, in part, to make this disconnect explicit.} Every working software engineer who has felt vague unease about LLM architecture trends already knows what is wrong. They have not had it named as a structural disconnect between what the field knows and what the field is currently doing. Naming it is not a new contribution to software engineering. It is a request to look at what we are doing and notice that we are violating our own best practices. The cost of the disconnect is going to be revealed by the workarounds. The framework's contribution is to point out that the workarounds are not improvements on a fundamentally good architecture---they are the industry slowly walking back to the architecture it should have built in the first place, the architecture every other software substrate has converged on, the architecture biology has been running for billions of years, the architecture every working engineer already accepts as best practice in every domain other than this one.
+
+\textbf{WTF, software industry. We know it's graphs all the way down. What are we doing?}
+
+% ------------------------------------------------------------------
+\section{Two anticipated objections}
+\label{sec:objections}
+% ------------------------------------------------------------------
+
+A reader who has gotten this far is probably ready to ask one or both of two questions. Both have answers, and the answers are central to understanding what this paper is doing.
+
+\subsection*{``Isn't this just a tautology?''}
+
+The bare observation in Section~\ref{sec:observation}---``every software system is a graph''---looks tautological because graphs are defined broadly enough that almost any structured object qualifies. If a hostile reviewer's only job is to say ``you have defined graph broadly enough to capture every counterexample,'' they have a defensible position when only the bare observation is on the table.
+
+\textbf{But the paper is not just the bare observation.} It is three claims, and only the first is at risk of looking tautological. The recursive corollary in Section~\ref{sec:recursive} and the lossiness consequence in Section~\ref{sec:lossiness} are non-trivial empirical claims that could be false:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{The recursive corollary is empirical}, not definitional. It claims that at every level of complexity, the factorization that survives at scale is to add another graph at a higher level of abstraction that organizes the previous one. The alternatives are real and have been tried: flatten the system (monolith $\to$ mega-monolith), replace the representation with something else entirely (functional pipelines, stream processors, neural networks as universal function approximators), give up on factorization and rewrite from scratch. \textbf{A hostile reviewer could falsify the recursive corollary by pointing at any successful large-scale system that handles complexity by some method other than adding another graph layer.} No such system has been produced in eighty years of engineering history. That is not a tautology. That is an iterated survival result.
+\item \textbf{The lossiness consequence is information-theoretic}, not definitional. It claims that any non-graph abstraction over software is strictly less information-dense than the underlying graph, because the abstraction must carry translation overhead. The alternative would be some abstraction that captures MORE information about a system than the system's own graph captures---by surfacing emergent properties, by exposing high-level invariants the graph misses, by offering structural insights the graph cannot represent. \textbf{A hostile reviewer could falsify the lossiness consequence by producing such an abstraction.} No such abstraction has been produced.
+\end{itemize}
+
+The bare observation in Section~\ref{sec:observation} is the soft target. The corollaries in Sections~\ref{sec:recursive} and~\ref{sec:lossiness} are the hard targets, and they are the real load-bearing content of the paper. The paper is not ``everything is a graph''; it is ``the operational pattern of software at scale is recursive add-another-graph factorization, and the graph form is information-theoretically optimal.'' Both of those are empirical claims that could fail and have not failed.
+
+\subsection*{``Isn't this all known?''}
+
+This is the more dangerous version of the objection because the answer is \textbf{yes}---and the answer being yes is exactly the point.
+
+Every working software engineer already accepts the claims in Sections~\ref{sec:observation}, \ref{sec:recursive}, and \ref{sec:lossiness}. They have not been written down as a single coherent paper, but the individual observations are uncontroversial. The reader can verify each one against any system they have built. The recursive add-another-graph pattern is something every engineer who has worked at scale has watched happen in their own organization. The lossiness of non-graph abstractions is something every engineer who has tried to communicate about a complex system in prose has felt.
+
+\textbf{The paper's foundational observations are ``all known,'' and that is what makes them foundational.} A foundational observation must be uncontroversial to do its job. The strongest possible entry point for a framework is one that the audience already accepts before the framework's novel content is introduced.
+
+The structural template here is Codd's 1970 paper on the relational model. Codd opened with observations about what was already known to working DBAs in 1970: redundancy in stored data is bad, joins are useful, foreign keys exist as a concept, update anomalies happen when shared data is duplicated. \textbf{None of these individual observations was novel.} Every working DBA already accepted them. Codd's contribution was not the individual observations. Codd's contribution was the formalization of why all the observations hung together as a unified theory of normal forms, plus the operational corollaries (algorithms for normalization, proofs that normalization eliminated update anomalies). \textbf{The foundational observations were ``all known''; the framework that followed from them was novel.}
+
+Paper 0 is the same kind of move. The observations are ``all known'' because every engineer accepts them. The framework that follows from them in Papers 1--12 is what is novel. \textbf{Paper 0's job is to be uncontroversial enough that the rest of the framework has a foundation no hostile reviewer can attack.} A novel foundation would be a worse foundation, because a hostile reviewer could attack it directly. An uncontroversial foundation routes the hostile attack to the layer above (the theoretical formalization in Papers 1--4 and the empirical confirmations in Papers 5--12), where the framework has actual defenses.
+
+The chain of moves the framework makes:
+\begin{enumerate}
+\item Paper 0 makes observations every engineer already accepts (no novelty---and that is the point)
+\item The observations cannot be denied without denying the field
+\item Once accepted, they force certain theoretical conclusions (Papers 1--4) that follow from the observations plus standard cost and context constraints
+\item Once those theoretical conclusions are accepted, they make predictions in other substrates (Papers 5--12)
+\item Those predictions either confirm or falsify in the new substrates
+\item The cumulative confirmation record across many independent substrates is the framework's evidence
+\end{enumerate}
+
+\textbf{Paper 0's role is foundational, not novel.} It is the floor the rest of the framework stands on. The floor is uncontroversial because every engineer already walks on it. The walls and roof above the floor (the theoretical and empirical work in Papers 1--12) are what is novel. \textbf{The framework's contribution is the building, not the floor. But the building needs the floor to exist.}
+
+A reader who finishes Paper 0 and says ``I knew all of this already'' has had exactly the experience the paper intends. The next step is to read Paper 1, where the framework formalizes why what you knew is forced by structural constraints, and from there to Papers 5--12, where the same structural constraints are tested against substrates that are not software. \textbf{The novelty is downstream of the foundation. The foundation's job is to be solid enough to hold the novelty up.}
+
+% ------------------------------------------------------------------
+\section{What this paper is and is not}
+\label{sec:scope}
+% ------------------------------------------------------------------
+
+\textbf{This paper is}:
+
+\begin{itemize}[leftmargin=*]
+\item A foundational empirical observation about every software system that has ever been built
+\item The recursive corollary that follows from the observation
+\item The information-theoretic consequence that graphs are the maximum-density form of software
+\item A \textbf{call-to-action paper in the software engineering literature genre}, judged by trigger function rather than by research novelty. The genre has a long history: Dijkstra's ``Go To Statement Considered Harmful'' (1968), Brooks' ``No Silver Bullet'' (1986), Naur's ``Programming as Theory Building'' (1985), Spolsky's ``Things You Should Never Do'' (2000), Victor's ``The Future of Programming'' (2013). All of these named things the field already half-knew but had not consolidated into action. None added new research. All triggered changes in how the field talks about and acts on the named thing. Paper 0 belongs in this genre and should be evaluated by the same criteria---does it name a contradiction the field is ignoring, does the contradiction have a real cost, does it give the audience something to act on, does it stake a claim with a timestamp.
+\item The entry point to the rest of the McCarthy 2026 series
+\item Defensible by direct observation, with no theoretical machinery required
+\end{itemize}
+
+\textbf{This paper is not}:
+
+\begin{itemize}[leftmargin=*]
+\item A theoretical proof of why the observation is true (that is Paper 1)
+\item A claim about what software should be (it is a description of what software is)
+\item A rejection of the abstractions that are sometimes worth their lossiness (the abstractions are useful and necessary for human comprehension; they are just not the maximum-density form)
+\item A claim that all graphs are the same (the typed-edge requirement is non-trivial; the type information is doing real work)
+\item A claim that biology and software are identical (the cross-substrate claim is in the rest of the series; this paper notes the parallel without arguing it)
+\item A new finding (every working engineer already knows the observation; this paper just names it as a recursive structural pattern)
+\end{itemize}
+
+The paper makes one observation, derives one corollary, notes one consequence, and gets out of the way. The observation is the entry point. Everything else in the series follows.
+
+% ------------------------------------------------------------------
+\section{Relationship to the rest of the series}
+\label{sec:series}
+% ------------------------------------------------------------------
+
+The McCarthy 2026 series is structured as follows. Paper 0 is the foundational empirical observation. Papers 1--4 are the theoretical formalization of why the observation must hold under bounded context plus survival pressure. Papers 5--12 are the empirical tests of whether the same structural pattern shows up in other substrates. The series can be entered at Paper 0 (for engineers who want to verify the foundational claim from observation), at Papers 1--4 (for theorists who want the formal proofs), or at Papers 5--12 (for biologists or clinicians who want to see the empirical confirmations in cancer biology and the genome).
+
+Paper 0's role in the series:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Provides the entry point for engineers.} Anyone who has built software at scale already knows Paper 0 is true. Once they accept it, the rest of the series follows naturally as the explanation for what they have already observed.
+\item \textbf{Defends against the ``definitional move'' critique} of Papers 1--4. A hostile reviewer who attacks Papers 1--4 as definitional can be redirected to Paper 0, which is purely observational and cannot be dismissed without dismissing the entire field of software engineering.
+\item \textbf{Establishes the empirical foundation for the cross-substrate claim.} Papers 5--12 test whether the same structural pattern shows up in biology and elsewhere. Paper 0 establishes that the pattern is real and verifiable in at least one substrate (software), so the cross-substrate test has a starting point that is not in dispute.
+\item \textbf{Provides the framework's ``why now'' answer.} The framework's predictions in AI architecture are firing in real time because the AI industry is currently rediscovering the recursive add-another-graph pattern through trial and error. RAG, MoE, structured generation, function calling, agentic decomposition---every one of these is the AI industry independently arriving at what Paper 0 claims has been observable in every other software substrate for decades. The framework predicted this would happen because the constraints are the same; the AI industry is currently demonstrating it.
+\item \textbf{Is the most accessible paper in the series for non-specialists.} The other papers require domain knowledge in cancer biology, theoretical computer science, or evolutionary biology. Paper 0 requires only the experience of having built software, which is a much larger audience than any of the others.
+\end{itemize}
+
+% ------------------------------------------------------------------
+\section{Why Paper 0 is publishable separately}
+\label{sec:standalone}
+% ------------------------------------------------------------------
+
+Paper 0 is publishable as a standalone observation paper without any of the rest of the series. It does not depend on Papers 1--4's theoretical proofs (it is the empirical anchor, not a consequence of the theory). It does not depend on Papers 5--12's biological applications (it makes no claims about biology beyond a brief illustration in Section~\ref{sec:biology}). It does not depend on the patent (it makes no claims about agentic coding beyond the general observation that every software substrate has converged on the same pattern).
+
+The paper is also publishable without any IP encumbrance. The observation is about every software system that has ever been built; the corollary is about every successful engineering organization's progression at scale; the consequence is information-theoretic and follows from elementary considerations. None of this is specific to any patentable invention. The paper can be released as an open-access standalone publication with no permissions required from any third party.
+
+The paper is also valuable as a standalone contribution because \textbf{the observation has never been named as a recursive structural pattern in the software engineering literature}. There are individual analyses of call graphs, dependency graphs, schema graphs, and so on. There are general observations that ``everything is connected'' or ``the system is a network.'' But the specific claim that \textbf{every software system is a graph at every level simultaneously, that the best factorization is recursively to add another graph, and that any non-graph abstraction is strictly less information-dense} has not been stated as a single coherent observation. Naming the pattern is a contribution in itself, even before any of the theoretical work that follows.
+
+% ------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------
+
+Every software system you have ever built or worked on is a graph. The factorization that works at every scale is to add another graph at a higher level of abstraction that organizes the previous one. Any non-graph abstraction is strictly less information-dense than the underlying graph, because the abstraction must carry translation overhead.
+
+These three statements are observable in every working engineering organization. They do not require theoretical machinery to defend. They do not require the rest of the McCarthy 2026 series to be granted before they are accepted. They are the entry point.
+
+The rest of the series is the explanation for why the observation is true under bounded context plus survival pressure (Papers 1--4), and the test of whether the same pattern shows up in other substrates such as cancer biology, the genome, and the recursion executor stack (Papers 5--12). The framework as a whole is one structural claim with substrate-specific instantiations across software, biology, and AI architecture. This paper is the foundational observation on which everything else stands.
+
+A working engineer who has read this paper and accepts its observation has already accepted the empirical foundation of the framework. Whether they accept the theoretical formalization in Papers 1--4 or the biological extensions in Papers 5--12 is a separate question, but the entry point is uncontestable because it is descriptive of every system they have ever built.
+
+Software is a graph. Every level adds another graph. Anything else is lossy.
+
+That is the whole paper.
+
+% ------------------------------------------------------------------
+\section*{Coda: why AI is inevitable}
+\label{sec:coda}
+% ------------------------------------------------------------------
+
+If you accept the observation in Section~\ref{sec:observation} (every actual software system is a graph), the recursive corollary in Section~\ref{sec:recursive} (every level of complexity is best handled by adding another graph), the lossiness consequence in Section~\ref{sec:lossiness} (graphs are the maximum-density form of any software system), and the speed-run argument in Section~\ref{sec:speed-run} (software's eighty years of best-practice optimization is a compressed evolutionary experiment that has independently arrived at the same architectural answers biology has converged on over billions of years under the same constraints), then \textbf{AI is inevitable} for one structural reason that follows from all four:
+
+\textbf{We are doing the same thing evolution has been doing forever, in a new substrate, on a faster timescale.}
+
+Biology evolved cognition because cognition is what survives under bounded context plus survival pressure when the entity has positive novelty rate and must update its model of the world to keep acting effectively. The constraints forced agency, learning efficiency, graph-structured knowledge, escalation-based control, and separation of compute from data---across many independent biological lineages, with the same structural answers showing up in mammalian brains, cephalopod nervous systems, social insects, and immune systems. \textbf{The constraints are universal; the convergence is forced; biology has run the experiment many times and arrived at the same answers each time.}
+
+Software has been doing the same convergence for eighty years on silicon. Each decade has produced new factorizations---structured programming, relational normalization, object orientation, design patterns, microservices, retrieval-augmented generation, mixture of experts, agentic decomposition---and each new factorization has been the survivor of a generation of engineers hitting a scaling wall and figuring out what worked. The current state of the practice is the cumulative residue of that selection process.
+
+\textbf{AI is the same convergence happening in a third place}, except this time the substrate being optimized is itself a bounded-context cognitive system rather than a substrate designed to handle bounded-context problems for humans. The same constraints apply. The same factorizations are forced. The same architectural answers will survive selection. \textbf{The properties of any system that will eventually be recognized as artificial general intelligence are not design choices; they are the answers the constraints force, the same answers biology has already arrived at and that software engineering has been speed-running for eighty years.}
+
+The first widely recognized AGI will have explicit graph structure over its knowledge, escalation-based control over its actions, separated $K$ with provenance rather than fused parameters, and $\gamma > 0$ online learning that updates $K$ and $A$ from feedback in deployment. These are not design recommendations. They are the convergence. Biology proves it from one direction; software engineering proves it from another; the AI industry is currently rediscovering it in real time as the third independent run of the same experiment.
+
+\textbf{AI is inevitable in the same sense that mammalian cognition was inevitable.} The constraints exist. The constraints select for specific architectural solutions. Any system that exists under the constraints long enough and faces enough competitive pressure will arrive at those solutions. Biology arrived first. Software arrived second. AI is the third arrival, on the fastest timescale of the three. The form it takes is predictable from the constraints, because the constraints have already produced the same form twice independently and the third time is currently happening.
+
+We are not creating something new. We are running the same experiment on a new substrate, and the result is going to look like every other run of the same experiment, because the constraints are not negotiable. The eighty years of software engineering best practices, the billions of years of evolutionary biology, and the current rapid evolution of AI architectures are three substrate-specific instantiations of one structural process: bounded-context systems converging on the same architectural answers under survival pressure.
+
+\textbf{Software is the third substrate. Biology was the first. AI is happening now. They will all converge on the same form because they are all running the same experiment. The form is graph structure with escalation, normalized knowledge, agency, and learning efficiency. That is what the constraints make. That is what we will get.}
+
+% ------------------------------------------------------------------
+\section*{Acknowledgments}
+
+The author used Claude (Anthropic) for drafting assistance and \LaTeX{} preparation. All theoretical content, observations, and arguments are the author's own.
+
+% ------------------------------------------------------------------
+\begin{thebibliography}{99}
+
+\bibitem{McCarthy2026a}
+P.~D. McCarthy.
+\newblock Graph structure is necessary for information preservation under bounded context.
+\newblock 2026. Paper 1 of this series.
+
+\bibitem{McCarthy2026b}
+P.~D. McCarthy.
+\newblock Convergence of control architectures to escalation under bounded context.
+\newblock 2026. Paper 2 of this series.
+
+\bibitem{McCarthy2026c}
+P.~D. McCarthy.
+\newblock Knowledge as normalization: bounded context separates shared propositions from action.
+\newblock 2026. Paper 3 of this series.
+
+\bibitem{McCarthy2026d}
+P.~D. McCarthy.
+\newblock Evaluation-driven descent, encoding permanence, and the structural invariants of intelligence.
+\newblock 2026. Paper 4 of this series.
+
+\bibitem{McCarthy2026e}
+P.~D. McCarthy.
+\newblock Genome as projection: coupling channels predict cancer survival and suggest drug response principles.
+\newblock 2026. Paper 5 of this series.
+
+\bibitem{McCarthy2026f}
+P.~D. McCarthy.
+\newblock Coupling-channel structure predicts cancer survival beyond mutation count.
+\newblock 2026. Paper 6 of this series.
+
+\bibitem{McCarthy2026g}
+P.~D. McCarthy.
+\newblock Graph consequences of DNA serialization: disruption order follows network degree.
+\newblock 2026. Paper 7 of this series.
+
+\bibitem{McCarthy2026h}
+P.~D. McCarthy.
+\newblock The cost of computation: shared molecular machinery between learning and cancer.
+\newblock 2026. Paper 8 of this series.
+
+\bibitem{McCarthy2026i}
+P.~D. McCarthy.
+\newblock Determinism precipitates from uncertainty: when agents should become scripts.
+\newblock 2026. Paper 9 of this series. Forthcoming.
+
+\bibitem{McCarthy2026j}
+P.~D. McCarthy.
+\newblock The genome as knowledge graph: governance, scaling, and the architecture of multicellular life.
+\newblock 2026. Paper 10 of this series.
+
+\bibitem{McCarthy2026k}
+P.~D. McCarthy.
+\newblock The ratchet: evolution and cancer as opposing failures of the same mechanism.
+\newblock 2026. Paper 11 of this series.
+
+\end{thebibliography}
+
+\end{document}
