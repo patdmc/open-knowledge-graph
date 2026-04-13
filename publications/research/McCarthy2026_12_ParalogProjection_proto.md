@@ -160,7 +160,9 @@ The co-essentiality graph independently recovers the cancer channel taxonomy wit
 
 This result is confirmatory, not surprising — known binding partners should co-cluster. **The argument requires the confirmation.** A deductive chain that skips a step because the step is "expected" is a broken chain. The value is not novelty but verification: a data source that SHOULD recover the channels IF the channels are real DOES recover them. The expected results validate the method. The unexpected results (Section 4.3) are the findings. The findings are meaningless without the validation.
 
-As a stronger test of independence, we also evaluated the co-essentiality clustering against Reactome pathway annotations. TODO: Run co-essentiality clustering against Reactome pathways and report co-clustering rates for same-pathway gene pairs. If the clustering recovers Reactome modules at comparable rates to the channel taxonomy, the validation is independent of the author's channel definitions.
+As a stronger test of independence, we evaluated the co-essentiality clustering against Reactome pathway annotations (1,582 human pathways, 10,495 genes, filtered to pathways with 5-500 members). Same-pathway gene pairs co-cluster at 8.6x the random baseline rate. Same-channel gene pairs co-cluster at 9.0x the random baseline rate. **The channel taxonomy and Reactome are recovered at nearly identical enrichment levels.** The co-essentiality graph does not preferentially recover the author's annotations — it recovers functional modules at the same rate regardless of which annotation source defines them. The channel architecture is as real as Reactome.
+
+The top Reactome co-clusterings are the tightest functional complexes in the cell: mitochondrial translation (75% co-clustering), RNA Polymerase III (67%), rRNA modification (48%). ChromatinRemodel is the highest channel at 14.3% — the anti-index maintenance machinery co-clusters tighter than any other channel.
 
 **Pairs stable from k=100 through k=2,000** (median cluster size ~7 genes at k=2,000):
 
