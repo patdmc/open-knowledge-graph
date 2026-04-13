@@ -35,7 +35,7 @@ who did not have those years.
 
 ---
 
-## 2. Layer 1: Prior Art Not Cited — The Synthetic Lethality Concept in Cancer
+## 2. Layer 1: Prior Art Not Cited — A Twenty-Five Year Conceptual Foundation
 
 ### The landmark papers
 
@@ -52,15 +52,70 @@ as a therapeutic strategy for BRCA-deficient cancers:
   polymerase." *Nature*. 2005;434:913-917. PMID: 15829966. **Cited by 2,633 papers.**
 
 Combined citations: **5,931**. These papers are universally cited as the origin of the
-synthetic lethality approach to cancer therapy using PARP inhibitors.
+synthetic lethality approach to cancer therapy using PARP inhibitors. Bryant et al.
+described the finding as representing "a new concept in cancer treatment."
 
-### The prior art
+### The prior art — twenty-five years of conceptual foundation
 
-The concept of exploiting synthetic lethality as a cancer therapeutic strategy was proposed
-in the published literature 2–3 years before Farmer and Bryant:
+The conceptual framework within which Farmer and Bryant's experiment operates was
+assembled across multiple fields over twenty-five years. None of the following prior
+contributions are cited in the landmark 2005 Nature papers for the conceptual claims
+they establish.
 
-- **Garber K.** "Synthetic lethality: killing cancer with cancer." *Journal of the National
-  Cancer Institute*. 2002;94(22):1666-1668. PMID: 12441317. **Cited by 8 papers.**
+**PARP inhibitor sensitization (1980–2004).** The first PARP inhibitor, 3-aminobenzamide,
+was described by Purnell and Whish in 1980. Throughout the 1980s and 1990s, PARP inhibitors
+were used as standard tools for studying DNA repair, with their ability to sensitize cells
+to DNA-damaging agents well documented. By 2004, **29 papers** in PubMed described PARP
+inhibitor sensitization in the context of DNA repair and cancer, including:
+
+- Veuger SJ, Curtin NJ, Richardson CJ et al. "Radiosensitization and DNA repair
+  inhibition by the combined use of novel inhibitors of DNA-dependent protein kinase
+  and poly(ADP-ribose) polymerase-1." *Cancer Res*. 2003;63(18):6008-6015. PMID: 14522929.
+
+- Calabrese CR, Almassy R, Barton S et al. "Anticancer chemosensitization and
+  radiosensitization by the novel poly(ADP-ribose) polymerase-1 inhibitor AG14361."
+  *J Natl Cancer Inst*. 2004;96(1):56-67. PMID: 14709739.
+
+- Curtin NJ, Wang LZ, Yiakouvaki A et al. "Novel poly(ADP-ribose) polymerase-1
+  inhibitor, AG14361, restores sensitivity to temozolomide in mismatch repair-deficient
+  cells." *Clin Cancer Res*. 2004;10(3):881-889. PMID: 14871963.
+
+The concept that PARP inhibition sensitizes cancer cells to DNA damage was not new in
+2005. It was two decades old and documented in dozens of papers.
+
+**PARP biology and DNA repair (1992–2004).** The de Murcia laboratory in Strasbourg
+characterized PARP-1's structure and function in DNA repair beginning in 1992:
+
+- Schreiber V, Molinete M, Boeuf H, de Murcia G, Ménissier-de Murcia J. "The human
+  poly(ADP-ribose) polymerase nuclear localization signal is a bipartite element
+  functionally separate from DNA binding and catalytic activity." *EMBO J*.
+  1992;11(9):3263-3269. PMID: 1505517.
+
+- Masson M, Niedergang C, Schreiber V, Muller S, Menissier-de Murcia J, de Murcia G.
+  "XRCC1 is specifically associated with poly(ADP-ribose) polymerase and negatively
+  regulates its activity following DNA damage." *Mol Cell Biol*. 1998;18(6):3563-3571.
+  PMID: 9584196.
+
+The XRCC1-PARP interaction in base excision repair — the mechanistic foundation for
+understanding why PARP inhibition causes DNA damage accumulation — was established by
+1998, seven years before the Nature papers.
+
+**PARP and BRCA in the same repair pathway (2000).** The biological connection between
+PARP and BRCA was published five years before Farmer/Bryant:
+
+- Lansdorp PM. "Repair of telomeric DNA prior to replicative senescence." *Mech Ageing
+  Dev*. 2000;118(1-2):23-34. PMID: 10989122.
+
+  This paper lists ATM, p53, PARP, DNA-PK, Ku70/80, the hRad50-hMre11-p95 complex,
+  **and BRCA 1 and 2** in the same sentence as molecules involved in the repair of
+  telomeric DNA. The two molecules — PARP and BRCA — were already understood to operate
+  in the same repair space in 2000.
+
+**Synthetic lethality as a cancer therapeutic strategy (2002–2003).** The concept of
+exploiting synthetic lethal interactions for cancer treatment was proposed explicitly:
+
+- **Garber K.** "Synthetic lethality: killing cancer with cancer." *J Natl Cancer Inst*.
+  2002;94(22):1666-1668. PMID: 12441317. **Cited by 8 papers.**
 
   A news article in JNCI reporting that researchers were already exploring synthetic lethal
   interactions as a therapeutic strategy for cancer. The concept was visible enough to a
@@ -68,8 +123,8 @@ in the published literature 2–3 years before Farmer and Bryant:
   own journal.
 
 - **Kamb A.** "Mutation load, functional overlap, and synthetic lethality in the evolution
-  and treatment of cancer." *Journal of Theoretical Biology*. 2003;223(2):205-213.
-  PMID: 12814603. **Cited by 8 papers.**
+  and treatment of cancer." *J Theor Biol*. 2003;223(2):205-213. PMID: 12814603.
+  **Cited by 8 papers.**
 
   A formal theoretical paper proposing that synthetic lethal interactions between mutated
   genes in cancer cells could be therapeutically exploited. Kamb specifically argued that
@@ -79,54 +134,78 @@ in the published literature 2–3 years before Farmer and Bryant:
   and Bryant would demonstrate experimentally two years later.
 
 - **Garber K.** "Running interference: pace picks up on synthetic lethality research."
-  *Journal of the National Cancer Institute*. 2004;96(13):982-983. PMID: 15240774.
+  *J Natl Cancer Inst*. 2004;96(13):982-983. PMID: 15240774.
 
-  A follow-up news article in JNCI, one year before the Nature papers, reporting accelerating
-  research activity in synthetic lethality for cancer.
-
-### The citation gap
-
-**Neither Farmer et al. 2005 nor Bryant et al. 2005 cited Garber 2002, Kamb 2003, or
-Garber 2004.** This is verifiable via PubMed citation data (NCBI E-utilities `pubmed_pubmed_citedin`
-link type, queried April 2026).
+  A follow-up news article in JNCI, one year before the Nature papers, reporting
+  accelerating research activity in synthetic lethality for cancer.
 
 The concept of synthetic lethality itself has a long history in genetics, dating to
 Dobzhansky's work in *Drosophila* (1946) and Lucchesi's formalization (1968). By 2004,
-225 papers containing the phrase "synthetic lethality" or "synthetic lethal" had been
+**225 papers** containing the phrase "synthetic lethality" or "synthetic lethal" had been
 indexed in PubMed. Three of these specifically addressed cancer therapeutic applications.
 None were cited by the landmark 2005 Nature papers.
 
+**PARP inhibition sensitizing breast cancer cells (2005, simultaneous with Farmer/Bryant).**
+In the same year as the Nature papers, the de Murcia laboratory — which had been doing
+PARP biology for thirteen years — published:
+
+- Muñoz-Gámez JA, Martín-Oliva D, Aguilar-Quesada R et al. "PARP inhibition sensitizes
+  p53-deficient breast cancer cells to doxorubicin-induced apoptosis." *Biochem J*.
+  2005;386(Pt 1):119-125. PMID: 15456408.
+
+  The same finding — PARP inhibition sensitizing breast cancer cells — published
+  simultaneously by the lab that had established the foundational PARP biology. Farmer
+  and Bryant received Nature. The de Murcia lab received the Biochemical Journal. The
+  field remembers Nature.
+
+### The citation gap
+
+**Neither Farmer et al. 2005 nor Bryant et al. 2005 cited Garber 2002, Kamb 2003, Garber
+2004, or Lansdorp 2000.** This is verifiable via PubMed citation data (NCBI E-utilities
+`pubmed_pubmed_citedin` link type, queried April 2026).
+
 ### Decomposition Theorem classification
 
-Under the classification system proposed in the companion paper:
+Under the classification system proposed in the companion paper, the full decomposition
+of Farmer and Bryant 2005 is:
 
-- **The conceptual contribution** of Farmer and Bryant — that synthetic lethality can be
-  exploited as a cancer therapeutic strategy — **classifies as a COLLAPSE** into Kamb 2003
-  and Garber 2002. The concept was already in the literature. Both papers arrived at the
-  same proposition from shared premises (the genetic basis of cancer vulnerability).
+| Claim in the landmark papers | Classification | Prior art |
+|------------------------------|---------------|-----------|
+| PARP is involved in DNA repair | **COLLAPSE** | Established 1980s–1990s; de Murcia lab 1992+ |
+| PARP inhibitors sensitize cells to DNA damage | **COLLAPSE** | 29 papers before 2005 (Curtin, Calabrese, Veuger et al.) |
+| BRCA1/2 are involved in homologous recombination repair | **COLLAPSE** | Established 1990s |
+| PARP and BRCA operate in the same repair space | **COLLAPSE** | Lansdorp 2000 (PMID 10989122) |
+| Synthetic lethality can be exploited as cancer therapy | **COLLAPSE** | Kamb 2003; Garber 2002; 225 papers on synthetic lethality by 2004 |
+| PARP inhibition sensitizes breast cancer cells | **COLLAPSE** | de Murcia lab 2005 (PMID 15456408), simultaneous |
+| **Specific demonstration: PARP inhibitor on BRCA1/2-null cells with in vitro and in vivo survival data showing selective killing** | **NOVEL** | No prior paper had demonstrated this specific drug-target-genotype combination |
+| *"A new concept in cancer treatment"* (Bryant et al.) | **Documentably false** | The concept was not new at any level; the experiment was new |
 
-- **The experimental contribution** of Farmer and Bryant — the specific demonstration
-  that PARP inhibition is synthetically lethal with BRCA1/2 deficiency, with in vitro
-  and in vivo data — **classifies as NOVEL**. No prior paper had demonstrated this
-  specific drug-target-genotype interaction.
-
-The current citation record does not make this distinction. Both the conceptual and
-experimental contributions are attributed to Farmer and Bryant, with 5,931 combined
-citations. The prior conceptual work by Kamb has 8 citations. The distinction between
-the concept (which was not new) and the experiment (which was) is invisible in the
-published record.
+The current citation record does not distinguish between these classifications. Both the
+conceptual framework (which was assembled across multiple fields over twenty-five years)
+and the experimental demonstration (which was genuinely novel) are attributed to Farmer
+and Bryant, with 5,931 combined citations. The prior conceptual work by Kamb has 8
+citations. The PARP biology foundation by the de Murcia lab is credited for the biology
+but not for the therapeutic concept it enabled. The 29 papers on PARP inhibitor
+sensitization before 2005 are not credited for the principle Farmer and Bryant's
+experiment validated. The distinction between the concept (which was not new) and the
+experiment (which was) is invisible in the published record.
 
 ### What the confidence chain method would have caught
 
 **R1 (equivalency class declaration)** would have required Farmer and Bryant to declare
-"synthetic lethality" as a concept with an existing literature. The EC includes Dobzhansky
-(1946), Lucchesi (1968), the yeast genetics community (225+ papers), and Kamb (2003).
+their base assumptions. The equivalency classes include: "PARP is involved in base
+excision repair" (EC with de Murcia 1992+), "PARP inhibition sensitizes cells to DNA
+damage" (EC with 29 prior papers), "BRCA is involved in homologous recombination" (EC
+with 1990s literature), "synthetic lethality as cancer therapeutic strategy" (EC with
+Kamb 2003, Garber 2002, the yeast genetics literature back to Dobzhansky 1946).
 
-**R2 (collapse/novel classification)** would have required explicit classification of the
-conceptual contribution as a collapse and the experimental contribution as novel.
+**R2 (collapse/novel classification)** would have required explicit classification: the
+conceptual contributions collapse into the prior literature; the specific PARP-BRCA
+experimental demonstration is novel.
 
-**R4 (provenance triples)** would have traced the concept to its prior instances and made
-the distinction visible at the time of publication.
+**R4 (provenance triples)** would have traced each conceptual claim to its prior instances
+and made the distinction visible at the time of publication. The claim "a new concept in
+cancer treatment" would have been flagged as inconsistent with the provenance record.
 
 ---
 
@@ -370,3 +449,11 @@ and Farmer 2005 (PMID 15829967).
 13. Fong PC, Boss DS, Yap TA, et al. Inhibition of poly(ADP-ribose) polymerase in tumors from BRCA mutation carriers. *N Engl J Med*. 2009;361(2):123-134. PMID: 19553641.
 14. Conary JT, Parker RE, Christman BW, et al. Protection of rabbit lungs from endotoxin injury by in vivo hyperexpression of the prostaglandin G/H synthase gene. *J Clin Invest*. 1994;93(4):1834-1840. PMID: 8163682.
 15. Schreier H, Ausborn M, Günther S, Weissig V, Chander R. (Patho)physiologic pathways to drug targeting: artificial viral envelopes. *J Mol Recognit*. 1995;8(1-2):59-62. PMID: 7541229.
+16. Purnell MR, Whish WJ. Novel inhibitors of poly(ADP-ribose) synthetase. *Biochem J*. 1980;185(3):775-777.
+17. Masson M, Niedergang C, Schreiber V, et al. XRCC1 is specifically associated with poly(ADP-ribose) polymerase and negatively regulates its activity following DNA damage. *Mol Cell Biol*. 1998;18(6):3563-3571. PMID: 9584196.
+18. Lansdorp PM. Repair of telomeric DNA prior to replicative senescence. *Mech Ageing Dev*. 2000;118(1-2):23-34. PMID: 10989122.
+19. Veuger SJ, Curtin NJ, Richardson CJ, et al. Radiosensitization and DNA repair inhibition by the combined use of novel inhibitors of DNA-dependent protein kinase and poly(ADP-ribose) polymerase-1. *Cancer Res*. 2003;63(18):6008-6015. PMID: 14522929.
+20. Calabrese CR, Almassy R, Barton S, et al. Anticancer chemosensitization and radiosensitization by the novel poly(ADP-ribose) polymerase-1 inhibitor AG14361. *J Natl Cancer Inst*. 2004;96(1):56-67. PMID: 14709739.
+21. Curtin NJ, Wang LZ, Yiakouvaki A, et al. Novel poly(ADP-ribose) polymerase-1 inhibitor, AG14361, restores sensitivity to temozolomide in mismatch repair-deficient cells. *Clin Cancer Res*. 2004;10(3):881-889. PMID: 14871963.
+22. Muñoz-Gámez JA, Martín-Oliva D, Aguilar-Quesada R, et al. PARP inhibition sensitizes p53-deficient breast cancer cells to doxorubicin-induced apoptosis. *Biochem J*. 2005;386(Pt 1):119-125. PMID: 15456408.
+23. Dobzhansky T. Genetics of natural populations. XIII. Recombination and variability in populations of *Drosophila pseudoobscura*. *Genetics*. 1946;31:269-290.
