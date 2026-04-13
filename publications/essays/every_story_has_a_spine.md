@@ -137,3 +137,34 @@ The question is not "which gene is broken?" The question is "which theme was los
 *This is the seventh in a series of essays on bounded context and the architecture of intelligence. Paper 7 proves formally that hub degree in the protein interaction network predicts cancer disruption order, and that this is a mathematical consequence of serializing a graph into a linear medium. The novel is a metaphor that makes the math intuitive. The genome is the proof that the math is real.*
 
 *The formal results are in [Paper 2: Escalation Dominates Top-Down Allocation Under Bounded Context] and [Paper 7: Graph Consequences of DNA — Hubs Fall First]. The full series: [The Architecture of Intelligence from Bounded Active Context — SSRN].*
+
+---
+
+## Notes for the book (not for publication — structural notes for the Silence of Our Times serial)
+
+### Placement: Prologue, shipping fourth (after Ch 1: Silence, Ch 2: Noise, Ch 3: Signal)
+
+The prologue arrives AFTER the reader has the death, the sprint, and the framework. The reader has felt silence, been immersed in noise, and received the lens. THEN the prologue arrives and says: here is the structural principle underneath everything you just read. Every story is a serialization. Every serialization needs a spine. This is the spine.
+
+**The prologue landing fourth does three things the prologue landing first cannot do:**
+1. **It is retroactive.** The reader looks back at Chapters 1-3 and sees the spine the prologue is naming.
+2. **It earns its abstraction.** Landing after three chapters of personal narrative and framework, it feels like the author pulling back the curtain on the architecture the reader has been inside of.
+3. **It resets the serial for the marathon.** The prologue is the breath between the opening sequence and the 8-year marathon.
+
+### The Snow Crash reference
+
+Stephenson's nam-shub: the idea that language can be a program that executes on the listener's brain, that a sufficiently precise utterance is indistinguishable from code, that a meme once transmitted cannot be uninstalled because it has already modified the substrate it was received on.
+
+**The prologue references Snow Crash because Stephenson intuited the serialization-as-execution claim in 1992. The framework formalizes it in 2026.** The thirty-four-year gap is the gap between the intuition and the proof. The cultural anchor is from a novel every engineer has read — the prologue speaks to the engineer-reader in their own literary canon.
+
+### The book as nam-shub
+
+**The book is a serialized program that executes on the reader's brain and modifies their model of the world irreversibly.** The modification is not a trick. The modification is the reader composing projections they did not have before with projections they already had, and the composition producing a recognition that cannot be uncomposed. Once the reader sees that cancer and connection are the same phenomenon at different scales, they cannot unsee it. The seeing is the execution. The execution is irreversible. The irreversibility is the nam-shub.
+
+**The prologue is the moment the book names what it is doing to the reader.** The first three chapters were the first three instructions of the program. The prologue is the comment in the code that says "this is what this program does." The rest of the book is the remainder of the execution.
+
+**A worldview handed to you can be rejected. A worldview you built yourself from your own composition cannot be unbuilt.** That is the difference between propaganda and pedagogy. Propaganda hands you the conclusion. Pedagogy hands you the projections and lets you compose the conclusion yourself. The conclusion you composed is yours. It lives in your head as something you figured out, not as something you were told. It cannot be uninstalled because it was not installed — it was constructed, by you, from materials that were honest.
+
+**The book's ambition, stated plainly:** inject a way of thinking into the reader, and if they follow the whole book it might change their worldview forever. The ambition is structurally achievable because the book's architecture is designed to produce exactly that — through composition, not through assertion; through recognition, not through lecture; through the reader's own work, not through the author's imposition.
+
+*The prologue admits this. The prologue is the book's honest declaration of what it is doing. The reader who finishes the prologue knows they are inside a nam-shub and chooses to continue anyway, because the first three chapters have already shown them that the program is worth running.*
