@@ -164,6 +164,71 @@ PARP biology for thirteen years — published:
 2004, or Lansdorp 2000.** This is verifiable via PubMed citation data (NCBI E-utilities
 `pubmed_pubmed_citedin` link type, queried April 2026).
 
+### The reference lists: selective engagement with the adjacent literature
+
+The citation gap cannot be attributed to general unfamiliarity with the adjacent literature.
+Analysis of the full reference lists (obtained from Nature's export function, April 2026)
+reveals that both papers engaged deeply with PARP biology and PARP inhibitor sensitization
+work — but not with the synthetic lethality concept they applied.
+
+**Farmer et al. 2005 cited 22 papers. Bryant et al. 2005 cited 25 papers.** Between them,
+the reference lists demonstrate:
+
+**Engagement with the de Murcia lab's PARP biology.** Bryant cited de Murcia JM 1997
+(*Proc Natl Acad Sci*: "Requirement of poly(ADP-ribose) polymerase in recovery from DNA
+damage") and Menissier de Murcia J 2003 (*EMBO J*: PARP-1/PARP-2 functional interaction).
+Bryant also cited Molinete 1993, from the same laboratory. **However, neither paper cited
+the same lab's foundational PARP NLS characterization** (Schreiber/de Murcia 1992, PMID
+1505517) **or the XRCC1-PARP interaction paper** (Masson/de Murcia 1998, PMID 9584196)
+that established the base excision repair mechanism underlying the entire PARP inhibitor
+sensitivity concept. The authors read the de Murcia lab's later work but not the
+foundational papers from the same lab.
+
+**Engagement with PARP inhibitor sensitization literature.** Bryant cited Calabrese 2004
+(*J Natl Cancer Inst*: AG14361 chemosensitization and radiosensitization). **However,
+neither paper cited Curtin 2004** (*Clin Cancer Res*: the same PARP inhibitor AG14361
+restoring temozolomide sensitivity in mismatch repair-deficient cells) — a paper by a
+related group, using the same drug, published the same year, in a major cancer journal.
+Neither cited Veuger 2003 (*Cancer Res*: combined PARP and DNA-PK inhibition for
+radiosensitization). The authors engaged with one PARP inhibitor sensitization paper
+and missed others from the same period, the same drug, and related groups.
+
+**Zero engagement with the synthetic lethality literature.** Neither Farmer nor Bryant
+cited any paper containing the phrase "synthetic lethality" or "synthetic lethal."
+Not Kamb 2003. Not Garber 2002 or 2004. Not any of the 225 papers indexed in PubMed
+using these terms by 2004. Not Dobzhansky 1946. **The concept that forms the central
+contribution of both papers — exploiting synthetic lethal interactions for cancer
+therapy — has a published literature that neither paper engaged with at any level.**
+
+Bryant et al. described the finding as "a new concept in cancer treatment." The
+reference lists demonstrate that this novelty claim was made without checking whether
+the concept had prior instances in the published literature. The claim was not
+verified against the conceptual domain the paper operates in, despite thorough
+verification against the technical domain.
+
+**The impression of thoroughness.** Twenty-two and twenty-five references, respectively,
+are sufficient to create the impression of a thorough literature review — particularly
+when the references include recognizable names from the field (de Murcia, Venkitaraman,
+Moynahan, Calabrese, Schultz/Helleday). A peer reviewer evaluating the paper would see
+a reference list that is deep in the technical domain and would have no reason to suspect
+that the conceptual domain — the synthetic lethality literature — was entirely absent.
+**The review process validated the papers against their own declared literature, and the
+declared literature was chosen by the authors, and the authors chose a literature that was
+deep in the technical domain and completely absent in the conceptual domain.** The
+reviewers were PARP biology or BRCA genetics experts, not synthetic lethality experts.
+The reference list was comprehensive within the silo the reviewers knew. The reviewers
+had no structured mechanism for checking whether the conceptual contribution had prior
+instances outside that silo.
+
+**R1 (equivalency class declaration) would have broken this pattern.** R1 does not ask
+"did you cite enough papers?" R1 asks "did you declare which base assumptions your
+paper shares with other frameworks?" If Farmer and Bryant had been required to declare
+"synthetic lethality" as a base assumption of their conceptual contribution, the
+reviewer would have been obligated to check the synthetic lethality literature —
+regardless of whether the reviewer was a synthetic lethality expert. The declaration
+makes the gap checkable. Without the declaration, the gap is invisible inside a
+reference list that appears complete.
+
 ### Decomposition Theorem classification
 
 Under the classification system proposed in the companion paper, the full decomposition
