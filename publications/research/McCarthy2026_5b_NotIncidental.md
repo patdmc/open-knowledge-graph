@@ -69,7 +69,7 @@ Müllerian duct fusion and metanephric blastema migration both occur in approxim
 
 **The unification**: developmental anomaly and adult cancer in the same carrier are not two unrelated events that happen to coincide with a cancer-predisposing variant. **They are the same molecular event (Knudson second-hit LOH) at different timescales in different tissues of the same patient.** The patient who has experienced an embryonic LOH event (visible as an anomaly) has also demonstrated that their LOH machinery has "fired once" — and the framework predicts the second firing (in adult tissue, producing cancer) is more likely in such patients than in carriers who have not experienced the first firing.
 
-**Why this matters mechanistically**: the prediction follows from a single molecular mechanism rather than from a vague "the gene matters in many tissues" hand-wave. It produces specific testable consequences:
+**The prediction follows from a single molecular mechanism**, not from a vague "the gene matters in many tissues" hand-wave. It produces specific testable consequences:
 
 1. **Anomaly-positive carriers' tumors should show second-hit LOH at the same locus** — the same allele that was lost embryonically, lost again in the tumor cell. This is testable from tumor sequencing data of carriers with documented developmental anomalies.
 2. **Multi-anomaly carriers should cluster their anomalies in the same developmental window** — because a single LOH event population fires within a narrow temporal range. Carriers with anomalies spanning multiple windows had multiple LOH events, which is rarer and predicts higher cumulative LOH rate.
@@ -295,7 +295,7 @@ We are explicit:
 
 ---
 
-## 11. Why this matters
+## 11. Anomaly-positive patients are being treated as standard-risk when they are not
 
 The number of patients with documented Müllerian anomalies or VACTERL-spectrum anomalies is not large in absolute terms. Müllerian malformations occur in approximately 5-7% of women in the general population (depending on definition); horseshoe kidney occurs in approximately 1 in 500. The combined VACTERL-H-M cohort the framework predicts as elevated-risk is a few percent of the population. This is a small fraction in proportional terms.
 
