@@ -68,9 +68,14 @@ misscoped), or derive genuinely new results that no prior framework reaches from
 starting points. These three outcomes — collapse, contradiction, novelty — are not currently
 distinguished by the review process.
 
-This paper proposes a formal framework that addresses all three components and implements
-it as a working knowledge graph. The framework is not a critique of peer review; it is an
-extension that makes explicit what peer review currently leaves implicit.
+This paper proposes one possible approach to addressing all three components, implemented
+as a working knowledge graph. We want to be clear about the spirit of this proposal: it is
+not a critique of peer review or of the researchers who work within it. The current system
+has produced extraordinary science for centuries. What we are proposing is an extension —
+a way to make explicit what the current system leaves implicit — offered as a starting point
+for community discussion, not as a finished standard. The specific measures, definitions,
+and procedures we describe below are our best attempt at a concrete starting point. We
+expect — and welcome — the community to propose better ones.
 
 The paper is organized as follows. Section 2 develops the formal framework: provenance
 triples, confidence scores, equivalency classes, and the Decomposition Theorem. Section 3
@@ -122,6 +127,14 @@ that each independent derivation fails. As independent derivations accumulate, $
 approaches 1. A single derivation with $s = 1$ and $C_1(B) = 1$ gives $C_1(p) = 1$ (certain).
 A single formal proof from a well-established base gives high but not certain confidence.
 
+*Note on the specific formula*: We propose this confidence score as one computable approach
+to quantifying evidential support. Other formulations — Bayesian updating, Dempster-Shafer
+belief functions, calibrated prediction markets — may prove more appropriate for specific
+domains or evidence types. The contribution is the *principle* (that confidence should be
+computed from provenance and independent derivation, not inherited from citation count)
+rather than the specific formula, which we offer as a concrete starting point for the
+community to evaluate, critique, and improve.
+
 *Critical property*: $C_1(p)$ is computed, not inherited. A claim cited 1,000 times by papers
 that cite each other is not 1,000 independent derivations — it is one derivation propagated
 1,000 times. The current citation system conflates propagation count with independent
@@ -146,6 +159,17 @@ independent failures to invalidate.
 - *Conceptual equivalence*: $p_i$ and $p_j$ express the same intuition but resist formal
   translation. Conceptual equivalence should be marked explicitly and treated with lower
   confidence than formal equivalence.
+
+*A note on the interpretive challenge*: Constructing equivalency classes requires judgment —
+deciding that two propositions from different frameworks express the same underlying
+constraint is an interpretive act. We have found the three-grade taxonomy (formal, structural,
+conceptual) useful as a starting point, but we do not claim it is complete. Different
+researchers applying this method to the same set of frameworks may produce different EC
+assignments, particularly at the structural-conceptual boundary. We view this as a feature,
+not a bug: the disagreements between independent EC assignments are themselves informative,
+and resolving them is exactly the kind of cross-framework dialogue this paper seeks to
+encourage. The goal is community consensus on what counts as equivalent, built through
+iterative refinement rather than imposed by any single analysis.
 
 ### 2.3 The Decomposition Theorem
 
@@ -488,8 +512,12 @@ novel claims have fewer independent derivations. Both are empirically testable:
 
 ## 7. A Proposal for Explicit Epistemic Provenance in Peer Review
 
-The analysis establishes what the current review process does not check. We now propose
-a concrete standard that extends peer review to address these gaps.
+The analysis establishes what the current review process does not check. We want to propose
+one possible standard that could extend peer review to address these gaps — offered in the
+spirit of starting a conversation about what the right extensions would look like, not as a
+prescriptive mandate. The specific requirements below are our best attempt at concreteness;
+we expect and hope they will be refined, adapted, and in some cases replaced by better
+alternatives as the community engages with them.
 
 ### 7.1 The Current Standard and Its Gaps
 
@@ -718,11 +746,27 @@ currently implied, inherited via citation, and never explicitly stated. Making i
 does not change what scientists do — it makes visible what they have always been doing,
 and reveals where the foundations are strong and where they are thin.
 
+We offer this framework in the belief that the scientific community, which has built the
+most extraordinary knowledge-producing system in human history, can make that system even
+better by making its implicit practices explicit. The specific proposals in this paper are
+a starting point. The conversation about what the right practices should be is the
+contribution we most hope to make. We look forward to being corrected, improved upon, and
+composed with — because that is, after all, what the framework predicts should happen.
+
 ---
 
 ## Acknowledgments
 
-The formal theory evaluated in Section 4 is the author's own prior work.
+The formal theory evaluated in Section 4 is the author's own prior work. We chose to
+evaluate our own framework as the running example because it is the framework we have the
+most complete access to — every proposition, every derivation, every assumption is known
+to us at full depth. This is both a strength (the demonstration is thorough) and a limitation
+(the evaluation is not independent). We view the most valuable next step as independent
+researchers applying the method to frameworks they know well, using the same protocol,
+and comparing their results to ours. The method is designed to be applied by anyone to
+any framework, and its value will be best demonstrated by multiple independent applications
+rather than by the single evaluation presented here. We warmly invite this.
+
 The knowledge graph implementation and cross-framework analysis described in this paper
 are available at \url{https://github.com/patdmc/open-knowledge-graph}.
 
