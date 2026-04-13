@@ -229,6 +229,30 @@ regardless of whether the reviewer was a synthetic lethality expert. The declara
 makes the gap checkable. Without the declaration, the gap is invisible inside a
 reference list that appears complete.
 
+### The simplest explanation
+
+They were so excited about their result that they did not entertain that they were
+standing on the shoulders of giants.
+
+This is said without malice. The excitement is understandable — the experimental result
+was genuinely striking. But the excitement produced a one-hop literature review where
+the authors read the papers they cited without reading those papers' papers, and the
+one-hop depth was sufficient to miss the conceptual prior art that was sitting one more
+hop back in the same labs, the same journals, and the same years.
+
+The framework author took the opposite approach when building the analysis presented in
+the companion paper. Every idea was checked for prior instances as thoroughly as
+possible — not to diminish the framework's claims, but because finding prior instances
+raises the confidence score of the claims. The equivalency classes, the Decomposition
+Theorem, and the confidence chain method are all built on explicit identification of
+what came before. Standing on the shoulders of giants is not a concession. It is the
+method. It is what raises $C_1(p)$.
+
+The difference between the approach that produced the 2005 Nature papers and the approach
+that produced this case study is the difference between a system that rewards being first
+and a system that rewards being right. Both motivations are human. The current system
+incentivizes the first. The confidence chain method incentivizes the right.
+
 ### Decomposition Theorem classification
 
 Under the classification system proposed in the companion paper, the full decomposition
