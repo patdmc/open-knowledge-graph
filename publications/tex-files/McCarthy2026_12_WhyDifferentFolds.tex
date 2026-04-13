@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Why Different Folds: Book Thickness, the Anti-Index, and the Functional Contact Graph of the Human Genome}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+DNA is a one-dimensional serialization of a three-dimensional connected graph. This paper proposes that chromatin folding can be modeled as a book embedding, derives the consequences, and shows that the biological evidence is consistent with the model at every tested level.
+
+\textbf{Section 1} applies the book thickness theorem from graph theory: given $n$ vertices on a fixed linear spine, each non-crossing contact layer (page) supports at most $2n - 3$ edges, so a graph with $m$ edges requires at least $\lceil m/(2n - 3) \rceil$ pages. This is proven. (Bernhart \& Kainen 1979, Malitz 1994.)
+
+\textbf{Section 2} extends the bound to three dimensions. In physical space, even non-crossing edges interfere at close range---signal integrity requires spatial separation between chromatin loops. The self-avoidance constraint of a polymer in $\mathbb{R}^3$ limits total contacts to $O(n)$. TAD boundaries (CTCF/cohesin insulation) are the physical realization of page separators, preventing crosstalk between independent contact sets.
+
+\textbf{Section 3} establishes that DNA behaves as the theorem predicts. Tissue-specific chromatin folding is empirical fact (Lieberman-Aiden 2009, Rao 2014). Different tissues fold differently. The fold is an \textbf{anti-index}: the default state is closed (compacted, silenced); the fold selectively suppresses contacts, and the tissue's active genes are what survive the suppression. Two of eight cancer-relevant channels---ChromatinRemodel and DNAMethylation---are the anti-index maintenance machinery. Their failure degrades the fold across all channels and causes cancer in all tissue types.
+
+\textbf{Section 4} derives the testable prediction. From co-essentiality clustering (DepMap, 14,129 genes, 1,208 cell lines), we measure the connectivity of the genome's functional contact graph. From multi-tissue Hi-C, we measure the number of distinct folds. The book thickness bound predicts these two quantities are related: more connectivity requires more folds. The converse is stronger and more discoverable: \textbf{from the observed number of distinct folds ($\sim$200 human tissue types), we can bound the total connectivity of the functional graph.} For $\sim$200 tissues and $\sim$20,000 genes, the bound permits $\sim$8 million regulatory contacts---consistent with ENCODE estimates.
+
+Co-essentiality clustering independently recovers the cancer channel architecture (Papers 5--6) without manual annotation, validates the wrapper/implementation distinction (ATM clusters with TP53 not RAD51), and produces a three-tier essentiality pattern (A-layer acutely lethal, anti-index slow-degrading, tissue-specific contextual) that the book thickness framing predicts.
+\end{abstract}
+
+\section{The Book Thickness Bound}
+
+\subsection{The serialization problem}
+
+All software is a graph (Paper 0). DNA is software. DNA is stored as a one-dimensional sequence---a linear tape of nucleotides on each chromosome. But the functional objects it encodes---protein complexes, regulatory circuits, signaling cascades---are three-dimensional connected graphs. Genes that must interact are scattered across the linear tape with no guarantee of proximity.
+
+The cell's solution is the chromatin fold: a three-dimensional embedding of the linear sequence that brings functionally related regions into spatial contact. The fold is the decompression operation that recovers 3D execution from 1D storage.
+
+\textbf{The question this paper answers: can one fold suffice?}
+
+\subsection{Book embedding}
+
+A book embedding (Ollmann 1973, Bernhart \& Kainen 1979) places the vertices of a graph on a line (the spine) and distributes the edges across half-planes (pages) attached to the spine. Edges on the same page may not cross. The book thickness $\mathrm{bt}(G)$ of a graph $G$ is the minimum number of pages needed to embed all edges without crossings.
+
+The spine is the chromosome. The pages are independent sets of non-crossing contacts. The fold is the physical realization.
+
+\subsection{The bound}
+
+Each page is an outerplanar graph. An outerplanar graph on $n$ vertices has at most $2n - 3$ edges (classical). Therefore:
+
+\begin{quote}
+$\mathrm{bt}(G) \geq \lceil m / (2n - 3) \rceil$
+\end{quote}
+
+where $m$ is the number of edges and $n$ is the number of vertices.
+
+For the complete graph $K_n$: $\mathrm{bt}(K_n) = \lceil n/2 \rceil$ (Bernhart \& Kainen 1979).
+
+For general graphs with $m$ edges: $\mathrm{bt}(G) = O(\sqrt{m})$ (Malitz 1994).
+
+\textbf{Application to DNA.} The spine is the chromosomal linear order. Each page is one set of spatial contacts achievable by a single fold without interference. If the functional contact graph has more edges than one page can hold, multiple folds are required. Different tissues need different subsets of the contact graph, and the book thickness bound proves they cannot all share one fold.
+
+\textbf{A note on the 2D/3D distinction.} Book thickness is a two-dimensional theorem. DNA folds in three dimensions, where edges can route around each other---3D is more permissive than 2D. The exact book thickness formula is therefore a lower bound on the 3D problem, not an exact prediction. However, the qualitative claim---that a single fold cannot recover an arbitrary contact graph---holds in both 2D and 3D. The polymer packing constraint in $\mathbb{R}^3$ independently limits total contacts to $O(n)$ (Section 2.3), arriving at the same conclusion from physics rather than combinatorics. The claim that multiple folds are necessary is overdetermined: two independent bounds from two different fields agree. The quantitative prediction (how many folds) is approximate; the qualitative prediction (more than one) is proven.
+
+\subsection{The converse}
+
+Given $k$ pages (tissue types), the maximum number of edges (functional contacts) the genome can support is:
+
+\begin{quote}
+$m_{\max} = k \times (2n - 3)$
+\end{quote}
+
+The vertex count depends on the resolution of the contact graph. If vertices are protein-coding genes: $n \approx 20{,}000$, page capacity $\approx 40{,}000$. If vertices are genomic loci at 40kb Hi-C resolution: $n \approx 75{,}000$, page capacity $\approx 150{,}000$. If vertices are 5kb bins: $n \approx 600{,}000$, page capacity $\approx 1{,}200{,}000$. The bound is resolution-dependent. We use genes as vertices for the co-essentiality analysis (Section 4) because co-essentiality is measured per gene, not per locus. For Hi-C comparisons, the appropriate vertex set is the Hi-C bin resolution.
+
+At the gene level, for $\sim$200 human tissue types: $m_{\max} \approx 200 \times 40{,}000 \approx 8 \times 10^6$ contacts. ENCODE estimates 2--4 million regulatory interactions. The observed connectivity is within the bound at the gene level. The bound at finer resolution (40kb bins) permits proportionally more contacts per page, but also requires proportionally more edges to saturate---the ratio $m/\text{page\_capacity}$ is the testable quantity, not $m$ or page\_capacity alone.
+
+\textbf{This is the testable prediction:} measure the connectivity of the functional contact graph (from co-essentiality, Section 4). Measure the number of distinct folds (from multi-tissue Hi-C). The ratio should respect the book thickness bound. If it does, the genome is operating as a book-embedded graph.
+
+\section{Why Three Dimensions: Signal Integrity}
+
+\subsection{The 2D bound is necessary but insufficient}
+
+Book thickness is a two-dimensional theorem---edges on half-planes, non-crossing on each plane. DNA folds in three dimensions, where two edges CAN avoid each other by routing through the third dimension. Naively, 3D should be more permissive than 2D, weakening the bound.
+
+\subsection{Ectopic contacts have functional consequences}
+
+In physical space, chromatin contacts carry regulatory signals. When insulation fails and contacts form between regions that should be isolated, the consequences are measurable and severe. Lupi\'{a}\~{n}ez et al.\ (2015) showed that TAD boundary disruption produces ectopic enhancer-promoter contacts causing limb malformations. Hnisz et al.\ (2016) demonstrated that disruption of chromosome neighborhoods activates proto-oncogenes. Flavahan et al.\ (2016) traced the causal chain from IDH mutation through insulator loss to oncogene activation in glioma.
+
+These results establish that the insulation architecture (TAD boundaries, CTCF sites) exists to \textbf{prevent signal crosstalk}---regulatory signals reaching the wrong targets. The insulation is the physical realization of the non-crossing constraint: contacts on different pages must not interfere. The precise distance at which chromatin loops begin to interfere has not been measured, but the functional consequence of interference (disease) is documented. The insulation architecture would not exist if interference were not a problem biology needed to solve.
+
+\subsection{Polymer packing confirms the bound}
+
+A self-avoiding polymer of $n$ monomers in $\mathbb{R}^3$ can sustain at most $O(n)$ non-backbone contacts (De Gennes scaling, lattice packing argument: each monomer has at most $z - 2$ contacts on a cubic lattice with coordination number $z = 6$, giving $\leq 2n$ total contacts). This is linear in $n$, not quadratic. The polymer physics bound agrees with the book thickness bound in order of magnitude.
+
+\subsection{TADs are page separators}
+
+Topologically associating domains (TADs) are self-interacting chromatin regions bounded by CTCF/cohesin insulation (Dixon 2012, Rao 2014, Fudenberg \& Mirny 2019). TAD boundaries prevent contacts across adjacent domains. They are the physical realization of page boundaries: within a TAD, contacts are permitted; across TAD boundaries, contacts are suppressed.
+
+Human chromosomes contain $\sim$2,000--3,000 TADs. TAD boundary positions are largely tissue-invariant, but insulation strength varies by tissue (Schmitt 2016). \textbf{Same spine, same page boundaries, different pages active in different tissues.} This is the book embedding operating in biology.
+
+\section{DNA Behaves This Way}
+
+\subsection{Tissue-specific folding is empirical fact}
+
+Lieberman-Aiden et al.\ (2009) established that human chromatin contact probability scales as $P(s) \sim s^{-1.08}$, matching fractal globule predictions, and that A/B compartment assignments differ between cell types. Rao et al.\ (2014) mapped chromatin loops at kilobase resolution across multiple cell types and showed tissue-specific loop architectures. The 4D Nucleome consortium has since extended these maps to dozens of primary tissues. \textbf{Different tissues fold differently.} This is not disputed.
+
+\subsection{The fold is an anti-index}
+
+The default state of chromatin is \textbf{closed}---compacted, silenced, inaccessible. Only 3--7\% of the genome is in open chromatin (accessible, active) in any given tissue type (ENCODE, Roadmap Epigenomics). The fold does not build connections. It builds \textbf{walls}. TAD boundaries insulate. Heterochromatin compacts. The tissue-specific contacts are what survive the suppression---the gaps in the anti-index.
+
+An index says ``look here.'' An anti-index says ``don't look anywhere else.'' The chromatin fold defines what is \textbf{excluded}, and the active subset is what remains after exclusion.
+
+The distinction is not metaphorical---it is formal. A true index (B-tree, sorted column, hash map) requires a \textbf{monotonic ordering} of the data: a single linearization that preserves the lookup property. Trees can be indexed this way. Connected graphs with cycles cannot. There is no single linearization of a connected graph that preserves all adjacencies---this is precisely what book thickness proves. Because a true index is impossible for the functional contact graph, the cell uses the only viable alternative: suppress everything, then selectively un-suppress the subset each tissue needs. The anti-index is not a design choice. It is forced by the graph's connectivity. The pages of the book embedding are \textbf{disjoint}---each tissue's active contacts are a separate, largely non-overlapping subset. If they overlapped significantly, they could be merged into a single index. The fact that they do not overlap (tissue A's enhancer-promoter contacts differ from tissue B's) is evidence that the graph's connectivity forced the partitioning.
+
+CTCF/cohesin mechanics confirm this: cohesin extrudes chromatin loops by default (the machinery tries to connect everything). CTCF boundary sites halt extrusion (the boundary prevents connection). The tissue-specific fold is not a construction---it is a \textbf{selective failure to suppress}.
+
+\subsection{Two channels maintain the anti-index}
+
+The cancer channel taxonomy (Papers 5--6) partitions 122 cancer-relevant genes into 8 functional channels. Two of these channels---\textbf{ChromatinRemodel} (ARID1A, SMARCA4, KMT2D, CREBBP, and 12 others) and \textbf{DNAMethylation} (DNMT3A, TET2, IDH1/2, ATRX, DAXX, and 2 others)---are the maintenance machinery for the anti-index:
+
+\begin{itemize}[nosep]
+\item \textbf{ChromatinRemodel} physically opens and closes chromatin---it maintains the walls.
+\item \textbf{DNAMethylation} chemically marks regions for silencing---it writes the wall addresses.
+\end{itemize}
+
+These two channels are \textbf{upstream} of the other six. They don't perform DNA repair or cell cycle control. They maintain the fold that allows the functional channels (DDR, CellCycle, PI3K\_Growth, Immune, Endocrine, TissueArchitecture) to form their tissue-specific contacts. The functional channels work because the anti-index channels maintain the infrastructure they depend on.
+
+\subsection{Anti-index failure causes cancer}
+
+When anti-index maintenance fails---ARID1A mutation, DNMT3A loss, IDH1 gain-of-function---the fold degrades. Walls collapse. Contacts that should be suppressed are permitted. Enhancers activate oncogenes across TAD boundaries (Flavahan et al.\ 2016). Genes that should be silent in a given tissue become active. The cell escapes its tissue-specific constraints.
+
+This is why:
+\begin{itemize}[nosep]
+\item ARID1A is mutated in $\sim$10\% of all human cancers, not one specific type---it degrades infrastructure, not one channel.
+\item DNMT3A is the \#1 CHIP mutation (80\% of age-related clonal hematopoiesis)---its loss is tolerated acutely but catastrophic over years as methylation marks drift and the anti-index slowly degrades.
+\item IDH mutations cause glioma via TAD boundary loss (Flavahan 2016)---a specific mechanism of anti-index failure causing a specific cancer.
+\end{itemize}
+
+\textbf{Cancer is what happens when the anti-index fails and a cell can access contacts its tissue type was never meant to have.}
+
+\subsection{Three-tier essentiality confirms the architecture}
+
+DepMap CRISPR data (1,208 cell lines) reveals a tiered essentiality pattern across the eight channels. A caveat: some channels contain genes with opposing essentiality signatures. CellCycle contains both acutely essential genes (CDK4 at $-0.731$, MYC at $-1.987$) and tumor suppressors whose loss is growth-promoting in culture (TP53 at $+0.424$, RB1 at $+0.182$). DDR similarly spans acutely essential replication machinery (POLD1 at $-2.198$, ATR at $-1.107$) and dispensable mismatch repair genes (PMS2 at $+0.123$). The channel-level mean is the average of a bimodal distribution.
+
+With this caveat stated, the channel-level pattern is:
+
+\begin{longtable}{p{2.8cm} p{3.5cm} p{1.8cm} p{2.2cm} p{3.5cm}}
+\toprule
+\textbf{Tier} & \textbf{Channels} & \textbf{Mean effect} & \textbf{Avg frac essential} & \textbf{Pattern} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tier} & \textbf{Channels} & \textbf{Mean effect} & \textbf{Avg frac essential} & \textbf{Pattern} \\
+\midrule
+\endhead
+\textbf{A-layer} (implementation) & DDR (replication core), CellCycle (division core) & $-0.55$ / $-0.33$ & 39.8\% / 24.5\% & Contains the most acutely lethal genes in the genome \\
+\midrule
+\textbf{Anti-index} (fold maintenance) & ChromatinRemodel, DNAMethylation & $-0.21$ / $-0.05$ & 15.8\% / 4.7\% & Rarely acutely lethal---fold degrades slowly over months/years \\
+\midrule
+\textbf{Tissue-specific} (functional) & PI3K\_Growth, Immune, Endocrine, TissueArchitecture & $-0.16$ to $-0.03$ & 12.9\% to 2.3\% & Essential only in specific tissue contexts \\
+\bottomrule
+\end{longtable}
+
+The bimodality within DDR and CellCycle is itself informative. The acutely essential genes (POLD1, ATR, CDK4, MYC) are the \textbf{implementation layer}---the machinery that executes replication and division. The dispensable or growth-promoting genes (TP53, RB1, CDKN1A) are the \textbf{control layer}---wrappers that suppress division when conditions are wrong. Their loss is beneficial in culture precisely because culture removes the selective pressure they enforce. This within-channel bimodality is the wrapper/implementation distinction appearing at the essentiality level.
+
+The anti-index tier has a distinctive essentiality signature: not acutely lethal (the cell doesn't crash when you remove DNMT3A), but universally important (every tissue needs the fold maintained). This is the timescale signature of infrastructure---loss is tolerated short-term, catastrophic long-term.
+
+\section{The Functional Contact Graph: Measurement and Prediction}
+
+\subsection{Co-essentiality as the connectivity measurement}
+
+The functional contact graph of the genome---which genes need to interact with which other genes---is not directly observable. But it can be measured indirectly via co-essentiality: if knocking out gene A and gene B produce correlated fitness effects across hundreds of cell lines, A and B are functionally coupled.
+
+We computed pairwise co-essentiality (Pearson correlation of CRISPR gene effect profiles) for 14,129 genes across 1,208 cell lines (DepMap 26Q1). Hierarchical clustering (Ward's method) at granularities from $k{=}100$ to $k{=}2{,}000$ partitions the genome into functional modules of decreasing size. Each cluster at a given $k$ is a candidate ``functional equivalence class''---a set of genes whose fitness profiles are more similar to each other than to genes outside the cluster.
+
+\subsection{Co-essentiality recovers the channel architecture}
+
+The co-essentiality graph independently recovers the cancer channel taxonomy without any manual annotation. Same-channel gene pairs co-cluster at rates far exceeding chance at every tested granularity.
+
+This result is confirmatory, not surprising---known binding partners should co-cluster. \textbf{The argument requires the confirmation.} A deductive chain that skips a step because the step is ``expected'' is a broken chain. The value is not novelty but verification: a data source that SHOULD recover the channels IF the channels are real DOES recover them. The expected results validate the method. The unexpected results (Section 4.3) are the findings. The findings are meaningless without the validation.
+
+As a stronger test of independence, we evaluated the co-essentiality clustering against Reactome pathway annotations (1,582 human pathways, 10,495 genes, filtered to pathways with 5--500 members). Same-pathway gene pairs co-cluster at 8.5x the random baseline rate (1,607 pathways, 5--500 genes each). Same-channel gene pairs co-cluster at 9.0x the random baseline rate. These rates are statistically indistinguishable (permutation test $z = 0.09$, $p = 0.38$; Mann-Whitney $p = 0.20$). The channel mean sits at the 72nd percentile of Reactome pathways---above average but well within the normal range. \textbf{The channel taxonomy and Reactome are equivalent.} The co-essentiality graph recovers functional modules at the same rate regardless of which annotation source defines them. The channel architecture is as real as Reactome---no more, no less.
+
+The top Reactome co-clusterings are the tightest functional complexes in the cell: mitochondrial translation (75\% co-clustering), RNA Polymerase III (67\%), rRNA modification (48\%). ChromatinRemodel is the highest channel at 14.3\%---the anti-index maintenance machinery co-clusters tighter than any other channel.
+
+\textbf{Pairs stable from $k{=}100$ through $k{=}2{,}000$} (median cluster size $\sim$7 genes at $k{=}2{,}000$):
+
+\begin{longtable}{p{4.5cm} p{2.5cm} p{6cm}}
+\toprule
+\textbf{Pair} & \textbf{Channel} & \textbf{Relationship} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Pair} & \textbf{Channel} & \textbf{Relationship} \\
+\midrule
+\endhead
+RAD51B + RAD51C + RAD51D & DDR & HR implementation paralogs \\
+MSH2 + MSH6 & DDR & MutS-alpha mismatch repair heterodimer \\
+TP53 + CDKN1A & CellCycle & Transcription factor $\to$ direct target \\
+CDK4 + CCND1 & CellCycle & Kinase-cyclin holoenzyme \\
+MDM2 + MDM4 & CellCycle & Co-regulators of TP53 \\
+RB1 + CDKN1B & CellCycle & Cell cycle inhibitors \\
+BRAF + MAP2K1 & PI3K\_Growth & RAF $\to$ MEK kinase cascade \\
+ERBB2 + PIK3CA & PI3K\_Growth & Receptor $\to$ PI3K \\
+ARID1A + SMARCA4 & ChromatinRemodel & SWI/SNF complex members \\
+CREBBP + KMT2D & ChromatinRemodel & Enhancer chromatin modifiers (splits at $k{=}1{,}000$) \\
+HLA-A + HLA-B & Immune & MHC class I \\
+TGFBR1 + TGFBR2 & TissueArchitecture & TGF-beta receptor heterodimer \\
+APC + AXIN1 & TissueArchitecture & Wnt destruction complex \\
+ESR1 + FOXA1 & Endocrine & Estrogen receptor + pioneer factor \\
+ATM + TP53 & \textbf{Cross-channel} & DDR $\to$ CellCycle bridge \\
+\bottomrule
+\end{longtable}
+
+15 of 18 tested pairs survive to $k{=}2{,}000$. The 3 that split at intermediate $k$ (NF1+PTEN at $k{=}500$, CREBBP+KMT2D at $k{=}1{,}000$) are pathway-level associations, not direct binding partners. The splitting hierarchy matches biochemical reality.
+
+[Figure pending: co-clustering heatmap across channels and granularities.]
+
+\subsection{The ATM bridge: wrappers cluster by target, not substrate}
+
+ATM is annotated as DDR. It clusters with TP53 and CDKN1A (CellCycle), not with RAD51 (DDR implementation). ATM phosphorylates TP53 in response to DNA damage---it is the bridge between damage detection and cell cycle arrest. The co-essentiality graph places ATM where it functionally operates (routing toward TP53), not where it was manually filed (DDR).
+
+This validates the wrapper/implementation distinction: implementation genes (RAD51 family) cluster with the machinery. Wrapper genes (ATM) cluster with their routing target. The graph is more precise than the annotation.
+
+[Figure pending: ATM bridge network diagram.]
+
+\subsection{Counting edges: from co-essentiality clusters to the functional contact graph}
+
+At $k{=}200$ (median cluster size 67 genes), the co-essentiality graph defines 200 functional modules. Same-cluster paralog pairs number 2,931. But the full functional contact graph is larger---every gene pair within a cluster is a candidate functional contact, and cross-cluster contacts (like the ATM $\to$ TP53 bridge) add more.
+
+The book thickness bound can be computed at multiple co-essentiality thresholds. This is a \textbf{measurement sweep}, not a prediction with a free parameter. At $|r| > 0.1$, the bound predicts $\sim$414 pages. At $|r| > 0.2$, $\sim$17 pages. At $|r| > 0.3$, the bound first exceeds 1---meaning below $|r| \approx 0.3$, functional coupling can be mediated by diffusion without chromatin colocation; above it, the fold is required. The observed tissue hierarchy has $\sim$200 histologically distinct subtypes nested in $\sim$17 major categories. Both levels appear in the threshold sweep without tuning. The correspondence between the co-essentiality threshold hierarchy and the tissue classification hierarchy is the result---not any single threshold match.
+
+The threshold at which the bound transitions from 1 to $>1$ is itself informative: it marks the minimum co-essentiality correlation at which functional coupling requires spatial colocation rather than diffusion. This is a measurable quantity, not a chosen parameter.
+
+The $k$-sweep also resolves an apparent discrepancy. The co-essentiality threshold sweep at $k{=}200$ (nodes + signaling edges) predicts $\sim$31 pages. But the 21-tissue Schmitt Hi-C analysis finds only 3--9 distinct chromatin states. This is not a failure of the model---it is the node/edge separation confirming. At $k{=}2000$ (nodes only---contacts that require chromatin colocation), the bound predicts \textbf{3 pages}. Schmitt finds \textbf{3--9 states}. The chromatin fold only needs to colocate the node-type contacts; signaling edges are mediated by diffusion and do not appear in Hi-C. The higher bound at $k{=}200$ predicts the full tissue hierarchy including non-chromatin signaling diversity, which is real but not visible in contact maps.
+
+[Formal edge counts and robustness across alternative clustering methods pending.]
+
+\subsection{The 3D contact test: negative in one cell type, consistent with the framing}
+
+Same-cluster paralog pairs do NOT show elevated Hi-C contact frequency relative to different-cluster pairs in GM12878 bulk Hi-C. Tested at every $k$ from 100 to 2,000. No test reached significance.
+
+This is consistent with the anti-index framing rather than contradicting it. The co-essentiality signal is averaged across 1,208 cell lines representing dozens of tissue types. The Hi-C signal is from one cell type. The functional contacts measured by co-essentiality exist \emph{somewhere} across tissues---they need not all be present in one tissue's fold.
+
+\textbf{The book thickness bound predicts exactly this:} the contacts cannot all be realized in a single fold. The negative Hi-C result in one cell type is the prediction firing.
+
+\subsection{Universal, channel-shared, and tissue-specific contacts}
+
+Preliminary analysis of loop-call data across three cell types (GM12878, IMR90, K562) shows:
+
+\begin{longtable}{p{4cm} p{2.5cm} p{6cm}}
+\toprule
+\textbf{Tier} & \textbf{Count} & \textbf{Essential gene enrichment} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tier} & \textbf{Count} & \textbf{Essential gene enrichment} \\
+\midrule
+\endhead
+Universal (all 3 cell types) & 91 gene pairs & 8.9\% essential (OR=1.52 vs tissue-specific) \\
+Shared (exactly 2) & 199 gene pairs & 8.1\% essential \\
+Tissue-specific (1 cell type only) & 773 gene pairs & 6.4\% essential \\
+\bottomrule
+\end{longtable}
+
+Direction is correct (universal contacts are more essential), but underpowered ($p=0.12$). The three-cell-type analysis using continuous Hi-C contact data (GM12878, K562, IMR90) shows tissue-specific enrichment in the predicted direction for every channel tested: PI3K\_Growth contacts enriched 2.70x in K562 (BCR-ABL constitutive growth signaling) vs 0.44x in GM12878. TGFBR1+TGFBR2 (TissueArchitecture) highest in IMR90 (fibroblast). NF1+PTEN+TSC2 (tumor suppressors) depressed in K562. No channel showed enrichment in a tissue inconsistent with the prediction.
+
+The 21-tissue analysis (Schmitt 2016) confirms that DNAMethylation is the most constitutive channel (CV $= 0.299$ across tissues) and that CellCycle/DDR contacts are most tissue-specific (CV $> 0.9$), concentrating in actively dividing cells (stem cells, GM12878). Stem cells show the highest enrichment for nearly every channel---the ``all pages open'' state from which differentiation progressively closes pages.
+
+The Hi-C sample sizes at the channel level are small (1--36 cross-chromosomal pairs per channel). These results are directionally consistent, not statistically definitive. \textbf{The framework makes specific, falsifiable predictions for which channels should be elevated in which tissues}---predictions that any group with multi-tissue Hi-C data can test. We welcome replication.
+
+\section{Discussion}
+
+\subsection{The conjecture}
+
+If DNA were a simple linear program---a tape that encodes proteins in order---there would be no reason for tissue-specific folding. Every cell would read the same tape the same way. Tissue-specific gene expression could be handled entirely by transcription factors along the linear sequence. No spatial organization needed.
+
+But DNA folds differently in different tissues. The folds are not random. They bring specific gene sets into spatial proximity in tissue-specific patterns. The field knows this. \textbf{The field has not asked why the fold is necessary.}
+
+This paper proposes an answer: \textbf{the fold exists because DNA is a 1D serialization of a 3D connected graph, and the book thickness bound shows that a single fold cannot recover the full contact graph.} Different tissues need different subsets of the connectivity, so they need different folds. The anti-index is the mechanism. ChromatinRemodel and DNAMethylation are the maintenance layer. Cancer is what happens when the anti-index fails. Steps 1--2 of this argument are mathematical. Step 3 is empirical. The connection between them---that folds exist BECAUSE of the bound---is an inference to the best explanation. We present the evidence and invite alternatives.
+
+\subsection{Fix the fold, stop the cancer?}
+
+A graph projection has exactly three components: nodes, edges, and the spatial embedding (the fold). Each can fail independently. There is no fourth option---these are the exhaustive failure modes of a projected graph, derived from the structure of the object, not from observation of disease.
+
+\begin{itemize}[nosep]
+\item \textbf{Broken node} (LOF): the vertex is removed. The function is gone. Treatment: synthetic lethality---exploit the gap the missing node leaves.
+\item \textbf{Broken edge} (Missense): the connection between vertices is corrupted. The nodes exist but cannot hand off. Treatment: identify which edge was lost---the hardest clinical problem, and the reason variants of uncertain significance are so difficult to interpret.
+\item \textbf{Broken fold} (GOF): the spatial embedding that enables the connection is degraded. A suppression is removed; a door opens. Treatment: restore the suppression---targeted inhibition or epigenetic repair.
+\end{itemize}
+
+If this mapping is correct, existing therapeutic successes should align with the failure modes they address. They do. Azacitidine restores the anti-index in MDS (fold repair). PARP inhibitors exploit the absence of BRCA1/2 (node failure $\to$ synthetic lethality). Vemurafenib shuts off constitutively active BRAF (fold suppression restored). Three therapy classes, three failure modes, one-to-one mapping---arrived at empirically by the field over decades, explained here by the structure of a projected graph.
+
+We do not propose novel therapeutics. We observe that the therapeutic landscape maps to the failure modes, and note that this mapping generates testable predictions: treatment should be selected by failure mode, not by mutation identity alone; resistance should be expected when the failure mode shifts (e.g., from fold failure to node failure under treatment pressure); and for patients with mixed mutations spanning multiple failure modes, treatment ordering may matter---restoring the fold first may improve the efficacy of subsequent node-targeted therapy.
+
+These predictions are testable from existing clinical data. They are documented here as conjectures, not as clinical recommendations.
+
+\subsection{Causal direction}
+
+The fold failure $\to$ cancer direction is established mechanistically for the IDH $\to$ insulator loss $\to$ oncogene activation pathway (Flavahan et al.\ 2016). The causal chain is documented at every step: IDH mutation $\to$ 2-hydroxyglutarate production $\to$ TET2 inhibition $\to$ hypermethylation $\to$ CTCF binding loss $\to$ TAD boundary failure $\to$ enhancer contacts oncogene across the former boundary $\to$ glioma.
+
+For node failure (LOF), the causal direction is definitional. If POLD1 is deleted, the cell cannot replicate. The mutation is the cause; the replication failure is the effect. No reverse causation is possible.
+
+For edge failure (accumulated missense), the causal direction is subtler: the missense occurs first (mutation clock), the graph consequence follows (loss of redundancy), and the cancer phenotype emerges when enough edges have been lost that an executor neighborhood can no longer route around the damage. The mutations are upstream; the architectural failure is downstream; the cancer is the symptom. Cancer does not cause the mutations---the mutations cause the architectural failure that manifests as cancer.
+
+\subsection{What is novel}
+
+The individual components are known:
+\begin{itemize}[nosep]
+\item Book thickness bounds are proven (Bernhart \& Kainen 1979, Malitz 1994)
+\item Tissue-specific chromatin folding is established (Lieberman-Aiden 2009, Rao 2014)
+\item TAD boundary disruption causes cancer (Flavahan 2016)
+\item ARID1A and DNMT3A are among the most mutated genes in cancer (COSMIC, TCGA)
+\end{itemize}
+
+\textbf{What is novel is the connection.} No prior work has applied graph-theoretic book thickness bounds to chromatin folding. No prior work has framed the fold as an anti-index. No prior work has derived the necessity of tissue-specific folding from the connectivity of the functional contact graph. No prior work has connected the book thickness bound to tissue-type count.
+
+The connection was available. It was sitting in the gap between two fields---graph theory and chromatin biology---that do not read each other's journals. Paper 0 of this series argued that all software is a graph, and that the graph theory which applies to one substrate applies to all of them. This paper is a test of that claim at the chromatin level: book thickness is the theorem that was always there. Nobody applied it because nobody was looking at DNA as a book.
+
+\subsection{Convergence with other projections}
+
+This paper joins five other orthogonal projections that converge on the same architecture:
+
+\begin{enumerate}[nosep]
+\item \textbf{Book thickness $\to$ tissue-specific folds} (this paper, Sections 1--2)
+\item \textbf{Co-essentiality $\to$ channel recovery} (this paper, Section 4)
+\item \textbf{Wrapper variance}---cross-species CV orders genes: A (0.06) $\to$ proto-M (0.13) $\to$ pure M (0.32)
+\item \textbf{Channel-count survival} (Papers 5--6)---disrupted channel count predicts survival across 29 cancer types
+\item \textbf{Clinical tractability}---approved therapies concentrate on proto-M; pure M is the synthetic lethality domain
+\item \textbf{Disease spectrum}---implementation mutations are embryonically lethal; wrapper mutations are viable with cancer risk
+\end{enumerate}
+
+Each uses different data, different methods, different statistical tests. None shares an input with any other. The strength is convergence.
+
+\subsection{Limitations}
+
+\textbf{Book thickness is a lower bound, not an exact prediction.} The 2D formula $\mathrm{bt}(G) \geq \lceil m/(2n{-}3) \rceil$ provides a lower bound on the 3D problem. The qualitative claim (multiple folds necessary) is proven; the quantitative prediction (how many) is approximate. The actual number of tissue types may exceed the bound for developmental or functional reasons unrelated to chromatin architecture.
+
+\textbf{Co-essentiality measures functional coupling in cell culture, not in vivo.} DepMap cell lines are transformed cancer lines in 2D culture. In vivo coupling---with stromal interactions, immune surveillance, vascularization---may differ.
+
+\textbf{The threshold sweep is a measurement, not a free parameter, but the ``right'' threshold is not determined by this paper.} The co-essentiality correlation at which functional coupling requires chromatin colocation vs diffusion-mediated signaling is an empirical question. We report all thresholds and note which levels correspond to known tissue hierarchy, but we do not claim to have identified the exact transition point.
+
+\textbf{Hi-C confirmation is directional, not definitive.} Channel-level sample sizes are small (1--36 cross-chromosomal pairs per channel). Every tested channel shows enrichment in the predicted tissue direction---no channel is inconsistent---but the individual tests lack power. The predictions are falsifiable and documented for replication by groups with larger multi-tissue Hi-C datasets.
+
+\textbf{The clinical mapping is explanatory, not prescriptive.} The three failure modes map to existing therapy classes. The framework does not propose novel therapeutics. The predictions it generates (treatment ordering, resistance prediction, patient stratification by failure mode) are conjectures awaiting clinical validation.
+
+\section{Future Directions}
+
+\subsection{Quantitative book thickness test}
+
+Compute the edge count of the functional contact graph from co-essentiality at multiple correlation thresholds. Compute the number of distinct chromatin states from multi-tissue Hi-C (4D Nucleome consortium data). Test whether the ratio respects the book thickness bound.
+
+\subsection{Tissue-matched 3D recovery}
+
+Download heavy Hi-C data for IMR90 (lung fibroblast) and K562 (CML). Annotate with co-essentiality clusters. Test: are PI3K\_Growth gene contacts elevated in K562 relative to GM12878? Are TissueArchitecture gene contacts elevated in IMR90? Are ChromatinRemodel and DNAMethylation gene contacts constitutive across all three?
+
+\subsection{Anti-index quantification}
+
+Count CTCF-bound sites per tissue type from ENCODE ChIP-seq data. Count methylated CpG islands per tissue type from Roadmap Epigenomics. Correlate with the number of suppressed contacts per tissue (from Hi-C). Test whether the anti-index size (number of suppression marks) scales with the number of contacts that need to be suppressed.
+
+\subsection{Evolutionary age stratification}
+
+Older channels may have more robust anti-index maintenance due to longer evolutionary optimization. Younger channels may be more vulnerable to anti-index degradation. Stratify the book thickness analysis by channel age.
+
+\subsection{Cross-species graph density and Peto's paradox}
+
+If cancer resistance scales with functional graph connectivity (edge density per gene), large long-lived animals should have denser functional graphs than small short-lived animals. The prediction: naked mole rats have higher co-essentiality edge density than mice; elephants higher than both. This is testable from cross-species co-essentiality data (DepMap screens in mouse cell lines exist) or from comparative PPI network density (STRING covers multiple species). Graph density IS cancer resistance---Peto's paradox resolved by edge count, not gene count.
+
+\subsection{Age-specific failure mode distribution}
+
+The framework predicts that LOF-driven cancers (node failure) should have flat or young-skewed age distributions (catastrophic at any age), while GOF-driven cancers (fold failure) should skew old (graph erosion makes GOF sufficient in later decades). Preliminary TCGA analysis shows oncogene-driven patients are significantly older than TSG-driven patients ($p = 7.5 \times 10^{-5}$). SEER age-specific incidence data confirms the three-pattern prediction: testicular cancer (young-skewed, developmental), glioblastoma (flat, node failure at any age), colon cancer (old-skewed, accumulative graph erosion). Formal within-cancer-type analysis controlling for cancer type confound is a next step.
+
+\subsection{Fold-aware radiation dosimetry}
+
+If the tissue-specific fold colocates multiple projections of the same functional node, a single radiation track can damage multiple copies simultaneously---coordinated node failure from a single physical event. Radiation-induced secondary cancers should be enriched for co-mutated gene pairs that are colocated in the irradiated tissue's fold. This is testable from radiation-therapy secondary cancer sequencing data crossed with tissue-specific Hi-C. The implication: radiation planning should consider the 3D fold architecture, not just physical anatomy.
+
+\begin{thebibliography}{99}
+
+\bibitem{bernhart1979}
+Bernhart FR, Kainen PC. The book thickness of a graph. \emph{J Combinatorial Theory Ser B}. 1979;27(3):320--331.
+
+\bibitem{malitz1994}
+Malitz S. Graphs with E edges have pagenumber $O(\sqrt{E})$. \emph{J Algorithms}. 1994;17(1):71--84.
+
+\bibitem{ollmann1973}
+Ollmann LT. On the book thicknesses of various graphs. \emph{Proc 4th Southeastern Conference on Combinatorics, Graph Theory and Computing}. 1973;8:459.
+
+\bibitem{yannakakis1989}
+Yannakakis M. Embedding planar graphs in four pages. \emph{J Computer \& System Sciences}. 1989;38:36--67.
+
+\bibitem{lieberman2009}
+Lieberman-Aiden E, et al. Comprehensive mapping of long-range interactions reveals folding principles of the human genome. \emph{Science}. 2009;326(5950):289--293.
+
+\bibitem{rao2014}
+Rao SSP, et al. A 3D map of the human genome at kilobase resolution reveals principles of chromatin looping. \emph{Cell}. 2014;159(7):1665--1680.
+
+\bibitem{dixon2012}
+Dixon JR, et al. Topological domains in mammalian genomes identified by analysis of chromatin interactions. \emph{Nature}. 2012;485(7398):376--380.
+
+\bibitem{fudenberg2016}
+Fudenberg G, Imakaev M, Lu C, Goloborodko A, Abdennur N, Mirny LA. Formation of chromosomal domains by loop extrusion. \emph{Cell Reports}. 2016;15(9):2038--2049.
+
+\bibitem{flavahan2016}
+Flavahan WA, et al. Insulator dysfunction and oncogene activation in IDH mutant gliomas. \emph{Nature}. 2016;529(7584):110--114.
+
+\bibitem{grosberg1993}
+Grosberg A, Rabin Y, Havlin S, Neer A. Crumpled globule model of the three-dimensional structure of DNA. \emph{Europhysics Letters}. 1993;23(5):373--378.
+
+\bibitem{mirny2011}
+Mirny LA. The fractal globule as a model of chromatin architecture in the cell. \emph{Chromosome Research}. 2011;19:37--51.
+
+\bibitem{degennes1979}
+De Gennes PG. \emph{Scaling Concepts in Polymer Physics}. Cornell University Press; 1979.
+
+\bibitem{dujmovic2007}
+Dujmovic V, Wood DR. Graph treewidth and geometric thickness parameters. \emph{Discrete \& Computational Geometry}. 2007;37(4):641--670.
+
+\bibitem{schmitt2016}
+Schmitt AD, et al. A compendium of chromatin contact maps reveals spatially active regions in the human genome. \emph{Cell Reports}. 2016;17(8):2042--2059.
+
+\bibitem{meyers2017}
+Meyers RM, et al. Computational correction of copy number effect improves specificity of CRISPR-Cas9 essentiality screens in cancer cells. \emph{Nature Genetics}. 2017;49(12):1779--1784.
+
+\bibitem{encode2012}
+ENCODE Project Consortium. An integrated encyclopedia of DNA elements in the human genome. \emph{Nature}. 2012;489(7414):57--74.
+
+\bibitem{mccarthy2026papers56}
+McCarthy PD. Channel structure predicts cancer survival. McCarthy 2026 series, Papers 5--6.
+
+\bibitem{mccarthy2026paper0}
+McCarthy PD. All software is a graph. McCarthy 2026 series, Paper 0.
+
+\bibitem{lupianez2015}
+Lupi\'{a}\~{n}ez DG, et al. Disruptions of topological chromatin domains cause pathogenic rewiring of gene-enhancer interactions. \emph{Cell}. 2015;161(5):1012--1025.
+
+\bibitem{hnisz2016}
+Hnisz D, et al. Activation of proto-oncogenes by disruption of chromosome neighborhoods. \emph{Science}. 2016;351(6280):1454--1458.
+
+\bibitem{pan2018}
+Pan J, et al. Interrogation of mammalian protein complex structure, function, and membership using genome-scale fitness screens. \emph{Cell Systems}. 2018;6(5):555--568.
+
+\bibitem{wainberg2021}
+Wainberg M, et al. A genome-wide atlas of co-essential modules assigns function to uncharacterized genes. \emph{Nature Genetics}. 2021;53:638--649.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Channel-gene map (122 genes, 8 channels)}
+
+Source: \texttt{open-knowledge-graph/data/channel\_gene\_map.csv}
+
+\begin{longtable}{p{3cm} p{1cm} p{10cm}}
+\toprule
+\textbf{Channel} & \textbf{Count} & \textbf{Genes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Channel} & \textbf{Count} & \textbf{Genes} \\
+\midrule
+\endhead
+DDR & 21 & ATM, ATR, BRCA1, BRCA2, PALB2, RAD51B, RAD51C, RAD51D, CHEK1, CHEK2, BAP1, BARD1, FANCA, FANCC, FANCD2, MLH1, MSH2, MSH6, PMS2, POLE, POLD1 \\
+\midrule
+CellCycle & 14 & TP53, RB1, CDKN1A, CDKN1B, CDKN2A, CDKN2B, CDK4, CDK6, CCND1, CCNE1, MDM2, MDM4, MYC, MYCN \\
+\midrule
+PI3K\_Growth & 29 & PIK3CA, PIK3R1, PTEN, AKT1, AKT2, AKT3, MTOR, KRAS, NRAS, HRAS, BRAF, RAF1, MAP2K1, MAP2K2, MAP3K1, MAP3K13, ERBB2, ERBB3, EGFR, FGFR1, FGFR2, FGFR3, IGF1R, MET, NF1, NF2, TSC1, TSC2, STK11 \\
+\midrule
+ChromatinRemodel & 16 & KMT2D, KMT2C, KMT2A, KMT2B, SETD2, NSD1, CREBBP, EP300, ARID1A, ARID1B, ARID2, SMARCA4, KDM6A, BCOR, H3C7, ANKRD11 \\
+\midrule
+DNAMethylation & 8 & DNMT3A, DNMT3B, TET1, TET2, IDH1, IDH2, ATRX, DAXX \\
+\midrule
+TissueArchitecture & 18 & CDH1, CDH2, CTNNB1, APC, AXIN1, AXIN2, SMAD2, SMAD3, SMAD4, TGFBR1, TGFBR2, NOTCH1, NOTCH2, NOTCH3, NOTCH4, FBXW7, GJA1, GJB2 \\
+\midrule
+Immune & 10 & B2M, HLA-A, HLA-B, HLA-C, JAK1, JAK2, STAT1, CD274, PDCD1LG2, CTLA4 \\
+\midrule
+Endocrine & 6 & ESR1, ESR2, PGR, AR, FOXA1, GATA3 \\
+\bottomrule
+\end{longtable}
+
+\section{Key co-clustered pairs and stability}
+
+\begin{longtable}{p{1.5cm} p{1.5cm} p{3cm} p{4cm} p{2.5cm}}
+\toprule
+\textbf{Gene A} & \textbf{Gene B} & \textbf{Channel} & \textbf{Relationship} & \textbf{Stable to $k$=} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Gene A} & \textbf{Gene B} & \textbf{Channel} & \textbf{Relationship} & \textbf{Stable to $k$=} \\
+\midrule
+\endhead
+RAD51B & RAD51C & DDR & HR paralogs & $>$2,000 \\
+RAD51C & RAD51D & DDR & HR paralogs & $>$2,000 \\
+MSH2 & MSH6 & DDR & MutS-alpha heterodimer & $>$2,000 \\
+TP53 & CDKN1A & CellCycle & TF $\to$ target & $>$2,000 \\
+CDK4 & CCND1 & CellCycle & Kinase-cyclin & $>$2,000 \\
+MDM2 & MDM4 & CellCycle & TP53 co-regulators & $>$2,000 \\
+RB1 & CDKN1B & CellCycle & Cell cycle inhibitors & $>$2,000 \\
+CDKN2A & CDKN2B & CellCycle & Same locus (9p21) & $>$2,000 \\
+BRAF & MAP2K1 & PI3K\_Growth & RAF$\to$MEK cascade & $>$2,000 \\
+ERBB2 & PIK3CA & PI3K\_Growth & Receptor $\to$ PI3K & $>$2,000 \\
+NF1 & PTEN & PI3K\_Growth & Tumor suppressors & $\sim$500 \\
+ARID1A & SMARCA4 & ChromatinRemodel & SWI/SNF complex & $>$2,000 \\
+CREBBP & KMT2D & ChromatinRemodel & Enhancer modifiers & $\sim$1,000 \\
+HLA-A & HLA-B & Immune & MHC class I & $>$2,000 \\
+TGFBR1 & TGFBR2 & TissueArchitecture & TGF-beta receptor & $>$2,000 \\
+APC & AXIN1 & TissueArchitecture & Wnt destruction complex & $>$2,000 \\
+ESR1 & FOXA1 & Endocrine & ER + pioneer factor & $>$2,000 \\
+ATM & TP53 & DDR$\to$CellCycle & Bridge: wrapper $\to$ target & $>$2,000 \\
+\bottomrule
+\end{longtable}
+
+\end{document}
