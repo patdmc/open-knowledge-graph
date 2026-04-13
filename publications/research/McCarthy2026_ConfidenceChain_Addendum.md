@@ -99,7 +99,7 @@ Twenty-eight frameworks were added in two tiers.
 
 | Reference | Key propositions | Primary EC mapping |
 |-----------|-----------------|-------------------|
-| Miller (1956) | MI1-MI3: 7±2 chunks, chunking = factoring, C_n = Shannon capacity | EC01, EC08, EM04 |
+| Miller (1956) | MI1-MI3: 7$\pm$2 chunks, chunking = factoring, C_n = Shannon capacity | EC01, EC08, EM04 |
 | Cowan (2001) | CO1-CO3: focus of attention = 4 items, embedded process model, slot structure | EC01, EC09 |
 | Dunbar (1992) | DU1-DU3: Dunbar's number, language as social grooming, cognitive arms race | EC07, EM10 |
 | Watts-Strogatz (1998) | WS1-WS3: small-world networks, intermediate rewiring, robust emergence | EC07, NV04 |

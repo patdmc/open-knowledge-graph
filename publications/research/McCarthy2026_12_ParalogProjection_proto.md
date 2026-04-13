@@ -10,9 +10,9 @@
 
 DNA is a one-dimensional serialization of a three-dimensional connected graph. This paper proposes that chromatin folding can be modeled as a book embedding, derives the consequences, and shows that the biological evidence is consistent with the model at every tested level.
 
-**Section 1** applies the book thickness theorem from graph theory: given n vertices on a fixed linear spine, each non-crossing contact layer (page) supports at most 2n − 3 edges, so a graph with m edges requires at least ⌈m/(2n − 3)⌉ pages. This is proven. (Bernhart & Kainen 1979, Malitz 1994.)
+**Section 1** applies the book thickness theorem from graph theory: given n vertices on a fixed linear spine, each non-crossing contact layer (page) supports at most 2n - 3 edges, so a graph with m edges requires at least $\lceil m/(2n - 3) \rceil$ pages. This is proven. (Bernhart & Kainen 1979, Malitz 1994.)
 
-**Section 2** extends the bound to three dimensions. In physical space, even non-crossing edges interfere at close range — signal integrity requires spatial separation between chromatin loops. The self-avoidance constraint of a polymer in R³ limits total contacts to O(n). TAD boundaries (CTCF/cohesin insulation) are the physical realization of page separators, preventing crosstalk between independent contact sets.
+**Section 2** extends the bound to three dimensions. In physical space, even non-crossing edges interfere at close range — signal integrity requires spatial separation between chromatin loops. The self-avoidance constraint of a polymer in R$^3$ limits total contacts to O(n). TAD boundaries (CTCF/cohesin insulation) are the physical realization of page separators, preventing crosstalk between independent contact sets.
 
 **Section 3** establishes that DNA behaves as the theorem predicts. Tissue-specific chromatin folding is empirical fact (Lieberman-Aiden 2009, Rao 2014). Different tissues fold differently. The fold is an **anti-index**: the default state is closed (compacted, silenced); the fold selectively suppresses contacts, and the tissue's active genes are what survive the suppression. Two of eight cancer-relevant channels — ChromatinRemodel and DNAMethylation — are the anti-index maintenance machinery. Their failure degrades the fold across all channels and causes cancer in all tissue types.
 
@@ -40,29 +40,29 @@ The spine is the chromosome. The pages are independent sets of non-crossing cont
 
 ### 1.3 The bound
 
-Each page is an outerplanar graph. An outerplanar graph on n vertices has at most 2n − 3 edges (classical). Therefore:
+Each page is an outerplanar graph. An outerplanar graph on n vertices has at most 2n - 3 edges (classical). Therefore:
 
-> **bt(G) ≥ ⌈m / (2n − 3)⌉**
+> **bt(G) $\geq$ $\lceil m / (2n - 3) \rceil$**
 
 where m is the number of edges and n is the number of vertices.
 
-For the complete graph K_n: bt(K_n) = ⌈n/2⌉ (Bernhart & Kainen 1979).
+For the complete graph K_n: bt(K_n) = $\lceil n/2 \rceil$ (Bernhart & Kainen 1979).
 
-For general graphs with m edges: bt(G) = O(√m) (Malitz 1994).
+For general graphs with m edges: bt(G) = O($\sqrt{m}$) (Malitz 1994).
 
 **Application to DNA.** The spine is the chromosomal linear order. Each page is one set of spatial contacts achievable by a single fold without interference. If the functional contact graph has more edges than one page can hold, multiple folds are required. Different tissues need different subsets of the contact graph, and the book thickness bound proves they cannot all share one fold.
 
-**A note on the 2D/3D distinction.** Book thickness is a two-dimensional theorem. DNA folds in three dimensions, where edges can route around each other — 3D is more permissive than 2D. The exact book thickness formula is therefore a lower bound on the 3D problem, not an exact prediction. However, the qualitative claim — that a single fold cannot recover an arbitrary contact graph — holds in both 2D and 3D. The polymer packing constraint in R³ independently limits total contacts to O(n) (Section 2.3), arriving at the same conclusion from physics rather than combinatorics. The claim that multiple folds are necessary is overdetermined: two independent bounds from two different fields agree. The quantitative prediction (how many folds) is approximate; the qualitative prediction (more than one) is proven.
+**A note on the 2D/3D distinction.** Book thickness is a two-dimensional theorem. DNA folds in three dimensions, where edges can route around each other — 3D is more permissive than 2D. The exact book thickness formula is therefore a lower bound on the 3D problem, not an exact prediction. However, the qualitative claim — that a single fold cannot recover an arbitrary contact graph — holds in both 2D and 3D. The polymer packing constraint in R$^3$ independently limits total contacts to O(n) (Section 2.3), arriving at the same conclusion from physics rather than combinatorics. The claim that multiple folds are necessary is overdetermined: two independent bounds from two different fields agree. The quantitative prediction (how many folds) is approximate; the qualitative prediction (more than one) is proven.
 
 ### 1.4 The converse
 
 Given k pages (tissue types), the maximum number of edges (functional contacts) the genome can support is:
 
-> **m_max = k × (2n − 3)**
+> **m_max = k × (2n - 3)**
 
-The vertex count depends on the resolution of the contact graph. If vertices are protein-coding genes: n ≈ 20,000, page capacity ≈ 40,000. If vertices are genomic loci at 40kb Hi-C resolution: n ≈ 75,000, page capacity ≈ 150,000. If vertices are 5kb bins: n ≈ 600,000, page capacity ≈ 1,200,000. The bound is resolution-dependent. We use genes as vertices for the co-essentiality analysis (Section 4) because co-essentiality is measured per gene, not per locus. For Hi-C comparisons, the appropriate vertex set is the Hi-C bin resolution.
+The vertex count depends on the resolution of the contact graph. If vertices are protein-coding genes: n $\approx$ 20,000, page capacity $\approx$ 40,000. If vertices are genomic loci at 40kb Hi-C resolution: n $\approx$ 75,000, page capacity $\approx$ 150,000. If vertices are 5kb bins: n $\approx$ 600,000, page capacity $\approx$ 1,200,000. The bound is resolution-dependent. We use genes as vertices for the co-essentiality analysis (Section 4) because co-essentiality is measured per gene, not per locus. For Hi-C comparisons, the appropriate vertex set is the Hi-C bin resolution.
 
-At the gene level, for ~200 human tissue types: m_max ≈ 200 × 40,000 ≈ 8 × 10⁶ contacts. ENCODE estimates 2-4 million regulatory interactions. The observed connectivity is within the bound at the gene level. The bound at finer resolution (40kb bins) permits proportionally more contacts per page, but also requires proportionally more edges to saturate — the ratio m/page_capacity is the testable quantity, not m or page_capacity alone.
+At the gene level, for ~200 human tissue types: m_max $\approx$ 200 × 40,000 $\approx$ 8 $\times$ 10$^6$ contacts. ENCODE estimates 2-4 million regulatory interactions. The observed connectivity is within the bound at the gene level. The bound at finer resolution (40kb bins) permits proportionally more contacts per page, but also requires proportionally more edges to saturate — the ratio m/page_capacity is the testable quantity, not m or page_capacity alone.
 
 **This is the testable prediction:** measure the connectivity of the functional contact graph (from co-essentiality, Section 4). Measure the number of distinct folds (from multi-tissue Hi-C). The ratio should respect the book thickness bound. If it does, the genome is operating as a book-embedded graph.
 
@@ -82,7 +82,7 @@ These results establish that the insulation architecture (TAD boundaries, CTCF s
 
 ### 2.3 Polymer packing confirms the bound
 
-A self-avoiding polymer of n monomers in R³ can sustain at most O(n) non-backbone contacts (De Gennes scaling, lattice packing argument: each monomer has at most z − 2 contacts on a cubic lattice with coordination number z = 6, giving ≤ 2n total contacts). This is linear in n, not quadratic. The polymer physics bound agrees with the book thickness bound in order of magnitude.
+A self-avoiding polymer of n monomers in R$^3$ can sustain at most O(n) non-backbone contacts (De Gennes scaling, lattice packing argument: each monomer has at most z - 2 contacts on a cubic lattice with coordination number z = 6, giving $\leq$ 2n total contacts). This is linear in n, not quadratic. The polymer physics bound agrees with the book thickness bound in order of magnitude.
 
 ### 2.4 TADs are page separators
 
@@ -200,7 +200,7 @@ TODO: Figure 2 — ATM bridge network diagram.
 
 At k=200 (median cluster size 67 genes), the co-essentiality graph defines 200 functional modules. Same-cluster paralog pairs number 2,931. But the full functional contact graph is larger — every gene pair within a cluster is a candidate functional contact, and cross-cluster contacts (like the ATM → TP53 bridge) add more.
 
-The book thickness bound can be computed at multiple co-essentiality thresholds. This is a **measurement sweep**, not a prediction with a free parameter. At |r| > 0.1, the bound predicts ~414 pages. At |r| > 0.2, ~17 pages. At |r| > 0.3, the bound first exceeds 1 — meaning below |r| ≈ 0.3, functional coupling can be mediated by diffusion without chromatin colocation; above it, the fold is required. The observed tissue hierarchy has ~200 histologically distinct subtypes nested in ~17 major categories. Both levels appear in the threshold sweep without tuning. The correspondence between the co-essentiality threshold hierarchy and the tissue classification hierarchy is the result — not any single threshold match.
+The book thickness bound can be computed at multiple co-essentiality thresholds. This is a **measurement sweep**, not a prediction with a free parameter. At |r| > 0.1, the bound predicts ~414 pages. At |r| > 0.2, ~17 pages. At |r| > 0.3, the bound first exceeds 1 — meaning below |r| $\approx$ 0.3, functional coupling can be mediated by diffusion without chromatin colocation; above it, the fold is required. The observed tissue hierarchy has ~200 histologically distinct subtypes nested in ~17 major categories. Both levels appear in the threshold sweep without tuning. The correspondence between the co-essentiality threshold hierarchy and the tissue classification hierarchy is the result — not any single threshold match.
 
 The threshold at which the bound transitions from 1 to >1 is itself informative: it marks the minimum co-essentiality correlation at which functional coupling requires spatial colocation rather than diffusion. This is a measurable quantity, not a chosen parameter.
 
@@ -293,7 +293,7 @@ Each uses different data, different methods, different statistical tests. None s
 
 ### 5.6 Limitations
 
-**Book thickness is a lower bound, not an exact prediction.** The 2D formula bt(G) ≥ ⌈m/(2n−3)⌉ provides a lower bound on the 3D problem. The qualitative claim (multiple folds necessary) is proven; the quantitative prediction (how many) is approximate. The actual number of tissue types may exceed the bound for developmental or functional reasons unrelated to chromatin architecture.
+**Book thickness is a lower bound, not an exact prediction.** The 2D formula bt(G) $\geq$ $\lceil m/(2n-3) \rceil$ provides a lower bound on the 3D problem. The qualitative claim (multiple folds necessary) is proven; the quantitative prediction (how many) is approximate. The actual number of tissue types may exceed the bound for developmental or functional reasons unrelated to chromatin architecture.
 
 **Co-essentiality measures functional coupling in cell culture, not in vivo.** DepMap cell lines are transformed cancer lines in 2D culture. In vivo coupling — with stromal interactions, immune surveillance, vascularization — may differ.
 
@@ -329,7 +329,7 @@ If cancer resistance scales with functional graph connectivity (edge density per
 
 ### 6.6 Age-specific failure mode distribution
 
-The framework predicts that LOF-driven cancers (node failure) should have flat or young-skewed age distributions (catastrophic at any age), while GOF-driven cancers (fold failure) should skew old (graph erosion makes GOF sufficient in later decades). Preliminary TCGA analysis shows oncogene-driven patients are significantly older than TSG-driven patients (p = 7.5 × 10⁻⁵). SEER age-specific incidence data confirms the three-pattern prediction: testicular cancer (young-skewed, developmental), glioblastoma (flat, node failure at any age), colon cancer (old-skewed, accumulative graph erosion). Formal within-cancer-type analysis controlling for cancer type confound is a next step.
+The framework predicts that LOF-driven cancers (node failure) should have flat or young-skewed age distributions (catastrophic at any age), while GOF-driven cancers (fold failure) should skew old (graph erosion makes GOF sufficient in later decades). Preliminary TCGA analysis shows oncogene-driven patients are significantly older than TSG-driven patients (p = 7.5 $\times$ 10$^{-5}$). SEER age-specific incidence data confirms the three-pattern prediction: testicular cancer (young-skewed, developmental), glioblastoma (flat, node failure at any age), colon cancer (old-skewed, accumulative graph erosion). Formal within-cancer-type analysis controlling for cancer type confound is a next step.
 
 ### 6.7 Fold-aware radiation dosimetry
 

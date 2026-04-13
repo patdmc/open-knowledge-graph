@@ -16,7 +16,7 @@ The prediction is a derivation from the channel hierarchy framework (Paper 5, Pa
 
 The basic population-level inverted test ("does any birth defect predict any adult cancer?") has already been run by Daltveit et al 2020 BMJ, using Norwegian and Swedish national health registries, with overall OR 1.74 (99% CI 1.63-1.84) and adult-period OR 1.21 persisting after the strongest childhood signal. **This paper accepts the Daltveit result as the existing scaffold, and proposes three specific extensions** that have not been tested: (1) HBOC-spectrum tissue specificity in distant cancers, after controlling for the same-organ-system effect Daltveit reports; (2) ER/PR receptor subtype concentration of the breast cancer signal, predicting hormone-responsive HR-deficient cancers specifically; (3) cross-tissue lineage specificity (Müllerian anomaly → ER/PR+ breast cancer rather than just any breast cancer). All three are testable on the same Norwegian/Swedish registry infrastructure Daltveit used, with the addition of cancer-subtype data already present in those national registries.
 
-The clinical action the framework supports does not require waiting for the test. The combined existing evidence — Daltveit OR 1.74, the bi-allelic Fanconi anemia → VACTERL-H literature, the horseshoe-kidney → 3-4× elevated cancer literature, the OpenTargets gene-disease aggregation showing HBOC genes are linked to specific developmental phenotypes via clinical-genetics submissions — is already enough to support precautionary recommendations: women with Müllerian developmental anomalies should be considered for earlier breast cancer screening; patients with multiple VACTERL-spectrum anomalies should be considered for HR-deficient gene panel testing; HBOC carriers with documented developmental anomalies should be moved to the high-intensity end of the surveillance interval recommended for their gene.
+The clinical action the framework supports does not require waiting for the test. The combined existing evidence — Daltveit OR 1.74, the bi-allelic Fanconi anemia → VACTERL-H literature, the horseshoe-kidney → 3-4$\times$ elevated cancer literature, the OpenTargets gene-disease aggregation showing HBOC genes are linked to specific developmental phenotypes via clinical-genetics submissions — is already enough to support precautionary recommendations: women with Müllerian developmental anomalies should be considered for earlier breast cancer screening; patients with multiple VACTERL-spectrum anomalies should be considered for HR-deficient gene panel testing; HBOC carriers with documented developmental anomalies should be moved to the high-intensity end of the surveillance interval recommended for their gene.
 
 This paper does not present a new experiment. It is positional: it derives a sharper prediction from an existing framework, acknowledges what is already published, identifies what is not, names the collaboration target, and stakes the clinical action that follows.
 
@@ -90,9 +90,9 @@ Patients with bi-allelic null or compound heterozygous null mutations in any FA-
 
 **The framework's prediction is fully satisfied at the bi-allelic extreme.** When both copies of the wrapper gene are lost from the start, the developmental anomalies and the cancer co-occur in the same patient by the same mechanism. The framework's extension is that the same molecular logic should apply, in attenuated form, to heterozygous carriers when an embryonic second-hit LOH event occurs in critical morphogenetic cells.
 
-### 4.2 Horseshoe kidney → 3-4× elevated cancer (single-anomaly precedent)
+### 4.2 Horseshoe kidney → 3-4$\times$ elevated cancer (single-anomaly precedent)
 
-The urology literature documents that horseshoe kidney is associated with 3-4× elevated rates of certain renal cancers, including transitional cell carcinoma, Wilms tumor, and carcinoid tumors of the kidney. The standard explanation is anatomical (urinary stasis, abnormal positioning, ureteral compression). **The framework reads this as a marker of HR-pathway insufficiency during embryonic kidney migration, with the cancer risk reflecting the same molecular insufficiency rather than only the local anatomical conditions.** The two readings are not mutually exclusive, but the framework predicts an additional finding: horseshoe kidney patients should also show elevated cancer risk in non-renal tissues, especially HBOC-spectrum tissues. This non-local prediction has not been tested.
+The urology literature documents that horseshoe kidney is associated with 3-4$\times$ elevated rates of certain renal cancers, including transitional cell carcinoma, Wilms tumor, and carcinoid tumors of the kidney. The standard explanation is anatomical (urinary stasis, abnormal positioning, ureteral compression). **The framework reads this as a marker of HR-pathway insufficiency during embryonic kidney migration, with the cancer risk reflecting the same molecular insufficiency rather than only the local anatomical conditions.** The two readings are not mutually exclusive, but the framework predicts an additional finding: horseshoe kidney patients should also show elevated cancer risk in non-renal tissues, especially HBOC-spectrum tissues. This non-local prediction has not been tested.
 
 ### 4.3 Daltveit et al 2020 BMJ — the inverted test, partially run, partially positive
 
@@ -172,11 +172,11 @@ The cleanest test the framework supports is the specific Müllerian → ER/PR+ b
 **Comparison**: age-, race/ethnicity-, parity-, age-at-first-birth-, BMI-, hormone-exposure-matched controls drawn from the same registry without any Q51/Q52 code.
 
 **Primary outcome**: incidence of breast cancer (ICD-10 C50) before age 75, stratified by hormone receptor subtype:
-- ER+/PR+/HER2− ("luminal A")
+- ER+/PR+/HER2$-$ ("luminal A")
 - ER+/PR+/HER2+ ("luminal B")
-- ER+/PR−/HER2± (other ER+)
-- ER−/PR−/HER2− (triple-negative)
-- ER−/PR−/HER2+ (HER2-enriched)
+- ER+/PR$-$/HER2$\pm$ (other ER+)
+- ER$-$/PR$-$/HER2$-$ (triple-negative)
+- ER$-$/PR$-$/HER2+ (HER2-enriched)
 
 **Secondary outcomes**: ovarian (C56), fallopian (C57), uterine (C54-C55) cancers in the Müllerian-anomaly cohort vs controls. (Uterine cancer is the local-tissue effect Daltveit's same-organ-system finding would predict; the framework adds the distant-tissue prediction for breast.)
 
@@ -190,13 +190,13 @@ The cleanest test the framework supports is the specific Müllerian → ER/PR+ b
 - **Effect persists after excluding patients with known HBOC family history or genetic test positivity** — the framework's prediction is independent of known carrier status because it reflects underlying wrapper insufficiency that may not have been molecularly characterized.
 
 **Falsification conditions**:
-- SIR ≈ 1.0 (95% CI containing 1.0) → framework's specific prediction fails.
+- SIR $\approx$ 1.0 (95% CI containing 1.0) → framework's specific prediction fails.
 - Effect concentrated in triple-negative subtype rather than ER/PR+ → mechanism interpretation is wrong; the connection is via a different molecular pathway than HR-deficient hormone-responsive proliferation.
 - Effect entirely explained by reproductive confounders → the anomaly is a marker of reproductive history, not of substrate failure.
 - No dose-response → the framework's "more wrapper failure → more LOH events" prediction fails.
 - Effect present only in patients with confirmed HBOC variants → the framework's "mechanism applies regardless of variant testing" prediction fails (this would still partially confirm a more limited carrier-specific version, but would falsify the population-level extension).
 
-**Power**: SEER and major US state cancer registries record both ICD-10 Q-codes and breast cancer receptor subtype. UK Biobank and the Nordic registries provide the same. Even narrow Müllerian Q-code definitions yield thousands of cases in million-person datasets. Statistical power for detecting HR ≈ 1.5 is ample.
+**Power**: SEER and major US state cancer registries record both ICD-10 Q-codes and breast cancer receptor subtype. UK Biobank and the Nordic registries provide the same. Even narrow Müllerian Q-code definitions yield thousands of cases in million-person datasets. Statistical power for detecting HR $\approx$ 1.5 is ample.
 
 **The same logic generalizes** to other VACTERL-spectrum components: cardiac anomaly Q20-Q24 → ?, renal anomaly Q60-Q64 → ?, esophageal atresia Q39 → ?. The framework's broader prediction is that each developmental anomaly type predicts elevation in HR-deficient cancers in tissues that share embryonic developmental windows or hormonal/proliferative similarity. The Müllerian → ER/PR+ breast cancer prediction is the cleanest entry point because the receptor subtype concentration is a sharp, falsifiable, mechanism-specific test.
 
@@ -232,7 +232,7 @@ The combined existing evidence is already enough to support precautionary clinic
 
 - **Daltveit 2020 BMJ**: OR 1.74 for any major birth defect → adult cancer in millions of Nordic records, with adult-period OR 1.21 still significant.
 - **Bi-allelic Fanconi anemia → VACTERL-H + childhood cancer**: fully documented at the molecular level for every FA-pathway gene.
-- **Horseshoe kidney → 3-4× elevated kidney cancer**: published urology literature, twenty years old.
+- **Horseshoe kidney → 3-4$\times$ elevated kidney cancer**: published urology literature, twenty years old.
 - **Open Targets gene-disease**: HBOC genes are linked to specific VACTERL-spectrum developmental phenotypes via ClinVar pathogenic variant submissions at high genetic-association scores.
 - **Cost asymmetry**: missing a high-penetrance anomaly-positive patient produces late-stage cancer presentation. Over-screening a moderate-risk anomaly-positive patient produces additional MRIs.
 
