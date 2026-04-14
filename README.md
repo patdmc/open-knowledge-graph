@@ -40,7 +40,7 @@ A paper series deriving the architecture of intelligence from a single generativ
 
 | Paper | Title | PDF |
 |---|---|---|
-| 9 | Determinism Precipitates from Uncertainty: When Agents Should Become Scripts | [PDF](publications/research/McCarthy2026_9_SubstrateTransition.pdf) |
+| 9 | Determinism Precipitates from Uncertainty: When Agents Should Become Scripts | *forthcoming* |
 | 10 | The Genome as Knowledge Graph: Governance, Scaling, and the Architecture of Multicellular Life | [PDF](publications/research/McCarthy2026_10_GenomeAsGraph.pdf) |
 | 11 | The Ratchet: Evolution and Cancer as Opposing Failures of the Same Mechanism | [PDF](publications/research/McCarthy2026_11_TheRatchet.pdf) |
 
