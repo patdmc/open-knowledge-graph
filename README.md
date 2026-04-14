@@ -119,7 +119,6 @@ The [`analysis/`](analysis/) directory contains empirical studies:
 
 ## Infrastructure
 
-- **Neo4j** — graph database backing the knowledge graph and data pipeline
 - **Inference layer** ([`inference/`](inference/)) — document embedding, clustering, and keyword extraction pipeline
 - **Annotated formulas** ([`docs/annotated/`](docs/annotated/)) — every formula in the paper series explained
 
