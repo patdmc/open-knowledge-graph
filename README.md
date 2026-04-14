@@ -25,7 +25,7 @@ A paper series deriving the architecture of intelligence from a single generativ
 | 3 | Knowledge as Normalization: Consistency Under Partition Separates Shared Propositions from Action | [PDF](publications/research/McCarthy2026_3_Normalization.pdf) |
 | 4 | Evaluation-Driven Descent, Encoding Permanence, and the Structural Invariants of Intelligence | [PDF](publications/research/McCarthy2026_4_Intelligence.pdf) |
 
-### Empirical (Papers 5–8)
+### Empirical (Papers 5–9)
 
 | Paper | Title | PDF |
 |---|---|---|
@@ -34,13 +34,12 @@ A paper series deriving the architecture of intelligence from a single generativ
 | 6 | Coupling-Channel Structure Predicts Cancer Survival | [PDF](publications/research/McCarthy2026_6_ChannelStructure.pdf) |
 | 7 | Graph Consequences of DNA Serialization | [PDF](publications/research/McCarthy2026_7_GraphPosition.pdf) |
 | 8 | The Cost of Computation: Shared Molecular Machinery Between Learning and Cancer | [PDF](publications/research/McCarthy2026_8_ContextDiseases.pdf) |
-| 8b | Presence Without Performance | [PDF](publications/research/McCarthy2026_8b_PresenceWithoutPerformance.pdf) |
+| 9 | Presence Without Performance | [PDF](publications/research/McCarthy2026_9_PresenceWithoutPerformance.pdf) |
 
-### Bridge (Papers 9–11)
+### Bridge (Papers 10–11)
 
 | Paper | Title | PDF |
 |---|---|---|
-| 9 | Determinism Precipitates from Uncertainty: When Agents Should Become Scripts | *forthcoming* |
 | 10 | The Genome as Knowledge Graph: Governance, Scaling, and the Architecture of Multicellular Life | [PDF](publications/research/McCarthy2026_10_GenomeAsGraph.pdf) |
 | 11 | The Ratchet: Evolution and Cancer as Opposing Failures of the Same Mechanism | [PDF](publications/research/McCarthy2026_11_TheRatchet.pdf) |
 

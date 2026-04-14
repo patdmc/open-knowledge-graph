@@ -4,7 +4,7 @@
 
 **Patrick D. McCarthy**
 
-*Companion to McCarthy 2026 Paper 5 (Cancer eLife) and Paper 6 (ChannelStructure), and to Paper 8 (The Cost of Computation) and Paper 8b (Presence Without Performance). Stakes a clinically actionable position derived from the channel hierarchy framework, identifies the published evidence that already partially confirms it, names the specific test that has not been run, and lays out the clinical action that follows today.*
+*Companion to McCarthy 2026 Paper 5 (Cancer eLife) and Paper 6 (ChannelStructure), and to Paper 8 (The Cost of Computation) and Paper 9 (Presence Without Performance). Stakes a clinically actionable position derived from the channel hierarchy framework, identifies the published evidence that already partially confirms it, names the specific test that has not been run, and lays out the clinical action that follows today.*
 
 ---
 
@@ -312,7 +312,7 @@ The translational gap between the published epidemiology and current clinical pr
 1. McCarthy, P. D. (2026) *Cancer.* Paper 5 of this series.
 2. McCarthy, P. D. (2026) *Channel Structure.* Paper 6 of this series.
 3. McCarthy, P. D. (2026) *The Cost of Computation.* Paper 8 of this series.
-4. McCarthy, P. D. (2026) *Presence Without Performance.* Paper 8b of this series.
+4. McCarthy, P. D. (2026) *Presence Without Performance.* Paper 9 of this series.
 5. **Daltveit, D. S., Klungsøyr, K., Engeland, A., et al. (2020).** Cancer risk in individuals with major birth defects: large Nordic population based case-control study among children, adolescents, and adults. *BMJ* 371:m4060. PMID 33268348. **[Load-bearing — the existing inverted test at large scale.]**
 6. Lupo, P. J., Schraw, J. M., Desrosiers, T. A., et al. (2019). Association between birth defects and cancer risk among children and adolescents in a population-based assessment of 10 million live births. *JAMA Oncology* 5:1150-1158.
 7. Bjørge, T., Cnattingius, S., Lie, R. T., Tretli, S., Engeland, A. (2008). Cancer risk in children with birth defects and in their families: a population-based cohort study of 5.2 million children from Norway and Sweden. *Cancer Epidemiol Biomark Prev* 17:500-506.
@@ -347,4 +347,4 @@ The core revisions from v2:
 
 The paper is now ~6500 words. It is intentionally short for a positional paper because it makes one specific claim, marshals the evidence, and gets out of the way of the test that resolves it.
 
-Reproducibility: the OpenTargets query script and raw GraphQL responses (`analysis/paralog_projection/query_opentargets_hbo_developmental.py` and `data/opentargets/`) reproduce the §4.4 evidence. The reproducibility notebook for the broader paper is at `notebooks/paper8b_reproduce.py` and serves as the template for an analogous `paper8c_reproduce.py` (TODO).
+Reproducibility: the OpenTargets query script and raw GraphQL responses (`analysis/paralog_projection/query_opentargets_hbo_developmental.py` and `data/opentargets/`) reproduce the §4.4 evidence. The reproducibility notebook for the broader paper is at `notebooks/paper9_reproduce.py` and serves as the template for an analogous `paper8c_reproduce.py` (TODO).
