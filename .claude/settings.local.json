@@ -621,7 +621,9 @@
       "Bash(curl -sL \"https://reactome.org/download/current/NCBI2Reactome.txt\" -o data/reactome_ncbi.tsv)",
       "Bash(curl -sL \"https://reactome.org/download/current/UniProt2Reactome.txt\" -o data/reactome_uniprot.tsv)",
       "Bash(pdflatex -interaction=nonstopmode McCarthy2026_12_WhyDifferentFolds.tex)",
-      "Bash(tectonic McCarthy2026_12_WhyDifferentFolds.tex)"
+      "Bash(tectonic McCarthy2026_12_WhyDifferentFolds.tex)",
+      "Bash(mkdir -p /Users/patdmc/github/paper9_held)",
+      "Bash(cp publications/research/McCarthy2026_9_SubstrateTransition.pdf publications/tex-files/McCarthy2026_9_SubstrateTransition.tex /Users/patdmc/github/paper9_held/)"
     ]
   },
   "hooks": {
