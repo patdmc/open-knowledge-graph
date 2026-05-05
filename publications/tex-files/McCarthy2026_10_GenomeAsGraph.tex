@@ -24,7 +24,7 @@
 \maketitle
 
 \begin{abstract}
-Papers~1--4 of this series derive the structural constraints any
+The bounded context architecture paper of this series derive the structural constraints any
 persistent system must satisfy under bounded context: graph structure,
 escalation, inseparability of knowledge and action, and encoding
 permanence. Papers~5--8 validate these constraints empirically in
@@ -79,7 +79,7 @@ signals, executes repair, and coordinates with neighboring cells. The
 cell's active knowledge---its runtime graph---is encoded in protein
 concentrations, metabolite levels, chromatin accessibility, and
 epigenetic marks. This is the Meta/Action/Knowledge triad from
-Paper~1 \cite{McCarthy2026a}, instantiated in biochemistry.
+Paper~1 \cite{McCarthy2026_BCA}, instantiated in biochemistry.
 
 DNA is not the system. DNA is the system's serialized reboot contract.
 When the cell divides, the runtime is destroyed (denaturing dissolves
@@ -88,7 +88,7 @@ survives is the sequence---the data---and a partial copy of the
 epigenetic state. The daughter cell must reconstruct the runtime from
 this projection.
 
-The three encoding layers from Paper~4 \cite{McCarthy2026d} map
+The three encoding layers from Paper~4 \cite{McCarthy2026_BCA} map
 directly:
 
 \begin{center}
@@ -535,7 +535,7 @@ error rate.
 \subsection{The autoscaling analogy}
 
 Bacteria solved the scaling problem horizontally: stateless, fungible,
-$O(1)$ governance per instance (Paper~1 \cite{McCarthy2026a}). No
+$O(1)$ governance per instance (Paper~1 \cite{McCarthy2026_BCA}). No
 $\log(n)$ governance overhead, which is why they won the biomass war.
 But horizontal scaling cannot build an eye.
 
@@ -826,7 +826,7 @@ The framework generates testable predictions:
 \label{sec:series}
 % ------------------------------------------------------------------
 
-This paper is the existence proof. Papers~1--4 derive from first
+This paper is the existence proof. The bounded context architecture paper derive from first
 principles that a persistent system under bounded context must
 maintain a directed graph, must escalate, must couple knowledge with
 action, and must encode at permanence levels proportional to
