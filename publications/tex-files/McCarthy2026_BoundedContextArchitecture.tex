@@ -1,0 +1,245 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\title{Bounded Context Architecture:\\Graph Structure, Escalation, Normalization,\\and What Persists}
+\author{Patrick D.\ McCarthy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Any system that accumulates knowledge under bounded active context
+faces a fundamental tradeoff between consistency and availability.
+We show that this single constraint---bounded context---predicts
+four architectural consequences that independently emerge across
+software, biological, and organizational systems.
+
+First, a directed graph with typed edges is the cost-optimal
+representation: factoring shared structure preserves information
+while reducing context load, and sub-linear dependency queries
+require stored adjacency. Second, as action repertoire grows,
+control architectures converge toward escalation: lower levels
+resolve locally, signaling upward only on failure. Third, shared
+propositions precipitate from the action space into a separated
+knowledge structure---normalization in Codd's sense---eliminating
+the update anomalies that manifest as catastrophic forgetting in
+architectures without partition boundaries. Fourth, agency
+($\gamma > 0$) and learning efficiency ($\eta_M > 0$) are the
+minimal structural invariants of persistence under positive novelty
+rate; their product $I(E) = \gamma \cdot \eta_M$ is a natural
+measure of intelligence as rate of adaptation to novelty.
+
+These results are not independent insights but consequences of one
+constraint. Empirical confirmation comes from cancer genomics:
+grouping mutations by coupling-channel boundaries (the graph's
+partition structure) predicts overall survival with $p < 10^{-14}$
+across 71,983 patients, while total mutation count does not.
+\end{abstract}
+
+% ==================================================================
+% SECTION 1: INTRODUCTION
+% ==================================================================
+\section{Introduction}
+\label{sec:intro}
+
+% TODO: Merge the best introductory material from Papers 0-4.
+% Key elements to include:
+% - The bounded context constraint (from Paper 1)
+% - The two strategies: flat/fungible vs structured (from Paper 1)
+% - The crossover argument (from Paper 1)
+% - Physarum polycephalum existence proof (from Paper 1)
+% - "The industry is slime-molding" (from Paper 1)
+% - The single-constraint unification claim (new, the merger's contribution)
+% - The software-as-graph enumeration (from Paper 0, condensed)
+% - Cancer as defection from graph back to swarm (one sentence)
+% - Brief roadmap of the four results
+
+% PLACEHOLDER: Introduction text to be assembled from source papers.
+% See merger notes in publications/merge_notes.md
+
+% ==================================================================
+% SECTION 2: FORMAL FRAMEWORK
+% ==================================================================
+\section{Formal Framework}
+\label{sec:framework}
+
+% TODO: One unified set of definitions, appearing once.
+% From Paper 1: World State Space, Proposition/Knowledge Base,
+%   Bounded Active Context, Growth/Curation Regimes,
+%   Contextual Retrieval, Factoring, Information Preservation
+% From Paper 2: Encoding Hierarchy, Delegation Overhead, Escalation Policy
+% From Paper 3: Action Space, Context Load, Entity
+% From Paper 4: Agency, Action Feedback, Information Gain,
+%   Novelty Rate, Free Context, Higher-Order Function Space M,
+%   M Efficiency, Intelligence, Persistence
+%
+% Selective Necessity remark appears once here.
+
+% PLACEHOLDER: Definitions to be assembled from source papers.
+
+% ==================================================================
+% SECTION 3: GRAPH STRUCTURE
+% ==================================================================
+\section{Graph Structure Is Cost-Optimal Under Bounded Context}
+\label{sec:graph}
+
+% TODO: From Paper 1:
+% - Proposition 1 (Graph Optimality from Information Preservation)
+%   with the five-option exhaustive argument
+% - Theorem 1 (Graph Structure from Retention Dynamics)
+%   with the O(n) lower bound proof
+% - Corollary: Edge Growth Dominates Node Growth
+% - Theorem: Contextual Retrieval Requires Adjacency Computation
+% - The attention/transformer convergence argument
+% - Catastrophic forgetting as empirical confirmation
+
+% PLACEHOLDER: Graph section to be assembled from Paper 1.
+
+% ==================================================================
+% SECTION 4: ESCALATION
+% ==================================================================
+\section{Convergence to Escalation Under Bounded Context}
+\label{sec:escalation}
+
+% TODO: From Paper 2:
+% - The delegation overhead definition
+% - Theorem (Convergence to Escalation at Scale)
+%   with the crossover at k*alpha >= C_n/2
+% - The one-directionality argument
+% - The circuit breaker pattern
+% - Cell division illustration (condensed)
+
+% PLACEHOLDER: Escalation section to be assembled from Paper 2.
+
+% ==================================================================
+% SECTION 5: NORMALIZATION
+% ==================================================================
+\section{Knowledge as Normalization}
+\label{sec:normalization}
+
+% TODO: From Paper 3:
+% - Theorem (Normalization of Shared Propositions)
+%   with the O(n*k) -> O(n+k') reduction
+% - Corollary: Retention Criterion
+% - Corollary: K/A Inseparability
+% - The Codd analogy
+% - Catastrophic forgetting as empirical signature
+
+% PLACEHOLDER: Normalization section to be assembled from Paper 3.
+
+% ==================================================================
+% SECTION 6: PERSISTENCE AND INTELLIGENCE
+% ==================================================================
+\section{What Persists: Structural Invariants and Intelligence}
+\label{sec:intelligence}
+
+% TODO: From Paper 4:
+% - Theorem (Evaluation-Driven State Revision / monotone descent)
+% - Encoding Permanence: theta_i = 1 - epsilon/C_i
+%   (the cleanest standalone result)
+% - Theorem (A/M Stratification)
+% - Theorem (Structural Invariants of Persistence)
+%   gamma > 0 and eta_M > 0 as necessary conditions
+% - Corollary: I(E) = gamma * eta_M as a natural measure
+% - The free-context exhaustion argument
+% - Necessary but not sufficient acknowledgment
+
+% PLACEHOLDER: Intelligence section to be assembled from Paper 4.
+
+% ==================================================================
+% SECTION 7: EMPIRICAL CONFIRMATION
+% ==================================================================
+\section{Empirical Confirmation: Cancer as Architecture Failure}
+\label{sec:empirical}
+
+% TODO: Brief summary of Papers 5-7 results:
+% - Paper 5: Channel count predicts OS with p < 10^{-14};
+%   mutation count does not (the Eddington eclipse)
+% - Paper 6: Channel structure maps to cell/tissue/organ/organism tiers
+%   with bottom-up and top-down per tier
+% - Paper 7: Graph position within the channel predicts treatment response
+% - Cancer as defection from escalation back to swarm
+% - The evolutionary data: three epochs, top-down channels scaled
+%   with vertebrate complexity
+
+% PLACEHOLDER: Empirical section to be assembled.
+
+% ==================================================================
+% SECTION 8: DISCUSSION
+% ==================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+% TODO: The unification claim:
+% - One constraint (bounded context) predicts four architectural
+%   consequences
+% - These consequences are observed independently in software,
+%   biology, organizations, and AI
+% - The contribution is not any individual result but the unification
+% - Falsifiable predictions (condensed from Papers 1 and 4)
+% - The encoding permanence threshold as the cleanest standalone result
+% - Implications for AI architecture: CP with CQRS, not AP alone
+% - Scope: information-theoretic invariants, not complete list
+%   of everything needed to survive
+
+% PLACEHOLDER: Discussion to be written fresh for the merged paper.
+
+% ==================================================================
+% SECTION 9: RELATED WORK
+% ==================================================================
+\section{Related Work}
+\label{sec:related}
+
+% TODO: One unified related work section:
+% - CAP theorem (Brewer, Gilbert/Lynch)
+% - Bounded rationality (Simon)
+% - Knowledge representation (Hogan, Pearl, Baader, Berners-Lee, Novak)
+% - Information bottleneck (Tishby)
+% - Codd's relational model
+% - Ashby's requisite variety
+% - Free Energy Principle (Friston)
+% - Intelligence measures (Hutter, Legg, Chollet, Schmidhuber)
+% - Williamson on transaction costs
+% - Catastrophic forgetting (McCloskey, Kirkpatrick)
+
+% PLACEHOLDER: Related work to be consolidated from all 5 papers.
+
+% ==================================================================
+% CONCLUSION
+% ==================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+% TODO: The single-constraint argument:
+% - Bounded context forces graph structure, escalation,
+%   normalization, and selects for agency + learning efficiency
+% - These are not design preferences but cost-optimal responses
+% - The architecture is the same across domains because the
+%   constraint is the same
+% - Empirical confirmation from cancer genomics
+% - The encoding permanence threshold as a bridge to evolutionary
+%   biology (learning rate hierarchy derived from cost-of-failure)
+
+% PLACEHOLDER: Conclusion to be written fresh.
+
+\bibliographystyle{plain}
+\bibliography{../shared/references}
+
+\end{document}
