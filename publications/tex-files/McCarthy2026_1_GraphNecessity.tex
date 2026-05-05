@@ -15,7 +15,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Graph Structure Is Necessary for\\Managing Consistency and Availability Under Bounded Context}
+\title{Why Graph Structure Emerges:\\Consistency, Availability, and Bounded Context}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -30,22 +30,22 @@ faces a fundamental tradeoff: it must be \emph{consistent}
 representation can provide one but not both---consistent storage
 without structure requires $O(n)$ retrieval; available retrieval
 without structure cannot scope invalidation cascades.
-We prove that a directed graph with typed edges is the minimum
-structure that provides both simultaneously. The proof proceeds
+We show that a directed graph with typed edges is the cost-optimal
+structure for providing both simultaneously. The argument proceeds
 from two independent arguments, each corresponding to one side of
-the tradeoff. The \emph{consistency argument} shows that the only
-space-creating operation that does not lose information is factoring
+the tradeoff. The \emph{consistency argument} shows that the most efficient
+space-creating operation that preserves information is factoring
 --- extracting shared structure into named nodes with typed edges ---
 and that factoring \emph{is} graph construction. The
 \emph{availability argument} shows that any representation supporting
 sub-linear dependency queries, contextual retrieval, and selective
 removal with cascade necessarily encodes directed adjacency.
-Together, these establish that graph structure is not a design
-preference but the unique representation that manages both
-consistency and availability under bounded context.
+Together, these explain why graph structure independently emerges
+across every domain that manages both consistency and availability
+under bounded context.
 We show that continuous-weight mechanisms (e.g., transformer
-self-attention) implement graph structure rather than constitute an
-alternative to it. The result is substrate-independent, applying
+self-attention) converge toward graph-like structure under scale,
+consistent with the optimality claim. The result is substrate-independent, applying
 to artificial neural networks, institutional knowledge systems, and
 biological systems alike.
 \end{abstract}
@@ -130,15 +130,16 @@ which propositions depend on a changed one, so invalidation cascades
 either propagate too broadly (wasting context) or too narrowly
 (leaving stale dependents---inconsistency).
 
-This paper proves that a directed graph with typed edges is the
-minimum structure that provides both consistency and availability
-under bounded context. We establish this from two independent
+This paper shows that a directed graph with typed edges is the
+cost-optimal structure for providing both consistency and availability
+under bounded context, and explains why it independently emerges
+across domains. We establish this from two independent
 arguments, each corresponding to one side of the tradeoff:
 
 \begin{enumerate}
 \item \textbf{Consistency} (Proposition~\ref{thm:graph-info}).
-   When a bounded system must make space for new propositions, the only
-   operation that creates space without losing information is
+   When a bounded system must make space for new propositions, the most efficient
+   operation that creates space while preserving information is
    \emph{factoring}: extracting shared structure into a named node with
    typed edges. Factoring is graph construction. It preserves the
    posterior over world states exactly---the consistency guarantee.
@@ -156,15 +157,16 @@ arguments, each corresponding to one side of the tradeoff:
    context.
 \end{enumerate}
 
-The two arguments are independent: consistency alone forces graph
-structure; availability alone forces graph structure. A system
+The two arguments are independent: consistency alone favors graph
+structure; availability alone favors graph structure. A system
 requiring both---which is every system that persists under bounded
-context with evidence arrival---is doubly committed.
+context with evidence arrival---converges on graph structure from
+both directions.
 
 The result is substrate-independent. It does not prescribe an
 implementation (adjacency lists, edge tables, attention masks, synaptic
-connections). It proves that the \emph{information content} of any
-adequate representation is a directed graph, regardless of how that
+connections). It shows that the \emph{information content} of any
+cost-optimal representation converges on a directed graph, regardless of how that
 graph is physically realized.
 
 This has a direct consequence for the relationship between knowledge
@@ -175,10 +177,10 @@ it---as current neural network architectures do, with weights
 encoding knowledge and forward passes encoding action---creates two
 representations that must be kept consistent with each other.
 The consistency cost of that separation grows with graph density.
-Paper~2 in this series \cite{McCarthy2026b} proves that under
+Paper~2 in this series \cite{McCarthy2026b} argues that under
 bounded context, the separation cost exceeds its benefit: knowledge
-and action must share a single representation. The graph proven
-necessary here is not merely a data structure. It is the
+and action converge toward a shared representation. The graph shown
+to be cost-optimal here is not merely a data structure. It is the
 architecture.
 
 \subsection{Related work}
@@ -193,7 +195,7 @@ two: CP systems (e.g., ZooKeeper) sacrifice availability; AP systems
 separate read and write models to manage the tradeoff explicitly
 \cite{Young2010}. The present paper shows that bounded active context
 creates an analogous constraint for any knowledge system, and that
-graph structure is the minimum representation that manages both sides.
+graph structure is the cost-optimal representation for managing both sides.
 
 \textbf{Graph-structured knowledge representations} are widely used:
 knowledge graphs \cite{Hogan2021}, Bayesian networks \cite{Pearl1988},
@@ -208,11 +210,11 @@ misconceptions are not wrong nodes but wrong edges: the learner has the
 concepts but the relationships are incorrect. This is an independent
 convergence on the same structural claim from the cognitive side.
 These results demonstrate that graph structure is
-\emph{effective}. The question of whether it is \emph{necessary} has
-received less formal attention. The present paper provides the missing
-argument: graph structure is necessary because it is the minimum
-representation that provides both consistency and availability under
-bounded context.
+\emph{effective}. The question of \emph{why} it independently emerges
+across such diverse domains has received less formal attention. The
+present paper provides an argument: graph structure is cost-optimal
+because it is the most efficient representation for managing both
+consistency and availability under bounded context.
 
 \textbf{The information bottleneck} \cite{Tishby2000} establishes that
 optimal representations compress input while preserving information
@@ -224,7 +226,7 @@ without information loss.
 \textbf{Bounded rationality} \cite{Simon1955} establishes that cognitive
 agents satisfice rather than optimize. Our bounded context constraint
 ($C_n$) formalizes a specific consequence: when the bound is hard,
-structure is not optional but necessary.
+structure becomes the cost-optimal response.
 
 \textbf{Codd's relational model} \cite{Codd1970} established that normalizing
 a database---extracting repeated data into separate tables linked by
