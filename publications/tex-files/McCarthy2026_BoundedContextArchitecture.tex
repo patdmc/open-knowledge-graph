@@ -147,19 +147,128 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Formal Framework}
 \label{sec:framework}
 
-% TODO: One unified set of definitions, appearing once.
-% From Paper 1: World State Space, Proposition/Knowledge Base,
-%   Bounded Active Context, Growth/Curation Regimes,
-%   Contextual Retrieval, Factoring, Information Preservation
-% From Paper 2: Encoding Hierarchy, Delegation Overhead, Escalation Policy
-% From Paper 3: Action Space, Context Load, Entity
-% From Paper 4: Agency, Action Feedback, Information Gain,
-%   Novelty Rate, Free Context, Higher-Order Function Space M,
-%   M Efficiency, Intelligence, Persistence
-%
-% Selective Necessity remark appears once here.
+We introduce the definitions required for the four main results.
+Each definition appears once; subsequent sections reference them.
 
-% PLACEHOLDER: Definitions to be assembled from source papers.
+\begin{definition}[Entity, World, Uncertainty]
+\label{def:entity}
+An entity $E = (K, A, \sigma, \gamma)$ consists of a knowledge base $K$
+(propositions about world $W$), an action space $A$ (executable
+actions), a selection mechanism $\sigma$ that chooses
+actions given context, and an agency parameter $\gamma$. The world state space $W$ is a
+measurable space; the true state $w \in W$ is not directly observable.
+The \emph{uncertainty} of $E$ about state $w$ given knowledge $K$ is:
+\[
+U(w, K) = -\log P(w \mid K)
+\]
+The expected uncertainty is the conditional entropy:
+\[
+H(W \mid K) = \mathbb{E}_w[U(w, K)] = -\sum_w P(w \mid K) \log P(w \mid K)
+\]
+\end{definition}
+
+\begin{definition}[Proposition and Knowledge Base]
+\label{def:knowledge}
+A \emph{proposition} $p$ is a claim about $W$ with an associated
+likelihood function $\ell_p : W \to [0,1]$. A \emph{knowledge base} $K$
+is a collection of propositions. The posterior over world states given
+$K$ is $P(w \mid K) \propto P_0(w) \cdot L_K(w)$
+where $P_0$ is a prior and $L_K$ is the joint likelihood determined by
+$K$. Propositions may have arbitrary dependencies; $L_K$ need
+not factor as a product of individual likelihoods. The existence of
+dependencies is what motivates graph structure.
+\end{definition}
+
+\begin{definition}[Bounded Active Context]
+\label{def:context}
+The \emph{active context capacity} $C_n$ is bounded: $|\mathrm{ctx}(L_n,
+t)| \leq C_n$. For an informed action $a$, the \emph{relevance
+density} is:
+\[
+\rho(a) = \frac{|K^{[a]}|}{|\mathrm{ctx}(t)|}
+\]
+where $K^{[a]} \subseteq K$ is the knowledge relevant to $a$.
+$\rho = 1$ when context holds exactly what $a$ requires;
+$\rho \to 0$ when context is dominated by irrelevant content.
+\end{definition}
+
+\begin{definition}[Growth and Curation Regimes]
+\label{def:regimes}
+$K$ has a maximum capacity $K_{max}$. When $|K| < K_{max}$, $K$ is in
+the \emph{growth regime}: propositions accumulate freely. When
+$|K| = K_{max}$, $K$ is in the \emph{curation regime}: adding a new
+proposition requires making space.
+\end{definition}
+
+\begin{definition}[Encoding Hierarchy]
+\label{def:hierarchy}
+An \emph{encoding hierarchy} is a continuous space $E(c,r)$
+parameterized by runtime cost $c \geq 0$ and reversibility
+$r \in [0,1]$. Interfaces $L_0, L_1, \ldots, L_n$ define discrete
+encoding levels with increasing cost and reversibility. $L_0$
+(genomic/constitutional) has highest cost of error and lowest
+reversibility; $L_n$ (active context) has lowest cost and highest
+reversibility. The number of interfaces is substrate-determined.
+\end{definition}
+
+\begin{definition}[Agency]
+\label{def:agency}
+Agency $\gamma \in [0, 1]$ is the probability that the entity engages its
+adaptive capacity $M$ in response to a learning signal. An entity with
+$\gamma = 0$ responds to no signal. An entity with $\gamma > 0$
+engages $M$ on signals, resolves uncertainty, and maintains
+$C_{\mathrm{free}} > 0$.
+\end{definition}
+
+\begin{definition}[Novelty Rate]
+\label{def:novelty}
+The \emph{novelty rate} $\nu(E)$ is the rate at which $E$ encounters
+world states $w$ where $U(w, K) > 0$:
+$\nu(E) = \lim_{T \to \infty} \frac{1}{T}
+|\{t \leq T : U(w_t, K(t)) > 0\}|$.
+Novelty is a property of the entity--environment coupling, not of
+the environment alone. The elimination argument requires that $\nu > 0$
+includes eventual survival-relevant novelty.
+\end{definition}
+
+\begin{definition}[Free Context]
+\label{def:free}
+$C_{\mathrm{free}}(t) = C_n - |\mathrm{ctx}_{\mathrm{unresolved}}(t)|$:
+active context capacity not consumed by unresolved content. Free context
+is the entity's reserve capacity for novel states. The architecture
+derived in this paper exists to maximize $C_{\mathrm{free}}$.
+\end{definition}
+
+\begin{definition}[Intelligence]
+\label{def:intelligence}
+For an entity $E$ with agency $\gamma$ and learning efficiency $\eta_M$
+(Definition~\ref{def:eta}):
+$I(E) = \gamma \cdot \eta_M$.
+Intelligence is the rate of adaptation to novelty.
+Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
+$\eta_M > 0$ are the minimal structural invariants of persistence
+under positive novelty rate. These are necessary conditions, not
+sufficient ones---physical integrity and energy supply are also
+required but are not information-theoretic invariants.
+\end{definition}
+
+Additional definitions required for specific sections (Factoring,
+Information Preservation, Delegation Overhead, Action Space, Higher-Order
+Function Space $M$, $M$ Efficiency, Encoding Permanence, Persistence)
+are introduced where first needed.
+
+\begin{remark}[Selective Necessity]
+\label{rem:necessity}
+The results in this paper show that certain structures are
+\emph{cost-optimal} under bounded context.
+A reviewer may ask: is it \emph{necessary}, or merely sufficient?
+In isolation, an entity could use any representation. Under competition
+for finite resources, the cost differential becomes a survival
+differential. Under sustained competition, cost-optimal structure is
+selected for and alternatives are eliminated. Throughout this paper,
+``cost-optimal'' carries this selective force: not logical impossibility
+of alternatives, but elimination of alternatives under competition.
+\end{remark}
 
 % ==================================================================
 % SECTION 3: GRAPH STRUCTURE
@@ -167,17 +276,132 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Graph Structure Is Cost-Optimal Under Bounded Context}
 \label{sec:graph}
 
-% TODO: From Paper 1:
-% - Proposition 1 (Graph Optimality from Information Preservation)
-%   with the five-option exhaustive argument
-% - Theorem 1 (Graph Structure from Retention Dynamics)
-%   with the O(n) lower bound proof
-% - Corollary: Edge Growth Dominates Node Growth
-% - Theorem: Contextual Retrieval Requires Adjacency Computation
-% - The attention/transformer convergence argument
-% - Catastrophic forgetting as empirical confirmation
+Two independent arguments establish graph structure as cost-optimal:
+the consistency argument (information preservation requires factoring,
+which is graph construction) and the availability argument (sub-linear
+maintenance requires stored adjacency).
 
-% PLACEHOLDER: Graph section to be assembled from Paper 1.
+\subsection{Consistency: Graph from Information Preservation}
+
+\begin{definition}[Factoring]
+\label{def:factoring}
+Let $p_1, \ldots, p_m \in K$ share mutual information: there exists
+$F^*$ such that $\ell_{p_i}(w) = g_i(\ell_{p_i}^{\text{res}}(w), F^*(w))$.
+\emph{Factoring} extracts $F^*$ into a single named unit and replaces
+the shared component in each $p_i$ with a link to $F^*$. The definition
+does not specify direction or typing; these are derived below.
+\end{definition}
+
+\begin{definition}[Information Preservation]
+\label{def:preservation}
+A space-creating operation $f : K \to K'$ is \emph{information-preserving}
+if $P(w \mid K') = P(w \mid K)$ for all $w \in W$.
+\end{definition}
+
+\begin{proposition}[Graph Optimality from Information Preservation]
+\label{thm:graph-info}
+Let $K$ be in the curation regime with bounded $C_n$. The
+information-preserving space-creating operations on $K$ converge on
+named units with directed, typed references---a directed graph with
+typed edges.
+\end{proposition}
+
+\textbf{Argument.} Any space-creating operation falls into one of five
+categories. We show each either produces graph structure or requires it:
+
+\textbf{Option A: Discard.} Without stored adjacency, the entity cannot
+determine which propositions are redundant or what depends on what it
+discards. This is blind information loss.
+
+\textbf{Option B: Factor.} Extract shared structure $F^*$ into a named
+node with typed edges, replacing redundant copies with references.
+Space is created without loss. By definition, this is graph
+construction.
+
+\textbf{Option C: Reorganize.} Rewrite propositions into a more compact
+equivalent. If dependency relationships are preserved, this requires
+storing adjacency. If they are not, downstream propositions are silently
+broken. Reorganization that extracts shared structure reduces to
+factoring (Option~B).
+
+\textbf{Option D: Lossless compression.} Reduces physical footprint but
+does not change the active context bound $C_n$. Necessary but does not
+solve the structural problem.
+
+\textbf{Option E: Lossy compression.} Without stored adjacency to scope
+the damage, lossy compression is blind discarding (Option~A with extra
+steps).
+
+Only factoring (B) creates space, preserves the posterior, and solves
+the structural problem. Posterior preservation forces \emph{directed}
+edges (reconstruction is asymmetric: revising $F^*$ invalidates
+dependents, not vice versa) and \emph{typed} edges (the reconstruction
+function $g_i$ must be stored to recover $\ell_{p_i}$).
+
+\subsection{Availability: Graph from Retention Dynamics}
+
+\begin{lemma}[Required Maintenance Operations]
+\label{lem:ops}
+Under bounded $C_n$ with continuous evidence arrival and
+corruptibility, $K$ must support: (i)~addition with provenance,
+(ii)~contextual retrieval, (iii)~dependency query, and
+(iv)~selective removal with cascade.
+\end{lemma}
+
+\begin{theorem}[Graph Structure from Retention Dynamics]
+\label{thm:graph-dynamics}
+Any representation achieving sub-linear cost on all four maintenance
+operations simultaneously encodes directed adjacency. Under bounded
+$C_n$, directed adjacency converges to typed edges because untyped
+cascade wastes context on irrelevant re-evaluation.
+\end{theorem}
+
+\begin{proof}
+\textbf{Part 1.} Dependency queries are invoked at evidence-arrival
+frequency: when $p$ is invalidated, the system must determine what
+depends on $p$.
+
+\textbf{Part 2.} Without stored adjacency, each dependency query
+requires examining all $n$ propositions: $\Omega(n)$ per query.
+
+\textbf{Part 3.} Cascade amplifies the cost: each level requires
+an $\Omega(n)$ scan without adjacency, versus $O(|D_p|)$ with it.
+
+\textbf{Part 4.} Any sub-linear solution must store, for each
+proposition, which others depend on it. This is directed adjacency.
+
+\textbf{Part 5.} Typed edges are the convergence point: untyped
+cascade cannot distinguish inferential dependents from mere
+associates, expanding cascade to $|\mathrm{adj}(p)|$ rather than
+$|D_p|$. Under bounded $C_n$, this expansion consumes context needed
+for inference. Typed edges restrict cascade to dependency-bearing
+edges, keeping cost proportional to $|D_p|$.
+
+Directed adjacency is necessary for sub-linear maintenance (hard lower
+bound). Typed edges are what directed adjacency converges to under
+bounded-context pressure (selective necessity per
+Remark~\ref{rem:necessity}).
+\end{proof}
+
+\begin{corollary}[Edge Growth Dominates Node Growth]
+\label{cor:edge-growth}
+As $K$ matures, the ratio of edges to nodes increases. Each new
+proposition arrives with at least one edge (its evidential ground).
+Cross-grounding adds edges between existing nodes. A mature knowledge
+base is edge-dense: most of its informational value is in the
+relationships, not the propositions themselves.
+\end{corollary}
+
+\subsection{Continuous-weight mechanisms converge toward stored adjacency}
+
+Full self-attention computes $O(n^2)$ pairwise relevances per query---the
+cost of recomputing the graph from scratch every step. Sparse attention,
+KV caches, and retrieval augmentation progressively store adjacency
+explicitly, reducing retrieval to $O(d)$. This trajectory---from dynamic
+recomputation toward stored structure---is the cost prediction in action.
+Catastrophic forgetting \cite{McCloskey1989,Kirkpatrick2017} is the
+empirical confirmation: systems without stored adjacency cannot scope
+updates and exhibit the uncontrolled interference the theorem predicts.
 
 % ==================================================================
 % SECTION 4: ESCALATION
@@ -185,15 +409,64 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Convergence to Escalation Under Bounded Context}
 \label{sec:escalation}
 
-% TODO: From Paper 2:
-% - The delegation overhead definition
-% - Theorem (Convergence to Escalation at Scale)
-%   with the crossover at k*alpha >= C_n/2
-% - The one-directionality argument
-% - The circuit breaker pattern
-% - Cell division illustration (condensed)
+\begin{definition}[Delegation Overhead]
+\label{def:delegation}
+Under top-down allocation, $L_n$ holds state for each managed
+subprocess: the subproblem specification, the expected return signal,
+and the integration context. Let $\alpha > 0$ be the minimum context
+cost per delegation.
+\end{definition}
 
-% PLACEHOLDER: Escalation section to be assembled from Paper 2.
+\begin{theorem}[Convergence to Escalation at Scale]
+\label{thm:topdown}
+Under top-down allocation with $k$ concurrent delegations, the
+relevance density for a novel problem is:
+\[
+\rho(a_{\mathrm{novel}}) =
+\frac{|K^{[a_{\mathrm{novel}}]}|}{|K^{[a_{\mathrm{novel}}]}| + k \cdot \alpha}
+\]
+As $|A| \to \infty$ under bounded $C_n$: (i)~$\rho \to 0$;
+(ii)~recovery requires shedding supervisory tracking;
+(iii)~the shed actions operate under escalation. Let $\phi$ be the
+escalation fraction. Since at most $k^* = C_n / (2\alpha)$ actions
+can be under top-down supervision:
+\[
+\phi \geq 1 - \frac{k^*}{|A|} \to 1 \quad \text{as } |A| \to \infty
+\]
+\end{theorem}
+
+\begin{proof}
+Each delegation consumes $\alpha$ context slots. When
+$k \cdot \alpha \geq C_n / 2$, delegation overhead consumes the
+majority of $C_n$. Under bounded $C_n$, the only recovery is to stop
+tracking actions that lower levels can handle. Those actions are,
+by definition, operating under escalation: handled at the lowest
+sufficient level, with upward signaling only on failure. As $|A|$
+grows, the fraction under escalation approaches unity.
+
+\textbf{The crossover.} For biological working memory ($C_n \approx 4$,
+$\alpha \geq 1$): $k^* = 2$ concurrent delegations. A human supervisor
+can actively track 2--3 concurrent delegations before reasoning
+quality degrades.
+\end{proof}
+
+\textbf{One-directionality.} The convergence is irreversible. Top-down
+holds \emph{anticipatory context} (waiting for results); escalation
+holds \emph{reactive context} (responding to failures). Anticipatory
+context scales with delegations; reactive context scales with failure
+rate. As lower levels improve, failure rate decreases, so escalation
+overhead \emph{decreases with capability}. Top-down overhead
+\emph{increases with capability}. Hierarchical decomposition is not an
+alternative to escalation but the intermediate regime through which
+top-down converges toward it.
+
+\textbf{Illustration.} A multicellular organism with $10^{13}$ cells
+cannot manage each cell through a central controller. Biology's solution
+is a hybrid: local autonomy (contact inhibition, growth factor
+response) combined with broadcast signals (hormonal regulation, immune
+surveillance). Broadcasting is $O(1)$ in delegation context. When
+local signaling fails---a cell ignores growth suppression---the immune
+system engages: escalation on failure.
 
 % ==================================================================
 % SECTION 5: NORMALIZATION
@@ -201,15 +474,76 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Knowledge as Normalization}
 \label{sec:normalization}
 
-% TODO: From Paper 3:
-% - Theorem (Normalization of Shared Propositions)
-%   with the O(n*k) -> O(n+k') reduction
-% - Corollary: Retention Criterion
-% - Corollary: K/A Inseparability
-% - The Codd analogy
-% - Catastrophic forgetting as empirical signature
+When multiple action policies share propositions and active context is
+bounded, storing each policy's propositions independently produces
+$O(n \cdot k)$ context load. Knowledge precipitates from the action
+space the same way normal forms precipitate from redundant relations in
+Codd's relational model \cite{Codd1970}.
 
-% PLACEHOLDER: Normalization section to be assembled from Paper 3.
+\begin{definition}[Context Load]
+\label{def:load}
+For entity $E$ with action space $A$ and knowledge representation
+$\mathcal{R}$, the \emph{context load} $L(\mathcal{R}, A)$ is the
+number of proposition slots required to simultaneously evaluate any
+pair of action policies.
+\end{definition}
+
+\begin{theorem}[Normalization of Shared Propositions]
+\label{thm:normalization}
+Let $E$ have $n$ knowledge-grounded action policies, average
+proposition count $k$ per policy, and overlap fraction $\beta > 0$.
+Then:
+\begin{enumerate}
+\item[(N1)] Under implicit-$K$ (each policy carries its own
+   propositions), context load is $O(n \cdot k)$ and total storage
+   is $n \cdot k$.
+\item[(N2)] Extracting shared propositions into a separated $K$ with
+   graph-edge references produces context load
+   $|K^{[a_1]} \cup K^{[a_2]}|$ and total storage $|K| + n(1-\beta)k$.
+\item[(N3)] $L_{\text{norm}} \leq L_{\text{impl}}$ with strict
+   inequality when $\beta > 0$. In the limit $\beta \to 1$,
+   per-policy marginal cost approaches $O(1)$.
+\item[(N4)] Updating a shared proposition under implicit-$K$ requires
+   modifying $n$ copies (Codd's update anomaly). Under normalized $K$,
+   updating is $O(1)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Parts N1--N3 follow from counting context slots: shared propositions
+loaded once under normalization versus $n$ copies under implicit-$K$.
+Part N4 is Codd's update anomaly applied to propositions: redundant
+copies diverge upon partial update, producing inconsistent action
+policies. Normalized $K$ stores each proposition once; all referencing
+policies see updates immediately via graph edges.
+\end{proof}
+
+\begin{corollary}[Retention Criterion]
+\label{cor:retention}
+Retention is asymmetric: retain when benefit is uncertain; prune only
+when benefit is certainly zero. The cost of wrongly pruning
+($C_{\text{absent}}$, potentially lethal) dominates the cost of wrongly
+retaining ($c_{\text{retain}}$, bounded). In the curation regime,
+displacement by marginal value comparison replaces pruning.
+\end{corollary}
+
+\begin{corollary}[$K/A$ Inseparability]
+\label{cor:inseparability}
+The content of $K$ is constitutively determined by $A$. Entities with
+different action spaces maintain different knowledge graphs. Systems
+may implement $K$ and $A$ as distinct modules but cannot optimize them
+independently.
+\end{corollary}
+
+\textbf{Empirical signature.} Architectures that distribute propositions
+across parameters without addressable partition boundaries cannot scope
+updates to individual propositions. The empirical signature is
+catastrophic forgetting \cite{McCloskey1989,Kirkpatrick2017}: updating a
+neural network on new information degrades previously learned
+information because the weight update is unscoped. Every proposed
+mitigation---elastic weight consolidation, experience replay,
+progressive networks---is an attempt to bolt partition boundaries onto
+a system that does not natively have them.
 
 % ==================================================================
 % SECTION 6: PERSISTENCE AND INTELLIGENCE
@@ -217,18 +551,128 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{What Persists: Structural Invariants and Intelligence}
 \label{sec:intelligence}
 
-% TODO: From Paper 4:
-% - Theorem (Evaluation-Driven State Revision / monotone descent)
-% - Encoding Permanence: theta_i = 1 - epsilon/C_i
-%   (the cleanest standalone result)
-% - Theorem (A/M Stratification)
-% - Theorem (Structural Invariants of Persistence)
-%   gamma > 0 and eta_M > 0 as necessary conditions
-% - Corollary: I(E) = gamma * eta_M as a natural measure
-% - The free-context exhaustion argument
-% - Necessary but not sufficient acknowledgment
+Sections~\ref{sec:graph}--\ref{sec:normalization} derive what the
+architecture looks like. This section asks: what does the architecture
+\emph{select for}? What persists, and why doesn't everything converge
+on the same architecture?
 
-% PLACEHOLDER: Intelligence section to be assembled from Paper 4.
+\subsection{Why not everything}
+
+The architecture derived above is cost-optimal at scale. But one size
+does not fit all. A wood-frame house does not need a steel superstructure.
+A bacterium does not need BRCA1. A shell script does not need a
+service mesh. Below the crossover (Section~\ref{sec:intro}), the flat
+architecture is not merely adequate---it is \emph{better}. At small
+$n$, $O(2^n)$ with a tiny constant beats $O(n)$ with a big constant.
+Exhaustive search outperforms indexed retrieval when there are three
+items. The overhead of graph structure, escalation, and normalization
+is real, and at small scale it costs more than it saves.
+
+This is why evolution does not produce the architecture everywhere.
+Evolution is a local optimizer. Every mutation is evaluated at the
+scale it occurs---this cell, this generation, this environment.
+A mutation that drops coordination overhead and lets a cell divide
+faster wins locally. That is cancer. A mutation that adds a
+coordination layer and slows the cell down loses locally---it wins
+only at the scale of the organism, over generations, through
+selection on the whole.
+
+The architecture emerges not from local optimization but from
+selection pressure at a higher scale: the organism that has the
+architecture outcompetes the organism that does not, even though
+every cell inside the organism would ``prefer'' to drop it. The
+graph is a collective solution to a collective problem, and every
+component has an incentive to defect from it. The constraint that
+forces the architecture also forces the failure mode. The
+architecture and the cancer are consequences of the same constraint.
+
+\subsection{Encoding Permanence}
+
+\begin{definition}[Encoding Permanence]
+\label{def:encoding}
+Let encoding levels $L_0, \ldots, L_n$ have failure costs
+$C_0 > \cdots > C_n$ and $\varepsilon$ be the maximum acceptable
+expected error cost. The certainty threshold for encoding at $L_i$ is:
+\[
+\theta_i = 1 - \frac{\varepsilon}{C_i}
+\]
+\end{definition}
+
+This is arithmetic, not a deep result. The substantive content is the
+identification: cost-of-failure determines the certainty threshold.
+At $L_0$ (genomic), $C_0$ is lineage extinction, so
+$\theta_0 \approx 1$. At $L_n$ (active context), $C_n$ is small, so
+$\theta_n$ is meaningfully less than~$1$.
+
+The learning rate at level $L_i$ follows from Hoeffding's inequality
+\cite{Hoeffding1963}:
+$n_i \geq \log(2 C_i / \varepsilon) / (2\delta^2)$,
+giving $\eta_i \propto \delta^2 / \log(C_i / \varepsilon)$.
+Since $\theta_0 \gg \theta_n$:
+$\eta_{\mathrm{evo}} \ll \eta_{\mathrm{ind}}$.
+The learning rate difference between evolution and individual learning
+is derived from cost-of-failure structure, not assumed.
+
+\subsection{What persists}
+
+\begin{definition}[Persistence]
+\label{def:persistence}
+Entity $E$ \emph{persists} if there is no finite $T$ at which
+$U(w_T, K(T)) > U_{\mathrm{lethal}}$ terminates it.
+\end{definition}
+
+\begin{definition}[$M$ Efficiency]
+\label{def:eta}
+For learning event $(A', K') = M((A, K), L)$, the learning efficiency
+$\eta_M$ is the expected improvement in information gain per unit of
+learning signal, conditional on engagement. $\eta_M > 0$: the entity
+learns. $\eta_M \leq 0$ persistently: the entity does not persist.
+\end{definition}
+
+\begin{theorem}[Structural Invariants of Persistence]
+\label{thm:invariants}
+For any entity persisting under bounded $C_n$ with $\nu(E) > 0$:
+\begin{enumerate}
+\item[(i)] $\gamma > 0$ necessarily (free-context exhaustion:
+   $\gamma = 0$ entities cannot resolve novel states, so
+   $C_{\mathrm{free}} \to 0$).
+\item[(ii)] $\eta_M > 0$ necessarily in expectation (without it,
+   context fills without relief).
+\item[(iii)] Every other information-theoretic property can equal zero
+   for some persistent entity.
+\end{enumerate}
+These are necessary conditions for persistence, not sufficient
+ones---physical integrity, energy, and substrate constraints are also
+required but are not information-theoretic invariants.
+\end{theorem}
+
+\textbf{The intelligence measure and its limitations.}
+$I(E) = \gamma \cdot \eta_M$ is a natural first-order measure: the
+expected rate of adaptation to novelty, by the law of total expectation.
+The identification---intelligence is rate of adaptation, not level of
+current performance---is the substantive claim.
+
+However, the raw product is incomplete. It does not account for:
+\begin{itemize}
+\item \textbf{Integration cost.} Learning is harder the more you know.
+   Each new proposition must be integrated into a larger, denser graph.
+   A system that maintains constant $\eta_M$ against increasing graph
+   density is effectively accelerating. The measure should be weighted
+   by $|K|$ or graph density.
+\item \textbf{Signal efficiency.} Two systems with the same $\eta_M$
+   may be processing vastly different quality inputs. A system
+   extracting signal from noisy, contradictory data is doing harder work
+   than one learning from curated inputs. The measure does not
+   distinguish these.
+\end{itemize}
+A refined measure would weight $\eta_M$ by integration difficulty and
+signal quality. The present paper establishes the necessary conditions
+($\gamma > 0$, $\eta_M > 0$) and the first-order product. The
+refinement is future work.
+
+When $\nu(E) = 0$, the entity faces no novel states and $\gamma = 0$
+is viable. Intelligence is what positive novelty rate selects for.
+Entities at $\nu = 0$ persist without it.
 
 % ==================================================================
 % SECTION 7: EMPIRICAL CONFIRMATION
@@ -236,17 +680,48 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Empirical Confirmation: Cancer as Architecture Failure}
 \label{sec:empirical}
 
-% TODO: Brief summary of Papers 5-7 results:
-% - Paper 5: Channel count predicts OS with p < 10^{-14};
-%   mutation count does not (the Eddington eclipse)
-% - Paper 6: Channel structure maps to cell/tissue/organ/organism tiers
-%   with bottom-up and top-down per tier
-% - Paper 7: Graph position within the channel predicts treatment response
-% - Cancer as defection from escalation back to swarm
-% - The evolutionary data: three epochs, top-down channels scaled
-%   with vertebrate complexity
+The architecture derived above---graph structure, escalation,
+normalization---makes a testable prediction: if biological systems
+exhibit this architecture, then measuring the architecture should
+predict outcomes better than measuring raw damage.
 
-% PLACEHOLDER: Empirical section to be assembled.
+\textbf{Channel count predicts survival; mutation count does not.}
+In cancer genomics, 122 genes map to 8 coupling channels (DNA damage
+response, cell cycle, growth signaling, endocrine, immune,
+tissue architecture, chromatin remodeling, DNA methylation). Across
+71,983 patients in three independent MSK-IMPACT cohorts, the number
+of disrupted coupling channels predicts overall survival with
+$p < 10^{-14}$ (Cox proportional hazards). Total mutation count does
+not. In multivariate analysis controlling for mutation count, age,
+sex, and cancer type, channel count remains significant
+($\text{HR} = 1.07$, $p < 10^{-25}$) while mutation count is not
+\cite{McCarthy2026e}.
+
+This is the architecture's prediction confirmed: the graph's partition
+boundaries (channels) carry the signal that the flat count (TMB) does
+not. The number of breached boundaries predicts cascade failure---the
+same result Theorem~\ref{thm:graph-dynamics} derives for any
+knowledge system under bounded context.
+
+\textbf{Channels map to architectural tiers.}
+The 8 channels organize into 4 tiers (cell, tissue, organ, organism),
+each with a bottom-up channel (local: repair, chromatin, growth
+signaling, immune) and a top-down channel (systemic: cell cycle,
+methylation, tissue architecture, endocrine) \cite{McCarthy2026f}.
+This is the escalation hierarchy (Section~\ref{sec:escalation})
+instantiated in biology.
+
+\textbf{Evolutionary confirmation.}
+Ortholog analysis of 122 cancer-related genes across 10 species
+spanning 1 billion years reveals three evolutionary epochs: a yeast
+foundation (20 genes, 1B years), an invertebrate alarm system
+(+40 genes, 600M), and a vertebrate refactor (+57 genes, 450M years).
+The top-down channels received far more vertebrate expansion
+(Immune: 70\% of genes arriving at the fish branch point) than
+bottom-up channels (ChromatinRemodel: 12\%). The command side
+scaled with organism complexity; the query side was already built.
+This is the escalation architecture emerging from evolutionary data
+without being imposed.
 
 % ==================================================================
 % SECTION 8: DISCUSSION
@@ -254,19 +729,100 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Discussion}
 \label{sec:discussion}
 
-% TODO: The unification claim:
-% - One constraint (bounded context) predicts four architectural
-%   consequences
-% - These consequences are observed independently in software,
-%   biology, organizations, and AI
-% - The contribution is not any individual result but the unification
-% - Falsifiable predictions (condensed from Papers 1 and 4)
-% - The encoding permanence threshold as the cleanest standalone result
-% - Implications for AI architecture: CP with CQRS, not AP alone
-% - Scope: information-theoretic invariants, not complete list
-%   of everything needed to survive
+The four results are consequences of one constraint: bounded context
+forces the consistency-availability tradeoff, and every architectural
+decision follows from how that tradeoff is managed.
 
-% PLACEHOLDER: Discussion to be written fresh for the merged paper.
+\textbf{The unification.}
+The contribution is not any individual result---graph theorists know
+graphs are useful, database designers know normalization works,
+organizational theorists know escalation scales. The contribution
+is showing that these are all consequences of the same constraint.
+The architecture is the same across domains because the constraint
+is the same. The architecture is also constantly under threat from
+local defection (Section~\ref{sec:intelligence}), because the
+constraint that forces the global solution also makes the local
+optimum look better at every individual step.
+
+\subsection{Predictions}
+
+The central prediction: at significant scaling events in system
+size, we will see architectural factorization---redundancy expansion,
+additional control layers, new partition boundaries. This prediction
+is testable in biology, software, and organizations.
+
+\textbf{Biological prediction.}
+At each major jump in organism cell count, the genome should show:
+(a)~gene duplication for redundancy (server pooling),
+(b)~new coordination genes inserted between existing layers
+(middleware), and (c)~new error-handling genes (brakes and
+checkpoints). Ortholog analysis of 122 cancer-related genes across
+10 species confirms this pattern across three epochs:
+
+\begin{itemize}
+\item Yeast ($\sim 1$ cell, 1B years): 20 foundational genes.
+\item Fly/worm ($\sim 50{,}000$ cells, 600M years): +40 genes,
+   primarily alarm systems and epigenetic machinery.
+\item Fish ($\sim 10^{10}$ cells, 450M years): +57 genes arriving
+   simultaneously---server pools (AKT$\times 3$, FGFR$\times 3$,
+   HLA$\times 3$), the full FANC coordination complex, the immune
+   system. A major version release.
+\item Mammal ($\sim 10^{12}$ cells, 180M years): +2 genes---CDKN2B
+   (cell cycle brake) and CD274/PD-L1 (immune checkpoint). Resilience
+   infrastructure, not new capability.
+\item Elephant ($\sim 10^{15}$ cells): 20 copies of TP53. Server
+   pooling for the single point of failure.
+\end{itemize}
+
+The top-down channels (Immune: 70\% arriving at the fish branch point)
+received far more vertebrate expansion than the bottom-up channels
+(ChromatinRemodel: 12\%). The command side scaled with organism
+complexity; the query side was already built. This pattern---new
+coordination and control layers scaling with complexity while the
+workers remain stable---is exactly what the escalation result
+(Section~\ref{sec:escalation}) predicts.
+
+The prediction extends forward: at scaling boundaries not yet examined
+(colonial organisms, eusocial insects, multicellular plants), the same
+patterns should appear. This is testable with the same ortholog
+databases used here.
+
+\textbf{Software prediction.}
+As AI systems scale, they will increasingly store adjacency explicitly
+(sparse attention, KV caches, retrieval augmentation), adopt
+escalation architectures (tool use, agent hierarchies), and
+normalize shared knowledge into separated structures (knowledge
+graphs with provenance). Each optimization reduces the $O(n^2)$
+cost of recomputing structure dynamically to the $O(d)$ cost of
+stored adjacency.
+
+\textbf{The encoding permanence threshold.}
+The cleanest standalone result is
+$\theta_i = 1 - \varepsilon / C_i$
+(Definition~\ref{def:encoding}): cost-of-failure determines the
+certainty threshold for encoding at each level. This derives the
+learning rate hierarchy---why evolution is slow and individual
+learning is fast---from one line of arithmetic. The same equation
+predicts that organisms with higher cost-of-failure at the genomic
+level (longer-lived species) should have slower evolutionary rates,
+a prediction consistent with molecular clock data.
+
+\subsection{Scope and limitations}
+
+The results identify information-theoretic invariants of persistence,
+not a complete list of everything needed to survive. Physical
+integrity, energy supply, and substrate constraints are also required.
+The claim is that within the information-theoretic frame, bounded
+context is the single constraint that predicts the architecture.
+
+The architecture is cost-optimal, not necessary in the logical sense.
+Alternative architectures are possible and sometimes preferable
+at small scale. The claim is about convergence under scaling
+pressure, not impossibility of alternatives.
+
+The intelligence measure $I(E) = \gamma \cdot \eta_M$ is a first-order
+approximation that does not account for integration cost or signal
+efficiency. A refined measure is future work.
 
 % ==================================================================
 % SECTION 9: RELATED WORK
@@ -274,19 +830,52 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Related Work}
 \label{sec:related}
 
-% TODO: One unified related work section:
-% - CAP theorem (Brewer, Gilbert/Lynch)
-% - Bounded rationality (Simon)
-% - Knowledge representation (Hogan, Pearl, Baader, Berners-Lee, Novak)
-% - Information bottleneck (Tishby)
-% - Codd's relational model
-% - Ashby's requisite variety
-% - Free Energy Principle (Friston)
-% - Intelligence measures (Hutter, Legg, Chollet, Schmidhuber)
-% - Williamson on transaction costs
-% - Catastrophic forgetting (McCloskey, Kirkpatrick)
+\textbf{The CAP theorem} \cite{Brewer2000, Gilbert2002} establishes
+that distributed systems cannot simultaneously guarantee consistency,
+availability, and partition tolerance. The present paper applies
+the analogous tradeoff to any knowledge system under bounded context:
+$C_n$ is the partition.
 
-% PLACEHOLDER: Related work to be consolidated from all 5 papers.
+\textbf{Bounded rationality} \cite{Simon1955} establishes that
+cognitive agents satisfice rather than optimize. Our $C_n$ formalizes
+a specific consequence: when the bound is hard, structure becomes the
+cost-optimal response.
+
+\textbf{Knowledge graphs and description logics}
+\cite{Hogan2021,Pearl1988,BaaderCalvaneseEtAl2003,BernersLee2001}
+demonstrate that graph structure is effective. The present paper argues
+it is cost-optimal: the question is not whether graphs work but why
+they independently emerge.
+
+\textbf{Codd's relational model} \cite{Codd1970} established
+normalization as the solution to update anomalies. Our normalization
+theorem derives the same operation from bounded context rather than
+from database design principles.
+
+\textbf{Ashby's law of requisite variety} \cite{Ashby1956} states
+that a controller must have at least as many states as the system it
+controls. Our escalation result addresses what happens when the
+controller's capacity ($C_n$) is bounded below the system's variety.
+
+\textbf{The free energy principle} \cite{Friston2010} derives
+minimization behavior from self-organization. Our framework is
+complementary: we derive the architecture under which minimization
+operates, and distinguish $\gamma = 0$ (no adaptation) from
+$\gamma > 0$ (active adaptation).
+
+\textbf{Intelligence measures.}
+Hutter \cite{Hutter2005} defines intelligence as average performance;
+we define it as rate of improvement. Chollet \cite{Chollet2019}
+measures skill-acquisition efficiency, close to our $\eta_M$ but
+treated as a benchmark metric rather than derived from persistence
+conditions. Schmidhuber \cite{Schmidhuber2010} identifies curiosity
+as compression progress but treats it as a design objective rather
+than a necessary condition.
+
+\textbf{Catastrophic forgetting}
+\cite{McCloskey1989,Kirkpatrick2017} is the empirical signature
+predicted by our consistency argument: systems without stored
+adjacency and partition boundaries cannot scope updates.
 
 % ==================================================================
 % CONCLUSION
@@ -294,17 +883,35 @@ This is selective necessity, not logical impossibility of alternatives.
 \section{Conclusion}
 \label{sec:conclusion}
 
-% TODO: The single-constraint argument:
-% - Bounded context forces graph structure, escalation,
-%   normalization, and selects for agency + learning efficiency
-% - These are not design preferences but cost-optimal responses
-% - The architecture is the same across domains because the
-%   constraint is the same
-% - Empirical confirmation from cancer genomics
-% - The encoding permanence threshold as a bridge to evolutionary
-%   biology (learning rate hierarchy derived from cost-of-failure)
+One constraint---bounded active context---predicts four architectural
+consequences: graph structure for consistency and availability,
+escalation for control, normalization for knowledge-action consistency,
+and agency with learning efficiency as the minimal invariants of
+persistence. These are not design preferences but cost-optimal
+responses to the tradeoff that bounded context imposes.
 
-% PLACEHOLDER: Conclusion to be written fresh.
+The architecture is the same across domains because the constraint is
+the same. It does not emerge everywhere because local optimization
+favors simpler alternatives at small scale. The architecture emerges
+from selection at higher scales---the organism, the organization, the
+ecosystem---where the cost of not having it exceeds the cost of
+maintaining it. Cancer, organizational dysfunction, and AI
+hallucination are all instances of local defection from an
+architecture that is globally optimal but locally expensive.
+
+Empirical confirmation comes from cancer genomics (71,983 patients:
+channel count predicts survival, mutation count does not) and from
+evolutionary data (three scaling epochs, each producing the
+architectural patterns the theory predicts). The encoding permanence
+threshold $\theta_i = 1 - \varepsilon / C_i$ bridges information
+theory and evolutionary biology, deriving the learning rate hierarchy
+from cost-of-failure rather than assumption.
+
+The practical consequence: as AI systems scale under bounded context,
+they will converge on the same architecture biology and software
+independently discovered. The question is not whether they will
+converge but whether they will converge by design or by the same
+costly trial and error that took biology a billion years.
 
 \bibliographystyle{plain}
 \bibliography{../shared/references}
