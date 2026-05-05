@@ -345,7 +345,7 @@ additive, or any other restricted functional form. The permissiveness
 is deliberate: the theorem's force comes not from restricting $g_i$
 but from the requirement that $g_i$ be \emph{stored} (as a typed edge)
 to enable reconstruction. The weaker the constraint on $g_i$, the
-stronger the conclusion that typed edges are necessary.
+stronger the conclusion that typed edges are cost-optimal.
 \emph{Factoring} is the operation that extracts $F^*$ into a single
 named, reusable unit and replaces the shared component in each $p_i$
 with a link to $F^*$.
@@ -388,13 +388,13 @@ or restructure propositions, but the joint constraint that $K$ places
 on $W$ is not weakened.
 \end{definition}
 
-\begin{proposition}[Graph Necessity from Information Preservation]
+\begin{proposition}[Graph Optimality from Information Preservation]
 \label{thm:graph-info}
 Let $K$ be a knowledge base with bounded active context $C_n$
 (Definition~\ref{def:context}) in the curation regime
-(Definition~\ref{def:regimes}). Any information-preserving
-space-creating operation on $K$ (Definition~\ref{def:preservation}) as $|K|$
-grows beyond $C_n$ necessarily produces named units with directed,
+(Definition~\ref{def:regimes}). The information-preserving
+space-creating operations on $K$ (Definition~\ref{def:preservation}) as $|K|$
+grows beyond $C_n$ converge on named units with directed,
 typed references between them---i.e., a directed graph with typed edges.
 \end{proposition}
 
@@ -589,7 +589,7 @@ produced by $F^*$). Without the stored $g_i$, the system cannot
 recover $\ell_{p_i}$ from $F^*$ and the residual, and posterior
 preservation fails. The reconstruction function $g_i$ is the edge
 type: it distinguishes the \emph{kind} of dependency. This is not a
-design choice but a requirement---without it, the factoring is
+design choice but a consequence of reconstruction---without it, the factoring is
 information-losing.
 
 \emph{Typing also scopes cascade.} When $F^*$ is invalidated,
@@ -637,10 +637,10 @@ it.
 % ------------------------------------------------------------------
 
 We first derive the operations that any knowledge maintenance system
-must support, then prove that any representation supporting them
-necessarily encodes directed adjacency.
+must support, then show that any representation supporting them
+at sub-linear cost encodes directed adjacency.
 
-\begin{lemma}[Necessary Maintenance Operations]
+\begin{lemma}[Required Maintenance Operations]
 \label{lem:ops}
 Let $K$ be a knowledge base under bounded active context $C_n$
 (Definition~\ref{def:context}), with continuous evidence arrival, where
@@ -685,7 +685,7 @@ dependents, and the entity has no mechanism to detect or scope the
 damage.
 \end{proof}
 
-\begin{theorem}[Graph Necessity from Retention Dynamics]
+\begin{theorem}[Graph Structure from Retention Dynamics]
 \label{thm:graph-dynamics}
 Let $K$ be a knowledge base supporting the maintenance operations
 derived in Lemma~\ref{lem:ops}. Restated for reference:
@@ -757,7 +757,7 @@ are a direct implementation of operations~(iii) and~(iv). A TMS stores
 directed justifications (which propositions ground which) and propagates
 belief revision through them when any justification is invalidated,
 precisely the dependency query and cascade operations this theorem
-proves are necessary. The fact that AI research independently invented
+derives. The fact that AI research independently invented
 TMS to solve this exact problem is empirical evidence for the theorem's
 claim: without stored directed adjacency, maintenance under evidence
 arrival is intractable.
@@ -810,9 +810,9 @@ graph is what falls out.
 
 \textbf{Part 5: Typed edges are the convergence point under bounded
 context.}
-Parts~1--4 establish that directed adjacency is necessary: without it,
-dependency queries cost $\Omega(n)$. This is a hard lower bound. Typed
-edges are a separate claim at a different level of necessity.
+Parts~1--4 establish that directed adjacency is required for sub-linear
+dependency queries: without it, queries cost $\Omega(n)$. This is a hard
+lower bound. Typed edges are a separate claim at a different level.
 
 A bare adjacency structure (untyped edges) achieves sub-linear
 dependency queries. It is not incorrect. But when $p$ is invalidated,
@@ -860,7 +860,7 @@ A directed graph with typed edges over propositions is a semantic graph.
 \end{proof}
 
 \textbf{Remark (Cascade as error recovery).}
-The cascade mechanism proven necessary in Parts~3--5 is not only an
+The cascade mechanism derived in Parts~3--5 is not only an
 efficiency requirement. It is the error recovery mechanism. When
 evidence corrupts a proposition $p$, the system must identify every
 proposition whose grounding passes through $p$, re-evaluate or remove
@@ -890,7 +890,7 @@ between propositions, not in the propositions themselves.
 \end{corollary}
 
 % ------------------------------------------------------------------
-\section{Continuous-Weight Mechanisms Are Graph Implementations}
+\section{Continuous-Weight Mechanisms Converge Toward Graph Structure}
 \label{sec:attention}
 % ------------------------------------------------------------------
 
@@ -940,8 +940,8 @@ which pairwise relevances are worth computing: they are learning which
 edges to store. The KV cache materializes computed relevances for reuse
 across queries. Each optimization converts dynamic adjacency computation
 into stored adjacency, progressively building the graph that
-Proposition~\ref{thm:graph-info} and Theorem~\ref{thm:graph-dynamics} prove is
-necessary.
+Proposition~\ref{thm:graph-info} and Theorem~\ref{thm:graph-dynamics} predict
+is cost-optimal.
 
 The result is not that ``attention is a graph'' (which would be
 trivially true of any matrix) but that contextual retrieval requires
@@ -984,7 +984,7 @@ Every proposed mitigation---elastic weight consolidation
 \cite{Kirkpatrick2017}, experience replay \cite{Rolnick2019},
 progressive networks \cite{Rusu2016}---is an attempt to bolt partition
 boundaries onto a system that does not natively have them.
-The graph structure proven necessary in this paper provides those
+The graph structure shown to be cost-optimal in this paper provides those
 boundaries natively: typed edges tell the system which knowledge
 is coupled to which, so updates propagate correctly and nothing is
 silently lost. This is not an engineering convenience; it is the
@@ -1006,10 +1006,10 @@ strictly more expensive than storing it.
 \label{sec:discussion}
 % ------------------------------------------------------------------
 
-The two results establish graph necessity from independent premises,
+The two results establish graph optimality from independent premises,
 each corresponding to one side of the consistency-availability tradeoff.
 Proposition~\ref{thm:graph-info} establishes the consistency
-requirement: the only way to make space without losing information is
+argument: the most efficient way to make space without losing information is
 to factor shared structure into named nodes with typed edges.
 Theorem~\ref{thm:graph-dynamics} establishes the availability
 requirement: sub-linear dependency queries, contextual retrieval, and
@@ -1020,8 +1020,8 @@ CAP theorem \cite{Brewer2000}: no system can simultaneously guarantee
 consistency, availability, and partition tolerance. Under bounded
 active context, the partition is the context bound itself---most
 knowledge is always partitioned away from inference. The graph
-structure proven necessary here is the minimum representation that
-manages the resulting tradeoff: typed edges enable scoped consistency
+structure shown to be cost-optimal here is the representation that
+most efficiently manages the resulting tradeoff: typed edges enable scoped consistency
 (update anomalies propagate only along typed dependencies, not
 globally), and adjacency enables sub-linear availability (retrieve
 $K^{[f]}$ in $O(d)$ rather than $O(n)$).
@@ -1031,10 +1031,10 @@ graph-structured data stores. Relational databases---directed graphs
 over tables linked by foreign keys---remain the gold standard for
 consistent, available data precisely because the relational model
 enforces both sides of the tradeoff through normalization (consistency)
-and indexing (availability). The present result proves that this is
-not a design preference but a mathematical necessity: any system that
-must be both consistent and available under bounded capacity must
-maintain graph structure, regardless of substrate.
+and indexing (availability). The present result argues that this is
+not merely a design preference but a mathematical optimality: any system that
+must be both consistent and available under bounded capacity converges
+toward graph structure, regardless of substrate.
 
 \subsection{The continuous representation objection}
 
@@ -1047,8 +1047,8 @@ propositions, there is nothing to factor
 (Proposition~\ref{thm:graph-info}), nothing to query dependencies over
 (Theorem~\ref{thm:graph-dynamics}), and calling an attention matrix a
 ``graph'' (Theorem~\ref{thm:attention}) is a mathematical relabeling,
-not a structural discovery. The objection: the theorems prove graph
-necessity for an idealized system that no successful architecture
+not a structural discovery. The objection: the theorems establish graph
+optimality for an idealized system that no successful architecture
 actually implements.
 
 This objection is serious and requires a substantive response. We offer
@@ -1089,19 +1089,19 @@ information, not in the data structure.
 The objection that ``if any structured representation counts as a
 graph, the claim is trivially true'' misidentifies the contribution.
 The claim is not that representations have structure (which is trivial)
-but that the structure must be \emph{directed}, \emph{typed}, and
+but that the cost-optimal structure is \emph{directed}, \emph{typed}, and
 \emph{adjacency-preserving}, and that representations lacking these
 specific properties lose information or pay $\Omega(n)$ maintenance
 costs. Not all structure is graph structure. A flat embedding space has
 structure (metric, topology) but not directed adjacency; a hash table
 has structure (key-value mapping) but not typed dependencies. The
-theorems identify \emph{which} structural properties are necessary, not
+theorems identify \emph{which} structural properties are cost-optimal, not
 merely that some structure is required.
 
 \textbf{(3) Catastrophic forgetting is the theorem's prediction for
 systems without explicit adjacency.}
 This is the strongest empirical evidence for the result.
-Theorem~\ref{thm:graph-dynamics} proves that without stored directed
+Theorem~\ref{thm:graph-dynamics} shows that without stored directed
 adjacency, selective removal with cascade, updating one proposition
 and propagating correctly to its dependents, costs $\Omega(n)$ per
 evidence event. The prediction: systems that store propositions in
@@ -1152,7 +1152,7 @@ graph is the abstract structure. The substrate is a free parameter.
 \textbf{Implications for AI architecture.}
 Theorem~\ref{thm:attention} reframes the relationship between
 graph-based and neural approaches: they are not competing paradigms but
-different implementations of the same structural necessity. Systems that
+different implementations of the same structural optimum. Systems that
 compute adjacency dynamically (full attention) pay $O(n^2)$; systems
 that store it explicitly (graphs, sparse attention, KV caches) pay
 $O(d)$. The trend in architecture design, from dense attention toward
@@ -1163,7 +1163,7 @@ identify.
 The result suggests that hybrid architectures combining explicit
 knowledge graphs with neural retrieval are not an engineering
 convenience but a response to a structural constraint: as $|K|$ grows,
-systems must encode adjacency to maintain inference quality under bounded
+systems converge toward encoding adjacency to maintain inference quality under bounded
 context.
 
 \textbf{Free context and the purpose of graph structure.}
@@ -1295,46 +1295,48 @@ remains an open empirical question.
 \label{sec:conclusion}
 % ------------------------------------------------------------------
 
-We have shown that graph structure over propositions is not a design
-choice but the minimum representation that provides both consistency
-and availability under bounded context. The consistency argument
-(Proposition~\ref{thm:graph-info}) shows that factoring is the unique
+We have shown that graph structure over propositions is the cost-optimal
+representation for providing both consistency and availability under
+bounded context, and have explained why it independently emerges across
+every domain that faces this tradeoff. The consistency argument
+(Proposition~\ref{thm:graph-info}) shows that factoring is the most efficient
 information-preserving space-creating operation. The availability
 argument (Theorem~\ref{thm:graph-dynamics}) shows that sub-linear
 maintenance operations require directed adjacency. Together, they
-establish that any system managing the consistency-availability
-tradeoff under bounded context necessarily maintains a directed graph
+explain why any system managing the consistency-availability
+tradeoff under bounded context converges toward a directed graph
 with typed edges, whether realized as explicit edges, learned sparse
 attention, synaptic connectivity, or foreign keys in a relational
 database.
 
 Continuous-weight mechanisms such as transformer self-attention
-implement graph structure dynamically rather than constituting
-alternatives to it. They pay $O(n^2)$ per inference step to
+converge toward graph structure dynamically, consistent with the
+optimality claim. They pay $O(n^2)$ per inference step to
 recompute the graph that a stored-adjacency system accesses in $O(d)$.
 This is the availability cost of not storing the structure permanently.
 
 \subsection*{The series from here}
 
-This result establishes that graph structure is necessary.
-The remaining papers in this series address the consequences.
+This result establishes that graph structure is cost-optimal under
+bounded context. The remaining papers in this series address the
+consequences.
 If knowledge is a graph, can it be separated from the action system
-that maintains it? Paper~2 \cite{McCarthy2026b} proves that
+that maintains it? Paper~2 \cite{McCarthy2026b} argues that
 separation creates a distributed consistency problem whose cost
-exceeds the benefit under bounded context: knowledge and action must
-share a single representation, and the graph must be normalized with
+exceeds the benefit under bounded context: knowledge and action converge
+toward a shared representation, and the graph must be normalized with
 typed edges that scope updates. This is the data store's consistency
 property.
 If the knowledge system is a normalized graph, what control
-architecture manages it? Paper~3 \cite{McCarthy2026c} proves that
-bounded context forces convergence toward escalation---handle
+architecture manages it? Paper~3 \cite{McCarthy2026c} shows that
+bounded context favors convergence toward escalation---handle
 problems at the lowest sufficient level, escalate on failure---because
 top-down supervision costs context that scales with action repertoire.
 This is the service topology.
 What measure of performance is appropriate for a system operating
 under these constraints? Paper~4 \cite{McCarthy2026d} derives
 $I = \gamma \cdot \eta_M$---the rate of adaptation to novelty---as
-the unique structural invariant of persistence under bounded context.
+a natural measure of persistence under bounded context.
 Together, these are not independent insights. They are consequences
 of one constraint: bounded context forces the
 consistency-availability tradeoff, and every architectural decision
