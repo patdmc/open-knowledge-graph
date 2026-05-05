@@ -65,13 +65,13 @@ precision allocation models including the Free Energy Principle
 \label{sec:intro}
 % ------------------------------------------------------------------
 
-In cancer genomics data, coupling channels are severed in a
-consistent order: cell-tissue growth control first, organism-level
-immune surveillance last \cite{McCarthy2026e}. This ordering matches
-the levels of a hierarchical control architecture, where lower
-levels handle routine coordination and higher levels engage only
-when lower levels fail. The present paper proves that this
-architecture is the only stable outcome under bounded context.
+In any layered system---software, biological, organizational---failures
+at lower levels are handled locally while failures that exceed local
+capacity escalate to higher levels. This architecture appears
+independently across domains: microservice error handling,
+biological tissue coordination, and organizational management all
+converge on the same pattern. The present paper shows that this
+convergence is the cost-optimal outcome under bounded context.
 
 Every system that acts under uncertainty must solve a control problem:
 which problems receive active reasoning, and which are handled by
@@ -92,11 +92,11 @@ These are two paths through the same layered architecture. Top-down
 allocation is the request path: a supervisor at $L_n$ delegates
 downward and holds state for each delegation. Escalation is the error
 path: lower levels handle requests autonomously and signal upward only
-on failure. The convergence result proves that as capability grows,
+on failure. The convergence result shows that as capability grows,
 the error path handles an increasing fraction of work, because
 lower-level domains resolve more requests locally. Paper~1
 \cite{McCarthy2026a} proved that knowledge under bounded context
-necessarily forms a graph. This paper proves that the
+converges on graph structure. This paper shows that the
 \emph{control architecture} over that graph converges to escalation:
 layered domains with upward error propagation.
 
@@ -127,7 +127,7 @@ context, top-down allocation is viable and may be preferable: the
 supervisor can hold complete state with room to spare, and the benefit
 of optimal routing outweighs the modest overhead. Intelligence,
 however, requires $|A| \gg C_n$: an entity must know far more than it
-can hold in mind at once. This paper proves that as $|A|$ grows under
+can hold in mind at once. This paper shows that as $|A|$ grows under
 bounded $C_n$, any viable control architecture converges toward
 escalation properties. The convergence is not a design preference but
 a scaling consequence: maintaining top-down tracking incurs context
@@ -151,7 +151,7 @@ work.
 
 This paper is the third in a series on bounded-context architecture.
 Paper~1 \cite{McCarthy2026a} established that any system accumulating
-knowledge under bounded context necessarily maintains graph structure.
+knowledge under bounded context converges on graph structure.
 Paper~2 \cite{McCarthy2026b} established that the graph must be
 normalized---typed edges scoping updates to $O(1)$---the data store's
 consistency properties.
@@ -1296,7 +1296,7 @@ architectural choices: how to organize its \emph{data store}
 
 \begin{enumerate}
 \item \textbf{Paper~1} \cite{McCarthy2026a}: The data store.
-   Knowledge under bounded context necessarily forms a graph. This is
+   Knowledge under bounded context converges on graph structure. This is
    the structural result: what form the data store must take.
 
 \item \textbf{Paper~2} \cite{McCarthy2026b}: The data store's
