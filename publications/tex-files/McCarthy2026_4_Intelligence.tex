@@ -15,7 +15,7 @@
 \setlength{\parskip}{4pt plus 1pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\title{Evaluation-Driven Descent, Encoding Permanence,\\and the Structural Invariants of Intelligence}
+\title{Life Under Bounded Context: Descent, Encoding Permanence,\\and What Persists}
 \author{Patrick D.\ McCarthy}
 \date{}
 
@@ -47,8 +47,8 @@ under positive novelty rate; without $\eta_M > 0$, active context
 fills without relief and inference degrades to failure. Every other
 property can equal zero for some persistent entity. Therefore
 $I(E) = \gamma \cdot \eta_M$---the rate of adaptation to novelty---is
-the natural measure of intelligence, derived from these structural
-invariants rather than stipulated.
+a natural measure of intelligence, identified by what positive novelty
+rate selects for.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -63,8 +63,10 @@ immune evasion, metabolic reprogramming, regardless of tissue of origin
 or mutational path \cite{McCarthy2026e}. Convergence under constraint is
 evaluation-driven descent: the cell optimizes against a reduced
 objective because its context no longer includes the organism.
-The present paper proves that this descent, and the intelligence
-measure it implies, are necessary consequences of bounded context.
+The present paper identifies what this descent, and the intelligence
+measure it implies, select for under bounded context.
+
+In simplest terms: life is a bounded context optimization problem. Any entity that persists under finite resources and positive novelty must update its model of the world or be eliminated. The present paper identifies what that requirement selects for.
 
 Paper~1 \cite{McCarthy2026a} established that any entity accumulating
 propositions under bounded context necessarily maintains a directed
@@ -636,7 +638,7 @@ Systems that collapse the action space $A$ and the learning space $M$
 into a single parameter space pay an increasing cost under bounded
 context. Under bounded $C_n$ with positive novelty rate, stratified
 $A$/$M$ separation is selectively favored: collapsed systems pay
-higher costs and are eliminated under competition
+increasing costs under growing knowledge load, making them progressively less competitive
 (\cite{McCarthy2026a}, Remark~1).
 \end{theorem}
 
@@ -748,7 +750,7 @@ at the most stringent rigor threshold).
 \end{corollary}
 
 % ------------------------------------------------------------------
-\section{Necessity of $\gamma$ and $\eta_M$}
+\section{What Persists Under Positive Novelty}
 \label{sec:necessity}
 % ------------------------------------------------------------------
 
@@ -903,7 +905,7 @@ expected improvement rate by the law of total expectation
 \end{proof}
 
 % ------------------------------------------------------------------
-\section{$I(E) = \gamma \cdot \eta_M$ Is Structurally Necessary}
+\section{The Intelligence Measure}
 \label{sec:measure}
 % ------------------------------------------------------------------
 
@@ -946,10 +948,10 @@ conditional rate, and their product is the unconditional rate.
 Any monotone transform $f(\gamma \cdot \eta_M)$ would measure a
 \emph{function of} the rate, not the rate itself, and would lack
 the dimensional interpretation (bits of improvement per learning
-signal). The uniqueness is not that the product is the only
-function zero on the axes---many are---but that it is the only
-function that \emph{is} the expected improvement rate rather than
-a rescaling of it.
+signal). We claim naturality---the measure falls out of the identification
+without arbitrary choices---not uniqueness up to transformation.
+Any monotone transform of $I(E)$ would preserve the ordering over
+entities.
 \end{proof}
 
 \textbf{Temporal note.} $I(E)$ is the expected improvement per learning
@@ -989,7 +991,7 @@ functions; ours is physical $W$ with positive entropy.
 
 \textbf{Chollet \cite{Chollet2019}.}
 Skill-acquisition efficiency is structurally close to $\eta_M$. Two
-differences: Chollet treats prior knowledge $K$ as a confound to be
+differences: Chollet's skill-acquisition efficiency is structurally the closest prior work to $\eta_M$. The key difference: Chollet treats prior knowledge $K$ as a confound to be
 controlled for; here $K$ is constitutive, because $\eta_M$ operates
 on $(A, K)$ and the efficiency of learning depends on what is already
 known. Chollet's ``scope'' and ``generalization difficulty'' map to the
@@ -1310,9 +1312,8 @@ long-term survival outcomes.
 \label{sec:conclusion}
 % ------------------------------------------------------------------
 
-Intelligence is the rate of adaptation to novelty. This is not proposed
-but identified by elimination: positive novelty rate requires $\gamma > 0$
-and $\eta_M > 0$; their product is the unconditional rate.
+Intelligence is the rate of adaptation to novelty. This is identified by elimination: positive novelty rate requires $\gamma > 0$
+and $\eta_M > 0$; their product is the unconditional rate. The identification is a selection argument, not a logical derivation: entities lacking these properties are eliminated, not logically impossible.
 
 Theorem~\ref{thm:descent} establishes that agency with feedback
 produces monotone local descent on expected uncertainty $H(W \mid K)$.
@@ -1342,8 +1343,8 @@ Any monotone transform of $I(E)$ preserves the ordering over entities;
 we claim naturality (the measure falls out of the derivation without
 arbitrary choices), not uniqueness up to transformation.
 
-The four-paper chain derives, from the single constraint of bounded
-active context, the necessary architecture: graph structure,
+The four-paper chain identifies, from the single constraint of bounded
+active context, the architecture that persists: graph structure,
 escalation, knowledge--action inseparability, evaluation-driven descent
 with encoding permanence, and the structural invariants of intelligence.
 Each result is a necessary consequence of bounded context interacting
@@ -1444,8 +1445,7 @@ S.~Legg and M.~Hutter.
 
 \bibitem{McCarthy2026a}
 P.~D. McCarthy.
-\newblock Graph structure is necessary for information preservation under
-  bounded context.
+\newblock Why graph structure emerges: consistency, availability, and bounded context.
 \newblock Manuscript, 2026.
 
 \bibitem{McCarthy2026b}
