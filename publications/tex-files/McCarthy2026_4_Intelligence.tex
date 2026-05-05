@@ -41,11 +41,14 @@ space $M$ is selectively favored under bounded context: collapsing them
 is possible but increasingly costly under positive novelty rate, so
 competition eliminates collapsed architectures.
 Fourth, $\gamma > 0$ and learning efficiency $\eta_M > 0$ are the
-unique structural invariants of persistence: the free-context
+minimal structural invariants of persistence: the free-context
 exhaustion argument shows that $\gamma = 0$ entities are eliminated
 under positive novelty rate; without $\eta_M > 0$, active context
-fills without relief and inference degrades to failure. Every other
-property can equal zero for some persistent entity. Therefore
+fills without relief and inference degrades to failure. These are
+necessary conditions for persistence, not sufficient ones---physical
+integrity, energy supply, and substrate constraints are also required
+but are not information-theoretic invariants. Within the
+information-theoretic frame,
 $I(E) = \gamma \cdot \eta_M$---the rate of adaptation to novelty---is
 a natural measure of intelligence, identified by what positive novelty
 rate selects for.
@@ -56,26 +59,23 @@ rate selects for.
 \label{sec:intro}
 % ------------------------------------------------------------------
 
-A cancer cell that has severed its coupling channels operates under
-cell-level bounded context alone. Across 73,593 patients, these cells
-converge on the same phenotypic endpoints, uncontrolled proliferation,
-immune evasion, metabolic reprogramming, regardless of tissue of origin
-or mutational path \cite{McCarthy2026e}. Convergence under constraint is
-evaluation-driven descent: the cell optimizes against a reduced
-objective because its context no longer includes the organism.
-The present paper identifies what this descent, and the intelligence
-measure it implies, select for under bounded context.
+Any entity that persists under finite resources and positive novelty
+must update its model of the world or be eliminated. This is true of
+organisms, organizations, software systems, and individual cells.
+The present paper identifies what this requirement selects for:
+the minimal structural invariants of persistence under bounded context,
+and a natural measure of intelligence derived from them.
 
 In simplest terms: life is a bounded context optimization problem. Any entity that persists under finite resources and positive novelty must update its model of the world or be eliminated. The present paper identifies what that requirement selects for.
 
 Paper~1 \cite{McCarthy2026a} established that any entity accumulating
-propositions under bounded context necessarily maintains a directed
-graph with typed edges, where ``necessary'' means selected for under
+propositions under bounded context converges on a directed
+graph with typed edges as the cost-optimal representation, where ``necessary'' means selected for under
 competition, not logically impossible to avoid (see \cite{McCarthy2026a},
-Remark~1). Paper~2 \cite{McCarthy2026b} established that bounded context forces the
+Remark~1). Paper~2 \cite{McCarthy2026b} established that bounded context favors the
 normalization of shared propositions from action into a separated $K$,
 with an asymmetric retention criterion. Paper~3 \cite{McCarthy2026c} established that
-bounded context under growing action count requires convergence toward
+bounded context under growing action count favors convergence toward
 escalation.
 
 Three questions remain. First: what dynamics govern the updating
@@ -95,7 +95,7 @@ Theorem~\ref{thm:type} establishes that separating the action space
 $A$ from the higher-order function space $M$ is selectively favored:
 collapsing them is increasingly costly under positive novelty rate.
 Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
-learning efficiency $\eta_M > 0$ are the unique structural invariants
+learning efficiency $\eta_M > 0$ are the minimal structural invariants
 of persistence, and Corollary~\ref{cor:measure} derives
 $I(E) = \gamma \cdot \eta_M$ as the natural intelligence measure.
 
@@ -115,7 +115,7 @@ self-organization but does not distinguish $\gamma = 0$ from
 $\gamma > 0$ within its framework. Cover and Thomas \cite{Cover2006}
 provide the information-theoretic foundations that anchor our
 convergence argument. The contribution of this paper is to derive,
-via selection and exhaustion arguments, the unique structural
+via selection and exhaustion arguments, the minimal structural
 invariants of persistence and the intelligence measure they determine.
 
 % ------------------------------------------------------------------
@@ -325,15 +325,15 @@ constraints:
    integrating new knowledge into $(A, K)$. This is how efficiently
    the entity packs the pipe. An entity with separated $K$, $A$, $M$
    and stored adjacency pays $O(d)$ per update, where $d$ is the
-   local degree. An entity with collapsed parameters pays $O(n^2)$
-   per update, where $n$ is the total parameter count exposed to the
-   update.
+   local degree. An entity with collapsed parameters lacks partition
+   boundaries for scoping updates, manifesting empirically as
+   catastrophic forgetting \cite{McCloskey1989,Kirkpatrick2017}.
 \end{enumerate}
 
 As $|K|$ grows, a suboptimal architecture fills $C_n$ faster. The
 rate at which performance degrades under increasing knowledge load is
 observable: it is the empirical signature of the architectural class.
-An entity with $O(n^2)$ architecture and large $C_n$ will hit its
+An entity without partition boundaries and large $C_n$ will hit its
 context boundary before an entity with $O(d)$ architecture and small
 $C_n$, once knowledge load is sufficient. This is the crossover of
 Paper~3 \cite{McCarthy2026c} expressed as a measurement principle.
@@ -358,7 +358,7 @@ I(E) = \gamma \cdot \eta_M
 Intelligence is the rate of adaptation to novelty: the expected rate at
 which the entity reduces uncertainty about novel states. This is stated
 here as a definition. Theorem~\ref{thm:invariants} establishes that
-$\gamma > 0$ and $\eta_M > 0$ are the unique structural invariants
+$\gamma > 0$ and $\eta_M > 0$ are the minimal structural invariants
 of persistence under positive novelty rate.
 \end{definition}
 
@@ -911,7 +911,7 @@ expected improvement rate by the law of total expectation
 
 \begin{corollary}[The Intelligence Measure]
 \label{cor:measure}
-$\gamma$ and $\eta_M$ are the unique structural invariants of persistence
+$\gamma$ and $\eta_M$ are the minimal structural invariants of persistence
 (Theorem~\ref{thm:invariants}). The expected improvement rate is:
 \[
 I(E) = \gamma \cdot \eta_M
@@ -1096,7 +1096,7 @@ a single generative constraint:
       $I(E) = \gamma \cdot \eta_M$} [this paper]. Agency with feedback
       produces convergent uncertainty reduction. Cost-of-failure
       generates the encoding hierarchy. The lineage and context-filling
-      arguments establish the two invariants; their product is the unique
+      arguments establish the two invariants; their product is a natural
       intelligence measure.
 \end{enumerate}
 
@@ -1247,8 +1247,8 @@ each proposition carries its reconstruction path to source evidence
 held propositions with provenance would provide $O(d)$ retrieval with
 full attribution at near-zero marginal cost. Current large language
 models store the same commonly held knowledge in continuous weights:
-retrieval is $O(n^2)$, provenance is absent, and the knowledge is
-neither inspectable nor correctable. The prediction: open knowledge
+retrieval recomputes relevance dynamically, provenance is absent,
+and the knowledge is neither inspectable nor correctable. The prediction: open knowledge
 graphs with provenance will replicate and eventually surpass the
 factual-knowledge function of parametric models, at a fraction of
 the compute cost. Structured retrieval with attribution is
@@ -1333,7 +1333,7 @@ and learning into a single parameter space is possible but increasingly
 costly under positive novelty rate.
 
 Theorem~\ref{thm:invariants} establishes that $\gamma > 0$ and
-$\eta_M > 0$ are the unique structural invariants of persistence under
+$\eta_M > 0$ are the minimal structural invariants of persistence under
 positive novelty rate. The free-context exhaustion argument eliminates
 $\gamma = 0$ entities; the promotion argument eliminates $\eta_M = 0$
 entities. The product $I(E) = \gamma \cdot \eta_M$ is the natural measure
