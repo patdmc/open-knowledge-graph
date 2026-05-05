@@ -59,20 +59,87 @@ across 71,983 patients, while total mutation count does not.
 \section{Introduction}
 \label{sec:intro}
 
-% TODO: Merge the best introductory material from Papers 0-4.
-% Key elements to include:
-% - The bounded context constraint (from Paper 1)
-% - The two strategies: flat/fungible vs structured (from Paper 1)
-% - The crossover argument (from Paper 1)
-% - Physarum polycephalum existence proof (from Paper 1)
-% - "The industry is slime-molding" (from Paper 1)
-% - The single-constraint unification claim (new, the merger's contribution)
-% - The software-as-graph enumeration (from Paper 0, condensed)
-% - Cancer as defection from graph back to swarm (one sentence)
-% - Brief roadmap of the four results
+Any system that persists in a physical world is caught between two
+forces. From above: entropy is positive, the world produces novel
+states, and an entity that does not grow its knowledge $K$ eventually
+encounters a state it cannot handle. Growth is not optional; it is
+forced by the novelty rate that entropy guarantees. From below:
+active context $C_n$ is bounded, and $|K|$ eventually exceeds $C_n$.
+The system must structure what it knows or drown in its own
+knowledge. These two forces---growth pressure from entropy, capacity
+constraint from bounded context---define the problem. Everything in
+this paper follows from their intersection.
 
-% PLACEHOLDER: Introduction text to be assembled from source papers.
-% See merger notes in publications/merge_notes.md
+The constraint admits exactly two responses: minimize the need for
+context or maximize context capacity. Strategy~1 keeps $|K|$ small
+(fungible units, no hierarchy, partition tolerance through
+redundancy). Bacteria, BitTorrent swarms, and transformer attention
+layers all follow this pattern: flat, replaceable, and robust by sheer
+count. Strategy~2 structures $K$ into addressable hierarchy (typed
+edges, scoped domains, sub-linear retrieval). At small scale,
+Strategy~1 does not merely suffice---it \emph{outperforms}. When
+$|K| \ll C_n$, exhaustive search is faster than indexed retrieval
+because the constant dominates the exponent. The dangerous property of
+the inferior scaling class is not that it fails but that it succeeds,
+conspicuously, until a crossover it cannot see.
+
+\emph{Physarum polycephalum} (slime mold) provides a striking
+existence proof that the crossover is real. Under abundant resources,
+\emph{Physarum} persists as individual fungible cells (Strategy~1).
+Under scarcity, the cells aggregate into a tubular network that solves
+shortest-path problems through physical flow dynamics alone
+\cite{Nakagaki2000}: parallel exploration followed by topological
+optimization. No neuron, no central controller, no designer. The same
+cells, the same genome, switching from swarm to graph when the
+pressure crosses the threshold. Graph structure emerges from the
+constraint, not from design. Large language models are undergoing the
+same transition now: retrieval-augmented generation, tool use, and
+agent architectures are graph structure aggregating around a flat
+substrate under scaling pressure.
+
+Software exhibits this universally. Every system contains directed
+adjacency with typed edges across multiple simultaneous substrates:
+call graphs, import graphs, type graphs, dataflow graphs, service
+graphs, schema graphs, build graphs, and deployment graphs. The graph
+property is not an architectural choice but intrinsic to what software
+is. The same graphs appear in biological systems: gene regulatory
+networks, protein interaction networks, metabolic pathways, neural
+connectivity, and the coupling channels that coordinate multicellular
+behavior.
+
+This paper shows that one constraint---bounded active context---predicts
+four architectural consequences that independently emerge across these
+domains:
+
+\begin{enumerate}
+\item \textbf{Graph structure} is cost-optimal for managing consistency
+   and availability under bounded context
+   (Section~\ref{sec:graph}).
+\item \textbf{Escalation} is the cost-optimal control architecture:
+   handle locally, escalate on failure
+   (Section~\ref{sec:escalation}).
+\item \textbf{Normalization} of shared propositions into a separated
+   knowledge structure is the cost-optimal consistency mechanism
+   (Section~\ref{sec:normalization}).
+\item \textbf{Agency and learning efficiency} are the minimal
+   structural invariants of persistence under positive novelty rate
+   (Section~\ref{sec:intelligence}).
+\end{enumerate}
+
+These are not independent insights but consequences of one constraint.
+Cancer, viewed from this framing, is the defection of cells from the
+graph architecture back to swarm: severing the coupling channels that
+carry the topology \cite{McCarthy2026e}. In cancer genomics, grouping
+mutations by coupling-channel boundaries---the graph's partition
+structure---predicts overall survival with $p < 10^{-14}$ across
+71,983 patients, while total mutation count does not
+(Section~\ref{sec:empirical}).
+
+Throughout this paper, ``cost-optimal'' means selectively favored under
+competition: entities paying higher costs for the same operations lose
+resources to competitors paying less. Under sustained competition,
+cost-optimal structure is selected for and alternatives are eliminated.
+This is selective necessity, not logical impossibility of alternatives.
 
 % ==================================================================
 % SECTION 2: FORMAL FRAMEWORK
