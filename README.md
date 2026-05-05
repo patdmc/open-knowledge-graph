@@ -20,7 +20,7 @@ A paper series deriving the architecture of intelligence from a single generativ
 
 | Paper | Title | PDF |
 |---|---|---|
-| 1 | Graph Structure Is Necessary for Managing Consistency and Availability Under Bounded Context | [PDF](publications/research/McCarthy2026_1_GraphNecessity.pdf) |
+| 1 | Why Graph Structure Emerges: Consistency, Availability, and Bounded Context | [PDF](publications/research/McCarthy2026_1_GraphNecessity.pdf) |
 | 2 | Convergence of Control Architectures to Escalation Under Bounded Context | [PDF](publications/research/McCarthy2026_2_Escalation.pdf) |
 | 3 | Knowledge as Normalization: Consistency Under Partition Separates Shared Propositions from Action | [PDF](publications/research/McCarthy2026_3_Normalization.pdf) |
 | 4 | Evaluation-Driven Descent, Encoding Permanence, and the Structural Invariants of Intelligence | [PDF](publications/research/McCarthy2026_4_Intelligence.pdf) |
