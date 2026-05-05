@@ -44,8 +44,10 @@ Together, these explain why graph structure independently emerges
 across every domain that manages both consistency and availability
 under bounded context.
 We show that continuous-weight mechanisms (e.g., transformer
-self-attention) converge toward graph-like structure under scale,
-consistent with the optimality claim. The result is substrate-independent, applying
+self-attention) increasingly store adjacency explicitly under scaling
+pressure---sparse attention, KV caches, retrieval augmentation---reducing
+the $O(n^2)$ cost of dynamic recomputation to $O(d)$, consistent with
+the cost prediction. The result is substrate-independent, applying
 to artificial neural networks, institutional knowledge systems, and
 biological systems alike.
 \end{abstract}
@@ -1310,8 +1312,8 @@ attention, synaptic connectivity, or foreign keys in a relational
 database.
 
 Continuous-weight mechanisms such as transformer self-attention
-converge toward graph structure dynamically, consistent with the
-optimality claim. They pay $O(n^2)$ per inference step to
+increasingly store adjacency explicitly under scaling pressure,
+reducing the $O(n^2)$ recomputation cost to $O(d)$. They pay $O(n^2)$ per inference step to
 recompute the graph that a stored-adjacency system accesses in $O(d)$.
 This is the availability cost of not storing the structure permanently.
 
